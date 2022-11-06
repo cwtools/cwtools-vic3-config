@@ -177,7 +177,6 @@ Output Scopes: value
 --------------------
 
 num_provinces - Get the scoped entity's current number of provinces
-scopes: state, stateregion, front
 Input Scopes: state, state_region, front
 Output Scopes: value
 
@@ -458,8 +457,6 @@ Output Scopes: value
 --------------------
 
 army_size - Number of battalions of scope country.
-army_size >= 20
-army_size > c:FRA.army_size
 Input Scopes: country
 Output Scopes: value
 
@@ -508,7 +505,6 @@ Output Scopes: law
 --------------------
 
 decree_cost - Scope to a country's cost for a certain decree
-authority > decree_cost:decree_road_maintaintenance
 Requires Data: yes
 Input Scopes: country
 Output Scopes: value
@@ -573,29 +569,24 @@ Output Scopes: state
 --------------------
 
 navy_size - Number of warships of scope country.
-navy_size >= 20
-navy_size > c:FRA.navy_size
 Input Scopes: country
 Output Scopes: value
 
 --------------------
 
 num_active_declared_interests - Scope to the number of active declared interests a country has
-num_active_declared_interests > 5
 Input Scopes: country
 Output Scopes: value
 
 --------------------
 
 num_active_interests - Scope to the number of active interests a country has
-num_active_interests > 5
 Input Scopes: country
 Output Scopes: value
 
 --------------------
 
 num_active_natural_interests - Scope to the number of active natural interests a country has
-num_active_natural_interests > 5
 Input Scopes: country
 Output Scopes: value
 
@@ -664,7 +655,6 @@ Output Scopes: value
 --------------------
 
 num_declared_interests - Scope to the number of declared interests a country has (including inactive)
-num_declared_interests > 5
 Input Scopes: country
 Output Scopes: value
 
@@ -695,7 +685,6 @@ Output Scopes: value
 --------------------
 
 num_interests - Scope to the number of interests a country has (including inactive)
-num_interests > 5
 Input Scopes: country
 Output Scopes: value
 
@@ -709,7 +698,6 @@ Output Scopes: value
 --------------------
 
 num_natural_interests - Scope to the number of natural interests a country has (including inactive)
-num_natural_interests > 5
 Input Scopes: country
 Output Scopes: value
 
@@ -844,7 +832,6 @@ Input Scopes: diplomatic_play, journalentry
 --------------------
 
 level - Scope to the level of an object
-Supported types: trade route, building
 Input Scopes: building, trade_route
 Output Scopes: value
 
@@ -923,7 +910,6 @@ Output Scopes: pop_type
 --------------------
 
 desired_law - Scope to the law the scoped political movement wants to enact/preserve.
-scope:example_movement = { desired_law = law_type:law_serfdom }
 Input Scopes: political_movement
 Output Scopes: law_type
 

@@ -2,10 +2,6 @@ Trigger Documentation:
 
 --------------------
 
-
-
---------------------
-
 law_approved_by - Checks whether the scoped law is approved by an interest group
 law_approved_by = ig_rural_folk
 Supported Scopes: law
@@ -48,7 +44,7 @@ Supported Scopes: civil_war
 --------------------
 
 is_revolutionary - Check if the country is revolutionary
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country, interest_group
 
 --------------------
@@ -148,7 +144,7 @@ Supported Targets: country
 
 market_has_goods_shortage - Check if market has a shortage on any of its building inputs
 market_has_goods_shortage = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: market
 
 --------------------
@@ -196,7 +192,7 @@ Supported Scopes: character
 
 has_high_attrition - Checks if a Commander's attrition is higher than defined NORMAL_ATTRITION
 has_high_attrition = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
@@ -229,98 +225,98 @@ Supported Targets: front
 
 is_attacker_in_battle - Checks if a Commander is attacker in a battle
 is_attacker_in_battle = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_busy - Check if character is busy
 is_busy = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_character_alive - Checks if the scoped character is alive
 is_character_alive = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_defender_in_battle - Checks if a Commander is defender in a battle
 is_defender_in_battle = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_female - Check if character is female
 is_female = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_heir - Checks whether the scoped character is an heir
 is_heir = yes / no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_in_battle - Checks if a Commander is engaged in battle
 is_in_battle = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_in_void - Check if character is in the void
 is_in_void = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_mobilized - Checks if the commander is mobilized
 is_mobilized = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_monarch - Checks if character is a monarch of a country with hereditary succession
 is_monarch = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_on_front - Checks is a character has been assigned to a Front and has arrived there
 is_on_front = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_repairing - Checks if an Admiral is unavailable and repairing after loosing a naval battle
 is_repairing = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_ruler - Checks if character is a ruler/head of state of a country
 is_ruler = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
 
 is_traveling - Checks if the commander is traveling
 is_traveling = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: character
 
 --------------------
@@ -363,21 +359,21 @@ Supported Targets: pop
 
 is_trade_route_active - Checks if the scoped trade route is active
 is_trade_route_active = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: trade_route
 
 --------------------
 
 is_trade_route_productive - Checks if the scoped trade route is productive
 is_trade_route_productive = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: trade_route
 
 --------------------
 
 trade_route_needs_convoys_to_grow - Checks if the scoped trade route needs more convoys to be able to grow
 trade_route_needs_convoys_to_grow = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: trade_route
 
 --------------------
@@ -406,7 +402,7 @@ Supported Targets: state
 --------------------
 
 has_diplomatic_play - Check if strategic region has a diplomatic play or not
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: strategic_region
 
 --------------------
@@ -478,7 +474,7 @@ Supported Scopes: none
 
 always - Always the same value
 always = yes
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: none
 
 --------------------
@@ -664,7 +660,7 @@ Supported Scopes: none
 
 has_game_started - True if game has started
 has_game_started = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: none
 
 --------------------
@@ -728,7 +724,7 @@ Supported Scopes: none
 
 has_reached_end_date - True if the end date (NDefines::NGame::END_DATE) has been reached
 has_reached_end_date = yes
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: none
 
 --------------------
@@ -767,14 +763,14 @@ Supported Scopes: none
 is_game_paused - Checks if the game is paused
 is_game_paused = yes/no
 An interface trigger, can only be used in specific places
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: none
 
 --------------------
 
 is_gamestate_tutorial_active - Is the gamestate tutorial active? See save_progress_in_gamestate in tutorial_lesson_chains documentation.
 An interface trigger, can only be used in specific places
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: none
 
 --------------------
@@ -793,7 +789,7 @@ Supported Scopes: none
 
 is_objective_completed - Is the objective completed for the country in scope?
 is_objective_completed = yes
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: none
 
 --------------------
@@ -845,7 +841,7 @@ Supported Scopes: none
 
 is_tutorial_active - Is the tutorial active?
 An interface trigger, can only be used in specific places
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: none
 
 --------------------
@@ -927,7 +923,7 @@ Supported Scopes: none
 should_show_nudity - can nudity be shown?
 should_show_nudity = yes/no
 An interface trigger, can only be used in specific places
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: none
 
 --------------------
@@ -1009,21 +1005,21 @@ Supported Scopes: province
 --------------------
 
 is_province_land - Check if the province is on land
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: province
 
 --------------------
 
 is_interest_active - Is the interest marker active
 is_interest_active = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: interest_marker
 
 --------------------
 
 aggressive_diplomatic_plays_permitted - True if country is independent or permitted to start their own Diplomatic Plays
 aggressive_diplomatic_plays_permitted = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1134,7 +1130,7 @@ Supported Targets: country
 --------------------
 
 approaching_bureaucracy_shortage - Check if Institutions in the country will incur a Bureaucracy shortage eventually
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1215,7 +1211,7 @@ Supported Scopes: country
 --------------------
 
 can_have_subjects - Check if the country is able to have subjects of it sown
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1290,7 +1286,7 @@ Supported Scopes: country
 
 enacting_any_law - Checks if you're enacting any law.
 enacting_any_law = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1330,25 +1326,25 @@ Supported Scopes: country
 
 has_active_peace_deal - True if the country is in a war where there is a proposed peace deal
 has_active_peace_deal = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 has_any_secessionists_broken_out - Check if the country has secessionists broken out
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 has_any_secessionists_growing - Check if the country has any secessionists growing
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 has_any_secessionists_possible - Check if the country has any new secessionists possible
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1381,13 +1377,13 @@ Supported Targets: goods
 --------------------
 
 has_convoys_being_sunk - Check if the country has convoys being sunk through convoy raiding
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 has_decreasing_interests - Checks if the country has decreasing interest levels
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1423,23 +1419,23 @@ Supported Targets: goods
 
 --------------------
 
-has_free_government_reform - Check if the country has a free (of radicals) government reform 
+has_free_government_reform - Check if the country has a free (of radicals) government reform
 has_free_government_reform = <yes/no>
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 has_global_highest_gdp - Checks if the scoped country has the highest GDP
 has_global_highest_gdp = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 has_global_highest_innovation - Checks if the scoped country has the highest weekly innovation
 has_global_highest_innovation = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1457,7 +1453,7 @@ Supported Scopes: country
 --------------------
 
 has_healthy_economy - Check if the country has a healthy economy
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1477,7 +1473,7 @@ Supported Scopes: country
 --------------------
 
 has_insurrectionary_interest_groups - Check if the country has Interest Groups that are insurrectionary
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1524,13 +1520,13 @@ Supported Targets: country
 --------------------
 
 has_researchable_technology - Check if the country has any researchable technology left.
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 has_revolution - Check if the country has revolutionary uprising
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1618,7 +1614,7 @@ Supported Targets: country
 --------------------
 
 has_wasted_construction - Check if country is wasting any of its produced construction.
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1631,14 +1627,14 @@ Supported Scopes: country
 --------------------
 
 in_default - Check if the country is currently in default
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 in_election_campaign - Check if the country is in election campaign period
 in_election_campaign = <yes/no>
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1673,13 +1669,13 @@ Supported Targets: country
 
 is_ai - True if country scope is controlled by an AI
 is_ai = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 is_at_war - Check if the country is at war
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1691,14 +1687,14 @@ Supported Scopes: country
 --------------------
 
 is_construction_paused - Check if construction in a state is paused.
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 is_country_alive - Checks if the scoped country is alive, i.e. if it has at least one state on the map and can be interacted with
 is_country_alive = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1711,7 +1707,7 @@ Supported Scopes: country
 
 is_diplomatic_play_committed_participant - True if country is a committed participant of any diplomatic play
 is_diplomatic_play_participant = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1726,21 +1722,21 @@ Supported Targets: country
 
 is_diplomatic_play_initiator - True if country is the initiator of any diplomatic play
 is_diplomatic_play_initiator = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 is_diplomatic_play_target - True if country is the target of any diplomatic play
 is_diplomatic_play_target = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 is_diplomatic_play_undecided_participant - True if country is a undecided participant of any diplomatic play
 is_diplomatic_play_participant = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1763,7 +1759,7 @@ Supported Targets: law_type
 
 is_expanding_institution - Are you expanding an institution
 is_expanding_institution = <yes>/<no>
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1776,7 +1772,7 @@ Supported Targets: country
 --------------------
 
 is_in_customs_union - Check if the country is part of a customs union
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1791,20 +1787,20 @@ Supported Targets: country
 
 is_junior_in_customs_union - True if country is a junior country in a customs custom
 is_junior_in_customs_union = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 is_local_player - True if country scope is a player
 is_local_player = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 is_losing_power_rank - Check if the country is in the process of dropping in power ranking
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1819,7 +1815,7 @@ Supported Targets: country
 
 is_player - True if country scope is a player
 is_player = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1837,14 +1833,14 @@ Supported Scopes: country
 --------------------
 
 is_secessionist - Check if the country is secessionist
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
 
 is_subject - True if country is a subject
 is_subject = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -1905,7 +1901,7 @@ Supported Targets: goods
 
 leads_customs_union - Check if any other country is part of this country's customs union
 leads_customs_union = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -2001,7 +1997,7 @@ Supported Scopes: country
 --------------------
 
 should_set_wargoal - Check if the country is lacking a primary wargoal in any diplomatic play it is part of
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -2020,7 +2016,7 @@ Supported Scopes: country
 --------------------
 
 taking_loans - Check if the country is currently running a weekly deficit and taking loans to compensate
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country
 
 --------------------
@@ -2055,21 +2051,21 @@ Supported Scopes: country
 
 culture_accepted - Checks if pop's culture is accepted
 culture_accepted = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: pop
 
 --------------------
 
 has_ongoing_assimilation - Checks if the scoped pop has ongoing cultural assimilation
 has_ongoing_assimilation = yes
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: pop
 
 --------------------
 
 has_ongoing_conversion - Checks if the scoped pop has ongoing religious conversion
 has_ongoing_conversion = yes
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: pop
 
 --------------------
@@ -2087,13 +2083,13 @@ Supported Scopes: pop
 --------------------
 
 has_state_religion - Check if the Pop has the state religion
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: pop
 
 --------------------
 
 is_employed - Check if the pop is employed
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: pop
 
 --------------------
@@ -2118,14 +2114,14 @@ Supported Scopes: pop
 
 pop_has_primary_culture - Checks if pop's culture is primary
 pop_has_primary_culture = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: pop
 
 --------------------
 
 pop_is_discriminated - Checks if pop is discriminated against
 pop_is_discriminated = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: pop
 
 --------------------
@@ -2139,7 +2135,7 @@ Supported Scopes: pop
 
 religion_accepted - Checks if pop's religion is accepted
 religion_accepted = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: pop
 
 --------------------
@@ -2175,7 +2171,7 @@ Supported Scopes: battle
 
 building_has_goods_shortage - Check if building has a shortage of any of its inputs
 building_has_goods_shortage = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: building
 
 --------------------
@@ -2217,14 +2213,14 @@ Supported Scopes: building
 
 has_failed_hires - Checks if a building failed to hire someone last week
 has_failed_hires = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: building
 
 --------------------
 
 is_buildable - Check if a building is buildable = yes (default)
 is_buildable = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: building
 
 --------------------
@@ -2243,28 +2239,28 @@ Supported Scopes: building
 
 is_government_funded - Check if a building is is_government_funded
 is_government_funded = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: building
 
 --------------------
 
 is_subsidized - Check if a building is being subsidized
 is_subsidized = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: building
 
 --------------------
 
 is_subsistence_building - Check if a building is a subsistence building
 is_subsistence_building = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: building
 
 --------------------
 
 is_under_construction - Checks if building is under construction
 is_under_construction = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: building
 
 --------------------
@@ -2285,14 +2281,14 @@ Supported Scopes: building
 
 is_tradeable - Check if a goods or market goods is tradeable
 is_tradeable = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: market_goods, goods
 
 --------------------
 
 is_diplomatic_pact_in_danger - Checks if diplomatic pact is in danger of breaking
 is_diplomatic_pact_in_danger = yes
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: diplomatic_pact
 
 --------------------
@@ -2402,7 +2398,7 @@ Supported Targets: trade_route
 
 has_port - Check if state has at least one port
 has_port = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: country, state, market
 
 --------------------
@@ -2443,7 +2439,7 @@ Supported Targets: culture
 
 has_party - True if IG scope has a party
 has_party = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: interest_group
 
 --------------------
@@ -2485,28 +2481,28 @@ Supported Scopes: interest_group
 
 is_being_bolstered - Check if scoped ig is being bolstered
 is_being_bolstered = <yes>/<no>
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: interest_group
 
 --------------------
 
 is_being_suppressed - Check if scoped ig is being suppressed
 is_being_suppressed = <yes>/<no>
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: interest_group
 
 --------------------
 
 is_in_government - True if IG scope is in the government
 is_in_government = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: interest_group
 
 --------------------
 
 is_insurrectionary - True if IG scope is contributing to a brewing revolution
 is_insurrectionary = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: interest_group
 
 --------------------
@@ -2519,7 +2515,7 @@ Supported Scopes: interest_group
 
 is_marginal - True if IG scope is marginal
 is_marginal = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: interest_group
 
 --------------------
@@ -2534,7 +2530,7 @@ Supported Targets: party
 
 is_powerful - True if IG scope is influential
 is_powerful = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: interest_group
 
 --------------------
@@ -2598,7 +2594,7 @@ Supported Targets: party
 
 is_land_theater - Checks if a theater is a land theater
 is_land_theater = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: theater
 
 --------------------
@@ -2638,7 +2634,7 @@ Supported Scopes: state
 --------------------
 
 has_assimilating_pops - Check if a state has any pops currently in the process of assimilating.
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
@@ -2655,7 +2651,7 @@ Supported Targets: country
 --------------------
 
 has_converting_pops - Check if a state has any pops currently in the process of converting.
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
@@ -2696,14 +2692,14 @@ Supported Scopes: state
 --------------------
 
 is_capital - Check if state is the capital of the owner = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
 
 is_coastal - Check if state borders a (non-impassable) sea region
 is_coastal = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
@@ -2718,32 +2714,32 @@ Supported Targets: country
 
 is_in_revolt - Check if a state has any chance to split off into a revolutionary or seceding country
 is_in_revolt = yes/no.
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
 
 is_incorporated - Check if state is incorporated = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
 
 is_isolated_from_market - Check if a state is isolated from its market
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
 
 is_largest_state_in_region - Check if state is the largest in the state region = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
 
 is_mass_migration_target - Mass migration target is state.
 any_state = { limit = { owner = ROOT is_mass_migration_target = yes } }
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
@@ -2756,20 +2752,20 @@ Supported Scopes: state
 
 is_sea_adjacent - Check if state borders a sea region (regular or impassable)
 is_sea_adjacent = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
 
 is_slave_state - Check if a state employs or has the potential to employ slaves.
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
 
 is_split_state - Checks if the scoped state is a split state.
 scope:example_state = { is_split_state = yes }
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
@@ -2784,14 +2780,14 @@ Supported Targets: country
 
 is_treaty_port - Checks if the scoped state is a treaty port
 is_treaty_port = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
 
 is_under_colonization - Check if state is under colonization
 is_under_colonization = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
@@ -2825,7 +2821,7 @@ Supported Scopes: state
 
 state_has_goods_shortage - Check if state has a shortage on any of its building inputs
 state_has_goods_shortage = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state
 
 --------------------
@@ -2872,13 +2868,13 @@ Supported Scopes: state
 --------------------
 
 is_consumed_by_government_buildings - Check if the market goods is instrumental in running the bureaucratic machine
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: market_goods
 
 --------------------
 
 is_consumed_by_military_buildings - Check if the goods is instrumental in running the war machine
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: market_goods
 
 --------------------
@@ -2925,7 +2921,7 @@ Supported Scopes: market_goods
 
 market_goods_has_goods_shortage - Check if market goods has a shortage in the market
 market_goods_has_goods_shortage = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: market_goods
 
 --------------------
@@ -2975,7 +2971,7 @@ Supported Scopes: state_region
 --------------------
 
 is_state_region_land - Check if the state region is on land
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: state_region
 
 --------------------
@@ -2998,14 +2994,14 @@ Supported Scopes: state_region
 
 is_goal_complete - Check if the journal entry's goal has been met
 is_goal_complete = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: journalentry
 
 --------------------
 
 is_progressing - Check if the journal entry is progressing
 is_progressing = yes/no
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: journalentry
 
 --------------------
@@ -3096,7 +3092,7 @@ Supported Scopes: diplomatic_play
 
 is_war - True if the diplomatic play has escalated into war
 is_war = bool
-Traits: yes/no 
+Traits: yes/no
 Supported Scopes: diplomatic_play
 
 --------------------

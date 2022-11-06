@@ -1,0 +1,827 @@
+### Checks whether the scoped law is approved by an interest group law_approved_by = ig_rural_folk
+alias[trigger:law_approved_by] = replace_me
+### Check if scoped object has ideology
+alias[trigger:has_ideology] = replace_me
+### Compares the stance of the scoped character or interest group about the specified law
+alias[trigger:law_stance] = replace_me
+### Compares areas of object to another object
+alias[trigger:check_area] = replace_me
+### Compare progress of civil war civil_war_progress > 50
+alias[trigger:civil_war_progress] == replace_me_comparison
+### Checks how much progress the civil war is gaining each tick. any_civil_war = { revolution_progress_gain > 0 }
+alias[trigger:civil_war_progress_gain] == replace_me_comparison
+### Check if the scoped civil war is of a specific type is_civil_war_type = revolution / secession
+alias[trigger:is_civil_war_type] = replace_me
+### Check if the country is revolutionary
+alias[trigger:is_revolutionary] = replace_me_bool
+### Checks if scoped culture or religion has the given discrimination trait has_trait = trait
+alias[trigger:has_discrimination_trait] = replace_me
+### Checks if a culture is discriminated against within the scope country culture_is_discriminated_in = c:USA
+alias[trigger:culture_is_discriminated_in] = replace_me_country
+### Checks the culture's progress percentage towards secession in a country. 0 if no secession movement is active for the culture. culture_secession_progress = { target = scope:example_country value > 0.5 }
+alias[trigger:culture_secession_progress] == replace_me_comparison
+### Checks if a culture has a certain goods as obsession has_cultural_obsession = <goods key>
+alias[trigger:has_cultural_obsession] = replace_me
+### Checks if a culture has a certain culture_graphics has_culture_graphics = <culture graphics key>
+alias[trigger:has_culture_graphics] = replace_me
+### Checks if scoped culture has a homeland in target state or state region has_homeland = state/state region
+alias[trigger:has_homeland] = replace_me
+### Checks if culture is any of a country's primary cultures is_primary_culture_of = <country>
+alias[trigger:is_primary_culture_of] = replace_me_country
+### Checks if culture shares any trait marked as 'heritage' and other 'non-heritage' trait with any of a country's primary cultures shares_heritage_and_other_trait_with_any_primary_culture = <country>
+alias[trigger:shares_heritage_and_other_trait_with_any_primary_culture] = replace_me_country
+### Checks if culture shares any trait marked as 'heritage' with any of a country's primary cultures shares_heritage_trait_with_any_primary_culture = <country>
+alias[trigger:shares_heritage_trait_with_any_primary_culture] = replace_me_country
+### Checks if culture shares any trait *other than* one marked as 'heritage' with any of a country's primary cultures shares_non_heritage_trait_with_any_primary_culture = <country>
+alias[trigger:shares_non_heritage_trait_with_any_primary_culture] = replace_me_country
+### Checks if the culture shares any trait with any of a country's primary cultures shares_trait_with_any_primary_culture = <country>
+alias[trigger:shares_trait_with_any_primary_culture] = replace_me_country
+### Check if market has a shortage on any of its building inputs market_has_goods_shortage = yes/no
+alias[trigger:market_has_goods_shortage] = replace_me_bool
+### Compares the character age age > 20
+alias[trigger:age] == replace_me_comparison
+### Checks how the ratio of Combat Units on the scoped Commander, on the target country's side, with the specified Production Method compares to the value commander_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
+alias[trigger:commander_pm_usage] == replace_me_comparison
+### Compares the commanders rank commander_rank > 2
+alias[trigger:commander_rank] == replace_me_comparison
+### Compares the character experience level experience_level > 1
+alias[trigger:experience_level] == replace_me_comparison
+### Checks characters order has_order = order key/order scope
+alias[trigger:has_commander_order] = replace_me
+### Checks characters culture has_culture = culture scope or character scope
+alias[trigger:has_culture] = replace_me
+### Checks if a Commander's attrition is higher than defined NORMAL_ATTRITION has_high_attrition = bool
+alias[trigger:has_high_attrition] = replace_me_bool
+### Checks characters religion has_religion = religion/character scope
+alias[trigger:has_religion] = replace_me
+### Checks if character has the specified role has_role = role
+alias[trigger:has_role] = replace_me
+### Checks if character has specific trait has_trait = trait
+alias[trigger:has_trait] = replace_me
+### Checks if a commander is advancing on a front is_advancing_on_front = front
+alias[trigger:is_advancing_on_front] = replace_me_front
+### Checks if a Commander is attacker in a battle is_attacker_in_battle = bool
+alias[trigger:is_attacker_in_battle] = replace_me_bool
+### Check if character is busy is_busy = bool
+alias[trigger:is_busy] = replace_me_bool
+### Checks if the scoped character is alive is_character_alive = bool
+alias[trigger:is_character_alive] = replace_me_bool
+### Checks if a Commander is defender in a battle is_defender_in_battle = bool
+alias[trigger:is_defender_in_battle] = replace_me_bool
+### Check if character is female is_female = bool
+alias[trigger:is_female] = replace_me_bool
+### Checks whether the scoped character is an heir is_heir = yes / no
+alias[trigger:is_heir] = replace_me_bool
+### Checks if a Commander is engaged in battle is_in_battle = bool
+alias[trigger:is_in_battle] = replace_me_bool
+### Check if character is in the void is_in_void = bool
+alias[trigger:is_in_void] = replace_me_bool
+### Checks if the commander is mobilized is_mobilized = bool
+alias[trigger:is_mobilized] = replace_me_bool
+### Checks if character is a monarch of a country with hereditary succession is_monarch = bool
+alias[trigger:is_monarch] = replace_me_bool
+### Checks is a character has been assigned to a Front and has arrived there is_on_front = yes/no
+alias[trigger:is_on_front] = replace_me_bool
+### Checks if an Admiral is unavailable and repairing after loosing a naval battle is_repairing = bool
+alias[trigger:is_repairing] = replace_me_bool
+### Checks if character is a ruler/head of state of a country is_ruler = bool
+alias[trigger:is_ruler] = replace_me_bool
+### Checks if the commander is traveling is_traveling = bool
+alias[trigger:is_traveling] = replace_me_bool
+### Compares the character's total trait value trait_value < experience_level
+alias[trigger:trait_value] == replace_me_comparison
+### Checks if scope law type is in the same group as the target law type scope is_same_law_group_as = <law type scope>
+alias[trigger:is_same_law_group_as] = replace_me_law_type
+### True if a state/market/state region/country has a building type has_building = building
+alias[trigger:has_building] = replace_me
+### Checks if a culture is one of the cultures of the country definition country_definition_has_culture = <culture>
+alias[trigger:country_definition_has_culture] = replace_me_culture
+### Checks if the scoped trade route is active is_trade_route_active = yes/no
+alias[trigger:is_trade_route_active] = replace_me_bool
+### Checks if the scoped trade route is productive is_trade_route_productive = yes/no
+alias[trigger:is_trade_route_productive] = replace_me_bool
+### Checks if the scoped trade route needs more convoys to be able to grow trade_route_needs_convoys_to_grow = yes/no
+alias[trigger:trade_route_needs_convoys_to_grow] = replace_me_bool
+### Checks how the ratio of Combat Units on the scoped Front, on the target country's side, with the specified Production Method compares to the value front_side_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
+alias[trigger:front_side_pm_usage] == replace_me_comparison
+### Whether the scoped Front doesn't have any Battalions nor Generals on target side, and the enemy has at least one General. is_vulnerable_front = scope:example_country
+alias[trigger:is_vulnerable_front] = replace_me_country
+### Check if strategic region has a diplomatic play or not
+alias[trigger:has_diplomatic_play] = replace_me_bool
+### Checks if the religion is the state religion in a country is_accepted_religion = <country>
+alias[trigger:is_state_religion] = replace_me_country
+### Checks if the religion shares any trait marked as 'religion_group' with a country's religion shares_heritage_trait_with_state_religion = <country>
+alias[trigger:shares_heritage_trait_with_state_religion] = replace_me_country
+### Checks if the religion shares any trait with a country's state religion shares_trait_with_state_religion = <country>
+alias[trigger:shares_trait_with_state_religion] = replace_me_country
+### Checks if the specified lens is open active_lens = lens An interface trigger, can only be used in specific places
+alias[trigger:active_lens] = replace_me
+### Checks if the specified lens option is activated active_lens_option = lens_option_key An interface trigger, can only be used in specific places
+alias[trigger:active_lens_option] = replace_me
+### Saves a temporary target for use during the trigger execution This is used to build lists in triggers. If used within an any-trigger, placement within the trigger is quite important. The game will iterate through every instance of the any-trigger until it finds a single instance that fulfills the requirements, and then it will stop. In order to add every instance of a scope that fulfills certain conditions, use "count = all" while also placing this "effect" at the very end of the any-trigger (so that every condition is evaluated for every iteration).
+alias[trigger:add_to_temporary_list] = replace_me
+### true if all children are false (equivalent to NOR)
+alias[trigger:all_false] = replace_me
+### Always the same value always = yes
+alias[trigger:always] = replace_me_bool
+### all inside trigger must be true
+alias[trigger:and] = replace_me
+### Conditionally cause an assert during run time assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
+alias[trigger:assert_if] = replace_me
+### Conditionally cause an assert during read time assert_read = X, where X is yes or the string to be printed in the assert
+alias[trigger:assert_read] = replace_me
+### Returns true if the specified number of sub-triggers return true calc_true_if = { amount = 2 <trigger> <trigger> <trigger> }
+alias[trigger:calc_true_if] = replace_me
+### Can the specified tutorial lesson be started? can_start_tutorial_lesson = reactive_advice_succession An interface trigger, can only be used in specific places
+alias[trigger:can_start_tutorial_lesson] = replace_me
+### Returns the number of tooltips currently open on screen An interface trigger, can only be used in specific places
+alias[trigger:current_tooltip_depth] == replace_me_comparison
+### Wraps triggers that get a custom description instead of the auto-generated one custom_description = { 	text = <trigger_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... triggers ... }
+alias[trigger:custom_description] = replace_me
+### Replaces the tooltips for the enclosed triggers with a custom text custom_tooltip = { 	text = <text> 	subject = <scope> (optional) 	<trigger> }
+alias[trigger:custom_tooltip] = replace_me
+### Log whether the parent trigger succeeded or failed
+alias[trigger:debug_log] = replace_me
+### Log whether the parent trigger succeeded or failed. Log which children succeeded or failed
+alias[trigger:debug_log_details] = replace_me
+### Checks an error in code that specifically uses the CErrorTable::CheckTrigger path, in general avoid this and just use normal script
+alias[trigger:error_check] = replace_me
+### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
+alias[trigger:exists] = replace_me
+### Compare to current game date current_game_date = 1837.1.1
+alias[trigger:game_date] == replace_me_comparison
+### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
+alias[trigger:global_variable_list_size] = replace_me
+### Does the client have this cosmetic DLC An interface trigger, can only be used in specific places
+alias[trigger:has_cosmetic_dlc] = replace_me
+### Is the given game rule setting enabled? has_game_rule = faster_conversion
+alias[trigger:has_game_rule] = replace_me
+### True if game has started has_game_started = bool
+alias[trigger:has_game_started] = replace_me_bool
+### Does the host have this gameplay DLC
+alias[trigger:has_gameplay_dlc] = replace_me
+### Checks whether the current scope has the specified variable set has_variable = name
+alias[trigger:has_global_variable] = replace_me
+### Checks whether the current scope has the specified variable list set has_variable_list = name
+alias[trigger:has_global_variable_list] = replace_me
+### Checks whether the current scope has the specified variable set has_variable = name
+alias[trigger:has_local_variable] = replace_me
+### Checks whether the current scope has the specified variable list set has_variable_list = name
+alias[trigger:has_local_variable_list] = replace_me
+### Checks if the map interaction type is active has_map_interaction = key An interface trigger, can only be used in specific places
+alias[trigger:has_map_interaction] = replace_me
+### Checks if our current map interaction is a specific diplomatic action has_map_interaction_diplomatic_action = <key> An interface trigger, can only be used in specific places
+alias[trigger:has_map_interaction_diplomatic_action] = replace_me
+### Checks if the specified lens option is to export the specified goods has_selected_export_option_for_goods = <scope> An interface trigger, can only be used in specific places
+alias[trigger:has_map_interaction_export_goods] = replace_me
+### Checks if the specified lens option is to import the specified goods has_selected_import_option_for_goods = <scope> An interface trigger, can only be used in specific places
+alias[trigger:has_map_interaction_import_goods] = replace_me
+### True if the end date (NDefines::NGame::END_DATE) has been reached has_reached_end_date = yes
+alias[trigger:has_reached_end_date] = replace_me_bool
+### Check if there is at least one unification candidate for country tag has_country_unification_candidate = GER
+alias[trigger:has_unification_candidate] = replace_me
+### Checks whether the current scope has the specified variable set has_variable = name
+alias[trigger:has_variable] = replace_me
+### Checks whether the current scope has the specified variable list set has_variable_list = name
+alias[trigger:has_variable_list] = replace_me
+### AndTrigger that doesn't generate tooltips for contents within hidden_trigger = {}
+alias[trigger:hidden_trigger] = replace_me
+### Checks if the CProductionMethodsPanelEntry for a particular CBuildingType is expanded is_building_type_expanded = <scope/key> An interface trigger, can only be used in specific places
+alias[trigger:is_building_type_expanded] = replace_me
+### Checks if the game is paused is_game_paused = yes/no An interface trigger, can only be used in specific places
+alias[trigger:is_game_paused] = replace_me_bool
+### Is the gamestate tutorial active? See save_progress_in_gamestate in tutorial_lesson_chains documentation. An interface trigger, can only be used in specific places
+alias[trigger:is_gamestate_tutorial_active] = replace_me_bool
+### Checks if a target in in a list
+alias[trigger:is_in_list] = replace_me
+### Checks if a certain lens is open, specified as a lens key. Specify an optional named tab to check if this tab is open. is_lens_open = { lens = lens_key tab_name = tab_key } An interface trigger, can only be used in specific places
+alias[trigger:is_lens_open] = replace_me
+### Is the objective completed for the country in scope? is_objective_completed = yes
+alias[trigger:is_objective_completed] = replace_me_bool
+### Checks if a certain infopanel is open, specified as an event target (target) or as a string (panel_name). Specify an optional named tab (tab_name) to check if this tab is open. is_panel_open = { target = <scope> OR panel_name = panel_name tab_name = tab_name } An interface trigger, can only be used in specific places
+alias[trigger:is_panel_open] = replace_me
+### Checks if the specified popup panel is open is_popup_open = popup An interface trigger, can only be used in specific places
+alias[trigger:is_popup_open] = replace_me
+### Checks if the specified rightclick menu is open is_rightclick_menu_open = <menu_key> An interface trigger, can only be used in specific places
+alias[trigger:is_rightclick_menu_open] = replace_me
+### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
+alias[trigger:is_target_in_global_variable_list] = replace_me
+### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
+alias[trigger:is_target_in_local_variable_list] = replace_me
+### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
+alias[trigger:is_target_in_variable_list] = replace_me
+### Is the tutorial active? An interface trigger, can only be used in specific places
+alias[trigger:is_tutorial_active] = replace_me_bool
+### Is this the current tutorial lesson? is_tutorial_lesson_active = reactive_advice_succession An interface trigger, can only be used in specific places
+alias[trigger:is_tutorial_lesson_active] = replace_me
+### Has the tutorial lesson chain with the specified key been finished? An interface trigger, can only be used in specific places
+alias[trigger:is_tutorial_lesson_chain_completed] = replace_me
+### has the tutorial lesson with the specified name been finished? An interface trigger, can only be used in specific places
+alias[trigger:is_tutorial_lesson_completed] = replace_me
+### Has the tutorial lesson step been finished? is_tutorial_lesson_step_completed = lesson_key:step_key An interface trigger, can only be used in specific places
+alias[trigger:is_tutorial_lesson_step_completed] = replace_me
+### Checks the size of a list list_size = { name = X value >= Y } Where X is the name of the list Where Y is a script value
+alias[trigger:list_size] == replace_me_comparison
+### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
+alias[trigger:local_variable_list_size] = replace_me
+### a negated AND trigger
+alias[trigger:nand] = replace_me
+### a negated OR trigger
+alias[trigger:nor] = replace_me
+### negates content of trigger
+alias[trigger:not] = replace_me
+### at least one entry inside trigger must be true
+alias[trigger:or] = replace_me
+### Saves a temporary target for use during the trigger execution
+alias[trigger:save_temporary_scope_as] = replace_me
+### Saves a numerical or bool value as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_scope_value_as = { name = <string> value = x }
+alias[trigger:save_temporary_scope_value_as] = replace_me
+### can nudity be shown? should_show_nudity = yes/no An interface trigger, can only be used in specific places
+alias[trigger:should_show_nudity] = replace_me_bool
+### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger. switch = { 	trigger = simple_assign_trigger 	case_1 = { <triggers> } 	case_2 = { <triggers> } 	case_n = { <triggers> } 	fallback = { <triggers> }
+alias[trigger:switch] = replace_me
+### Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }  trigger_else = { <triggers> }
+alias[trigger:trigger_else] = replace_me
+### Evaluates the enclosed triggers if the display_triggers of the preceding `trigger_if` or `trigger_else_if` is not met and its own display_trigger of the limit is mettrigger_if = { limit = { <display_triggers> } <triggers> } trigger_else_if = { limit = { <display_triggers> } <triggers> }
+alias[trigger:trigger_else_if] = replace_me
+### Evaluates the triggers if the display_triggers of the limit are met trigger_if = { limit = { <display_triggers> } <triggers> }
+alias[trigger:trigger_if] = replace_me
+### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
+alias[trigger:variable_list_size] = replace_me
+### Returns true if the sum of weights of fulfilled sub-triggers amount to the specified sum weighted_calc_true_if = { amount = 10 5 = { <trigger> } 15 = { <trigger> } 7 = { <trigger> } }
+alias[trigger:weighted_calc_true_if] = replace_me
+### Compares the current year of the game year > 1850
+alias[trigger:year] == replace_me_comparison
+### Compares the infrastructure value of a given state infrastructure > 10
+alias[trigger:infrastructure] == replace_me_comparison
+### Compares the infrastructure usage value of a given state infrastructure_usage > 10
+alias[trigger:infrastructure_usage] == replace_me_comparison
+### Check if the scope object has the specified label has_label = label_key
+alias[trigger:has_label] = replace_me
+### Check if the province has the specified terrain type has_terrain = terrain_key
+alias[trigger:has_terrain] = replace_me
+### Check if the province is on land
+alias[trigger:is_province_land] = replace_me_bool
+### Is the interest marker active is_interest_active = yes/no
+alias[trigger:is_interest_active] = replace_me_bool
+### True if country is independent or permitted to start their own Diplomatic Plays aggressive_diplomatic_plays_permitted = bool
+alias[trigger:aggressive_diplomatic_plays_permitted] = replace_me_bool
+### Check if Institutions in the country will incur a Bureaucracy shortage eventually
+alias[trigger:approaching_bureaucracy_shortage] = replace_me_bool
+### Compare arable land in *all* states arable_land_country > 10
+alias[trigger:arable_land_country] == replace_me_comparison
+### Compare the amount of Army Reserves
+alias[trigger:army_reserves] == replace_me_comparison
+### Compares the available authority of the scoped country
+alias[trigger:authority] == replace_me_comparison
+### Check average infrastructure in all states owned by scope country average_country_infrastructure = 3
+alias[trigger:average_country_infrastructure] == replace_me_comparison
+### Check average infrastructure in incorporated states owned by the scope country average_incorporated_country_infrastructure = 3
+alias[trigger:average_incorporated_country_infrastructure] == replace_me_comparison
+### Compares the available bureaucracy of the scoped country
+alias[trigger:bureaucracy] == replace_me_comparison
+### Checks if the country in scope can afford the Influence for the specified diplomatic action (pact or ongoing) can_afford_diplomatic_action = { target = X type = Y } Where X = country and Y = diplomatic action type
+alias[trigger:can_afford_diplomatic_action] = replace_me
+### Check if a country can establish any export routes can_establish_any_export_route = <goods key/scope>
+alias[trigger:can_establish_any_export_route] = replace_me_goods
+### Check if a country can establish any import routes can_establish_any_import_route = <goods key/scope>
+alias[trigger:can_establish_any_import_route] = replace_me_goods
+### Check if the target country is able to potentially form a nation can_form_nation = <tag>
+alias[trigger:can_form_nation] = replace_me
+### Checks if a country can have another country as a particular type of subject can_have_as_subject = { who = X type = Y } Where X = country and Y = subject type
+alias[trigger:can_have_as_subject] = replace_me
+### Check if the country is able to have subjects of it sown
+alias[trigger:can_have_subjects] = replace_me_bool
+### True if a country can research an technology can_research = technology
+alias[trigger:can_research] = replace_me
+### Checks if scoped country can take on a certain amount of scaled debt from another country can_take_on_scaled_debt = { who = X value = Y } Where X = country and Y = decimal value
+alias[trigger:can_take_on_scaled_debt] = replace_me
+### Compares the predicted duration in weeks of the total number of building projects in the construction queue
+alias[trigger:construction_queue_duration] == replace_me_comparison
+### Compares the number of building levels in the construction queue
+alias[trigger:construction_queue_num_queued_levels] == replace_me_comparison
+### Checks if a culture is one of the primary cultures in the country country_has_primary_culture = <culture>
+alias[trigger:country_has_primary_culture] = replace_me_culture
+### Checks if a religion is the state religion in the country country_has_accepted_religion = <religion>
+alias[trigger:country_has_state_religion] = replace_me_religion
+### Checks whether the scoped country or any of its subjects owns the entire specified state region country_or_subject_owns_entire_state_region = key
+alias[trigger:country_or_subject_owns_entire_state_region] = replace_me
+### Checks how the ratio of Combat Units (of the same type) on the scoped Country with the specified Production Method compares to the value country_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
+alias[trigger:country_pm_usage] == replace_me_comparison
+### Compares a Country's Power Ranking country_rank < rank_value:major_power
+alias[trigger:country_rank] == replace_me_comparison
+### Compare tier of country tag country_tier = x
+alias[trigger:country_tier] = replace_me
+### Checks if you're enacting any law. enacting_any_law = bool
+alias[trigger:enacting_any_law] = replace_me_bool
+### Checks if the institution is expanding expanding_institution = <scope/key>
+alias[trigger:expanding_institution] = replace_me
+### Compares a Country's Power Ranking (position) global_country_ranking > 42
+alias[trigger:global_country_ranking] == replace_me_comparison
+### Does the country have the required gold reserves gold_reserves > 500
+alias[trigger:gold_reserves] == replace_me_comparison
+### Compares the country's gold reserves limit gold_reserves > gold_reserves_limit
+alias[trigger:gold_reserves_limit] == replace_me_comparison
+### Compare Legitimacy
+alias[trigger:government_legitimacy] == replace_me_comparison
+### True if the country is in a war where there is a proposed peace deal has_active_peace_deal = bool
+alias[trigger:has_active_peace_deal] = replace_me_bool
+### Check if the country has secessionists broken out
+alias[trigger:has_any_secessionists_broken_out] = replace_me_bool
+### Check if the country has any secessionists growing
+alias[trigger:has_any_secessionists_growing] = replace_me_bool
+### Check if the country has any new secessionists possible
+alias[trigger:has_any_secessionists_possible] = replace_me_bool
+### Checks if scoped country has a particular attitude towards another country has_attitude = { who = X attitude = Y } Where X = country and Y = attitude type
+alias[trigger:has_attitude] = replace_me
+### Checks if country in scope has a claim on state/state region has_claim = <scope>
+alias[trigger:has_claim] = replace_me
+### Checks if the scoped country has completed a certain subgoal has_completed_subgoal = subgoal_key
+alias[trigger:has_completed_subgoal] = replace_me
+### Checks if the country is taxing the target good. c:FRA = { has_consumption_tax = g:grain }
+alias[trigger:has_consumption_tax] = replace_me_goods
+### Check if the country has convoys being sunk through convoy raiding
+alias[trigger:has_convoys_being_sunk] = replace_me_bool
+### Checks if the country has decreasing interest levels
+alias[trigger:has_decreasing_interests] = replace_me_bool
+### Checks if two countries have an active diplomatic pact of type has_diplomatic_pact = { who = X type = Y is_initiator = yes/no } Where X = country and Y = diplomatic action type, is_initiator is optional parameter that checks to see if scope country is the original initiator/target of the pact
+alias[trigger:has_diplomatic_pact] = replace_me
+### Checks if target country is diplomatically relevant for scope country has_diplomatic_relevance = <scope>
+alias[trigger:has_diplomatic_relevance] = replace_me_country
+### Checks if country in scope has recently expelled diplomats of event target has_diplomats_expelled = country
+alias[trigger:has_diplomats_expelled] = replace_me_country
+### Checks if scoped country has Import Prioritized tariffs for a good has_export_priority_tariffs = <key/scope>
+alias[trigger:has_export_priority_tariffs] = replace_me_goods
+### Check if the country has a free (of radicals) government reform has_free_government_reform = <yes/no>
+alias[trigger:has_free_government_reform] = replace_me_bool
+### Checks if the scoped country has the highest GDP has_global_highest_gdp = yes/no
+alias[trigger:has_global_highest_gdp] = replace_me_bool
+### Checks if the scoped country has the highest weekly innovation has_global_highest_innovation = yes/no
+alias[trigger:has_global_highest_innovation] = replace_me_bool
+### Does the country's government have the necessary total Clout
+alias[trigger:has_government_clout] == replace_me_comparison
+### Is the country's government type as specified has_government_type = key
+alias[trigger:has_government_type] = replace_me
+### Check if the country has a healthy economy
+alias[trigger:has_healthy_economy] = replace_me_bool
+### Checks if scoped country has Import Prioritized tariffs for a good has_import_priority_tariffs = <key/scope>
+alias[trigger:has_import_priority_tariffs] = replace_me_goods
+### Checks if scope country has a particular type of institution has_institution = <scope/key>
+alias[trigger:has_institution] = replace_me
+### Check if the country has Interest Groups that are insurrectionary
+alias[trigger:has_insurrectionary_interest_groups] = replace_me_bool
+### True if scope country has an interest marker in target region has_interest_marker_in_region = region scope/tag
+alias[trigger:has_interest_marker_in_region] = replace_me
+### Check if the country has at least one active journal entry of the specified type has_journal_entry = key
+alias[trigger:has_journal_entry] = replace_me
+### Checks if a country has a certain Law active
+alias[trigger:has_law] = replace_me_law_type
+### Checks if scoped country has Unprioritized tariffs for a good has_no_priority_tariffs = <key/scope>
+alias[trigger:has_no_priority_tariffs] = replace_me_goods
+### Checks if the scoped country has a certain objective type has_objective = objective_type_key
+alias[trigger:has_objective] = replace_me
+### Checks if country in scope has an overlapping interest marker with any of target country's interests has_overlapping_interests = <scope>
+alias[trigger:has_overlapping_interests] = replace_me_country
+### Check if the country has any researchable technology left.
+alias[trigger:has_researchable_technology] = replace_me_bool
+### Check if the country has revolutionary uprising
+alias[trigger:has_revolution] = replace_me_bool
+### Does the country's government include the named IG
+alias[trigger:has_ruling_interest_group] = replace_me
+### Does the country's government consist of the specified number of IGs
+alias[trigger:has_ruling_interest_group_count] == replace_me_comparison
+### Checks if scoped country has a particular secret goal towards another country has_secret_goal = { who = X secret_goal = Y } Where X = country and Y = secret_goal type
+alias[trigger:has_secret_goal] = replace_me
+### Check if country has a state in the state region has_state_in_state_region = key
+alias[trigger:has_state_in_state_region] = replace_me
+### Checks if country in scope has a strategic adjacency (direct/coastal/wargoal adjacency) to target state/country has_strategic_adjacency = <scope>
+alias[trigger:has_strategic_adjacency] = replace_me
+### Checks if country in scope has a particular AI strategy has_strategy = <key>
+alias[trigger:has_strategy] = replace_me
+### Checks if country in scope is subject or overlord of event target has_subject_relation_with = country
+alias[trigger:has_subject_relation_with] = replace_me_country
+### Does the country have the required progress for an technology has_technology_progress = { technology = X progress = Y } Where X is an technology and Y is a fixed point
+alias[trigger:has_technology_progress] == replace_me_comparison
+### True if a country has researched an technology has_technology_researched = <scope/key>
+alias[trigger:has_technology_researched] = replace_me
+### Checks if the scoped country has a treaty port in target country c:POR = { has_treaty_port_in_country = c:CHI }
+alias[trigger:has_treaty_port_in_country] = replace_me_country
+### Check if a country has a truce with a different target country has_truce_with = c:GBR
+alias[trigger:has_truce_with] = replace_me_country
+### Checks if country in scope is at war with event target has_war_with = country
+alias[trigger:has_war_with] = replace_me_country
+### Check if country is wasting any of its produced construction.
+alias[trigger:has_wasted_construction] = replace_me_bool
+### Compares the highest secession progress of any secession movement in a given country highest_secession_progress > 0.7
+alias[trigger:highest_secession_progress] == replace_me_comparison
+### Check if the country is currently in default
+alias[trigger:in_default] = replace_me_bool
+### Check if the country is in election campaign period in_election_campaign = <yes/no>
+alias[trigger:in_election_campaign] = replace_me_bool
+### Compares the available influence of the scoped country
+alias[trigger:influence] == replace_me_comparison
+### Compares the level of investment in an institution institution_investment_level = { institution = <key> value = <comparator value> }
+alias[trigger:institution_investment_level] == replace_me_comparison
+### Compares the money in the investment pool of a given country investment_pool > 1000
+alias[trigger:investment_pool] == replace_me_comparison
+### Checks if country in scope is adjacent to a target country is_adjacent = <scope>
+alias[trigger:is_adjacent] = replace_me_country
+### True if country scope is controlled by an AI is_ai = bool
+alias[trigger:is_ai] = replace_me_bool
+### Check if the country is at war
+alias[trigger:is_at_war] = replace_me_bool
+### Check if a country is banning a good is_banning_goods = <goods key/scope>
+alias[trigger:is_banning_goods] = replace_me
+### Check if construction in a state is paused.
+alias[trigger:is_construction_paused] = replace_me_bool
+### Checks if the scoped country is alive, i.e. if it has at least one state on the map and can be interacted with is_country_alive = yes/no
+alias[trigger:is_country_alive] = replace_me_bool
+### Checks the countrys type is_country_type = country type
+alias[trigger:is_country_type] = replace_me
+### True if country is a committed participant of any diplomatic play is_diplomatic_play_participant = bool
+alias[trigger:is_diplomatic_play_committed_participant] = replace_me_bool
+### Checks if country in scope is in a diplomatic play against event target is_diplomatic_play_enemy_of = country
+alias[trigger:is_diplomatic_play_enemy_of] = replace_me_country
+### True if country is the initiator of any diplomatic play is_diplomatic_play_initiator = bool
+alias[trigger:is_diplomatic_play_initiator] = replace_me_bool
+### True if country is the target of any diplomatic play is_diplomatic_play_target = bool
+alias[trigger:is_diplomatic_play_target] = replace_me_bool
+### True if country is a undecided participant of any diplomatic play is_diplomatic_play_participant = bool
+alias[trigger:is_diplomatic_play_undecided_participant] = replace_me_bool
+### Checks if country in scope is a direct subject (not subject-of-subject) of event target is_subject_of = country
+alias[trigger:is_direct_subject_of] = replace_me_country
+### Checks if the scoped country is enacting a specific law type. is_enacting_law = law_type:law_conscription
+alias[trigger:is_enacting_law] = replace_me_law_type
+### Are you expanding an institution is_expanding_institution = <yes>/<no>
+alias[trigger:is_expanding_institution] = replace_me_bool
+### Checks if a country is the home country for target country
+alias[trigger:is_home_country_for] = replace_me_country
+### Check if the country is part of a customs union
+alias[trigger:is_in_customs_union] = replace_me_bool
+### Checks if country in scope is in war on the same side as event target is_in_war_together = country
+alias[trigger:is_in_war_together] = replace_me_country
+### True if country is a junior country in a customs custom is_junior_in_customs_union = bool
+alias[trigger:is_junior_in_customs_union] = replace_me_bool
+### True if country scope is a player is_local_player = bool
+alias[trigger:is_local_player] = replace_me_bool
+### Check if the country is in the process of dropping in power ranking
+alias[trigger:is_losing_power_rank] = replace_me_bool
+### Checks if the scoped country is owed a obligation by the target country is_owed_obligation_by = c:FRA
+alias[trigger:is_owed_obligation_by] = replace_me_country
+### True if country scope is a player is_player = bool
+alias[trigger:is_player] = replace_me_bool
+### Check if the country is actively researching a tech is_researching_technology = <scope/key/any>
+alias[trigger:is_researching_technology] = replace_me
+### Check if the country is actively researching a tech category is_researching_technology_category = <key/any>
+alias[trigger:is_researching_technology_category] = replace_me
+### Check if the country is secessionist
+alias[trigger:is_secessionist] = replace_me_bool
+### True if country is a subject is_subject = bool
+alias[trigger:is_subject] = replace_me_bool
+### Checks if country in scope is subject (or subject-of-subject) of event target is_subject_of = country
+alias[trigger:is_subject_of] = replace_me_country
+### Checks the country's subject type is_subject_type = subject type
+alias[trigger:is_subject_type] = replace_me
+### Check if scope country is supporting a unification candidate for a specific country formation is_supporting_unification_candidate = { who = c:PRU country_formation = GER }
+alias[trigger:is_supporting_unification_candidate] = replace_me
+### Check if a country is taxing a good has_embargo = <goods key/scope>
+alias[trigger:is_taxing_goods] = replace_me
+### Check if scope country is a unification candidate for country tag has_country_unification_candidate = GER
+alias[trigger:is_unification_candidate] = replace_me
+### Check if the scoped country is violating the sovereignty of a target country is_violating_sovereignty_of = c:GBR
+alias[trigger:is_violating_sovereignty_of] = replace_me_country
+### Compare number of Isolated States
+alias[trigger:isolated_states] == replace_me_comparison
+### Checks if country is producing the most of a certain good leading_producer_of = g:luxury_clothes
+alias[trigger:leading_producer_of] = replace_me_goods
+### Check if any other country is part of this country's customs union leads_customs_union = bool
+alias[trigger:leads_customs_union] = replace_me_bool
+### Compares the maximum number of declared interests of scoped country max_num_declared_interests = <value>
+alias[trigger:max_num_declared_interests] == replace_me_comparison
+### Compare the amount of Navy Reserves
+alias[trigger:navy_reserves] == replace_me_comparison
+### Compares the number of declared interests of scoped country num_declared_interests = <value>
+alias[trigger:num_declared_interests] == replace_me_comparison
+### Compares the number of consumption taxed goods of scoped country num_taxed_goods = <value>
+alias[trigger:num_taxed_goods] == replace_me_comparison
+### Checks if country in scope owes a obligation to event target owes_obligation_to = country
+alias[trigger:owes_obligation_to] = replace_me_country
+### Check if country owns entire region owns_entire_state_region = key
+alias[trigger:owns_entire_state_region] = replace_me
+### Does country own the treaty port in assigned state region owns_treaty_port_in = key
+alias[trigger:owns_treaty_port_in] = replace_me
+### Checks whether the scoped country has <percent> of its population belonging to the specified pop type scope:example_country = { 	pop_type_percent_country = { 		pop_type = <pop_type> 		percent <compare operator (<,>,= and so on)> <percent> 	} }
+alias[trigger:pop_type_percent_country] == replace_me_comparison
+### Compare prestige
+alias[trigger:prestige] == replace_me_comparison
+### Compares the produced authority of the scoped country
+alias[trigger:produced_authority] == replace_me_comparison
+### Compares the produced bureaucracy of the scoped country
+alias[trigger:produced_bureaucracy] == replace_me_comparison
+### Compares the produced influence of the scoped country
+alias[trigger:produced_influence] == replace_me_comparison
+### Compare value to a country's debt relative to debt ceiling scaled_debt = value
+alias[trigger:scaled_debt] == replace_me_comparison
+### Check if the country is lacking a primary wargoal in any diplomatic play it is part of
+alias[trigger:should_set_wargoal] = replace_me_bool
+### Checks if the institution is shrinking expanding_institution = <scope/key>
+alias[trigger:shrinking_institution] = replace_me
+### Compares the country's supply network strength (can exceed 1) supply_network_strength > 1.1
+alias[trigger:supply_network_strength] == replace_me_comparison
+### Check if the country is currently running a weekly deficit and taking loans to compensate
+alias[trigger:taking_loans] = replace_me_bool
+### Compares the overall tax level of scoped country tax_level = <level>
+alias[trigger:tax_level] == replace_me_comparison
+### Compares the overall tax level integer value of scoped country income_tax_level_value = <level>
+alias[trigger:tax_level_value] == replace_me_comparison
+### Compares the total population of a given country total_population > 100000
+alias[trigger:total_population] == replace_me_comparison
+### Does the country have this amount of weekly income after fixed expenses weekly_net_income > 1000
+alias[trigger:weekly_net_fixed_income] == replace_me_comparison
+### Checks if pop's culture is accepted culture_accepted = bool
+alias[trigger:culture_accepted] = replace_me_bool
+### Checks if the scoped pop has ongoing cultural assimilation has_ongoing_assimilation = yes
+alias[trigger:has_ongoing_assimilation] = replace_me_bool
+### Checks if the scoped pop has ongoing religious conversion has_ongoing_conversion = yes
+alias[trigger:has_ongoing_conversion] = replace_me_bool
+### Checks if pop has specific culture has_pop_culture = culture
+alias[trigger:has_pop_culture] = replace_me
+### Checks if pop has specific religion has_religion = religion
+alias[trigger:has_pop_religion] = replace_me
+### Check if the Pop has the state religion
+alias[trigger:has_state_religion] = replace_me_bool
+### Check if the pop is employed
+alias[trigger:is_employed] = replace_me_bool
+### Checks if pop is of specified type is_pop_type = poptype
+alias[trigger:is_pop_type] = replace_me
+### Checks if pop is working in a specific building type pop_employment_building = building
+alias[trigger:pop_employment_building] = replace_me
+### Checks if pop is working in a specific building type pop_employment_building = building
+alias[trigger:pop_employment_building_group] = replace_me
+### Checks if pop's culture is primary pop_has_primary_culture = bool
+alias[trigger:pop_has_primary_culture] = replace_me_bool
+### Checks if pop is discriminated against pop_is_discriminated = bool
+alias[trigger:pop_is_discriminated] = replace_me_bool
+### Compares the quality of life of the given pop quality_of_life > 10
+alias[trigger:quality_of_life] == replace_me_comparison
+### Checks if pop's religion is accepted religion_accepted = bool
+alias[trigger:religion_accepted] = replace_me_bool
+### Compares the standard of living of a given pop standard_of_living > 10
+alias[trigger:standard_of_living] == replace_me_comparison
+### Checks the strata of the scoped pop strata >= rich/middle/poor
+alias[trigger:strata] == replace_me_comparison
+### Checks if a pop has a certain amount of wealth wealth = value
+alias[trigger:wealth] == replace_me_comparison
+### Checks how the ratio of Combat Units on the scoped Battle, on the target country's side, with the specified Production Method compares to the value battle_side_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
+alias[trigger:battle_side_pm_usage] == replace_me_comparison
+### Check if building has a shortage of any of its inputs building_has_goods_shortage = yes/no
+alias[trigger:building_has_goods_shortage] = replace_me_bool
+### Evaluates a production building's available cash reserves cash_reserves_available > 25000
+alias[trigger:cash_reserves_available] == replace_me_comparison
+### Evaluates a production building's available cash reserve ratio compared to its maximum Returns 1 if the building has no maximum cash reserves cash_reserves_ratio > 0.2
+alias[trigger:cash_reserves_ratio] == replace_me_comparison
+### Compare a building's current annual earnings per employee earnings >= 10
+alias[trigger:earnings] == replace_me_comparison
+### Checks if a scoped building has the specified production method active has_active_production_method = key
+alias[trigger:has_active_production_method] = replace_me
+### Checks whether the amount of employees of a certain poptype are above or below a given percentage of the total amount the building can currently hire. I.e. if a building is at 80% (given as 0.8) of its current hiring capacity for Shopkeepers, for example. has_employee_slots_filled = { pop_type = X percent = Y } Where X is a pop type and Y is a fixed point
+alias[trigger:has_employee_slots_filled] = replace_me
+### Checks if a building failed to hire someone last week has_failed_hires = yes/no
+alias[trigger:has_failed_hires] = replace_me_bool
+### Check if a building is buildable = yes (default) is_buildable = yes/no
+alias[trigger:is_buildable] = replace_me_bool
+### True if scope is a building of given group building_group = building
+alias[trigger:is_building_group] = replace_me
+### True if scope is a building of given type is_building_type = building
+alias[trigger:is_building_type] = replace_me
+### Check if a building is is_government_funded is_government_funded = yes/no
+alias[trigger:is_government_funded] = replace_me_bool
+### Check if a building is being subsidized is_subsidized = yes/no
+alias[trigger:is_subsidized] = replace_me_bool
+### Check if a building is a subsistence building is_subsistence_building = yes/no
+alias[trigger:is_subsistence_building] = replace_me_bool
+### Checks if building is under construction is_under_construction = bool
+alias[trigger:is_under_construction] = replace_me_bool
+### Evaluates a building's current occupancy occupancy < 0.25
+alias[trigger:occupancy] == replace_me_comparison
+### Checks whether the profits the building has made this week are above or below a given value weekly_profit >= 20.0
+alias[trigger:weekly_profit] == replace_me_comparison
+### Check if a goods or market goods is tradeable is_tradeable = yes/no
+alias[trigger:is_tradeable] = replace_me_bool
+### Checks if diplomatic pact is in danger of breaking is_diplomatic_pact_in_danger = yes
+alias[trigger:is_diplomatic_pact_in_danger] = replace_me_bool
+### Checks the war exhaustion of the target country in the scoped war has_war_exhaustion = { target = c:GBR value > 50 }
+alias[trigger:has_war_exhaustion] == replace_me_comparison
+### Checks if war has a certain war goal type has_war_goal = return_state
+alias[trigger:has_war_goal] = replace_me
+### Checks the war support of the target country in the scoped war has_war_support = { target = c:GBR value > 50 }
+alias[trigger:has_war_support] == replace_me_comparison
+### Check if the target country is participant in a war
+alias[trigger:is_war_participant] = replace_me_country
+### Check if country is warleader in war
+alias[trigger:is_warleader] = replace_me_country
+### Checks the number of total casualties in the scoped war num_casualties >= 5000
+alias[trigger:num_casualties] == replace_me_comparison
+### checks the number of casualties for a specific country in the scoped war num_country_casualties = { target = country value < 5000 }
+alias[trigger:num_country_casualties] == replace_me_comparison
+### checks the number of dead for a specific country in the scoped war num_country_dead = { target = country value < 5000 }
+alias[trigger:num_country_dead] == replace_me_comparison
+### checks the number of wounded for a specific country in the scoped war num_country_wounded = { target = country value < 5000 }
+alias[trigger:num_country_wounded] == replace_me_comparison
+### Checks the number of total dead in the scoped war num_dead >= 5000
+alias[trigger:num_dead] == replace_me_comparison
+### Checks the number of total wounded in the scoped war num_wounded >= 5000
+alias[trigger:num_wounded] == replace_me_comparison
+### True if a state has an active building type has_active_building = building
+alias[trigger:has_active_building] = replace_me
+### Check if a supported scope has a certain timed modifier Supported scopes: Country, Character, State, Building, InterestGroup, PoliticalMovement, Institution, Front has_modifier = <key>
+alias[trigger:has_modifier] = replace_me
+### Check if state has at least one port has_port = yes/no
+alias[trigger:has_port] = replace_me_bool
+### Check if a political movement is a particular type is_political_movement_type = movement_to_enact
+alias[trigger:is_political_movement_type] = replace_me
+### Compare radicalism of political movement political_movement_radicalism > 50
+alias[trigger:political_movement_radicalism] == replace_me_comparison
+### Compare support of political movement political_movement_support > 50
+alias[trigger:political_movement_support] == replace_me_comparison
+### True if IG scope has a party has_party = bool
+alias[trigger:has_party] = replace_me_bool
+### Compare to scoped interest group approval Usages: ig_approval > 2, ig_approval < happy
+alias[trigger:ig_approval] == replace_me_comparison
+### Compare to scoped interest group's clout ig_clout >= 0.2
+alias[trigger:ig_clout] == replace_me_comparison
+### Compare to scoped interest group's political strength divided by total government political strength ig_government_power_share >= 0.5
+alias[trigger:ig_government_power_share] == replace_me_comparison
+### Compares population number in an interest group interest_group_population > 1000
+alias[trigger:interest_group_population] == replace_me_comparison
+### Compares percentage of population in an interest group interest_group_population_percentage > 0.2
+alias[trigger:interest_group_population_percentage] == replace_me_comparison
+### Check if scoped ig is being bolstered is_being_bolstered = <yes>/<no>
+alias[trigger:is_being_bolstered] = replace_me_bool
+### Check if scoped ig is being suppressed is_being_suppressed = <yes>/<no>
+alias[trigger:is_being_suppressed] = replace_me_bool
+### True if IG scope is in the government is_in_government = bool
+alias[trigger:is_in_government] = replace_me_bool
+### True if IG scope is contributing to a brewing revolution is_insurrectionary = bool
+alias[trigger:is_insurrectionary] = replace_me_bool
+### Checks if Interest Group is of a certain type is_interest_group_type = x
+alias[trigger:is_interest_group_type] = replace_me
+### True if IG scope is marginal is_marginal = bool
+alias[trigger:is_marginal] = replace_me_bool
+### Checks if Interest Group is a member of target party is_member_of_party = <party>
+alias[trigger:is_member_of_party] = replace_me_party
+### True if IG scope is influential is_powerful = bool
+alias[trigger:is_powerful] = replace_me_bool
+### Checks if Interest Group is of the same IG type as target is_interest_group_type = scope:neighbor_leading_ig
+alias[trigger:is_same_interest_group_type] = replace_me_interest_group
+### Compares an interest groups most powerful strata
+alias[trigger:most_powerful_strata] = replace_me
+### Compare election momentum of the scoped party against a value election_momentum = 0.75
+alias[trigger:election_momentum] == replace_me_comparison
+### Checks if the target interest group is a member of scope party has_party_member = <ig>
+alias[trigger:has_party_member] = replace_me_interest_group
+### Checks if the target party is same as scoped party. Will only work on exact same party object, meaning you can't compare across countries. is_party = <party>
+alias[trigger:is_party] = replace_me_party
+### Checks if the scoped party's type is the specified one is_party_type = party_type_database_key
+alias[trigger:is_party_type] = replace_me
+### Checks if Party is of the same party type as target is_same_party_type_as = scope:neighboring_party
+alias[trigger:is_same_party_type] = replace_me_party
+### Checks if a theater is a land theater is_land_theater = bool
+alias[trigger:is_land_theater] = replace_me_bool
+### Check arable land in state arable_land > 10
+alias[trigger:arable_land] == replace_me_comparison
+### Checks the state's number of available jobs in non-subsistence buildings available_jobs > 10000
+alias[trigger:available_jobs] == replace_me_comparison
+### Checks if the building of a particular type in scoped state is able to active the specified production method can_activate_production_method = { building_type = <key> production_method = <key> }
+alias[trigger:can_activate_production_method] = replace_me
+### Compares the devastation of a given state devastation > 5
+alias[trigger:devastation] == replace_me_comparison
+### Check free arable land in state free_arable_land > 0
+alias[trigger:free_arable_land] == replace_me_comparison
+### Check if a state has any pops currently in the process of assimilating.
+alias[trigger:has_assimilating_pops] = replace_me_bool
+### Checks if a state is claimed by a country any_state = { 	owner = root 	has_claim_by = c:MEX }
+alias[trigger:has_claim_by] = replace_me_country
+### Check if a state has any pops currently in the process of converting.
+alias[trigger:has_converting_pops] = replace_me_bool
+### Checks if scope state has a particular type of decree has_decree = <key>
+alias[trigger:has_decree] = replace_me
+### Checks if the specificed building group is allowed in the scoped state. Used to check if a state can potentially produce a resource has_potential_resource = bg_rubber_plantations
+alias[trigger:has_potential_resource] = replace_me
+### Checks if scoped state region has a certain trait has_state_trait = key
+alias[trigger:has_state_trait] = replace_me
+### True if IG in scope has scripted political strength in state ig_state_pol_strength_share = { 	target = scope:target_ig 	value = 0.3 }
+alias[trigger:ig_state_pol_strength_share] == replace_me_comparison
+### Check incorporation progress in state incorporation_progress > 0.25
+alias[trigger:incorporation_progress] == replace_me_comparison
+### Check if state is the capital of the owner = bool
+alias[trigger:is_capital] = replace_me_bool
+### Check if state borders a (non-impassable) sea region is_coastal = yes/no
+alias[trigger:is_coastal] = replace_me_bool
+### Checks if state is homeland of any of the target country's primary cultures is_homeland_of_country_cultures = <country>
+alias[trigger:is_homeland_of_country_cultures] = replace_me_country
+### Check if a state has any chance to split off into a revolutionary or seceding country is_in_revolt = yes/no.
+alias[trigger:is_in_revolt] = replace_me_bool
+### Check if state is incorporated = bool
+alias[trigger:is_incorporated] = replace_me_bool
+### Check if a state is isolated from its market
+alias[trigger:is_isolated_from_market] = replace_me_bool
+### Check if state is the largest in the state region = bool
+alias[trigger:is_largest_state_in_region] = replace_me_bool
+### Mass migration target is state. any_state = { limit = { owner = ROOT is_mass_migration_target = yes } }
+alias[trigger:is_mass_migration_target] = replace_me_bool
+### Checks if the building of a particular type in scoped state has the specified production method active is_production_method_active = { building_type = <key> production_method = <key> }
+alias[trigger:is_production_method_active] = replace_me
+### Check if state borders a sea region (regular or impassable) is_sea_adjacent = yes/no
+alias[trigger:is_sea_adjacent] = replace_me_bool
+### Check if a state employs or has the potential to employ slaves.
+alias[trigger:is_slave_state] = replace_me_bool
+### Checks if the scoped state is a split state. scope:example_state = { is_split_state = yes }
+alias[trigger:is_split_state] = replace_me_bool
+### Checks if state is target of any wargoal in wars involving a specific country has_war_goal = <country>
+alias[trigger:is_target_of_wargoal] = replace_me_country
+### Checks if the scoped state is a treaty port is_treaty_port = yes/no
+alias[trigger:is_treaty_port] = replace_me_bool
+### Check if state is under colonization is_under_colonization = yes/no
+alias[trigger:is_under_colonization] = replace_me_bool
+### Compares the loyalty in a given state, i.e. the fraction of Loyalists loyalty > 0.2
+alias[trigger:loyalty] == replace_me_comparison
+### Checks the market access of the scoped state market_access > 0.8
+alias[trigger:market_access] == replace_me_comparison
+### Compare total pollution generation across all buildings in the state
+alias[trigger:pollution_generation] == replace_me_comparison
+### Compares the infrastructure to infrastructure usage of a state relative_infrastructure > 1.1
+alias[trigger:relative_infrastructure] == replace_me_comparison
+### Check if state has a shortage on any of its building inputs state_has_goods_shortage = yes/no
+alias[trigger:state_has_goods_shortage] = replace_me_bool
+### Checks the total population of the scoped state state_population <= 250000
+alias[trigger:state_population] == replace_me_comparison
+### Checks the unemployment rate (percentage) in the scoped state state_unemployment_rate > 0.1
+alias[trigger:state_unemployment_rate] == replace_me_comparison
+### Checks the taxation capacity of the scoped state tax_capacity > 50
+alias[trigger:tax_capacity] == replace_me_comparison
+### Checks the taxation capacity usage of the scoped state tax_capacity_usage > 50
+alias[trigger:tax_capacity_usage] == replace_me_comparison
+### Compares the total urbanization of a given state/ntotal_urbanization > 5
+alias[trigger:total_urbanization] == replace_me_comparison
+### Compares the turmoil in a given state, i.e. the fraction of Radicals turmoil > 0.2
+alias[trigger:turmoil] == replace_me_comparison
+### Check if the market goods is instrumental in running the bureaucratic machine
+alias[trigger:is_consumed_by_government_buildings] = replace_me_bool
+### Check if the goods is instrumental in running the war machine
+alias[trigger:is_consumed_by_military_buildings] = replace_me_bool
+### Checks if market goods has the specified number of buy orders market_goods_buy_orders < X Where X = fixed point
+alias[trigger:market_goods_buy_orders] == replace_me_comparison
+### Checks if market goods is at least the specified percentage cheaper than base price market_goods_cheaper > X Where X = fixed point
+alias[trigger:market_goods_cheaper] == replace_me_comparison
+### Checks if market goods has the specified number of total consumption market_goods_consumption < X Where X = fixed point
+alias[trigger:market_goods_consumption] == replace_me_comparison
+### Checks if market has the specified goods delta (production + imports) - (consumption + exports) market_goods_delta < X Where X = fixed point
+alias[trigger:market_goods_delta] == replace_me_comparison
+### Checks if market goods has the specified number of exports market_goods_exports < X Where X = fixed point
+alias[trigger:market_goods_exports] == replace_me_comparison
+### Check if market goods has a shortage in the market market_goods_has_goods_shortage = yes/no
+alias[trigger:market_goods_has_goods_shortage] = replace_me_bool
+### Checks if market goods has the specified number of imports market_goods_imports < X Where X = fixed point
+alias[trigger:market_goods_imports] == replace_me_comparison
+### Checks if market goods is at least the specified percentage more expensive than base price market_goods_pricier > X Where X = fixed point
+alias[trigger:market_goods_pricier] == replace_me_comparison
+### Checks if market goods has the specified number of total production market_goods_production < X Where X = fixed point
+alias[trigger:market_goods_production] == replace_me_comparison
+### Checks if market goods has the specified number of sell orders market_goods_sell_orders < X Where X = fixed point
+alias[trigger:market_goods_sell_orders] == replace_me_comparison
+### Checks if scoped state region contains the capital of target tag contains_capital_of = country scope/tag
+alias[trigger:contains_capital_of] = replace_me
+### Checks if scoped state region is a homeland of target culture is_homeland = culture scope/name
+alias[trigger:is_homeland] = replace_me
+### Check if the state region is on land
+alias[trigger:is_state_region_land] = replace_me_bool
+### Compare state region pollution
+alias[trigger:pollution_amount] == replace_me_comparison
+### Check remaining amount of resource, like gold mines in a state remaining_undepleted = { 	type = bg_gold_mining 	amount > 1 }
+alias[trigger:remaining_undepleted] == replace_me_comparison
+### Check if the journal entry's goal has been met is_goal_complete = yes/no
+alias[trigger:is_goal_complete] = replace_me_bool
+### Check if the journal entry is progressing is_progressing = yes/no
+alias[trigger:is_progressing] = replace_me_bool
+### Compares loyalist fraction in pops in state or country, all parameters except value are optional loyalist_fraction = { value = x pop_type = <key> strata = <key> culture = <key/scope> religion = <key/scope> }
+alias[trigger:loyalist_fraction] == replace_me_comparison
+### Compares radical fraction in pops in state or country, all parameters except value are optional radical_fraction = { value = x pop_type = <key> strata = <key> culture = <key/scope> religion = <key/scope> }
+alias[trigger:radical_fraction] == replace_me_comparison
+### Checks how the ratio of Combat Units (of the same type) on the scoped Diplomatic Play, on the target country's side, with the specified Production Method compares to the value diplomatic_play_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
+alias[trigger:diplomatic_play_pm_usage] == replace_me_comparison
+### Checks whether escalation has passed a certain threshold escalation > -58
+alias[trigger:escalation] == replace_me_comparison
+### Checks if diplomatic play has a certain war goal type has_play_goal = return_state
+alias[trigger:has_play_goal] = replace_me
+### Checks who the initiator of a diplomatic play is initiator_is = country
+alias[trigger:initiator_is] = replace_me_country
+### Checks diplomatic play is of a certain type is_diplomatic_play_type = play type
+alias[trigger:is_diplomatic_play_type] = replace_me
+### True if the diplomatic play has escalated into war is_war = bool
+alias[trigger:is_war] = replace_me_bool
+### Checks who the target of a diplomatic play is target_is = country
+alias[trigger:target_is] = replace_me_country
+### Checks if a pop, state or country has a certain amount of literacy literacy = value
+alias[trigger:literacy_rate] == replace_me_comparison
+

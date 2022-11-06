@@ -1,0 +1,481 @@
+### Iterate through all active (market) goods in a market any_market_goods = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_market_goods] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all countries with a presence in the supported scope (currently: only market scope) any_scope_country = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_country] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all pops in a: country, state, interest group, culture any_scope_pop = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_pop] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all states including provinces from a: country, state_region, theater, or front any_scope_state = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_state] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all interest markers in a: country, strategic region any_scope_interest_marker = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_interest_marker] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all states neighbouring a state region any_neighbouring_state = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_neighbouring_state] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all characters globally any_character = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_character] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through characters in the void any_character_in_void = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_character_in_void] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all countries globally any_country = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_country] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all diplomatic plays globally any_diplomatic_play = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_diplomatic_play] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### true if any child is false (equivalent to NAND)
+alias[trigger:any_false] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all items in global list. list = name or variable = name any_in_global_list = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_in_global_list] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all items in list. list = name or variable = name any_in_list = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_in_list] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all items in local list. list = name or variable = name any_in_local_list = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_in_local_list] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all markets globally any_market = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_market] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all states globally any_state = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_state] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all state regions any_state_region = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_state_region] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all active political parties in a country any_active_party = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_active_party] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all civil wars related to the scoped country any_civil_war = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_civil_war] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Any country in current hierarchy, including current any_in_hierarchy = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_in_hierarchy] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all laws in a country any_law = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_law] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Any country above current in hierarchy any_overlord_or_above = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_overlord_or_above] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all political movements in a country any_political_movement = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_political_movement] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all potential political parties in a country any_potential_party = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_potential_party] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Any country that is rival to the country in a scope any_rival_country = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_rival_country] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all allies to a: country any_scope_ally = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_ally] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all co-belligerents to a: country any_scope_cobelligerent = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_cobelligerent] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all theaters in a: country any_scope_theater = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_theater] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated any_scope_violate_sovereignty_interested_parties = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_violate_sovereignty_interested_parties] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country any_scope_violate_sovereignty_wars = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_violate_sovereignty_wars] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all wars related to the scope any_scope_war = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_war] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Any country below current in hierarchy any_subject_or_below = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_subject_or_below] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all Fronts related to the scoped War any_scope_front = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_front] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all trade routes in a: market, country, marketgoods any_trade_route = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_trade_route] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all interest groups supporting a political movement any_supporting_interest_group = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_supporting_interest_group] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Primary cultures of the scoped country or country definition any_primary_culture = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_primary_culture] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all combat units of input scope any_combat_units = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_combat_units] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all buildings in a: state, country any_scope_building = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_building] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all cultures in the scope any_scope_culture = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_culture] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all allies to an initiator in a: diplomatic play any_scope_initiator_ally = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_initiator_ally] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all involved in a: diplomatic play any_scope_play_involved = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_play_involved] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all allies to a target in a: diplomatic play any_scope_target_ally = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_target_ally] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all admirals in a: country or interestgroup any_scope_admiral = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_admiral] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all characters in a: country, interestgroup, or front any_scope_character = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_character] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all generals in a: country, interestgroup, or front any_scope_general = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_general] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all politicians in a: country or interestgroup any_scope_politician = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_scope_politician] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all interest groups in a country any_interest_group = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_interest_group] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+### Iterate through all interest group members of a party any_member = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_member] = {
+        ## cardinality = 0..1
+        percent = value_float[0.0..1.0]
+        ## cardinality = 0..1
+        count = int_value_field
+        ## cardinality = 0..1
+        count = all
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
