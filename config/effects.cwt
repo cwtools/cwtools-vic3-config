@@ -1,407 +1,609 @@
 ### Sets whether a building is subsidized set_subsidized = yes/no
 alias[effect:set_subsidized] = replace_me
-### Adds the specified number of percentage points to a civil war progress (range is [0, 1], 0.1 means 10 percentage points) add_civil_war_progress = 0.1 / -0.1
+
+### Adds the specified number of percentage points to a civil war progress (range is [0, 1], 0.1 means 10 percentage points) add_civil_war_progress = 0.1 / -0.1
 alias[effect:add_civil_war_progress] = replace_me
-### Adds war exhaustion to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_exhaustion = { target = country value = value }
+
+### Adds war exhaustion to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_exhaustion = { target = country value = value }
 alias[effect:add_war_exhaustion] = replace_me
-### Adds war support to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_war_support = { target = country value = value }
+
+### Adds war support to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_war_support = { target = country value = value }
 alias[effect:add_war_war_support] = replace_me
-### Adds a new obsession to the culture in scope add_cultural_obsession = X Where X is a goods
+
+### Adds a new obsession to the culture in scope add_cultural_obsession = X Where X is a goods
 alias[effect:add_cultural_obsession] = replace_me
-### Removes a new obsession to the culture in scope remove_cultural_obsession = X Where X is a goods
+
+### Removes a new obsession to the culture in scope remove_cultural_obsession = X Where X is a goods
 alias[effect:remove_cultural_obsession] = replace_me
-### Adds a new role to a character add_character_role = general
+
+### Adds a new role to a character add_character_role = general
 alias[effect:add_character_role] = replace_me
-### Promotes/demotes a character a given amount of military ranks
+
+### Promotes/demotes a character a given amount of military ranks
 alias[effect:add_commander_rank] = replace_me
-### Adds an amount of experience to a commander add_experience = 0.2
+
+### Adds an amount of experience to a commander add_experience = 0.2
 alias[effect:add_experience] = replace_me
-### Adds a random qualifying Trait of the specified category add_random_trait = personality / skill / condition
+
+### Adds a random qualifying Trait of the specified category add_random_trait = personality / skill / condition
 alias[effect:add_random_trait] = replace_me
-### Add a trait to a Character add_trait = trait
+
+### Add a trait to a Character add_trait = trait
 alias[effect:add_trait] = replace_me
-### Changes the religion of the scoped character change_character_religion = rel:protestant
+
+### Changes the religion of the scoped character change_character_religion = rel:protestant
 alias[effect:change_character_religion] = replace_me
-### Frees a character from the void, if set to no character is deleted instead free_character_from_void = yes
+
+### Frees a character from the void, if set to no character is deleted instead free_character_from_void = yes
 alias[effect:free_character_from_void] = replace_me
-### Kill a character kill_character = bool
+
+### Kill a character kill_character = bool
 alias[effect:kill_character] = replace_me
-### Banishes a character to the void, duration is how long character is kept before being deleted place_character_in_void = months
+
+### Banishes a character to the void, duration is how long character is kept before being deleted place_character_in_void = months
 alias[effect:place_character_in_void] = replace_me
-### Removes a character from position as interest group leader remove_as_interest_group_leader = yes
+
+### Removes a character from position as interest group leader remove_as_interest_group_leader = yes
 alias[effect:remove_as_interest_group_leader] = replace_me
-### Remove a trait from a Character remove_trait = trait
+
+### Remove a trait from a Character remove_trait = trait
 alias[effect:remove_trait] = replace_me
-### Sets a character as interest group leader set_as_interest_group_leader = yes
+
+### Sets a character as interest group leader set_as_interest_group_leader = yes
 alias[effect:set_as_interest_group_leader] = replace_me
-### Mark a character as busy or clear said mark set_character_busy = bool
+
+### Mark a character as busy or clear said mark set_character_busy = bool
 alias[effect:set_character_busy] = replace_me
-### Promotes/demotes a character to a given military rank value set_commander_rank = 3
+
+### Promotes/demotes a character to a given military rank value set_commander_rank = 3
 alias[effect:set_commander_rank] = replace_me
-### Changes scoped character's ideology set_ideology = x
+
+### Changes scoped character's ideology set_ideology = x
 alias[effect:set_ideology] = replace_me
-### Transfers a Character to Country
+
+### Transfers a Character to Country
 alias[effect:transfer_character] = replace_me
-### Adds a timed modifier effect to object in scope
+
+### Adds a timed modifier effect to object in scope
 alias[effect:add_modifier] = replace_me
-### Removes a timed modifier effect to object in scope
+
+### Removes a timed modifier effect to object in scope
 alias[effect:remove_modifier] = replace_me
-### Removes interest group from revolution abandon_revolution = yes/no
+
+### Removes interest group from revolution abandon_revolution = yes/no
 alias[effect:abandon_revolution] = replace_me
-### Adds an ideology to scoped interest group add_ideology = x
+
+### Adds an ideology to scoped interest group add_ideology = x
 alias[effect:add_ideology] = replace_me
-### Adds interest group to government add_ruling_interest_group = yes/no
+
+### Adds interest group to government add_ruling_interest_group = yes/no
 alias[effect:add_ruling_interest_group] = replace_me
-### Adds interest group to ongoing revolution join_revolution = yes/no
+
+### Adds interest group to ongoing revolution join_revolution = yes/no
 alias[effect:join_revolution] = replace_me
-### Removes an ideology from scoped interest group remove_ideology = x
+
+### Removes an ideology from scoped interest group remove_ideology = x
 alias[effect:remove_ideology] = replace_me
-### Removes interest group in scope from government remove_ruling_interest_group = yes/no
+
+### Removes interest group in scope from government remove_ruling_interest_group = yes/no
 alias[effect:remove_ruling_interest_group] = replace_me
-### Starts/stops bolstering the interest group in scope set_ig_bolstering = yes/no
+
+### Starts/stops bolstering the interest group in scope set_ig_bolstering = yes/no
 alias[effect:set_ig_bolstering] = replace_me
-### Starts/stops suppressing the interest group in scope set_ig_suppression = yes/no
+
+### Starts/stops suppressing the interest group in scope set_ig_suppression = yes/no
 alias[effect:set_ig_suppression] = replace_me
-### Renames interest group to the specified loc key set_interest_group_name = x
+
+### Renames interest group to the specified loc key set_interest_group_name = x
 alias[effect:set_interest_group_name] = replace_me
-### Lock a trade route for a set amount of time, preventing it from being cancelled manually lock_trade_route = { 	years = 5 }
+
+### Lock a trade route for a set amount of time, preventing it from being cancelled manually lock_trade_route = { 	years = 5 }
 alias[effect:lock_trade_route] = replace_me
-### Adds momentum to a Party during a campaign perioddd_momentum = value
+
+### Adds momentum to a Party during a campaign period dd_momentum = value
 alias[effect:add_momentum] = replace_me
-### Adds a journal entry to a scoped country's journal, with optional saved scope target add_journal_entry = { type = <key> target = <scope> }
+
+### Adds a journal entry to a scoped country's journal, with optional saved scope target add_journal_entry = { type = <key> target = <scope> }
 alias[effect:add_journal_entry] = replace_me
-### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
+
+### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[effect:add_to_global_variable_list] = replace_me
-### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the (unbroken) event chain add_to_list = <string> NOTE, if adding a permanent target to a temporary list, the whole list becomes permanent
+
+### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the (unbroken) event chain add_to_list = <string> NOTE, if adding a permanent target to a temporary list, the whole list becomes permanent
 alias[effect:add_to_list] = replace_me
-### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
+
+### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[effect:add_to_local_variable_list] = replace_me
-### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the same effect add_to_temporary_list = <string> NOTE, if adding a temporary target to a permanent list, the list will stay permanent
+
+### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the same effect add_to_temporary_list = <string> NOTE, if adding a temporary target to a permanent list, the list will stay permanent
 alias[effect:add_to_temporary_list] = replace_me
-### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
+
+### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[effect:add_to_variable_list] = replace_me
-### Conditionally cause an assert during run time assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
+
+### Conditionally cause an assert during run time assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
 alias[effect:assert_if] = replace_me
-### Conditionally cause an assert during read time assert_read = X, where X is yes or the string to be printed in the assert
+
+### Conditionally cause an assert during read time assert_read = X, where X is yes or the string to be printed in the assert
 alias[effect:assert_read] = replace_me
-### Changes the value or a numeric variable change_variable = { name = X operation = Y } Where X is the name of the numeric variable to modify Where the valid operations are add, subtract, multiply, divide and modulo Where Y is a fixed point value, script value or event target of a value type
+
+### Changes the value or a numeric variable change_variable = { name = X operation = Y } Where X is the name of the numeric variable to modify Where the valid operations are add, subtract, multiply, divide and modulo Where Y is a fixed point value, script value or event target of a value type
 alias[effect:change_global_variable] = replace_me
-### Change infamy of scope country change_infamy = amount
+
+### Change infamy of scope country change_infamy = amount
 alias[effect:change_infamy] = replace_me
-### Changes the value or a numeric variable change_variable = { name = X operation = Y } Where X is the name of the numeric variable to modify Where the valid operations are add, subtract, multiply, divide and modulo Where Y is a fixed point value, script value or event target of a value type
+
+### Changes the value or a numeric variable change_variable = { name = X operation = Y } Where X is the name of the numeric variable to modify Where the valid operations are add, subtract, multiply, divide and modulo Where Y is a fixed point value, script value or event target of a value type
 alias[effect:change_local_variable] = replace_me
-### Changes the value or a numeric variable change_variable = { name = X operation = Y } Where X is the name of the numeric variable to modify Where the valid operations are add, subtract, multiply, divide and modulo Where Y is a fixed point value, script value or event target of a value type
+
+### Changes the value or a numeric variable change_variable = { name = X operation = Y } Where X is the name of the numeric variable to modify Where the valid operations are add, subtract, multiply, divide and modulo Where Y is a fixed point value, script value or event target of a value type
 alias[effect:change_variable] = replace_me
-### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
+
+### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
 alias[effect:clamp_global_variable] = replace_me
-### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
+
+### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
 alias[effect:clamp_local_variable] = replace_me
-### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
+
+### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
 alias[effect:clamp_variable] = replace_me
-### Empties the list clear_variable_list = variable_name
+
+### Empties the list clear_variable_list = variable_name
 alias[effect:clear_global_variable_list] = replace_me
-### Empties the list clear_variable_list = variable_name
+
+### Empties the list clear_variable_list = variable_name
 alias[effect:clear_local_variable_list] = replace_me
-### Clears a saved scope from the top scope save_scope_as = cool_scope -> clear_saved_scope = cool_scope
+
+### Clears a saved scope from the top scope save_scope_as = cool_scope -> clear_saved_scope = cool_scope
 alias[effect:clear_saved_scope] = replace_me
-### Empties the list clear_variable_list = variable_name
+
+### Empties the list clear_variable_list = variable_name
 alias[effect:clear_variable_list] = replace_me
-### Creates a new country create_country = { 	tag = TAG			# optional, if not specified origin's tag will be used 	origin = country	# optional, newly created country will inherit certain values from the origin country 	                    # at least one of tag or origin must be supplied 	state = state		# can be repeated; at least one state or province must be supplied 	province = province	# can be repeated; at least one state or province must be supplied 						# both states and provinces can be supplied at the same time 	on_created = effect	# optional effect that will be run with the newly created country in scope }
+
+### Creates a new country create_country = { 	tag = TAG			# optional, if not specified origin's tag will be used 	origin = country	# optional, newly created country will inherit certain values from the origin country 	                    # at least one of tag or origin must be supplied 	state = state		# can be repeated; at least one state or province must be supplied 	province = province	# can be repeated; at least one state or province must be supplied 						# both states and provinces can be supplied at the same time 	on_created = effect	# optional effect that will be run with the newly created country in scope }
 alias[effect:create_country] = replace_me
-### Wraps effects that get a custom description instead of the auto-generated one custom_description = { 	text = <effect_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... effects ... }
+
+### Wraps effects that get a custom description instead of the auto-generated one custom_description = { 	text = <effect_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... effects ... }
 alias[effect:custom_description] = replace_me
-### Wraps effects that get a custom description instead of the auto-generated one. Also ensures no bullet point appears custom_description_no_bullet = { 	text = <effect_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... effects ... }
+
+### Wraps effects that get a custom description instead of the auto-generated one. Also ensures no bullet point appears custom_description_no_bullet = { 	text = <effect_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... effects ... }
 alias[effect:custom_description_no_bullet] = replace_me
-### just a tooltip, the scope as object (for grouping, localization). Can also be written as custom_label = { text = key subject = scope (optional) <hidden effects> }
+
+### just a tooltip, the scope as object (for grouping, localization). Can also be written as custom_label = { text = key subject = scope (optional) <hidden effects> }
 alias[effect:custom_label] = replace_me
-### just a tooltip, the scope as subject (for grouping, localization). Can also be written as custom_tooltip = { text = key subject = scope (optional) <hidden effects> }
+
+### just a tooltip, the scope as subject (for grouping, localization). Can also be written as custom_tooltip = { text = key subject = scope (optional) <hidden effects> }
 alias[effect:custom_tooltip] = replace_me
-### Log a string to the debug log when this effect executes, debug_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
+
+### Log a string to the debug log when this effect executes, debug_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
 alias[effect:debug_log] = replace_me
-### Log the current scope to the debug log when this effect executes yes = full scope info, no=only current scope
+
+### Log the current scope to the debug log when this effect executes yes = full scope info, no=only current scope
 alias[effect:debug_log_scopes] = replace_me
-### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met if = { limit = { <triggers> } <effects> } else = { <effects> }
+
+### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met if = { limit = { <triggers> } <effects> } else = { <effects> }
 alias[effect:else] = replace_me
-### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met, and its own limit is met if = { limit = { <triggers> } <effects> } else_if = { limit = { <triggers> } <effects> }
+
+### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met, and its own limit is met if = { limit = { <triggers> } <effects> } else_if = { limit = { <triggers> } <effects> }
 alias[effect:else_if] = replace_me
-### Effect not shown in tooltips
+
+### Effect not shown in tooltips
 alias[effect:hidden_effect] = replace_me
-### Executes enclosed effects if limit criteria are met if = { limit = { <triggers> } <effects> }
+
+### Executes enclosed effects if limit criteria are met if = { limit = { <triggers> } <effects> }
 alias[effect:if] = replace_me
-### Posts notification
+
+### Posts notification
 alias[effect:post_notification] = replace_me
-### Posts proposal
+
+### Posts proposal
 alias[effect:post_proposal] = replace_me
-### a random effect, random = { chance = X modifier = Y effects... } where X is a chance of the enclosed effects being fired and can be modified by optional value modifier list (AKA MTTH) Y
+
+### a random effect, random = { chance = X modifier = Y effects... } where X is a chance of the enclosed effects being fired and can be modified by optional value modifier list (AKA MTTH) Y
 alias[effect:random] = replace_me
-### Removes the current scope from a named list remove_from_list = <string>
+
+### Removes the current scope from a named list remove_from_list = <string>
 alias[effect:remove_from_list] = replace_me
-### Removes a variable remove_variable = variable_name
+
+### Removes a variable remove_variable = variable_name
 alias[effect:remove_global_variable] = replace_me
-### Removes the target from a variable list remove_list_variable = { name = X target = Y } Where X is the name of the variable Where Y is an event target
+
+### Removes the target from a variable list remove_list_variable = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[effect:remove_list_global_variable] = replace_me
-### Removes the target from a variable list remove_list_variable = { name = X target = Y } Where X is the name of the variable Where Y is an event target
+
+### Removes the target from a variable list remove_list_variable = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[effect:remove_list_local_variable] = replace_me
-### Removes the target from a variable list remove_list_variable = { name = X target = Y } Where X is the name of the variable Where Y is an event target
+
+### Removes the target from a variable list remove_list_variable = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[effect:remove_list_variable] = replace_me
-### Removes a variable remove_variable = variable_name
+
+### Removes a variable remove_variable = variable_name
 alias[effect:remove_local_variable] = replace_me
-### Removes a variable remove_variable = variable_name
+
+### Removes a variable remove_variable = variable_name
 alias[effect:remove_variable] = replace_me
-### Rounds a variable to the nearest specified value clamp_variable = { name = X nearest = Y } Where X is the name of the variable Where Y is a script value
+
+### Rounds a variable to the nearest specified value clamp_variable = { name = X nearest = Y } Where X is the name of the variable Where Y is a script value
 alias[effect:round_global_variable] = replace_me
-### Rounds a variable to the nearest specified value clamp_variable = { name = X nearest = Y } Where X is the name of the variable Where Y is a script value
+
+### Rounds a variable to the nearest specified value clamp_variable = { name = X nearest = Y } Where X is the name of the variable Where Y is a script value
 alias[effect:round_local_variable] = replace_me
-### Rounds a variable to the nearest specified value clamp_variable = { name = X nearest = Y } Where X is the name of the variable Where Y is a script value
+
+### Rounds a variable to the nearest specified value clamp_variable = { name = X nearest = Y } Where X is the name of the variable Where Y is a script value
 alias[effect:round_variable] = replace_me
-### Saves the current scope as an arbitrarily-named target to be referenced later in the (unbroken) event chain save_event_target_as = <string>
+
+### Saves the current scope as an arbitrarily-named target to be referenced later in the (unbroken) event chain save_event_target_as = <string>
 alias[effect:save_scope_as] = replace_me
-### Saves a numerical or bool value as an arbitrarily-named target to be referenced later in the (unbroken) event chain save_scope_value_as = { name = <string> value = x }
+
+### Saves a numerical or bool value as an arbitrarily-named target to be referenced later in the (unbroken) event chain save_scope_value_as = { name = <string> value = x }
 alias[effect:save_scope_value_as] = replace_me
-### Saves the current scope as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_event_target_as = <string>
+
+### Saves the current scope as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_event_target_as = <string>
 alias[effect:save_temporary_scope_as] = replace_me
-### Saves a numerical or bool value as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_scope_value_as = { name = <string> value = x }
+
+### Saves a numerical or bool value as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_scope_value_as = { name = <string> value = x }
 alias[effect:save_temporary_scope_value_as] = replace_me
-### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope Can also be used as set_variable = X (equivalent to set_variable = { name = X value = yes })
+
+### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope Can also be used as set_variable = X (equivalent to set_variable = { name = X value = yes })
 alias[effect:set_global_variable] = replace_me
-### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope Can also be used as set_variable = X (equivalent to set_variable = { name = X value = yes })
+
+### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope Can also be used as set_variable = X (equivalent to set_variable = { name = X value = yes })
 alias[effect:set_local_variable] = replace_me
-### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope Can also be used as set_variable = X (equivalent to set_variable = { name = X value = yes })
+
+### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope Can also be used as set_variable = X (equivalent to set_variable = { name = X value = yes })
 alias[effect:set_variable] = replace_me
-### Effect only shown in tooltips (but not executed)
+
+### Effect only shown in tooltips (but not executed)
 alias[effect:show_as_tooltip] = replace_me
-### Starts the tutorial lesson with the given key. Does nothing if the tutorial is not running, the lesson is completed (or already running), or the lesson cannot be triggered (e.g. trigger fails)
+
+### Starts the tutorial lesson with the given key. Does nothing if the tutorial is not running, the lesson is completed (or already running), or the lesson cannot be triggered (e.g. trigger fails)
 alias[effect:start_tutorial_lesson] = replace_me
-### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger. switch = { 	trigger = simple_assign_trigger 	case_1 = { <effects> } 	case_2 = { <effects> } 	case_n = { <effects> } 	fallback = { <effects> }
+
+### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger. switch = { 	trigger = simple_assign_trigger 	case_1 = { <effects> } 	case_2 = { <effects> } 	case_n = { <effects> } 	fallback = { <effects> }
 alias[effect:switch] = replace_me
-### Triggers an event for the current scope trigger_event = X trigger_event = { id = X days/weeks/months/years = Y } Where X is an event ID and Y is an integer to delay the event by
+
+### Triggers an event for the current scope trigger_event = X trigger_event = { id = X days/weeks/months/years = Y } Where X is an event ID and Y is an integer to delay the event by
 alias[effect:trigger_event] = replace_me
-### Repeats enclosed effects while limit criteria are met or until set iteration count is reached while = { limit = { <triggers> } <effects> }  while = { count = 3 <effects> } Default max of 1000.
+
+### Repeats enclosed effects while limit criteria are met or until set iteration count is reached while = { limit = { <triggers> } <effects> }  while = { count = 3 <effects> } Default max of 1000.
 alias[effect:while] = replace_me
-### Activate a building in a state activate_building = { building = building_key }
+
+### Activate a building in a state activate_building = { building = building_key }
 alias[effect:activate_building] = replace_me
-### Apply a standard of living modifier in the scoped state for the given culture. Other than the required culture argument, this effect has the same syntax as add_modifier.
+
+### Apply a standard of living modifier in the scoped state for the given culture. Other than the required culture argument, this effect has the same syntax as add_modifier.
 alias[effect:add_culture_standard_of_living_modifier] = replace_me
-### Apply a standard of living modifier in the scoped state for the given religion. Other than the required religion argument, this effect has the same syntax as add_modifier.
+
+### Apply a standard of living modifier in the scoped state for the given religion. Other than the required religion argument, this effect has the same syntax as add_modifier.
 alias[effect:add_religion_standard_of_living_modifier] = replace_me
-### Changes X% of the different religion population to the specified religion. convert_population = { target = rel:catholic value = 0.5 }
+
+### Changes X% of the different religion population to the specified religion. convert_population = { target = rel:catholic value = 0.5 }
 alias[effect:convert_population] = replace_me
-### Creates a building in the scoped state. Supported values are: 	building = <building> 	activate_production_methods = { <production_methods> } 	subsidized = yes/no 	reserves = [0..1] (percentage of cash reserves the building should be created with) 	level = arable_land/integer  If level is "arable_land", the building will be of the necessary level to exhaust all available arable land in the state. If level is "urbanization", the building will be of the necessary level to exhaust all available urbanzation in the state. If level is an integer, the building will be of that level  Please note: this effect works a little differently if there already is a building of the specified type in the state. If that happens: 	1. the level will be the maximum between the scripted level and the level of the existing building 	2. the cash reserves will be the maximum between the scripted value and the existing cash reserves
+
+### Creates a building in the scoped state. Supported values are: 	building = <building> 	activate_production_methods = { <production_methods> } 	subsidized = yes/no 	reserves = [0..1] (percentage of cash reserves the building should be created with) 	level = arable_land/integer  If level is "arable_land", the building will be of the necessary level to exhaust all available arable land in the state. If level is "urbanization", the building will be of the necessary level to exhaust all available urbanzation in the state. If level is an integer, the building will be of that level  Please note: this effect works a little differently if there already is a building of the specified type in the state. If that happens: 	1. the level will be the maximum between the scripted level and the level of the existing building 	2. the cash reserves will be the maximum between the scripted value and the existing cash reserves
 alias[effect:create_building] = replace_me
-### Creates a pop in the scoped state
+
+### Creates a pop in the scoped state
 alias[effect:create_pop] = replace_me
-### Deactivate a building in a state deactivate_building = { building = building_key }
+
+### Deactivate a building in a state deactivate_building = { building = building_key }
 alias[effect:deactivate_building] = replace_me
-### Forces a resource depletion in state force_resource_depletion = bg_gold_mining
+
+### Forces a resource depletion in state force_resource_depletion = bg_gold_mining
 alias[effect:force_resource_depletion] = replace_me
-### Forces a resource discovery in state force_resource_discovery = bg_gold_mining
+
+### Forces a resource discovery in state force_resource_discovery = bg_gold_mining
 alias[effect:force_resource_discovery] = replace_me
-### Remove a building in the scope state remove_building = building_key
+
+### Remove a building in the scope state remove_building = building_key
 alias[effect:remove_building] = replace_me
-### Set State Owner set_state_owner = scope
+
+### Set State Owner set_state_owner = scope
 alias[effect:set_state_owner] = replace_me
-### Sets a state to a certain type (incorporated, unincorporated, treaty_port)
+
+### Sets a state to a certain type (incorporated, unincorporated, treaty_port)
 alias[effect:set_state_type] = replace_me
-### Start constructing a building in a scoped state start_building_construction = building_barracks
+
+### Start constructing a building in a scoped state start_building_construction = building_barracks
 alias[effect:start_building_construction] = replace_me
-### Add/remove arable land from a state region
+
+### Add/remove arable land from a state region
 alias[effect:add_arable_land] = replace_me
-### Adds scoped state region as a claim for target country add_claim = scope/country
+
+### Adds scoped state region as a claim for target country add_claim = scope/country
 alias[effect:add_claim] = replace_me
-### Add/remove devastation from a state region
+
+### Add/remove devastation from a state region
 alias[effect:add_devastation] = replace_me
-### Adds scoped state region as Homeland for target culture add_homeland = scope/culture
+
+### Adds scoped state region as Homeland for target culture add_homeland = scope/culture
 alias[effect:add_homeland] = replace_me
-### Increase/decrease pollution level in a scoped state region add_pollution = 10
+
+### Increase/decrease pollution level in a scoped state region add_pollution = 10
 alias[effect:add_pollution] = replace_me
-### creates a state in a state region
+
+### creates a state in a state region
 alias[effect:create_state] = replace_me
-### Removes scoped state region as a claim for target country add_claim = scope/country
+
+### Removes scoped state region as a claim for target country add_claim = scope/country
 alias[effect:remove_claim] = replace_me
-### Removes scoped state region as Homeland for target culture add_homeland = scope/culture
+
+### Removes scoped state region as Homeland for target culture add_homeland = scope/culture
 alias[effect:remove_homeland] = replace_me
-### Set devastation to a state region
+
+### Set devastation to a state region
 alias[effect:set_devastation] = replace_me
-### Gives a set of provinces in a state region to a specific country set_owner_of_provinces = { country = <scope> provinces = {} }
+
+### Gives a set of provinces in a state region to a specific country set_owner_of_provinces = { country = <scope> provinces = {} }
 alias[effect:set_owner_of_provinces] = replace_me
-### Sets a (new) target technology scope for a journal entry set_target_technology = <scope>
+
+### Sets a (new) target technology scope for a journal entry set_target_technology = <scope>
 alias[effect:set_target_technology] = replace_me
-### Activates a law for a country
+
+### Activates a law for a country
 alias[effect:activate_law] = replace_me
-### Adds a total ban of a good to a country add_banned_goods = <goods key/scope>
+
+### Adds a total ban of a good to a country add_banned_goods = <goods key/scope>
 alias[effect:add_banned_goods] = replace_me
-### Add progress towards changing relations between two countries add_change_relations_progress = { 	tcountry = country scope/tag 	value = amount }
+
+### Add progress towards changing relations between two countries add_change_relations_progress = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:add_change_relations_progress] = replace_me
-### Will create a declared interest in the target strategic region c:FRA = { add_declared_interest = region_nile_basin }
+
+### Will create a declared interest in the target strategic region c:FRA = { add_declared_interest = region_nile_basin }
 alias[effect:add_declared_interest] = replace_me
-### Adds an enactment-related timed modifier effect to object in scope
+
+### Adds an enactment-related timed modifier effect to object in scope
 alias[effect:add_enactment_modifier] = replace_me
-### Add specified era as researched in a country scope add_era_researched = era
+
+### Add specified era as researched in a country scope add_era_researched = era
 alias[effect:add_era_researched] = replace_me
-### Directly adds money to the investment pool add_investment_pool = 50
+
+### Directly adds money to the investment pool add_investment_pool = 50
 alias[effect:add_investment_pool] = replace_me
-### Adds x% progress to the current checkpoint of the law being passed (range is [0, 1], 0.1 means 10 percentage points) add_law_progress = 0.1 / -0.1
+
+### Adds x% progress to the current checkpoint of the law being passed (range is [0, 1], 0.1 means 10 percentage points) add_law_progress = 0.1 / -0.1
 alias[effect:add_law_progress] = replace_me
-### Adds a culture to the primary cultures of a country add_primary_culture = X Where X is a culture scope
+
+### Adds a culture to the primary cultures of a country add_primary_culture = X Where X is a culture scope
 alias[effect:add_primary_culture] = replace_me
-### Adds consumption taxes on a good to a country add_taxed_goods = <goods key/scope>
+
+### Adds consumption taxes on a good to a country add_taxed_goods = <goods key/scope>
 alias[effect:add_taxed_goods] = replace_me
-### Add technology progress add_technology_progress = { progress = X technology = Y } Where X is a fixed point and Y is an technology
+
+### Add technology progress add_technology_progress = { progress = X technology = Y } Where X is a fixed point and Y is an technology
 alias[effect:add_technology_progress] = replace_me
-### Research the specified technology in a country scope add_technology_researched = technology
+
+### Research the specified technology in a country scope add_technology_researched = technology
 alias[effect:add_technology_researched] = replace_me
-### Add/remove money from a country add_treasury = fixed point
+
+### Add/remove money from a country add_treasury = fixed point
 alias[effect:add_treasury] = replace_me
-### Annexes a country annex = scope
+
+### Annexes a country annex = scope
 alias[effect:annex] = replace_me
-### Sets the next election date for country in N months call_election = { 	months = 6 }
+
+### Sets the next election date for country in N months call_election = { 	months = 6 }
 alias[effect:call_election] = replace_me
-### Add/remove the investment level for the institution change_institution_investment_level = {  	institution = institution_police 	investment = -1 }
+
+### Add/remove the investment level for the institution change_institution_investment_level = {  	institution = institution_police 	investment = -1 }
 alias[effect:change_institution_investment_level] = replace_me
-### Change relations between two countries change_relations = { 	tcountry = country scope/tag 	value = amount }
+
+### Change relations between two countries change_relations = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:change_relations] = replace_me
-### Will change the subject type of the country that is the current scope. change_subject_type = subject_type_dominion
+
+### Will change the subject type of the country that is the current scope. change_subject_type = subject_type_dominion
 alias[effect:change_subject_type] = replace_me
-### Change the tag for the scoped country c:GBR = { change_tag = FRA }
+
+### Change the tag for the scoped country c:GBR = { change_tag = FRA }
 alias[effect:change_tag] = replace_me
-### Change tension between two countries change_tension = { 	tcountry = country scope/tag 	value = amount }
+
+### Change tension between two countries change_tension = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:change_tension] = replace_me
-### Clear country loans = bool
+
+### Clear country loans = bool
 alias[effect:clear_debt] = replace_me
-### Clears an amount of debt equal to the defined multiplier on target's max credit clear_scaled_debt = value
+
+### Clears an amount of debt equal to the defined multiplier on target's max credit clear_scaled_debt = value
 alias[effect:clear_scaled_debt] = replace_me
-### Completes an objective subgoal complete_objective_subgoal = <key>
+
+### Completes an objective subgoal complete_objective_subgoal = <key>
 alias[effect:complete_objective_subgoal] = replace_me
-### Creates a character, any option can be omitted. create_character = { 	name = loc_key or alternatively first_name and last_name separately 	culture = culture_tag 	religion = religion scope (if omitted, it's defined by the character's culture religion) 	female = bool or character scope (gets the same value from the character) 	noble = bool or character scope (gets the same value from the character) 	ruler = bool or character scope (gets the same value from the character) 	heir = bool 	age = integer, range, or character scope (gets the age from a character) 	ideology = ideology key or scope 	interest_group = interest group key or scope 	on_created = effect	trait_generation = effect	role = character scope (gets the role from a character) 	hq = HQ scope or strategic region scope }
+
+### Creates a character, any option can be omitted. create_character = { 	name = loc_key or alternatively first_name and last_name separately 	culture = culture_tag 	religion = religion scope (if omitted, it's defined by the character's culture religion) 	female = bool or character scope (gets the same value from the character) 	noble = bool or character scope (gets the same value from the character) 	ruler = bool or character scope (gets the same value from the character) 	heir = bool 	age = integer, range, or character scope (gets the age from a character) 	ideology = ideology key or scope 	interest_group = interest group key or scope 	on_created = effect	trait_generation = effect	role = character scope (gets the role from a character) 	hq = HQ scope or strategic region scope }
 alias[effect:create_character] = replace_me
-### Create a diplomatic pact between two countries, with scope country as initiator create_diplomatic_pact = { 	tcountry = country scope/tag 	type = diplomatic action type }
+
+### Create a diplomatic pact between two countries, with scope country as initiator create_diplomatic_pact = { 	tcountry = country scope/tag 	type = diplomatic action type }
 alias[effect:create_diplomatic_pact] = replace_me
-### Create a diplomatic play with the scoped object as target create_diplomatic_play = { 	name = loc_key 	escalation = integer between 0 and 100 	war = bool 	initiator = country scope/tag 	type = diplomatic play type 	add_initiator_backers = { list of country scopes/tags } 	add_target_backers = { list of country scopes/tags } 	add_war_goal = { holder = country scope/tag, type = x, state = <state target>, country = <country target,> region = <region target>  } }
+
+### Create a diplomatic play with the scoped object as target create_diplomatic_play = { 	name = loc_key 	escalation = integer between 0 and 100 	war = bool 	initiator = country scope/tag 	type = diplomatic play type 	add_initiator_backers = { list of country scopes/tags } 	add_target_backers = { list of country scopes/tags } 	add_war_goal = { holder = country scope/tag, type = x, state = <state target>, country = <country target,> region = <region target>  } }
 alias[effect:create_diplomatic_play] = replace_me
-### Creates a diplomatic incident that generates infamy, with target country as the victim create_incident = { 	tcountry = country scope/tag 	value = infamy amount }
+
+### Creates a diplomatic incident that generates infamy, with target country as the victim create_incident = { 	tcountry = country scope/tag 	value = infamy amount }
 alias[effect:create_incident] = replace_me
-### Creates a new Trade Route trade_route = { 	goods = x 	level = x 	import = yes/no 	origin = state_region 	target = state_region }
+
+### Creates a new Trade Route trade_route = { 	goods = x 	level = x 	import = yes/no 	origin = state_region 	target = state_region }
 alias[effect:create_trade_route] = replace_me
-### Create a truce betweeen two countries create_truce = { 	tcountry = country scope/tag 	months = integer }
+
+### Create a truce betweeen two countries create_truce = { 	tcountry = country scope/tag 	months = integer }
 alias[effect:create_truce] = replace_me
-### Deactivates a law for a country
+
+### Deactivates a law for a country
 alias[effect:deactivate_law] = replace_me
-### Deactivates parties in scoped country. deactivate_parties = yes
+
+### Deactivates parties in scoped country. deactivate_parties = yes
 alias[effect:deactivate_parties] = replace_me
-### Ends a truce betweeen two countries end_truce = { 	tcountry = country scope/tag 	months = integer }
+
+### Ends a truce betweeen two countries end_truce = { 	tcountry = country scope/tag 	months = integer }
 alias[effect:end_truce] = replace_me
-### Makes a country independent. make_independent = bool
+
+### Makes a country independent. make_independent = bool
 alias[effect:make_independent] = replace_me
-### Change which country scoped country's player will play as play_as = <scope>
+
+### Change which country scoped country's player will play as play_as = <scope>
 alias[effect:play_as] = replace_me
-### Recalculates and updates a country's pop IG memberships = bool
+
+### Recalculates and updates a country's pop IG memberships = bool
 alias[effect:recalculate_pop_ig_support] = replace_me
-### Removes an active objective subgoal remove_active_objective_subgoal = <key>
+
+### Removes an active objective subgoal remove_active_objective_subgoal = <key>
 alias[effect:remove_active_objective_subgoal] = replace_me
-### Removes a total ban of a good from a country remove_banned_goods = <goods key/scope>
+
+### Removes a total ban of a good from a country remove_banned_goods = <goods key/scope>
 alias[effect:remove_banned_goods] = replace_me
-### Removes a diplomatic pact between two countries, with scope country as initiator remove_diplomatic_pact = { 	country = country scope/tag 	type = diplomatic action type }
+
+### Removes a diplomatic pact between two countries, with scope country as initiator remove_diplomatic_pact = { 	country = country scope/tag 	type = diplomatic action type }
 alias[effect:remove_diplomatic_pact] = replace_me
-### Removes an enactment-related timed modifier effect to object in scope
+
+### Removes an enactment-related timed modifier effect to object in scope
 alias[effect:remove_enactment_modifier] = replace_me
-### Removes a culture from the primary cultures of a country remove_primary_culture = X Where X is a culture scope
+
+### Removes a culture from the primary cultures of a country remove_primary_culture = X Where X is a culture scope
 alias[effect:remove_primary_culture] = replace_me
-### Removes consumption taxes on a good from a country remove_taxed_goods = <goods key/scope>
+
+### Removes consumption taxes on a good from a country remove_taxed_goods = <goods key/scope>
 alias[effect:remove_taxed_goods] = replace_me
-### Set capital state in a country scope set_capital = X Where X is a state region
+
+### Set capital state in a country scope set_capital = X Where X is a state region
 alias[effect:set_capital] = replace_me
-### Sets the type of country for a country, for history
+
+### Sets the type of country for a country, for history
 alias[effect:set_country_type] = replace_me
-### Set diplomats expelled = bool
+
+### Set diplomats expelled = bool
 alias[effect:set_diplomats_expelled] = replace_me
-### Sets the government wage level of scoped country set_government_wage_level = very_low/low/medium/high/very_high
+
+### Sets the government wage level of scoped country set_government_wage_level = very_low/low/medium/high/very_high
 alias[effect:set_government_wage_level] = replace_me
-### Sets the investment level for an institution set_institution_investment_level = { institution = <key> level = x }
+
+### Sets the investment level for an institution set_institution_investment_level = { institution = <key> level = x }
 alias[effect:set_institution_investment_level] = replace_me
-### Set market capital in a country scope set_market_capital = X Where X is a state region
+
+### Set market capital in a country scope set_market_capital = X Where X is a state region
 alias[effect:set_market_capital] = replace_me
-### Sets the military wage level of scoped country set_military_wage_level = very_low/low/medium/high/very_high
+
+### Sets the military wage level of scoped country set_military_wage_level = very_low/low/medium/high/very_high
 alias[effect:set_military_wage_level] = replace_me
-### Set mutual secret AI goal for scope country and target country set_mutual_secret_goal = { 	tcountry = country scope/tag 	secret_goal = secret goal type }
+
+### Set mutual secret AI goal for scope country and target country set_mutual_secret_goal = { 	tcountry = country scope/tag 	secret_goal = secret goal type }
 alias[effect:set_mutual_secret_goal] = replace_me
-### Set next election date for country set_next_election_date = year.month.day
+
+### Set next election date for country set_next_election_date = year.month.day
 alias[effect:set_next_election_date] = replace_me
-### Set whether a country owes another a obligation set_owes_obligation = { 	country = country scope/tag 	setting = yes/no }
+
+### Set whether a country owes another a obligation set_owes_obligation = { 	country = country scope/tag 	setting = yes/no }
 alias[effect:set_owes_obligation_to] = replace_me
-### Set relations between two countries set_relations = { 	tcountry = country scope/tag 	value = amount }
+
+### Set relations between two countries set_relations = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:set_relations] = replace_me
-### Creates a government for the country in scope from a set of interest groups set_ruling_interest_groups = { ig_tag1 ig_tag2 }
+
+### Creates a government for the country in scope from a set of interest groups set_ruling_interest_groups = { ig_tag1 ig_tag2 }
 alias[effect:set_ruling_interest_groups] = replace_me
-### Set a secret AI goal for scope country towards another country set_secret_goal = { 	tcountry = country scope/tag 	secret_goal = secret goal type }
+
+### Set a secret AI goal for scope country towards another country set_secret_goal = { 	tcountry = country scope/tag 	secret_goal = secret goal type }
 alias[effect:set_secret_goal] = replace_me
-### Changes the state religion of the country to the specified religion set_state_religion = X Where X is a religion scope
+
+### Changes the state religion of the country to the specified religion set_state_religion = X Where X is a religion scope
 alias[effect:set_state_religion] = replace_me
-### Set AI strategy for scope country set_strategy = <key>
+
+### Set AI strategy for scope country set_strategy = <key>
 alias[effect:set_strategy] = replace_me
-### Sets Export Prioritized tariffs for a good in scoped country set_tariffs_export_priority = <scope/key>
+
+### Sets Export Prioritized tariffs for a good in scoped country set_tariffs_export_priority = <scope/key>
 alias[effect:set_tariffs_export_priority] = replace_me
-### Sets Import Prioritized tariffs for a good in scoped country set_tariffs_import_priority = <scope/key>
+
+### Sets Import Prioritized tariffs for a good in scoped country set_tariffs_import_priority = <scope/key>
 alias[effect:set_tariffs_import_priority] = replace_me
-### Sets tariffs to have no import/export priority for a good in scoped country set_tariffs_no_priority = <scope/key>
+
+### Sets tariffs to have no import/export priority for a good in scoped country set_tariffs_no_priority = <scope/key>
 alias[effect:set_tariffs_no_priority] = replace_me
-### Sets the overall tax level of scoped country set_tax_level = very_low/low/medium/high/very_high
+
+### Sets the overall tax level of scoped country set_tax_level = very_low/low/medium/high/very_high
 alias[effect:set_tax_level] = replace_me
-### Set tension between two countries set_tension = { 	tcountry = country scope/tag 	value = amount }
+
+### Set tension between two countries set_tension = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:set_tension] = replace_me
-### Scoped country starts research of any random technology they can start_research_random_technology = yes
+
+### Scoped country starts research of any random technology they can start_research_random_technology = yes
 alias[effect:start_research_random_technology] = replace_me
-### Transfers an amount of debt equal to the defined multiplier on target's max credit take_on_scaled_debt = { 	who = <country> 	value = decimal value }
+
+### Transfers an amount of debt equal to the defined multiplier on target's max credit take_on_scaled_debt = { 	who = <country> 	value = decimal value }
 alias[effect:take_on_scaled_debt] = replace_me
-### Updates party support in scoped country. update_party_support = yes
+
+### Updates party support in scoped country. update_party_support = yes
 alias[effect:update_party_support] = replace_me
-### Validates subsidies across a country's buildings. validate_subsidies = bool
+
+### Validates subsidies across a country's buildings. validate_subsidies = bool
 alias[effect:validate_subsidies] = replace_me
-### Target joins scoped war violate_sovereignty_accept = <country>
+
+### Target joins scoped war violate_sovereignty_accept = <country>
 alias[effect:violate_sovereignty_join] = replace_me
-### Activates the named production method for buildings of a certain type in country/state
+
+### Activates the named production method for buildings of a certain type in country/state
 alias[effect:activate_production_method] = replace_me
-### Adds loyalists to pops in state or country, all parameters except value are optional add_loyalists = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
+
+### Adds loyalists to pops in state or country, all parameters except value are optional add_loyalists = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
 alias[effect:add_loyalists] = replace_me
-### Adds radicals to pops in state or country, all parameters except value are optional add_radicals = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
+
+### Adds radicals to pops in state or country, all parameters except value are optional add_radicals = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
 alias[effect:add_radicals] = replace_me
-### Adds the wealth of the pop add_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where the distribution adding to wealth of the pop
+
+### Adds the wealth of the pop add_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where the distribution adding to wealth of the pop
 alias[effect:add_pop_wealth] = replace_me
-### Changes the culture of the scoped pop to a specified culture by a specified percentage change_pop_culture = { target = cu:spanish value = 0.33 }
+
+### Changes the culture of the scoped pop to a specified culture by a specified percentage change_pop_culture = { target = cu:spanish value = 0.33 }
 alias[effect:change_pop_culture] = replace_me
-### Changes the religion of the scoped pop to a specified religion by a specified percentage change_pop_religion = { target = rel:catholic value = 0.5 }
+
+### Changes the religion of the scoped pop to a specified religion by a specified percentage change_pop_religion = { target = rel:catholic value = 0.5 }
 alias[effect:change_pop_religion] = replace_me
-### Changes the type of the pop to the given type
+
+### Changes the type of the pop to the given type
 alias[effect:change_poptype] = replace_me
-### Moves the scoped pop to the specified state (they become unemployed) move_pop = s:STATE_TUSCANY.region_state:TUS  NOTE: VERY IMPORTANT! This effect _may_ change the pop type of the moved pop. This will happen under the following conditions: 1. if the current pop type cannot be unemployed, the new pop type will be the default one 2.if the current pop type is a slave type and the target state does not allow slavery, the new pop type will be the default one
+
+### Moves the scoped pop to the specified state (they become unemployed) move_pop = s:STATE_TUSCANY.region_state:TUS  NOTE: VERY IMPORTANT! This effect _may_ change the pop type of the moved pop. This will happen under the following conditions: 1. if the current pop type cannot be unemployed, the new pop type will be the default one 2.if the current pop type is a slave type and the target state does not allow slavery, the new pop type will be the default one
 alias[effect:move_pop] = replace_me
-### Sets the literacy of the pop set_pop_literacy = { literacy_rate = {...} } Where the ratio is a script value computing the percentage of (workforce) pops that will be literate
+
+### Sets the literacy of the pop set_pop_literacy = { literacy_rate = {...} } Where the ratio is a script value computing the percentage of (workforce) pops that will be literate
 alias[effect:set_pop_literacy] = replace_me
-### Sets the pop qualifications of the pop for the given type set_pop_qualifications = { pop_type = {} qualifications = {...} } Where the qualifications is a script value computing the percentage of (workforce) pops that will have the qualifications
+
+### Sets the pop qualifications of the pop for the given type set_pop_qualifications = { pop_type = {} qualifications = {...} } Where the qualifications is a script value computing the percentage of (workforce) pops that will have the qualifications
 alias[effect:set_pop_qualifications] = replace_me
-### Sets the wealth of the pop set_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where wealth is a script values
+
+### Sets the wealth of the pop set_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where wealth is a script values
 alias[effect:set_pop_wealth] = replace_me
-### Adds war support to the target country in the scoped diplomatic play. The amount will appear under the 'situations' header in tooltips add_diplomatic_play_war_support = { target = country value = value }
+
+### Adds war support to the target country in the scoped diplomatic play. The amount will appear under the 'situations' header in tooltips add_diplomatic_play_war_support = { target = country value = value }
 alias[effect:add_diplomatic_play_war_support] = replace_me
-### Add escalation to a diplomatic play add_escalation = integer
+
+### Add escalation to a diplomatic play add_escalation = integer
 alias[effect:add_escalation] = replace_me
-### Add a tag/scope country to the initiator side of a diplomatic play add_initiator_backers = { list of scopes/tags }
+
+### Add a tag/scope country to the initiator side of a diplomatic play add_initiator_backers = { list of scopes/tags }
 alias[effect:add_initiator_backers] = replace_me
-### Add a tag/scope country to the target side of a diplomatic play add_target_backers = { list of scopes/tags }
+
+### Add a tag/scope country to the target side of a diplomatic play add_target_backers = { list of scopes/tags }
 alias[effect:add_target_backers] = replace_me
-### Adds a war goal to a DP. Same data read in as add_war_goal in create_diplomatic_play random_diplomatic_play = { add_war_goal = { holder = initiator type = secession }
+
+### Adds a war goal to a DP. Same data read in as add_war_goal in create_diplomatic_play random_diplomatic_play = { add_war_goal = { holder = initiator type = secession }
 alias[effect:add_war_goal] = replace_me
-### End a diplomatic play end_play = bool
+
+### End a diplomatic play end_play = bool
 alias[effect:end_play] = replace_me
-### Remove a tag/scope country from the initiator side of a diplomatic play remove_initiator_backers = { list of scopes/tags }
+
+### Remove a tag/scope country from the initiator side of a diplomatic play remove_initiator_backers = { list of scopes/tags }
 alias[effect:remove_initiator_backers] = replace_me
-### Remove a tag/scope country to the target side of a diplomatic play remove_target_backers = { list of scopes/tags }
+
+### Remove a tag/scope country to the target side of a diplomatic play remove_target_backers = { list of scopes/tags }
 alias[effect:remove_target_backers] = replace_me
-### Removes a war goal from a DP if there's at least one other war goal present. any_diplomatic_play = { limit = { has_war_goal = return_state } remove_war_goal = { who = initiator war_goal = return_state } }
+
+### Removes a war goal from a DP if there's at least one other war goal present. any_diplomatic_play = { limit = { has_war_goal = return_state } remove_war_goal = { who = initiator war_goal = return_state } }
 alias[effect:remove_war_goal] = replace_me
-### effect end diplo play for one side, with it gaining war goals resolve_play_for = initiator resolve_play_for = scope:custom_scoped_country
+
+### effect end diplo play for one side, with it gaining war goals resolve_play_for = initiator resolve_play_for = scope:custom_scoped_country
 alias[effect:resolve_play_for] = replace_me
-### Set name to a diplomatic play set_key = loc_key
+
+### Set name to a diplomatic play set_key = loc_key
 alias[effect:set_key] = replace_me
-### Set a diplomatic play to be a war set_war = bool
+
+### Set a diplomatic play to be a war set_war = bool
 alias[effect:set_war] = replace_me
-
+
