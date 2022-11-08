@@ -4,4 +4,16 @@ enums = {
         months
         years
     }
+
+    enum[character_role] = {
+        politician
+        general
+        admiral
+    }
+
+    enum[character_trait_type] = {
+        skill
+        personality
+        condition
+    }
 }

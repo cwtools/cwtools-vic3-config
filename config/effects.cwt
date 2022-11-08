@@ -1,68 +1,74 @@
 ### Sets whether a building is subsidized set_subsidized = yes/no
-alias[effect:set_subsidized] = replace_me
+alias[effect:set_subsidized] = bool
 
 ### Adds the specified number of percentage points to a civil war progress (range is [0, 1], 0.1 means 10 percentage points) add_civil_war_progress = 0.1 / -0.1
 alias[effect:add_civil_war_progress] = replace_me
 
 ### Adds war exhaustion to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_exhaustion = { target = country value = value }
-alias[effect:add_war_exhaustion] = replace_me
+alias[effect:add_war_exhaustion] = {
+    target = scope[country]
+    value = value_field
+}
 
 ### Adds war support to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_war_support = { target = country value = value }
-alias[effect:add_war_war_support] = replace_me
+alias[effect:add_war_war_support] = {
+    target = scope[country]
+    value = value_field
+}
 
 ### Adds a new obsession to the culture in scope add_cultural_obsession = X Where X is a goods
-alias[effect:add_cultural_obsession] = replace_me
+alias[effect:add_cultural_obsession] = <goods>
 
 ### Removes a new obsession to the culture in scope remove_cultural_obsession = X Where X is a goods
-alias[effect:remove_cultural_obsession] = replace_me
+alias[effect:remove_cultural_obsession] = <goods>
 
 ### Adds a new role to a character add_character_role = general
-alias[effect:add_character_role] = replace_me
+alias[effect:add_character_role] = enum[character_role]
 
 ### Promotes/demotes a character a given amount of military ranks
-alias[effect:add_commander_rank] = replace_me
+alias[effect:add_commander_rank] = int_value_field
 
 ### Adds an amount of experience to a commander add_experience = 0.2
-alias[effect:add_experience] = replace_me
+alias[effect:add_experience] = value_field
 
 ### Adds a random qualifying Trait of the specified category add_random_trait = personality / skill / condition
-alias[effect:add_random_trait] = replace_me
+alias[effect:add_random_trait] = enum[character_trait_type]
 
 ### Add a trait to a Character add_trait = trait
-alias[effect:add_trait] = replace_me
+alias[effect:add_trait] = <character_trait>
 
 ### Changes the religion of the scoped character change_character_religion = rel:protestant
-alias[effect:change_character_religion] = replace_me
+alias[effect:change_character_religion] = scope[religion]
 
 ### Frees a character from the void, if set to no character is deleted instead free_character_from_void = yes
-alias[effect:free_character_from_void] = replace_me
+alias[effect:free_character_from_void] = bool
 
 ### Kill a character kill_character = bool
-alias[effect:kill_character] = replace_me
+alias[effect:kill_character] = bool
 
 ### Banishes a character to the void, duration is how long character is kept before being deleted place_character_in_void = months
-alias[effect:place_character_in_void] = replace_me
+alias[effect:place_character_in_void] = int_value_field
 
 ### Removes a character from position as interest group leader remove_as_interest_group_leader = yes
-alias[effect:remove_as_interest_group_leader] = replace_me
+alias[effect:remove_as_interest_group_leader] = yes
 
 ### Remove a trait from a Character remove_trait = trait
-alias[effect:remove_trait] = replace_me
+alias[effect:remove_trait] = <character_trait>
 
 ### Sets a character as interest group leader set_as_interest_group_leader = yes
-alias[effect:set_as_interest_group_leader] = replace_me
+alias[effect:set_as_interest_group_leader] = yes
 
 ### Mark a character as busy or clear said mark set_character_busy = bool
-alias[effect:set_character_busy] = replace_me
+alias[effect:set_character_busy] = bool
 
 ### Promotes/demotes a character to a given military rank value set_commander_rank = 3
-alias[effect:set_commander_rank] = replace_me
+alias[effect:set_commander_rank] = int_value_field
 
 ### Changes scoped character's ideology set_ideology = x
-alias[effect:set_ideology] = replace_me
+alias[effect:set_ideology] = <ideology>
 
 ### Transfers a Character to Country
-alias[effect:transfer_character] = replace_me
+alias[effect:transfer_character] = scope[country]
 
 ### Adds a timed modifier effect to object in scope
 alias[effect:add_modifier] = {
@@ -75,37 +81,39 @@ alias[effect:add_modifier] = {
 alias[effect:remove_modifier] = <modifier_container>
 
 ### Removes interest group from revolution abandon_revolution = yes/no
-alias[effect:abandon_revolution] = replace_me
+alias[effect:abandon_revolution] = bool
 
 ### Adds an ideology to scoped interest group add_ideology = x
-alias[effect:add_ideology] = replace_me
+alias[effect:add_ideology] = <ideology>
 
 ### Adds interest group to government add_ruling_interest_group = yes/no
-alias[effect:add_ruling_interest_group] = replace_me
+alias[effect:add_ruling_interest_group] = bool
 
 ### Adds interest group to ongoing revolution join_revolution = yes/no
-alias[effect:join_revolution] = replace_me
+alias[effect:join_revolution] = bool
 
 ### Removes an ideology from scoped interest group remove_ideology = x
-alias[effect:remove_ideology] = replace_me
+alias[effect:remove_ideology] = <ideology>
 
 ### Removes interest group in scope from government remove_ruling_interest_group = yes/no
-alias[effect:remove_ruling_interest_group] = replace_me
+alias[effect:remove_ruling_interest_group] = bool
 
 ### Starts/stops bolstering the interest group in scope set_ig_bolstering = yes/no
-alias[effect:set_ig_bolstering] = replace_me
+alias[effect:set_ig_bolstering] = bool
 
 ### Starts/stops suppressing the interest group in scope set_ig_suppression = yes/no
-alias[effect:set_ig_suppression] = replace_me
+alias[effect:set_ig_suppression] = bool
 
 ### Renames interest group to the specified loc key set_interest_group_name = x
-alias[effect:set_interest_group_name] = replace_me
+alias[effect:set_interest_group_name] = localisation
 
 ### Lock a trade route for a set amount of time, preventing it from being cancelled manually lock_trade_route = { 	years = 5 }
-alias[effect:lock_trade_route] = replace_me
+alias[effect:lock_trade_route] = {
+    enum[duration] = int
+}
 
 ### Adds momentum to a Party during a campaign period dd_momentum = value
-alias[effect:add_momentum] = replace_me
+alias[effect:add_momentum] = value_field
 
 ### Adds a journal entry to a scoped country's journal, with optional saved scope target add_journal_entry = { type = <key> target = <scope> }
 alias[effect:add_journal_entry] = replace_me
@@ -751,32 +759,47 @@ alias[effect:add_diplomatic_play_war_support] = replace_me
 alias[effect:add_escalation] = replace_me
 
 ### Add a tag/scope country to the initiator side of a diplomatic play add_initiator_backers = { list of scopes/tags }
-alias[effect:add_initiator_backers] = replace_me
+alias[effect:add_initiator_backers] = {
+    ## cardinality = 1..inf
+    scope[country]
+}
 
 ### Add a tag/scope country to the target side of a diplomatic play add_target_backers = { list of scopes/tags }
-alias[effect:add_target_backers] = replace_me
+alias[effect:add_target_backers] = {
+    ## cardinality = 1..inf
+    scope[country]
+}
 
 ### Adds a war goal to a DP. Same data read in as add_war_goal in create_diplomatic_play random_diplomatic_play = { add_war_goal = { holder = initiator type = secession }
 alias[effect:add_war_goal] = replace_me
 
 ### End a diplomatic play end_play = bool
-alias[effect:end_play] = replace_me
+alias[effect:end_play] = bool
 
 ### Remove a tag/scope country from the initiator side of a diplomatic play remove_initiator_backers = { list of scopes/tags }
-alias[effect:remove_initiator_backers] = replace_me
+alias[effect:remove_initiator_backers] = {
+    ## cardinality = 1..inf
+    scope[country]
+}
 
 ### Remove a tag/scope country to the target side of a diplomatic play remove_target_backers = { list of scopes/tags }
-alias[effect:remove_target_backers] = replace_me
+alias[effect:remove_target_backers] = {
+    ## cardinality = 1..inf
+    scope[country]
+}
 
 ### Removes a war goal from a DP if there's at least one other war goal present. any_diplomatic_play = { limit = { has_war_goal = return_state } remove_war_goal = { who = initiator war_goal = return_state } }
-alias[effect:remove_war_goal] = replace_me
+alias[effect:remove_war_goal] = {
+    who = scope[country]
+    war_goal = <war_goal>
+}
 
 ### effect end diplo play for one side, with it gaining war goals resolve_play_for = initiator resolve_play_for = scope:custom_scoped_country
-alias[effect:resolve_play_for] = replace_me
+alias[effect:resolve_play_for] = scope[country]
 
 ### Set name to a diplomatic play set_key = loc_key
-alias[effect:set_key] = replace_me
+alias[effect:set_key] = localisation
 
 ### Set a diplomatic play to be a war set_war = bool
-alias[effect:set_war] = replace_me
+alias[effect:set_war] = bool
 
