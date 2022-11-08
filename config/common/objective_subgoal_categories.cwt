@@ -1,0 +1,5 @@
+types = {
+    type[objective_subgoal_category] = {
+        path = "game/common/objective_subgoal_categories"
+    }
+}

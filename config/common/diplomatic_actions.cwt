@@ -1,0 +1,5 @@
+types = {
+    type[diplomatic_action] = {
+        path = "game/common/diplomatic_actions"
+    }
+}

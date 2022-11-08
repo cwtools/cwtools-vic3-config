@@ -1,0 +1,5 @@
+types = {
+    type[law] = {
+        path = "game/common/laws"
+    }
+}

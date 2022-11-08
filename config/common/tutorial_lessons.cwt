@@ -1,0 +1,5 @@
+types = {
+    type[tutorial_lesson] = {
+        path = "game/common/tutorial_lessons"
+    }
+}

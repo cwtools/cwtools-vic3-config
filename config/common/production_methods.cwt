@@ -1,0 +1,5 @@
+types = {
+    type[production_method] = {
+        path = "game/common/production_methods"
+    }
+}

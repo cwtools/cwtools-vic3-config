@@ -1,0 +1,5 @@
+types = {
+    type[decision] = {
+        path = "game/common/decisions"
+    }
+}

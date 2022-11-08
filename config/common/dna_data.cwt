@@ -1,0 +1,5 @@
+types = {
+    type[dna_datum] = {
+        path = "game/common/dna_data"
+    }
+}

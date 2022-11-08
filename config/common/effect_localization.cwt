@@ -1,0 +1,6 @@
+# Probably not a type as such
+# types = {
+#     type[effect_localization] = {
+#         path = "game/common/effect_localization"
+#     }
+# }

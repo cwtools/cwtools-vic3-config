@@ -1,0 +1,5 @@
+types = {
+    type[gene] = {
+        path = "game/common/genes"
+    }
+}

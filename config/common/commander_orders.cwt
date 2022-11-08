@@ -1,0 +1,5 @@
+types = {
+    type[commander_order] = {
+        path = "game/common/commander_orders"
+    }
+}

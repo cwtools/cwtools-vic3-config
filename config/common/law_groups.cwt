@@ -1,0 +1,5 @@
+types = {
+    type[law_group] = {
+        path = "game/common/law_groups"
+    }
+}

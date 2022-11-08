@@ -1,0 +1,5 @@
+types = {
+    type[dynamic_country_map_color] = {
+        path = "game/common/dynamic_country_map_colors"
+    }
+}

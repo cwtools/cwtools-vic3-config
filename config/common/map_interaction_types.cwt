@@ -1,0 +1,5 @@
+types = {
+    type[map_interaction_type] = {
+        path = "game/common/map_interaction_types"
+    }
+}

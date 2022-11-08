@@ -1,0 +1,8 @@
+types = {
+    type[technology] = {
+        path = "game/common/technology/technologies"
+    }
+    type[era] = {
+        path = "game/common/technology/eras"
+    }
+}

@@ -1,0 +1,5 @@
+types = {
+    type[interest_group] = {
+        path = "game/common/interest_groups"
+    }
+}

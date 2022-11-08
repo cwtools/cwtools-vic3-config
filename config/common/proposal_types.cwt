@@ -1,0 +1,5 @@
+types = {
+    type[proposal_type] = {
+        path = "game/common/proposal_types"
+    }
+}

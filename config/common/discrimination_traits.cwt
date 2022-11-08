@@ -1,0 +1,5 @@
+types = {
+    type[discrimination_trait] = {
+        path = "game/common/discrimination_traits"
+    }
+}

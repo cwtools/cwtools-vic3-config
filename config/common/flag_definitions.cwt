@@ -1,0 +1,6 @@
+# TODO: More complicated than this
+# types = {
+#     type[flag_definition] = {
+#         path = "game/common/flag_definitions"
+#     }
+# }

@@ -1,0 +1,5 @@
+types = {
+    type[country_formation] = {
+        path = "game/common/country_formation"
+    }
+}

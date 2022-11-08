@@ -1,0 +1,5 @@
+types = {
+    type[customizable_localization] = {
+        path = "game/common/customizable_localization"
+    }
+}

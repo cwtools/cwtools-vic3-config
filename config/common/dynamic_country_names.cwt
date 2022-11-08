@@ -1,0 +1,5 @@
+types = {
+    type[dynamic_country_name] = {
+        path = "game/common/dynamic_country_names"
+    }
+}

@@ -1,0 +1,5 @@
+types = {
+    type[named_color] = {
+        path = "game/common/named_colors"
+    }
+}

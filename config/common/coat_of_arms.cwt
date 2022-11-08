@@ -1,0 +1,5 @@
+types = {
+    type[coat_of_arm] = {
+        path = "game/common/coat_of_arms/coat_of_arms"
+    }
+}

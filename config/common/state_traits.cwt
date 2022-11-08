@@ -1,0 +1,5 @@
+types = {
+    type[state_trait] = {
+        path = "game/common/state_traits"
+    }
+}

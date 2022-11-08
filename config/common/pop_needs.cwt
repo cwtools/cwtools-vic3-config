@@ -1,0 +1,5 @@
+types = {
+    type[pop_need] = {
+        path = "game/common/pop_needs"
+    }
+}
