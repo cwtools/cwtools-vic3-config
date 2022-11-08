@@ -410,6 +410,9 @@ links = {
 		desc = " Scope to the interest group of specified key belonging to the country"
 		input_scopes = country
 		output_scope = interest_group
+		from_data = yes
+		data_source = <interest_group>
+		prefix = ig:
 	}
 	income = {
 		desc = " Get the current weekly income of the scoped country"

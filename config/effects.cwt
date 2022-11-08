@@ -65,10 +65,14 @@ alias[effect:set_ideology] = replace_me
 alias[effect:transfer_character] = replace_me
 
 ### Adds a timed modifier effect to object in scope
-alias[effect:add_modifier] = replace_me
+alias[effect:add_modifier] = {
+    name = <modifier_container>
+    ## cardinality = 0..1
+    enum[duration] = int
+}
 
 ### Removes a timed modifier effect to object in scope
-alias[effect:remove_modifier] = replace_me
+alias[effect:remove_modifier] = <modifier_container>
 
 ### Removes interest group from revolution abandon_revolution = yes/no
 alias[effect:abandon_revolution] = replace_me

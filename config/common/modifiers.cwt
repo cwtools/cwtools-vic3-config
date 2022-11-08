@@ -1,5 +1,5 @@
 types = {
-    type[modifier] = {
+    type[modifier_container] = {
         path = "game/common/modifiers"
     }
 }
