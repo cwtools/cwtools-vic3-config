@@ -1,5 +1,5 @@
 types = {
-    type[good] = {
+    type[goods] = {
         path = "game/common/goods"
     }
 }

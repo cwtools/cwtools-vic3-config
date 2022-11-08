@@ -1,0 +1,5 @@
+types = {
+    type[state_region] = {
+        path = "game/map_data/state_regions"
+    }
+}
