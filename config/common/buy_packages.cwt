@@ -1,0 +1,5 @@
+types = {
+    type[buy_package] = {
+        path = "game/common/buy_packages"
+    }
+}

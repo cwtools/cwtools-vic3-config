@@ -1,0 +1,5 @@
+types = {
+    type[alert_type] = {
+        path = "game/common/alert_types"
+    }
+}

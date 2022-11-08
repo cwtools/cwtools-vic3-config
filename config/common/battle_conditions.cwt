@@ -1,0 +1,5 @@
+types = {
+    type[battle_condition] = {
+        path = "game/common/battle_conditions"
+    }
+}

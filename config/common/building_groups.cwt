@@ -1,0 +1,5 @@
+types = {
+    type[building_group] = {
+        path = "game/common/building_groups"
+    }
+}
