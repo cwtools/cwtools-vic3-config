@@ -23,6 +23,7 @@ links = {
 		desc = " Get the scoped combat unit's morale (0-1)"
 		input_scopes = combat_unit
 		output_scope = value
+		type = value
 	}
 	mg = {
 		desc = " Scope from a market to the MarketGoods with the specified key"
@@ -33,6 +34,7 @@ links = {
 		desc = " Get the total number of participating countries in the scoped market"
 		input_scopes = market
 		output_scope = value
+		type = value
 	}
 	trade_center = {
 		desc = " Scope to the trade center state of the market!"
@@ -48,21 +50,25 @@ links = {
 		desc = " Returns the number of battalions under a commander"
 		input_scopes = character
 		output_scope = value
+		type = value
 	}
 	num_mobilized_battalions = {
 		desc = " Returns the number of fully mobilized units under a General"
 		input_scopes = character
 		output_scope = value
+		type = value
 	}
 	num_units = {
 		desc = " Get the current of units for a commander"
 		input_scopes = character
 		output_scope = value
+		type = value
 	}
 	num_units_not_in_battle = {
 		desc = " Get the current of units for a commander that is NOT in battle"
 		input_scopes = character
 		output_scope = value
+		type = value
 	}
 	opposing_commander = {
 		desc = " Scope from a character in battle to the character on the other side of the battle"
@@ -73,6 +79,7 @@ links = {
 		desc = " Get the scoped character's popularity, normally ranging between -100 and +100"
 		input_scopes = character
 		output_scope = value
+		type = value
 	}
 	battle = {
 		desc = " Scope from a battle side to the battle itself"
@@ -113,36 +120,43 @@ links = {
 		desc = " Returns the average defense of units on Front on the same side as Country"
 		input_scopes = front
 		output_scope = value
+		type = value
 	}
 	average_offense = {
 		desc = " Returns the average offense of units on Front on the same side as Country"
 		input_scopes = front
 		output_scope = value
+		type = value
 	}
 	front_length = {
 		desc = " Returns the number of provinces in Front"
 		input_scopes = front
 		output_scope = value
+		type = value
 	}
 	num_defending_battalions = {
 		desc = " Returns the total number of defending units on Front on the same side as Country"
 		input_scopes = front
 		output_scope = value
+		type = value
 	}
 	num_enemy_units = {
 		desc = " Gets the number of enemy units a commander is facing on a front"
 		input_scopes = front
 		output_scope = value
+		type = value
 	}
 	num_total_battalions = {
 		desc = " Returns the total number of units on Front on the same side as Country"
 		input_scopes = front
 		output_scope = value
+		type = value
 	}
 	num_provinces = {
 		desc = " Get the scoped entity's current number of provinces"
 		input_scopes = { state state_region front }
 		output_scope = value
+		type = value
 	}
 	state = {
 		desc = " Scope to the state of the object"
@@ -160,6 +174,7 @@ links = {
 		data_source = <array_define>
 		prefix = array_define:
 		output_scope = value
+		type = value
 	}
 	c = {
 		desc = " Scope to the country with specified tag"
@@ -178,6 +193,7 @@ links = {
 	compare_value = {
 		desc = " A comparison trigger that will return its value in the context it is used eg: root.gold"
 		output_scope = value
+		type = value
 	}
 	cu = {
 		desc = " Scope to the culture with specified key"
@@ -192,6 +208,7 @@ links = {
 		data_source = <define>
 		prefix = define:
 		output_scope = value
+		type = value
 	}
 	flag = {
 		desc = " Flag literals eg: flag:the_boss"
@@ -210,6 +227,7 @@ links = {
 	global_gdp = {
 		desc = " Get the global yearly predicted GDP"
 		output_scope = value
+		type = value
 	}
 	global_var = {
 		desc = " Reference a previous set global variable via its name eg: global_var:important_thing"
@@ -221,6 +239,10 @@ links = {
 	infamy_threshold = {
 		desc = " Scope to infamy level threshold for comparison purposes (infamy_threshold:infamous)"
 		output_scope = value
+		type = value
+		from_data = yes
+		data_source = enum[infamy_threshold]
+		prefix = infamy_threshold:
 	}
 	is_setup = {
 		desc = " Scope to true/false if gamestate is being initialized!"
@@ -244,6 +266,7 @@ links = {
 	named_script_value = {
 		desc = " A script value that will calculate and returns its value in the context it is used"
 		output_scope = value
+		type = value
 	}
 	p = {
 		desc = " Scope to province specified by hex key"
@@ -263,6 +286,7 @@ links = {
 	rank_value = {
 		desc = " Scope to rank value of a particular country rank (rank_value:great_power)"
 		output_scope = value
+		type = value
 	}
 	rel = {
 		desc = " Scope to the religion with specified key"
@@ -274,6 +298,7 @@ links = {
 	relations_threshold = {
 		desc = " Scope to relations threshold level for comparison purposes (relations_threshold:warm)"
 		output_scope = value
+		type = value
 	}
 	s = {
 		desc = " Scope to state region specified by key"
@@ -298,6 +323,7 @@ links = {
 	tension_threshold = {
 		desc = " Scope to tension level threshold for comparison purposes (tension_threshold:warm)"
 		output_scope = value
+		type = value
 	}
     var = {
         desc = " Reference a previous set variable via its name eg: var:mortal_enemy"
@@ -310,11 +336,13 @@ links = {
 		desc = " Scope to the value of the modifier type of specified key belonging to the current object"
 		input_scopes = { country state building interest_group market character }
 		output_scope = value
+		type = value
 	}
 	combat_width = {
 		desc = " Scope to combat width multiplier of scope province"
 		input_scopes = province
 		output_scope = value
+		type = value
 	}
 	land_hq = {
 		desc = " Returns local land HQ"
@@ -335,31 +363,37 @@ links = {
 		desc = " Scope to comparative army strength between two countries (example: value = ai_army_comparison:root)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	ai_gdp_comparison = {
 		desc = " Scope to comparative GDP between two countries (example: value = ai_army_comparison:root)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	ai_ideological_opinion = {
 		desc = " Scope to AI ideological opinion of scope country on target country (example: value = ai_ideological_opinion:root)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	ai_navy_comparison = {
 		desc = " Scope to comparative navy strength between two countries (example: value = ai_navy_comparison:root)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	army_size = {
 		desc = " Number of battalions of scope country."
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	building_levels = {
 		desc = " Get the total number of non-subsistence building levels of the scoped country"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	capital = {
 		desc = " Scope to the capital state of a country"
@@ -375,6 +409,7 @@ links = {
 		desc = " Scope to the country's colonial growth per colony value (example: colonial_growth_per_colony > 0)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	country_definition = {
 		desc = " Scope to country's definition"
@@ -385,6 +420,7 @@ links = {
 		desc = " Scope to the current amount of max credit the country can take"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	currently_enacting_law = {
 		desc = " Scope from a country to the law that they're currently enacting"
@@ -395,11 +431,13 @@ links = {
 		desc = " Scope to a country's cost for a certain decree"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	government_size = {
 		desc = " Get the scoped country's current number of Parties & independent IGs in government"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	heir = {
 		desc = " Scope to the heir of a country"
@@ -418,11 +456,13 @@ links = {
 		desc = " Get the current weekly income of the scoped country"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	infamy = {
 		desc = " Scope to infamy of scope country (example: infamy >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	institution = {
 		desc = " Scope to a country's institution from its name (institution:institution_health_system)"
@@ -438,6 +478,7 @@ links = {
 		desc = " Scope to the current amount of legitimacy in country"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	market_capital = {
 		desc = " Scope to the market capital of a country"
@@ -448,161 +489,193 @@ links = {
 		desc = " Number of warships of scope country."
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_active_declared_interests = {
 		desc = " Scope to the number of active declared interests a country has"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_active_interests = {
 		desc = " Scope to the number of active interests a country has"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_active_natural_interests = {
 		desc = " Scope to the number of active natural interests a country has"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_active_plays = {
 		desc = " Get the current number of active Diplomatic Plays the scoped country started"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_admirals = {
 		desc = " Scope to the country's number of admirals"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_alliances = {
 		desc = " Scope to the number of alliances target country has in total (example: num_alliances:root >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_alliances_and_defensive_pacts_with_allies = {
 		desc = " Scope to the number of alliances target country has with allies of scope country (example: num_alliances_and_defensive_pacts_with_allies:root >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_alliances_and_defensive_pacts_with_rivals = {
 		desc = " Scope to the number of alliances & defensive pacts target country has with rivals of scope country (example: num_alliances_and_defensive_pacts_with_rivals:root >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_characters = {
 		desc = " Scope to the country's number of characters"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_colony_projects = {
 		desc = " Get the scoped country's current number of incomplete / in progress colony projects"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_commanders = {
 		desc = " Scope to the country's number of commanders"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_convoys_available = {
 		desc = " Get the scoped country's current number of available convoys"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_convoys_required = {
 		desc = " Get the scoped country's current number of required convoys"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_declared_interests = {
 		desc = " Scope to the number of declared interests a country has (including inactive)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_defensive_pacts = {
 		desc = " Scope to the number of defensive pacts target country has in total (example: num_defensive_pacts >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_generals = {
 		desc = " Scope to the country's number of generals"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_income_transfer_pacts = {
 		desc = " Scope to the number of income-transfering (to others) actions target country has in total (example: num_income_transfer_pacts >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_incorporated_states = {
 		desc = " Get the scoped country's current number of incorporated states"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_interests = {
 		desc = " Scope to the number of interests a country has (including inactive)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_mutual_trade_route_levels_with_country = {
 		desc = " Scope to the number of mutual trade route levels the two countries have to each others' owned markets (example: num_mutual_trade_routes_with_country:root >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_natural_interests = {
 		desc = " Scope to the number of natural interests a country has (including inactive)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_obligations_earned = {
 		desc = " Scope from a country to the number of obligations others owe them (=which they have earned)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_politicians = {
 		desc = " Scope to the country's number of politicians"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_positive_relations = {
 		desc = " Get the current number of countries with positive Relation with the scoped country"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_queued_constructions = {
 		desc = " Scope to the number of queued constructions target country has in total (example: num_queued_constructions >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_rivals = {
 		desc = " Scope to the number of rivals target country has in total (example: num_rivals >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_ruling_igs = {
 		desc = " Get the scoped country's current number of IGs in government"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_states = {
 		desc = " Get the scoped country's current number of states"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_trade_routes = {
 		desc = " Get the scoped country's current number of trade routes"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_treaty_ports = {
 		desc = " Get the scoped country's current number of treaty ports"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	num_unincorporated_states = {
 		desc = " Get the scoped country's current number of unincorporated states"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	overlord = {
 		desc = " Scope to the direct overlord of the country in scope"
@@ -618,6 +691,7 @@ links = {
 		desc = " Scope to relations between two countries (example: relations:root >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	ruler = {
 		desc = " Scope to the ruler of a country"
@@ -633,11 +707,13 @@ links = {
 		desc = " Scope to the current amount of techs researched of a country"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	tension = {
 		desc = " Scope to tension between two countries (example: tension:root >= 2)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	top_overlord = {
 		desc = " Scope to the top overlord of the country in scope"
@@ -648,6 +724,7 @@ links = {
 		desc = " Get the Pop's weight modifier scale multiplier"
 		input_scopes = pop
 		output_scope = value
+		type = value
 	}
 	workplace = {
 		desc = " Scope to the workplace of a pop"
@@ -662,31 +739,37 @@ links = {
 		desc = " Scope to the level of an object"
 		input_scopes = { building trade_route }
 		output_scope = value
+		type = value
 	}
 	investment = {
 		desc = " Scope to current investment level in an institution (example: investment < investment_max)"
 		input_scopes = institution
 		output_scope = value
+		type = value
 	}
 	investment_max = {
 		desc = " Scope to the country's current maximum investment level in an institution (example: investment < investment_max)"
 		input_scopes = institution
 		output_scope = value
+		type = value
 	}
 	player_owed_obligation_days_left = {
 		desc = " Scope to number of days left on an obligation in diplomatic relations scope (example: obligation_days_left >= 2)"
 		input_scopes = diplomatic_relations
 		output_scope = value
+		type = value
 	}
 	scope_relations = {
 		desc = " Scope to relations value in diplomatic relations scope (example: scope_relations >= 2)"
 		input_scopes = diplomatic_relations
 		output_scope = value
+		type = value
 	}
 	scope_tension = {
 		desc = " Scope to tension value in diplomatic relations scope (example: scope_tension >= 2)"
 		input_scopes = diplomatic_relations
 		output_scope = value
+		type = value
 	}
 	attacker_side = {
 		desc = " Scope from a battle to the BattleSide corresponding to the attacker"
@@ -752,6 +835,7 @@ links = {
 		desc = " Get the scoped party's raw momentum"
 		input_scopes = party
 		output_scope = value
+		type = value
 	}
 	b = {
 		desc = " Scope to the building of specified key in the state"
@@ -772,11 +856,13 @@ links = {
 		desc = " Get the scoped market good's current number of import trade routes owned by a market member"
 		input_scopes = market_goods
 		output_scope = value
+		type = value
 	}
 	num_import_trade_routes = {
 		desc = " Get the scoped market good's current number of import trade routes owned by a market member"
 		input_scopes = market_goods
 		output_scope = value
+		type = value
 	}
 	region_state = {
 		desc = " Unknown, add something in code registration"
@@ -787,11 +873,13 @@ links = {
 		desc = " Scope to the journal entry's goal value"
 		input_scopes = journalentry
 		output_scope = value
+		type = value
 	}
 	num_garrison_units = {
 		desc = " Returns the number of units garrisoned in a HQ"
 		input_scopes = hq
 		output_scope = value
+		type = value
 	}
 	controller = {
 		desc = " Scope to the controller of the object"
@@ -802,16 +890,19 @@ links = {
 		desc = " Get the average expected Standard of Living of the scope"
 		input_scopes = { country state }
 		output_scope = value
+		type = value
 	}
 	average_sol = {
 		desc = " Get the average Standard of Living of the scope"
 		input_scopes = { country state }
 		output_scope = value
+		type = value
 	}
 	gdp = {
 		desc = " Get the scoped country's yearly predicted GDP"
 		input_scopes = { country state }
 		output_scope = value
+		type = value
 	}
 	initiator = {
 		desc = " Scope to the initiator of the object"

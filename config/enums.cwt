@@ -50,4 +50,10 @@ enums = {
         middle
         rich
     }
+
+    enum[infamy_threshold] = {
+        notorious
+        infamous
+        pariah
+    }
 }
