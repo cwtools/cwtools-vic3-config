@@ -16,4 +16,25 @@ enums = {
         personality
         condition
     }
+
+    enum[state_type] = {
+        unincorporated
+        treaty_port
+        incorporated
+    }
+
+    enum[country_type] = {
+        unrecognized
+        recognized
+        colonial
+        decentralized
+    }
+
+    enum[wage_level] ={
+        very_low
+        low
+        medium
+        high
+        very_high
+    }
 }

@@ -417,7 +417,11 @@ alias[effect:set_variable] = value_set[variable]
 alias[effect:show_as_tooltip] = single_alias_right[effect_clause]
 
 ### Starts the tutorial lesson with the given key. Does nothing if the tutorial is not running, the lesson is completed (or already running), or the lesson cannot be triggered (e.g. trigger fails)
-alias[effect:start_tutorial_lesson] = replace_me
+alias[effect:start_tutorial_lesson] = {
+    tutorial_lesson = <tutorial_lesson>
+    ## cardinality = 0..1
+    journal_entry = scope[journal_entry]
+}
 
 ### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger. switch = { 	trigger = simple_assign_trigger 	case_1 = { <effects> } 	case_2 = { <effects> } 	case_n = { <effects> } 	fallback = { <effects> }
 alias[effect:switch] = {
@@ -430,7 +434,22 @@ alias[effect:switch] = {
 }
 
 ### Triggers an event for the current scope trigger_event = X trigger_event = { id = X days/weeks/months/years = Y } Where X is an event ID and Y is an integer to delay the event by
-alias[effect:trigger_event] = replace_me
+alias[effect:trigger_event] = <event>
+
+### Triggers an event for the current scope trigger_event = X trigger_event = { id = X days/weeks/months/years = Y } Where X is an event ID and Y is an integer to delay the event by
+alias[effect:trigger_event] = {
+    id = <event>
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = {
+        ## cardinality = 1..inf
+        int
+    }
+    ## cardinality = 0..1
+    popup = bool
+}
+
 
 ### Repeats enclosed effects while limit criteria are met or until set iteration count is reached while = { limit = { <triggers> } <effects> }  while = { count = 3 <effects> } Default max of 1000.
 alias[effect:while] = {
@@ -449,14 +468,27 @@ alias[effect:while] = {
     alias_name[effect] = alias_match_left[effect]
 }
 
+# TODO: Is this <building> or scope[building]?
 ### Activate a building in a state activate_building = { building = building_key }
-alias[effect:activate_building] = replace_me
+alias[effect:activate_building] = {
+    building = <building>
+}
 
 ### Apply a standard of living modifier in the scoped state for the given culture. Other than the required culture argument, this effect has the same syntax as add_modifier.
-alias[effect:add_culture_standard_of_living_modifier] = replace_me
+alias[effect:add_culture_standard_of_living_modifier] = {
+    culture = scope[culture]
+    name = <modifier_container>
+    ## cardinality = 0..1
+    enum[duration] = int
+}
 
 ### Apply a standard of living modifier in the scoped state for the given religion. Other than the required religion argument, this effect has the same syntax as add_modifier.
-alias[effect:add_religion_standard_of_living_modifier] = replace_me
+alias[effect:add_religion_standard_of_living_modifier] = {
+    religion = scope[religion]
+    name = <modifier_container>
+    ## cardinality = 0..1
+    enum[duration] = int
+}
 
 ### Changes X% of the different religion population to the specified religion. convert_population = { target = rel:catholic value = 0.5 }
 alias[effect:convert_population] = replace_me
@@ -465,67 +497,74 @@ alias[effect:convert_population] = replace_me
 alias[effect:create_building] = replace_me
 
 ### Creates a pop in the scoped state
-alias[effect:create_pop] = replace_me
+alias[effect:create_pop] = {
+    culture = <culture>
+    size = int_value_field
+    ## cardinality = 0..1
+    pop_type = <pop_type>
+    ## cardinality = 0..1
+    religion = <religion>
+}
 
 ### Deactivate a building in a state deactivate_building = { building = building_key }
 alias[effect:deactivate_building] = replace_me
 
 ### Forces a resource depletion in state force_resource_depletion = bg_gold_mining
-alias[effect:force_resource_depletion] = replace_me
+alias[effect:force_resource_depletion] = <building_group>
 
 ### Forces a resource discovery in state force_resource_discovery = bg_gold_mining
-alias[effect:force_resource_discovery] = replace_me
+alias[effect:force_resource_discovery] = <building_group>
 
 ### Remove a building in the scope state remove_building = building_key
-alias[effect:remove_building] = replace_me
+alias[effect:remove_building] = <building>
 
 ### Set State Owner set_state_owner = scope
-alias[effect:set_state_owner] = replace_me
+alias[effect:set_state_owner] = scope[country]
 
 ### Sets a state to a certain type (incorporated, unincorporated, treaty_port)
-alias[effect:set_state_type] = replace_me
+alias[effect:set_state_type] = enum[state_type]
 
 ### Start constructing a building in a scoped state start_building_construction = building_barracks
-alias[effect:start_building_construction] = replace_me
+alias[effect:start_building_construction] = <building>
 
 ### Add/remove arable land from a state region
-alias[effect:add_arable_land] = replace_me
+alias[effect:add_arable_land] = int_value_field
 
 ### Adds scoped state region as a claim for target country add_claim = scope/country
-alias[effect:add_claim] = replace_me
+alias[effect:add_claim] = scope[country]
 
 ### Add/remove devastation from a state region
-alias[effect:add_devastation] = replace_me
+alias[effect:add_devastation] = int_value_field
 
 ### Adds scoped state region as Homeland for target culture add_homeland = scope/culture
-alias[effect:add_homeland] = replace_me
+alias[effect:add_homeland] = scope[culture]
 
 ### Increase/decrease pollution level in a scoped state region add_pollution = 10
-alias[effect:add_pollution] = replace_me
+alias[effect:add_pollution] = int_value_field
 
 ### creates a state in a state region
 alias[effect:create_state] = replace_me
 
 ### Removes scoped state region as a claim for target country add_claim = scope/country
-alias[effect:remove_claim] = replace_me
+alias[effect:remove_claim] = scope[country]
 
 ### Removes scoped state region as Homeland for target culture add_homeland = scope/culture
-alias[effect:remove_homeland] = replace_me
+alias[effect:remove_homeland] = scope[culture]
 
 ### Set devastation to a state region
-alias[effect:set_devastation] = replace_me
+alias[effect:set_devastation] = int_value_field
 
 ### Gives a set of provinces in a state region to a specific country set_owner_of_provinces = { country = <scope> provinces = {} }
 alias[effect:set_owner_of_provinces] = replace_me
 
 ### Sets a (new) target technology scope for a journal entry set_target_technology = <scope>
-alias[effect:set_target_technology] = replace_me
+alias[effect:set_target_technology] = scope[technology]
 
 ### Activates a law for a country
-alias[effect:activate_law] = replace_me
+alias[effect:activate_law] = scope[law_type]
 
 ### Adds a total ban of a good to a country add_banned_goods = <goods key/scope>
-alias[effect:add_banned_goods] = replace_me
+alias[effect:add_banned_goods] = scope[goods]
 
 ### Add progress towards changing relations between two countries add_change_relations_progress = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:add_change_relations_progress] = replace_me
@@ -537,31 +576,31 @@ alias[effect:add_declared_interest] = replace_me
 alias[effect:add_enactment_modifier] = replace_me
 
 ### Add specified era as researched in a country scope add_era_researched = era
-alias[effect:add_era_researched] = replace_me
+alias[effect:add_era_researched] = <era>
 
 ### Directly adds money to the investment pool add_investment_pool = 50
-alias[effect:add_investment_pool] = replace_me
+alias[effect:add_investment_pool] = int_value_field
 
 ### Adds x% progress to the current checkpoint of the law being passed (range is [0, 1], 0.1 means 10 percentage points) add_law_progress = 0.1 / -0.1
 alias[effect:add_law_progress] = replace_me
 
 ### Adds a culture to the primary cultures of a country add_primary_culture = X Where X is a culture scope
-alias[effect:add_primary_culture] = replace_me
+alias[effect:add_primary_culture] = scope[culture]
 
 ### Adds consumption taxes on a good to a country add_taxed_goods = <goods key/scope>
-alias[effect:add_taxed_goods] = replace_me
+alias[effect:add_taxed_goods] = scope[goods]
 
 ### Add technology progress add_technology_progress = { progress = X technology = Y } Where X is a fixed point and Y is an technology
 alias[effect:add_technology_progress] = replace_me
 
 ### Research the specified technology in a country scope add_technology_researched = technology
-alias[effect:add_technology_researched] = replace_me
+alias[effect:add_technology_researched] = <technology>
 
 ### Add/remove money from a country add_treasury = fixed point
-alias[effect:add_treasury] = replace_me
+alias[effect:add_treasury] = value_field
 
 ### Annexes a country annex = scope
-alias[effect:annex] = replace_me
+alias[effect:annex] = scope[country]
 
 ### Sets the next election date for country in N months call_election = { 	months = 6 }
 alias[effect:call_election] = replace_me
@@ -582,13 +621,13 @@ alias[effect:change_tag] = replace_me
 alias[effect:change_tension] = replace_me
 
 ### Clear country loans = bool
-alias[effect:clear_debt] = replace_me
+alias[effect:clear_debt] = bool
 
 ### Clears an amount of debt equal to the defined multiplier on target's max credit clear_scaled_debt = value
 alias[effect:clear_scaled_debt] = replace_me
 
 ### Completes an objective subgoal complete_objective_subgoal = <key>
-alias[effect:complete_objective_subgoal] = replace_me
+alias[effect:complete_objective_subgoal] = <objective_subgoal>
 
 ### Creates a character, any option can be omitted. create_character = { 	name = loc_key or alternatively first_name and last_name separately 	culture = culture_tag 	religion = religion scope (if omitted, it's defined by the character's culture religion) 	female = bool or character scope (gets the same value from the character) 	noble = bool or character scope (gets the same value from the character) 	ruler = bool or character scope (gets the same value from the character) 	heir = bool 	age = integer, range, or character scope (gets the age from a character) 	ideology = ideology key or scope 	interest_group = interest group key or scope 	on_created = effect	trait_generation = effect	role = character scope (gets the role from a character) 	hq = HQ scope or strategic region scope }
 alias[effect:create_character] = replace_me
@@ -609,28 +648,28 @@ alias[effect:create_trade_route] = replace_me
 alias[effect:create_truce] = replace_me
 
 ### Deactivates a law for a country
-alias[effect:deactivate_law] = replace_me
+alias[effect:deactivate_law] = scope[law_type]
 
 ### Deactivates parties in scoped country. deactivate_parties = yes
-alias[effect:deactivate_parties] = replace_me
+alias[effect:deactivate_parties] = yes
 
 ### Ends a truce betweeen two countries end_truce = { 	tcountry = country scope/tag 	months = integer }
 alias[effect:end_truce] = replace_me
 
 ### Makes a country independent. make_independent = bool
-alias[effect:make_independent] = replace_me
+alias[effect:make_independent] = bool
 
 ### Change which country scoped country's player will play as play_as = <scope>
-alias[effect:play_as] = replace_me
+alias[effect:play_as] = scope[country]
 
 ### Recalculates and updates a country's pop IG memberships = bool
-alias[effect:recalculate_pop_ig_support] = replace_me
+alias[effect:recalculate_pop_ig_support] = bool
 
 ### Removes an active objective subgoal remove_active_objective_subgoal = <key>
-alias[effect:remove_active_objective_subgoal] = replace_me
+alias[effect:remove_active_objective_subgoal] = <objective_subgoal>
 
 ### Removes a total ban of a good from a country remove_banned_goods = <goods key/scope>
-alias[effect:remove_banned_goods] = replace_me
+alias[effect:remove_banned_goods] = scope[goods]
 
 ### Removes a diplomatic pact between two countries, with scope country as initiator remove_diplomatic_pact = { 	country = country scope/tag 	type = diplomatic action type }
 alias[effect:remove_diplomatic_pact] = replace_me
@@ -639,22 +678,22 @@ alias[effect:remove_diplomatic_pact] = replace_me
 alias[effect:remove_enactment_modifier] = replace_me
 
 ### Removes a culture from the primary cultures of a country remove_primary_culture = X Where X is a culture scope
-alias[effect:remove_primary_culture] = replace_me
+alias[effect:remove_primary_culture] = scope[culture]
 
 ### Removes consumption taxes on a good from a country remove_taxed_goods = <goods key/scope>
-alias[effect:remove_taxed_goods] = replace_me
+alias[effect:remove_taxed_goods] = scope[goods]
 
 ### Set capital state in a country scope set_capital = X Where X is a state region
 alias[effect:set_capital] = replace_me
 
 ### Sets the type of country for a country, for history
-alias[effect:set_country_type] = replace_me
+alias[effect:set_country_type] = enum[country_type]
 
 ### Set diplomats expelled = bool
-alias[effect:set_diplomats_expelled] = replace_me
+alias[effect:set_diplomats_expelled] = bool
 
 ### Sets the government wage level of scoped country set_government_wage_level = very_low/low/medium/high/very_high
-alias[effect:set_government_wage_level] = replace_me
+alias[effect:set_government_wage_level] = enum[wage_level]
 
 ### Sets the investment level for an institution set_institution_investment_level = { institution = <key> level = x }
 alias[effect:set_institution_investment_level] = replace_me
@@ -663,7 +702,7 @@ alias[effect:set_institution_investment_level] = replace_me
 alias[effect:set_market_capital] = replace_me
 
 ### Sets the military wage level of scoped country set_military_wage_level = very_low/low/medium/high/very_high
-alias[effect:set_military_wage_level] = replace_me
+alias[effect:set_military_wage_level] = enum[wage_level]
 
 ### Set mutual secret AI goal for scope country and target country set_mutual_secret_goal = { 	tcountry = country scope/tag 	secret_goal = secret goal type }
 alias[effect:set_mutual_secret_goal] = replace_me
@@ -684,40 +723,40 @@ alias[effect:set_ruling_interest_groups] = replace_me
 alias[effect:set_secret_goal] = replace_me
 
 ### Changes the state religion of the country to the specified religion set_state_religion = X Where X is a religion scope
-alias[effect:set_state_religion] = replace_me
+alias[effect:set_state_religion] = scope[religion]
 
 ### Set AI strategy for scope country set_strategy = <key>
-alias[effect:set_strategy] = replace_me
+alias[effect:set_strategy] = <ai_strategy>
 
 ### Sets Export Prioritized tariffs for a good in scoped country set_tariffs_export_priority = <scope/key>
-alias[effect:set_tariffs_export_priority] = replace_me
+alias[effect:set_tariffs_export_priority] = scope[goods]
 
 ### Sets Import Prioritized tariffs for a good in scoped country set_tariffs_import_priority = <scope/key>
-alias[effect:set_tariffs_import_priority] = replace_me
+alias[effect:set_tariffs_import_priority] = scope[goods]
 
 ### Sets tariffs to have no import/export priority for a good in scoped country set_tariffs_no_priority = <scope/key>
-alias[effect:set_tariffs_no_priority] = replace_me
+alias[effect:set_tariffs_no_priority] = scope[goods]
 
 ### Sets the overall tax level of scoped country set_tax_level = very_low/low/medium/high/very_high
-alias[effect:set_tax_level] = replace_me
+alias[effect:set_tax_level] = enum[wage_level]
 
 ### Set tension between two countries set_tension = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:set_tension] = replace_me
 
 ### Scoped country starts research of any random technology they can start_research_random_technology = yes
-alias[effect:start_research_random_technology] = replace_me
+alias[effect:start_research_random_technology] = yes
 
 ### Transfers an amount of debt equal to the defined multiplier on target's max credit take_on_scaled_debt = { 	who = <country> 	value = decimal value }
 alias[effect:take_on_scaled_debt] = replace_me
 
 ### Updates party support in scoped country. update_party_support = yes
-alias[effect:update_party_support] = replace_me
+alias[effect:update_party_support] = yes
 
 ### Validates subsidies across a country's buildings. validate_subsidies = bool
-alias[effect:validate_subsidies] = replace_me
+alias[effect:validate_subsidies] = bool
 
 ### Target joins scoped war violate_sovereignty_accept = <country>
-alias[effect:violate_sovereignty_join] = replace_me
+alias[effect:violate_sovereignty_join] = scope[country]
 
 ### Activates the named production method for buildings of a certain type in country/state
 alias[effect:activate_production_method] = replace_me
@@ -738,7 +777,7 @@ alias[effect:change_pop_culture] = replace_me
 alias[effect:change_pop_religion] = replace_me
 
 ### Changes the type of the pop to the given type
-alias[effect:change_poptype] = replace_me
+alias[effect:change_poptype] = scope[pop_type]
 
 ### Moves the scoped pop to the specified state (they become unemployed) move_pop = s:STATE_TUSCANY.region_state:TUS  NOTE: VERY IMPORTANT! This effect _may_ change the pop type of the moved pop. This will happen under the following conditions: 1. if the current pop type cannot be unemployed, the new pop type will be the default one 2.if the current pop type is a slave type and the target state does not allow slavery, the new pop type will be the default one
 alias[effect:move_pop] = replace_me
@@ -756,7 +795,7 @@ alias[effect:set_pop_wealth] = replace_me
 alias[effect:add_diplomatic_play_war_support] = replace_me
 
 ### Add escalation to a diplomatic play add_escalation = integer
-alias[effect:add_escalation] = replace_me
+alias[effect:add_escalation] = int_value_field
 
 ### Add a tag/scope country to the initiator side of a diplomatic play add_initiator_backers = { list of scopes/tags }
 alias[effect:add_initiator_backers] = {
