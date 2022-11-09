@@ -37,4 +37,17 @@ enums = {
         high
         very_high
     }
+
+    enum[ig_approval] ={
+        angry
+        happy
+        unhappy
+        loyal
+    }
+
+    enum[pop_strata] = {
+        poor
+        middle
+        rich
+    }
 }
