@@ -69,4 +69,33 @@ enums = {
     enum[gameplay_dlc] = {
 
     }
+
+    enum[country_tier] = {
+        empire
+        hegemony
+        principality
+        city_state
+        grand_principality
+        kingdom
+    }
+
+    enum[diplo_play_attitute] = {
+        disinterested
+        cautiosu
+        conciliatory
+        cooperative
+        genial
+        wary
+        belligerent
+        antagonistic
+        loyal
+        rebellious
+        protective
+        domineering
+    }
+
+    enum[political_movement_type] = {
+        movement_to_enact
+        movement_to_preserve
+    }
 }

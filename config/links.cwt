@@ -255,6 +255,10 @@ links = {
 	law_type = {
 		desc = " Scope to a law type from its name (law_type:law_protected_speech)"
 		output_scope = law_type
+		from_data = yes
+		type = scope
+		prefix = law_type:
+		data_source = <law>
 	}
 	local_var = {
 		desc = " Reference a previous set local variable via its name eg: local_var:person_of_interest"
@@ -287,6 +291,10 @@ links = {
 		desc = " Scope to rank value of a particular country rank (rank_value:great_power)"
 		output_scope = value
 		type = value
+		from_data = yes
+		data_source = <country_rank>
+		prefix = rank_value:
+
 	}
 	rel = {
 		desc = " Scope to the religion with specified key"

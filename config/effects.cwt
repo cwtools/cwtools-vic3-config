@@ -2,7 +2,7 @@
 alias[effect:set_subsidized] = bool
 
 ### Adds the specified number of percentage points to a civil war progress (range is [0, 1], 0.1 means 10 percentage points) add_civil_war_progress = 0.1 / -0.1
-alias[effect:add_civil_war_progress] = replace_me
+alias[effect:add_civil_war_progress] = value_field[-1..1]
 
 ### Adds war exhaustion to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_exhaustion = { target = country value = value }
 alias[effect:add_war_exhaustion] = {
