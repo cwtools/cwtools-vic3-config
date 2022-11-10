@@ -5,10 +5,16 @@ alias[trigger:law_approved_by] = <interest_group>
 alias[trigger:has_ideology] = <ideology>
 
 ### Compares the stance of the scoped character or interest group about the specified law
-alias[trigger:law_stance] = replace_me
+alias[trigger:law_stance] = {
+    law = scope[law_type]
+    value == neutral
+}
 
 ### Compares areas of object to another object
-alias[trigger:check_area] = replace_me
+alias[trigger:check_area] = {
+    mode = adjacent
+    target = scope[theater]
+}
 
 ### Compare progress of civil war civil_war_progress > 50
 alias[trigger:civil_war_progress] == value_field
@@ -17,13 +23,13 @@ alias[trigger:civil_war_progress] == value_field
 alias[trigger:civil_war_progress_gain] == value_field
 
 ### Check if the scoped civil war is of a specific type is_civil_war_type = revolution / secession
-alias[trigger:is_civil_war_type] = replace_me
+alias[trigger:is_civil_war_type] = enum[civil_war_type]
 
 ### Check if the country is revolutionary
 alias[trigger:is_revolutionary] = bool
 
 ### Checks if scoped culture or religion has the given discrimination trait has_trait = trait
-alias[trigger:has_discrimination_trait] = replace_me
+alias[trigger:has_discrimination_trait] = <discrimination_trait>
 
 ### Checks if a culture is discriminated against within the scope country culture_is_discriminated_in = c:USA
 alias[trigger:culture_is_discriminated_in] = <country_definition>
@@ -31,7 +37,10 @@ alias[trigger:culture_is_discriminated_in] = <country_definition>
 alias[trigger:culture_is_discriminated_in] = scope[country]
 
 ### Checks the culture's progress percentage towards secession in a country. 0 if no secession movement is active for the culture. culture_secession_progress = { target = scope:example_country value > 0.5 }
-alias[trigger:culture_secession_progress] == replace_me_comparison
+alias[trigger:culture_secession_progress] = {
+    target = scope[country]
+    value == value_field
+}
 
 ### Checks if a culture has a certain goods as obsession has_cultural_obsession = <goods key>
 alias[trigger:has_cultural_obsession] = <goods>
@@ -40,7 +49,9 @@ alias[trigger:has_cultural_obsession] = <goods>
 alias[trigger:has_culture_graphics] = <culture>
 
 ### Checks if scoped culture has a homeland in target state or state region has_homeland = state/state region
-alias[trigger:has_homeland] = replace_me
+alias[trigger:has_homeland] = scope[state]
+### Checks if scoped culture has a homeland in target state or state region has_homeland = state/state region
+alias[trigger:has_homeland] = scope[state_region]
 
 ### Checks if culture is any of a country's primary cultures is_primary_culture_of = <country>
 alias[trigger:is_primary_culture_of] = <country_definition>
@@ -74,7 +85,11 @@ alias[trigger:market_has_goods_shortage] = bool
 alias[trigger:age] == value_field
 
 ### Checks how the ratio of Combat Units on the scoped Commander, on the target country's side, with the specified Production Method compares to the value commander_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:commander_pm_usage] == replace_me_comparison
+alias[trigger:commander_pm_usage] = {
+    target = scope[country]
+    production_method = <production_method>
+    value == value_field
+}
 
 ### Compares the commanders rank commander_rank > 2
 alias[trigger:commander_rank] == value_field
@@ -83,7 +98,9 @@ alias[trigger:commander_rank] == value_field
 alias[trigger:experience_level] == value_field
 
 ### Checks characters order has_order = order key/order scope
-alias[trigger:has_commander_order] = replace_me
+alias[trigger:has_commander_order] = <commander_order>
+### Checks characters order has_order = order key/order scope
+alias[trigger:has_commander_order] = scope[commander_order]
 
 ### Checks characters culture has_culture = culture scope or character scope
 alias[trigger:has_culture] = scope[culture]
@@ -171,7 +188,11 @@ alias[trigger:is_trade_route_productive] = bool
 alias[trigger:trade_route_needs_convoys_to_grow] = bool
 
 ### Checks how the ratio of Combat Units on the scoped Front, on the target country's side, with the specified Production Method compares to the value front_side_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:front_side_pm_usage] == replace_me_comparison
+alias[trigger:front_side_pm_usage] = {
+    target = scope[country]
+    production_method = <production_method>
+    value == value_field
+}
 
 ### Whether the scoped Front doesn't have any Battalions nor Generals on target side, and the enemy has at least one General. is_vulnerable_front = scope:example_country
 alias[trigger:is_vulnerable_front] = <country_definition>
@@ -206,25 +227,29 @@ alias[trigger:active_lens_option] = replace_me
 alias[trigger:add_to_temporary_list] = replace_me
 
 ### true if all children are false (equivalent to NOR)
-alias[trigger:all_false] = replace_me
+alias[trigger:all_false] = single_alias_right[trigger_clause]
 
 ### Always the same value always = yes
 alias[trigger:always] = bool
 
 ### all inside trigger must be true
-alias[trigger:and] = replace_me
+alias[trigger:and] = single_alias_right[trigger_clause]
 
 ### Conditionally cause an assert during run time assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
-alias[trigger:assert_if] = replace_me
+alias[trigger:assert_if] = {
+    limit = single_alias_right[trigger_clause]
+    ## cardinality = 0..1
+    text = scalar
+}
 
 ### Conditionally cause an assert during read time assert_read = X, where X is yes or the string to be printed in the assert
-alias[trigger:assert_read] = replace_me
+alias[trigger:assert_read] = scalar
 
 ### Returns true if the specified number of sub-triggers return true calc_true_if = { amount = 2 <trigger> <trigger> <trigger> }
 alias[trigger:calc_true_if] = replace_me
 
 ### Can the specified tutorial lesson be started? can_start_tutorial_lesson = reactive_advice_succession An interface trigger, can only be used in specific places
-alias[trigger:can_start_tutorial_lesson] = replace_me
+alias[trigger:can_start_tutorial_lesson] = <tutorial_lesson>
 
 ### Returns the number of tooltips currently open on screen An interface trigger, can only be used in specific places
 alias[trigger:current_tooltip_depth] == value_field
@@ -236,34 +261,37 @@ alias[trigger:custom_description] = replace_me
 alias[trigger:custom_tooltip] = replace_me
 
 ### Log whether the parent trigger succeeded or failed
-alias[trigger:debug_log] = replace_me
+alias[trigger:debug_log] = scalar
 
 ### Log whether the parent trigger succeeded or failed. Log which children succeeded or failed
-alias[trigger:debug_log_details] = replace_me
+alias[trigger:debug_log_details] = scalar
 
 ### Checks an error in code that specifically uses the CErrorTable::CheckTrigger path, in general avoid this and just use normal script
-alias[trigger:error_check] = replace_me
+alias[trigger:error_check] = scalar
 
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
-alias[trigger:exists] = replace_me
+alias[trigger:exists] = scope
 
 ### Compare to current game date current_game_date = 1837.1.1
-alias[trigger:game_date] == replace_me_comparison
+alias[trigger:game_date] == date_field
 
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
-alias[trigger:global_variable_list_size] = replace_me
+alias[trigger:global_variable_list_size] = {
+    name = value[global_variable_list]
+    target == value_field
+}
 
 ### Does the client have this cosmetic DLC An interface trigger, can only be used in specific places
-alias[trigger:has_cosmetic_dlc] = replace_me
+alias[trigger:has_cosmetic_dlc] = enum[cosmetic_dlc]
 
 ### Is the given game rule setting enabled? has_game_rule = faster_conversion
-alias[trigger:has_game_rule] = replace_me
+alias[trigger:has_game_rule] = <game_rule>
 
 ### True if game has started has_game_started = bool
 alias[trigger:has_game_started] = bool
 
 ### Does the host have this gameplay DLC
-alias[trigger:has_gameplay_dlc] = replace_me
+alias[trigger:has_gameplay_dlc] = enum[gameplay_dlc]
 
 ### Checks whether the current scope has the specified variable set has_variable = name
 alias[trigger:has_global_variable] = value[global_variable]
@@ -278,7 +306,7 @@ alias[trigger:has_local_variable] = value[local_variable]
 alias[trigger:has_local_variable_list] = value[local_variable_list]
 
 ### Checks if the map interaction type is active has_map_interaction = key An interface trigger, can only be used in specific places
-alias[trigger:has_map_interaction] = replace_me
+alias[trigger:has_map_interaction] = <map_interaction_type>
 
 ### Checks if our current map interaction is a specific diplomatic action has_map_interaction_diplomatic_action = <key> An interface trigger, can only be used in specific places
 alias[trigger:has_map_interaction_diplomatic_action] = replace_me
@@ -293,7 +321,7 @@ alias[trigger:has_map_interaction_import_goods] = replace_me
 alias[trigger:has_reached_end_date] = bool
 
 ### Check if there is at least one unification candidate for country tag has_country_unification_candidate = GER
-alias[trigger:has_unification_candidate] = replace_me
+alias[trigger:has_unification_candidate] = <country_definition>
 
 ### Checks whether the current scope has the specified variable set has_variable = name
 alias[trigger:has_variable] = value[variable]
@@ -302,7 +330,7 @@ alias[trigger:has_variable] = value[variable]
 alias[trigger:has_variable_list] = value[variable_list]
 
 ### AndTrigger that doesn't generate tooltips for contents within hidden_trigger = {}
-alias[trigger:hidden_trigger] = replace_me
+alias[trigger:hidden_trigger] = single_alias_right[trigger_clause]
 
 ### Checks if the CProductionMethodsPanelEntry for a particular CBuildingType is expanded is_building_type_expanded = <scope/key> An interface trigger, can only be used in specific places
 alias[trigger:is_building_type_expanded] = replace_me
@@ -332,25 +360,37 @@ alias[trigger:is_popup_open] = replace_me
 alias[trigger:is_rightclick_menu_open] = replace_me
 
 ### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
-alias[trigger:is_target_in_global_variable_list] = replace_me
+alias[trigger:is_target_in_global_variable_list] = {
+    name = value[global_variable_list]
+    #TODO ?
+    target = scope
+}
 
 ### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
-alias[trigger:is_target_in_local_variable_list] = replace_me
+alias[trigger:is_target_in_local_variable_list] = {
+    name = value[local_variable_list]
+    #TODO ?
+    target = scope
+}
 
 ### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
-alias[trigger:is_target_in_variable_list] = replace_me
+alias[trigger:is_target_in_variable_list] = {
+    name = value[variable_list]
+    #TODO ?
+    target = scope
+}
 
 ### Is the tutorial active? An interface trigger, can only be used in specific places
 alias[trigger:is_tutorial_active] = bool
 
 ### Is this the current tutorial lesson? is_tutorial_lesson_active = reactive_advice_succession An interface trigger, can only be used in specific places
-alias[trigger:is_tutorial_lesson_active] = replace_me
+alias[trigger:is_tutorial_lesson_active] = <tutorial_lesson>
 
 ### Has the tutorial lesson chain with the specified key been finished? An interface trigger, can only be used in specific places
-alias[trigger:is_tutorial_lesson_chain_completed] = replace_me
+alias[trigger:is_tutorial_lesson_chain_completed] = <tutorial_lesson_chain>
 
 ### has the tutorial lesson with the specified name been finished? An interface trigger, can only be used in specific places
-alias[trigger:is_tutorial_lesson_completed] = replace_me
+alias[trigger:is_tutorial_lesson_completed] = <tutorial_lesson>
 
 ### Has the tutorial lesson step been finished? is_tutorial_lesson_step_completed = lesson_key:step_key An interface trigger, can only be used in specific places
 alias[trigger:is_tutorial_lesson_step_completed] = replace_me
@@ -359,25 +399,31 @@ alias[trigger:is_tutorial_lesson_step_completed] = replace_me
 alias[trigger:list_size] == replace_me_comparison
 
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
-alias[trigger:local_variable_list_size] = replace_me
+alias[trigger:local_variable_list_size] = {
+    name = value[local_variable_list]
+    target == value_field
+}
 
 ### a negated AND trigger
-alias[trigger:nand] = replace_me
+alias[trigger:nand] = single_alias_right[trigger_clause]
 
 ### a negated OR trigger
-alias[trigger:nor] = replace_me
+alias[trigger:nor] = single_alias_right[trigger_clause]
 
 ### negates content of trigger
-alias[trigger:not] = replace_me
+alias[trigger:not] = single_alias_right[trigger_clause]
 
 ### at least one entry inside trigger must be true
-alias[trigger:or] = replace_me
+alias[trigger:or] = single_alias_right[trigger_clause]
 
 ### Saves a temporary target for use during the trigger execution
-alias[trigger:save_temporary_scope_as] = replace_me
+alias[trigger:save_temporary_scope_as] = value_set[event_target]
 
 ### Saves a numerical or bool value as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_scope_value_as = { name = <string> value = x }
-alias[trigger:save_temporary_scope_value_as] = replace_me
+alias[trigger:save_temporary_scope_value_as] = {
+    name = value_set[variable]
+    value = value_field
+}
 
 ### can nudity be shown? should_show_nudity = yes/no An interface trigger, can only be used in specific places
 alias[trigger:should_show_nudity] = bool
@@ -386,16 +432,25 @@ alias[trigger:should_show_nudity] = bool
 alias[trigger:switch] = replace_me
 
 ### Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }  trigger_else = { <triggers> }
-alias[trigger:trigger_else] = replace_me
+alias[trigger:trigger_else] = single_alias_right[trigger_clause]
 
 ### Evaluates the enclosed triggers if the display_triggers of the preceding `trigger_if` or `trigger_else_if` is not met and its own display_trigger of the limit is mettrigger_if = { limit = { <display_triggers> } <triggers> } trigger_else_if = { limit = { <display_triggers> } <triggers> }
-alias[trigger:trigger_else_if] = replace_me
+alias[trigger:trigger_else_if] = {
+    limit = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
 
 ### Evaluates the triggers if the display_triggers of the limit are met trigger_if = { limit = { <display_triggers> } <triggers> }
-alias[trigger:trigger_if] = replace_me
+alias[trigger:trigger_if] = {
+    limit = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
 
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
-alias[trigger:variable_list_size] = replace_me
+alias[trigger:variable_list_size] = {
+    name = value[variable_list]
+    target == value_field
+}
 
 ### Returns true if the sum of weights of fulfilled sub-triggers amount to the specified sum weighted_calc_true_if = { amount = 10 5 = { <trigger> } 15 = { <trigger> } 7 = { <trigger> } }
 alias[trigger:weighted_calc_true_if] = replace_me
@@ -410,10 +465,10 @@ alias[trigger:infrastructure] == value_field
 alias[trigger:infrastructure_usage] == value_field
 
 ### Check if the scope object has the specified label has_label = label_key
-alias[trigger:has_label] = replace_me
+alias[trigger:has_label] = <label>
 
 ### Check if the province has the specified terrain type has_terrain = terrain_key
-alias[trigger:has_terrain] = replace_me
+alias[trigger:has_terrain] = <terrain>
 
 ### Check if the province is on land
 alias[trigger:is_province_land] = bool
@@ -446,7 +501,10 @@ alias[trigger:average_incorporated_country_infrastructure] == value_field
 alias[trigger:bureaucracy] == value_field
 
 ### Checks if the country in scope can afford the Influence for the specified diplomatic action (pact or ongoing) can_afford_diplomatic_action = { target = X type = Y } Where X = country and Y = diplomatic action type
-alias[trigger:can_afford_diplomatic_action] = replace_me
+alias[trigger:can_afford_diplomatic_action] = {
+    target = scope[country]
+    type = <diplomatic_action>
+}
 
 ### Check if a country can establish any export routes can_establish_any_export_route = <goods key/scope>
 alias[trigger:can_establish_any_export_route] = scope[goods]
@@ -455,16 +513,19 @@ alias[trigger:can_establish_any_export_route] = scope[goods]
 alias[trigger:can_establish_any_import_route] = scope[goods]
 
 ### Check if the target country is able to potentially form a nation can_form_nation = <tag>
-alias[trigger:can_form_nation] = replace_me
+alias[trigger:can_form_nation] = <country_definition>
 
 ### Checks if a country can have another country as a particular type of subject can_have_as_subject = { who = X type = Y } Where X = country and Y = subject type
-alias[trigger:can_have_as_subject] = replace_me
+alias[trigger:can_have_as_subject] = {
+    who = scope[country]
+    type = <subject_type>
+}
 
 ### Check if the country is able to have subjects of it sown
 alias[trigger:can_have_subjects] = bool
 
 ### True if a country can research an technology can_research = technology
-alias[trigger:can_research] = replace_me
+alias[trigger:can_research] = <technology>
 
 ### Checks if scoped country can take on a certain amount of scaled debt from another country can_take_on_scaled_debt = { who = X value = Y } Where X = country and Y = decimal value
 alias[trigger:can_take_on_scaled_debt] = replace_me
@@ -485,7 +546,11 @@ alias[trigger:country_has_state_religion] = scope[religion]
 alias[trigger:country_or_subject_owns_entire_state_region] = replace_me
 
 ### Checks how the ratio of Combat Units (of the same type) on the scoped Country with the specified Production Method compares to the value country_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:country_pm_usage] == replace_me_comparison
+alias[trigger:country_pm_usage] = {
+    target = scope[country]
+    production_method = <production_method>
+    value == value_field
+}
 
 ### Compares a Country's Power Ranking country_rank < rank_value:major_power
 alias[trigger:country_rank] == replace_me_comparison
@@ -689,7 +754,9 @@ alias[trigger:is_ai] = bool
 alias[trigger:is_at_war] = bool
 
 ### Check if a country is banning a good is_banning_goods = <goods key/scope>
-alias[trigger:is_banning_goods] = replace_me
+alias[trigger:is_banning_goods] = scope[goods]
+### Check if a country is banning a good is_banning_goods = <goods key/scope>
+alias[trigger:is_banning_goods] = <goods>
 
 ### Check if construction in a state is paused.
 alias[trigger:is_construction_paused] = bool
@@ -698,7 +765,7 @@ alias[trigger:is_construction_paused] = bool
 alias[trigger:is_country_alive] = bool
 
 ### Checks the countrys type is_country_type = country type
-alias[trigger:is_country_type] = replace_me
+alias[trigger:is_country_type] = <country_type>
 
 ### True if country is a committed participant of any diplomatic play is_diplomatic_play_participant = bool
 alias[trigger:is_diplomatic_play_committed_participant] = bool
@@ -759,10 +826,16 @@ alias[trigger:is_owed_obligation_by] = scope[country]
 alias[trigger:is_player] = bool
 
 ### Check if the country is actively researching a tech is_researching_technology = <scope/key/any>
-alias[trigger:is_researching_technology] = replace_me
+alias[trigger:is_researching_technology] = <technology>
+### Check if the country is actively researching a tech is_researching_technology = <scope/key/any>
+alias[trigger:is_researching_technology] = any
+### Check if the country is actively researching a tech is_researching_technology = <scope/key/any>
+alias[trigger:is_researching_technology] = scope[technology]
 
 ### Check if the country is actively researching a tech category is_researching_technology_category = <key/any>
-alias[trigger:is_researching_technology_category] = replace_me
+alias[trigger:is_researching_technology_category] = any
+### Check if the country is actively researching a tech category is_researching_technology_category = <key/any>
+alias[trigger:is_researching_technology_category] = <technology>
 
 ### Check if the country is secessionist
 alias[trigger:is_secessionist] = bool
@@ -776,16 +849,18 @@ alias[trigger:is_subject_of] = <country_definition>
 alias[trigger:is_subject_of] = scope[country]
 
 ### Checks the country's subject type is_subject_type = subject type
-alias[trigger:is_subject_type] = replace_me
+alias[trigger:is_subject_type] = <subject_type>
 
 ### Check if scope country is supporting a unification candidate for a specific country formation is_supporting_unification_candidate = { who = c:PRU country_formation = GER }
 alias[trigger:is_supporting_unification_candidate] = replace_me
 
 ### Check if a country is taxing a good has_embargo = <goods key/scope>
-alias[trigger:is_taxing_goods] = replace_me
+alias[trigger:is_taxing_goods] = <goods>
+### Check if a country is taxing a good has_embargo = <goods key/scope>
+alias[trigger:is_taxing_goods] = scope[goods]
 
 ### Check if scope country is a unification candidate for country tag has_country_unification_candidate = GER
-alias[trigger:is_unification_candidate] = replace_me
+alias[trigger:is_unification_candidate] = <country_definition>
 
 ### Check if the scoped country is violating the sovereignty of a target country is_violating_sovereignty_of = c:GBR
 alias[trigger:is_violating_sovereignty_of] = <country_definition>
@@ -855,10 +930,10 @@ alias[trigger:supply_network_strength] == value_field
 alias[trigger:taking_loans] = bool
 
 ### Compares the overall tax level of scoped country tax_level = <level>
-alias[trigger:tax_level] == replace_me_comparison
+alias[trigger:tax_level] == enum[wage_level]
 
 ### Compares the overall tax level integer value of scoped country income_tax_level_value = <level>
-alias[trigger:tax_level_value] == replace_me_comparison
+alias[trigger:tax_level_value] == value_field
 
 ### Compares the total population of a given country total_population > 100000
 alias[trigger:total_population] == value_field
@@ -876,10 +951,10 @@ alias[trigger:has_ongoing_assimilation] = bool
 alias[trigger:has_ongoing_conversion] = bool
 
 ### Checks if pop has specific culture has_pop_culture = culture
-alias[trigger:has_pop_culture] = replace_me
+alias[trigger:has_pop_culture] = <culture>
 
 ### Checks if pop has specific religion has_religion = religion
-alias[trigger:has_pop_religion] = replace_me
+alias[trigger:has_pop_religion] = <religion>
 
 ### Check if the Pop has the state religion
 alias[trigger:has_state_religion] = bool
@@ -888,13 +963,13 @@ alias[trigger:has_state_religion] = bool
 alias[trigger:is_employed] = bool
 
 ### Checks if pop is of specified type is_pop_type = poptype
-alias[trigger:is_pop_type] = replace_me
+alias[trigger:is_pop_type] = <pop_type>
 
 ### Checks if pop is working in a specific building type pop_employment_building = building
-alias[trigger:pop_employment_building] = replace_me
+alias[trigger:pop_employment_building] = <building>
 
 ### Checks if pop is working in a specific building type pop_employment_building = building
-alias[trigger:pop_employment_building_group] = replace_me
+alias[trigger:pop_employment_building_group] = <building_group>
 
 ### Checks if pop's culture is primary pop_has_primary_culture = bool
 alias[trigger:pop_has_primary_culture] = bool
@@ -918,7 +993,11 @@ alias[trigger:strata] == enum[pop_strata]
 alias[trigger:wealth] == value_field
 
 ### Checks how the ratio of Combat Units on the scoped Battle, on the target country's side, with the specified Production Method compares to the value battle_side_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:battle_side_pm_usage] == replace_me_comparison
+alias[trigger:battle_side_pm_usage] = {
+    target = scope[country]
+    production_method = <production_method>
+    value == value_field
+}
 
 ### Check if building has a shortage of any of its inputs building_has_goods_shortage = yes/no
 alias[trigger:building_has_goods_shortage] = bool
@@ -933,7 +1012,7 @@ alias[trigger:cash_reserves_ratio] == value_field
 alias[trigger:earnings] == value_field
 
 ### Checks if a scoped building has the specified production method active has_active_production_method = key
-alias[trigger:has_active_production_method] = replace_me
+alias[trigger:has_active_production_method] = <production_method>
 
 ### Checks whether the amount of employees of a certain poptype are above or below a given percentage of the total amount the building can currently hire. I.e. if a building is at 80% (given as 0.8) of its current hiring capacity for Shopkeepers, for example. has_employee_slots_filled = { pop_type = X percent = Y } Where X is a pop type and Y is a fixed point
 alias[trigger:has_employee_slots_filled] = replace_me
@@ -945,10 +1024,10 @@ alias[trigger:has_failed_hires] = bool
 alias[trigger:is_buildable] = bool
 
 ### True if scope is a building of given group building_group = building
-alias[trigger:is_building_group] = replace_me
+alias[trigger:is_building_group] = <building_group>
 
 ### True if scope is a building of given type is_building_type = building
-alias[trigger:is_building_type] = replace_me
+alias[trigger:is_building_type] = <building>
 
 ### Check if a building is is_government_funded is_government_funded = yes/no
 alias[trigger:is_government_funded] = bool
@@ -1288,7 +1367,11 @@ alias[trigger:loyalist_fraction] == replace_me_comparison
 alias[trigger:radical_fraction] == replace_me_comparison
 
 ### Checks how the ratio of Combat Units (of the same type) on the scoped Diplomatic Play, on the target country's side, with the specified Production Method compares to the value diplomatic_play_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:diplomatic_play_pm_usage] == replace_me_comparison
+alias[trigger:diplomatic_play_pm_usage] = {
+    target = scope[country]
+    production_method = <production_method>
+    value == value_field
+}
 
 ### Checks whether escalation has passed a certain threshold escalation > -58
 alias[trigger:escalation] == replace_me_comparison

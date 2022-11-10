@@ -179,7 +179,7 @@ links = {
 	c = {
 		desc = " Scope to the country with specified tag"
 		from_data = yes
-		data_source = <country>
+		data_source = <country_definition>
 		prefix = c:
 		output_scope = country
 	}

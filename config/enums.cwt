@@ -56,4 +56,17 @@ enums = {
         infamous
         pariah
     }
+
+    enum[civil_war_type] = {
+        revolution
+        secession
+    }
+
+    enum[cosmetic_dlc] = {
+
+    }
+
+    enum[gameplay_dlc] = {
+
+    }
 }
