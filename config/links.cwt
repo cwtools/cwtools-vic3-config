@@ -307,6 +307,9 @@ links = {
 		desc = " Scope to relations threshold level for comparison purposes (relations_threshold:warm)"
 		output_scope = value
 		type = value
+		from_data = yes
+		prefix = relations_threshold:
+		data_source = enum[relations_thresholds]
 	}
 	s = {
 		desc = " Scope to state region specified by key"
@@ -695,7 +698,7 @@ links = {
 		input_scopes = country
 		output_scope = party
 	}
-	relations = {
+	relations:root = {
 		desc = " Scope to relations between two countries (example: relations:root >= 2)"
 		input_scopes = country
 		output_scope = value

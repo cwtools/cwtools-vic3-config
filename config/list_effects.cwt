@@ -10,7 +10,8 @@ alias[effect:every_scope_front] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all Fronts related to the scoped War ordered_scope_front = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all Fronts related to the scoped War ordered_scope_front = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_front] = {
         ## cardinality = 0..1
         limit = {
@@ -29,7 +30,8 @@ alias[effect:ordered_scope_front] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all Fronts related to the scoped War random_scope_front = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all Fronts related to the scoped War random_scope_front = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_front] = {
         ## cardinality = 0..1
         limit = {
@@ -43,7 +45,8 @@ alias[effect:random_scope_front] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all active (market) goods in a market every_market_goods = { limit = { <triggers> } <effects> }
+
+### Iterate through all active (market) goods in a market every_market_goods = { limit = { <triggers> } <effects> }
 alias[effect:every_market_goods] = {
         ## cardinality = 0..1
         limit = {
@@ -55,7 +58,8 @@ alias[effect:every_market_goods] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all countries with a presence in the supported scope (currently: only market scope) every_scope_country = { limit = { <triggers> } <effects> }
+
+### Iterate through all countries with a presence in the supported scope (currently: only market scope) every_scope_country = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_country] = {
         ## cardinality = 0..1
         limit = {
@@ -67,7 +71,8 @@ alias[effect:every_scope_country] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all active (market) goods in a market ordered_market_goods = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all active (market) goods in a market ordered_market_goods = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_market_goods] = {
         ## cardinality = 0..1
         limit = {
@@ -86,7 +91,8 @@ alias[effect:ordered_market_goods] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all countries with a presence in the supported scope (currently: only market scope) ordered_scope_country = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all countries with a presence in the supported scope (currently: only market scope) ordered_scope_country = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_country] = {
         ## cardinality = 0..1
         limit = {
@@ -105,7 +111,8 @@ alias[effect:ordered_scope_country] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all active (market) goods in a market random_market_goods = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all active (market) goods in a market random_market_goods = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_market_goods] = {
         ## cardinality = 0..1
         limit = {
@@ -119,7 +126,8 @@ alias[effect:random_market_goods] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all countries with a presence in the supported scope (currently: only market scope) random_scope_country = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all countries with a presence in the supported scope (currently: only market scope) random_scope_country = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_country] = {
         ## cardinality = 0..1
         limit = {
@@ -133,7 +141,8 @@ alias[effect:random_scope_country] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all trade routes in a: market, country, marketgoods every_trade_route = { limit = { <triggers> } <effects> }
+
+### Iterate through all trade routes in a: market, country, marketgoods every_trade_route = { limit = { <triggers> } <effects> }
 alias[effect:every_trade_route] = {
         ## cardinality = 0..1
         limit = {
@@ -145,7 +154,8 @@ alias[effect:every_trade_route] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all trade routes in a: market, country, marketgoods ordered_trade_route = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all trade routes in a: market, country, marketgoods ordered_trade_route = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_trade_route] = {
         ## cardinality = 0..1
         limit = {
@@ -164,7 +174,8 @@ alias[effect:ordered_trade_route] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all trade routes in a: market, country, marketgoods random_trade_route = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all trade routes in a: market, country, marketgoods random_trade_route = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_trade_route] = {
         ## cardinality = 0..1
         limit = {
@@ -178,7 +189,8 @@ alias[effect:random_trade_route] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest groups supporting a political movement every_supporting_interest_group = { limit = { <triggers> } <effects> }
+
+### Iterate through all interest groups supporting a political movement every_supporting_interest_group = { limit = { <triggers> } <effects> }
 alias[effect:every_supporting_interest_group] = {
         ## cardinality = 0..1
         limit = {
@@ -190,7 +202,8 @@ alias[effect:every_supporting_interest_group] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest groups supporting a political movement ordered_supporting_interest_group = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all interest groups supporting a political movement ordered_supporting_interest_group = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_supporting_interest_group] = {
         ## cardinality = 0..1
         limit = {
@@ -209,7 +222,8 @@ alias[effect:ordered_supporting_interest_group] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest groups supporting a political movement random_supporting_interest_group = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all interest groups supporting a political movement random_supporting_interest_group = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_supporting_interest_group] = {
         ## cardinality = 0..1
         limit = {
@@ -223,7 +237,8 @@ alias[effect:random_supporting_interest_group] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Primary cultures of the scoped country or country definition every_primary_culture = { limit = { <triggers> } <effects> }
+
+### Primary cultures of the scoped country or country definition every_primary_culture = { limit = { <triggers> } <effects> }
 alias[effect:every_primary_culture] = {
         ## cardinality = 0..1
         limit = {
@@ -235,7 +250,8 @@ alias[effect:every_primary_culture] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Primary cultures of the scoped country or country definition ordered_primary_culture = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Primary cultures of the scoped country or country definition ordered_primary_culture = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_primary_culture] = {
         ## cardinality = 0..1
         limit = {
@@ -254,7 +270,8 @@ alias[effect:ordered_primary_culture] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Primary cultures of the scoped country or country definition random_primary_culture = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Primary cultures of the scoped country or country definition random_primary_culture = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_primary_culture] = {
         ## cardinality = 0..1
         limit = {
@@ -268,7 +285,8 @@ alias[effect:random_primary_culture] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all pops in a: country, state, interest group, culture every_scope_pop = { limit = { <triggers> } <effects> }
+
+### Iterate through all pops in a: country, state, interest group, culture every_scope_pop = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_pop] = {
         ## cardinality = 0..1
         limit = {
@@ -280,7 +298,8 @@ alias[effect:every_scope_pop] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all pops in a: country, state, interest group, culture ordered_scope_pop = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all pops in a: country, state, interest group, culture ordered_scope_pop = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_pop] = {
         ## cardinality = 0..1
         limit = {
@@ -299,7 +318,8 @@ alias[effect:ordered_scope_pop] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all pops in a: country, state, interest group, culture random_scope_pop = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all pops in a: country, state, interest group, culture random_scope_pop = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_pop] = {
         ## cardinality = 0..1
         limit = {
@@ -313,7 +333,8 @@ alias[effect:random_scope_pop] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all combat units of input scope every_combat_units = { limit = { <triggers> } <effects> }
+
+### Iterate through all combat units of input scope every_combat_units = { limit = { <triggers> } <effects> }
 alias[effect:every_combat_units] = {
         ## cardinality = 0..1
         limit = {
@@ -325,7 +346,8 @@ alias[effect:every_combat_units] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all combat units of input scope ordered_combat_units = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all combat units of input scope ordered_combat_units = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_combat_units] = {
         ## cardinality = 0..1
         limit = {
@@ -344,7 +366,8 @@ alias[effect:ordered_combat_units] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all combat units of input scope random_combat_units = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all combat units of input scope random_combat_units = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_combat_units] = {
         ## cardinality = 0..1
         limit = {
@@ -358,7 +381,8 @@ alias[effect:random_combat_units] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all states including provinces from a: country, state_region, theater, or front every_scope_state = { limit = { <triggers> } <effects> }
+
+### Iterate through all states including provinces from a: country, state_region, theater, or front every_scope_state = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_state] = {
         ## cardinality = 0..1
         limit = {
@@ -370,7 +394,8 @@ alias[effect:every_scope_state] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all states including provinces from a: country, state_region, theater, or front ordered_scope_state = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all states including provinces from a: country, state_region, theater, or front ordered_scope_state = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_state] = {
         ## cardinality = 0..1
         limit = {
@@ -389,7 +414,8 @@ alias[effect:ordered_scope_state] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all states including provinces from a: country, state_region, theater, or front random_scope_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all states including provinces from a: country, state_region, theater, or front random_scope_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_state] = {
         ## cardinality = 0..1
         limit = {
@@ -403,7 +429,8 @@ alias[effect:random_scope_state] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all states neighbouring a state region every_neighbouring_state = { limit = { <triggers> } <effects> }
+
+### Iterate through all states neighbouring a state region every_neighbouring_state = { limit = { <triggers> } <effects> }
 alias[effect:every_neighbouring_state] = {
         ## cardinality = 0..1
         limit = {
@@ -415,7 +442,8 @@ alias[effect:every_neighbouring_state] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all states neighbouring a state region ordered_neighbouring_state = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all states neighbouring a state region ordered_neighbouring_state = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_neighbouring_state] = {
         ## cardinality = 0..1
         limit = {
@@ -434,7 +462,8 @@ alias[effect:ordered_neighbouring_state] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all states neighbouring a state region random_neighbouring_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all states neighbouring a state region random_neighbouring_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_neighbouring_state] = {
         ## cardinality = 0..1
         limit = {
@@ -448,7 +477,8 @@ alias[effect:random_neighbouring_state] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest markers in a: country, strategic region every_scope_interest_marker = { limit = { <triggers> } <effects> }
+
+### Iterate through all interest markers in a: country, strategic region every_scope_interest_marker = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_interest_marker] = {
         ## cardinality = 0..1
         limit = {
@@ -460,7 +490,8 @@ alias[effect:every_scope_interest_marker] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest markers in a: country, strategic region ordered_scope_interest_marker = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all interest markers in a: country, strategic region ordered_scope_interest_marker = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_interest_marker] = {
         ## cardinality = 0..1
         limit = {
@@ -479,7 +510,8 @@ alias[effect:ordered_scope_interest_marker] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest markers in a: country, strategic region random_scope_interest_marker = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all interest markers in a: country, strategic region random_scope_interest_marker = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_interest_marker] = {
         ## cardinality = 0..1
         limit = {
@@ -493,7 +525,8 @@ alias[effect:random_scope_interest_marker] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all characters globally every_character = { limit = { <triggers> } <effects> }
+
+### Iterate through all characters globally every_character = { limit = { <triggers> } <effects> }
 alias[effect:every_character] = {
         ## cardinality = 0..1
         limit = {
@@ -505,7 +538,8 @@ alias[effect:every_character] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through characters in the void every_character_in_void = { limit = { <triggers> } <effects> }
+
+### Iterate through characters in the void every_character_in_void = { limit = { <triggers> } <effects> }
 alias[effect:every_character_in_void] = {
         ## cardinality = 0..1
         limit = {
@@ -517,7 +551,8 @@ alias[effect:every_character_in_void] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all countries globally every_country = { limit = { <triggers> } <effects> }
+
+### Iterate through all countries globally every_country = { limit = { <triggers> } <effects> }
 alias[effect:every_country] = {
         ## cardinality = 0..1
         limit = {
@@ -529,7 +564,8 @@ alias[effect:every_country] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all diplomatic plays globally every_diplomatic_play = { limit = { <triggers> } <effects> }
+
+### Iterate through all diplomatic plays globally every_diplomatic_play = { limit = { <triggers> } <effects> }
 alias[effect:every_diplomatic_play] = {
         ## cardinality = 0..1
         limit = {
@@ -541,7 +577,8 @@ alias[effect:every_diplomatic_play] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all items in global list. list = name or variable = name every_in_global_list = { limit = { <triggers> } <effects> }
+
+### Iterate through all items in global list. list = name or variable = name every_in_global_list = { limit = { <triggers> } <effects> }
 alias[effect:every_in_global_list] = {
         ## cardinality = 0..1
         limit = {
@@ -553,7 +590,8 @@ alias[effect:every_in_global_list] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all items in list. list = name or variable = name every_in_list = { limit = { <triggers> } <effects> }
+
+### Iterate through all items in list. list = name or variable = name every_in_list = { limit = { <triggers> } <effects> }
 alias[effect:every_in_list] = {
         ## cardinality = 0..1
         limit = {
@@ -565,7 +603,8 @@ alias[effect:every_in_list] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all items in local list. list = name or variable = name every_in_local_list = { limit = { <triggers> } <effects> }
+
+### Iterate through all items in local list. list = name or variable = name every_in_local_list = { limit = { <triggers> } <effects> }
 alias[effect:every_in_local_list] = {
         ## cardinality = 0..1
         limit = {
@@ -577,7 +616,8 @@ alias[effect:every_in_local_list] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all markets globally every_market = { limit = { <triggers> } <effects> }
+
+### Iterate through all markets globally every_market = { limit = { <triggers> } <effects> }
 alias[effect:every_market] = {
         ## cardinality = 0..1
         limit = {
@@ -589,7 +629,8 @@ alias[effect:every_market] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all states globally every_state = { limit = { <triggers> } <effects> }
+
+### Iterate through all states globally every_state = { limit = { <triggers> } <effects> }
 alias[effect:every_state] = {
         ## cardinality = 0..1
         limit = {
@@ -601,7 +642,8 @@ alias[effect:every_state] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all state regions every_state_region = { limit = { <triggers> } <effects> }
+
+### Iterate through all state regions every_state_region = { limit = { <triggers> } <effects> }
 alias[effect:every_state_region] = {
         ## cardinality = 0..1
         limit = {
@@ -613,7 +655,8 @@ alias[effect:every_state_region] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all characters globally ordered_character = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all characters globally ordered_character = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_character] = {
         ## cardinality = 0..1
         limit = {
@@ -632,7 +675,8 @@ alias[effect:ordered_character] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through characters in the void ordered_character_in_void = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through characters in the void ordered_character_in_void = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_character_in_void] = {
         ## cardinality = 0..1
         limit = {
@@ -651,7 +695,8 @@ alias[effect:ordered_character_in_void] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all countries globally ordered_country = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all countries globally ordered_country = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_country] = {
         ## cardinality = 0..1
         limit = {
@@ -670,7 +715,8 @@ alias[effect:ordered_country] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all diplomatic plays globally ordered_diplomatic_play = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all diplomatic plays globally ordered_diplomatic_play = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_diplomatic_play] = {
         ## cardinality = 0..1
         limit = {
@@ -689,7 +735,8 @@ alias[effect:ordered_diplomatic_play] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all items in global list. list = name or variable = name ordered_in_global_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all items in global list. list = name or variable = name ordered_in_global_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_in_global_list] = {
         ## cardinality = 0..1
         limit = {
@@ -708,7 +755,8 @@ alias[effect:ordered_in_global_list] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all items in list. list = name or variable = name ordered_in_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all items in list. list = name or variable = name ordered_in_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_in_list] = {
         ## cardinality = 0..1
         limit = {
@@ -727,7 +775,8 @@ alias[effect:ordered_in_list] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all items in local list. list = name or variable = name ordered_in_local_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all items in local list. list = name or variable = name ordered_in_local_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_in_local_list] = {
         ## cardinality = 0..1
         limit = {
@@ -746,7 +795,8 @@ alias[effect:ordered_in_local_list] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all markets globally ordered_market = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all markets globally ordered_market = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_market] = {
         ## cardinality = 0..1
         limit = {
@@ -765,7 +815,8 @@ alias[effect:ordered_market] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all states globally ordered_state = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all states globally ordered_state = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_state] = {
         ## cardinality = 0..1
         limit = {
@@ -784,7 +835,8 @@ alias[effect:ordered_state] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all state regions ordered_state_region = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all state regions ordered_state_region = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_state_region] = {
         ## cardinality = 0..1
         limit = {
@@ -803,7 +855,8 @@ alias[effect:ordered_state_region] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all characters globally random_character = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all characters globally random_character = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_character] = {
         ## cardinality = 0..1
         limit = {
@@ -817,7 +870,8 @@ alias[effect:random_character] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through characters in the void random_character_in_void = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through characters in the void random_character_in_void = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_character_in_void] = {
         ## cardinality = 0..1
         limit = {
@@ -831,7 +885,8 @@ alias[effect:random_character_in_void] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all countries globally random_country = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all countries globally random_country = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_country] = {
         ## cardinality = 0..1
         limit = {
@@ -845,7 +900,8 @@ alias[effect:random_country] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all diplomatic plays globally random_diplomatic_play = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all diplomatic plays globally random_diplomatic_play = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_diplomatic_play] = {
         ## cardinality = 0..1
         limit = {
@@ -859,7 +915,8 @@ alias[effect:random_diplomatic_play] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all items in global list. list = name or variable = name random_in_global_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all items in global list. list = name or variable = name random_in_global_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_in_global_list] = {
         ## cardinality = 0..1
         limit = {
@@ -873,7 +930,8 @@ alias[effect:random_in_global_list] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all items in list. list = name or variable = name random_in_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all items in list. list = name or variable = name random_in_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_in_list] = {
         ## cardinality = 0..1
         limit = {
@@ -887,7 +945,8 @@ alias[effect:random_in_list] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all items in local list. list = name or variable = name random_in_local_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all items in local list. list = name or variable = name random_in_local_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_in_local_list] = {
         ## cardinality = 0..1
         limit = {
@@ -901,21 +960,30 @@ alias[effect:random_in_local_list] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
+
+### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
 alias[effect:random_list] = {
+    ## cardinality = 2..inf
+    int = {
         ## cardinality = 0..1
-        limit = {
+        trigger = {
+            ## cardinality = 1..inf
             alias_name[trigger] = alias_match_left[trigger]
         }
+
         ## cardinality = 0..inf
-        alternative_limit = {
-            alias_name[trigger] = alias_match_left[trigger]
-        }
-        ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        modifier = single_alias_right[weight_chance_modifier]
+
+        ## cardinality = 1..inf
         alias_name[effect] = alias_match_left[effect]
     }
-### Log the current scope to the random log when this effect executes. Only use temprorarily for debugging purposes as it can introduce localized strings into the Scopes._Random log. yes = full scope info, no=only current scope
+
+    # ## cardinality = 0..inf
+    #TODO chekc vic3
+    # alias_name[effect] = alias_match_left[effect]
+    }
+
+### Log the current scope to the random log when this effect executes. Only use temprorarily for debugging purposes as it can introduce localized strings into the Scopes._Random log. yes = full scope info, no=only current scope
 alias[effect:random_log_scopes] = {
         ## cardinality = 0..1
         limit = {
@@ -929,7 +997,8 @@ alias[effect:random_log_scopes] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all markets globally random_market = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all markets globally random_market = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_market] = {
         ## cardinality = 0..1
         limit = {
@@ -943,7 +1012,8 @@ alias[effect:random_market] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all states globally random_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all states globally random_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_state] = {
         ## cardinality = 0..1
         limit = {
@@ -957,7 +1027,8 @@ alias[effect:random_state] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all state regions random_state_region = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all state regions random_state_region = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_state_region] = {
         ## cardinality = 0..1
         limit = {
@@ -971,7 +1042,8 @@ alias[effect:random_state_region] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all active political parties in a country every_active_party = { limit = { <triggers> } <effects> }
+
+### Iterate through all active political parties in a country every_active_party = { limit = { <triggers> } <effects> }
 alias[effect:every_active_party] = {
         ## cardinality = 0..1
         limit = {
@@ -983,7 +1055,8 @@ alias[effect:every_active_party] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all civil wars related to the scoped country every_civil_war = { limit = { <triggers> } <effects> }
+
+### Iterate through all civil wars related to the scoped country every_civil_war = { limit = { <triggers> } <effects> }
 alias[effect:every_civil_war] = {
         ## cardinality = 0..1
         limit = {
@@ -995,7 +1068,8 @@ alias[effect:every_civil_war] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country in current hierarchy, including current every_in_hierarchy = { limit = { <triggers> } <effects> }
+
+### Any country in current hierarchy, including current every_in_hierarchy = { limit = { <triggers> } <effects> }
 alias[effect:every_in_hierarchy] = {
         ## cardinality = 0..1
         limit = {
@@ -1007,7 +1081,8 @@ alias[effect:every_in_hierarchy] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all laws in a country every_law = { limit = { <triggers> } <effects> }
+
+### Iterate through all laws in a country every_law = { limit = { <triggers> } <effects> }
 alias[effect:every_law] = {
         ## cardinality = 0..1
         limit = {
@@ -1019,7 +1094,8 @@ alias[effect:every_law] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country above current in hierarchy every_overlord_or_above = { limit = { <triggers> } <effects> }
+
+### Any country above current in hierarchy every_overlord_or_above = { limit = { <triggers> } <effects> }
 alias[effect:every_overlord_or_above] = {
         ## cardinality = 0..1
         limit = {
@@ -1031,7 +1107,8 @@ alias[effect:every_overlord_or_above] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all political movements in a country every_political_movement = { limit = { <triggers> } <effects> }
+
+### Iterate through all political movements in a country every_political_movement = { limit = { <triggers> } <effects> }
 alias[effect:every_political_movement] = {
         ## cardinality = 0..1
         limit = {
@@ -1043,7 +1120,8 @@ alias[effect:every_political_movement] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all potential political parties in a country every_potential_party = { limit = { <triggers> } <effects> }
+
+### Iterate through all potential political parties in a country every_potential_party = { limit = { <triggers> } <effects> }
 alias[effect:every_potential_party] = {
         ## cardinality = 0..1
         limit = {
@@ -1055,7 +1133,8 @@ alias[effect:every_potential_party] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country that is rival to the country in a scope every_rival_country = { limit = { <triggers> } <effects> }
+
+### Any country that is rival to the country in a scope every_rival_country = { limit = { <triggers> } <effects> }
 alias[effect:every_rival_country] = {
         ## cardinality = 0..1
         limit = {
@@ -1067,7 +1146,8 @@ alias[effect:every_rival_country] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all allies to a: country every_scope_ally = { limit = { <triggers> } <effects> }
+
+### Iterate through all allies to a: country every_scope_ally = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_ally] = {
         ## cardinality = 0..1
         limit = {
@@ -1079,7 +1159,8 @@ alias[effect:every_scope_ally] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all co-belligerents to a: country every_scope_cobelligerent = { limit = { <triggers> } <effects> }
+
+### Iterate through all co-belligerents to a: country every_scope_cobelligerent = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_cobelligerent] = {
         ## cardinality = 0..1
         limit = {
@@ -1091,7 +1172,8 @@ alias[effect:every_scope_cobelligerent] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all theaters in a: country every_scope_theater = { limit = { <triggers> } <effects> }
+
+### Iterate through all theaters in a: country every_scope_theater = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_theater] = {
         ## cardinality = 0..1
         limit = {
@@ -1103,7 +1185,8 @@ alias[effect:every_scope_theater] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all countries that would be interested if country in scope has their sovereignty violated every_scope_violate_sovereignty_interested_parties = { limit = { <triggers> } <effects> }
+
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated every_scope_violate_sovereignty_interested_parties = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_violate_sovereignty_interested_parties] = {
         ## cardinality = 0..1
         limit = {
@@ -1115,7 +1198,8 @@ alias[effect:every_scope_violate_sovereignty_interested_parties] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all relevant wars if target country had their sovereignty violated by scoped country every_scope_violate_sovereignty_wars = { limit = { <triggers> } <effects> }
+
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country every_scope_violate_sovereignty_wars = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_violate_sovereignty_wars] = {
         ## cardinality = 0..1
         limit = {
@@ -1127,7 +1211,8 @@ alias[effect:every_scope_violate_sovereignty_wars] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all wars related to the scope every_scope_war = { limit = { <triggers> } <effects> }
+
+### Iterate through all wars related to the scope every_scope_war = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_war] = {
         ## cardinality = 0..1
         limit = {
@@ -1139,7 +1224,8 @@ alias[effect:every_scope_war] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country below current in hierarchy every_subject_or_below = { limit = { <triggers> } <effects> }
+
+### Any country below current in hierarchy every_subject_or_below = { limit = { <triggers> } <effects> }
 alias[effect:every_subject_or_below] = {
         ## cardinality = 0..1
         limit = {
@@ -1151,7 +1237,8 @@ alias[effect:every_subject_or_below] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all active political parties in a country ordered_active_party = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all active political parties in a country ordered_active_party = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_active_party] = {
         ## cardinality = 0..1
         limit = {
@@ -1170,7 +1257,8 @@ alias[effect:ordered_active_party] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all civil wars related to the scoped country ordered_civil_war = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all civil wars related to the scoped country ordered_civil_war = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_civil_war] = {
         ## cardinality = 0..1
         limit = {
@@ -1189,7 +1277,8 @@ alias[effect:ordered_civil_war] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country in current hierarchy, including current ordered_in_hierarchy = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Any country in current hierarchy, including current ordered_in_hierarchy = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_in_hierarchy] = {
         ## cardinality = 0..1
         limit = {
@@ -1208,7 +1297,8 @@ alias[effect:ordered_in_hierarchy] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all laws in a country ordered_law = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all laws in a country ordered_law = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_law] = {
         ## cardinality = 0..1
         limit = {
@@ -1227,7 +1317,8 @@ alias[effect:ordered_law] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country above current in hierarchy ordered_overlord_or_above = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Any country above current in hierarchy ordered_overlord_or_above = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_overlord_or_above] = {
         ## cardinality = 0..1
         limit = {
@@ -1246,7 +1337,8 @@ alias[effect:ordered_overlord_or_above] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all political movements in a country ordered_political_movement = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all political movements in a country ordered_political_movement = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_political_movement] = {
         ## cardinality = 0..1
         limit = {
@@ -1265,7 +1357,8 @@ alias[effect:ordered_political_movement] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all potential political parties in a country ordered_potential_party = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all potential political parties in a country ordered_potential_party = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_potential_party] = {
         ## cardinality = 0..1
         limit = {
@@ -1284,7 +1377,8 @@ alias[effect:ordered_potential_party] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country that is rival to the country in a scope ordered_rival_country = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Any country that is rival to the country in a scope ordered_rival_country = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_rival_country] = {
         ## cardinality = 0..1
         limit = {
@@ -1303,7 +1397,8 @@ alias[effect:ordered_rival_country] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all allies to a: country ordered_scope_ally = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all allies to a: country ordered_scope_ally = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_ally] = {
         ## cardinality = 0..1
         limit = {
@@ -1322,7 +1417,8 @@ alias[effect:ordered_scope_ally] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all co-belligerents to a: country ordered_scope_cobelligerent = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all co-belligerents to a: country ordered_scope_cobelligerent = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_cobelligerent] = {
         ## cardinality = 0..1
         limit = {
@@ -1341,7 +1437,8 @@ alias[effect:ordered_scope_cobelligerent] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all theaters in a: country ordered_scope_theater = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all theaters in a: country ordered_scope_theater = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_theater] = {
         ## cardinality = 0..1
         limit = {
@@ -1360,7 +1457,8 @@ alias[effect:ordered_scope_theater] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all countries that would be interested if country in scope has their sovereignty violated ordered_scope_violate_sovereignty_interested_parties = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated ordered_scope_violate_sovereignty_interested_parties = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_violate_sovereignty_interested_parties] = {
         ## cardinality = 0..1
         limit = {
@@ -1379,7 +1477,8 @@ alias[effect:ordered_scope_violate_sovereignty_interested_parties] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all relevant wars if target country had their sovereignty violated by scoped country ordered_scope_violate_sovereignty_wars = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country ordered_scope_violate_sovereignty_wars = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_violate_sovereignty_wars] = {
         ## cardinality = 0..1
         limit = {
@@ -1398,7 +1497,8 @@ alias[effect:ordered_scope_violate_sovereignty_wars] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all wars related to the scope ordered_scope_war = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all wars related to the scope ordered_scope_war = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_war] = {
         ## cardinality = 0..1
         limit = {
@@ -1417,7 +1517,8 @@ alias[effect:ordered_scope_war] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country below current in hierarchy ordered_subject_or_below = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Any country below current in hierarchy ordered_subject_or_below = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_subject_or_below] = {
         ## cardinality = 0..1
         limit = {
@@ -1436,7 +1537,8 @@ alias[effect:ordered_subject_or_below] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all active political parties in a country random_active_party = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all active political parties in a country random_active_party = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_active_party] = {
         ## cardinality = 0..1
         limit = {
@@ -1450,7 +1552,8 @@ alias[effect:random_active_party] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all civil wars related to the scoped country random_civil_war = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all civil wars related to the scoped country random_civil_war = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_civil_war] = {
         ## cardinality = 0..1
         limit = {
@@ -1464,7 +1567,8 @@ alias[effect:random_civil_war] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country in current hierarchy, including current random_in_hierarchy = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Any country in current hierarchy, including current random_in_hierarchy = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_in_hierarchy] = {
         ## cardinality = 0..1
         limit = {
@@ -1478,7 +1582,8 @@ alias[effect:random_in_hierarchy] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all laws in a country random_law = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all laws in a country random_law = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_law] = {
         ## cardinality = 0..1
         limit = {
@@ -1492,7 +1597,8 @@ alias[effect:random_law] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country above current in hierarchy random_overlord_or_above = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Any country above current in hierarchy random_overlord_or_above = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_overlord_or_above] = {
         ## cardinality = 0..1
         limit = {
@@ -1506,7 +1612,8 @@ alias[effect:random_overlord_or_above] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all political movements in a country random_political_movement = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all political movements in a country random_political_movement = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_political_movement] = {
         ## cardinality = 0..1
         limit = {
@@ -1520,7 +1627,8 @@ alias[effect:random_political_movement] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all potential political parties in a country random_potential_party = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all potential political parties in a country random_potential_party = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_potential_party] = {
         ## cardinality = 0..1
         limit = {
@@ -1534,7 +1642,8 @@ alias[effect:random_potential_party] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country that is rival to the country in a scope random_rival_country = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Any country that is rival to the country in a scope random_rival_country = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_rival_country] = {
         ## cardinality = 0..1
         limit = {
@@ -1548,7 +1657,8 @@ alias[effect:random_rival_country] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all allies to a: country random_scope_ally = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all allies to a: country random_scope_ally = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_ally] = {
         ## cardinality = 0..1
         limit = {
@@ -1562,7 +1672,8 @@ alias[effect:random_scope_ally] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all co-belligerents to a: country random_scope_cobelligerent = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all co-belligerents to a: country random_scope_cobelligerent = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_cobelligerent] = {
         ## cardinality = 0..1
         limit = {
@@ -1576,7 +1687,8 @@ alias[effect:random_scope_cobelligerent] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all theaters in a: country random_scope_theater = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all theaters in a: country random_scope_theater = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_theater] = {
         ## cardinality = 0..1
         limit = {
@@ -1590,7 +1702,8 @@ alias[effect:random_scope_theater] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all countries that would be interested if country in scope has their sovereignty violated random_scope_violate_sovereignty_interested_parties = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated random_scope_violate_sovereignty_interested_parties = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_violate_sovereignty_interested_parties] = {
         ## cardinality = 0..1
         limit = {
@@ -1604,7 +1717,8 @@ alias[effect:random_scope_violate_sovereignty_interested_parties] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all relevant wars if target country had their sovereignty violated by scoped country random_scope_violate_sovereignty_wars = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country random_scope_violate_sovereignty_wars = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_violate_sovereignty_wars] = {
         ## cardinality = 0..1
         limit = {
@@ -1618,7 +1732,8 @@ alias[effect:random_scope_violate_sovereignty_wars] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all wars related to the scope random_scope_war = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all wars related to the scope random_scope_war = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_war] = {
         ## cardinality = 0..1
         limit = {
@@ -1632,7 +1747,8 @@ alias[effect:random_scope_war] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Any country below current in hierarchy random_subject_or_below = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Any country below current in hierarchy random_subject_or_below = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_subject_or_below] = {
         ## cardinality = 0..1
         limit = {
@@ -1646,7 +1762,8 @@ alias[effect:random_subject_or_below] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all buildings in a: state, country every_scope_building = { limit = { <triggers> } <effects> }
+
+### Iterate through all buildings in a: state, country every_scope_building = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_building] = {
         ## cardinality = 0..1
         limit = {
@@ -1658,7 +1775,8 @@ alias[effect:every_scope_building] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all cultures in the scope every_scope_culture = { limit = { <triggers> } <effects> }
+
+### Iterate through all cultures in the scope every_scope_culture = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_culture] = {
         ## cardinality = 0..1
         limit = {
@@ -1670,7 +1788,8 @@ alias[effect:every_scope_culture] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all buildings in a: state, country ordered_scope_building = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all buildings in a: state, country ordered_scope_building = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_building] = {
         ## cardinality = 0..1
         limit = {
@@ -1689,7 +1808,8 @@ alias[effect:ordered_scope_building] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all cultures in the scope ordered_scope_culture = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all cultures in the scope ordered_scope_culture = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_culture] = {
         ## cardinality = 0..1
         limit = {
@@ -1708,7 +1828,8 @@ alias[effect:ordered_scope_culture] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all buildings in a: state, country random_scope_building = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all buildings in a: state, country random_scope_building = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_building] = {
         ## cardinality = 0..1
         limit = {
@@ -1722,7 +1843,8 @@ alias[effect:random_scope_building] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all cultures in the scope random_scope_culture = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all cultures in the scope random_scope_culture = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_culture] = {
         ## cardinality = 0..1
         limit = {
@@ -1736,7 +1858,8 @@ alias[effect:random_scope_culture] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all allies to an initiator in a: diplomatic play every_scope_initiator_ally = { limit = { <triggers> } <effects> }
+
+### Iterate through all allies to an initiator in a: diplomatic play every_scope_initiator_ally = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_initiator_ally] = {
         ## cardinality = 0..1
         limit = {
@@ -1748,7 +1871,8 @@ alias[effect:every_scope_initiator_ally] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all involved in a: diplomatic play every_scope_play_involved = { limit = { <triggers> } <effects> }
+
+### Iterate through all involved in a: diplomatic play every_scope_play_involved = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_play_involved] = {
         ## cardinality = 0..1
         limit = {
@@ -1760,7 +1884,8 @@ alias[effect:every_scope_play_involved] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all allies to a target in a: diplomatic play every_scope_target_ally = { limit = { <triggers> } <effects> }
+
+### Iterate through all allies to a target in a: diplomatic play every_scope_target_ally = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_target_ally] = {
         ## cardinality = 0..1
         limit = {
@@ -1772,7 +1897,8 @@ alias[effect:every_scope_target_ally] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all allies to an initiator in a: diplomatic play ordered_scope_initiator_ally = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all allies to an initiator in a: diplomatic play ordered_scope_initiator_ally = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_initiator_ally] = {
         ## cardinality = 0..1
         limit = {
@@ -1791,7 +1917,8 @@ alias[effect:ordered_scope_initiator_ally] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all involved in a: diplomatic play ordered_scope_play_involved = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all involved in a: diplomatic play ordered_scope_play_involved = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_play_involved] = {
         ## cardinality = 0..1
         limit = {
@@ -1810,7 +1937,8 @@ alias[effect:ordered_scope_play_involved] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all allies to a target in a: diplomatic play ordered_scope_target_ally = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all allies to a target in a: diplomatic play ordered_scope_target_ally = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_target_ally] = {
         ## cardinality = 0..1
         limit = {
@@ -1829,7 +1957,8 @@ alias[effect:ordered_scope_target_ally] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all allies to an initiator in a: diplomatic play random_scope_initiator_ally = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all allies to an initiator in a: diplomatic play random_scope_initiator_ally = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_initiator_ally] = {
         ## cardinality = 0..1
         limit = {
@@ -1843,7 +1972,8 @@ alias[effect:random_scope_initiator_ally] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all involved in a: diplomatic play random_scope_play_involved = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all involved in a: diplomatic play random_scope_play_involved = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_play_involved] = {
         ## cardinality = 0..1
         limit = {
@@ -1857,7 +1987,8 @@ alias[effect:random_scope_play_involved] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all allies to a target in a: diplomatic play random_scope_target_ally = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all allies to a target in a: diplomatic play random_scope_target_ally = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_target_ally] = {
         ## cardinality = 0..1
         limit = {
@@ -1871,7 +2002,8 @@ alias[effect:random_scope_target_ally] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest groups in a country every_interest_group = { limit = { <triggers> } <effects> }
+
+### Iterate through all interest groups in a country every_interest_group = { limit = { <triggers> } <effects> }
 alias[effect:every_interest_group] = {
         ## cardinality = 0..1
         limit = {
@@ -1883,7 +2015,8 @@ alias[effect:every_interest_group] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest group members of a party every_member = { limit = { <triggers> } <effects> }
+
+### Iterate through all interest group members of a party every_member = { limit = { <triggers> } <effects> }
 alias[effect:every_member] = {
         ## cardinality = 0..1
         limit = {
@@ -1895,7 +2028,8 @@ alias[effect:every_member] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest groups in a country ordered_interest_group = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all interest groups in a country ordered_interest_group = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_interest_group] = {
         ## cardinality = 0..1
         limit = {
@@ -1914,7 +2048,8 @@ alias[effect:ordered_interest_group] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest group members of a party ordered_member = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all interest group members of a party ordered_member = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_member] = {
         ## cardinality = 0..1
         limit = {
@@ -1933,7 +2068,8 @@ alias[effect:ordered_member] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest groups in a country random_interest_group = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all interest groups in a country random_interest_group = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_interest_group] = {
         ## cardinality = 0..1
         limit = {
@@ -1947,7 +2083,8 @@ alias[effect:random_interest_group] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all interest group members of a party random_member = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all interest group members of a party random_member = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_member] = {
         ## cardinality = 0..1
         limit = {
@@ -1961,7 +2098,8 @@ alias[effect:random_member] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all admirals in a: country or interestgroup every_scope_admiral = { limit = { <triggers> } <effects> }
+
+### Iterate through all admirals in a: country or interestgroup every_scope_admiral = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_admiral] = {
         ## cardinality = 0..1
         limit = {
@@ -1973,7 +2111,8 @@ alias[effect:every_scope_admiral] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all characters in a: country, interestgroup, or front every_scope_character = { limit = { <triggers> } <effects> }
+
+### Iterate through all characters in a: country, interestgroup, or front every_scope_character = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_character] = {
         ## cardinality = 0..1
         limit = {
@@ -1985,7 +2124,8 @@ alias[effect:every_scope_character] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all generals in a: country, interestgroup, or front every_scope_general = { limit = { <triggers> } <effects> }
+
+### Iterate through all generals in a: country, interestgroup, or front every_scope_general = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_general] = {
         ## cardinality = 0..1
         limit = {
@@ -1997,7 +2137,8 @@ alias[effect:every_scope_general] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all politicians in a: country or interestgroup every_scope_politician = { limit = { <triggers> } <effects> }
+
+### Iterate through all politicians in a: country or interestgroup every_scope_politician = { limit = { <triggers> } <effects> }
 alias[effect:every_scope_politician] = {
         ## cardinality = 0..1
         limit = {
@@ -2009,7 +2150,8 @@ alias[effect:every_scope_politician] = {
         }
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all admirals in a: country or interestgroup ordered_scope_admiral = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all admirals in a: country or interestgroup ordered_scope_admiral = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_admiral] = {
         ## cardinality = 0..1
         limit = {
@@ -2028,7 +2170,8 @@ alias[effect:ordered_scope_admiral] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all characters in a: country, interestgroup, or front ordered_scope_character = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all characters in a: country, interestgroup, or front ordered_scope_character = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_character] = {
         ## cardinality = 0..1
         limit = {
@@ -2047,7 +2190,8 @@ alias[effect:ordered_scope_character] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all generals in a: country, interestgroup, or front ordered_scope_general = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all generals in a: country, interestgroup, or front ordered_scope_general = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_general] = {
         ## cardinality = 0..1
         limit = {
@@ -2066,7 +2210,8 @@ alias[effect:ordered_scope_general] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all politicians in a: country or interestgroup ordered_scope_politician = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+
+### Iterate through all politicians in a: country or interestgroup ordered_scope_politician = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_scope_politician] = {
         ## cardinality = 0..1
         limit = {
@@ -2085,7 +2230,8 @@ alias[effect:ordered_scope_politician] = {
         check_range_bounds = no
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all admirals in a: country or interestgroup random_scope_admiral = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all admirals in a: country or interestgroup random_scope_admiral = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_admiral] = {
         ## cardinality = 0..1
         limit = {
@@ -2099,7 +2245,8 @@ alias[effect:random_scope_admiral] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all characters in a: country, interestgroup, or front random_scope_character = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all characters in a: country, interestgroup, or front random_scope_character = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_character] = {
         ## cardinality = 0..1
         limit = {
@@ -2113,7 +2260,8 @@ alias[effect:random_scope_character] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all generals in a: country, interestgroup, or front random_scope_general = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all generals in a: country, interestgroup, or front random_scope_general = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_general] = {
         ## cardinality = 0..1
         limit = {
@@ -2127,7 +2275,8 @@ alias[effect:random_scope_general] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-### Iterate through all politicians in a: country or interestgroup random_scope_politician = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+
+### Iterate through all politicians in a: country or interestgroup random_scope_politician = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_politician] = {
         ## cardinality = 0..1
         limit = {
@@ -2141,4 +2290,4 @@ alias[effect:random_scope_politician] = {
         weight = single_alias_right[weight_block]
         alias_name[effect] = alias_match_left[effect]
     }
-
+

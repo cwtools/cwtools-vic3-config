@@ -275,7 +275,7 @@ alias[trigger:debug_log_details] = scalar
 alias[trigger:error_check] = scalar
 
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
-alias[trigger:exists] = scope
+alias[trigger:exists] = scope_field
 
 ### Compare to current game date current_game_date = 1837.1.1
 alias[trigger:game_date] == date_field
@@ -1147,7 +1147,7 @@ alias[trigger:num_wounded] == value_field
 alias[trigger:has_active_building] = <building>
 
 ### Check if a supported scope has a certain timed modifier Supported scopes: Country, Character, State, Building, InterestGroup, PoliticalMovement, Institution, Front has_modifier = <key>
-alias[trigger:has_modifier] = replace_me
+alias[trigger:has_modifier] = <modifier_container>
 
 ### Check if state has at least one port has_port = yes/no
 alias[trigger:has_port] = bool

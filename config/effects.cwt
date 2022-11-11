@@ -75,6 +75,10 @@ alias[effect:add_modifier] = {
     name = <modifier_container>
     ## cardinality = 0..1
     enum[duration] = int
+    ## cardinality = 0..1
+    multiplier = value_field
+    ## cardinality = 0..1
+    is_decaying = bool
 }
 
 ### Removes a timed modifier effect to object in scope
@@ -116,7 +120,11 @@ alias[effect:lock_trade_route] = {
 alias[effect:add_momentum] = value_field
 
 ### Adds a journal entry to a scoped country's journal, with optional saved scope target add_journal_entry = { type = <key> target = <scope> }
-alias[effect:add_journal_entry] = replace_me
+alias[effect:add_journal_entry] = {
+    type = <journal_entry>
+    ## cardinality = 0..1
+    target = scope_field
+}
 
 ### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[effect:add_to_global_variable_list] = {
@@ -177,7 +185,7 @@ alias[effect:change_global_variable] = {
 }
 
 ### Change infamy of scope country change_infamy = amount
-alias[effect:change_infamy] = replace_me
+alias[effect:change_infamy] = value_field
 
 ### Changes the value or a numeric variable change_variable = { name = X operation = Y } Where X is the name of the numeric variable to modify Where the valid operations are add, subtract, multiply, divide and modulo Where Y is a fixed point value, script value or event target of a value type
 alias[effect:change_local_variable] = {
@@ -237,6 +245,8 @@ alias[effect:custom_description_no_bullet] = replace_me
 alias[effect:custom_label] = replace_me
 
 ### just a tooltip, the scope as subject (for grouping, localization). Can also be written as custom_tooltip = { text = key subject = scope (optional) <hidden effects> }
+alias[effect:custom_tooltip] = localisation
+### just a tooltip, the scope as subject (for grouping, localization). Can also be written as custom_tooltip = { text = key subject = scope (optional) <hidden effects> }
 alias[effect:custom_tooltip] = replace_me
 
 ### Log a string to the debug log when this effect executes, debug_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
@@ -274,10 +284,10 @@ alias[effect:if] = {
 }
 
 ### Posts notification
-alias[effect:post_notification] = replace_me
+alias[effect:post_notification] = <notification_type>
 
 ### Posts proposal
-alias[effect:post_proposal] = replace_me
+alias[effect:post_proposal] = <proposal_type>
 
 ### a random effect, random = { chance = X modifier = Y effects... } where X is a chance of the enclosed effects being fired and can be modified by optional value modifier list (AKA MTTH) Y
 alias[effect:random] = {
@@ -591,7 +601,10 @@ alias[effect:add_primary_culture] = scope[culture]
 alias[effect:add_taxed_goods] = scope[goods]
 
 ### Add technology progress add_technology_progress = { progress = X technology = Y } Where X is a fixed point and Y is an technology
-alias[effect:add_technology_progress] = replace_me
+alias[effect:add_technology_progress] = {
+    technology = <technology>
+    progress = value_field
+}
 
 ### Research the specified technology in a country scope add_technology_researched = technology
 alias[effect:add_technology_researched] = <technology>
@@ -609,37 +622,100 @@ alias[effect:call_election] = replace_me
 alias[effect:change_institution_investment_level] = replace_me
 
 ### Change relations between two countries change_relations = { 	tcountry = country scope/tag 	value = amount }
-alias[effect:change_relations] = replace_me
+alias[effect:change_relations] = {
+    country = scope[country]
+    country = <country_definition>
+    value = value_field
+}
 
 ### Will change the subject type of the country that is the current scope. change_subject_type = subject_type_dominion
-alias[effect:change_subject_type] = replace_me
+alias[effect:change_subject_type] = <subject_type>
 
 ### Change the tag for the scoped country c:GBR = { change_tag = FRA }
-alias[effect:change_tag] = replace_me
+alias[effect:change_tag] = {
+    change_tag = <country_definition>
+}
 
 ### Change tension between two countries change_tension = { 	tcountry = country scope/tag 	value = amount }
-alias[effect:change_tension] = replace_me
+alias[effect:change_tension] = {
+    country = scope[country]
+    country = <country_definition>
+    value = value_field
+}
 
 ### Clear country loans = bool
 alias[effect:clear_debt] = bool
 
 ### Clears an amount of debt equal to the defined multiplier on target's max credit clear_scaled_debt = value
-alias[effect:clear_scaled_debt] = replace_me
+alias[effect:clear_scaled_debt] = value_field
 
 ### Completes an objective subgoal complete_objective_subgoal = <key>
 alias[effect:complete_objective_subgoal] = <objective_subgoal>
 
 ### Creates a character, any option can be omitted. create_character = { 	name = loc_key or alternatively first_name and last_name separately 	culture = culture_tag 	religion = religion scope (if omitted, it's defined by the character's culture religion) 	female = bool or character scope (gets the same value from the character) 	noble = bool or character scope (gets the same value from the character) 	ruler = bool or character scope (gets the same value from the character) 	heir = bool 	age = integer, range, or character scope (gets the age from a character) 	ideology = ideology key or scope 	interest_group = interest group key or scope 	on_created = effect	trait_generation = effect	role = character scope (gets the role from a character) 	hq = HQ scope or strategic region scope }
-alias[effect:create_character] = replace_me
+alias[effect:create_character] = {
+    name = localisation
+    ## cardinality = 0..1
+    culture = <culture>
+
+    ## cardinality = 0..1
+    relgion = <religion>
+    ## cardinality = 0..1
+    relgion = scope[religion]
+
+    ## cardinality = 0..1
+    female = bool
+    ## cardinality = 0..1
+    female = scope[character]
+
+    ## cardinality = 0..1
+    heir = bool
+
+    ## cardinality = 0..1
+    age = int_value_field
+    ## cardinality = 0..1
+    age = scope[character]
+
+    ## cardinality = 0..1
+    ideology = <ideology>
+    ## cardinality = 0..1
+    ideology = scope[ideology]
+
+    ## cardinality = 0..1
+    interest_group = <interest_group>
+    ## cardinality = 0..1
+    interest_group = scope[interest_group]
+
+    ## cardinality = 0..1
+    on_created = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    trait_generation = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    role = scope[character]
+
+    #TODO add hq scope?
+    ## cardinality = 0..1
+    hq = scope[strategic_region]
+}
 
 ### Create a diplomatic pact between two countries, with scope country as initiator create_diplomatic_pact = { 	tcountry = country scope/tag 	type = diplomatic action type }
-alias[effect:create_diplomatic_pact] = replace_me
+alias[effect:create_diplomatic_pact] = {
+    country = scope[country]
+    country = <country_definition>
+    type = <diplomatic_action>
+}
 
 ### Create a diplomatic play with the scoped object as target create_diplomatic_play = { 	name = loc_key 	escalation = integer between 0 and 100 	war = bool 	initiator = country scope/tag 	type = diplomatic play type 	add_initiator_backers = { list of country scopes/tags } 	add_target_backers = { list of country scopes/tags } 	add_war_goal = { holder = country scope/tag, type = x, state = <state target>, country = <country target,> region = <region target>  } }
 alias[effect:create_diplomatic_play] = replace_me
 
 ### Creates a diplomatic incident that generates infamy, with target country as the victim create_incident = { 	tcountry = country scope/tag 	value = infamy amount }
-alias[effect:create_incident] = replace_me
+alias[effect:create_incident] = {
+    country = scope[country]
+    country = <country_definition>
+    value = value_field
+}
 
 ### Creates a new Trade Route trade_route = { 	goods = x 	level = x 	import = yes/no 	origin = state_region 	target = state_region }
 alias[effect:create_trade_route] = replace_me
