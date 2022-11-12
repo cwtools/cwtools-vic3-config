@@ -492,17 +492,19 @@ alias[effect:activate_building] = {
 ### Apply a standard of living modifier in the scoped state for the given culture. Other than the required culture argument, this effect has the same syntax as add_modifier.
 alias[effect:add_culture_standard_of_living_modifier] = {
     culture = scope[culture]
-    name = <modifier_container>
     ## cardinality = 0..1
     enum[duration] = int
+    ## cardinality = 0..1
+    multiplier = value_field
 }
 
 ### Apply a standard of living modifier in the scoped state for the given religion. Other than the required religion argument, this effect has the same syntax as add_modifier.
 alias[effect:add_religion_standard_of_living_modifier] = {
     religion = scope[religion]
-    name = <modifier_container>
     ## cardinality = 0..1
     enum[duration] = int
+    ## cardinality = 0..1
+    multiplier = value_field
 }
 
 ### Changes X% of the different religion population to the specified religion. convert_population = { target = rel:catholic value = 0.5 }
@@ -588,7 +590,9 @@ alias[effect:add_change_relations_progress] = replace_me
 alias[effect:add_declared_interest] = replace_me
 
 ### Adds an enactment-related timed modifier effect to object in scope
-alias[effect:add_enactment_modifier] = replace_me
+alias[effect:add_enactment_modifier] = {
+    name = <modifier_container>
+}
 
 ### Add specified era as researched in a country scope add_era_researched = era
 alias[effect:add_era_researched] = <era>
@@ -640,9 +644,7 @@ alias[effect:change_relations] = {
 alias[effect:change_subject_type] = <subject_type>
 
 ### Change the tag for the scoped country c:GBR = { change_tag = FRA }
-alias[effect:change_tag] = {
-    change_tag = <country_definition>
-}
+alias[effect:change_tag] = <country_definition>
 
 ### Change tension between two countries change_tension = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:change_tension] = {
@@ -708,6 +710,12 @@ alias[effect:create_character] = {
 
     ## cardinality = 0..1
     trait_generation = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    traits = {
+        ## cardinality = 1..inf
+        <character_trait>
+    }
 
     ## cardinality = 0..1
     role = scope[character]
@@ -789,7 +797,10 @@ alias[effect:set_diplomats_expelled] = bool
 alias[effect:set_government_wage_level] = enum[wage_level]
 
 ### Sets the investment level for an institution set_institution_investment_level = { institution = <key> level = x }
-alias[effect:set_institution_investment_level] = replace_me
+alias[effect:set_institution_investment_level] = {
+    institution = <institution>
+    level = int_value_field
+}
 
 ### Set market capital in a country scope set_market_capital = X Where X is a state region
 alias[effect:set_market_capital] = replace_me
@@ -804,7 +815,11 @@ alias[effect:set_mutual_secret_goal] = replace_me
 alias[effect:set_next_election_date] = replace_me
 
 ### Set whether a country owes another a obligation set_owes_obligation = { 	country = country scope/tag 	setting = yes/no }
-alias[effect:set_owes_obligation_to] = replace_me
+alias[effect:set_owes_obligation_to] = {
+    country = scope[country]
+    country = <country_definition>
+    setting = bool
+}
 
 ### Set relations between two countries set_relations = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:set_relations] = replace_me
@@ -923,7 +938,10 @@ alias[effect:add_target_backers] = {
 }
 
 ### Adds a war goal to a DP. Same data read in as add_war_goal in create_diplomatic_play random_diplomatic_play = { add_war_goal = { holder = initiator type = secession }
-alias[effect:add_war_goal] = replace_me
+alias[effect:add_war_goal] = {
+    holder = scope[country]
+    type = enum[war_goal]
+}
 
 ### End a diplomatic play end_play = bool
 alias[effect:end_play] = bool
@@ -943,7 +961,7 @@ alias[effect:remove_target_backers] = {
 ### Removes a war goal from a DP if there's at least one other war goal present. any_diplomatic_play = { limit = { has_war_goal = return_state } remove_war_goal = { who = initiator war_goal = return_state } }
 alias[effect:remove_war_goal] = {
     who = scope[country]
-    war_goal = <war_goal>
+    war_goal = enum[war_goal]
 }
 
 ### effect end diplo play for one side, with it gaining war goals resolve_play_for = initiator resolve_play_for = scope:custom_scoped_country
@@ -954,4 +972,13 @@ alias[effect:set_key] = localisation
 
 ### Set a diplomatic play to be a war set_war = bool
 alias[effect:set_war] = bool
+
+### Rounds a variable to the nearest specified value clamp_variable = { name = X nearest = Y } Where X is the name of the variable Where Y is a script value
+alias[effect:round_global_variable] = replace_me
+
+### Rounds a variable to the nearest specified value clamp_variable = { name = X nearest = Y } Where X is the name of the variable Where Y is a script value
+alias[effect:round_local_variable] = replace_me
+
+### Saves the current scope as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_event_target_as = <string>
+alias[effect:save_temporary_scope_as] = replace_me
 

@@ -29,7 +29,10 @@ links = {
 		desc = " Scope from a market to the MarketGoods with the specified key"
 		input_scopes = market
 		output_scope = market_goods
-
+		prefix = mg:
+		from_data = yes
+		#TODO: market goods vs goods
+		data_source = <goods>
 	}
 	participants = {
 		desc = " Get the total number of participating countries in the scoped market"
@@ -701,6 +704,9 @@ links = {
 		desc = " Scope to the active party of specified key belonging to the country"
 		input_scopes = country
 		output_scope = party
+		from_data = yes
+		prefix = py:
+		data_source = <party>
 	}
 	relations:root = {
 		desc = " Scope to relations between two countries (example: relations:root >= 2)"
@@ -839,7 +845,8 @@ links = {
 	type = {
 		desc = " Scope from an object to its type"
 		input_scopes = { building institution law commander_order }
-		output_scope = building_type
+		# TODO verify
+		output_scope = any
 	}
 	goods = {
 		desc = " Scope to the goods traded by a trade route"

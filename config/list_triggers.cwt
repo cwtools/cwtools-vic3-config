@@ -6,6 +6,9 @@ alias[trigger:any_market_goods] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -17,6 +20,9 @@ alias[trigger:any_scope_country] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -28,6 +34,9 @@ alias[trigger:any_scope_pop] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -39,6 +48,9 @@ alias[trigger:any_scope_state] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -50,6 +62,9 @@ alias[trigger:any_scope_interest_marker] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -61,6 +76,9 @@ alias[trigger:any_neighbouring_state] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -72,6 +90,9 @@ alias[trigger:any_character] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -83,6 +104,9 @@ alias[trigger:any_character_in_void] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -94,6 +118,9 @@ alias[trigger:any_country] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -105,6 +132,9 @@ alias[trigger:any_diplomatic_play] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -116,6 +146,9 @@ alias[trigger:any_false] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -127,6 +160,9 @@ alias[trigger:any_in_global_list] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -138,6 +174,9 @@ alias[trigger:any_in_list] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -149,6 +188,9 @@ alias[trigger:any_in_local_list] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -160,6 +202,9 @@ alias[trigger:any_market] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -171,6 +216,9 @@ alias[trigger:any_state] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -182,6 +230,9 @@ alias[trigger:any_state_region] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -193,6 +244,9 @@ alias[trigger:any_active_party] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -204,6 +258,9 @@ alias[trigger:any_civil_war] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -215,6 +272,9 @@ alias[trigger:any_in_hierarchy] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -226,6 +286,9 @@ alias[trigger:any_law] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -237,6 +300,9 @@ alias[trigger:any_overlord_or_above] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -248,6 +314,9 @@ alias[trigger:any_political_movement] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -259,6 +328,9 @@ alias[trigger:any_potential_party] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -270,6 +342,9 @@ alias[trigger:any_rival_country] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -281,6 +356,9 @@ alias[trigger:any_scope_ally] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -292,6 +370,9 @@ alias[trigger:any_scope_cobelligerent] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -303,6 +384,9 @@ alias[trigger:any_scope_theater] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -314,6 +398,9 @@ alias[trigger:any_scope_violate_sovereignty_interested_parties] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -325,6 +412,9 @@ alias[trigger:any_scope_violate_sovereignty_wars] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -336,6 +426,9 @@ alias[trigger:any_scope_war] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -347,6 +440,9 @@ alias[trigger:any_subject_or_below] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -358,6 +454,9 @@ alias[trigger:any_scope_front] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -369,6 +468,9 @@ alias[trigger:any_trade_route] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -380,6 +482,9 @@ alias[trigger:any_supporting_interest_group] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -391,6 +496,9 @@ alias[trigger:any_primary_culture] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -402,6 +510,9 @@ alias[trigger:any_combat_units] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -413,6 +524,9 @@ alias[trigger:any_scope_building] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -424,6 +538,9 @@ alias[trigger:any_scope_culture] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -435,6 +552,9 @@ alias[trigger:any_scope_initiator_ally] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -446,6 +566,9 @@ alias[trigger:any_scope_play_involved] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -457,6 +580,9 @@ alias[trigger:any_scope_target_ally] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -468,6 +594,9 @@ alias[trigger:any_scope_admiral] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -479,6 +608,9 @@ alias[trigger:any_scope_character] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -490,6 +622,9 @@ alias[trigger:any_scope_general] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -501,6 +636,9 @@ alias[trigger:any_scope_politician] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -512,6 +650,9 @@ alias[trigger:any_interest_group] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 
@@ -523,6 +664,9 @@ alias[trigger:any_member] = {
         count = int_value_field
         ## cardinality = 0..1
         count = all
+        ## cardinality = 0..1
+        ### If set, count = all and percent only consider the filtered items for the denominator.
+        filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
 

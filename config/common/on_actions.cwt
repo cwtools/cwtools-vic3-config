@@ -3,3 +3,5 @@ types = {
         path = "game/common/on_actions"
     }
 }
+
+on_action = single_alias_right[on_action]

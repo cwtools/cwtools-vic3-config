@@ -31,7 +31,9 @@ event = {
     ## cardinality = 0..1
     type = enum[event_types]
 
+    ## cardinality = 0..1
     placement = scope[state]
+    ## cardinality = 0..1
     placement = ROOT
 
     ## cardinality = 0..1
@@ -84,12 +86,19 @@ event = {
     ## cardinality = 0..1
     # TODO
     icon = scalar
+    ## cardinality = 0..1
+    right_icon = scalar
+    ## cardinality = 0..1
+    left_icon = scalar
 
     # ## cardinality = 0..1
     # on_trigger_fail = single_alias_right[effect_clause]
 
     ## cardinality = 0..inf
     trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    cancellation_trigger = single_alias_right[trigger_clause]
 
     ## cardinality = 0..inf
     option = {

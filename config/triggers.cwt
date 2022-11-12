@@ -1109,7 +1109,7 @@ alias[trigger:has_war_exhaustion] = {
 }
 
 ### Checks if war has a certain war goal type has_war_goal = return_state
-alias[trigger:has_war_goal] = replace_me
+alias[trigger:has_war_goal] = enum[war_goal]
 
 ### Checks the war support of the target country in the scoped war has_war_support = { target = c:GBR value > 50 }
 alias[trigger:has_war_support] = {

@@ -107,4 +107,30 @@ enums = {
         hostile
         neutral
     }
+
+    enum[war_goal] = {
+        war_reparations
+        humiliation
+        open_market
+        regime_change
+        ban_slavery
+        unification_leadership
+        annex_country
+        liberate_country
+        make_puppet
+        make_dominion
+        make_vassal
+        conquer_state
+        return_state
+        take_treaty_port
+        revoke_all_claims
+        revoke_claim
+        contain_threat
+        transfer_subject
+        liberate_subject
+        force_recognition
+        independence
+        secession
+        unification
+    }
 }
