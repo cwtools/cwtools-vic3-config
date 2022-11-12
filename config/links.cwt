@@ -29,6 +29,7 @@ links = {
 		desc = " Scope from a market to the MarketGoods with the specified key"
 		input_scopes = market
 		output_scope = market_goods
+
 	}
 	participants = {
 		desc = " Get the total number of participating countries in the scoped market"
@@ -484,6 +485,9 @@ links = {
 		desc = " Scope to the journal entry of specified key belonging to the country"
 		input_scopes = country
 		output_scope = journalentry
+		from_data = yes
+		data_source = <journal_entry>
+		prefix = je:
 	}
 	legitimacy = {
 		desc = " Scope to the current amount of legitimacy in country"

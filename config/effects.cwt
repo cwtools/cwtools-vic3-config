@@ -247,7 +247,12 @@ alias[effect:custom_label] = replace_me
 ### just a tooltip, the scope as subject (for grouping, localization). Can also be written as custom_tooltip = { text = key subject = scope (optional) <hidden effects> }
 alias[effect:custom_tooltip] = localisation
 ### just a tooltip, the scope as subject (for grouping, localization). Can also be written as custom_tooltip = { text = key subject = scope (optional) <hidden effects> }
-alias[effect:custom_tooltip] = replace_me
+alias[effect:custom_tooltip] = {
+    text = localisation
+    ## cardinality = 0..1
+    subject = scope_field
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ### Log a string to the debug log when this effect executes, debug_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
 alias[effect:debug_log] = localisation
@@ -619,7 +624,10 @@ alias[effect:annex] = scope[country]
 alias[effect:call_election] = replace_me
 
 ### Add/remove the investment level for the institution change_institution_investment_level = {  	institution = institution_police 	investment = -1 }
-alias[effect:change_institution_investment_level] = replace_me
+alias[effect:change_institution_investment_level] = {
+    institution = <institution>
+    investment = int_value_field
+}
 
 ### Change relations between two countries change_relations = { 	tcountry = country scope/tag 	value = amount }
 alias[effect:change_relations] = {
@@ -654,7 +662,13 @@ alias[effect:complete_objective_subgoal] = <objective_subgoal>
 
 ### Creates a character, any option can be omitted. create_character = { 	name = loc_key or alternatively first_name and last_name separately 	culture = culture_tag 	religion = religion scope (if omitted, it's defined by the character's culture religion) 	female = bool or character scope (gets the same value from the character) 	noble = bool or character scope (gets the same value from the character) 	ruler = bool or character scope (gets the same value from the character) 	heir = bool 	age = integer, range, or character scope (gets the age from a character) 	ideology = ideology key or scope 	interest_group = interest group key or scope 	on_created = effect	trait_generation = effect	role = character scope (gets the role from a character) 	hq = HQ scope or strategic region scope }
 alias[effect:create_character] = {
+    ## cardinality = 0..1
     name = localisation
+    ## cardinality = 0..1
+    first_name = localisation
+    ## cardinality = 0..1
+    last_name = localisation
+
     ## cardinality = 0..1
     culture = <culture>
 
@@ -685,6 +699,9 @@ alias[effect:create_character] = {
     interest_group = <interest_group>
     ## cardinality = 0..1
     interest_group = scope[interest_group]
+
+    ## cardinality = 0..1
+    ig_leader = bool
 
     ## cardinality = 0..1
     on_created = single_alias_right[effect_clause]
@@ -838,10 +855,30 @@ alias[effect:violate_sovereignty_join] = scope[country]
 alias[effect:activate_production_method] = replace_me
 
 ### Adds loyalists to pops in state or country, all parameters except value are optional add_loyalists = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
-alias[effect:add_loyalists] = replace_me
+alias[effect:add_loyalists] = {
+    value = value_field
+    ## cardinality = 0..1
+    pop_type = <pop_type>
+    ## cardinality = 0..1
+    strata = enum[pop_strata]
+    ## cardinality = 0..1
+    culture = scope[culture]
+    ## cardinality = 0..1
+    religion = scope[religion]
+}
 
 ### Adds radicals to pops in state or country, all parameters except value are optional add_radicals = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
-alias[effect:add_radicals] = replace_me
+alias[effect:add_radicals] = {
+    value = value_field
+    ## cardinality = 0..1
+    pop_type = <pop_type>
+    ## cardinality = 0..1
+    strata = enum[pop_strata]
+    ## cardinality = 0..1
+    culture = scope[culture]
+    ## cardinality = 0..1
+    religion = scope[religion]
+}
 
 ### Adds the wealth of the pop add_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where the distribution adding to wealth of the pop
 alias[effect:add_pop_wealth] = replace_me

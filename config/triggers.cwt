@@ -246,7 +246,10 @@ alias[trigger:assert_if] = {
 alias[trigger:assert_read] = scalar
 
 ### Returns true if the specified number of sub-triggers return true calc_true_if = { amount = 2 <trigger> <trigger> <trigger> }
-alias[trigger:calc_true_if] = replace_me
+alias[trigger:calc_true_if] = {
+    amount = int
+    alias_name[trigger] = alias_match_left[trigger]
+}
 
 ### Can the specified tutorial lesson be started? can_start_tutorial_lesson = reactive_advice_succession An interface trigger, can only be used in specific places
 alias[trigger:can_start_tutorial_lesson] = <tutorial_lesson>
@@ -264,6 +267,8 @@ alias[trigger:custom_tooltip] = {
     subject = scope
     alias_name[trigger] = alias_match_left[trigger]
 }
+### Replaces the tooltips for the enclosed triggers with a custom text custom_tooltip = { 	text = <text> 	subject = <scope> (optional) 	<trigger> }
+alias[trigger:custom_tooltip] = localisation
 
 ### Log whether the parent trigger succeeded or failed
 alias[trigger:debug_log] = scalar
@@ -276,6 +281,9 @@ alias[trigger:error_check] = scalar
 
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = scope_field
+### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
+#TODO verify
+alias[trigger:exists] = yes
 
 ### Compare to current game date current_game_date = 1837.1.1
 alias[trigger:game_date] == date_field
@@ -675,7 +683,7 @@ alias[trigger:has_interest_marker_in_region] = <state_region>
 alias[trigger:has_interest_marker_in_region] = scope[state_region]
 
 ### Check if the country has at least one active journal entry of the specified type has_journal_entry = key
-alias[trigger:has_journal_entry] = replace_me
+alias[trigger:has_journal_entry] = <journal_entry>
 
 ### Checks if a country has a certain Law active
 alias[trigger:has_law] = scope[law_type]
@@ -766,7 +774,7 @@ alias[trigger:influence] == value_field
 ### Compares the level of investment in an institution institution_investment_level = { institution = <key> value = <comparator value> }
 alias[trigger:institution_investment_level] == {
     institution = <institution>
-    value == enum[wage_level]
+    value == int
 }
 
 ### Compares the money in the investment pool of a given country investment_pool > 1000
@@ -933,7 +941,10 @@ alias[trigger:owns_entire_state_region] = <state_region>
 alias[trigger:owns_treaty_port_in] = <state_region>
 
 ### Checks whether the scoped country has <percent> of its population belonging to the specified pop type scope:example_country = { 	pop_type_percent_country = { 		pop_type = <pop_type> 		percent <compare operator (<,>,= and so on)> <percent> 	} }
-alias[trigger:pop_type_percent_country] == replace_me_comparison
+alias[trigger:pop_type_percent_country] = {
+    pop_type = <pop_type>
+    percent == value_field[-1..1]
+}
 
 ### Compare prestige
 alias[trigger:prestige] == value_field
@@ -1265,7 +1276,7 @@ alias[trigger:has_decree] = <decree>
 alias[trigger:has_potential_resource] = <building_group>
 
 ### Checks if scoped state region has a certain trait has_state_trait = key
-alias[trigger:has_state_trait] = replace_me
+alias[trigger:has_state_trait] = <state_trait>
 
 ### True if IG in scope has scripted political strength in state ig_state_pol_strength_share = { 	target = scope:target_ig 	value = 0.3 }
 alias[trigger:ig_state_pol_strength_share] = {
@@ -1426,10 +1437,38 @@ alias[trigger:is_goal_complete] = bool
 alias[trigger:is_progressing] = bool
 
 ### Compares loyalist fraction in pops in state or country, all parameters except value are optional loyalist_fraction = { value = x pop_type = <key> strata = <key> culture = <key/scope> religion = <key/scope> }
-alias[trigger:loyalist_fraction] == replace_me_comparison
+alias[trigger:loyalist_fraction] = {
+    value == value_field
+    ## cardinality = 0..1
+    pop_type = <pop_type>
+    ## cardinality = 0..1
+    strata = enum[pop_strata]
+    ## cardinality = 0..1
+    culture = <culture>
+    ## cardinality = 0..1
+    culture = scope[culture]
+    ## cardinality = 0..1
+    religion = <religion>
+    ## cardinality = 0..1
+    religion = scope[religion]
+}
 
 ### Compares radical fraction in pops in state or country, all parameters except value are optional radical_fraction = { value = x pop_type = <key> strata = <key> culture = <key/scope> religion = <key/scope> }
-alias[trigger:radical_fraction] == replace_me_comparison
+alias[trigger:radical_fraction] = {
+    value == value_field
+    ## cardinality = 0..1
+    pop_type = <pop_type>
+    ## cardinality = 0..1
+    strata = enum[pop_strata]
+    ## cardinality = 0..1
+    culture = <culture>
+    ## cardinality = 0..1
+    culture = scope[culture]
+    ## cardinality = 0..1
+    religion = <religion>
+    ## cardinality = 0..1
+    religion = scope[religion]
+}
 
 ### Checks how the ratio of Combat Units (of the same type) on the scoped Diplomatic Play, on the target country's side, with the specified Production Method compares to the value diplomatic_play_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
 alias[trigger:diplomatic_play_pm_usage] = {

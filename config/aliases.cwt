@@ -52,3 +52,20 @@ single_alias[added_modifier] = {
     ## cardinality = 0..1
     enum[duration] = int
 }
+
+single_alias[on_action] = {
+    ## cardinality = 0..1
+    effect = single_alias_right[effect_clause]
+	## cardinality = 0..1
+	random_events = {
+		## cardinality = 0..inf
+		int = <event>
+		## cardinality = 0..inf
+		int = 0
+	}
+    ## cardinality = 0..1
+	events = {
+		## cardinality = 0..inf
+		<event>
+	}
+}
