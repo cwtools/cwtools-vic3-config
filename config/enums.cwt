@@ -63,11 +63,11 @@ enums = {
     }
 
     enum[cosmetic_dlc] = {
-
+        "Victoria 2 Remastered Soundtrack"
     }
 
     enum[gameplay_dlc] = {
-
+        "American Buildings Pack"
     }
 
     enum[country_tier] = {
@@ -132,5 +132,21 @@ enums = {
         independence
         secession
         unification
+    }
+
+    enum[secret_goal] = {
+        conquer
+        protect
+        dominate
+        none
+        befriend
+        antagonize
+    }
+    enum[law_stance_values] = {
+        strongly_disapprove
+        disapprove
+        neutral
+        approve
+        strongly_approve
     }
 }

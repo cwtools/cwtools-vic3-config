@@ -7,7 +7,7 @@ alias[trigger:has_ideology] = <ideology>
 ### Compares the stance of the scoped character or interest group about the specified law
 alias[trigger:law_stance] = {
     law = scope[law_type]
-    value == neutral
+    value == enum[law_stance_values]
 }
 
 ### Compares areas of object to another object
@@ -712,7 +712,11 @@ alias[trigger:has_ruling_interest_group] = <interest_group>
 alias[trigger:has_ruling_interest_group_count] == value_field
 
 ### Checks if scoped country has a particular secret goal towards another country has_secret_goal = { who = X secret_goal = Y } Where X = country and Y = secret_goal type
-alias[trigger:has_secret_goal] = replace_me
+alias[trigger:has_secret_goal] = {
+    who = scope[country]
+    who = <country_definition>
+    secret_goal = enum[secret_goal]
+}
 
 ### Check if country has a state in the state region has_state_in_state_region = key
 alias[trigger:has_state_in_state_region] = <state_region>

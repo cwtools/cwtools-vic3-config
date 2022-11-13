@@ -1,0 +1,8 @@
+types = {
+    type[history_diplomatic_play] = {
+        path = "game/common/history/diplomatic_plays"
+
+    }
+}
+
+history_diplomatic_play = single_alias_right[effect_clause]

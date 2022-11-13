@@ -1,0 +1,8 @@
+types = {
+    type[history_production_methods] = {
+        path = "game/common/history/production_methods"
+
+    }
+}
+
+history_production_methods = single_alias_right[effect_clause]

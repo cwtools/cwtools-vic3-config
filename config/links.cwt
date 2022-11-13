@@ -290,6 +290,9 @@ links = {
 	pop_type = {
 		desc = " Scope to a pop type from its name (pop_type:laborers)"
 		output_scope = pop_type
+		prefix = pop_type:
+		from_data = yes
+		data_source = <pop_type>
 	}
 	rank_value = {
 		desc = " Scope to rank value of a particular country rank (rank_value:great_power)"
@@ -352,6 +355,9 @@ links = {
 		input_scopes = { country state building interest_group market character }
 		output_scope = value
 		type = value
+		from_data = yes
+		data_source = <modifier_container>
+		prefix = modifier:
 	}
 	combat_width = {
 		desc = " Scope to combat width multiplier of scope province"

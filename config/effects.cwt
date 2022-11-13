@@ -254,7 +254,7 @@ alias[effect:custom_description] = replace_me
 alias[effect:custom_description_no_bullet] = replace_me
 
 ### just a tooltip, the scope as object (for grouping, localization). Can also be written as custom_label = { text = key subject = scope (optional) <hidden effects> }
-alias[effect:custom_label] = replace_me
+alias[effect:custom_label] = localisation
 
 ### just a tooltip, the scope as subject (for grouping, localization). Can also be written as custom_tooltip = { text = key subject = scope (optional) <hidden effects> }
 alias[effect:custom_tooltip] = localisation
@@ -771,6 +771,11 @@ alias[effect:create_character] = {
     is_admiral = bool
 
     ## cardinality = 0..1
+    commander_rank = <commander_rank>
+    ## cardinality = 0..1
+    commander_rank = default
+
+    ## cardinality = 0..1
     ruler = bool
     ## cardinality = 0..1
     ruler = scope[character]
@@ -798,9 +803,16 @@ alias[effect:create_character] = {
     #TODO add hq scope?
     ## cardinality = 0..1
     hq = scope[strategic_region]
+    ## cardinality = 0..1
+    hq = <strategic_region>
 
     ## cardinality = 0..1
     dna = <dna_data>
+
+    ## cardinality = 0..1
+    template = <character_template>
+    ## cardinality = 0..1
+    save_scope_as = value_set[event_target]
 }
 
 ### Create a diplomatic pact between two countries, with scope country as initiator create_diplomatic_pact = { 	tcountry = country scope/tag 	type = diplomatic action type }
@@ -1000,7 +1012,7 @@ alias[effect:set_military_wage_level] = enum[wage_level]
 alias[effect:set_mutual_secret_goal] = {
     country = scope[country]
     country = <country_definition>
-    secret_goal = <secret_goal>
+    secret_goal = enum[secret_goal]
 }
 
 ### Set next election date for country set_next_election_date = year.month.day
@@ -1027,7 +1039,11 @@ alias[effect:set_ruling_interest_groups] = {
 }
 
 ### Set a secret AI goal for scope country towards another country set_secret_goal = { 	tcountry = country scope/tag 	secret_goal = secret goal type }
-alias[effect:set_secret_goal] = replace_me
+alias[effect:set_secret_goal] = {
+    country = scope[country]
+    country = <country_definition>
+    secret_goal = enum[secret_goal]
+}
 
 ### Changes the state religion of the country to the specified religion set_state_religion = X Where X is a religion scope
 alias[effect:set_state_religion] = scope[religion]
@@ -1078,8 +1094,8 @@ alias[effect:violate_sovereignty_join] = {
 
 ### Activates the named production method for buildings of a certain type in country/state
 alias[effect:activate_production_method] = {
-    ## cardinality = 1..*
-    <production_method>
+    building_type = <building>
+    production_method = <production_method>
 }
 
 ### Adds loyalists to pops in state or country, all parameters except value are optional add_loyalists = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
