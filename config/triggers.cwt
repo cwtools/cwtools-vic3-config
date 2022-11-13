@@ -264,7 +264,7 @@ alias[trigger:custom_description] = replace_me
 alias[trigger:custom_tooltip] = {
     text = localisation
     ## cardinality = 0..1
-    subject = scope
+    subject = scope_field
     alias_name[trigger] = alias_match_left[trigger]
 }
 ### Replaces the tooltips for the enclosed triggers with a custom text custom_tooltip = { 	text = <text> 	subject = <scope> (optional) 	<trigger> }
@@ -376,21 +376,21 @@ alias[trigger:is_rightclick_menu_open] = replace_me
 alias[trigger:is_target_in_global_variable_list] = {
     name = value[global_variable_list]
     #TODO ?
-    target = scope
+    target = scope_field
 }
 
 ### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[trigger:is_target_in_local_variable_list] = {
     name = value[local_variable_list]
     #TODO ?
-    target = scope
+    target = scope_field
 }
 
 ### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[trigger:is_target_in_variable_list] = {
     name = value[variable_list]
     #TODO ?
-    target = scope
+    target = scope_field
 }
 
 ### Is the tutorial active? An interface trigger, can only be used in specific places
