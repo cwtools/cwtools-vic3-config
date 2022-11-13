@@ -3,6 +3,7 @@ types = {
         path = "game/common/journal_entries"
     }
 }
+## replace_scope = { ROOT = country THIS = country }
 journal_entry = {
     #TODO image
     ## cardinality = 0..1

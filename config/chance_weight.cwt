@@ -55,6 +55,11 @@ single_alias[implicit_trigger_chance_modifier] = {
         enum[weight_chance_modifier_operators] = value_field
     }
     ## cardinality = 0..inf
+    else = {
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = value_field
+    }
+    ## cardinality = 0..inf
     enum[weight_chance_modifier_operators] = value_field
 }
 

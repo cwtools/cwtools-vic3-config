@@ -580,6 +580,7 @@ alias[effect:every_diplomatic_play] = {
 
 ### Iterate through all items in global list. list = name or variable = name every_in_global_list = { limit = { <triggers> } <effects> }
 alias[effect:every_in_global_list] = {
+        variable = value[global_variable_list]
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -593,6 +594,7 @@ alias[effect:every_in_global_list] = {
 
 ### Iterate through all items in list. list = name or variable = name every_in_list = { limit = { <triggers> } <effects> }
 alias[effect:every_in_list] = {
+        variable = value[variable_list]
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -606,6 +608,7 @@ alias[effect:every_in_list] = {
 
 ### Iterate through all items in local list. list = name or variable = name every_in_local_list = { limit = { <triggers> } <effects> }
 alias[effect:every_in_local_list] = {
+        variable = value[local_variable_list]
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -738,6 +741,7 @@ alias[effect:ordered_diplomatic_play] = {
 
 ### Iterate through all items in global list. list = name or variable = name ordered_in_global_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_in_global_list] = {
+        variable = value[global_variable_list]
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -758,6 +762,7 @@ alias[effect:ordered_in_global_list] = {
 
 ### Iterate through all items in list. list = name or variable = name ordered_in_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_in_list] = {
+        variable = value[variable_list]
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -778,6 +783,7 @@ alias[effect:ordered_in_list] = {
 
 ### Iterate through all items in local list. list = name or variable = name ordered_in_local_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_in_local_list] = {
+        variable = value[local_variable_list]
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -918,6 +924,7 @@ alias[effect:random_diplomatic_play] = {
 
 ### Iterate through all items in global list. list = name or variable = name random_in_global_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_in_global_list] = {
+        variable = value[global_variable_list]
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -933,6 +940,7 @@ alias[effect:random_in_global_list] = {
 
 ### Iterate through all items in list. list = name or variable = name random_in_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_in_list] = {
+        variable = value[variable_list]
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -948,6 +956,7 @@ alias[effect:random_in_list] = {
 
 ### Iterate through all items in local list. list = name or variable = name random_in_local_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_in_local_list] = {
+        variable = value[local_variable_list]
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]

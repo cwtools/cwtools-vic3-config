@@ -81,7 +81,7 @@ enums = {
 
     enum[diplo_play_attitute] = {
         disinterested
-        cautiosu
+        cautious
         conciliatory
         cooperative
         genial

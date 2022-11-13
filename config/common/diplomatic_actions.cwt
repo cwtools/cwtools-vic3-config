@@ -3,3 +3,303 @@ types = {
         path = "game/common/diplomatic_actions"
     }
 }
+
+diplomatic_action_docs = {
+	requires_approval = bool # Whether this action requires the approval of the target, default no
+
+	show_confirmation_box = bool # Whether player should be prompted with a confirmation box when taking this action, default yes
+
+	possible = {} # Trigger for whether action is possible, default evalutes to true
+
+	effect = {} # Effect of action on execution
+
+	is_hostile = bool # is this a hostile action, default no
+
+	pact = { # If no pact block is defined, the action will not create a diplomatic pact on execution
+		cost = x # Cost in diplo capital to maintain the pact
+		counts_for_tech_spread = x # Whether or not tech spreads through this pact
+
+		recipient_gets_income_transfer = yes/no # If yes, actor pays money to recipient, if no recipient pays to actor
+        income_transfer_based_on_recipient = yes/no # If yes, the amount of money transferred to the other part is based on a fraction of recipient's tax income, if no it's based on a fraction of actor's income.
+
+		propose_string = string # Loc string used when proposing pact, default PROPOSE
+		break_string = string # Loc string used when breaking pact, default BREAK
+		ask_to_end_string = string # Loc string used when proposing to break a pact, default ASK_TO_END
+
+		actor_requires_approval_to_break = bool # Whether this pact requires the approval of the other part for original initiator to break it off, default no
+		target_requires_approval_to_break = bool # Whether this pact requires the approval of the other part for original target to break it off, default no
+
+		is_breaking_hostile = yes/no # is breaking this pact by actor considered hostile, default no
+		is_target_breaking_hostile = yes/no # is breaking this pact by target considered hostile, default no
+
+		is_about_to_auto_break = {} # Trigger: if true, an alert warning the pact is about to break is showed, default evaluates to false (meaning no alert is ever added)
+		should_auto_break = {} # Trigger for whether the pact should automatically be broken off, default evaluates to false (This will not break a pact forced by a favor)
+		should_invalidate = {} # Trigger for whether the pact should automatically be invalidated, default evaluates to false (This *will* break a pact forced by a favor)
+		actor_can_break = {} # Trigger for whether the original initiator of a pact can break it off, default evaluates to true
+		target_can_break = {} # Trigger for whether the original target of a pact can break it off, default evaluates to true
+
+		daily_effect = {} # Effect of pact each day while active
+		weekly_effect = {} # Effect of pact each week while active
+		monthly_effect = {} # Effect of pact each month while active
+
+		break_effect = {} # Effect of pact on being broken
+
+		subject_relation = { # If a subject relation block is defined, this pact acts as a overlord/subject relationship
+			annex_on_country_formation = bool # If yes, appropriate-culture subjects of this type will be annexed when overlord forms a new country, default no
+		}
+	}
+
+	# IMPORTANT: In the AI block, the AI country is always root and the other country always scope:target, regardless of who proposed the diplomatic action
+	ai = {
+		will_propose = {} # Trigger for if AI will consider proposing this action (their acceptance if asked still has to be positive if action requires acceptance), default evalutes to true
+		will_break = {} # Trigger for if AI will consider breaking off an existing pact of this action (their acceptance as if asked still has to be significantly negative if action requires acceptance), default evalutes to true
+
+		accept_score = {} # If this value evaluates to above zero, AI will accept this action if proposed
+		accept_break_score = {} # If this value evaluates to above zero, AI will accept breaking this pact if proposed
+
+		propose_score = {} # This determines how much the AI will prioritize proposing this particular deal
+		propose_break_score = {} # This determines how much the AI will prioritize proposing breaking this particular pact
+
+		use_favor_chance = {} # The chance (0 - 100%) that AI is willing to call in a favor to force this through
+		owe_favor_chance = {} # The chance (0 - 100%) that AI is willing to owe a favor to get this accepted
+	}
+}
+
+## replace_scope = { ROOT = country THIS = country }
+diplomatic_action = {
+    ## cardinality = 0..1
+    requires_approval = bool
+    ## cardinality = 0..1
+    show_confirmation_box = bool
+
+    ## cardinality = 0..1
+    should_notify_third_parties = bool
+    ## cardinality = 0..1
+	show_effect_in_tooltip = bool
+
+    ## cardinality = 0..1
+    violates_sovereignty = bool
+
+
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
+    ## cardinality = 0..1
+    effect = single_alias_right[effect_clause]
+    ## cardinality = 0..1
+    accept_effect = single_alias_right[effect_clause]
+    ## cardinality = 0..1
+    decline_effect = single_alias_right[effect_clause]
+
+    ### is this a hostile action, default no
+    ## cardinality = 0..1
+    is_hostile = bool
+
+    ## cardinality = 0..1
+    can_use_obligations = bool
+
+    ## cardinality = 0..1
+    unlocking_technologies = {
+        ## cardinality = 1..inf
+        <technology>
+    }
+
+    ## cardinality = 0..1
+    reverse_pact = <diplomatic_action>
+
+    ## cardinality = 0..1
+    transfer_pact = <diplomatic_action>
+
+    ## cardinality = 0..1
+    can_select = bool
+    ## cardinality = 0..1
+    can_select_to_break = bool
+
+    ## cardinality = 0..1
+    pact = {
+        ## cardinality = 0..1
+        ### Cost in diplo capital to maintain the pact
+        cost = int
+
+        ## cardinality = 0..1
+        is_alliance = bool
+
+        ## cardinality = 0..1
+        is_defensive_pact = bool
+
+        ## cardinality = 0..1
+        is_rivalry = bool
+        ## cardinality = 0..1
+        is_two_sided_pact = bool
+        ## cardinality = 0..1
+        is_embargo = bool
+        ## cardinality = 0..1
+        is_trade_agreement = bool
+
+        ## cardinality = 0..1
+        has_junior_participant = bool
+        ## cardinality = 0..1
+		recipient_pays_maintenance = bool
+        ## cardinality = 0..1
+		is_customs_union = bool
+
+        ## cardinality = 0..1
+        is_humiliation = bool
+
+        ## cardinality = 0..1
+        show_in_outliner = bool
+
+        ## cardinality = 0..1
+        infamy_affects_maintenance = bool
+
+        ## cardinality = 0..1
+        income_transfer = value_field
+
+        ## cardinality = 0..1
+        subject_type = <subject_type>
+
+        ## cardinality = 0..1
+        ### Whether or not tech spreads through this pact
+        counts_for_tech_spread = bool
+
+        ## cardinality = 0..1
+        ### If yes, actor pays money to recipient, if no recipient pays to actor
+        recipient_gets_income_transfer = bool
+
+        ## cardinality = 0..1
+        ### If yes, the amount of money transferred to the other part is based on a fraction of recipient's tax income, if no it's based on a fraction of actor's income.
+        income_transfer_based_on_recipient = bool
+
+        ## cardinality = 0..1
+        ### Loc string used when proposing pact, default PROPOSE
+        propose_string = localisation
+
+        ## cardinality = 0..1
+        ### Loc string used when breaking pact, default BREAK
+        break_string = localisation
+
+        ## cardinality = 0..1
+        ### Loc string used when proposing to break a pact, default ASK_TO_END
+        ask_to_end_string = localisation
+
+        ## cardinality = 0..1
+        ### Whether this pact requires the approval of the other part for original initiator to break it off, default no
+        actor_requires_approval_to_break = bool
+
+        ## cardinality = 0..1
+        ### Whether this pact requires the approval of the other part for original target to break it off, default no
+        target_requires_approval_to_break = bool
+
+        ## cardinality = 0..1
+        ### is breaking this pact by actor considered hostile, default no
+        is_breaking_hostile = bool
+
+        ## cardinality = 0..1
+        ### is breaking this pact by target considered hostile, default no
+        is_target_breaking_hostile = bool
+
+        ## cardinality = 0..1
+        ### Trigger: if true, an alert warning the pact is about to break is showed, default evaluates to false (meaning no alert is ever added)
+        is_about_to_auto_break = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Trigger for whether the pact should automatically be broken off, default evaluates to false (This will not break a pact forced by a favor)
+        should_auto_break = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Trigger for whether the pact should automatically be invalidated, default evaluates to false (This *will* break a pact forced by a favor)
+        should_invalidate = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Trigger for whether the original initiator of a pact can break it off, default evaluates to true
+        actor_can_break = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Trigger for whether the original target of a pact can break it off, default evaluates to true
+        target_can_break = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Effect of pact each day while active
+        daily_effect = single_alias_right[effect_clause]
+
+        ## cardinality = 0..1
+        ### Effect of pact each week while active
+        weekly_effect = single_alias_right[effect_clause]
+
+        ## cardinality = 0..1
+        ### Effect of pact each month while active
+        monthly_effect = single_alias_right[effect_clause]
+
+        ## cardinality = 0..1
+        ### Effect of pact on being broken
+        break_effect = single_alias_right[effect_clause]
+
+        ## cardinality = 0..1
+        ### If a subject relation block is defined, this pact acts as a overlord/subject relationship
+        subject_relation = {
+            ### If yes, appropriate-culture subjects of this type will be annexed when overlord forms a new country, default no
+            annex_on_country_formation = bool
+        }
+
+        ## cardinality = 0..1
+        relations_progress_per_day = value_field
+        ## cardinality = 0..1
+        relations_improvement_max = value_field
+        ## cardinality = 0..1
+        relations_improvement_min = value_field
+    }
+
+    ## cardinality = 0..1
+    ### IMPORTANT: In the AI block, the AI country is always root and the other country always scope:target, regardless of who proposed the diplomatic action
+    ai = {
+        ## cardinality = 0..1
+        ### Trigger for if AI will consider proposing this action (their acceptance if asked still has to be positive if action requires acceptance), default evalutes to true
+        will_propose = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Trigger for if AI will consider breaking off an existing pact of this action (their acceptance as if asked still has to be significantly negative if action requires acceptance), default evalutes to true
+        will_break = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### If this value evaluates to above zero, AI will accept this action if proposed
+        accept_score = value_field
+
+        ## cardinality = 0..1
+        junior_accept_score = value_field
+
+        ## cardinality = 0..1
+        ### If this value evaluates to above zero, AI will accept breaking this pact if proposed
+        accept_break_score = value_field
+
+        ## cardinality = 0..1
+        ### This determines how much the AI will prioritize proposing this particular deal
+        propose_score = value_field
+
+        ## cardinality = 0..1
+        ### This determines how much the AI will prioritize proposing breaking this particular pact
+        propose_break_score = value_field
+
+        ## cardinality = 0..1
+        use_obligation_chance = value_field
+
+        ## cardinality = 0..1
+        owe_obligation_chance = value_field
+
+        ## cardinality = 0..1
+        ### The chance (0 - 100%) that AI is willing to call in a favor to force this through
+        use_favor_chance = value_field
+
+        ## cardinality = 0..1
+        ### The chance (0 - 100%) that AI is willing to owe a favor to get this accepted
+        owe_favor_chance = value_field
+
+        ## cardinality = 0..1
+		check_acceptance_for_will_break = bool
+        ## cardinality = 0..1
+		check_acceptance_for_will_propose = bool
+
+        ## cardinality = 0..1
+        max_influence_spending_fraction = value_field
+    }
+}

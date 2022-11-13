@@ -291,7 +291,7 @@ alias[trigger:game_date] == date_field
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
 alias[trigger:global_variable_list_size] = {
     name = value[global_variable_list]
-    target == value_field
+    value == value_field
 }
 
 ### Does the client have this cosmetic DLC An interface trigger, can only be used in specific places
@@ -414,7 +414,7 @@ alias[trigger:list_size] == replace_me_comparison
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
 alias[trigger:local_variable_list_size] = {
     name = value[local_variable_list]
-    target == value_field
+    value == value_field
 }
 
 ### a negated AND trigger
@@ -462,7 +462,7 @@ alias[trigger:trigger_if] = {
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
 alias[trigger:variable_list_size] = {
     name = value[variable_list]
-    target == value_field
+    value == value_field
 }
 
 ### Returns true if the sum of weights of fulfilled sub-triggers amount to the specified sum weighted_calc_true_if = { amount = 10 5 = { <trigger> } 15 = { <trigger> } 7 = { <trigger> } }
@@ -607,7 +607,7 @@ alias[trigger:has_any_secessionists_possible] = bool
 ### Checks if scoped country has a particular attitude towards another country has_attitude = { who = X attitude = Y } Where X = country and Y = attitude type
 alias[trigger:has_attitude] = {
     who = scope[country]
-    attitute = enum[diplo_play_attitute]
+    attitude = enum[diplo_play_attitute]
 }
 
 ### Checks if country in scope has a claim on state/state region has_claim = <scope>

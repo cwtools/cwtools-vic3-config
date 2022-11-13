@@ -69,3 +69,5 @@ alias[arithmetic_operation:else] = {
     ## cardinality = 1..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
+
+alias[arithmetic_operation:desc] = localisation

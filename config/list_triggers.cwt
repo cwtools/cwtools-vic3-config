@@ -154,6 +154,7 @@ alias[trigger:any_false] = {
 
 ### Iterate through all items in global list. list = name or variable = name any_in_global_list = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_in_global_list] = {
+        variable = value[global_variable_list]
         ## cardinality = 0..1
         percent = value_field[0.0..1.0]
         ## cardinality = 0..1
@@ -168,6 +169,7 @@ alias[trigger:any_in_global_list] = {
 
 ### Iterate through all items in list. list = name or variable = name any_in_list = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_in_list] = {
+        variable = value[variable_list]
         ## cardinality = 0..1
         percent = value_field[0.0..1.0]
         ## cardinality = 0..1
@@ -182,6 +184,7 @@ alias[trigger:any_in_list] = {
 
 ### Iterate through all items in local list. list = name or variable = name any_in_local_list = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_in_local_list] = {
+        variable = value[local_variable_list]
         ## cardinality = 0..1
         percent = value_field[0.0..1.0]
         ## cardinality = 0..1

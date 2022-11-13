@@ -3,3 +3,45 @@ types = {
         path = "game/common/diplomatic_plays"
     }
 }
+
+## replace_scope = { ROOT = country THIS = country }
+diplomatic_play = {
+    ## cardinality = 0..1
+    requires_interest_marker = bool
+    ## cardinality = 0..1
+    enable_switch_sides = bool
+    ## cardinality = 0..1
+    allow_negotiated_peace = bool
+    ## cardinality = 0..1
+    mirror_war_goal = bool
+    ## cardinality = 0..1
+    initiator_can_add_war_goals = bool
+    ## cardinality = 0..1
+    target_can_add_war_goals = bool
+    ## cardinality = 0..1
+	backing_down_always_ends_play = bool
+    ## cardinality = 0..1
+    blocked_by_diplomatic_status = bool
+
+    war_goal = enum[war_goal]
+
+    ## cardinality = 0..1
+    is_epic = bool
+
+    #TODO textures
+    texture = scalar
+
+    ## cardinality = 0..1
+    selectable_in_lens = single_alias_right[trigger_clause]
+
+    possible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    additional_involvement_trigger = single_alias_right[trigger_clause]
+
+    on_weekly_pulse = single_alias_right[effect_clause]
+
+    on_war_begins = single_alias_right[effect_clause]
+
+    on_war_end = single_alias_right[effect_clause]
+}
