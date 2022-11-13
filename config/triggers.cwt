@@ -678,9 +678,9 @@ alias[trigger:has_institution] = scope[institution]
 alias[trigger:has_insurrectionary_interest_groups] = bool
 
 ### True if scope country has an interest marker in target region has_interest_marker_in_region = region scope/tag
-alias[trigger:has_interest_marker_in_region] = <state_region>
+alias[trigger:has_interest_marker_in_region] = <strategic_region>
 ### True if scope country has an interest marker in target region has_interest_marker_in_region = region scope/tag
-alias[trigger:has_interest_marker_in_region] = scope[state_region]
+alias[trigger:has_interest_marker_in_region] = scope[strategic_region]
 
 ### Check if the country has at least one active journal entry of the specified type has_journal_entry = key
 alias[trigger:has_journal_entry] = <journal_entry>
@@ -1481,7 +1481,7 @@ alias[trigger:diplomatic_play_pm_usage] = {
 alias[trigger:escalation] = value_field
 
 ### Checks if diplomatic play has a certain war goal type has_play_goal = return_state
-alias[trigger:has_play_goal] = replace_me
+alias[trigger:has_play_goal] = enum[war_goal]
 
 ### Checks who the initiator of a diplomatic play is initiator_is = country
 alias[trigger:initiator_is] = <country_definition>

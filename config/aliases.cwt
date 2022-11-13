@@ -40,6 +40,10 @@ single_alias[triggered_desc] = {
     }
 }
 
+single_alias[duration_clause] = {
+    enum[duration] = int_value_field
+}
+
 single_alias[scaled_modifier] = {
     ## cardinality = 0..1
     scale = int_value_field

@@ -1,0 +1,8 @@
+types = {
+    type[history_trade_route] = {
+        path = "game/common/history/trade_routes"
+
+    }
+}
+
+history_trade_route = single_alias_right[effect_clause]

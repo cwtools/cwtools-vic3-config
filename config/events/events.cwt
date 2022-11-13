@@ -19,11 +19,20 @@ types = {
             ## cardinality = 1..1
             type = country_event
         }
+
+        ## push_scope = state
+        ## display_name = State event
+		## abbreviation = SE
+        subtype[state_event] = {
+            ## cardinality = 1..1
+            type = state_event
+        }
 	}
 }
 enums = {
     enum[event_types] = {
         country_event
+        state_event
     }
 }
 
@@ -42,7 +51,13 @@ event = {
     ## cardinality = 0..1
     hidden = bool
 
+    ## cardinality = 0..1
     duration = int
+
+    ## cardinality = 0..1
+    cooldown = {
+        enum[duration] = int
+    }
 
     subtype[visible] = {
         title = localisation
@@ -50,6 +65,12 @@ event = {
         event_image = {
             #TODO
             video = scalar
+            ## cardinality = 0..1
+            trigger = single_alias_right[trigger_clause]
+            ## cardinality = 0..1
+            on_created_soundeffect = scalar
+            ## cardinality = 0..1
+            on_opened_soundeffect = scalar
         }
         desc = localisation
         desc = single_alias_right[complex_desc]
@@ -90,6 +111,8 @@ event = {
     right_icon = scalar
     ## cardinality = 0..1
     left_icon = scalar
+    ## cardinality = 0..1
+    gui_window = scalar
 
     # ## cardinality = 0..1
     # on_trigger_fail = single_alias_right[effect_clause]
@@ -135,8 +158,8 @@ event = {
         ## cardinality = 0..1
         highlighted_option = bool
 
-    #     ## cardinality = 0..1
-    #     ai_chance = single_alias_right[ai_chance_block]
+        ## cardinality = 0..1
+        ai_chance = single_alias_right[ai_chance_block]
 
     #     ## cardinality = 0..1
     #     skill = enum[attributes]

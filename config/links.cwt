@@ -890,6 +890,9 @@ links = {
 		desc = " Unknown, add something in code registration"
 		input_scopes = state_region
 		output_scope = state
+		from_data = yes
+		data_source = <country_definition>
+		prefix = region_state:
 	}
 	goal_value = {
 		desc = " Scope to the journal entry's goal value"

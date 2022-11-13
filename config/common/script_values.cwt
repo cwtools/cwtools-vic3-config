@@ -52,3 +52,20 @@ alias[arithmetic_operation:integer_range] = {
     min = int_value_field
     max = int_value_field
 }
+
+alias[arithmetic_operation:if] = {
+    limit = single_alias_right[trigger_clause]
+    ## cardinality = 1..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+alias[arithmetic_operation:else_if] = {
+    limit = single_alias_right[trigger_clause]
+    ## cardinality = 1..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+alias[arithmetic_operation:else] = {
+    ## cardinality = 1..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
