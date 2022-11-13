@@ -3,3 +3,11 @@ types = {
         path = "game/common/decisions"
     }
 }
+
+## replace_scope = { ROOT = country THIS = country }
+decision = {
+    is_shown = single_alias_right[trigger_clause]
+    possible = single_alias_right[trigger_clause]
+    when_taken = single_alias_right[effect_clause]
+    ai_chance = single_alias_right[ai_chance_block]
+}

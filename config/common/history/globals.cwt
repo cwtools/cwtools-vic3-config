@@ -1,0 +1,8 @@
+types = {
+    type[history_global] = {
+        path = "game/common/history/global"
+
+    }
+}
+
+history_global = single_alias_right[effect_clause]

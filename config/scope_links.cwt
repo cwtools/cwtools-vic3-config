@@ -6,7 +6,7 @@ alias[effect:scope_field] = { alias_name[effect] = alias_match_left[effect] }
 alias[trigger:value_field] = { alias_name[trigger] = alias_match_left[trigger] }
 alias[effect:value_field] = { alias_name[effect] = alias_match_left[effect] }
 
-alias[trigger:value_field] = value_field
+alias[trigger:value_field] == value_field
 alias[trigger:scope_field] = scope_field
 
 alias[trigger:NOT] = {

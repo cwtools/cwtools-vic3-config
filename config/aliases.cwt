@@ -16,7 +16,9 @@ single_alias[complex_desc] = {
 
     ## cardinality = 0..inf
     random_valid = {
-        ## cardinality = 2..inf
+        ## cardinality = 1..inf
+        triggered_desc = single_alias_right[triggered_desc]
+        ## cardinality = 0..inf
         desc = localisation
     }
 

@@ -1,3 +1,18 @@
+enums = {
+    # Aren't these just value fields?
+    enum[weight_chance_modifier_operators] = {
+        add
+        subtract
+        multiply
+        divide
+        factor
+    }
+}
+
+### Appears in the tooltip only if the conditions are fulfilled.
+alias[weight:modifier] = single_alias_right[weight_chance_modifier]
+
+
 single_alias[chance_block] = {
     # TODO: Requires further testing, might necessiate splitting into chance_block and chance_block_with_base or something
     ## cardinality = 0..1
@@ -17,11 +32,30 @@ single_alias[weight_chance_modifier] = {
     ## cardinality = 0..inf
     enum[weight_chance_modifier_operators] = value_field
 
-    ## cardinality = 0..inf
-    alias_name[trigger] = alias_match_left[trigger]
+    ## cardinality = 0..1
+    trigger = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
     desc = single_alias_right[complex_desc]
     ## cardinality = 0..1
     desc = localisation
+}
+
+single_alias[implicit_trigger_chance_modifier] = {
+    ## cardinality = 0..inf
+    if = {
+        limit = single_alias_right[trigger_clause]
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = value_field
+    }
+    ## cardinality = 0..inf
+    enum[weight_chance_modifier_operators] = value_field
+}
+
+single_alias[random_chance_weight_block] = {
+    ## cardinality = 0..inf
+    modifier = single_alias_right[implicit_trigger_chance_modifier]
+    ## cardinality = 0..1
+    trigger = single_alias_right[trigger_clause]
+    alias_name[effect] = alias_match_left[effect]
 }

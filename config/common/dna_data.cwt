@@ -1,5 +1,5 @@
 types = {
-    type[dna_datum] = {
+    type[dna_data] = {
         path = "game/common/dna_data"
     }
 }

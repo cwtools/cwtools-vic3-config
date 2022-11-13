@@ -27,12 +27,21 @@ types = {
             ## cardinality = 1..1
             type = state_event
         }
+
+        ## push_scope = character
+        ## display_name = Character event
+        ## abbreviation = CHE
+        subtype[character_event] = {
+            ## cardinality = 1..1
+            type = character_event
+        }
 	}
 }
 enums = {
     enum[event_types] = {
         country_event
         state_event
+        character_event
     }
 }
 
@@ -111,6 +120,10 @@ event = {
     right_icon = scalar
     ## cardinality = 0..1
     left_icon = scalar
+    ## cardinality = 0..1
+    minor_left_icon = scalar
+    ## cardinality = 0..1
+    minor_right_icon = scalar
     ## cardinality = 0..1
     gui_window = scalar
 

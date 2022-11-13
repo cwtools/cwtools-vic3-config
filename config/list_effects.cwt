@@ -964,19 +964,7 @@ alias[effect:random_in_local_list] = {
 ### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
 alias[effect:random_list] = {
     ## cardinality = 2..inf
-    int = {
-        ## cardinality = 0..1
-        trigger = {
-            ## cardinality = 1..inf
-            alias_name[trigger] = alias_match_left[trigger]
-        }
-
-        ## cardinality = 0..inf
-        modifier = single_alias_right[weight_chance_modifier]
-
-        ## cardinality = 1..inf
-        alias_name[effect] = alias_match_left[effect]
-    }
+    int = single_alias_right[random_chance_weight_block]
 
     # ## cardinality = 0..inf
     #TODO chekc vic3
