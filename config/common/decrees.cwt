@@ -28,7 +28,7 @@ decree = {
 
     cost = int
 
-    ai_weight = single_alias_right[ai_chance_block]
+    ai_weight = single_alias_right[formula]
 
     ## cardinality = 0..1
     valid = single_alias_right[trigger_clause]
