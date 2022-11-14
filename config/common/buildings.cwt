@@ -1,5 +1,183 @@
 types = {
     type[building] = {
         path = "game/common/buildings"
+        localisation = {
+            name = "$"
+        }
+        subtype[military] = {
+            recruits_combat_unit = <combat_unit_type>
+        }
+        subtype[canal] = {
+            canal = <canal>
+            unique = yes
+        }
+        subtype[unique] = {
+            unique = yes
+        }
     }
+}
+
+## replace_scope = { ROOT = building THIS = building }
+building = {
+    ## cardinality = 0..1
+    ### reference to building group, building groups define some common properties of similar buildings
+    building_group = <building_group>
+
+    ## cardinality = 0..1
+    texture = filepath[gfx/interface/icons/building_icons,.dds]
+
+    ## cardinality = 0..1
+    ### can this building be built? ( can otherwise be created via history or script or autoplace ), default yes
+    buildable = bool
+
+    ## cardinality = 0..1
+    ### can this building be expanded? default yes
+    expandable = bool
+
+    ## cardinality = 0..1
+    ### can this building be downsized? default yes
+    downsizeable = bool
+
+    ## cardinality = 0..1
+    ### if yes, a dynamic country modifier is created to determine max level, default no
+    has_max_level = bool
+
+    ## cardinality = 0..1
+    ### if the building's building group has stateregion_max_level = yes, override it for this building type
+    ignore_stateregion_max_level = bool
+
+    ## cardinality = 0..1
+    ### if yes the region with that building built is considered for air travel, default no
+    enable_air_connection = bool
+
+    ## cardinality = 0..1
+    ### if yes the building can connect different market areas, default no
+    port = bool
+
+    ## cardinality = 0..1
+    ### optional list of required technologies to be able to build this building
+    unlocking_technologies = {
+        ## cardinality = 1..inf
+        <technology>
+    }
+
+    ## cardinality = 0..1
+    ## push_scope = state
+    ### optional custom trigger (state scope) for building requirements
+    can_build = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### override for which lens the building type should appear in, otherwise specified on building group
+    lens = enum[lens_key]
+
+    ## cardinality = 0..1
+    ### which type of hub this building will be spawned into, default none
+    city_type = enum[city_type]
+
+    ## cardinality = 0..1
+    ### how many levels is needed to add 1 extra building on the map, default 1
+    levels_per_mesh = int
+
+    ### a building's behavior can be modified by its production method groups    
+    production_method_groups = {
+        ## cardinality = 1..inf
+        <production_method_group>
+    }
+
+    ## cardinality = 0..1
+    ### number of construction points required for construction. base game files save these values in common/script_values/building_values.txt
+    required_construction = int
+
+    ## cardinality = 0..1
+    ### base AI value, default NAI.BUILDING_BASE_VALUE or NAI.GOVERNMENT_BUILDING_BASE_VALUE
+    ai_value = int
+    
+    ## cardinality = 0..1
+    ### terrain manipulator updated by the building
+    terrain_manipulator = <terrain_manipulator>
+
+    ## cardinality = 0..1
+    ### determines what combat unit the building will add. barracks add regulars, conscription centers add conscripts and sea bases flotillas
+    recruits_combat_unit = <combat_unit_type>
+
+    subtype[military] = {
+        ## cardinality = 0..1
+        ### navy or army, default no, only applicable to military buildings, which is determined by building group
+        naval = bool
+    }
+
+    ## cardinality = 0..1
+    ### how many total "residence points" this building adds to its hub to determine residential buildings created, default 1
+    residence_points_per_level = int
+
+    ## cardinality = 0..1
+    ### how important the AI considers subsidizing this building to be, default 1.0
+    ai_subsidies_weight = float
+
+    ## cardinality = 0..1
+    ### should the building be replacing the centerpiece mesh. Defaults to no.
+    override_centerpiece_mesh = bool
+
+    ## cardinality = 0..1
+    ### defaults to no. like eiffel_tower
+    unique = bool
+
+    subtype[unique] = {
+        ## cardinality = 0..1
+        canal = <canal>
+
+        ### locator type for special buildings
+        locator = <game_object_locator>
+
+        ### special buildings can show an entity while not constructed
+        entity_not_constructed = single_alias_right[list_of_entities]
+
+        ### overload for under construction entity for special buildings
+        entity_under_construction = single_alias_right[list_of_entities]
+
+        ### overload to use constructed entity for special buildings
+        entity_constructed = single_alias_right[list_of_entities]
+
+        city_gfx_interactions = {
+            clear_size_area = bool
+            subtype[!canal] = {
+                size = int
+            }
+            subtype[canal] = {
+                clear_collision_mesh_area = bool
+            }
+        }
+
+        # push_scope = state_region
+        possible = single_alias_right[trigger_clause]
+    }
+
+    ## cardinality = 0..1
+    # TODO look at scope, fails in building_railway game/common/buildings/private_infrastructure.txt
+    ### under which conditions we should auto-expand if auto-expand is toggled on (overrides building group if present). if this trigger has any contents at all, the game will think the building is potentially auto-expandable, so do not write triggers that can never evaluate to true here
+    should_auto_expand = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### defines which pop type should slaves work as. Defaults to DEFAULT_POP_TYPE.
+    slaves_role = <pop_type>
+
+    ## cardinality = 0..1
+    ### minimum required increase in salary for an employee to switch to working at this workplace, default NEconomy.MIN_RAISE_TO_HIRE
+    min_raise_to_hire = float
+}
+
+enums = {
+    enum[city_type] = {
+        none
+        city
+        farm
+        mine
+        port
+        wood
+    }
+}
+
+single_alias[list_of_entities] = {
+    ## cardinality = 0..inf
+    <entity>
 }

@@ -1,0 +1,7 @@
+types = {
+    type[entity] = {
+        path = "gfx/models"
+        path_extension = .asset
+        name_field = "name"
+    }
+}

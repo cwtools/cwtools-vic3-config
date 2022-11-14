@@ -1,9 +1,6 @@
 types = {
 	type[building_group] = {
 		path = "game/common/building_groups"
-        localisation = {
-            name = "$"
-        }
 		subtype[bg_child] = {
             parent_group = <building_group>
         }
