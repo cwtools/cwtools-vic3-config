@@ -76,11 +76,11 @@ journal_entry = {
 
     ## cardinality = 0..1
     ### a script value computing the goal completion metric
-    current_value = single_alias_right[formula]
+    current_value = value_field
 
     ## cardinality = 0..1
     ### a script value determining how much should be added onto current_value when journal entry is granted to set the goal
-    goal_add_value = single_alias_right[formula]
+    goal_add_value = value_field
 
     ## cardinality = 0..1
     ### the highest weighted active journal entry appears in the goal tracker on the main screen
