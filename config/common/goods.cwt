@@ -1,6 +1,9 @@
 types = {
     type[goods] = {
         path = "game/common/goods"
+        localisation = {
+            name = "$"
+        }
     }
 }
 
@@ -16,7 +19,7 @@ enums = {
 ## replace_scope = { ROOT = goods THIS = goods }
 goods = {
     ### The icon shown ingame
-    texture = icon[gfx/interface/icons/goods_icons]
+    texture = filepath[gfx/interface/icons/goods_icons/,.dds]
 
     ### The base cost
     cost = int
