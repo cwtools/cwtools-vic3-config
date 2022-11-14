@@ -3,3 +3,33 @@ types = {
         path = "game/common/decrees"
     }
 }
+
+## replace_scope = { ROOT = state THIS = state }
+decree = {
+    #TODO texture
+    texture = scalar
+
+    modifier = {
+        ## cardinality = 1..inf
+        <modifier_type> = float
+    }
+
+    ## cardinality = 0..1
+    unlocking_technologies = {
+        ## cardinality = 1..inf
+        <technology>
+    }
+
+    ## cardinality = 0..1
+    unlocking_laws = {
+        ## cardinality = 1..inf
+        <law_type>
+    }
+
+    cost = int
+
+    ai_weight = single_alias_right[ai_chance_block]
+
+    ## cardinality = 0..1
+    valid = single_alias_right[trigger_clause]
+}
