@@ -149,4 +149,9 @@ enums = {
         approve
         strongly_approve
     }
+
+    enum[severity] = {
+        fail
+        invalid
+    }
 }

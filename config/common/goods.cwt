@@ -1,5 +1,57 @@
 types = {
     type[goods] = {
         path = "game/common/goods"
+        localisation = {
+            name = "$"
+        }
     }
+}
+
+enums = {
+    enum[good_categories] = {
+        military
+        staple
+        industrial
+        luxury
+    }
+}
+
+## replace_scope = { ROOT = goods THIS = goods }
+goods = {
+    ### The icon shown ingame
+    texture = filepath[gfx/interface/icons/goods_icons/,.dds]
+
+    ### The base cost
+    cost = int
+
+    ### What category the game should put the good in
+    category = enum[good_categories]
+    
+    ## cardinality = 0..1
+    ### Base prestige for occupying the rank MIN_PRESTIGE_AWARD spot on the goods production leaderboard. x2 awarded for every rank above the minimum.
+    prestige_factor = int
+
+    ## cardinality = 0..1
+    ### The quantity of goods that is traded per level of the route. Agricultural and resources tend to trade around 20 and industry just 1.
+    traded_quantity = int
+
+    ## cardinality = 0..1
+    ### How many convoys is needed to transport 1 of this good. 0.25 is very light and 2.0 very heavy. Agricultural and Resources tend to be lighter than Industrial goods on the vanilla game files.
+    convoy_cost_multiplier = float
+
+    ## cardinality = 0..1
+    ### How much authority a consumption tax on the good would cost.
+    consumption_tax_cost = int
+
+    ## cardinality = 0..1
+    ### If the good can be traded. Like gold in vanilla game files.
+    tradeable = bool
+
+    ## cardinality = 0..1
+    ### If the value is fixed or fluctuates depending on availability on the market. Like gold in the vanilla game files.
+    fixed_price = bool
+
+    ## cardinality = 0..1
+    ### How high the chance is that a culture develops an obsession on the good. Opium, Wine and Liquor have a 2.0 chance.
+    obsession_chance = float
 }

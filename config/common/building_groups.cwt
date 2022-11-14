@@ -1,5 +1,150 @@
 types = {
-    type[building_group] = {
-        path = "game/common/building_groups"
+	type[building_group] = {
+		path = "game/common/building_groups"
+		subtype[bg_child] = {
+            parent_group = <building_group>
+        }
+	}
+}
+
+### Building groups define some common properties of similar buildings.
+building_group = {
+    subtype[!bg_child] = {
+        category = enum[bg_category]
     }
+
+    ## cardinality = 0..1
+    category = enum[bg_category]
+    
+    ## cardinality = 0..1
+    ### If set, this group is considered a child of the specified group. Default no parent.
+    parent_group = <building_group>
+	
+    ## cardinality = 0..1
+	### If yes, building types in this group are always permitted regardless of resources in state. Default no.
+	always_possible = bool
+	
+    ## cardinality = 0..1
+	### If yes, any non-subsistence buildings in or underneath this group will get an economy of scale throughput modifier for each level > 1. Default no.
+	economy_of_scale = bool
+	
+    ## cardinality = 0..1
+	### If yes, buildings of types in this group are considered subsistence buildings that follow special rules. Default no.
+	is_subsistence = bool
+	
+    ## cardinality = 0..1
+	### Specifies the default building type that will be built unless the state specifies a different one. No default.
+	default_building = <building>
+	
+    ## cardinality = 0..1
+	### If specified, determines the lens buildings in this group will be sorted under. No default.
+	lens = enum[lens_key]
+
+	## cardinality = 0..1
+	### If set to yes, will not let player build the building. Similar to Gold Fields, Subsistence Farms, Urban and Trade Centers.
+	auto_place_buildings = bool
+
+	## cardinality = 0..1
+	### If set to yes, building will be limited to a maximum number of resources defined in the state. Like mines and forestry.
+	capped_by_resources = bool
+
+	## cardinality = 0..1
+	discoverable_resource = bool
+    
+	## cardinality = 0..1
+	depletable_resource = bool
+
+	## cardinality = 0..1
+	### Default no, setting yes enables slavery for all contained buildings and groups
+	can_use_slaves = bool
+	
+    ## cardinality = 0..1
+	### Which type of state resource the building uses. urban = Urbanization, rural = Arable Land. Default no state resource usage. If unspecified, will return first non-default land usage type found in parent building group tree.
+	land_usage = enum[land_type]
+	
+    ## cardinality = 0..1
+	### Maximum amount of £ (per level) that buildings in this group can store into their cash reserves. If unspecified or set to 0, it will use the value from the parent group. Default 0
+	cash_reserves_max = int
+	
+    ## cardinality = 0..1
+	### If yes, a construction of this building group will survive a state changing hands or a split state merging. Like a canal or a monument. Default no.
+	inheritable_construction = bool
+	
+    ## cardinality = 0..1
+	### If yes, any building types in this group with the has_max_level property will consider its level restrictions on state-region rather than state level	
+	stateregion_max_level = bool
+	
+    ## cardinality = 0..1
+	### The amount of urbanization buildings in this group provides per level
+	urbanization = int
+	
+    ## cardinality = 0..1
+	### Under which condition buildings in this group should auto-expand if auto-expand is toggled on (trigger on more specific group or building type overrides). If this trigger has any contents at all, the game will think the building is potentially auto-expandable, so do not write triggers that can never evaluate to true here
+	should_auto_expand = single_alias_right[trigger_clause]
+	
+    ## cardinality = 0..1
+	### How much of the building's max staffing level can be hired in a single week (default NDefines::NEconomy::HIRING_RATE)
+	hiring_rate = float
+	
+    ## cardinality = 0..1
+	### How high is the building's tolerance for pop types being out of proportion? default NDefines::NEconomy::EMPLOYMENT_PROPORTIONALITY_LIMIT)
+	proportionality_limit = float
+	
+    ## cardinality = 0..1
+	### If yes, buildings in this group may only hire from the unemployment pool. Default no. Like subsistence farms.
+	hires_unemployed_only = bool
+	
+    ## cardinality = 0..1
+	infrastructure_usage_per_level = float
+	
+    ## cardinality = 0..1
+	### Defaults to yes.
+	fired_pops_become_radical = bool
+	
+    ## cardinality = 0..1
+	### Defaults to no.
+	is_government_funded = bool
+	
+    ## cardinality = 0..1
+	### Defaults to no.
+	created_by_trade_routes = bool
+	
+    ## cardinality = 0..1
+	### Defaults to no.
+	subsidized = bool
+	
+    ## cardinality = 0..1
+	### Defaults to no.
+	is_military = bool
+	
+    ## cardinality = 0..1
+	### Defaults to yes.
+	pays_taxes = bool
+}
+
+enums = {
+	enum[bg_category] = {
+		urban
+		rural
+		development
+	}
+	enum[land_type] = {
+		urban
+		rural
+	}
+	enum[lens_key] = {
+		light_industry
+		heavy_industry
+		agriculture
+		plantation
+		mine
+		forestry
+		fishing
+		urban
+		government
+		trade
+		infrastructure
+		special
+		military
+	}
 }

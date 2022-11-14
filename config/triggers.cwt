@@ -277,7 +277,10 @@ alias[trigger:debug_log] = scalar
 alias[trigger:debug_log_details] = scalar
 
 ### Checks an error in code that specifically uses the CErrorTable::CheckTrigger path, in general avoid this and just use normal script
-alias[trigger:error_check] = scalar
+alias[trigger:error_check] = {
+    alias_name[trigger] = alias_match_left[trigger]
+    severity = enum[severity]
+}
 
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = scope_field
