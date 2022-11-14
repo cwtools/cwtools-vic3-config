@@ -81,7 +81,7 @@ building_group = {
 
     ## cardinality = 0..1
     ### Under which condition buildings in this group should auto-expand if auto-expand is toggled on (trigger on more specific group or building type overrides). If this trigger has any contents at all, the game will think the building is potentially auto-expandable, so do not write triggers that can never evaluate to true here
-    should_auto_expand = <triggers>
+    should_auto_expand = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
     ### How much of the building's max staffing level can be hired in a single week (default NDefines::NEconomy::HIRING_RATE)
@@ -117,6 +117,10 @@ building_group = {
     ## cardinality = 0..1
     ### Defaults to no.
     is_military = bool
+
+    ## cardinality = 0..1
+    ### Defaults to yes.
+    pays_taxes = bool
 }
 
 enums = {
