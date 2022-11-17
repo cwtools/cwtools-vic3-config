@@ -18,6 +18,7 @@ types = {
 }
 
 ## replace_scope = { ROOT = building THIS = building }
+### By convention the names are defined as building_(building name)
 building = {
     ## cardinality = 0..1
     ### reference to building group, building groups define some common properties of similar buildings

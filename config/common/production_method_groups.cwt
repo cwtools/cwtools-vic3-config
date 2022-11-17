@@ -1,5 +1,36 @@
 types = {
     type[production_method_group] = {
         path = "game/common/production_method_groups"
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+### A production method group(pmg) is a collection of production methods, a building normally has multiple pmgs. By convention the names are defined as pmg_(base/secondary/automation/luxury/ownership)_building_(building_name)
+production_method_group = {
+    ### A list of Production Methods contained in this group. One and only one must be active at any one time
+    production_methods = {
+        ## cardinality = 1..inf
+        <production_method>
+    }
+
+    ## cardinality = 0..1
+    ### Whether PMs in this group should be visible at all if they cannot currently be switched to
+    is_hidden_when_unavailable = bool
+
+    ## cardinality = 0..1
+    ### Affects how the AI chooses between PMs. Current options: most_profitable, most_productive. Default most_profitable
+    ai_selection = enum[ai_selection]
+
+    ## cardinality = 0..1
+    ### Different types of PM Groups should have different icons for when the Building panel has mixed configuration
+    texture = filepath[gfx/interface/icons/generic_icons,.dds]
+}
+
+enums = {
+    enum[ai_selection] = {
+        most_productive
+        most_profitable
     }
 }

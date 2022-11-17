@@ -1,5 +1,36 @@
 types = {
-    type[modifier_type] = {
-        path = "game/common/modifier_types"
-    }
+	type[modifier_type] = {
+		path = "game/common/modifier_types"
+        localisation = {
+            name = "modifier_$"
+            description = "modifier_$_desc"
+        }
+	}
+}
+
+modifier_type = {
+	## cardinality = 0..1
+	### If this is an output, good should be set as yes. If this is an input, good should be set as no.
+	good = bool
+	## cardinality = 0..1
+	### If the modifier is adding a specific amount of goods, set as no, if it is providing a multiplicative/percentage bonus, set as yes.
+	percent = bool
+	## cardinality = 0..1
+    ### render as neutral rather than good or bad, most game rules should be neutral
+    neutral = bool
+    ## cardinality = 0..1
+    ### render as Yes or No rather than 1 or 0, most game rules should be boolean in nature
+    boolean = bool
+	## cardinality = 0..1
+    ai_value = int
+    ## cardinality = 0..1
+    # probably rounds down to num_decimals after the modifier performs the operation
+	num_decimals = int
+
+	## cardinality = 0..1
+    ### not being used anywhere
+	postfix = scalar
+    ## cardinality = 0..1
+    ### used for localization, whatever is put here is what's used in localization
+    prefix = scalar
 }

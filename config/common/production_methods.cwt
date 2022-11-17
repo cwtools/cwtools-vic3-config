@@ -1,5 +1,124 @@
 types = {
-    type[production_method] = {
-        path = "game/common/production_methods"
+	type[production_method] = {
+		path = "game/common/production_methods"
+        localisation = {
+            name = "$"
+        }
+	}
+}
+
+production_method = {
+	## cardinality = 0..1
+	### pm icon
+	texture = filepath[gfx/interface/icons/production_method_icons,.dds]
+	
+    ## cardinality = 0..1
+	### is this the default pm for its group? if no pm in a group is designated as the default, the first pm is considered the default. PRCAL-9862: certain functions consider the pm with the name pm_default or default as the default.
+	is_default = bool
+
+	## cardinality = 0..1
+	### these modifiers are applied to the country if this pm is active
+	country_modifiers = single_alias_right[pm_modifiers]
+	
+    ## cardinality = 0..1
+	### these modifiers are applied to the state if this pm is active
+	state_modifiers = single_alias_right[pm_modifiers]
+	
+    ## cardinality = 0..1
+	### these modifiers are applied to the building if this pm is active
+	building_modifiers = single_alias_right[pm_modifiers]
+	
+    ## cardinality = 0..1
+	### these modifiers are applied to the building after pm is changed. Duration is BUILDING_TIMED_MODIFIER_WEEKS
+	timed_modifiers = {
+        ## cardinality = 1..inf
+        <modifier_container>
     }
+
+    ## cardinality = 0..1
+    ### optional list of required technologies to be able to activate this pm
+    unlocking_technologies = single_alias_right[list_of_technologies]
+    
+    ## cardinality = 0..1
+    ### optional list of technologies that need to be invented in the world to be able to activate this pm
+    unlocking_global_technologies = single_alias_right[list_of_technologies]
+
+    ## cardinality = 0..1
+    ### optional list of required pm's to be able to activate this pm
+    unlocking_production_methods = {
+        ## cardinality = 1..inf
+        ### these must refer to pm keys on the same building
+        <production_method>
+    }
+
+    ## cardinality = 0..1
+    ### optional list of required religions to activate this pm
+    unlocking_religions = {
+        ## cardinality = 1..inf
+        <religion>
+    }
+
+    # the documentation calls this ai_weight
+    ## cardinality = 0..1
+    ### base AI weight, default 1.0
+    ai_value = float
+
+    ## cardinality = 0..1
+    ### how much visual pollution does this building add to its state region while this pm is active (total pollution in state region is scaled by arable land), default 0.0
+    pollution_generation = int
+
+    ## cardinality = 0..1
+    ### optional list of required laws to be able to activate this pm
+    unlocking_laws = single_alias_right[list_of_laws]
+
+    ## cardinality = 0..1
+    ### optional list of laws that when active disallow the activation of this pm
+    disallowing_laws = single_alias_right[list_of_laws]
+
+    ## cardinality = 0..1
+    ### AI will activate this method for states with low population
+    low_pop_method = bool
+}
+
+single_alias[pm_modifiers] = {
+	## cardinality = 0..1
+	### these modifiers are scaled by the staffing level of the building, note that staffing level scales between 0.0 and building level.
+	workforce_scaled = single_alias_right[list_of_modifiers]
+	
+    ## cardinality = 0..1
+	### these modifiers are scaled by the level of the building
+	level_scaled = single_alias_right[list_of_modifiers]
+	
+    ## cardinality = 0..1
+	### these modifiers are not scaled
+	unscaled = single_alias_right[list_of_modifiers]
+
+    ## cardinality = 0..1
+    # not sure if they scale by throughput of the building or if they influence the throughput
+    throughput_scaled = single_alias_right[list_of_modifiers]
+}
+
+single_alias[list_of_modifiers] = {
+	## cardinality = 0..inf
+    building_employment_<pop_type>_add = int
+    
+    ## cardinality = 0..inf
+    building_<pop_type>_shares_add = int
+
+    ## cardinality = 0..inf
+    building_<pop_type>_mortality_mult = float
+
+    ## cardinality = 0..inf
+    <modifier_type> = float
+}
+
+single_alias[list_of_technologies] = {
+    # pm_gas_streetlights has 0 unlocking_technologies, so this is from 0 to inf
+    ## cardinality = 0..inf
+    <technology>
+}
+
+single_alias[list_of_laws] = {
+    ## cardinality = 1..inf
+    <law>
 }

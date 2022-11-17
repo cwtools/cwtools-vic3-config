@@ -18,6 +18,7 @@ enums = {
 
 ## replace_scope = { ROOT = goods THIS = goods }
 goods = {
+    ## cardinality = 0..1
     ### The icon shown ingame
     texture = filepath[gfx/interface/icons/goods_icons/,.dds]
 
