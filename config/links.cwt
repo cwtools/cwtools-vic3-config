@@ -356,7 +356,7 @@ links = {
 		output_scope = value
 		type = value
 		from_data = yes
-		data_source = <modifier_container>
+		data_source = <modifier_type>
 		prefix = modifier:
 	}
 	combat_width = {

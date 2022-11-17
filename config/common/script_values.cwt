@@ -38,6 +38,7 @@ alias[arithmetic_operation:modulo] = value_field
 alias[arithmetic_operation:value] = value_field
 alias[arithmetic_operation:max] = value_field
 alias[arithmetic_operation:min] = value_field
+alias[arithmetic_operation:value] = value_field
 
 alias[arithmetic_operation:round] = yes
 alias[arithmetic_operation:ceiling] = yes

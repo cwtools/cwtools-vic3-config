@@ -6,6 +6,8 @@ enums = {
         multiply
         divide
         factor
+        ## Added for ai_weight
+        # value
     }
 }
 
@@ -23,10 +25,15 @@ single_alias[chance_block] = {
 }
 
 # Temporary alias of an alias until a proper refactor
-single_alias[ai_chance_block] = single_alias_right[chance_block]
+single_alias[ai_chance_block] = {
+    ## cardinality = 0..1
+    base = float
+    ## cardinality = 0..inf
+    modifier = single_alias_right[weight_chance_modifier]
+}
 
 # Temporary alias of an alias until a proper refactor
-single_alias[weight_block] = single_alias_right[chance_block]
+single_alias[weight_block] = single_alias_right[formula]
 
 single_alias[weight_chance_modifier] = {
     ## cardinality = 0..inf
