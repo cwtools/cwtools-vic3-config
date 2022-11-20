@@ -4,6 +4,19 @@ types = {
 		subtype[bg_child] = {
             parent_group = <building_group>
         }
+        modifiers = {
+            "building_group_$_employee_mult" = building
+            "building_group_$_fertility_mult" = building
+            "building_group_$_mortality_mult" = building
+            "building_group_$_standard_of_living_add" = building
+            "building_group_$_standard_of_living_add" = building
+            "building_group_$_tax_mult" = building
+            "building_group_$_tax_mult" = building
+            "building_group_$_throughput_mult" = building
+            "building_group_$_throughput_mult" = building
+            
+            "country_subsidies_$" = country
+        }
 	}
 }
 

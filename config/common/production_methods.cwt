@@ -18,14 +18,17 @@ production_method = {
 
 	## cardinality = 0..1
 	### these modifiers are applied to the country if this pm is active
+    ## replace_scope = { THIS = country ROOT = country}
 	country_modifiers = single_alias_right[pm_modifiers]
 	
     ## cardinality = 0..1
 	### these modifiers are applied to the state if this pm is active
+    ## replace_scope = { THIS = state ROOT = state}
 	state_modifiers = single_alias_right[pm_modifiers]
 	
     ## cardinality = 0..1
 	### these modifiers are applied to the building if this pm is active
+    ## replace_scope = { THIS = building ROOT = building}
 	building_modifiers = single_alias_right[pm_modifiers]
 	
     ## cardinality = 0..1
@@ -83,33 +86,23 @@ production_method = {
 single_alias[pm_modifiers] = {
 	## cardinality = 0..1
 	### these modifiers are scaled by the staffing level of the building, note that staffing level scales between 0.0 and building level.
-	workforce_scaled = single_alias_right[list_of_modifiers]
+	workforce_scaled = single_alias_right[modifier_clause]
 	
     ## cardinality = 0..1
 	### these modifiers are scaled by the level of the building
-	level_scaled = single_alias_right[list_of_modifiers]
+	level_scaled = single_alias_right[modifier_clause]
 	
     ## cardinality = 0..1
 	### these modifiers are not scaled
-	unscaled = single_alias_right[list_of_modifiers]
+	unscaled = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1
     # not sure if they scale by throughput of the building or if they influence the throughput
-    throughput_scaled = single_alias_right[list_of_modifiers]
+    throughput_scaled = single_alias_right[modifier_clause]
 }
 
-single_alias[list_of_modifiers] = {
-	## cardinality = 0..inf
-    building_employment_<pop_type>_add = int
-    
-    ## cardinality = 0..inf
-    building_<pop_type>_shares_add = int
-
-    ## cardinality = 0..inf
-    building_<pop_type>_mortality_mult = float
-
-    ## cardinality = 0..inf
-    <modifier_type> = float
+single_alias[modifier_clause] = {
+    alias_name[modifier] = alias_match_left[modifier]
 }
 
 single_alias[list_of_technologies] = {

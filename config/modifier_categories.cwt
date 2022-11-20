@@ -1,0 +1,155 @@
+modifier_categories = {    
+    country = {
+        supported_scopes = { country } 
+    }
+    technology = {
+        supported_scopes = { technology } 
+    }
+    technology_status = {
+        supported_scopes = { technology_status } 
+    }
+    culture = {
+        supported_scopes = { culture } 
+    }
+    state = {
+        supported_scopes = { state } 
+    }
+    province = {
+        supported_scopes = { province } 
+    }
+    pop = {
+        supported_scopes = { pop } 
+    }
+    pop_type = {
+        supported_scopes = { pop_type } 
+    }
+    building = {
+        supported_scopes = { building } 
+    }
+    building_type = {
+        supported_scopes = { building_type } 
+    }
+    interest_group = {
+        supported_scopes = { interest_group } 
+    }
+    market = {
+        supported_scopes = { market } 
+    }
+    market_goods = {
+        supported_scopes = { market_goods } 
+    }
+    interest_marker = {
+        supported_scopes = { interest_marker } 
+    }
+    strategic_region = {
+        supported_scopes = { strategic_region } 
+    }
+    diplomatic_action = {
+        supported_scopes = { diplomatic_action } 
+    }
+    diplomatic_pact = {
+        supported_scopes = { diplomatic_pact } 
+    }
+    diplomatic_play = {
+        supported_scopes = { diplomatic_play } 
+    }
+    diplomatic_relations = {
+        supported_scopes = { diplomatic_relations } 
+    }
+    character = {
+        supported_scopes = { character } 
+    }
+    state_region = {
+        supported_scopes = { state_region } 
+    }
+    war = {
+        supported_scopes = { war } 
+    }
+    theater = {
+        supported_scopes = { theater } 
+    }
+    religion = {
+        supported_scopes = { religion } 
+    }
+    institution = {
+        supported_scopes = { institution } 
+    }
+    institution_type = {
+        supported_scopes = { institution_type } 
+    }
+    law = {
+        supported_scopes = { law } 
+    }
+    law_type = {
+        supported_scopes = { law_type } 
+    }
+    journalentry = {
+        supported_scopes = { journalentry } 
+    }
+    trade_route = {
+        supported_scopes = { trade_route } 
+    }
+    decree = {
+        supported_scopes = { decree } 
+    }
+    commander_order = {
+        supported_scopes = { commander_order } 
+    }
+    commander_order_type = {
+        supported_scopes = { commander_order_type } 
+    }
+    front = {
+        supported_scopes = { front } 
+    }
+    battle = {
+        supported_scopes = { battle } 
+    }
+    interest_group_trait = {
+        supported_scopes = { interest_group_trait } 
+    }
+    ideology = {
+        supported_scopes = { ideology } 
+    }
+    goods = {
+        supported_scopes = { goods } 
+    }
+    canal_type = {
+        supported_scopes = { canal_type } 
+    }
+    country_definition = {
+        supported_scopes = { country_definition } 
+    }
+    civil_war = {
+        supported_scopes = { civil_war } 
+    }
+    state_trait = {
+        supported_scopes = { state_trait } 
+    }
+    country_creation = {
+        supported_scopes = { country_creation } 
+    }
+    country_formation = {
+        supported_scopes = { country_formation } 
+    }
+    hq = {
+        supported_scopes = { hq } 
+    }
+    objective = {
+        supported_scopes = { objective } 
+    }
+    battle_side = {
+        supported_scopes = { battle_side } 
+    }
+    political_movement = {
+        supported_scopes = { political_movement } 
+    }
+    combat_unit = {
+        supported_scopes = { combat_unit } 
+    }
+    party = {
+        supported_scopes = { party } 
+    }
+    shipping_lane = {
+        supported_scopes = { shipping_lane } 
+    }
+}

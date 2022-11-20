@@ -4,6 +4,13 @@ types = {
         localisation = {
             name = "$"
         }
+        modifiers = {
+            "building_input_$_add" = building
+            "building_output_$_add" = building
+            "building_output_$_mult" = building
+            "building_throughput_$_mult" = building
+            "country_$_reserve_limit_mult" = country
+        }
     }
 }
 

@@ -1,5 +1,8 @@
 types = {
     type[culture] = {
         path = "game/common/cultures"
+        modifiers = {
+            "state_$_standard_of_living_add" = state
+        }
     }
 }
