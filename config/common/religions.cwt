@@ -2,4 +2,7 @@ types = {
     type[religion] = {
         path = "game/common/religions"
     }
+    modifiers = {
+        "state_$_standard_of_living_add" = state
+    }
 }

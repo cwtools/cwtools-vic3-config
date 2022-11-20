@@ -1,5 +1,25 @@
 types = {
     type[pop_type] = {
         path = "game/common/pop_types"
+        modifiers = {
+            "building_$_fertility_mult" = building
+            "building_$_mortality_mult" = building
+            "building_$_mortality_mult" = building
+            "building_$_shares_add" = building
+            "building_$_shares_mult" = building
+            "building_employment_$_add" = building
+            "building_employment_$_mult" = building
+            "building_group_bg_urban_facilities_$_fertility_mult" = building
+            "building_group_bg_urban_facilities_$_mortality_mult" = building
+            "building_group_bg_urban_facilities_$_standard_of_living_add" = building
+
+            "country_$_pol_str_mult" = country
+            "country_$_voting_power_add" = country
+            
+            "state_$_dependent_wage_mult" = state
+            "state_$_investment_pool_contribution_add" = state
+            "state_$_investment_pool_contribution_mult" = state
+            "state_$_mortality_mult" = state
+        }
     }
 }
