@@ -1,18 +1,18 @@
 modifier_categories = {    
-    country = {
-        supported_scopes = { country } 
+    state = {
+        supported_scopes = { state building } 
     }
     technology = {
         supported_scopes = { technology } 
+    }
+    country = {
+        supported_scopes = { country interest_group }
     }
     technology_status = {
         supported_scopes = { technology_status } 
     }
     culture = {
         supported_scopes = { culture } 
-    }
-    state = {
-        supported_scopes = { state } 
     }
     province = {
         supported_scopes = { province } 

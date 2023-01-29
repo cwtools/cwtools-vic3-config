@@ -2,9 +2,9 @@ types = {
     type[interest_group] = {
         path = "game/common/interest_groups"
         modifiers = {
-            "interest_group_ig_$_approval_add" = interest_group
-            "interest_group_ig_$_pol_str_mult" = interest_group
-            "interest_group_ig_$_pop_attraction_mult" = interest_group
+            "interest_group_$_approval_add" = interest_group
+            "interest_group_$_pol_str_mult" = interest_group
+            "interest_group_$_pop_attraction_mult" = interest_group
         }
     }
 }

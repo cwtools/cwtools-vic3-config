@@ -46,7 +46,7 @@ building_group = {
 	is_subsistence = bool
 
     ## cardinality = 0..1
-	### Specifies the default building type that will be built unless the state specifies a different one. No default.
+	### Specifies the default building. If the group is capped by resources, this is the building that will be allowed to be built. No default. 
 	default_building = <building>
 
     ## cardinality = 0..1

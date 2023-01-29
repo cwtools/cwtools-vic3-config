@@ -14,10 +14,11 @@ types = {
         subtype[unique] = {
             unique = yes
         }
-    },
-    modifiers = {
-        "$_throughput_mult" = building
-        "state_$_max_level_add" = state
+        modifiers = {
+            "$_throughput_mult" = building
+            ## explicit
+            "state_$_max_level_add" = state
+        }
     }
 }
 

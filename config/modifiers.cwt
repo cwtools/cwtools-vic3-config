@@ -284,16 +284,16 @@ modifiers = {
 alias[modifier:building_group_<building_group>_<pop_type>_fertility_mult] = float
 
 ## scope = building
-alias[modifier:building_group_<building_group>_<pop_type>_fertility_mult] = building
+alias[modifier:building_group_<building_group>_<pop_type>_fertility_mult] = float
 
 ## scope = building
-alias[modifier:building_group_<building_group>_<pop_type>_mortality_mult] = building
+alias[modifier:building_group_<building_group>_<pop_type>_mortality_mult] = float
 
 ## scope = building
-alias[modifier:building_group_<building_group>_<pop_type>_mortality_mult] = building
+alias[modifier:building_group_<building_group>_<pop_type>_mortality_mult] = float
 
 ## scope = building
-alias[modifier:building_group_<building_group>_<pop_type>_standard_of_living_add] = building
+alias[modifier:building_group_<building_group>_<pop_type>_standard_of_living_add] = float
 
 ## scope = building
-alias[modifier:building_group_<building_group>_<pop_type>_standard_of_living_add] = building
+alias[modifier:building_group_<building_group>_<pop_type>_standard_of_living_add] = float

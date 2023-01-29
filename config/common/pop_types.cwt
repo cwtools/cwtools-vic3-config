@@ -23,3 +23,99 @@ types = {
         }
     }
 }
+
+## replace_scope = { ROOT = pop_type THIS = pop_type }
+### pop type name. By convention, every pop_type is stored on its own txt file, which is named after the pop type
+pop_type = {
+    ## cardinality = 0..1
+    ### pop type icon
+    texture = filepath[gfx/interface/icons/pop_icons,.dds]
+
+    ### pop type color
+    color = single_alias_right[color]
+
+    ### strata that pop type belongs to
+    strata = enum[strata]
+
+    ### basic quality of life
+    start_quality_of_life = int
+
+    ### importance of the pop's wage
+    wage_weight = float
+
+    ### wage for dependents
+    literacy_target = float
+
+    ## cardinality = 0..1
+    ### in vanilla, aristocrats have this set to 0.2, changes base working adult ratio
+    working_adult_ratio = float
+
+    ## cardinality = 0..1
+    ### in vanilla, academics have this set to 0.5, changes base education access
+    education_access = float
+
+    ## cardinality = 0..1
+    ### in vanilla, peasants have this set to yes, defaults to no
+    ignores_employment_proportionality = bool
+
+    ## cardinality = 0..1
+    ### in vanilla, peasants have this set to yes, defaults to no
+    can_always_hire = bool
+
+    ## cardinality = 0..1
+    ### in vanilla, peasants have this set to yes, defaults to no
+    subsistence_income = bool
+
+    ### goods consumption multiplier (default = 1)
+    consumption_mult = float
+
+    ### per year
+    dependent_wage = float
+
+    ### can pop be unemployed
+    unemployment = bool
+
+    ## cardinality = 0..1
+    ### in vanilla, laborers use this set to 5
+    unemployment_wealth = int
+
+    ### basic political engagement
+    political_engagement_base = float
+
+    ### literacy to political engagement
+    political_engagement_literacy_factor = float
+
+    ### in vanilla, slaves use this set to true, defaults to no
+    is_slave = bool
+
+    # TODO
+    ### scripted value to escalate dynamic terrain value. defines a range between political_engagement_mult% to (political_engagement_mult%+qualifications_growth_desc%)
+    political_engagement_mult = scalar
+
+    ### Qualifications growth desc localization
+    qualifications_growth_desc = scalar
+
+    # TODO
+    ### Qualifications scripted values list
+    qualifications = scalar
+
+    # TODO
+    ### Age for portrait
+    portrait_age = scalar									
+
+    # TODO
+    ### Pose for portrait
+ 	portrait_pose = scalar
+
+    # TODO
+    ### Is portrait female or male
+ 	portrait_is_female = scalar
+}
+
+enums = {
+    enum[strata] = {
+        poor
+        middle
+        rich
+    }
+}
