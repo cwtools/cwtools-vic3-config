@@ -5,9 +5,9 @@ alias[trigger:<scripted_trigger>] = bool
 #Todo: Make sure this works
 alias[trigger:<scripted_trigger>] = {
 	## cardinality = 1..inf
-	enum[scripted_effect_params] = scalar
+	$parameter = scalar
 	## cardinality = 1..inf
-	enum[scripted_effect_params] = scope_field
+	$parameter = scope_field
 }
 
 types = {
