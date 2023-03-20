@@ -1,4 +1,4 @@
-alias[effect:<scripted_effect>] = yes
+alias[effect:<scripted_effect>] = bool
 
 types = {
     type[scripted_effect] = {
