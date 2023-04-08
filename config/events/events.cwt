@@ -3,12 +3,7 @@ types = {
 	type[event] = {
 		path = "game/events"
 		file_extension = .txt
-
-		localisation = {
-			## primary
-			title = title
-		}
-
+		
 		subtype[hidden] = {
 			hidden = yes
 		}
@@ -33,6 +28,11 @@ types = {
 		subtype[character_event] = {
 			## cardinality = 1..1
 			type = character_event
+		}
+
+		localisation = {
+			## primary
+			title = title
 		}
 	}
 }
