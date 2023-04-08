@@ -2,6 +2,7 @@ types = {
 	## type_key_filter = namespace
 	type[event_namespace] = {
 		path = "game/events"
+		file_extension = .txt
 		name_field = ""
 	}
 }
