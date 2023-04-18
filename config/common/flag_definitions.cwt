@@ -1,6 +1,31 @@
-# TODO: More complicated than this
-# types = {
-#     type[flag_definition] = {
-#         path = "game/common/flag_definitions"
-#     }
-# }
+types = {
+    type[flag_definition] = {
+        path = "game/common/flag_definitions"
+        # technically the root, which is a country tag, should be the type, but this is easier
+        skip_root_key = any
+        name_field = "coa"
+    }
+}
+
+flag_definition = {
+    coa = <coat_of_arms>
+    ## cardinality = 0..1
+    subject_canton = <coat_of_arms>
+    ## cardinality = 0..1
+    coa_with_overlord_canton = <coat_of_arms>
+    ## cardinality = 0..1
+    allow_overlord_canton = bool
+    ## cardinality = 0..1
+    overlord_canton_offset = {
+        ## cardinality = 2..2
+        float
+    }
+    ## cardinality = 0..1
+    overlord_canton_scale = {
+        ## cardinality = 2..2
+        float
+    }
+    priority = int
+    ## cardinality = 0..1
+    trigger = single_alias_right[trigger_clause]
+}

@@ -1,5 +1,23 @@
 types = {
     type[named_color] = {
+        skip_root_key = colors
         path = "game/common/named_colors"
     }
+}
+
+named_color = {
+
+}
+
+enums = {
+    complex_enum[named_colors] = {
+		path = "game/common/named_colors"
+        start_from_root = yes
+		name = {
+            colors = {
+                # "name = hsv360/hsv/rgb { values }" color format explicitly named in script (except once)
+                enum_name = scalar { }
+            }
+		}
+	}
 }

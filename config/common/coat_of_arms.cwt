@@ -1,5 +1,78 @@
 types = {
-    type[coat_of_arm] = {
+    ## type_key_filter <> template
+    type[coat_of_arms] = {
         path = "game/common/coat_of_arms/coat_of_arms"
+    }
+}
+
+coat_of_arms = {
+    pattern = scalar # can't get this to work -> filepath[game/gfx/coat_of_arms/patterns/]
+    ## cardinality = 1..6
+    enum[color_num] = scalar #enum[named_colors]
+    ## cardinality = 0..inf
+    colored_emblem = {
+        texture = scalar #filepath[game/gfx/coat_of_arms/colored_emblems/]
+        ## cardinality = 1..6
+        enum[color_num] = scalar #enum[named_colors]
+        ## cardinality = 1..6
+        enum[color_num] = enum[color_num]
+        ## cardinality = 0..inf
+        instance = {
+            scale = {
+                ## cardinality = 2..2
+                float
+            }
+            position = {
+                ## cardinality = 2..2
+                float
+            }
+            ## cardinality = 0..1
+            rotation = int
+        }
+    }
+    ## cardinality = 0..inf
+    textured_emblem = {
+        texture = scalar #filepath[game/gfx/coat_of_arms/textured_emblems/]
+        ## cardinality = 0..inf
+        instance = {
+            scale = {
+                ## cardinality = 2..2
+                float
+            }
+            position = {
+                ## cardinality = 2..2
+                float
+            }
+            ## cardinality = 0..1
+            rotation = int
+        }
+    }
+    ## cardinality = 0..inf
+    sub = {
+        parent = <coat_of_arms>
+        ## cardinality = 0..inf
+        instance = {
+            scale = {
+                ## cardinality = 2..2
+                float
+            }
+            position = {
+                ## cardinality = 2..2
+                float
+            }
+            ## cardinality = 0..1
+            rotation = int
+        }
+    }
+}
+
+enums = {
+    enum[color_num] = {
+        color1
+        color2
+        color3
+        color4
+        color5
+        color6
     }
 }
