@@ -1,5 +1,47 @@
 types = {
+    ## unique = yes
     type[country_creation] = {
         path = "game/common/country_creation"
+        subtype[cultural] = {
+            use_culture_states = yes
+        }
+        subtype[state_list] = {
+            states = { }
+        }
+        subtype[provinces_list] = {
+            provinces = { }
+        }
     }
+}
+
+## replace_scope = { root = country this = country }
+country_creation = {
+    subtype[cultural] = {
+        use_culture_states = yes
+
+        ## cardinality = 0..1
+        required_num_states = int[1..inf]
+    }
+
+    subtype[state_list] = {
+        states = {
+            ## cardinality = 1..inf
+            <state_region>
+        }
+
+        ## cardinality = 0..1
+        required_num_states = int[1..inf]
+    }
+
+    subtype[provinces_list] = {
+        provinces = {
+            ## cardinality = 1..inf
+            enum[provinces]
+        }
+    }
+
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
+
+    ai_will_do = single_alias_right[trigger_clause]
 }

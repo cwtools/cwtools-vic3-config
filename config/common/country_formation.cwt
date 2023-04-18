@@ -1,5 +1,48 @@
 types = {
+    ## unique = yes
     type[country_formation] = {
         path = "game/common/country_formation"
+        subtype[major] = {
+			is_major_formation = yes
+		}
+        ## only_if_not = { major }
+        subtype[minor] = {
+		}
+        subtype[cultural] = {
+            use_culture_states = yes
+        }
+        subtype[state_list] = {
+            states = { }
+        }
     }
+}
+
+## replace_scope = { root = country this = country }
+country_formation = {
+    subtype[major] = {
+        is_major_formation = yes
+
+        unification_play = <diplomatic_play>
+        leadership_play = <diplomatic_play>
+    }
+
+    subtype[cultural] = {
+        use_culture_states = yes
+    }
+
+    subtype[state_list] = {
+        states = {
+            ## cardinality = 1..inf
+            <state_region>
+        }
+    }
+
+    ## cardinality = 0..1
+    required_states_fraction = float[0..1]
+
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
+
+    ai_will_do = single_alias_right[trigger_clause]
+
 }
