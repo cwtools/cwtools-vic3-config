@@ -12,6 +12,7 @@ types = {
 }
 
 country_definition = {
+    ### Use int with rgb or hsv360, float with hsv
     color = {
         ## cardinality = 3..3
         int
@@ -24,31 +25,22 @@ country_definition = {
     #    ## cardinality = 3..3
     #    int
     #}
+    ### The country's 'type'
     country_type = enum[country_type]
 
+    ### The country's 'tier'
     tier = enum[country_tier]
 
+    ### The country's primary cultures
     cultures = {
         ## cardinality = 1..inf
         <culture>
     }
+    ### Only needed if state religion is different from default religion of first primary culture
     ## cardinality = 0..1
     religion = <religion>
     
     capital = <state_region>
     ## cardinality = 0..1
     is_named_from_capital = yes
-}
-
-enums = {
-	# country tags
-	complex_enum[country_tags] = {
-		path = "game/common/country_definitions"
-		start_from_root = yes
-		name = {
-			enum_name = {
-                
-            }
-		}
-	}
 }
