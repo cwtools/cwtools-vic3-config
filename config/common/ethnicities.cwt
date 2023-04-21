@@ -3,3 +3,8 @@ types = {
         path = "game/common/ethnicities"
     }
 }
+
+ethnicity = {
+    ## cardinality = 0..1
+    template = <ethnicity>
+}

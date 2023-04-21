@@ -1,5 +1,0 @@
-types = {
-    type[culture] = {
-        path = "game/common/cultures"
-    }
-}
