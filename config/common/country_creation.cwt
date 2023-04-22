@@ -1,5 +1,0 @@
-types = {
-    type[country_creation] = {
-        path = "game/common/country_creation"
-    }
-}
