@@ -1,5 +1,26 @@
 types = {
+    ## unique = yes
     type[state_trait] = {
         path = "game/common/state_traits"
+        localisation = {
+			name = "$"
+		}
     }
+}
+
+## replace_scope = { ROOT = state THIS = state }
+state_trait = {
+    ### Icon for state trait
+    icon = filepath
+
+    ### Effects of state trait
+    modifier = {
+        alias_name[modifier] = alias_match_left[modifier]
+    }
+    ### Technology with removes effect of state trait
+    ## cardinality = 0..1
+    disabling_technologies = { <technology> }
+    ### Technology required to colonize state with this trait
+    ## cardinality = 0..1
+    required_techs_for_colonization = { <technology> }
 }

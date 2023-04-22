@@ -279,7 +279,7 @@ links = {
 	p = {
 		desc = " Scope to province specified by hex key"
 		from_data = yes
-		data_source = <province>
+		data_source = enum[provinces]
 		prefix = p:
 		output_scope = province
 	}

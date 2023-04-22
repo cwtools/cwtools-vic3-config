@@ -1,5 +1,60 @@
 types = {
     type[strategic_region] = {
         path = "game/common/strategic_regions"
+        localisation = {
+			## required
+			name = "$"
+		}
+        subtype[land] = {
+            capital_province = enum[provinces]
+        }
+        subtype[land] = {
+            map_color = { }
+        }
+        subtype[land] = {
+            graphical_culture = enum[graphical_cultures]
+        }
+        ## only_if_not = { land }
+        subtype[water] = {
+
+        }
+    }
+}
+
+strategic_region = {
+    subtype[land] = {
+        ### Specific map stuff appearance
+        ## cardinality = 0..1
+        graphical_culture = enum[graphical_cultures]
+        ### Make sure its in a state in the region
+        capital_province = enum[provinces]
+        ### Not specified as to rgb vs. hsv or rgb255 vs. rgb100
+        map_color = {
+            ## cardinality = 3..3
+            float
+        }
+        map_color = {
+            ## cardinality = 3..3
+            int
+        }
+        states = {
+            ## cardinality = 1..inf
+            <state_region.land>
+        }
+    }
+    subtype[water] = {
+        states = {
+            ## cardinality = 1..inf
+            <state_region.water>
+        }
+    }
+}
+
+enums = {
+    complex_enum[graphical_cultures] = {
+        path = "game/gfx/map/city_data/city_types"
+        name = {
+            graphical_culture = enum_name
+        }
     }
 }
