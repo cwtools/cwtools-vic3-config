@@ -597,9 +597,11 @@ alias[effect:add_pollution] = int_value_field
 alias[effect:create_state] = {
     country = scope[country]
     owned_provinces = {
-        ## cardinality = 0..inf
-        <province>
+        ## cardinality = ~1..inf
+        enum[provinces]
     }
+    ## cardinality = 0..1
+    state_type = enum[state_type]
 }
 
 ### Removes scoped state region as a claim for target country add_claim = scope/country
@@ -617,8 +619,8 @@ alias[effect:set_devastation] = int_value_field
 alias[effect:set_owner_of_provinces] = {
     country = scope[country]
     provinces = {
-        ## cardinality = 0..inf
-        <province>
+        ## cardinality = ~1..inf
+        enum[provinces]
     }
 }
 
