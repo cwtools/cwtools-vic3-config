@@ -7,4 +7,25 @@ types = {
 ethnicity = {
     ## cardinality = 0..1
     template = <ethnicity>
+
+    # temp until genes are complete
+    ## cardinality = 0..inf
+    scalar = {
+        ## cardinality = 1..inf
+        int = {
+            ## cardinality = 4..4
+            float
+        }
+    }
+    ## cardinality = 0..inf
+    scalar = {
+        ## cardinality = 1..inf
+        int = {
+            name = scalar
+            range = {
+                ## cardinality = 2..2
+                float
+            }
+        }
+    }
 }
