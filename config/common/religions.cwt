@@ -1,5 +1,32 @@
 types = {
     type[religion] = {
         path = "game/common/religions"
+        localisation = {
+			name = "$"
+		}
+    }
+}
+
+religion = {
+    ### The icon shown ingame
+    texture = filepath
+
+    ### Don't mix religious traits with cultural traits
+    traits = {
+        ## cardinality = 1..inf
+        <discrimination_trait>
+    }
+
+    ### Map color, decimal rgb?
+    color = {
+        ## cardinality = 3..3
+        float
+    }
+
+    ### These pops hate...
+    ## cardinality = 0..1
+    taboos = {
+        ## cardinality = 1..inf
+        <goods.consumable>
     }
 }
