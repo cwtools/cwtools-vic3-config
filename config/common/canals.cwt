@@ -1,5 +1,15 @@
 types = {
     type[canal] = {
         path = "game/common/canals"
+        localisation = {
+			## required
+			name = "$"
+		}
     }
+}
+
+canal = {
+    texture = filepath
+    possible = single_alias_right[trigger_clause]
+    state_region = <state_region>
 }

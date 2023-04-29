@@ -1,0 +1,146 @@
+types = {
+    ## unique = yes
+    type[country_definition] = {
+        path = "game/common/country_definitions"
+        localisation = {
+			## required
+			name = "$"
+			## required
+			adjective = "$_ADJ"
+		}
+    }
+    ## unique = yes
+    type[country_creation] = {
+        path = "game/common/country_creation"
+        subtype[cultural] = {
+            use_culture_states = yes
+        }
+        subtype[state_list] = {
+            states = { }
+        }
+        subtype[provinces_list] = {
+            provinces = { }
+        }
+    }
+    ## unique = yes
+    type[country_formation] = {
+        path = "game/common/country_formation"
+        subtype[major] = {
+            is_major_formation = yes
+        }
+        ## only_if_not = { major }
+        subtype[minor] = {
+        }
+        subtype[cultural] = {
+            use_culture_states = yes
+        }
+        subtype[state_list] = {
+            states = { }
+        }
+    }
+}
+
+country_definition = {
+    ### Map color, use int with rgb (blank) or hsv360, float with hsv
+    color = {
+        ## cardinality = 3..3
+        int
+    }
+    color = {
+        ## cardinality = 3..3
+        float
+    }
+    ### The country's 'type'
+    country_type = enum[country_type]
+
+    ### The country's 'tier'
+    tier = enum[country_tier]
+
+    ### The country's primary cultures
+    cultures = {
+        ## cardinality = 1..inf
+        <culture>
+    }
+    ### Only needed if state religion is different from default religion of first primary culture
+    ## cardinality = 0..1
+    religion = <religion>
+    
+    ### The default capital for the country, important for country releasing
+    capital = <state_region>
+    
+    ## cardinality = 0..1
+    is_named_from_capital = yes
+}
+
+## replace_scope = { root = country this = country }
+country_creation = {
+    subtype[cultural] = {
+        ### All states with a homeland matching the primary cultures are listed
+        use_culture_states = yes
+
+        ### Default 0 as in 00_defines.txt, i.e. only requires holding capital
+        ## cardinality = 0..1
+        required_num_states = int[1..inf]
+    }
+
+    subtype[state_list] = {
+        ### Should include the country's defined capital
+        states = {
+            ## cardinality = 1..inf
+            <state_region>
+        }
+
+        ### Default 0 as in 00_defines.txt, i.e. only requires holding capital
+        ## cardinality = 0..1
+        required_num_states = int[1..inf]
+    }
+
+    subtype[provinces_list] = {
+        ### Defines a split state in one or more state regions, should include the country's defined capital
+        provinces = {
+            ## cardinality = 1..inf
+            enum[provinces]
+        }
+    }
+
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
+
+    ### Typically 'always = no'
+    ai_will_do = single_alias_right[trigger_clause]
+}
+
+## replace_scope = { root = country this = country }
+country_formation = {
+    subtype[major] = {
+        is_major_formation = yes
+
+        ### References a 'war_goal = unification' DP
+        unification_play = <diplomatic_play>
+        ### References a 'war_goal = unification_leadership' DP
+        leadership_play = <diplomatic_play>
+    }
+
+    subtype[cultural] = {
+        ### All states with a homeland matching the primary cultures are listed
+        use_culture_states = yes
+    }
+
+    subtype[state_list] = {
+        states = {
+            ## cardinality = 1..inf
+            <state_region>
+        }
+    }
+
+    ### Default 0.75 as in 00_defines.txt
+    ## cardinality = 0..1
+    required_states_fraction = float[0..1]
+
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
+
+    ### Typically 'always = yes'
+    ai_will_do = single_alias_right[trigger_clause]
+
+}

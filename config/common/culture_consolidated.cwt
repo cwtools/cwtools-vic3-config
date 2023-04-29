@@ -1,0 +1,109 @@
+types = {
+    ## unique = yes
+    type[culture] = {
+        path = "game/common/cultures"
+        localisation = {
+			name = "$"
+		}
+    }
+    ## unique = yes
+    type[culture_graphic] = {
+        path = "game/common/culture_graphics"
+    }
+    ## unique = yes
+    type[discrimination_trait] = {
+        path = "game/common/discrimination_traits"
+        localisation = {
+			name = "$"
+		}
+        subtype[heritage] = {
+            heritage = yes
+        }
+    }
+}
+
+culture = {
+    ### Map color, use int with rgb or hsv360, float with hsv
+    color = {
+        ## cardinality = 3..3
+        int
+    }
+    color = {
+        ## cardinality = 3..3
+        float
+    }
+    ### Default religion for culture
+    religion = <religion>
+
+    ### Don't mix religious traits with cultural traits
+    traits = {
+        ## cardinality = 1..inf
+        <discrimination_trait>
+    }
+
+    ### This culture can't get enough of...
+    ## cardinality = 0..1
+    obsessions = {
+        ## cardinality = 1..inf
+        <goods.consumable>
+    }
+    ### Men's names
+    male_common_first_names = {
+        ## cardinality = 1..inf
+        localisation
+    }
+    ### Women's names
+    female_common_first_names = {
+        ## cardinality = 1..inf
+        localisation
+    }
+    ### Family names
+    common_last_names = {
+        ## cardinality = 1..inf
+        localisation
+    }
+    ### Noble family names
+    ## cardinality = ~1..1
+    noble_last_names = {
+        ## cardinality = 1..inf
+        localisation
+    }
+    ### Kings' names
+    ## cardinality = 0..1
+    male_regal_first_names = {
+        ## cardinality = 1..inf
+        localisation
+    }
+    ### Queens' names
+    ## cardinality = 0..1
+    female_regal_first_names = {
+        ## cardinality = 1..inf
+        localisation
+    }
+    ### Royal family names
+    ## cardinality = 0..1
+    regal_last_names = {
+        ## cardinality = 1..inf
+        localisation
+    }
+
+    ### What other stuff looks like
+    graphics = <culture_graphic>
+
+    ### What pops look like
+    ethnicities = {
+        ### Vanilla only uses a single line '1 = "ethnicity"'
+        ## cardinality = 1..inf
+        int = <ethnicity>
+    }
+}
+
+culture_graphic = {
+
+}
+
+discrimination_trait = {
+    subtype[heritage] = {
+        heritage = yes
+    }
+}

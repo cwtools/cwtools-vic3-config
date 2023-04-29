@@ -337,7 +337,7 @@ alias[trigger:has_map_interaction_import_goods] = replace_me
 alias[trigger:has_reached_end_date] = bool
 
 ### Check if there is at least one unification candidate for country tag has_country_unification_candidate = GER
-alias[trigger:has_unification_candidate] = <country_definition>
+alias[trigger:has_unification_candidate] = <country_formation.major>
 
 ### Checks whether the current scope has the specified variable set has_variable = name
 alias[trigger:has_variable] = value[variable]
@@ -529,7 +529,7 @@ alias[trigger:can_establish_any_export_route] = scope[goods]
 alias[trigger:can_establish_any_import_route] = scope[goods]
 
 ### Check if the target country is able to potentially form a nation can_form_nation = <tag>
-alias[trigger:can_form_nation] = <country_definition>
+alias[trigger:can_form_nation] = <country_formation>
 
 ### Checks if a country can have another country as a particular type of subject can_have_as_subject = { who = X type = Y } Where X = country and Y = subject type
 alias[trigger:can_have_as_subject] = {
@@ -899,7 +899,7 @@ alias[trigger:is_subject_type] = <subject_type>
 ### Check if scope country is supporting a unification candidate for a specific country formation is_supporting_unification_candidate = { who = c:PRU country_formation = GER }
 alias[trigger:is_supporting_unification_candidate] = {
     who = scope[country]
-    country_formation = <country_definition>
+    country_formation = <country_formation.major>
 }
 
 ### Check if a country is taxing a good has_embargo = <goods key/scope>
@@ -908,7 +908,7 @@ alias[trigger:is_taxing_goods] = <goods>
 alias[trigger:is_taxing_goods] = scope[goods]
 
 ### Check if scope country is a unification candidate for country tag has_country_unification_candidate = GER
-alias[trigger:is_unification_candidate] = <country_definition>
+alias[trigger:is_unification_candidate] = <country_formation.major>
 
 ### Check if the scoped country is violating the sovereignty of a target country is_violating_sovereignty_of = c:GBR
 alias[trigger:is_violating_sovereignty_of] = <country_definition>

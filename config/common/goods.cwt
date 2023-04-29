@@ -4,6 +4,9 @@ types = {
         localisation = {
             name = "$"
         }
+        subtype[consumable] = {
+            obsession_chance = float
+        }
     }
 }
 
@@ -19,7 +22,7 @@ enums = {
 ## replace_scope = { ROOT = goods THIS = goods }
 goods = {
     ### The icon shown ingame
-    texture = filepath[gfx/interface/icons/goods_icons/,.dds]
+    texture = filepath[game/gfx/interface/icons/goods_icons/]
 
     ### The base cost
     cost = int
@@ -33,7 +36,7 @@ goods = {
 
     ## cardinality = 0..1
     ### The quantity of goods that is traded per level of the route. Agricultural and resources tend to trade around 20 and industry just 1.
-    traded_quantity = int
+    traded_quantity = float
 
     ## cardinality = 0..1
     ### How many convoys is needed to transport 1 of this good. 0.25 is very light and 2.0 very heavy. Agricultural and Resources tend to be lighter than Industrial goods on the vanilla game files.
@@ -51,7 +54,9 @@ goods = {
     ### If the value is fixed or fluctuates depending on availability on the market. Like gold in the vanilla game files.
     fixed_price = bool
 
-    ## cardinality = 0..1
-    ### How high the chance is that a culture develops an obsession on the good. Opium, Wine and Liquor have a 2.0 chance.
-    obsession_chance = float
+    subtype[consumable] = {
+        ## cardinality = 0..1
+        ### How high the chance is that a culture develops an obsession on the good. Opium, Wine and Liquor have a 2.0 chance.
+        obsession_chance = float
+    }
 }
