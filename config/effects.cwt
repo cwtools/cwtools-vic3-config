@@ -308,11 +308,9 @@ alias[effect:post_proposal] = <proposal_type>
 
 ### a random effect, random = { chance = X modifier = Y effects... } where X is a chance of the enclosed effects being fired and can be modified by optional value modifier list (AKA MTTH) Y
 alias[effect:random] = {
-    chance = int_value_field
-
+    chance = int_value_field[1...99]
     ## cardinality = 0..inf
     modifier = single_alias_right[weight_chance_modifier]
-
     ## cardinality = 1..inf
     alias_name[effect] = alias_match_left[effect]
 }
