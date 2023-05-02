@@ -8,24 +8,24 @@ types = {
 			hidden = yes
 		}
 
+		## group = event_type
 		## push_scope = country
 		## display_name = Country event
-		## abbreviation = CE
-		subtype[country_event] = {
+		subtype[country] = {
 			## cardinality = 1..1
 			type = country_event
 		}
+		## group = event_type
 		## push_scope = state
 		## display_name = State event
-		## abbreviation = SE
-		subtype[state_event] = {
+		subtype[state] = {
 			## cardinality = 1..1
 			type = state_event
 		}
+		## group = event_type
 		## push_scope = character
 		## display_name = Character event
-		## abbreviation = CHE
-		subtype[character_event] = {
+		subtype[character] = {
 			## cardinality = 1..1
 			type = character_event
 		}
