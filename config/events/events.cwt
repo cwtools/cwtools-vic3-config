@@ -9,6 +9,11 @@ types = {
 		}
 
 		## group = event_type
+		subtype[scopeless] = {
+			## cardinality = 0..0
+			type = scalar
+		}
+		## group = event_type
 		## push_scope = country
 		## display_name = Country event
 		subtype[country] = {
