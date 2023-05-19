@@ -452,9 +452,9 @@ alias[effect:switch] = {
     ## cardinality = 0..inf
     # for key of this property, config will be overridden by:
     # icu.windea.pls.lang.config.impl.ParadoxSwitchCaseOverriddenConfigProvider
-    scalar = { alias_name[trigger] = alias_match_left[trigger] }
+    scalar = { alias_name[effect] = alias_match_left[effect] }
     ## cardinality = 0..1
-    fallback = { alias_name[trigger] = alias_match_left[trigger] }
+    fallback = { alias_name[effect] = alias_match_left[effect] }
 }
 
 ### Triggers an event for the current scope trigger_event = X trigger_event = { id = X days/weeks/months/years = Y } Where X is an event ID and Y is an integer to delay the event by
