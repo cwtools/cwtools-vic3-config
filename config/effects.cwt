@@ -280,9 +280,8 @@ alias[effect:else] = {
 
 ### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met, and its own limit is met if = { limit = { <triggers> } <effects> } else_if = { limit = { <triggers> } <effects> }
 alias[effect:else_if] = {
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
+    ## cardinality = ~1..1
+    limit = { alias_name[trigger] = alias_match_left[trigger] }
     alias_name[effect] = alias_match_left[effect]
 }
 
@@ -294,9 +293,8 @@ alias[effect:hidden_effect] = {
 
 ### Executes enclosed effects if limit criteria are met if = { limit = { <triggers> } <effects> }
 alias[effect:if] = {
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
+    ## cardinality = ~1..1
+    limit = { alias_name[trigger] = alias_match_left[trigger] }
     alias_name[effect] = alias_match_left[effect]
 }
 

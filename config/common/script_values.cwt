@@ -55,12 +55,14 @@ alias[arithmetic_operation:integer_range] = {
 }
 
 alias[arithmetic_operation:if] = {
+    ## cardinality = ~1..1
     limit = single_alias_right[trigger_clause]
     ## cardinality = 1..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 alias[arithmetic_operation:else_if] = {
+    ## cardinality = ~1..1
     limit = single_alias_right[trigger_clause]
     ## cardinality = 1..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
