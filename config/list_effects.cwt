@@ -594,6 +594,9 @@ alias[effect:every_in_global_list] = {
 
 ### Iterate through all items in list. list = name or variable = name every_in_list = { limit = { <triggers> } <effects> }
 alias[effect:every_in_list] = {
+        ## cardinality = 0..1
+        list = value[list]
+        ## cardinality = 0..1
         variable = value[variable_list]
         ## cardinality = 0..1
         limit = {
