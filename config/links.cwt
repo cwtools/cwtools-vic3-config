@@ -950,4 +950,11 @@ links = {
 		input_scopes = { pop character combat_unit }
 		output_scope = culture
 	}
+	ideology = {
+		desc = " Scope to a ideology from its name (ideology:ideology_anarchist)"
+		output_scope = ideology
+		from_data = yes
+		data_source = <ideology>
+		prefix = ideology:
+	}
 }

@@ -2,7 +2,7 @@
 alias[trigger:law_approved_by] = <interest_group>
 
 ### Check if scoped object has ideology
-alias[trigger:has_ideology] = <ideology>
+alias[trigger:has_ideology] = scope[ideology]
 
 ### Compares the stance of the scoped character or interest group about the specified law
 alias[trigger:law_stance] = {

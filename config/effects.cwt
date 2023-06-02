@@ -65,7 +65,7 @@ alias[effect:set_character_busy] = bool
 alias[effect:set_commander_rank] = int_value_field
 
 ### Changes scoped character's ideology set_ideology = x
-alias[effect:set_ideology] = <ideology>
+alias[effect:set_ideology] = scope[ideology]
 
 ### Transfers a Character to Country
 alias[effect:transfer_character] = scope[country]
