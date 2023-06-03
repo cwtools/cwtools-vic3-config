@@ -45,6 +45,13 @@ alias[effect:free_character_from_void] = bool
 
 ### Kill a character kill_character = bool
 alias[effect:kill_character] = bool
+### Kill a character kill_character = { hidden = bool (yes - without notification; no - show notification [by default]) value = bool (yes - kill [by default], no - don't do anything)}
+alias[effect:kill_character] = {
+    ## cardinality = 0..1
+    hidden = bool
+    ## cardinality = 0..1
+    value = bool
+}
 
 ### Banishes a character to the void, duration is how long character is kept before being deleted place_character_in_void = months
 alias[effect:place_character_in_void] = int_value_field
