@@ -9,6 +9,9 @@ enums = {
         politician
         general
         admiral
+        agitator
+        ruler
+        heir
     }
 
     enum[character_trait_type] = {
