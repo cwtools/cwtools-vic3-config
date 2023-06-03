@@ -959,7 +959,7 @@ alias[effect:create_trade_route] = {
     ## cardinality = 0..1
     origin = scope[market]
     #TODO: market?
-    target = scope[state_region]
+    target = scope[market]
     direction = import
     direction = export
 }
