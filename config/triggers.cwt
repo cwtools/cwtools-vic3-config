@@ -1509,3 +1509,8 @@ alias[trigger:target_is] = scope[country]
 ### Checks if a pop, state or country has a certain amount of literacy literacy = value
 alias[trigger:literacy_rate] == value_field
 
+### Compares the military wage level of scoped country
+alias[trigger:military_wage_level] == enum[wage_level]
+
+###  Compares the government wage level of scoped country
+alias[trigger:government_wage_level] == enum[wage_level]
