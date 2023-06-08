@@ -3,3 +3,10 @@ types = {
         path = "game/common/modifiers"
     }
 }
+
+modifier_container = {
+    ## cardinality = ~1..1
+    icon = scalar
+    ## cardinality = 0..inf
+    <modifier_type> = value_field
+}
