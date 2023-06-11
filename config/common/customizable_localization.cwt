@@ -13,6 +13,9 @@ customizable_localization = {
     text = {
         ## cardinality = 0..1
         trigger = single_alias_right[trigger_clause]
+        ## cardinality = 0..1
+        ### If fallback = yes, this text will be picked if no other texts are valid, even if the trigger is not valid
+        fallback = bool
         localization_key = localisation
     }
 
