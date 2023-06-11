@@ -17,5 +17,5 @@ battle_condition = {
 
     ## cardinality = 0..1
     ## push_scope = battle_side
-    weight = single_alias_right[weight_chance_modifier]
+    weight = value_field
 }
