@@ -2,10 +2,6 @@ Trigger Documentation:
 
 --------------------
 
-
-
---------------------
-
 has_active_building - True if a state has an active building type
 has_active_building = building
 Supported Scopes: market, state
