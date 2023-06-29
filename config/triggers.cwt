@@ -572,7 +572,7 @@ alias[trigger:country_pm_usage] = {
 }
 
 ### Compares a Country's Power Ranking country_rank < rank_value:major_power
-alias[trigger:country_rank] == scope[rank_value]
+alias[trigger:country_rank] == value_field
 
 ### Compare tier of country tag country_tier = x
 alias[trigger:country_tier] = enum[country_tier]
