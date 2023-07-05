@@ -2,10 +2,7 @@ types = {
     ## unique = yes
     type[state_region] = {
         path = "game/map_data/state_regions"
-        localisation = {
-			## required
-			name = "$"
-		}
+
         # Water-only states won't have arable land, and land states always should
         subtype[land] = {
             arable_land = int
@@ -15,10 +12,11 @@ types = {
             naval_exit_id = int
         }
         ## only_if_not = { land coastal }
-        subtype[water] = {
+        subtype[water] = {}
 
+        localisation = {
+            name = "$"
         }
-
     }
 }
 

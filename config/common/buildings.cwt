@@ -1,9 +1,6 @@
 types = {
     type[building] = {
         path = "game/common/buildings"
-        localisation = {
-            name = "$"
-        }
         subtype[military] = {
             recruits_combat_unit = <combat_unit_type>
         }
@@ -16,6 +13,9 @@ types = {
         }
         subtype[subsistence] = {
             building_group = <building_group.subsistence>
+        }
+        localisation = {
+            name = "$"
         }
     }
 }

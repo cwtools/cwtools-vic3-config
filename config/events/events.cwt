@@ -36,7 +36,6 @@ types = {
 		}
 
 		localisation = {
-			## primary
 			title = title
 		}
 	}

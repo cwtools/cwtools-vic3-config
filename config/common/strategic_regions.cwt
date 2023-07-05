@@ -1,10 +1,6 @@
 types = {
     type[strategic_region] = {
         path = "game/common/strategic_regions"
-        localisation = {
-			## required
-			name = "$"
-		}
         subtype[land] = {
             capital_province = enum[provinces]
         }
@@ -15,8 +11,9 @@ types = {
             graphical_culture = enum[graphical_cultures]
         }
         ## only_if_not = { land }
-        subtype[water] = {
-
+        subtype[water] = {}
+        localisation = {
+            name = "$"
         }
     }
 }

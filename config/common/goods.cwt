@@ -1,11 +1,11 @@
 types = {
     type[goods] = {
         path = "game/common/goods"
-        localisation = {
-            name = "$"
-        }
         subtype[consumable] = {
             obsession_chance = float
+        }
+        localisation = {
+            name = "$"
         }
     }
 }

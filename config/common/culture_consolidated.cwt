@@ -13,11 +13,11 @@ types = {
     ## unique = yes
     type[discrimination_trait] = {
         path = "game/common/discrimination_traits"
-        localisation = {
-			name = "$"
-		}
         subtype[heritage] = {
             heritage = yes
+        }
+        localisation = {
+            name = "$"
         }
     }
 }

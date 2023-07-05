@@ -3,9 +3,7 @@ types = {
     type[country_definition] = {
         path = "game/common/country_definitions"
         localisation = {
-			## required
 			name = "$"
-			## required
 			adjective = "$_ADJ"
 		}
     }

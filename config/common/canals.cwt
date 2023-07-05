@@ -2,7 +2,6 @@ types = {
     type[canal] = {
         path = "game/common/canals"
         localisation = {
-			## required
 			name = "$"
 		}
     }
