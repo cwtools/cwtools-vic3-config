@@ -17,6 +17,11 @@ types = {
         localisation = {
             name = "$"
         }
+        images = {
+            ## primary
+            ## optional
+            texture = texture # filepath
+        }
     }
 }
 
