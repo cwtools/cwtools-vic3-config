@@ -869,6 +869,9 @@ links = {
 		desc = " Scope to the building of specified key in the state"
 		input_scopes = state
 		output_scope = building
+		from_data = yes
+		data_source = <building>
+		prefix = b:
 	}
 	nf = {
 		desc = " Scope to a Decree of specified key applied to the state"
@@ -949,5 +952,12 @@ links = {
 		desc = " Scope to pop's or character's culture"
 		input_scopes = { pop character combat_unit }
 		output_scope = culture
+	}
+	ideology = {
+		desc = " Scope to a ideology from its name (ideology:ideology_anarchist)"
+		output_scope = ideology
+		from_data = yes
+		data_source = <ideology>
+		prefix = ideology:
 	}
 }

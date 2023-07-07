@@ -45,6 +45,13 @@ alias[effect:free_character_from_void] = bool
 
 ### Kill a character kill_character = bool
 alias[effect:kill_character] = bool
+### Kill a character kill_character = { hidden = bool (yes - without notification; no - show notification [by default]) value = bool (yes - kill [by default], no - don't do anything)}
+alias[effect:kill_character] = {
+    ## cardinality = 0..1
+    hidden = bool
+    ## cardinality = 0..1
+    value = bool
+}
 
 ### Banishes a character to the void, duration is how long character is kept before being deleted place_character_in_void = months
 alias[effect:place_character_in_void] = int_value_field
@@ -65,7 +72,7 @@ alias[effect:set_character_busy] = bool
 alias[effect:set_commander_rank] = int_value_field
 
 ### Changes scoped character's ideology set_ideology = x
-alias[effect:set_ideology] = <ideology>
+alias[effect:set_ideology] = scope[ideology]
 
 ### Transfers a Character to Country
 alias[effect:transfer_character] = scope[country]
@@ -248,10 +255,28 @@ alias[effect:create_country] = {
 }
 
 ### Wraps effects that get a custom description instead of the auto-generated one custom_description = { 	text = <effect_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... effects ... }
-alias[effect:custom_description] = replace_me
+alias[effect:custom_description] = {
+    text = localisation
+    ## cardinality = 0..1
+    subject = scope_field
+    ## cardinality = 0..1
+    object = scope_field
+    ## cardinality = 0..1
+    value = value_field
+    alias_name[effect] = alias_match_left[effect]    
+}
 
 ### Wraps effects that get a custom description instead of the auto-generated one. Also ensures no bullet point appears custom_description_no_bullet = { 	text = <effect_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... effects ... }
-alias[effect:custom_description_no_bullet] = replace_me
+alias[effect:custom_description_no_bullet] = {
+    text = localisation
+    ## cardinality = 0..1
+    subject = scope_field
+    ## cardinality = 0..1
+    object = scope_field
+    ## cardinality = 0..1
+    value = value_field
+    alias_name[effect] = alias_match_left[effect]    
+}
 
 ### just a tooltip, the scope as object (for grouping, localization). Can also be written as custom_label = { text = key subject = scope (optional) <hidden effects> }
 alias[effect:custom_label] = localisation
@@ -934,7 +959,7 @@ alias[effect:create_trade_route] = {
     ## cardinality = 0..1
     origin = scope[market]
     #TODO: market?
-    target = scope[state_region]
+    target = scope[market]
     direction = import
     direction = export
 }

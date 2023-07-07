@@ -124,4 +124,11 @@ journal_entry = {
 
     ## cardinality = 0..1
     active_update_frequency = int
+
+    ## cardinality = 0..1
+    ### A list of modifiers that apply while the journal is active
+    modifiers_while_active = {
+        ## cardinality = 0..inf
+        <modifier_container>
+    }
 }

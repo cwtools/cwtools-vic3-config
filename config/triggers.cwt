@@ -2,7 +2,7 @@
 alias[trigger:law_approved_by] = <interest_group>
 
 ### Check if scoped object has ideology
-alias[trigger:has_ideology] = <ideology>
+alias[trigger:has_ideology] = scope[ideology]
 
 ### Compares the stance of the scoped character or interest group about the specified law
 alias[trigger:law_stance] = {
@@ -572,7 +572,7 @@ alias[trigger:country_pm_usage] = {
 }
 
 ### Compares a Country's Power Ranking country_rank < rank_value:major_power
-alias[trigger:country_rank] == scope[rank_value]
+alias[trigger:country_rank] == value_field
 
 ### Compare tier of country tag country_tier = x
 alias[trigger:country_tier] = enum[country_tier]
@@ -1509,3 +1509,11 @@ alias[trigger:target_is] = scope[country]
 ### Checks if a pop, state or country has a certain amount of literacy literacy = value
 alias[trigger:literacy_rate] == value_field
 
+### Compares the military wage level of scoped country
+alias[trigger:military_wage_level] == enum[wage_level]
+
+###  Compares the government wage level of scoped country
+alias[trigger:government_wage_level] == enum[wage_level]
+
+### True if the battle side currently has a condition with the given key
+alias[trigger:has_battle_condition] = <battle_condition>
