@@ -76,6 +76,8 @@ event = {
             video = scalar
             ## cardinality = 0..1
             texture = scalar
+            ## cardinality = 0..1
+            trigger = single_alias_right[trigger_clause]
         }
         ## cardinality = 0..1
         trigger = single_alias_right[trigger_clause]
