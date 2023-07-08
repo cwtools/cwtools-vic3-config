@@ -72,15 +72,17 @@ event = {
         title = localisation
         title = single_alias_right[complex_desc]
         event_image = {
-            #TODO
+            ## cardinality = 0..1
             video = scalar
             ## cardinality = 0..1
-            trigger = single_alias_right[trigger_clause]
-            ## cardinality = 0..1
-            on_created_soundeffect = scalar
-            ## cardinality = 0..1
-            on_opened_soundeffect = scalar
+            texture = scalar
         }
+        ## cardinality = 0..1
+        trigger = single_alias_right[trigger_clause]
+        ## cardinality = 0..1
+        on_created_soundeffect = scalar
+        ## cardinality = 0..1
+        on_opened_soundeffect = scalar
         desc = localisation
         desc = single_alias_right[complex_desc]
         flavor = localisation

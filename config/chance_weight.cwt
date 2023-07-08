@@ -2,7 +2,6 @@ enums = {
     # Aren't these just value fields?
     enum[weight_chance_modifier_operators] = {
         add
-        subtract
         multiply
         divide
         factor

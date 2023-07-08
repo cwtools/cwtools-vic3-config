@@ -3,3 +3,19 @@ types = {
         path = "game/common/battle_conditions"
     }
 }
+
+battle_condition = {
+    ## cardinality = ~1..1
+    icon = scalar
+
+    ## cardinality = 0..1
+    modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = battle_side
+    possible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = battle_side
+    weight = value_field
+}
