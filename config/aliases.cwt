@@ -75,3 +75,8 @@ single_alias[on_action] = {
 		<event>
 	}
 }
+
+single_alias[modifier_clause] = {
+    ## cardinality = 0..inf
+    <modifier_type> = value_field
+}
