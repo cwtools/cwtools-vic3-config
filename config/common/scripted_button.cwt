@@ -11,7 +11,7 @@ scripted_button = {
     ## cardinality = ~1..1
     desc = scalar
 
-    visible = bool
+    visible = single_alias_right[trigger_clause]
 
     possible = single_alias_right[trigger_clause]
 
