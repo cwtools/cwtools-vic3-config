@@ -131,4 +131,7 @@ journal_entry = {
         ## cardinality = 0..inf
         <modifier_container>
     }
+
+    ## cardinality = 0..inf
+    scripted_button = <scripted_button>
 }
