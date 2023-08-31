@@ -489,6 +489,9 @@ links = {
 		desc = " Scope to a country's institution from its name (institution:institution_health_system)"
 		input_scopes = country
 		output_scope = institution
+		from_data = yes
+		data_source = <institution>
+		prefix = institution:
 	}
 	je = {
 		desc = " Scope to the journal entry of specified key belonging to the country"
