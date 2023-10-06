@@ -3,3 +3,28 @@ types = {
         path = "game/common/combat_unit_types"
     }
 }
+
+combat_unit_type = {
+    group = <combat_unit_group>
+    
+    ## cardinality = ~1..1
+    upkeep_modifier = single_alias_right[modifier_clause]
+    
+    ## cardinality = ~1..1
+    battle_modifier = single_alias_right[modifier_clause]
+
+    ## push_scope = country
+    can_build = single_alias_right[trigger_clause]
+
+    # TODO check if the new unit type sticks
+    ### scope = combat unit
+    can_upgrade = single_alias_right[trigger_clause]
+
+    ## cardinality = ~1..1
+    combat_unit_image = {
+        ## cardinality = 0..1
+        trigger = single_alias_right[trigger_clause]
+
+        texture = filepath
+    }
+}
