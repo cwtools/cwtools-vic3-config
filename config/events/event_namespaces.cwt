@@ -3,7 +3,7 @@ types = {
 	type[event_namespace] = {
 		path = "game/events"
 		file_extension = .txt
-		name_field = ""
+		name_field = "-"
 	}
 }
 
