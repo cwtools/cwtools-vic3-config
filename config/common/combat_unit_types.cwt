@@ -13,6 +13,12 @@ combat_unit_type = {
     ## cardinality = ~1..1
     battle_modifier = single_alias_right[modifier_clause]
 
+    ## cardinality = 0..1
+    unlocking_technologies = {
+        ## cardinality = 0..inf
+        <technology>
+    }
+
     ## push_scope = country
     ## cardinality = 0..1
     can_build = single_alias_right[trigger_clause]
