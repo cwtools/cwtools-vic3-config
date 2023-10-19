@@ -31,7 +31,7 @@ new_combat_unit_type = {
     ## cardinality = 0..1
     upgrades = {
         ## cardinality = 0..inf
-        <combat_unit_type>
+        <new_combat_unit_type>
     }
 
     ## cardinality = ~1..inf
