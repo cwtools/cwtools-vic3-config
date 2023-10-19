@@ -4,7 +4,7 @@ types = {
     }
 }
 
-combat_unit_type = {
+new_combat_unit_type = {
     group = <combat_unit_group>
     
     ## cardinality = ~1..1
