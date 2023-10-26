@@ -1519,4 +1519,4 @@ alias[trigger:government_wage_level] == enum[wage_level]
 alias[trigger:has_battle_condition] = <battle_condition>
 
 ### Checks if a Combat Unit is of the specified type
-alias[trigger:has_unit_type] = <new_combat_unit>
+alias[trigger:has_unit_type] = <new_combat_unit_type>
