@@ -1520,3 +1520,27 @@ alias[trigger:has_battle_condition] = <battle_condition>
 
 ### Checks if a Combat Unit is of the specified type
 alias[trigger:has_unit_type] = <new_combat_unit>
+
+### Checks that a country has a certain percentage of a specific navy unit type
+alias[trigger:country_navy_unit_type_fraction] = {
+    target = scope[new_combat_unit]
+    value == value_field
+}
+
+### Checks that a formation has a certain percentage of a specific navy unit type
+alias[trigger:formation_navy_unit_type_fraction] = {
+    target = scope[new_combat_unit]
+    value == value_field
+}
+
+### Checks that a country has a certain percentage of a specific army unit type
+alias[trigger:country_army_unit_type_fraction] = {
+    target = scope[new_combat_unit]
+    value == value_field
+}
+
+### Checks that a formation has a certain percentage of a specific army unit type
+alias[trigger:formation_army_unit_type_fraction] = {
+    target = scope[new_combat_unit]
+    value == value_field
+}
