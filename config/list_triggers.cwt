@@ -505,8 +505,8 @@ alias[trigger:any_primary_culture] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
 
-### Iterate through all combat units of input scope any_combat_units = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_combat_units] = {
+### Iterate through all combat units of input scope any_combat_unit = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_combat_unit] = {
         ## cardinality = 0..1
         percent = value_field[0.0..1.0]
         ## cardinality = 0..1

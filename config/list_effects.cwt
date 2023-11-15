@@ -334,8 +334,8 @@ alias[effect:random_scope_pop] = {
         alias_name[effect] = alias_match_left[effect]
     }
 
-### Iterate through all combat units of input scope every_combat_units = { limit = { <triggers> } <effects> }
-alias[effect:every_combat_units] = {
+### Iterate through all combat units of input scope every_combat_unit = { limit = { <triggers> } <effects> }
+alias[effect:every_combat_unit] = {
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -347,8 +347,8 @@ alias[effect:every_combat_units] = {
         alias_name[effect] = alias_match_left[effect]
     }
 
-### Iterate through all combat units of input scope ordered_combat_units = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
-alias[effect:ordered_combat_units] = {
+### Iterate through all combat units of input scope ordered_combat_unit = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+alias[effect:ordered_combat_unit] = {
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -367,8 +367,8 @@ alias[effect:ordered_combat_units] = {
         alias_name[effect] = alias_match_left[effect]
     }
 
-### Iterate through all combat units of input scope random_combat_units = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
-alias[effect:random_combat_units] = {
+### Iterate through all combat units of input scope random_combat_unit = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+alias[effect:random_combat_unit] = {
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]

@@ -416,8 +416,8 @@ alias[arithmetic_operation:random_scope_pop] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all combat units of input scope every_combat_units = { limit = { <triggers> } <effects> }
-alias[arithmetic_operation:every_combat_units] = {
+### Iterate through all combat units of input scope every_combat_unit = { limit = { <triggers> } <effects> }
+alias[arithmetic_operation:every_combat_unit] = {
     ## cardinality = 0..1
     limit = {
         alias_name[trigger] = alias_match_left[trigger]
@@ -429,8 +429,8 @@ alias[arithmetic_operation:every_combat_units] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all combat units of input scope ordered_combat_units = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
-alias[arithmetic_operation:ordered_combat_units] = {
+### Iterate through all combat units of input scope ordered_combat_unit = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+alias[arithmetic_operation:ordered_combat_unit] = {
     ## cardinality = 0..1
     limit = {
         alias_name[trigger] = alias_match_left[trigger]
@@ -449,8 +449,8 @@ alias[arithmetic_operation:ordered_combat_units] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all combat units of input scope random_combat_units = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
-alias[arithmetic_operation:random_combat_units] = {
+### Iterate through all combat units of input scope random_combat_unit = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+alias[arithmetic_operation:random_combat_unit] = {
     ## cardinality = 0..1
     limit = {
         alias_name[trigger] = alias_match_left[trigger]
