@@ -1,10 +1,10 @@
 types = {
-    type[new_combat_unit] = {
+    type[combat_unit_type] = {
         path = "game/common/combat_unit_types"
     }
 }
 
-new_combat_unit = {
+combat_unit_type = {
     group = <combat_unit_group>
     
     ## cardinality = ~1..1
@@ -31,7 +31,7 @@ new_combat_unit = {
     ## cardinality = 0..1
     upgrades = {
         ## cardinality = 0..inf
-        <new_combat_unit>
+        <combat_unit_type>
     }
 
     ## cardinality = ~1..inf
