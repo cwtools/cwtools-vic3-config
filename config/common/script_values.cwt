@@ -2373,3 +2373,291 @@ alias[arithmetic_operation:random_scope_politician] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+
+### Iterate through all companies in a country
+alias[arithmetic_operation:every_company] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all companies in a country
+alias[arithmetic_operation:ordered_company] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all companies in a country
+alias[arithmetic_operation:random_company] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all military formations currently present at input scope
+alias[arithmetic_operation:every_military_unit] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all military formations currently present at input scope
+alias[arithmetic_operation:ordered_military_unit] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all military formations currently present at input scope
+alias[arithmetic_operation:random_military_unit] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all Provinces in the scoped State
+alias[arithmetic_operation:every_province] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all Provinces in the scoped State
+alias[arithmetic_operation:ordered_province] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all Provinces in the scoped State
+alias[arithmetic_operation:random_province] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all interest markers held by a country
+alias[arithmetic_operation:every_scope_held_interest_marker] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all interest markers held by a country
+alias[arithmetic_operation:ordered_scope_held_interest_marker] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all interest markers held by a country
+alias[arithmetic_operation:random_scope_held_interest_marker] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all states that share a sea node with a state
+alias[arithmetic_operation:every_sea_node_adjacent_state] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all states that share a sea node with a state
+alias[arithmetic_operation:ordered_sea_node_adjacent_state] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Iterate through all states that share a sea node with a state
+alias[arithmetic_operation:random_sea_node_adjacent_state] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Lists for cultures in the scoped country that are valid for mass migration
+alias[arithmetic_operation:every_valid_mass_migration_culture] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Lists for cultures in the scoped country that are valid for mass migration
+alias[arithmetic_operation:ordered_valid_mass_migration_culture] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Lists for cultures in the scoped country that are valid for mass migration
+alias[arithmetic_operation:random_valid_mass_migration_culture] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
