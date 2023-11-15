@@ -158,4 +158,9 @@ enums = {
         invalid
         potential
     }
+
+    enum[military_unit_type] = {
+        army
+        navy
+    }
 }
