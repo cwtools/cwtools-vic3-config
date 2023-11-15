@@ -1,5 +1,5 @@
 types = {
-    type[combat_unit_type] = {
+    type[old_combat_unit_type] = {
         path = "game/common/old_combat_unit_types"
     }
 }

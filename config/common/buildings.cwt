@@ -5,7 +5,7 @@ types = {
             name = "$"
         }
         subtype[military] = {
-            recruits_combat_unit = <combat_unit_type>
+            recruits_combat_unit = <old_combat_unit_type>
         }
         subtype[canal] = {
             canal = <canal>
@@ -111,7 +111,7 @@ building = {
 
     ## cardinality = 0..1
     ### determines what combat unit the building will add. barracks add regulars, conscription centers add conscripts and sea bases flotillas
-    recruits_combat_unit = <combat_unit_type>
+    recruits_combat_unit = <old_combat_unit_type>
 
     subtype[military] = {
         ## cardinality = 0..1
