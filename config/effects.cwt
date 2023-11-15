@@ -65,9 +65,6 @@ alias[effect:remove_trait] = <character_trait>
 ### Sets a character as interest group leader set_as_interest_group_leader = yes
 alias[effect:set_as_interest_group_leader] = yes
 
-### Mark a character as busy or clear said mark set_character_busy = bool
-alias[effect:set_character_busy] = bool
-
 ### Promotes/demotes a character to a given military rank value set_commander_rank = 3
 alias[effect:set_commander_rank] = int_value_field
 
@@ -1256,3 +1253,151 @@ alias[effect:round_local_variable] = {
 ### Saves the current scope as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_event_target_as = <string>
 alias[effect:save_temporary_scope_as] = value_set[temporary_scope]
 
+### Adds company type to a country's companies
+alias[effect:add_company] = <company_type>
+
+### Adds company type to a country's companies
+alias[effect:add_company] = scope[company_type]
+
+### Adds the specified amount of Morale to the Combat Unit in scope
+alias[effect:add_morale] = value_field
+
+### Adds the specified amount of Organization to the Military Formation in scope
+alias[effect:add_organization] = value_field
+
+### add state trait in a scoped state region
+alias[effect:add_state_trait] = <state_trait>
+
+### Annexes a country, inheriting incorporation of their states
+alias[effect:annex_with_incorporation] = scope[country]
+
+### Changes the culture of the scoped character change_character_culture = cu:colombian
+alias[effect:change_character_culture] = scope[culture]
+
+### Copies the constitution of the target country scope Warning: This stops any current enactment.
+alias[effect:copy_laws] = scope[country]
+
+### Creates a new country with a dynamic tag. Parameters: origin, country_type, tier, culture, religion, capital, cede_state_trigger, color, primary_unit_color, secondary_unit_color, tertiary_unit_color, on_created
+alias[effect:create_dynamic_country] = {
+    ## cardinality = 0..1
+    ### optional, newly created country may inherit certain values from the origin country
+    origin = scope[country]
+
+    ## cardinality = 0..1
+    ### optional if origin is set, may be repeated, will try to inherit country type from origin if not specified
+    country_type = enum[country_type]
+
+    ## cardinality = 0..1
+    ### optional if origin is set, may be repeated, will try to inherit country tier from origin if not specified
+    country_tier = enum[country_tier]
+
+    ## cardinality = 0..1
+    ### optional if origin is set, may be repeated, will try to inherit cultures from origin if not specified
+    culture = scope[culture]
+
+    ## cardinality = 0..1
+    ### optional if origin is set, if no religion is specified, will try to inherit religion from origin if not specified
+    religion = scope[religion]
+
+    ## cardinality = 0..1
+    ### optional if states have been supplied, will try to set a capital from supplied states if not specified
+    capital = scope[state]
+
+    ## cardinality = 0..1
+    ## push_scope = state
+    ### if this trigger is set, each state in the world for which it evaluates true will be ceded to the new country
+    cede_state_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### optional, will try to inherit map color from origin if not specified
+    color = scalar
+
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    primary_unit_color = scalar
+
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    secondary_unit_color = scalar
+
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    tertiary_unit_color = scalar
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    ### optional effect that will be run with the newly created country in scope
+    on_created = single_alias_right[effect_clause]
+}
+
+###  Initiates mass migration of a specific culture from a origin country to a scoped state
+alias[effect:create_mass_migration] = {
+    origin = scope[country]
+    culture = scope[culture]
+}
+
+### Creates a military formation
+alias[effect:create_military_formation] = {
+    ## cardinality = 0..1
+    name = localization
+
+    ## cardinality = 0..1
+    ### type defaults to army
+    type = enum[military_unit_type]
+
+    hq_region = scope[strategic_region]
+
+    ## cardinality = 1..inf
+    ### Add as many combat unit specifications as necessary
+    combat_unit = {
+        type = scope[unit_type]
+
+        ## cardinality = 9..1
+        ### service type defaults to regular and conscript is not applicable for fleets
+        service_type = enum[service_type]
+
+        state_region = scope[state_region]
+
+        count = int
+    }
+
+    ## cardinality = 0..1
+    ### mobilization_options are not applicable for fleets
+    mobilization_options = {
+        ## cardinality = 0..inf
+        scope[mobilization_option]
+    }
+}
+
+### Deploys the scope formation to the target front
+alias[effect:deploy_to_front] = scope[front]
+
+###  Fully mobilizes scope army
+alias[effect:fully_mobilize_army] = bool
+
+### Mobilizes scope army
+alias[effect:mobilize_army] = bool
+
+### Removes company type from a country's companies
+alias[effect:remove_company] = <company_type>
+
+### Removes company type from a country's companies
+alias[effect:remove_company] = scope[company_type]
+
+### remove state trait in a scoped state region
+alias[effect:remove_state_trait] = <state_trait>
+
+### Mark a character as busy and immortal or clear said mark
+alias[effect:set_character_busy_and_immortal] = bool
+
+### Set scoped character as immortal.
+alias[effect:set_character_immortal] = bool
+
+### Makes a country immune to revolutions or removes such immunity.
+alias[effect:set_immune_to_revolutions] = bool
+
+### Teleports the scope formation to the target front
+alias[effect:teleport_to_front] = scope[front]
+
+### Transfers scope character to target formation
+alias[effect:transfer_to_formation] = scope[military_formation]
