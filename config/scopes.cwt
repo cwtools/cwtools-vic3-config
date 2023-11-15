@@ -161,4 +161,22 @@ scopes = {
     shipping_lane = {
         aliases = { shipping_lane }
         }
+    new_combat_unit = {
+        aliases = { new_combat_unit }
+    }
+    state_goods = {
+        aliases = { state_goods }
+    }
+    company_type = {
+        aliases = { company_type }
+    }
+    company = {
+        aliases = { company }
+    }
+    combat_unit_type = {
+        aliases = { combat_unit_type }
+    }
+    military_formation = {
+        aliases = { military_formation }
+    }
 }
