@@ -1108,5 +1108,6 @@ links = {
 		data_source = <goods>
 		input_scopes = state
 		output_scope = state_goods
+		prefix = sg:
 	}
 }
