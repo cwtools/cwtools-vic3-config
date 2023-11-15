@@ -163,4 +163,9 @@ enums = {
         army
         navy
     }
+
+    enum[service_type] = {
+        regular
+        conscript
+    }
 }
