@@ -787,11 +787,6 @@ alias[trigger:institution_investment_level] == {
 ### Compares the money in the investment pool of a given country investment_pool > 1000
 alias[trigger:investment_pool] == value_field
 
-### Checks if country in scope is adjacent to a target country is_adjacent = <scope>
-alias[trigger:is_adjacent] = <country_definition>
-### Checks if country in scope is adjacent to a target country is_adjacent = <scope>
-alias[trigger:is_adjacent] = scope[country]
-
 ### True if country scope is controlled by an AI is_ai = bool
 alias[trigger:is_ai] = bool
 
@@ -1544,3 +1539,211 @@ alias[trigger:formation_army_unit_type_fraction] = {
     target = scope[new_combat_unit]
     value == value_field
 }
+
+### Compares the additional war exhaustion the scoped country has accumulated from scripted events in the target diplomatic play 
+alias[trigger:additional_war_exhaustion] = {
+    target = scope[diplomatic_play]
+    value == value_field
+}
+
+### Checks that a countries army has a certain percentage of units with a specific monbilization option 
+alias[trigger:army_mobilization_option_fraction] = {
+    target = scope[mobilization_option]
+    value == value_field
+}
+
+### Compares the current total manpower of a country's Battalions  
+alias[trigger:battalion_manpower] == value_field
+
+### Check if the country can establish a new companyTraits: yes/no   
+alias[trigger:can_establish_company] = bool
+
+### Checks if a political movement for the specified law can arise in scope country 
+alias[trigger:can_have_political_movement] = bool
+
+### Checks if character is discriminated against  
+alias[trigger:character_is_discriminated] = bool
+
+### Checks if the scoped country can have mass migration to target country  
+alias[trigger:country_can_have_mass_migration_to] = scope[country]
+
+### Checks the sum of building levels for a building group in a country  
+alias[trigger:country_has_building_group_levels] = {
+    type = <building_group>
+    value == value_field
+}
+
+### Checks the sum of building levels for a country 
+alias[trigger:country_has_building_levels] == value_field
+
+### Checks the sum of building levels for a building type in a country
+alias[trigger:country_has_building_type_levels] = {
+    type = scope[building_type]
+    value == value_field
+}
+
+### Compares the country's population weighted turmoil  
+alias[trigger:country_turmoil] == value_field
+
+### Checks if the scoped culture can have mass migration to target country  
+alias[trigger:culture_can_have_mass_migration_to] = scope[country]
+
+### Compares the current manpower of a battle side  
+alias[trigger:current_manpower] == value_field
+
+### Determines the fraction of wargoals that enemies in the war are currently contesting  
+alias[trigger:enemy_contested_wargoals] = {
+    target = scope[war]
+    value == value_field
+}
+
+### Determines the (weighted) enemy occupation score of a country  
+alias[trigger:enemy_occupation] == value_field
+
+### Compares the current total manpower of a country's Flotillas  
+alias[trigger:flotilla_manpower] == value_field
+
+### Checks if a company of the specified type exists in scope country 
+alias[trigger:has_company] = scope[company_type]
+
+### Checks if character has a Military Formation
+alias[trigger:has_military_formation] = bool
+
+### Checks that a formation has a specific mobilization option  
+alias[trigger:has_mobilization_option] = scope[mobilization_option]
+
+### Checks if any Building in a scoped State maintains any Combat Units that are currently mobilizing  
+alias[trigger:has_mobilizing_unit] = bool
+
+### Checks if a political movement for the specified law exists in scope country  
+alias[trigger:has_political_movement] = scope[law_type]
+
+### Checks if a Combat Unit is of the specified type 
+alias[trigger:has_unit_type] = scope[combat_unit_type]
+
+### Checks if a naval invasion is currently active (started or ongoing) 
+alias[trigger:is_active] = bool
+
+### Checks if country in scope is adjacent to a target country  
+alias[trigger:is_adjacent_to_country] = scope[country]
+
+### Checks if country in scope is adjacent to a target state  
+alias[trigger:is_adjacent_to_state] = scope[state]
+
+### Checks if a military formation is Army  
+alias[trigger:is_army] = bool
+
+### Checks if country in scope is in a diplomatic play together with event target  
+alias[trigger:is_diplomatic_play_ally_of] = scope[country]
+
+### Checks if country in scope is involved in the same diplomatic play as event target  
+alias[trigger:is_diplomatic_play_involved_with] = scope[country]
+
+### Checks if country in scope is a committed participant in the same diplomatic play as event target 
+alias[trigger:is_diplomatic_play_participant_with] = scope[country]
+
+### Checks if a military formation is Fleet  
+alias[trigger:is_fleet] = bool
+
+### Check if a diplomatic pact has a forced duration due to reasons such as a sway or obligationTraits: yes/no   
+alias[trigger:is_forced_pact] = bool
+
+### Checks if the Military Formation is fully mobilized  
+alias[trigger:is_fully_mobilized]
+
+### Checks if the country has been set to be immune to revolutions via set_immune_to_revolutions; Warning: This does not check if the country is naturally immune to revolutions due to for example being a revolutionary country itself, only for the effects of 
+alias[trigger:is_immune_to_revolutions] = bool
+
+### Checks if the scoped country is the origin of mass migration 
+alias[trigger:is_mass_migration_origin] = bool
+
+### Checks if the scoped country origin of mass migration of specific culture 
+alias[trigger:is_mass_migration_origin_of_culture] = bool
+
+### Compares the effective maximum Organization of the Military Formation in scope
+alias[trigger:max_organization] == value_field
+
+### Compares a Country's naval_power_projection
+alias[trigger:naval_power_projection] == value_field
+
+### Determines the number of mobilized units belonging to the scoped theater's owner or their allies, in fronts intersecting the scoped theater  
+alias[trigger:num_mobilized_units_in_theater] == value_field
+
+### Determines the number provinces in the scoped theater  
+alias[trigger:num_provinces_in_theater] == value_field
+
+### Compares the Organization of the Military Formation in scope 
+alias[trigger:organization] == value_field
+
+### Compares the number of Loyalists in a pop to its total size  
+alias[trigger:pop_loyalist_fraction] == value_field
+
+### Compares the number of Neutrals (not Radical, not Loyalist) in a pop to its total size  
+alias[trigger:pop_neutral_fraction] == value_field
+
+### Compares the number of Radicals in a pop to its total size  
+alias[trigger:pop_radical_fraction] == value_field
+
+### Compare value to a country's gold reserves relative to reserves limit 
+alias[trigger:scaled_gold_reserves] == value_field
+
+### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
+alias[trigger:size_weighted_lost_battles_fraction] == value_field
+
+### Compares the starting manpower of a battle side 
+alias[trigger:starting_manpower] == value_field
+
+### Checks if state goods is at least the specified percentage cheaper than base price  
+alias[trigger:state_goods_cheaper] == value_field
+
+### Checks if state goods has the specified number of total consumption  
+alias[trigger:state_goods_consumption] == value_field
+
+### Checks if state has the specified goods delta (production - consumption)  
+alias[trigger:state_goods_delta] == value_field
+
+### Check if state goods has a shortage in a state, but NOT in the whole market 
+alias[trigger:state_goods_has_local_goods_shortage] = bool
+
+### Checks if state goods is at least the specified percentage more expensive than base price  
+alias[trigger:state_goods_pricier] == value_field
+
+### Checks if state goods has the specified number of total production  
+alias[trigger:state_goods_production] == value_field
+
+### Checks the sum of building levels for a building group in a state 
+alias[trigger:state_has_building_group_levels] = {
+    type = <building_group>
+    value == value_field
+}
+
+### Checks the sum of building levels for a state  
+alias[trigger:state_has_building_levels] == value_field
+
+### Checks the sum of building levels for a building type in a state
+alias[trigger:state_has_building_type_levels] = {
+    target = scope[building_type]
+    value == value_field
+}
+
+### Compares the current total manpower of a country's combat units  
+alias[trigger:total_manpower] == value_field
+
+### 
+alias[trigger:]
+
+### 
+alias[trigger:]
+
+### 
+alias[trigger:]
+
+### 
+alias[trigger:]
+
+### 
+alias[trigger:]
+
+### 
+alias[trigger:]
+
