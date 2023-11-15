@@ -967,7 +967,146 @@ links = {
 		desc = " Scope to a combat unit type from its name (unit_type:key)"
 		output_scope = combat_unit_type
 		from_data = yes
-		data_source = <new_combat_unit>
+		data_source = <combat_unit_type>
 		prefix = unit_type:
+	}
+	prosperity = {
+		desc = "Scope to the amount of prosperity for scope company (example: prosperity >= 2)"
+		output_scope = value
+		input_scopes = company
+	}
+	weekly_prosperity_change = {
+		desc = "Scope to the weekly prosperity change for scope company (example: weekly_prosperity_change >= 2)"
+		output_scope = value
+		input_scopes = company
+	}
+	opposite_battle_side = {
+		desc = "Scope from a battle side to its opposite"
+		output_scope = battle_side
+		input_scopes = battle_side
+	}
+	country = {
+		desc = "If used in a military formation scope, scope to the country the formation belongs to."
+		output_scope = country
+		input_scopes = military_formation
+	}
+	highest_ranked_commander = {
+		desc = "Scope from a military formation to its highest ranking commander character"
+		input_scopes = military_formation
+		output_scope = character
+	}
+	num_commanderless_units = {
+		desc = "Number of units in a MilitaryFormation which currently don't have a commander due to commanders Command Limit. Obs: defeated commanders do not command units, i.e., the more defeated commanders, the more commanderless units."
+		input_scopes = military_formation
+		output_scope = value
+	}
+	land_controller_hq = {
+		desc = "Returns the province or state controller land HQ"
+		input_scopes = { province state }
+		output_scope = hq
+	}
+	bt = {
+		desc = "Scope to a building type"
+		from_data = yes
+		data_source = <building>
+		output_scope = building_type
+		prefix = bt:
+	}
+	company_type = {
+		desc = "Scope to a company type from its name (company_type:company_rheinmetall)"
+		from_data = yes
+		data_source = <company_type>
+		output_scope = company_type
+		prefix = company_type:
+	}
+	mobilization_option = {
+		desc = "Scope to a mobilization option from its name (mobilization_option:key)"
+		from_data = yes
+		data_source = <mobilization_option>
+		output_scope = mobilization_option
+		prefix = mobilization_option:
+	}
+	naval_invasion_attacker = {
+		desc = "If used in a naval invasion scope, scope to the country executing the naval invasion."
+		output_scope = country
+	}
+	naval_invasion_defender = {
+		desc = "If used in a naval invasion scope, scope to the country the attacked state is controlled by."
+		output_scope = country
+	}
+	ai_subject_value:root = {
+		desc = "Scope to AI desire of target country to have scope country as a subject (example: value = ai_subject_value:root)"
+		input_scopes = country
+		output_scope = value
+	}
+	company = {
+		desc = "Scope to the scoped country's company of the named company type (company:company_rheinmetall)"
+		from_data = yes
+		data_source = <company_type>
+		input_scopes = country
+		output_scope = company
+		prefix = company:		
+	}
+	expenses = {
+		desc = "Get the current weekly expenses of the scoped country"
+		input_scopes = country
+		output_scope = value
+	}
+	fixed_expenses = {
+		desc = "Get the current weekly fixed expenses of the scoped country"
+		input_scopes = country
+		output_scope = value
+	}
+	investment_pool_income = {
+		desc = "Get the current weekly investment pool income of the scoped country"
+		input_scopes = country
+		output_scope = value
+	}
+	command_limit_num_units = {
+		desc = "Get the baseline number of units from their military formation a commander would normally get, depending on their command limit"
+		input_scopes = character
+		output_scope = value
+	}
+	commander_military_formation = {
+		desc = "Scope to the Military Formation of a Character."
+		input_scopes = character
+		output_scope = military_formation
+	}
+	num_units_share = {
+		desc = "Share of units a commander has considering his command limit. Example: if the character has 30 Command Limit, the fleet has 60 total Command Limit, and the formation has 50 total flotillas, then the character should get 25 flotillas for their battle)"
+		input_scopes = character
+		output_scope = value
+	}
+	theater = {
+		desc = "Scope from a BattleSide or State to its theater"
+		input_scopes = { battle_side state }
+		output_scope = theater
+	}
+	naval_controller_hq = {
+		desc = "Returns the province or state controller navy HQ"
+		input_scopes = province
+		output_scope = hq
+	}
+	diplomatic_play = {
+		desc = "Scope from a war to its diplomatic play"
+		input_scopes = war
+		output_scope = diplomatic_play
+	}
+	ai_state_value:root = {
+		desc = "Scope to target country AI desire to own scope state (example: value = ai_state_value:root)"
+		input_scopes = state
+		output_scope = value
+	}
+	mass_migration_culture = {
+		desc = "Scope to the mass migration target culture of a state"
+		input_scopes = state
+		output_scope = culture
+	}
+	sg = {
+		desc = "Scope from a state to the StateGoods with the specified key"
+		from_data = yes
+		data_source = <goods>
+		input_scopes = state
+		output_scope = state_goods
 	}
 }
