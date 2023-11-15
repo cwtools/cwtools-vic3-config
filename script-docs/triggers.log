@@ -4,13 +4,13 @@ Trigger Documentation:
 
 active_lens - Checks if the specified lens is open
 active_lens = lensAn interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 active_lens_option - Checks if the specified lens option is activated
 active_lens_option = lens_option_keyAn interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -18,7 +18,7 @@ add_to_temporary_list - Saves a temporary target for use during the trigger exec
 This is used to build lists in triggers.
 If used within an any-trigger, placement within the trigger is quite important. The game will iterate through every instance of the any-trigger until it finds a single instance that fulfills the requirements, and then it will stop.
 In order to add every instance of a scope that fulfills certain conditions, use "count = all" while also placing this "effect" at the very end of the any-trigger (so that every condition is evaluated for every iteration).
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -41,7 +41,7 @@ Supported Scopes: country
 --------------------
 
 all_false - true if all children are false (equivalent to NOR)
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -50,12 +50,12 @@ always = yes # always succeeds
 always = no  # always fails
 always = scope:a_boolean_value # evaluated at runtime
 Traits: yes/no
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 and - all inside trigger must be true
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -68,21 +68,21 @@ Supported Targets: party
 
 any_character - Iterate through all characters globally
 any_character = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 Supported Targets: character
 
 --------------------
 
 any_character_in_exile_pool - Iterate through characters in the exile pool
 any_character_in_exile_pool = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 Supported Targets: character
 
 --------------------
 
 any_character_in_void - Iterate through characters in the void
 any_character_in_void = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 Supported Targets: character
 
 --------------------
@@ -108,24 +108,31 @@ Supported Targets: country
 
 --------------------
 
-any_combat_units - Iterate through all combat units of input scope
+any_combat_unit - Iterate through all combat units of input scope
 Supported scopes: building, military formation, front, battle
-any_combat_units = { <count=num/all> / <percent=fixed_point> <triggers> }
+any_combat_unit = { <count=num/all> / <percent=fixed_point> <triggers> }
 Supported Scopes: battle, building, front, hq, military_formation
 Supported Targets: new_combat_unit
 
 --------------------
 
+any_company - Iterate through all companies in a country
+any_company = { <count=num/all> / <percent=fixed_point> <triggers> }
+Supported Scopes: country
+Supported Targets: company
+
+--------------------
+
 any_country - Iterate through all countries globally
 any_country = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 Supported Targets: country
 
 --------------------
 
 any_diplomatic_play - Iterate through all diplomatic plays globally
 any_diplomatic_play = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 Supported Targets: diplomatic_play
 
 --------------------
@@ -145,13 +152,13 @@ Supported Targets: country
 --------------------
 
 any_false - true if any child is false (equivalent to NAND)
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 any_in_global_list - Iterate through all items in global list. list = name or variable = name
 any_in_global_list = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -164,13 +171,13 @@ Supported Targets: country
 
 any_in_list - Iterate through all items in list. list = name or variable = name
 any_in_list = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 any_in_local_list - Iterate through all items in local list. list = name or variable = name
 any_in_local_list = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -190,7 +197,7 @@ Supported Targets: law
 
 any_market - Iterate through all markets globally
 any_market = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 Supported Targets: market
 
 --------------------
@@ -308,9 +315,9 @@ Supported Targets: character
 
 --------------------
 
-any_scope_country - Iterate through all countries with a presence in the supported scope (currently: only market scope)
+any_scope_country - Iterate through all countries with a presence in the supported scope (currently: market, strategic region)
 any_scope_country = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: market
+Supported Scopes: market, strategic_region
 Supported Targets: country
 
 --------------------
@@ -340,6 +347,13 @@ any_scope_general - Iterate through all generals in a: country, interestgroup, f
 any_scope_general = { <count=num/all> / <percent=fixed_point> <triggers> }
 Supported Scopes: country, front, interest_group, military_formation
 Supported Targets: character
+
+--------------------
+
+any_scope_held_interest_marker - Iterate through all interest markers held by a country
+any_scope_held_interest_marker = { <count=num/all> / <percent=fixed_point> <triggers> }
+Supported Scopes: country
+Supported Targets: interest_marker
 
 --------------------
 
@@ -420,16 +434,23 @@ Supported Targets: war
 
 --------------------
 
+any_sea_node_adjacent_state - Iterate through all states that share a sea node with a state
+any_sea_node_adjacent_state = { <count=num/all> / <percent=fixed_point> <triggers> }
+Supported Scopes: state
+Supported Targets: state
+
+--------------------
+
 any_state - Iterate through all states globally
 any_state = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 Supported Targets: state
 
 --------------------
 
 any_state_region - Iterate through all state regions
 any_state_region = { <count=num/all> / <percent=fixed_point> <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 Supported Targets: state_region
 
 --------------------
@@ -469,6 +490,13 @@ Supported Targets: trade_route
 
 --------------------
 
+any_valid_mass_migration_culture - Lists for cultures in the scoped country that are valid for mass migration
+any_valid_mass_migration_culture = { <count=num/all> / <percent=fixed_point> <triggers> }
+Supported Scopes: country
+Supported Targets: culture
+
+--------------------
+
 approaching_bureaucracy_shortage - Check if Institutions in the country will incur a Bureaucracy shortage eventuallyTraits: yes/no
 Supported Scopes: country
 
@@ -504,13 +532,13 @@ Supported Scopes: country
 
 assert_if - Conditionally cause an assert during run time
 assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 assert_read - Conditionally cause an assert during read time
 assert_read = X, where X is yes or the string to be printed in the assert
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -563,7 +591,7 @@ Supported Scopes: country
 
 calc_true_if - Returns true if the specified number of sub-triggers return true
 calc_true_if = { amount = 2 <trigger> <trigger> <trigger> }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -660,7 +688,7 @@ Supported Scopes: country
 
 can_start_tutorial_lesson - Can the specified tutorial lesson be started?
 can_start_tutorial_lesson = reactive_advice_successionAn interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -773,10 +801,39 @@ Supported Scopes: country
 
 --------------------
 
+country_can_have_mass_migration_to - Checks if the scoped country can have mass migration to target country
+can_have_mass_migration_to = c:countryTraits: country scope
+Supported Scopes: country
+Supported Targets: country
+
+--------------------
+
 country_definition_has_culture - Checks if a culture is one of the cultures of the country definition
 country_definition_has_culture = <culture>Traits: culture scope
 Supported Scopes: country_definition
 Supported Targets: culture
+
+--------------------
+
+country_has_building_group_levels - Checks the sum of building levels for a building group in a country
+country_has_building_group_levels = {
+type = bg_heavy_industry
+value >= 100 }Traits: <, <=, =, !=, >, >=
+Supported Scopes: country
+
+--------------------
+
+country_has_building_levels - Checks the sum of building levels for a country
+country_has_building_levels >= 10 Traits: <, <=, =, !=, >, >=
+Supported Scopes: country
+
+--------------------
+
+country_has_building_type_levels - Checks the sum of building levels for a building type in a country
+country_has_building_type_levels = {
+target = bt:building_barracks
+value  >= 100Traits: <, <=, =, !=, >, >=
+Supported Scopes: country
 
 --------------------
 
@@ -842,9 +899,10 @@ Supported Scopes: pop
 
 --------------------
 
-culture_has_community_in_state - Checks if the scoped culture has a cultural community in a state.
-culture_has_community_in_state = <state>
+culture_can_have_mass_migration_to - Checks if the scoped culture can have mass migration to target country
+can_have_mass_migration_to = c:countryTraits: country scope
 Supported Scopes: culture
+Supported Targets: country
 
 --------------------
 
@@ -891,7 +949,7 @@ Supported Scopes: battle_side
 
 current_tooltip_depth - Returns the number of tooltips currently open on screenAn interface trigger, can only be used in specific places
 Traits: <, <=, =, !=, >, >=
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -903,7 +961,7 @@ object = <optional object scope>
 value = <optional script value>
 ... triggers ...
 }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -913,27 +971,27 @@ text = <text>
 subject = <scope> (optional)
 <trigger>
 }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 day_value - Day valueTraits: <, <=, =, !=, >, >=
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 daynight_value - DayNight valueTraits: <, <=, =, !=, >, >=
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 debug_log - Log whether the parent trigger succeeded or failed
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 debug_log_details - Log whether the parent trigger succeeded or failed. Log which children succeeded or failed
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1007,7 +1065,7 @@ Supported Scopes: country
 --------------------
 
 error_check - Checks an error in code that specifically uses the CErrorTable::CheckTrigger path, in general avoid this and just use normal script
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1019,7 +1077,7 @@ Supported Scopes: diplomatic_play
 
 exists - Checks whether the specified scope target exists (check for not being the null object)
 exists = from.owner.var:cool_var.mother
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1078,7 +1136,7 @@ Supported Scopes: front
 
 game_date - Compare to current game date
 current_game_date = 1837.1.1Traits: <, <=, =, !=, >, >=
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1090,7 +1148,7 @@ Supported Scopes: country
 
 global_population - Compares the global population
 global_population > 2000000000Traits: <, <=, =, !=, >, >=
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1098,7 +1156,7 @@ global_variable_list_size - Checks the size of a variable list
 variable_list_size = { name = X target >= Y }
 Where X is the name of the variable
 Where Y is a script value or number
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1247,13 +1305,7 @@ Supported Scopes: country
 --------------------
 
 has_cosmetic_dlc - Does the client have this cosmetic DLCAn interface trigger, can only be used in specific places
-Supported Scopes: none
-
---------------------
-
-has_cultural_community - Checks if a culture has a cultural community in the scoped state.
-has_cultural_community = <culture>
-Supported Scopes: state
+Supported Scopes: none/all
 
 --------------------
 
@@ -1319,7 +1371,7 @@ Supported Scopes: culture, religion
 --------------------
 
 has_dlc_feature - Does the host have DLC that enables this particular feature
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1351,18 +1403,18 @@ Supported Scopes: country
 
 has_game_rule - Is the given game rule setting enabled?
 has_game_rule = faster_conversion
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_game_started - True if game has started
 has_game_started = boolTraits: yes/no
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_gameplay_dlc - Does the host have this gameplay DLC
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1380,13 +1432,13 @@ Supported Scopes: country
 
 has_global_variable - Checks whether the current scope has the specified variable set
 has_variable = name
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_global_variable_list - Checks whether the current scope has the specified variable list set
 has_variable_list = name
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1406,9 +1458,9 @@ Supported Scopes: country
 
 --------------------
 
-has_high_attrition - Checks if a Commander's attrition is higher than defined NORMAL_ATTRITION_RISK
+has_high_attrition - Checks if a Military Formation's attrition risk is higher than the base value for their type
 has_high_attrition = boolTraits: yes/no
-Supported Scopes: character
+Supported Scopes: military_formation
 
 --------------------
 
@@ -1467,43 +1519,56 @@ Supported Targets: law_type
 
 has_local_variable - Checks whether the current scope has the specified variable set
 has_variable = name
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_local_variable_list - Checks whether the current scope has the specified variable list set
 has_variable_list = name
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_map_interaction - Checks if the map interaction type is active
 has_map_interaction = keyAn interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_map_interaction_diplomatic_action - Checks if our current map interaction is a specific diplomatic action
 has_map_interaction_diplomatic_action = <key>An interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_map_interaction_export_goods - Checks if the specified lens option is to export the specified goods
 has_selected_export_option_for_goods = <scope>An interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_map_interaction_import_goods - Checks if the specified lens option is to import the specified goods
 has_selected_import_option_for_goods = <scope>An interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_military_formation - Checks if character has a Military Formation
 has_military_formation = boolTraits: yes/no
 Supported Scopes: character
+
+--------------------
+
+has_mobilization_option - Checks that a formation has a specific mobilization option
+has_mobilization_option = mobilization_option:keyTraits: mobilization_option scope
+Supported Scopes: military_formation
+Supported Targets: mobilization_option
+
+--------------------
+
+has_mobilizing_unit - Checks if any Building in a scoped State maintains any Combat Units that are currently mobilizing
+has_mobilizing_unit = boolTraits: yes/no
+Supported Scopes: state
 
 --------------------
 
@@ -1610,7 +1675,7 @@ Supported Scopes: country
 
 has_reached_end_date - True if the end date (NDefines::NGame::END_DATE) has been reached
 has_reached_end_date = yesTraits: yes/no
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1671,7 +1736,7 @@ Supported Scopes: pop
 
 --------------------
 
-has_state_trait - Checks if scoped state region has a certain trait
+has_state_trait - Checks if scoped state has a certain trait
 has_state_trait = key
 Supported Scopes: state
 
@@ -1754,25 +1819,26 @@ Supported Targets: country
 
 has_unification_candidate - Check if there is at least one unification candidate for country tag
 has_country_unification_candidate = GER
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_unit_type - Checks if a Combat Unit is of the specified type
-has_unit_type = key
+has_unit_type = unit_type:keyTraits: combat_unit_type scope
 Supported Scopes: new_combat_unit
+Supported Targets: combat_unit_type
 
 --------------------
 
 has_variable - Checks whether the current scope has the specified variable set
 has_variable = name
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 has_variable_list - Checks whether the current scope has the specified variable list set
 has_variable_list = name
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1808,7 +1874,7 @@ Supported Scopes: country
 
 hidden_trigger - AndTrigger that doesn't generate tooltips for contents within
 hidden_trigger = {}
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -1928,6 +1994,12 @@ Supported Scopes: country
 
 --------------------
 
+is_active - Checks if a naval invasion is currently active (started or ongoing)
+is_active = boolTraits: yes/no
+Supported Scopes: color
+
+--------------------
+
 is_adjacent_to_country - Checks if country in scope is adjacent to a target country
 is_adjacent_to_country = <scope>Traits: country scope
 Supported Scopes: country
@@ -2010,7 +2082,7 @@ Supported Scopes: building
 
 is_building_type_expanded - Checks if the CProductionMethodsPanelEntry for a particular CBuildingType is expanded
 is_building_type_expanded = <scope/key>An interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2188,16 +2260,22 @@ Supported Scopes: diplomatic_pact
 
 --------------------
 
+is_fully_mobilized - Checks if the Military Formation is fully mobilized
+is_fully_mobilized = boolTraits: yes/no
+Supported Scopes: military_formation
+
+--------------------
+
 is_game_paused - Checks if the game is paused
 is_game_paused = yes/noAn interface trigger, can only be used in specific places
 Traits: yes/no
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 is_gamestate_tutorial_active - Is the gamestate tutorial active? See save_progress_in_gamestate in tutorial_lesson_chains documentation.An interface trigger, can only be used in specific places
 Traits: yes/no
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2275,7 +2353,7 @@ Supported Scopes: interest_group
 --------------------
 
 is_in_list - Checks if a target in in a list
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2346,7 +2424,7 @@ Supported Scopes: state
 
 is_lens_open - Checks if a certain lens is open, specified as a lens key. Specify an optional named tab to check if this tab is open.
 is_lens_open = { lens = lens_key tab_name = tab_key }An interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2367,6 +2445,19 @@ Supported Scopes: interest_group
 
 --------------------
 
+is_mass_migration_origin - Checks if the scoped country is the origin of mass migration
+is_mass_migration_origin = yesTraits: yes/no
+Supported Scopes: country
+
+--------------------
+
+is_mass_migration_origin_of_culture - Checks if the scoped country origin of mass migration of specific culture
+is_mass_migration_origin_of_culture = cu:example_cultureTraits: culture scope
+Supported Scopes: country
+Supported Targets: culture
+
+--------------------
+
 is_mass_migration_target - Mass migration target is state.
 any_state = { limit = { owner = ROOT is_mass_migration_target = yes } }Traits: yes/no
 Supported Scopes: state
@@ -2380,9 +2471,9 @@ Supported Targets: party
 
 --------------------
 
-is_mobilized - Checks if the commander is mobilized
+is_mobilized - Checks if the commander or military formation is mobilized
 is_mobilized = boolTraits: yes/no
-Supported Scopes: character
+Supported Scopes: character, military_formation
 
 --------------------
 
@@ -2394,13 +2485,13 @@ Supported Scopes: character
 
 is_objective_completed - Is the objective completed for the country in scope?
 is_objective_completed = yesTraits: yes/no
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
-is_on_front - Checks is a character has been assigned to a Front and has arrived there
+is_on_front - Checks if a character or military formation has been assigned to a Front and has arrived there
 is_on_front = yes/noTraits: yes/no
-Supported Scopes: character
+Supported Scopes: character, military_formation
 
 --------------------
 
@@ -2413,7 +2504,7 @@ Supported Targets: country
 
 is_panel_open - Checks if a certain infopanel is open, specified as an event target (target) or as a string (panel_name). Specify an optional named tab (tab_name) to check if this tab is open.
 is_panel_open = { target = <scope> OR panel_name = panel_name tab_name = tab_name }An interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2450,7 +2541,7 @@ Supported Scopes: pop
 
 is_popup_open - Checks if the specified popup panel is open
 is_popup_open = popupAn interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2515,7 +2606,7 @@ Supported Scopes: political_movement
 
 is_rightclick_menu_open - Checks if the specified rightclick menu is open
 is_rightclick_menu_open = <menu_key>An interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2559,7 +2650,7 @@ Supported Scopes: country
 
 is_set - Checks whether the specified scope target has been set (includes being the null object)
 is_set = from.owner.var:cool_var.mother
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2640,7 +2731,7 @@ is_target_in_global_variable_list - Checks if a target is in a variable list
 is_target_in_variable_list = { name = X target = Y }
 Where X is the name of the variable
 Where Y is an event target
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2648,7 +2739,7 @@ is_target_in_local_variable_list - Checks if a target is in a variable list
 is_target_in_variable_list = { name = X target = Y }
 Where X is the name of the variable
 Where Y is an event target
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2656,7 +2747,7 @@ is_target_in_variable_list - Checks if a target is in a variable list
 is_target_in_variable_list = { name = X target = Y }
 Where X is the name of the variable
 Where Y is an event target
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2705,29 +2796,29 @@ Supported Scopes: state
 
 is_tutorial_active - Is the tutorial active?An interface trigger, can only be used in specific places
 Traits: yes/no
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 is_tutorial_lesson_active - Is this the current tutorial lesson?
 is_tutorial_lesson_active = reactive_advice_successionAn interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 is_tutorial_lesson_chain_completed - Has the tutorial lesson chain with the specified key been finished?An interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 is_tutorial_lesson_completed - has the tutorial lesson with the specified name been finished?An interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 is_tutorial_lesson_step_completed - Has the tutorial lesson step been finished?
 is_tutorial_lesson_step_completed = lesson_key:step_keyAn interface trigger, can only be used in specific places
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2814,7 +2905,7 @@ list_size - Checks the size of a list
 list_size = { name = X value >= Y }
 Where X is the name of the list
 Where Y is a script valueTraits: <, <=, =, !=, >, >=
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2828,7 +2919,7 @@ local_variable_list_size - Checks the size of a variable list
 variable_list_size = { name = X target >= Y }
 Where X is the name of the variable
 Where Y is a script value or number
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2963,7 +3054,7 @@ Supported Scopes: character
 
 month - Compare to current game date month (Jan: 0, Dec: 11)
 month > 10Traits: <, <=, =, !=, >, >=
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -2979,7 +3070,13 @@ Supported Scopes: state
 --------------------
 
 nand - a negated AND trigger
-Supported Scopes: none
+Supported Scopes: none/all
+
+--------------------
+
+naval_power_projection - Compares a Country's naval_power_projection
+scope:example_country = { naval_power_projection < root.naval_power_projectionTraits: <, <=, =, !=, >, >=
+Supported Scopes: country
 
 --------------------
 
@@ -2989,17 +3086,17 @@ Supported Scopes: country
 --------------------
 
 night_value - Night valueTraits: <, <=, =, !=, >, >=
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 nor - a negated OR trigger
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 not - negates content of trigger
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -3076,7 +3173,7 @@ Supported Scopes: building
 --------------------
 
 or - at least one entry inside trigger must be true
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -3278,13 +3375,13 @@ Supported Scopes: country
 --------------------
 
 save_temporary_scope_as - Saves a temporary target for use during the trigger execution
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 save_temporary_scope_value_as - Saves a numerical or bool value as an arbitrarily-named temporary target to be referenced later in the same effect
 save_temporary_scope_value_as = { name = <string> value = x }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -3350,7 +3447,7 @@ Supported Scopes: country
 should_show_nudity - can nudity be shown?
 should_show_nudity = yes/noAn interface trigger, can only be used in specific places
 Traits: yes/no
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -3379,9 +3476,66 @@ Supported Scopes: battle_side
 
 --------------------
 
+state_goods_cheaper - Checks if state goods is at least the specified percentage cheaper than base price
+state_goods_cheaper > X
+Where X = fixed pointTraits: <, <=, =, !=, >, >=
+Supported Scopes: state_goods
+
+--------------------
+
+state_goods_consumption - Checks if state goods has the specified number of total consumption
+state_goods_consumption < X
+Where X = fixed pointTraits: <, <=, =, !=, >, >=
+Supported Scopes: state_goods
+
+--------------------
+
+state_goods_delta - Checks if state has the specified goods delta (production - consumption)
+state_goods_delta < X
+Where X = fixed pointTraits: <, <=, =, !=, >, >=
+Supported Scopes: state_goods
+
+--------------------
+
 state_goods_has_local_goods_shortage - Check if state goods has a shortage in a state, but NOT in the whole market
 state_goods_has_local_goods_shortage = yes/noTraits: yes/no
 Supported Scopes: state_goods
+
+--------------------
+
+state_goods_pricier - Checks if state goods is at least the specified percentage more expensive than base price
+state_goods_pricier > X
+Where X = fixed pointTraits: <, <=, =, !=, >, >=
+Supported Scopes: state_goods
+
+--------------------
+
+state_goods_production - Checks if state goods has the specified number of total production
+state_goods_production < X
+Where X = fixed pointTraits: <, <=, =, !=, >, >=
+Supported Scopes: state_goods
+
+--------------------
+
+state_has_building_group_levels - Checks the sum of building levels for a building group in a state
+state_has_building_group_levels = {
+type = bg_heavy_industry
+value >= 100 }Traits: <, <=, =, !=, >, >=
+Supported Scopes: state
+
+--------------------
+
+state_has_building_levels - Checks the sum of building levels for a state
+state_has_building_levels >= 10Traits: <, <=, =, !=, >, >=
+Supported Scopes: state
+
+--------------------
+
+state_has_building_type_levels - Checks the sum of building levels for a building type in a state
+state_has_building_type_levels = {
+target = bt:building_barracks
+value >= 100Traits: <, <=, =, !=, >, >=
+Supported Scopes: state
 
 --------------------
 
@@ -3422,7 +3576,7 @@ case_1 = { <triggers> }
 case_2 = { <triggers> }
 case_n = { <triggers> }
 fallback = { <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -3511,19 +3665,19 @@ Supported Scopes: character
 
 trigger_else - Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }
 trigger_else = { <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 trigger_else_if - Evaluates the enclosed triggers if the display_triggers of the preceding `trigger_if` or `trigger_else_if` is not met and its own display_trigger of the limit is mettrigger_if = { limit = { <display_triggers> } <triggers> }
 trigger_else_if = { limit = { <display_triggers> } <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 trigger_if - Evaluates the triggers if the display_triggers of the limit are met
 trigger_if = { limit = { <display_triggers> } <triggers> }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -3537,7 +3691,7 @@ variable_list_size - Checks the size of a variable list
 variable_list_size = { name = X target >= Y }
 Where X is the name of the variable
 Where Y is a script value or number
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
@@ -3579,10 +3733,10 @@ Supported Scopes: building
 
 weighted_calc_true_if - Returns true if the sum of weights of fulfilled sub-triggers amount to the specified sum
 weighted_calc_true_if = { amount = 10 5 = { <trigger> } 15 = { <trigger> } 7 = { <trigger> } }
-Supported Scopes: none
+Supported Scopes: none/all
 
 --------------------
 
 year - Compares the current year of the game
 year > 1850Traits: <, <=, =, !=, >, >=
-Supported Scopes: none
+Supported Scopes: none/all

@@ -963,4 +963,11 @@ links = {
 		data_source = <ideology>
 		prefix = ideology:
 	}
+	unit_type = {
+		desc = " Scope to a combat unit type from its name (unit_type:key)"
+		output_scope = new_combat_unit
+		from_data = yes
+		data_source = <new_combat_unit>
+		prefix = unit_type:
+	}
 }
