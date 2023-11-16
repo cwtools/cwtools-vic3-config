@@ -1350,7 +1350,7 @@ alias[effect:create_military_formation] = {
     ## cardinality = 1..inf
     ### Add as many combat unit specifications as necessary
     combat_unit = {
-        type = scope[unit_type]
+        type = scope[combat_unit_type]
 
         ## cardinality = 9..1
         ### service type defaults to regular and conscript is not applicable for fleets
