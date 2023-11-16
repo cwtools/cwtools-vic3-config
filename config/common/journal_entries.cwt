@@ -11,6 +11,10 @@ journal_entry = {
     icon = scalar
 
     ## cardinality = 0..1
+    ### optional journal entry group as specified in common/journal_entry_groups
+    group = <journal_entry_group>
+
+    ## cardinality = 0..1
     ### optional trigger which determines if a journal entry can be shown, default = no
 	### is ignored when JE is added through `add_journal_entry` effect
     is_shown_when_inactive = single_alias_right[trigger_clause]
