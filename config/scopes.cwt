@@ -182,4 +182,7 @@ scopes = {
     unit_type = {
         aliases = { unit_type }
     }
+    mobilization_option = {
+        aliases = { mobilization_option }
+    }
 }
