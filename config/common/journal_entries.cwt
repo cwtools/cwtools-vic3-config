@@ -8,7 +8,7 @@ journal_entry = {
     #TODO image
     ## cardinality = 0..1
 	### optional image that shows in the journal entry widget near the description, default = NDefines::GUI::JOURNAL_ENTRY_ICON_DEFAULT (set in /defines/00_interfaces.txt)
-    icon = scalar
+    icon = filepath
 
     ## cardinality = 0..1
     ### optional journal entry group as specified in common/journal_entry_groups
