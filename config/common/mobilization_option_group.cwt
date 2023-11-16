@@ -1,0 +1,5 @@
+types = {
+    type[mobilization_option_group] = {
+        path = "game/common/mobilization_option_groups"
+    }
+}
