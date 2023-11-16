@@ -1401,3 +1401,6 @@ alias[effect:teleport_to_front] = scope[front]
 
 ### Transfers scope character to target formation
 alias[effect:transfer_to_formation] = scope[military_formation]
+
+### Starts enacting the specified law type for the country in scope  
+alias[effect:start_enactment] = scope[law_type]

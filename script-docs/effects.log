@@ -3459,6 +3459,13 @@ Supported Scopes: state
 
 --------------------
 
+start_enactment - Starts enacting the specified law type for the country in scope
+start_enactment = law_type:law_multicultural
+Supported Scopes: country
+Supported Targets: law_type
+
+--------------------
+
 start_privately_funded_building_construction - Start constructing a building in a scoped state as a private construction
 start_privately_funded_building_construction = building_barracks
 Supported Scopes: state
