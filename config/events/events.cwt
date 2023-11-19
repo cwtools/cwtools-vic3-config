@@ -121,13 +121,13 @@ event = {
     # TODO
     icon = filepath
     ## cardinality = 0..1
-    right_icon = filepath
+    right_icon = scope_field
     ## cardinality = 0..1
-    left_icon = filepath
+    left_icon = scope_field
     ## cardinality = 0..1
-    minor_left_icon = filepath
+    minor_left_icon = scope_field
     ## cardinality = 0..1
-    minor_right_icon = filepath
+    minor_right_icon = scope_field
     ## cardinality = 0..1
     gui_window = scalar
 
