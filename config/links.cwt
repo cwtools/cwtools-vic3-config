@@ -818,7 +818,7 @@ links = {
 	}
 	owner = {
 		desc = " Scope to the owner country of object"
-		input_scopes = { country state province pop building interest_group market market_goods interest_marker character institution law journalentry trade_route decree combat_unit }
+		input_scopes = { country state province pop building interest_group market market_goods interest_marker character institution law journalentry trade_route decree combat_unit new_combat_unit military_formation }
 		output_scope = country
 	}
 	attacker_warleader = {
