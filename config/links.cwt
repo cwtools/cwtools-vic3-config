@@ -11,17 +11,17 @@ links = {
 	}
 	building = {
 		desc = " Scope to the related building"
-		input_scopes = combat_unit
+		input_scopes = { combat_unit new_combat_unit }
 		output_scope = building
 	}
 	commander = {
 		desc = " Scope to the related commander"
-		input_scopes = combat_unit
+		input_scopes = { combat_unit new_combat_unit }
 		output_scope = character
 	}
 	morale = {
 		desc = " Get the scoped combat unit's morale (0-1)"
-		input_scopes = combat_unit
+		input_scopes = { combat_unit new_combat_unit }
 		output_scope = value
 		type = value
 	}
@@ -953,7 +953,7 @@ links = {
 	}
 	culture = {
 		desc = " Scope to pop's or character's culture"
-		input_scopes = { pop character combat_unit }
+		input_scopes = { pop character combat_unit new_combat_unit }
 		output_scope = culture
 	}
 	ideology = {
@@ -1109,5 +1109,15 @@ links = {
 		input_scopes = state
 		output_scope = state_goods
 		prefix = sg:
+	}
+	offense = {
+		desc = "Returns the unit's offense rating (including impact from their commander)"
+		input_scopes = { combat_unit new_combat_unit }
+		output_scope = value
+	}
+	defense = {
+		desc = "Returns the unit's defense rating (including impact from their commander)"
+		input_scopes = { combat_unit new_combat_unit }
+		output_scope = value
 	}
 }
