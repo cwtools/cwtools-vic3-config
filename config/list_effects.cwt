@@ -2373,7 +2373,7 @@ alias[effect:ordered_military_unit] = {
 }
 
 ### Iterate through all military formations currently present at input scope
-alias[effect:random_military_unit] = {
+alias[effect:random_military_formation] = {
     ## cardinality = 0..1
     limit = {
         alias_name[trigger] = alias_match_left[trigger]
