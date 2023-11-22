@@ -46,7 +46,7 @@ alias[trigger:culture_secession_progress] = {
 alias[trigger:has_cultural_obsession] = <goods>
 
 ### Checks if a culture has a certain culture_graphics has_culture_graphics = <culture graphics key>
-alias[trigger:has_culture_graphics] = <culture>
+alias[trigger:has_culture_graphics] = <culture_graphics>
 
 ### Checks if scoped culture has a homeland in target state or state region has_homeland = state/state region
 alias[trigger:has_homeland] = scope[state]
