@@ -68,6 +68,10 @@ production_method = {
     }
 
     ## cardinality = 0..1
+    ### a pm may list one or more goods as a required input goods, those goods need to be accessible to the building to be able to activate the this pm
+    required_input_goods = <goods>
+
+    ## cardinality = 0..1
     ### base AI weight, default 1.0
     ai_weight = value_field
 
