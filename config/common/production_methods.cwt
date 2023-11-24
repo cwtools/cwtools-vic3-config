@@ -71,10 +71,6 @@ production_method = {
     ### base AI weight, default 1.0
     ai_weight = value_field
 
-    ## cardinality = 0..1
-    ### how much visual pollution does this building add to its state region while this pm is active (total pollution in state region is scaled by arable land), default 0.0
-    pollution_generation = value_field
-
 }
 
 single_alias[pm_modifiers] = {
