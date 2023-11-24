@@ -974,11 +974,13 @@ links = {
 		desc = "Scope to the amount of prosperity for scope company (example: prosperity >= 2)"
 		output_scope = value
 		input_scopes = company
+		type = value
 	}
 	weekly_prosperity_change = {
 		desc = "Scope to the weekly prosperity change for scope company (example: weekly_prosperity_change >= 2)"
 		output_scope = value
 		input_scopes = company
+		type = value
 	}
 	opposite_battle_side = {
 		desc = "Scope from a battle side to its opposite"
@@ -999,6 +1001,7 @@ links = {
 		desc = "Number of units in a MilitaryFormation which currently don't have a commander due to commanders Command Limit. Obs: defeated commanders do not command units, i.e., the more defeated commanders, the more commanderless units."
 		input_scopes = military_formation
 		output_scope = value
+		type = value
 	}
 	land_controller_hq = {
 		desc = "Returns the province or state controller land HQ"
@@ -1038,6 +1041,7 @@ links = {
 		desc = "Scope to AI desire of target country to have scope country as a subject (example: value = ai_subject_value:root)"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	company = {
 		desc = "Scope to the scoped country's company of the named company type (company:company_rheinmetall)"
@@ -1051,21 +1055,25 @@ links = {
 		desc = "Get the current weekly expenses of the scoped country"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	fixed_expenses = {
 		desc = "Get the current weekly fixed expenses of the scoped country"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	investment_pool_income = {
 		desc = "Get the current weekly investment pool income of the scoped country"
 		input_scopes = country
 		output_scope = value
+		type = value
 	}
 	command_limit_num_units = {
 		desc = "Get the baseline number of units from their military formation a commander would normally get, depending on their command limit"
 		input_scopes = character
 		output_scope = value
+		type = value
 	}
 	commander_military_formation = {
 		desc = "Scope to the Military Formation of a Character."
@@ -1076,6 +1084,7 @@ links = {
 		desc = "Share of units a commander has considering his command limit. Example: if the character has 30 Command Limit, the fleet has 60 total Command Limit, and the formation has 50 total flotillas, then the character should get 25 flotillas for their battle)"
 		input_scopes = character
 		output_scope = value
+		type = value
 	}
 	theater = {
 		desc = "Scope from a BattleSide or State to its theater"
@@ -1096,6 +1105,7 @@ links = {
 		desc = "Scope to target country AI desire to own scope state (example: value = ai_state_value:root)"
 		input_scopes = state
 		output_scope = value
+		type = value
 	}
 	mass_migration_culture = {
 		desc = "Scope to the mass migration target culture of a state"
@@ -1114,20 +1124,24 @@ links = {
 		desc = "Returns the unit's offense rating (including impact from their commander)"
 		input_scopes = { combat_unit new_combat_unit }
 		output_scope = value
+		type = value
 	}
 	defense = {
 		desc = "Returns the unit's defense rating (including impact from their commander)"
 		input_scopes = { combat_unit new_combat_unit }
 		output_scope = value
+		type = value
 	}
 	manpower = {
 		desc = "Returns the unit's manpower"
 		input_scopes = { combat_unit new_combat_unit }
 		output_scope = value
+		type = value
 	}
 	mobilization = {
 		desc = "Returns the unit's mobilization value between 0 and 1"
 		input_scopes = { combat_unit new_combat_unit }
 		output_scope = value
+		type = value
 	}
 }
