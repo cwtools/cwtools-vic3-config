@@ -1120,4 +1120,14 @@ links = {
 		input_scopes = { combat_unit new_combat_unit }
 		output_scope = value
 	}
+	manpower = {
+		desc = "Returns the unit's manpower"
+		input_scopes = { combat_unit new_combat_unit }
+		output_scope = value
+	}
+	mobilization = {
+		desc = "Returns the unit's mobilization value between 0 and 1"
+		input_scopes = { combat_unit new_combat_unit }
+		output_scope = value
+	}
 }
