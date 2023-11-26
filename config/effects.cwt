@@ -1343,7 +1343,7 @@ alias[effect:create_military_formation] = {
 
     ## cardinality = 0..1
     ### type defaults to army
-    type = enum[military_unit_type]
+    type = enum[military_formation_type]
 
     hq_region = scope[strategic_region]
 

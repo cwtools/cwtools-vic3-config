@@ -164,6 +164,11 @@ enums = {
         navy
     }
 
+    enum[military_formation_type] = {
+        army
+        fleet
+    }
+
     enum[service_type] = {
         regular
         conscript
