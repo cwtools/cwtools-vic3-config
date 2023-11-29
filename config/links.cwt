@@ -680,6 +680,14 @@ links = {
 		output_scope = value
 		type = value
 	}
+	num_shared_rivals = {
+		desc = "Scope to the number of shared rivals scope country has with target country (example: num_shared_rivals:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+		from_data = yes
+		prefix = num_shared_rivals:
+	}
 	num_states = {
 		desc = " Get the scoped country's current number of states"
 		input_scopes = country
@@ -1103,6 +1111,12 @@ links = {
 	}
 	ai_state_value:root = {
 		desc = "Scope to target country AI desire to own scope state (example: value = ai_state_value:root)"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	ai_treaty_port_value:root = {
+		desc = "Scope to target country AI desire to have a treaty port in scope state (example: value = ai_treaty_port_value:root)	"
 		input_scopes = state
 		output_scope = value
 		type = value
