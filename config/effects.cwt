@@ -1336,7 +1336,7 @@ alias[effect:create_mass_migration] = {
 ### Creates a military formation
 alias[effect:create_military_formation] = {
     ## cardinality = 0..1
-    name = localization
+    name = localisation
 
     ## cardinality = 0..1
     ### type defaults to army
