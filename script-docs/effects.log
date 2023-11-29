@@ -71,7 +71,7 @@ Supported Scopes: character
 --------------------
 
 add_company - Adds company type to a country's companies
-add_company = <company key/scope>
+add_company = company_type:key
 Supported Scopes: country
 Supported Targets: company_type
 
@@ -475,7 +475,7 @@ Supported Scopes: none/all
 
 change_infamy - Change infamy of scope country
 change_infamy = amount
-Supported Scopes: none/all
+Supported Scopes: country
 
 --------------------
 
@@ -874,12 +874,6 @@ debug_log_scopes - Log the current scope to the debug log when this effect execu
 debug_log_scopes = yes # log full scope info
 debug_log_scopes = no  # log only current scope
 Supported Scopes: none/all
-
---------------------
-
-demobilize - Demobilizes a General in scope
-scope:general_larry = { demobilize = yes }
-Supported Scopes: character
 
 --------------------
 
@@ -2897,7 +2891,7 @@ Supported Targets: country
 --------------------
 
 remove_company - Removes company type from a country's companies
-remove_company = <company key/scope>
+remove_company = company_type:key
 Supported Scopes: country
 Supported Targets: company_type
 
@@ -3151,6 +3145,12 @@ Supported Scopes: character
 set_commander_rank - Promotes/demotes a character to a given military rank value
 set_commander_rank = 3
 Supported Scopes: character
+
+--------------------
+
+set_company_establishment_date - Sets the establishment date of scope company
+set_company_establishment_date = 1782.7.18
+Supported Scopes: company
 
 --------------------
 

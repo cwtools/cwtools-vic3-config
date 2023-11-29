@@ -2471,15 +2471,21 @@ Supported Targets: party
 
 --------------------
 
-is_mobilized - Checks if the commander or military formation is mobilized
+is_mobilized - Checks if the military formation is mobilized
 is_mobilized = boolTraits: yes/no
-Supported Scopes: character, military_formation
+Supported Scopes: military_formation
 
 --------------------
 
 is_monarch - Checks if character is a monarch of a country with hereditary succession
 is_monarch = boolTraits: yes/no
 Supported Scopes: character
+
+--------------------
+
+is_naval_invasion_stalled_due_to_orders - Checks if a naval invasion is stalled due to wrong admiral orders
+is_naval_invasion_stalled = boolTraits: yes/no
+Supported Scopes: color
 
 --------------------
 
@@ -3043,12 +3049,6 @@ Supported Scopes: country
 military_wage_level_value - Compares the military wage level value of scoped country
 military_wage_level_value = <level>Traits: <, <=, =, !=, >, >=
 Supported Scopes: country
-
---------------------
-
-mobilization_cost - Compares the current mobilization cost for this character
-mobilization_cost > 1000Traits: <, <=, =, !=, >, >=
-Supported Scopes: character
 
 --------------------
 
