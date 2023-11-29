@@ -1254,9 +1254,6 @@ alias[effect:round_local_variable] = {
 alias[effect:save_temporary_scope_as] = value_set[temporary_scope]
 
 ### Adds company type to a country's companies
-alias[effect:add_company] = <company_type>
-
-### Adds company type to a country's companies
 alias[effect:add_company] = scope[company_type]
 
 ### Adds the specified amount of Morale to the Combat Unit in scope
@@ -1379,9 +1376,6 @@ alias[effect:fully_mobilize_army] = bool
 alias[effect:mobilize_army] = bool
 
 ### Removes company type from a country's companies
-alias[effect:remove_company] = <company_type>
-
-### Removes company type from a country's companies
 alias[effect:remove_company] = scope[company_type]
 
 ### remove state trait in a scoped state region
@@ -1404,3 +1398,6 @@ alias[effect:transfer_to_formation] = scope[military_formation]
 
 ### Starts enacting the specified law type for the country in scope  
 alias[effect:start_enactment] = scope[law_type]
+
+### Sets the establishment date of scope company  
+alias[effect:set_company_establishment_date] = date_field
