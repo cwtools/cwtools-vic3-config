@@ -6,7 +6,23 @@ types = {
 
 company_type = {
     ## cardinality = ~1..1
-    texture = filepath
+    icon = filepath
+
+    ## cardinality = ~1..1
+    background = filepath
+
+    ## cardinality = 0..1
+    flavored_company = bool
+
+    ## cardinality = 0..1
+    uses_dynamic_naming = bool
+
+    ## cardinality = 0..1
+    dynamic_company_names = {
+        ## cardinality = 0..inf
+        localisation
+    }
+
 
     ## cardinality = 0..1
     replaces_company = <company_type>
@@ -18,8 +34,10 @@ company_type = {
     }
 
     ## cardinality = 0..1
-    ### Whether the Company will be displayed in the companies type e.g. country_has_primary_culture = cu:north_german
     potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    attainable = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
     possible = single_alias_right[trigger_clause]
