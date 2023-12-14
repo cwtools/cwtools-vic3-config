@@ -8,7 +8,10 @@ journal_entry = {
     #TODO image
     ## cardinality = 0..1
 	### optional image that shows in the journal entry widget near the description, default = NDefines::GUI::JOURNAL_ENTRY_ICON_DEFAULT (set in /defines/00_interfaces.txt)
-    icon = scalar
+    icon = filepath
+
+    ### journal entry group as specified in common/journal_entry_groups
+    group = <journal_entry_group>
 
     ## cardinality = 0..1
     ### optional trigger which determines if a journal entry can be shown, default = no
@@ -124,4 +127,14 @@ journal_entry = {
 
     ## cardinality = 0..1
     active_update_frequency = int
+
+    ## cardinality = 0..1
+    ### A list of modifiers that apply while the journal is active
+    modifiers_while_active = {
+        ## cardinality = 0..inf
+        <modifier_container>
+    }
+
+    ## cardinality = 0..inf
+    scripted_button = <scripted_button>
 }

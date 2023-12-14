@@ -505,8 +505,8 @@ alias[trigger:any_primary_culture] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
 
-### Iterate through all combat units of input scope any_combat_units = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_combat_units] = {
+### Iterate through all combat units of input scope any_combat_unit = { <count=num/all> / <percent=fixed_point> <triggers> }
+alias[trigger:any_combat_unit] = {
         ## cardinality = 0..1
         percent = value_field[0.0..1.0]
         ## cardinality = 0..1
@@ -672,4 +672,102 @@ alias[trigger:any_member] = {
         filter = single_alias_right[trigger_clause]
         alias_name[trigger] = alias_match_left[trigger]
     }
+
+### Iterate through all combat units of input scope
+alias[trigger:any_combat_unit] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all companies in a country  
+alias[trigger:any_company] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all military formations currently present at input scope 
+alias[trigger:any_military_formation] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all Provinces in the scoped State
+alias[trigger:any_province] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all interest markers held by a country 
+alias[trigger:any_scope_held_interest_marker] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all states that share a sea node with a state 
+alias[trigger:any_sea_node_adjacent_state] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Lists for cultures in the scoped country that are valid for mass migration  
+alias[trigger:any_valid_mass_migration_culture] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
 

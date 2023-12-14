@@ -3,3 +3,42 @@ types = {
         path = "game/common/combat_unit_types"
     }
 }
+
+combat_unit_type = {
+    group = <combat_unit_group>
+    
+    ## cardinality = ~1..1
+    upkeep_modifier = single_alias_right[modifier_clause]
+    
+    ## cardinality = ~1..1
+    battle_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    unlocking_technologies = {
+        ## cardinality = 0..inf
+        <technology>
+    }
+
+    ## push_scope = country
+    ## cardinality = 0..1
+    can_build = single_alias_right[trigger_clause]
+
+    ## push_scope = country
+    ## cardinality = 0..1
+    ### Both this and "can build" must be true to build conscripts
+    can_build_conscript = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    upgrades = {
+        ## cardinality = 0..inf
+        <combat_unit_type>
+    }
+
+    ## cardinality = ~1..inf
+    combat_unit_image = {
+        ## cardinality = 0..1
+        trigger = single_alias_right[trigger_clause]
+
+        texture = filepath
+    }
+}

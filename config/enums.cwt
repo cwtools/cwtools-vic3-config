@@ -9,6 +9,9 @@ enums = {
         politician
         general
         admiral
+        agitator
+        ruler
+        heir
     }
 
     enum[character_trait_type] = {
@@ -153,5 +156,21 @@ enums = {
     enum[severity] = {
         fail
         invalid
+        potential
+    }
+
+    enum[military_unit_type] = {
+        army
+        navy
+    }
+
+    enum[military_formation_type] = {
+        army
+        fleet
+    }
+
+    enum[service_type] = {
+        regular
+        conscript
     }
 }

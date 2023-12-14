@@ -3,3 +3,59 @@ types = {
         path = "game/common/alert_types"
     }
 }
+
+alert_type = {
+    script_context = enum[script_context]
+
+    texture = filepath
+
+    ### an invalid alert will not be shown
+    valid = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### open_panel = <panel_name>[|<tab>] If specified, this panel will open when the alert is clicked. Cannot specify both open_panel and open_popup. Example: open_panel = budget|assets
+    open_panel = scalar
+
+    ## cardinality = 0..1
+    ### if specified, this popup will open when the alert is clicked. Cannot specify both open_panel and open_popup
+    open_popup = scalar
+
+    ## cardinality = 0..1
+    ### if unspecified or "alert", this will be a standard alert. Otherwise, it will be shown inside the important actions alert (angry_important_action alerts are sorted first)
+    type = enum[alert_type]
+
+    ## cardinality = 0..1
+    ### if specified, multiple alerts in the same group will be grouped in the important actions alert (if they are "important_action"). "important_actions with unspecified alert_group will never be grouped together
+    alert_group = <alert_group>
+
+    ## cardinality = 0..1
+    ### Vanilla includes red, green and yellow, unsure if other values are valid
+    color = scalar
+}
+
+enums = {
+    enum[script_context] = {
+        player_country
+        player_diplomatic_play
+        player_diplomatic_pact
+        player_diplomatic_action
+        player_diplomatic_relations
+        player_interest_group
+        player_invaded_state
+        player_national_market
+        player_naval_invasion
+        player_involved_market
+        player_state
+        player_building
+        player_market_goods
+        player_commander
+        player_military_formation
+        player_trade_route
+    }
+
+    enum[alert_type] = {
+        alert
+        important_action
+        angry_important_action
+    }
+}

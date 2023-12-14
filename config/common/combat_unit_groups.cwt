@@ -1,0 +1,24 @@
+types = {
+    type[combat_unit_group] = {
+        path = "game/common/combat_unit_groups"
+    }
+}
+
+combat_unit_group = {
+    type = enum[combat_unit_group_type]
+    manpower_max = int
+    ## cardinality = 0..1
+    default_group = bool
+    color = {
+        ## cardinality = 3..3
+        float
+    }
+    icon = filepath
+}
+
+enums = {
+    enum[combat_unit_group_type] = {
+        army
+        navy
+    }
+}

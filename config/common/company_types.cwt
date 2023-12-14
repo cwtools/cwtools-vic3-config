@@ -1,0 +1,49 @@
+types = {
+    type[company_type] = {
+        path = "game/common/company_types"
+    }
+}
+
+company_type = {
+    ## cardinality = ~1..1
+    icon = filepath
+
+    ## cardinality = ~1..1
+    background = filepath
+
+    ## cardinality = 0..1
+    flavored_company = bool
+
+    ## cardinality = 0..1
+    uses_dynamic_naming = bool
+
+    ## cardinality = 0..1
+    dynamic_company_names = {
+        ## cardinality = 0..inf
+        localisation
+    }
+
+
+    ## cardinality = 0..1
+    replaces_company = <company_type>
+
+    ## cardinality = 1
+    building_types = {
+        ## cardinality = 1..inf
+        <building>
+    }
+
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    attainable = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
+
+    prosperity_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ai_weight = value_field
+}

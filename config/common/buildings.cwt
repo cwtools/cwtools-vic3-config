@@ -5,7 +5,7 @@ types = {
             name = "$"
         }
         subtype[military] = {
-            recruits_combat_unit = <combat_unit_type>
+            recruits_combat_unit = <old_combat_unit_type>
         }
         subtype[canal] = {
             canal = <canal>
@@ -67,7 +67,17 @@ building = {
     ## cardinality = 0..1
     ## push_scope = state
     ### optional custom trigger (state scope) for building requirements
-    can_build = single_alias_right[trigger_clause]
+    possible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = state
+    ### optional custom trigger (state scope) for building requirements by the government
+    can_build_government = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = state
+    ### optional custom trigger (state scope) for building requirements by private investors
+    can_build_private = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
     ### override for which lens the building type should appear in, otherwise specified on building group
@@ -101,7 +111,7 @@ building = {
 
     ## cardinality = 0..1
     ### determines what combat unit the building will add. barracks add regulars, conscription centers add conscripts and sea bases flotillas
-    recruits_combat_unit = <combat_unit_type>
+    recruits_combat_unit = <old_combat_unit_type>
 
     subtype[military] = {
         ## cardinality = 0..1

@@ -38,127 +38,151 @@ scopes = {
     "Building Type" = {
         aliases = { building_type }
         }
-    interest_group = {
+    "Interest Group" = {
         aliases = { interest_group }
         }
-    market = {
+    Market = {
         aliases = { market }
         }
-    market_goods = {
+    "Market Goods" = {
         aliases = { market_goods }
         }
-    interest_marker = {
+    "Interest Marker" = {
         aliases = { interest_marker }
         }
-    strategic_region = {
+    "Strategic Region" = {
         aliases = { strategic_region }
         }
-    diplomatic_action = {
+    "Diplomatic Action" = {
         aliases = { diplomatic_action }
         }
-    diplomatic_pact = {
+    "Diplomatic Pact" = {
         aliases = { diplomatic_pact }
         }
-    diplomatic_play = {
+    "Diplomatic Play" = {
         aliases = { diplomatic_play }
         }
-    diplomatic_relations = {
+    "Diplomatic Relations" = {
         aliases = { diplomatic_relations }
         }
-    character = {
+    Character = {
         aliases = { character }
         }
-    state_region = {
+    "State Region" = {
         aliases = { state_region }
         }
-    war = {
+    War = {
         aliases = { war }
         }
-    theater = {
+    Theater = {
         aliases = { theater }
         }
-    religion = {
+    Religion = {
         aliases = { religion }
         }
-    institution = {
+    Institution = {
         aliases = { institution }
         }
-    institution_type = {
+    "Institution Type" = {
         aliases = { institution_type }
         }
-    law = {
+    Law = {
         aliases = { law }
         }
-    law_type = {
+    "Law Type" = {
         aliases = { law_type }
         }
-    journalentry = {
+    "Journal Entry" = {
         aliases = { journalentry }
         }
-    trade_route = {
+    "Trade Route" = {
         aliases = { trade_route }
         }
-    decree = {
+    Decree = {
         aliases = { decree }
         }
-    commander_order = {
+    "Commander Order" = {
         aliases = { commander_order }
         }
-    commander_order_type = {
+    "Commander Order Type" = {
         aliases = { commander_order_type }
         }
-    front = {
+    Front = {
         aliases = { front }
         }
-    battle = {
+    Battle = {
         aliases = { battle }
         }
-    interest_group_trait = {
+    "Interest Group Trait" = {
         aliases = { interest_group_trait }
         }
-    ideology = {
+    Ideology = {
         aliases = { ideology }
         }
-    goods = {
+    Goods = {
         aliases = { goods }
         }
-    canal_type = {
+    "Canal Type" = {
         aliases = { canal_type }
         }
-    country_definition = {
+    "Country Definition" = {
         aliases = { country_definition }
         }
-    civil_war = {
+    "Civil War" = {
         aliases = { civil_war }
         }
-    state_trait = {
+    "State Trait" = {
         aliases = { state_trait }
         }
-    country_creation = {
+    "Country Creation" = {
         aliases = { country_creation }
         }
-    country_formation = {
+    "Country Formation" = {
         aliases = { country_formation }
         }
-    hq = {
+    HQ = {
         aliases = { hq }
         }
-    objective = {
+    Objective = {
         aliases = { objective }
         }
-    battle_side = {
+    "Battle Side" = {
         aliases = { battle_side }
         }
-    political_movement = {
+    "Political Movement" = {
         aliases = { political_movement }
         }
-    combat_unit = {
+    "Combat Unit" = {
         aliases = { combat_unit }
         }
-    party = {
+    Party = {
         aliases = { party }
         }
-    shipping_lane = {
+    "Shipping Lane" = {
         aliases = { shipping_lane }
         }
+    "New Combat Unit" = {
+        aliases = { new_combat_unit }
+    }
+    "State Goods" = {
+        aliases = { state_goods }
+    }
+    "Company Type" = {
+        aliases = { company_type }
+    }
+    Company = {
+        aliases = { company }
+    }
+    "Combat Unit Type" = {
+        aliases = { combat_unit_type }
+    }
+    "Military Formation" = {
+        aliases = { military_formation }
+    }
+    "Unit Type" = {
+        aliases = { unit_type }
+    }
+    "Mobilization Option" = {
+        aliases = { mobilization_option }
+    }
 }
