@@ -42,7 +42,7 @@ alias[effect:random_scope_front] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -123,7 +123,7 @@ alias[effect:random_market_goods] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -138,7 +138,7 @@ alias[effect:random_scope_country] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -186,7 +186,7 @@ alias[effect:random_trade_route] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -234,7 +234,7 @@ alias[effect:random_supporting_interest_group] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -282,7 +282,7 @@ alias[effect:random_primary_culture] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -330,12 +330,12 @@ alias[effect:random_scope_pop] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
-### Iterate through all combat units of input scope every_combat_units = { limit = { <triggers> } <effects> }
-alias[effect:every_combat_units] = {
+### Iterate through all combat units of input scope every_combat_unit = { limit = { <triggers> } <effects> }
+alias[effect:every_combat_unit] = {
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -347,8 +347,8 @@ alias[effect:every_combat_units] = {
         alias_name[effect] = alias_match_left[effect]
     }
 
-### Iterate through all combat units of input scope ordered_combat_units = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
-alias[effect:ordered_combat_units] = {
+### Iterate through all combat units of input scope ordered_combat_unit = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+alias[effect:ordered_combat_unit] = {
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -367,8 +367,8 @@ alias[effect:ordered_combat_units] = {
         alias_name[effect] = alias_match_left[effect]
     }
 
-### Iterate through all combat units of input scope random_combat_units = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
-alias[effect:random_combat_units] = {
+### Iterate through all combat units of input scope random_combat_unit = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+alias[effect:random_combat_unit] = {
         ## cardinality = 0..1
         limit = {
             alias_name[trigger] = alias_match_left[trigger]
@@ -378,7 +378,7 @@ alias[effect:random_combat_units] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -426,7 +426,7 @@ alias[effect:random_scope_state] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -474,7 +474,7 @@ alias[effect:random_neighbouring_state] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -522,7 +522,7 @@ alias[effect:random_scope_interest_marker] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -594,6 +594,9 @@ alias[effect:every_in_global_list] = {
 
 ### Iterate through all items in list. list = name or variable = name every_in_list = { limit = { <triggers> } <effects> }
 alias[effect:every_in_list] = {
+        ## cardinality = 0..1
+        list = value[list]
+        ## cardinality = 0..1
         variable = value[variable_list]
         ## cardinality = 0..1
         limit = {
@@ -873,7 +876,7 @@ alias[effect:random_character] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -888,7 +891,7 @@ alias[effect:random_character_in_void] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -903,7 +906,7 @@ alias[effect:random_country] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -918,7 +921,7 @@ alias[effect:random_diplomatic_play] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -934,7 +937,7 @@ alias[effect:random_in_global_list] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -950,7 +953,7 @@ alias[effect:random_in_list] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -966,7 +969,7 @@ alias[effect:random_in_local_list] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -991,7 +994,7 @@ alias[effect:random_log_scopes] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1006,7 +1009,7 @@ alias[effect:random_market] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1021,7 +1024,7 @@ alias[effect:random_state] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1036,7 +1039,7 @@ alias[effect:random_state_region] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1546,7 +1549,7 @@ alias[effect:random_active_party] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1561,7 +1564,7 @@ alias[effect:random_civil_war] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1576,7 +1579,7 @@ alias[effect:random_in_hierarchy] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1591,7 +1594,7 @@ alias[effect:random_law] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1606,7 +1609,7 @@ alias[effect:random_overlord_or_above] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1621,7 +1624,7 @@ alias[effect:random_political_movement] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1636,7 +1639,7 @@ alias[effect:random_potential_party] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1651,7 +1654,7 @@ alias[effect:random_rival_country] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1666,7 +1669,7 @@ alias[effect:random_scope_ally] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1681,7 +1684,7 @@ alias[effect:random_scope_cobelligerent] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1696,7 +1699,7 @@ alias[effect:random_scope_theater] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1711,7 +1714,7 @@ alias[effect:random_scope_violate_sovereignty_interested_parties] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1726,7 +1729,7 @@ alias[effect:random_scope_violate_sovereignty_wars] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1741,7 +1744,7 @@ alias[effect:random_scope_war] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1756,7 +1759,7 @@ alias[effect:random_subject_or_below] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1837,7 +1840,7 @@ alias[effect:random_scope_building] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1852,7 +1855,7 @@ alias[effect:random_scope_culture] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1966,7 +1969,7 @@ alias[effect:random_scope_initiator_ally] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1981,7 +1984,7 @@ alias[effect:random_scope_play_involved] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -1996,7 +1999,7 @@ alias[effect:random_scope_target_ally] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -2077,7 +2080,7 @@ alias[effect:random_interest_group] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -2092,7 +2095,7 @@ alias[effect:random_member] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -2239,7 +2242,7 @@ alias[effect:random_scope_admiral] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -2254,7 +2257,7 @@ alias[effect:random_scope_character] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -2269,7 +2272,7 @@ alias[effect:random_scope_general] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
@@ -2284,7 +2287,294 @@ alias[effect:random_scope_politician] = {
             alias_name[trigger] = alias_match_left[trigger]
         }
         ## cardinality = 0..1
-        weight = single_alias_right[weight_block]
+        weight = single_alias_right[ai_chance_block]
         alias_name[effect] = alias_match_left[effect]
     }
 
+### Iterate through all companies in a country
+alias[effect:every_company] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all companies in a country
+alias[effect:ordered_company] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all companies in a country
+alias[effect:random_company] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all military formations currently present at input scope
+alias[effect:every_military_unit] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all military formations currently present at input scope
+alias[effect:ordered_military_unit] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all military formations currently present at input scope
+alias[effect:random_military_formation] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all Provinces in the scoped State
+alias[effect:every_province] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all Provinces in the scoped State
+alias[effect:ordered_province] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all Provinces in the scoped State
+alias[effect:random_province] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all interest markers held by a country
+alias[effect:every_scope_held_interest_marker] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all interest markers held by a country
+alias[effect:ordered_scope_held_interest_marker] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all interest markers held by a country
+alias[effect:random_scope_held_interest_marker] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all states that share a sea node with a state
+alias[effect:every_sea_node_adjacent_state] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all states that share a sea node with a state
+alias[effect:ordered_sea_node_adjacent_state] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all states that share a sea node with a state
+alias[effect:random_sea_node_adjacent_state] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Lists for cultures in the scoped country that are valid for mass migration
+alias[effect:every_valid_mass_migration_culture] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Lists for cultures in the scoped country that are valid for mass migration
+alias[effect:ordered_valid_mass_migration_culture] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    # TODO: Work out what exactly this is restricted to
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+
+### Lists for cultures in the scoped country that are valid for mass migration
+alias[effect:random_valid_mass_migration_culture] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[ai_chance_block]
+    alias_name[effect] = alias_match_left[effect]
+}

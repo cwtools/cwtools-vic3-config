@@ -1,0 +1,5 @@
+types = {
+    type[journal_entry_group] = {
+        path = "game/common/journal_entry_groups"
+    }
+}

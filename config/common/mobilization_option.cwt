@@ -1,0 +1,55 @@
+types = {
+    type[mobilization_option] = {
+        path = "game/common/mobilization_options"
+    }
+}
+
+## push_scope = country
+### All triggers and script evals have the following scope types: root = country, scope:military_formation = military_formation
+mobilization_option = {
+    ## cardinality = 0..1
+    ### specifies the type of formation this option is valid for, default army. currently only armies are valid targets for mobilization options and this option should be omitted
+    military_formation_type = enum[military_unit_type]
+
+    ### specifies which of the mobilization_option_groups this option belongs to
+    group = <mobilization_option_group>
+
+    texture = filepath
+
+    ## cardinality = 0..1
+    ### keys to technologies, at least one of which is required to use
+    unlocking_technologies = {
+        ## cardinality = 0..inf
+        <technology>
+    }
+
+    ## cardinality = 0..1
+    ### keys to laws, at least one of which is required to use
+    unlocking_laws = {
+        ## cardinality = 0..inf
+        <law>
+    }
+
+    ## cardinality = 0..1
+    ### trigger that determines if the option can be turned off or not
+    can_be_turned_off = single_alias_right[trigger_clause]
+
+    ## push_scope = military_formation
+    ## cardinality = 0..1
+    on_activate = single_alias_right[effect_clause]
+    ## push_scope = military_formation
+    ## cardinality = 0..1
+    on_deactivate = single_alias_right[effect_clause]
+    ## push_scope = military_formation
+    ## cardinality = 0..1
+    on_activate_while_mobilized = single_alias_right[effect_clause]
+    ## push_scope = military_formation
+    ## cardinality = 0..1
+    on_deactivate_while_mobilized = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    upkeep_modifier = single_alias_right[modifier_clause]
+
+    ## push_scope = military_formation
+    ### script value that multiplies the AI value calculation for a mobilization option; the base AI value that is multiplied is set by the ai_value of the unit_modifier; after multiplication, this is compared against the monetary cost to determine if AI wants to activate the mobilization option; root = military formation
+}

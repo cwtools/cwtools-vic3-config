@@ -3,3 +3,90 @@ types = {
         path = "game/common/production_methods"
     }
 }
+
+production_method = {
+    ## cardinality = ~1..1
+    ### PM Icon
+    texture = filepath
+    
+    ## cardinality = 0..1
+    ### is this the default pm for its group? if no pm in a group is designated as the default, the first pm is considered the default.
+    is_default = bool
+
+    ## cardinality = 0..1
+    ### these modifiers are applied to the country if this pm is active
+    country_modifiers = single_alias_right[pm_modifiers]
+
+    ## cardinality = 0..1
+    ### these modifiers are applied to the state if this pm is active
+    state_modifiers = single_alias_right[pm_modifiers]
+
+    ## cardinality = 0..1
+    ### these modifiers are applied to the building if this pm is active
+    building_modifiers = single_alias_right[pm_modifiers]
+
+    ## cardinality = 0..1
+    ### these modifiers are applied to the building after pm is changed. Duration is BUILDING_TIMED_MODIFIER_WEEKS
+    timed_modifiers = {
+        ## cardinality = 0..inf
+        <modifier_container>
+    }
+
+    ## cardinality = 0..1
+    ### optional list of required laws to be able to activate this pm
+    unlocking_laws = {
+        ## cardinality = 0..inf
+        <law>
+    }
+
+    ## cardinality = 0..1
+    ### optional list of required laws that disallow this pm
+    disallowing_laws = {
+        ## cardinality = 0..inf
+        <law>
+    }
+
+    ## cardinality = 0..1
+    ### optional list of required technologies to be able to activate this pm
+    unlocking_technologies = {
+        ## cardinality = 0..inf
+        <technology>
+    }
+
+    ## cardinality = 0..1
+    ### optional list of required pm's to be able to activate this pm.\nThese must refer to pm keys on the same building
+    unlocking_production_methods = {
+        ## cardinality = 0..inf
+        <production_method>
+    }
+
+    ## cardinality = 0..1
+    ### optional list of technologies that need to be invented in the world to be able to activate this pm
+    unlocking_global_technologies = {
+        ## cardinality = 0..inf
+        <technology>
+    }
+
+    ## cardinality = 0..1
+    ### a pm may list one or more goods as a required input goods, those goods need to be accessible to the building to be able to activate the this pm
+    required_input_goods = <goods>
+
+    ## cardinality = 0..1
+    ### base AI weight, default 1.0
+    ai_weight = value_field
+
+}
+
+single_alias[pm_modifiers] = {
+    ## cardinality = 0..1
+    workforce_scaled = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    level_scaled = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    throughput_scaled = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    unscaled = single_alias_right[modifier_clause]
+}

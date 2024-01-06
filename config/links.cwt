@@ -11,17 +11,17 @@ links = {
 	}
 	building = {
 		desc = " Scope to the related building"
-		input_scopes = combat_unit
+		input_scopes = { combat_unit new_combat_unit }
 		output_scope = building
 	}
 	commander = {
 		desc = " Scope to the related commander"
-		input_scopes = combat_unit
+		input_scopes = { combat_unit new_combat_unit }
 		output_scope = character
 	}
 	morale = {
 		desc = " Get the scoped combat unit's morale (0-1)"
-		input_scopes = combat_unit
+		input_scopes = { combat_unit new_combat_unit }
 		output_scope = value
 		type = value
 	}
@@ -489,6 +489,9 @@ links = {
 		desc = " Scope to a country's institution from its name (institution:institution_health_system)"
 		input_scopes = country
 		output_scope = institution
+		from_data = yes
+		data_source = <institution>
+		prefix = institution:
 	}
 	je = {
 		desc = " Scope to the journal entry of specified key belonging to the country"
@@ -677,6 +680,14 @@ links = {
 		output_scope = value
 		type = value
 	}
+	num_shared_rivals = {
+		desc = "Scope to the number of shared rivals scope country has with target country (example: num_shared_rivals:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+		from_data = yes
+		prefix = num_shared_rivals:
+	}
 	num_states = {
 		desc = " Get the scoped country's current number of states"
 		input_scopes = country
@@ -815,7 +826,7 @@ links = {
 	}
 	owner = {
 		desc = " Scope to the owner country of object"
-		input_scopes = { country state province pop building interest_group market market_goods interest_marker character institution law journalentry trade_route decree combat_unit }
+		input_scopes = { country state province pop building interest_group market market_goods interest_marker character institution law journalentry trade_route decree combat_unit new_combat_unit military_formation }
 		output_scope = country
 	}
 	attacker_warleader = {
@@ -869,6 +880,9 @@ links = {
 		desc = " Scope to the building of specified key in the state"
 		input_scopes = state
 		output_scope = building
+		from_data = yes
+		data_source = <building>
+		prefix = b:
 	}
 	nf = {
 		desc = " Scope to a Decree of specified key applied to the state"
@@ -947,7 +961,201 @@ links = {
 	}
 	culture = {
 		desc = " Scope to pop's or character's culture"
-		input_scopes = { pop character combat_unit }
+		input_scopes = { pop character combat_unit new_combat_unit }
 		output_scope = culture
+	}
+	ideology = {
+		desc = " Scope to a ideology from its name (ideology:ideology_anarchist)"
+		output_scope = ideology
+		from_data = yes
+		data_source = <ideology>
+		prefix = ideology:
+	}
+	unit_type = {
+		desc = " Scope to a combat unit type from its name (unit_type:key)"
+		output_scope = combat_unit_type
+		from_data = yes
+		data_source = <combat_unit_type>
+		prefix = unit_type:
+	}
+	prosperity = {
+		desc = "Scope to the amount of prosperity for scope company (example: prosperity >= 2)"
+		output_scope = value
+		input_scopes = company
+		type = value
+	}
+	weekly_prosperity_change = {
+		desc = "Scope to the weekly prosperity change for scope company (example: weekly_prosperity_change >= 2)"
+		output_scope = value
+		input_scopes = company
+		type = value
+	}
+	opposite_battle_side = {
+		desc = "Scope from a battle side to its opposite"
+		output_scope = battle_side
+		input_scopes = battle_side
+	}
+	country = {
+		desc = "If used in a military formation scope, scope to the country the formation belongs to."
+		output_scope = country
+		input_scopes = military_formation
+	}
+	highest_ranked_commander = {
+		desc = "Scope from a military formation to its highest ranking commander character"
+		input_scopes = military_formation
+		output_scope = character
+	}
+	num_commanderless_units = {
+		desc = "Number of units in a MilitaryFormation which currently don't have a commander due to commanders Command Limit. Obs: defeated commanders do not command units, i.e., the more defeated commanders, the more commanderless units."
+		input_scopes = military_formation
+		output_scope = value
+		type = value
+	}
+	land_controller_hq = {
+		desc = "Returns the province or state controller land HQ"
+		input_scopes = { province state }
+		output_scope = hq
+	}
+	bt = {
+		desc = "Scope to a building type"
+		from_data = yes
+		data_source = <building>
+		output_scope = building_type
+		prefix = bt:
+	}
+	company_type = {
+		desc = "Scope to a company type from its name (company_type:company_rheinmetall)"
+		from_data = yes
+		data_source = <company_type>
+		output_scope = company_type
+		prefix = company_type:
+	}
+	mobilization_option = {
+		desc = "Scope to a mobilization option from its name (mobilization_option:key)"
+		from_data = yes
+		data_source = <mobilization_option>
+		output_scope = mobilization_option
+		prefix = mobilization_option:
+	}
+	naval_invasion_attacker = {
+		desc = "If used in a naval invasion scope, scope to the country executing the naval invasion."
+		output_scope = country
+	}
+	naval_invasion_defender = {
+		desc = "If used in a naval invasion scope, scope to the country the attacked state is controlled by."
+		output_scope = country
+	}
+	ai_subject_value:root = {
+		desc = "Scope to AI desire of target country to have scope country as a subject (example: value = ai_subject_value:root)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	company = {
+		desc = "Scope to the scoped country's company of the named company type (company:company_rheinmetall)"
+		from_data = yes
+		data_source = <company_type>
+		input_scopes = country
+		output_scope = company
+		prefix = company:		
+	}
+	expenses = {
+		desc = "Get the current weekly expenses of the scoped country"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	fixed_expenses = {
+		desc = "Get the current weekly fixed expenses of the scoped country"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	investment_pool_income = {
+		desc = "Get the current weekly investment pool income of the scoped country"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	command_limit_num_units = {
+		desc = "Get the baseline number of units from their military formation a commander would normally get, depending on their command limit"
+		input_scopes = character
+		output_scope = value
+		type = value
+	}
+	commander_military_formation = {
+		desc = "Scope to the Military Formation of a Character."
+		input_scopes = character
+		output_scope = military_formation
+	}
+	num_units_share = {
+		desc = "Share of units a commander has considering his command limit. Example: if the character has 30 Command Limit, the fleet has 60 total Command Limit, and the formation has 50 total flotillas, then the character should get 25 flotillas for their battle)"
+		input_scopes = character
+		output_scope = value
+		type = value
+	}
+	theater = {
+		desc = "Scope from a BattleSide or State to its theater"
+		input_scopes = { battle_side state }
+		output_scope = theater
+	}
+	naval_controller_hq = {
+		desc = "Returns the province or state controller navy HQ"
+		input_scopes = province
+		output_scope = hq
+	}
+	diplomatic_play = {
+		desc = "Scope from a war to its diplomatic play"
+		input_scopes = war
+		output_scope = diplomatic_play
+	}
+	ai_state_value:root = {
+		desc = "Scope to target country AI desire to own scope state (example: value = ai_state_value:root)"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	ai_treaty_port_value:root = {
+		desc = "Scope to target country AI desire to have a treaty port in scope state (example: value = ai_treaty_port_value:root)	"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	mass_migration_culture = {
+		desc = "Scope to the mass migration target culture of a state"
+		input_scopes = state
+		output_scope = culture
+	}
+	sg = {
+		desc = "Scope from a state to the StateGoods with the specified key"
+		from_data = yes
+		data_source = <goods>
+		input_scopes = state
+		output_scope = state_goods
+		prefix = sg:
+	}
+	offense = {
+		desc = "Returns the unit's offense rating (including impact from their commander)"
+		input_scopes = { combat_unit new_combat_unit }
+		output_scope = value
+		type = value
+	}
+	defense = {
+		desc = "Returns the unit's defense rating (including impact from their commander)"
+		input_scopes = { combat_unit new_combat_unit }
+		output_scope = value
+		type = value
+	}
+	manpower = {
+		desc = "Returns the unit's manpower"
+		input_scopes = { combat_unit new_combat_unit }
+		output_scope = value
+		type = value
+	}
+	mobilization = {
+		desc = "Returns the unit's mobilization value between 0 and 1"
+		input_scopes = { combat_unit new_combat_unit }
+		output_scope = value
+		type = value
 	}
 }

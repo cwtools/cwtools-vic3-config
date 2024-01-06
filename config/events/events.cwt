@@ -122,15 +122,15 @@ event = {
 	on_opened_soundeffect = scalar
 	## cardinality = 0..1
 	# TODO
-	icon = scalar
+	icon = filepath
 	## cardinality = 0..1
-	left_icon = scalar
+	left_icon = scope_field
 	## cardinality = 0..1
-	right_icon = scalar
+	right_icon = scope_field
 	## cardinality = 0..1
-	minor_left_icon = scalar
+	minor_left_icon = scope_field
 	## cardinality = 0..1
-	minor_right_icon = scalar
+	minor_right_icon = scope_field
 	## cardinality = 0..1
 	gui_window = scalar
 
