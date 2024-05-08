@@ -15,7 +15,7 @@ types = {
 }
 
 enums = {
-    enum[good_categories] = {
+    enum[good_category] = {
         military
         staple
         industrial
@@ -32,7 +32,7 @@ goods = {
     cost = int
 
     ### What category the game should put the good in
-    category = enum[good_categories]
+    category = enum[good_category]
     
     ## cardinality = 0..1
     ### Base prestige for occupying the rank MIN_PRESTIGE_AWARD spot on the goods production leaderboard. x2 awarded for every rank above the minimum.
