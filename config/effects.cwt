@@ -550,6 +550,20 @@ alias[effect:convert_population] = {
 ### Creates a building in the scoped state. Supported values are: 	building = <building> 	activate_production_methods = { <production_methods> } 	subsidized = yes/no 	reserves = [0..1] (percentage of cash reserves the building should be created with) 	level = arable_land/integer  If level is "arable_land", the building will be of the necessary level to exhaust all available arable land in the state. If level is "urbanization", the building will be of the necessary level to exhaust all available urbanzation in the state. If level is an integer, the building will be of that level  Please note: this effect works a little differently if there already is a building of the specified type in the state. If that happens: 	1. the level will be the maximum between the scripted level and the level of the existing building 	2. the cash reserves will be the maximum between the scripted value and the existing cash reserves
 alias[effect:create_building] = {
     building = <building>
+    add_ownership = {
+        ## cardinality = 0..inf
+        country = {
+            country = scope[country]
+            levels = int
+        }
+        ## cardinality = 0..inf
+        building = {
+            type = <building>
+            country = scope[country]
+            levels = int
+            region = <state_region>
+        }
+    }
     ## cardinality = 0..1
     activate_production_methods = {
         ## cardinality = 0..inf
@@ -559,12 +573,6 @@ alias[effect:create_building] = {
     subsidized = bool
     ## cardinality = 0..1
     reserves = value_field[0..1]
-    ## cardinality = 0..1
-    level = int
-    ## cardinality = 0..1
-    level = arable_land
-    ## cardinality = 0..1
-    level = urbanization
 }
 
 ### Creates a pop in the scoped state
