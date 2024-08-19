@@ -24,6 +24,8 @@ types = {
 
 culture = {
     ### Map color, use int with rgb or hsv360, float with hsv
+    color = colour[rgb]
+    color = colour[hsv]
     color = {
         ## cardinality = 3..3
         int

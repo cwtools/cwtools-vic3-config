@@ -42,6 +42,8 @@ types = {
 
 country_definition = {
     ### Map color, use int with rgb (blank) or hsv360, float with hsv
+    color = colour[rgb]
+    color = colour[hsv]
     color = {
         ## cardinality = 3..3
         int

@@ -21,7 +21,12 @@ religion = {
         <discrimination_trait>
     }
 
-    ### Map color, decimal rgb?
+    color = colour[rgb]
+    color = colour[hsv]
+    color = {
+        ## cardinality = 3..3
+        int
+    }
     color = {
         ## cardinality = 3..3
         float
