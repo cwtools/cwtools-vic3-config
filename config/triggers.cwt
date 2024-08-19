@@ -444,8 +444,14 @@ alias[trigger:save_temporary_scope_value_as] = {
 ### can nudity be shown? should_show_nudity = yes/no An interface trigger, can only be used in specific places
 alias[trigger:should_show_nudity] = bool
 
-### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger. switch = { 	trigger = simple_assign_trigger 	case_1 = { <triggers> } 	case_2 = { <triggers> } 	case_n = { <triggers> } 	fallback = { <triggers> }
-alias[trigger:switch] = replace_me
+### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger.
+alias[trigger:switch] = {
+    trigger = alias_keys_field[trigger]
+    ## cardinality = ~1..inf
+    scalar = { alias_name[trigger] = alias_match_left[trigger] }
+    ## cardinality = ~1..1
+    fallback = { alias_name[trigger] = alias_match_left[trigger] }
+}
 
 ### Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }  trigger_else = { <triggers> }
 alias[trigger:trigger_else] = single_alias_right[trigger_clause]
@@ -1725,6 +1731,12 @@ alias[trigger:state_has_building_type_levels] = {
 
 ### Compares the current total manpower of a country's combat units  
 alias[trigger:total_manpower] == value_field
+
+### Checks scripted progress bar progress
+alias[trigger:scripted_bar_progress] = {
+    name = <scripted_progress_bar>
+    value == value_field
+}
 
 ### 
 alias[trigger:]
