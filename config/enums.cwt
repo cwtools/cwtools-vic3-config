@@ -173,4 +173,9 @@ enums = {
         regular
         conscript
     }
+
+    enum[ai_selection] = {
+        most_productive
+        most_profitable
+    }
 }

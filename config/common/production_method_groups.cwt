@@ -1,5 +1,32 @@
 types = {
     type[production_method_group] = {
         path = "game/common/production_method_groups"
+        localisation = {
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
+}
+
+production_method_group = {
+    ### PMG Icon Background
+    texture = filepath
+
+    ## cardinality = 0..1
+    ### base AI weight, default 1.0
+    ai_selection = enum[ai_selection]
+
+    ## cardinality = 0..1
+    ### is this pmg hidden to countries that can not enable them
+    is_hidden_when_unavailable = bool
+
+    ### list of pm's in this group
+    production_methods = {
+        ## cardinality = 0..inf
+        <production_method>
+    }
+
 }
