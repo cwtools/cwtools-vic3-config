@@ -6,3 +6,7 @@ types = {
         }
     }
 }
+
+journal_entry_group = {
+
+}
