@@ -22,7 +22,7 @@ enums = {
 ## replace_scope = { ROOT = goods THIS = goods }
 goods = {
     ### The icon shown ingame
-    texture = filepath[game/gfx/interface/icons/goods_icons/]
+    texture = filepath
 
     ### The base cost
     cost = int
