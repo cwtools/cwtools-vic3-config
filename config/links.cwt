@@ -1158,4 +1158,28 @@ links = {
 		output_scope = value
 		type = value
 	}
+	country_rank = {
+		desc = "Returns the countries rank"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	ai_army_comparison(root) = {
+		desc = "Returns the difference between countries armies"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	relations(scope:actor) = {
+		desc = " Scope to relations between two countries (example: relations:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_alliances_and_defensive_pacts_with_rivals(scope:actor) = {
+		desc = "Number of relations with rival countries"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
 }
