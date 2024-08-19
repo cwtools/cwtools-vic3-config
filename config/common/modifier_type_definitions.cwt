@@ -1,0 +1,34 @@
+types = {
+    type[modifier_type] = {
+        path = "game/common/modifier_type_definitions"
+    }
+}
+
+modifier_type = {
+    ## cardinality = 0..1
+    color = enum[modifier_color]
+
+    ## cardinality = 0..1
+    decimals = int
+
+    ## cardinality = 0..1
+    percent = bool
+
+    ## cardinality = 0..1
+    boolean = bool
+
+    ## cardinality = 0..1
+    prefix = localisation
+
+    ## cardinality = 0..1
+    suffix = localisation
+
+    ## cardinality = 0..1
+    game_data = {
+        ## cardinality = 0..1
+        ai_value = value_field
+
+        ## cardinality = 0..1
+        translate = localisation
+    }
+}
