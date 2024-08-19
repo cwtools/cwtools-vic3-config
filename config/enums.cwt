@@ -178,4 +178,10 @@ enums = {
         most_productive
         most_profitable
     }
+
+    enum[technology_category] = {
+        production
+        military
+        society
+    }
 }

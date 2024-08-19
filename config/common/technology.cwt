@@ -1,8 +1,54 @@
 types = {
     type[technology] = {
         path = "game/common/technology/technologies"
+        localisation = {
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
     type[era] = {
         path = "game/common/technology/eras"
+    }
+}
+
+era = {
+    ## cardinality = 0..1
+    ### innovation cost to research technologies of this era
+    technology_cost = value_field
+}
+
+technology = {
+    ### era of this technology
+    era = <era>
+
+    ### technology icon
+    texture = filepath
+
+    ### Category/Tab this technology is shown in
+    category = enum[technology_category]
+
+    ## cardinality = 0..1
+    ### can this technology be researched normally\nit can still be given using scripts
+    can_research = bool
+
+    ## cardinality = 0..1
+    ### optional list of required technologies to be able to research this technology
+    unlocking_technologies = {
+        ## cardinality = 0..inf
+        <technology>
+    }
+
+    ## cardinality = 0..1
+    ### these modifiers are applied to the country if this technology is researched
+    modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ### base AI weight, default 1.0
+    ai_weight = {
+        ## cardinality = 0..1
+        value = value_field
     }
 }
