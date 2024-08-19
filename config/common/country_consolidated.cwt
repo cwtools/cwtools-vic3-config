@@ -42,6 +42,7 @@ types = {
 
 country_definition = {
     ### Map color, use int with rgb (blank) or hsv360, float with hsv
+    color = <named_color>
     color = colour[rgb]
     color = colour[hsv]
     color = {

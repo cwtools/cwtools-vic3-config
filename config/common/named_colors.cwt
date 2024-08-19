@@ -1,5 +1,17 @@
 types = {
     type[named_color] = {
         path = "game/common/named_colors"
+        skip_root_key = colors
     }
+}
+
+named_color = colour[rgb]
+named_color = colour[hsv]
+named_color = {
+    ## cardinality = 3..3
+    int
+}
+named_color = {
+    ## cardinality = 3..3
+    float
 }

@@ -29,6 +29,7 @@ strategic_region = {
         ### Make sure its in a state in the region
         capital_province = enum[provinces]
         ### Not specified as to rgb vs. hsv or rgb255 vs. rgb100
+        map_color = <named_color>
         map_color = colour[rgb]
         map_color = colour[hsv]
         map_color = {

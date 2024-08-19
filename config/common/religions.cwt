@@ -21,6 +21,7 @@ religion = {
         <discrimination_trait>
     }
 
+    color = <named_color>
     color = colour[rgb]
     color = colour[hsv]
     color = {
