@@ -464,6 +464,7 @@ alias[trigger:trigger_else_if] = {
 
 ### Evaluates the triggers if the display_triggers of the limit are met trigger_if = { limit = { <display_triggers> } <triggers> }
 alias[trigger:trigger_if] = {
+    ## cardinality = 0..inf
     limit = single_alias_right[trigger_clause]
     alias_name[trigger] = alias_match_left[trigger]
 }
