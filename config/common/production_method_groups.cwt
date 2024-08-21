@@ -16,7 +16,7 @@ production_method_group = {
     texture = filepath
 
     ## cardinality = 0..1
-    ### base AI weight, default 1.0
+    ### either most_productive or most_profitable
     ai_selection = enum[ai_selection]
 
     ## cardinality = 0..1
