@@ -5,4 +5,6 @@ types = {
     }
 }
 
-history_population = single_alias_right[effect_clause]
+history_population = {
+    alias_name[effect] = alias_match_left[effect]
+}
