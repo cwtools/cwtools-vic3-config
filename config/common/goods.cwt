@@ -7,6 +7,10 @@ types = {
         subtype[consumable] = {
             obsession_chance = float
         }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
 }
 
