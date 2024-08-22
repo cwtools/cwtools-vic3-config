@@ -5,13 +5,4 @@ types = {
     }
 }
 
-named_color = colour[rgb]
-named_color = colour[hsv]
-named_color = {
-    ## cardinality = 3..3
-    int
-}
-named_color = {
-    ## cardinality = 3..3
-    float
-}
+named_color = alias_match_right[color]

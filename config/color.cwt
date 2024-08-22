@@ -1,0 +1,11 @@
+single_alias[color] = <named_color>
+single_alias[color] = colour[rgb]
+single_alias[color] = colour[hsv]
+single_alias[color] = {
+    ## cardinality = 3..3
+    base = float
+}
+single_alias[color] = {
+    ## cardinality = 3..3
+    base = int
+}
