@@ -191,4 +191,13 @@ enums = {
         overlord
         power_bloc
     }
+
+    enum[city_type] = {
+        none
+        city
+        farm
+        mine
+        port
+        wood
+    }
 }
