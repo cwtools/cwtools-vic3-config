@@ -200,4 +200,16 @@ enums = {
         port
         wood
     }
+
+    enum[modifier_color] = {
+        good
+        bad
+        neutral
+    }
+
+    enum[ownership_types] = {
+        no_ownership
+        self
+        other
+    }
 }

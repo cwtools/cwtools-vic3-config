@@ -91,6 +91,13 @@ building = {
     ### how many levels is needed to add 1 extra building on the map, default 1
     levels_per_mesh = int
 
+    ## cardinality = 0..1
+    ### type of the building ownership, no_ownership - can't own other buildings, dividends if any are payed to the state; self - can own only itself, pays dividends to the owning buildings; other - building can own other buildings, pays dividends only to own pops
+    ownership_type = enum[ownership_types]
+
+    ## cardinality = 0..1
+    ai_nationalization_desire = value_field
+
     ### a building's behavior can be modified by its production method groups    
     production_method_groups = {
         ## cardinality = 1..inf

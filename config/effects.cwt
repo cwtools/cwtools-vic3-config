@@ -1352,6 +1352,10 @@ alias[effect:create_military_formation] = {
     }
 
     ## cardinality = 0..1
+    ### Saves the current scope as an arbitrarily-named target to be referenced later in the (unbroken) event chain save_event_target_as = <string>
+    save_scope_as = value_set[event_target]
+
+    ## cardinality = 0..1
     ### mobilization_options are not applicable for fleets
     mobilization_options = {
         ## cardinality = 0..inf

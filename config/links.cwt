@@ -891,7 +891,7 @@ links = {
 	}
 	state_region = {
 		desc = " Scope to the state region of a state"
-		input_scopes = state
+		input_scopes = { state country }
 		output_scope = state_region
 	}
 	num_export_trade_routes = {

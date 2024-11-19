@@ -16,6 +16,7 @@ state_trait = {
     ### Icon for state trait
     icon = filepath
 
+    ## cardinality = 0..1
     ### Effects of state trait
     modifier = {
         ## cardinality = 0..inf
