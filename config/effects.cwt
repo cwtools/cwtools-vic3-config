@@ -80,7 +80,17 @@ alias[effect:add_modifier] = {
     ## cardinality = 0..1
     enum[duration] = int
     ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = enum[static_values]
+    ## cardinality = 0..1
+    enum[duration] = enum[duration]
+    ## cardinality = 0..1
     multiplier = value_field
+    ## cardinality = 0..1
+    multiplier = <script_value>
+    ## cardinality = 0..1
+    multiplier = enum[static_values]
     ## cardinality = 0..1
     is_decaying = bool
 }
@@ -128,6 +138,8 @@ alias[effect:add_journal_entry] = {
     type = <journal_entry>
     ## cardinality = 0..1
     target = scope_field
+    ## cardinality = 0..1
+    objective_subgoal = <objective_subgoal>
 }
 
 ### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
@@ -201,6 +213,16 @@ alias[effect:change_local_variable] = {
 alias[effect:change_variable] = {
     name = value[variable]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+alias[effect:kill_population] = {
+    value = value_field
+    pop_type = <pop_type>
+}
+
+alias[effect:add_radicals_in_state] = {
+    value = value_field
+    value = <script_value>
 }
 
 ### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values

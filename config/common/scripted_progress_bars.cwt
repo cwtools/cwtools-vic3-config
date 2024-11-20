@@ -46,19 +46,13 @@ scripted_progress_bar = {
 
     ## cardinality = 0..1
     ### weekly progress of progress bar
-    weekly_progress = {
-        #TODO: Fill
-    }
+    weekly_progress = single_alias_right[formula]
 
     ## cardinality = 0..1
     ### monthly progress of progress bar
-    monthly_progress = {
-        #TODO: Fill
-    }
+    monthly_progress = single_alias_right[formula]
 
     ## cardinality = 0..1
     ### yearly progress of progress bar
-    yearly_progress = {
-        #TODO: Fill
-    }
+    yearly_progress = single_alias_right[formula]
 }

@@ -3,3 +3,11 @@ types = {
         path = "game/common/game_concepts"
     }
 }
+
+game_concept = {
+    ## cardinality = 0..1
+    texture = filepath
+
+    ## cardinality = 0..1
+    is_loading_tip = bool
+}

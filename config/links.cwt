@@ -294,6 +294,24 @@ links = {
 		from_data = yes
 		data_source = <pop_type>
 	}
+	literacy_rate = {
+		desc = " Literacy rate of pop"
+		input_scopes = pop
+		output_scope = value
+		type = value
+	}
+	wealth = {
+		desc = " Wealth of pop"
+		input_scopes = pop
+		output_scope = value
+		type = value
+	}
+	standard_of_living = {
+		desc = " Standard of living of pop"
+		input_scopes = pop
+		output_scope = value
+		type = value
+	}
 	rank_value = {
 		desc = " Scope to rank value of a particular country rank (rank_value:great_power)"
 		output_scope = value

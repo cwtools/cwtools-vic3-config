@@ -12,7 +12,7 @@ enums = {
         path = "game/common/script_values"
         start_from_root = yes
         name = {
-            enum_name = scalar
+            enum_name = value_field
         }
     }
 }
@@ -35,11 +35,35 @@ script_value = {
 }
 
 alias[arithmetic_operation:add] = value_field
+alias[arithmetic_operation:add] = {
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
 alias[arithmetic_operation:subtract] = value_field
+alias[arithmetic_operation:subtract] = {
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
 alias[arithmetic_operation:multiply] = value_field
+alias[arithmetic_operation:multiply] = {
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
 alias[arithmetic_operation:divide] = value_field
+alias[arithmetic_operation:divide] = {
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
 alias[arithmetic_operation:modulo] = value_field
+alias[arithmetic_operation:modulo] = {
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
 alias[arithmetic_operation:value] = value_field
+alias[arithmetic_operation:value] = {
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
 alias[arithmetic_operation:max] = value_field
 alias[arithmetic_operation:min] = value_field
 alias[arithmetic_operation:value] = value_field

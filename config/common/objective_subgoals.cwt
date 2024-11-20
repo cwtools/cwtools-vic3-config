@@ -3,3 +3,42 @@ types = {
         path = "game/common/objective_subgoals"
     }
 }
+
+objective_subgoal = {
+    ### The subgoal category of this subgoal
+    category = <objective_subgoal_category>
+
+    ## cardinality = 0..1
+    ### All of these other subgoals must be completed (or failed/timed-out and non-repeatable) for subgoal to be able to trigger
+    unlocking_subgoals_all = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### One of these other subgoals must be completed (or failed/timed-out and non-repeatable) for subgoal to be able to trigger
+    unlocking_subgoals_any = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### None of these other subgoals must be completed (or failed/timed-out and non-repeatable) for subgoal to be able to trigger
+    blocking_subgoals_none_of = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### At least one of these other subgoals must NOT be completed (or failed/timed-out and non-repeatable) for subgoal to be able to trigger
+    blocking_subgoals_not_all = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### Scripted trigger evaluation for whether this subgoal is able to trigger
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### Scripted value for the daily chance to trigger this subgoal ( unset = 1 = 100% )
+    chance = {
+        value = value_field[0.0..1.0]
+    }
+
+    ## cardinality = 0..1
+    ### Effect executed when this subgoal is triggered
+    on_start = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ### Whether this subgoal can be repeated after being completed (overrides the default set in subgoal category), if no then failure is treated as unlocking/blocking for other goals
+    is_repeatable = bool
+}
