@@ -1,12 +1,16 @@
 types = {
     type[modifier_container] = {
-        path = "game/common/modifiers"
+        path = "game/common/static_modifiers"
+    }
+    localisation = {
+        name = "$"
     }
 }
 
 modifier_container = {
     ## cardinality = ~1..1
     icon = filepath
+
     ## cardinality = 0..inf
     <modifier_type> = value_field
 }

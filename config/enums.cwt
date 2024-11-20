@@ -173,4 +173,48 @@ enums = {
         regular
         conscript
     }
+
+    enum[ai_selection] = {
+        most_productive
+        most_profitable
+    }
+
+    enum[technology_category] = {
+        production
+        military
+        society
+    }
+
+    enum[diplomatic_action_group] = {
+        general
+        subject
+        overlord
+        power_bloc
+    }
+
+    enum[city_type] = {
+        none
+        city
+        farm
+        mine
+        port
+        wood
+    }
+
+    enum[modifier_color] = {
+        good
+        bad
+        neutral
+    }
+
+    enum[ownership_types] = {
+        no_ownership
+        self
+        other
+    }
+
+    enum[dlc_types] = {
+        minor
+        major
+    }
 }

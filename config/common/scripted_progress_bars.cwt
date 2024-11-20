@@ -1,0 +1,58 @@
+types = {
+    type[scripted_progress_bar] = {
+        path = "game/common/scripted_progress_bars"
+    }
+}
+
+scripted_progress_bar = {
+    ### Name of progress bar
+    name = localisation
+
+    ### This will be printed on the left side of the progress bar
+    desc = localisation
+
+    ## cardinality = 0..1
+    ### This will be printed on the right side of the progress bar
+    second_desc = localisation
+
+    ### Start value of a newly initialized progress bar
+    start_value = value_field
+
+    ### Min value of progress bar
+    min_value = value_field
+
+    ### Max value of progress bar
+    max_value = value_field
+
+    ## cardinality = 0..1
+    ### default style of progress bar (blue bar)
+    default = bool
+
+    ## cardinality = 0..1
+    ### default bad style of progress bar (red bar)
+    default_bad = bool
+
+    ## cardinality = 0..1
+    ### default green style of progress bar (green bar)
+    default_green = bool
+
+    ## cardinality = 0..1
+    ### double sided gold style of progress bar
+    double_sided_gold = bool
+
+    ## cardinality = 0..1
+    ### double sided bad style of progress bar
+    double_sided_bad = bool
+
+    ## cardinality = 0..1
+    ### weekly progress of progress bar
+    weekly_progress = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ### monthly progress of progress bar
+    monthly_progress = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ### yearly progress of progress bar
+    yearly_progress = single_alias_right[formula]
+}

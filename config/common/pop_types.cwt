@@ -3,3 +3,82 @@ types = {
         path = "game/common/pop_types"
     }
 }
+
+pop_type = {
+    texture = filepath
+
+    color = alias_match_right[color]
+
+    ### Strata that profession belongs to
+    strata = enum[pop_strata]
+
+    ### Basic quality of life
+    start_quality_of_life = int
+
+    ### Importance of the pop's wage
+    wage_weight = value_field
+
+    ## cardinality = 0..1
+    ### Whether this pop type receives wages in a non government funded building (default no)
+    paid_private_wage = bool
+
+    literacy_target = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    ### Goods consumption multiplier (default = 1)
+    consumption_mult = value_field
+
+    ### Wage for dependents per year (multiplier to pop wage)
+    dependent_wage = value_field
+
+    ### Can pop be unemployed
+    unemployment = bool
+
+    ## cardinality = 0..1
+    ### Unemployed pops whose wealth drops to or below this level switches to this profession
+    unemployment_wealth = int
+
+    ### Minimum political engagement percent
+    political_engagement_base = value_field[0.0..1.0]
+
+    ### Literacy to political engagement
+    political_engagement_literacy_factor = value_field[0.0..1.0]
+
+    ## push_scope = pop
+    political_engagement_mult = single_alias_right[formula]
+
+    ### Qualifications growth desc localization
+    qualifications_growth_desc = localisation
+
+    ## push_scope = pop
+    ### Qualifications scripted values list
+    qualifications = single_alias_right[formula]
+
+    ## push_scope = pop
+    ### Age for portrait
+    portrait_age = single_alias_right[formula]
+
+    ### Pose for portrait
+    portrait_pose = single_alias_right[formula]
+
+    ### Is portrait female or male
+    portrait_is_female = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    education_access = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    working_adult_ratio = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    can_always_hire = bool
+
+    ## cardinality = 0..1
+    ignores_employment_proportionality = bool
+
+    ## cardinality = 0..1
+    subsistence_income = bool
+
+    ## cardinality = 0..1
+    is_slave = bool
+}

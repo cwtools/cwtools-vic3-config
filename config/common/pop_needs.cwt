@@ -3,3 +3,22 @@ types = {
         path = "game/common/pop_needs"
     }
 }
+
+pop_need = {
+    default = <good>
+
+    ## cardinality = 1..inf
+    entry = {
+        ### The good being referenced
+        goods = <good>
+
+        ### The base weight that is applied to this good based on market Sell Order share
+        weight = value_field
+
+        ### The maximum weight that can be applied to this good based on market Sell Order share, relative supply above this amount will have no further impact on base weight
+        max_supply_share = 0.5
+
+        ### If above 0, a minimum of this multiplier of the base weight will be applied to a good regardless of its market Sell Order share
+        min_supply_share = 0.0
+    }
+}

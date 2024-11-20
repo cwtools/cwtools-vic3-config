@@ -92,6 +92,12 @@ building_group = {
 	### How much of the building's max staffing level can be hired in a single week (default NDefines::NEconomy::HIRING_RATE)
 	hiring_rate = float
 
+	## cardinality = 0..1
+	min_hiring_rate = float
+
+	## cardinality = 0..1
+	max_hiring_rate = float
+
     ## cardinality = 0..1
 	### How high is the building's tolerance for pop types being out of proportion? default NDefines::NEconomy::EMPLOYMENT_PROPORTIONALITY_LIMIT)
 	proportionality_limit = float

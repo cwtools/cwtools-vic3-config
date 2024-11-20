@@ -1,0 +1,9 @@
+types = {
+    type[define] = {
+        path = "game/common/defines"
+    }
+}
+
+define = {
+
+}

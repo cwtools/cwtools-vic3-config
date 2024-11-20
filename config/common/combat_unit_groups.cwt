@@ -9,10 +9,7 @@ combat_unit_group = {
     manpower_max = int
     ## cardinality = 0..1
     default_group = bool
-    color = {
-        ## cardinality = 3..3
-        float
-    }
+    color = alias_match_right[color]
     icon = filepath
 }
 

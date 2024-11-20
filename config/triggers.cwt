@@ -16,6 +16,12 @@ alias[trigger:check_area] = {
     target = scope[theater]
 }
 
+### Compares areas of object to another object
+alias[trigger:pop_type_percent_state] = {
+    target = scope[pop_type]
+    value == value_field
+}
+
 ### Compare progress of civil war civil_war_progress > 50
 alias[trigger:civil_war_progress] == value_field
 
@@ -46,7 +52,7 @@ alias[trigger:culture_secession_progress] = {
 alias[trigger:has_cultural_obsession] = <goods>
 
 ### Checks if a culture has a certain culture_graphics has_culture_graphics = <culture graphics key>
-alias[trigger:has_culture_graphics] = <culture_graphics>
+alias[trigger:has_culture_graphics] = <culture_graphic>
 
 ### Checks if scoped culture has a homeland in target state or state region has_homeland = state/state region
 alias[trigger:has_homeland] = scope[state]
@@ -444,8 +450,14 @@ alias[trigger:save_temporary_scope_value_as] = {
 ### can nudity be shown? should_show_nudity = yes/no An interface trigger, can only be used in specific places
 alias[trigger:should_show_nudity] = bool
 
-### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger. switch = { 	trigger = simple_assign_trigger 	case_1 = { <triggers> } 	case_2 = { <triggers> } 	case_n = { <triggers> } 	fallback = { <triggers> }
-alias[trigger:switch] = replace_me
+### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger.
+alias[trigger:switch] = {
+    trigger = alias_keys_field[trigger]
+    ## cardinality = ~1..inf
+    scalar = { alias_name[trigger] = alias_match_left[trigger] }
+    ## cardinality = ~1..1
+    fallback = { alias_name[trigger] = alias_match_left[trigger] }
+}
 
 ### Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }  trigger_else = { <triggers> }
 alias[trigger:trigger_else] = single_alias_right[trigger_clause]
@@ -458,6 +470,7 @@ alias[trigger:trigger_else_if] = {
 
 ### Evaluates the triggers if the display_triggers of the limit are met trigger_if = { limit = { <display_triggers> } <triggers> }
 alias[trigger:trigger_if] = {
+    ## cardinality = 0..inf
     limit = single_alias_right[trigger_clause]
     alias_name[trigger] = alias_match_left[trigger]
 }
@@ -1058,6 +1071,8 @@ alias[trigger:cash_reserves_ratio] == value_field
 
 ### Compare a building's current annual earnings per employee earnings >= 10
 alias[trigger:earnings] == value_field
+
+alias[trigger:has_deployed_units] == bool
 
 ### Checks if a scoped building has the specified production method active has_active_production_method = key
 alias[trigger:has_active_production_method] = <production_method>
@@ -1725,6 +1740,12 @@ alias[trigger:state_has_building_type_levels] = {
 
 ### Compares the current total manpower of a country's combat units  
 alias[trigger:total_manpower] == value_field
+
+### Checks scripted progress bar progress
+alias[trigger:scripted_bar_progress] = {
+    name = <scripted_progress_bar>
+    value == value_field
+}
 
 ### 
 alias[trigger:]

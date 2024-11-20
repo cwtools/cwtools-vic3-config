@@ -29,14 +29,7 @@ strategic_region = {
         ### Make sure its in a state in the region
         capital_province = enum[provinces]
         ### Not specified as to rgb vs. hsv or rgb255 vs. rgb100
-        map_color = {
-            ## cardinality = 3..3
-            float
-        }
-        map_color = {
-            ## cardinality = 3..3
-            int
-        }
+        map_color = alias_match_right[color]
         states = {
             ## cardinality = 1..inf
             <state_region.land>

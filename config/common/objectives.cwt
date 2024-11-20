@@ -3,3 +3,31 @@ types = {
         path = "game/common/objectives"
     }
 }
+
+objective = {
+    ### Icon for this objective
+    icon = filepath
+
+    ### Preview card shown for this objective
+    enabled_background = filepath
+
+    ### Which countries will show as recommended for this objective
+    recommended_tags = {
+        ## cardinality = 1..4
+        <country_definition>
+    }
+
+    ### Which subgoals are associated with this objective
+    objective_subgoals = {
+        ## cardinality = 0..inf
+        <objective_subgoal>
+    }
+
+    ## cardinality = 0..1
+    ### Which subgoal finishes this objective
+    final_subgoal = <objective_subgoal>
+
+    ## cardinality = 0..1
+    ### Effect executed on game start with this objective
+    on_start = single_alias_right[effect_clause]
+}

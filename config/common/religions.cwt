@@ -4,6 +4,10 @@ types = {
         localisation = {
 			name = "$"
 		}
+        images = {
+            ## primary
+            texture = texture # filepath
+        }
     }
 }
 
@@ -17,11 +21,7 @@ religion = {
         <discrimination_trait>
     }
 
-    ### Map color, decimal rgb?
-    color = {
-        ## cardinality = 3..3
-        float
-    }
+    color = alias_match_right[color]
 
     ### These pops hate...
     ## cardinality = 0..1

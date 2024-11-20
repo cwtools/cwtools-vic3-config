@@ -42,14 +42,7 @@ types = {
 
 country_definition = {
     ### Map color, use int with rgb (blank) or hsv360, float with hsv
-    color = {
-        ## cardinality = 3..3
-        int
-    }
-    color = {
-        ## cardinality = 3..3
-        float
-    }
+    color = alias_match_right[color]
     ### The country's 'type'
     country_type = enum[country_type]
 

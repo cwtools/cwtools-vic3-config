@@ -91,6 +91,13 @@ building = {
     ### how many levels is needed to add 1 extra building on the map, default 1
     levels_per_mesh = int
 
+    ## cardinality = 0..1
+    ### type of the building ownership, no_ownership - can't own other buildings, dividends if any are payed to the state; self - can own only itself, pays dividends to the owning buildings; other - building can own other buildings, pays dividends only to own pops
+    ownership_type = enum[ownership_types]
+
+    ## cardinality = 0..1
+    ai_nationalization_desire = value_field
+
     ### a building's behavior can be modified by its production method groups    
     production_method_groups = {
         ## cardinality = 1..inf
@@ -99,7 +106,7 @@ building = {
 
     ## cardinality = 0..1
     ### number of construction points required for construction. base game files save these values in common/script_values/building_values.txt
-    required_construction = int_value_field
+    required_construction = scalar
 
     ## cardinality = 0..1
     ### base AI value, default NAI.BUILDING_BASE_VALUE or NAI.GOVERNMENT_BUILDING_BASE_VALUE
@@ -177,17 +184,9 @@ building = {
     ## cardinality = 0..1
     ### minimum required increase in salary for an employee to switch to working at this workplace, default NEconomy.MIN_RAISE_TO_HIRE
     min_raise_to_hire = float
-}
 
-enums = {
-    enum[city_type] = {
-        none
-        city
-        farm
-        mine
-        port
-        wood
-    }
+    ## cardinality = 0..1
+    background = filepath
 }
 
 single_alias[list_of_entities] = {

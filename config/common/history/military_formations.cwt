@@ -1,0 +1,10 @@
+types = {
+    type[history_military_formations] = {
+        path = "game/common/history/military_formations"
+
+    }
+}
+
+history_military_formations = {
+    alias_name[effect] = alias_match_left[effect]
+}
