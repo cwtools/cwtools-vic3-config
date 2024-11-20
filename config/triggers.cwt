@@ -16,6 +16,12 @@ alias[trigger:check_area] = {
     target = scope[theater]
 }
 
+### Compares areas of object to another object
+alias[trigger:pop_type_percent_state] = {
+    target = scope[pop_type]
+    value == value_field
+}
+
 ### Compare progress of civil war civil_war_progress > 50
 alias[trigger:civil_war_progress] == value_field
 

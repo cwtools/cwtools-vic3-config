@@ -560,12 +560,13 @@ alias[effect:create_building] = {
     ## cardinality = 0..1
     reserves = value_field[0..1]
     ## cardinality = 0..1
-    level = int
+    level = value_field
     ## cardinality = 0..1
     level = arable_land
     ## cardinality = 0..1
     level = urbanization
 
+    ## cardinality = 0..1
     add_ownership = {
         ## cardinality = 0..1
         building = {

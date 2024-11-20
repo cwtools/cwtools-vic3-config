@@ -212,4 +212,9 @@ enums = {
         self
         other
     }
+
+    enum[dlc_types] = {
+        minor
+        major
+    }
 }
