@@ -1,17 +1,27 @@
 types = {
     type[production_method] = {
         path = "game/common/production_methods"
+        localisation = {
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
 }
 
 production_method = {
-    ## cardinality = ~1..1
     ### PM Icon
     texture = filepath
     
     ## cardinality = 0..1
     ### is this the default pm for its group? if no pm in a group is designated as the default, the first pm is considered the default.
     is_default = bool
+
+    ## cardinality = 0..1
+    ### is this pm hidden to countries that can not enable them
+    is_hidden_when_unavailable = bool
 
     ## cardinality = 0..1
     ### these modifiers are applied to the country if this pm is active

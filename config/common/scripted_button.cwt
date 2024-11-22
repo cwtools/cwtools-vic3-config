@@ -6,13 +6,15 @@ types = {
 
 scripted_button = {
     ## cardinality = ~1..1
-    name = scalar
+    name = localisation
 
     ## cardinality = ~1..1
-    desc = scalar
+    desc = localisation
 
+    ## cardinality = 0..1
     visible = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     possible = single_alias_right[trigger_clause]
 
     effect = single_alias_right[effect_clause]

@@ -1,4 +1,5 @@
 ### Iterate through all Fronts related to the scoped War every_scope_front = { limit = { <triggers> } <effects> }
+## push_scope = front
 alias[effect:every_scope_front] = {
         ## cardinality = 0..1
         limit = {
@@ -12,6 +13,7 @@ alias[effect:every_scope_front] = {
     }
 
 ### Iterate through all Fronts related to the scoped War ordered_scope_front = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = front
 alias[effect:ordered_scope_front] = {
         ## cardinality = 0..1
         limit = {
@@ -32,6 +34,7 @@ alias[effect:ordered_scope_front] = {
     }
 
 ### Iterate through all Fronts related to the scoped War random_scope_front = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = front
 alias[effect:random_scope_front] = {
         ## cardinality = 0..1
         limit = {
@@ -47,6 +50,7 @@ alias[effect:random_scope_front] = {
     }
 
 ### Iterate through all active (market) goods in a market every_market_goods = { limit = { <triggers> } <effects> }
+## push_scope = goods
 alias[effect:every_market_goods] = {
         ## cardinality = 0..1
         limit = {
@@ -60,6 +64,7 @@ alias[effect:every_market_goods] = {
     }
 
 ### Iterate through all countries with a presence in the supported scope (currently: only market scope) every_scope_country = { limit = { <triggers> } <effects> }
+## push_scope = country
 alias[effect:every_scope_country] = {
         ## cardinality = 0..1
         limit = {
@@ -73,6 +78,7 @@ alias[effect:every_scope_country] = {
     }
 
 ### Iterate through all active (market) goods in a market ordered_market_goods = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = goods
 alias[effect:ordered_market_goods] = {
         ## cardinality = 0..1
         limit = {
@@ -93,6 +99,7 @@ alias[effect:ordered_market_goods] = {
     }
 
 ### Iterate through all countries with a presence in the supported scope (currently: only market scope) ordered_scope_country = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = country
 alias[effect:ordered_scope_country] = {
         ## cardinality = 0..1
         limit = {
@@ -113,6 +120,7 @@ alias[effect:ordered_scope_country] = {
     }
 
 ### Iterate through all active (market) goods in a market random_market_goods = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = goods
 alias[effect:random_market_goods] = {
         ## cardinality = 0..1
         limit = {
@@ -128,6 +136,7 @@ alias[effect:random_market_goods] = {
     }
 
 ### Iterate through all countries with a presence in the supported scope (currently: only market scope) random_scope_country = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = country
 alias[effect:random_scope_country] = {
         ## cardinality = 0..1
         limit = {
@@ -143,6 +152,7 @@ alias[effect:random_scope_country] = {
     }
 
 ### Iterate through all trade routes in a: market, country, marketgoods every_trade_route = { limit = { <triggers> } <effects> }
+## push_scope = trade_route
 alias[effect:every_trade_route] = {
         ## cardinality = 0..1
         limit = {
@@ -156,6 +166,7 @@ alias[effect:every_trade_route] = {
     }
 
 ### Iterate through all trade routes in a: market, country, marketgoods ordered_trade_route = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = trade_route
 alias[effect:ordered_trade_route] = {
         ## cardinality = 0..1
         limit = {
@@ -176,6 +187,7 @@ alias[effect:ordered_trade_route] = {
     }
 
 ### Iterate through all trade routes in a: market, country, marketgoods random_trade_route = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = trade_route
 alias[effect:random_trade_route] = {
         ## cardinality = 0..1
         limit = {
@@ -191,6 +203,7 @@ alias[effect:random_trade_route] = {
     }
 
 ### Iterate through all interest groups supporting a political movement every_supporting_interest_group = { limit = { <triggers> } <effects> }
+## push_scope = interest_group
 alias[effect:every_supporting_interest_group] = {
         ## cardinality = 0..1
         limit = {
@@ -204,6 +217,7 @@ alias[effect:every_supporting_interest_group] = {
     }
 
 ### Iterate through all interest groups supporting a political movement ordered_supporting_interest_group = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = interest_group
 alias[effect:ordered_supporting_interest_group] = {
         ## cardinality = 0..1
         limit = {
@@ -224,6 +238,7 @@ alias[effect:ordered_supporting_interest_group] = {
     }
 
 ### Iterate through all interest groups supporting a political movement random_supporting_interest_group = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = interest_group
 alias[effect:random_supporting_interest_group] = {
         ## cardinality = 0..1
         limit = {
@@ -239,6 +254,7 @@ alias[effect:random_supporting_interest_group] = {
     }
 
 ### Primary cultures of the scoped country or country definition every_primary_culture = { limit = { <triggers> } <effects> }
+## push_scope = culture
 alias[effect:every_primary_culture] = {
         ## cardinality = 0..1
         limit = {
@@ -252,6 +268,7 @@ alias[effect:every_primary_culture] = {
     }
 
 ### Primary cultures of the scoped country or country definition ordered_primary_culture = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = culture
 alias[effect:ordered_primary_culture] = {
         ## cardinality = 0..1
         limit = {
@@ -272,6 +289,7 @@ alias[effect:ordered_primary_culture] = {
     }
 
 ### Primary cultures of the scoped country or country definition random_primary_culture = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = culture
 alias[effect:random_primary_culture] = {
         ## cardinality = 0..1
         limit = {
@@ -287,6 +305,7 @@ alias[effect:random_primary_culture] = {
     }
 
 ### Iterate through all pops in a: country, state, interest group, culture every_scope_pop = { limit = { <triggers> } <effects> }
+## push_scope = pop
 alias[effect:every_scope_pop] = {
         ## cardinality = 0..1
         limit = {
@@ -300,6 +319,7 @@ alias[effect:every_scope_pop] = {
     }
 
 ### Iterate through all pops in a: country, state, interest group, culture ordered_scope_pop = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = pop
 alias[effect:ordered_scope_pop] = {
         ## cardinality = 0..1
         limit = {
@@ -320,6 +340,7 @@ alias[effect:ordered_scope_pop] = {
     }
 
 ### Iterate through all pops in a: country, state, interest group, culture random_scope_pop = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = pop
 alias[effect:random_scope_pop] = {
         ## cardinality = 0..1
         limit = {
@@ -335,6 +356,7 @@ alias[effect:random_scope_pop] = {
     }
 
 ### Iterate through all combat units of input scope every_combat_unit = { limit = { <triggers> } <effects> }
+## push_scope = combat_unit
 alias[effect:every_combat_unit] = {
         ## cardinality = 0..1
         limit = {
@@ -348,6 +370,7 @@ alias[effect:every_combat_unit] = {
     }
 
 ### Iterate through all combat units of input scope ordered_combat_unit = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = combat_unit
 alias[effect:ordered_combat_unit] = {
         ## cardinality = 0..1
         limit = {
@@ -368,6 +391,7 @@ alias[effect:ordered_combat_unit] = {
     }
 
 ### Iterate through all combat units of input scope random_combat_unit = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = combat_unit
 alias[effect:random_combat_unit] = {
         ## cardinality = 0..1
         limit = {
@@ -383,6 +407,7 @@ alias[effect:random_combat_unit] = {
     }
 
 ### Iterate through all states including provinces from a: country, state_region, theater, or front every_scope_state = { limit = { <triggers> } <effects> }
+## push_scope = state
 alias[effect:every_scope_state] = {
         ## cardinality = 0..1
         limit = {
@@ -396,6 +421,7 @@ alias[effect:every_scope_state] = {
     }
 
 ### Iterate through all states including provinces from a: country, state_region, theater, or front ordered_scope_state = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = state
 alias[effect:ordered_scope_state] = {
         ## cardinality = 0..1
         limit = {
@@ -416,6 +442,7 @@ alias[effect:ordered_scope_state] = {
     }
 
 ### Iterate through all states including provinces from a: country, state_region, theater, or front random_scope_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = state
 alias[effect:random_scope_state] = {
         ## cardinality = 0..1
         limit = {
@@ -431,6 +458,7 @@ alias[effect:random_scope_state] = {
     }
 
 ### Iterate through all states neighbouring a state region every_neighbouring_state = { limit = { <triggers> } <effects> }
+## push_scope = state
 alias[effect:every_neighbouring_state] = {
         ## cardinality = 0..1
         limit = {
@@ -444,6 +472,7 @@ alias[effect:every_neighbouring_state] = {
     }
 
 ### Iterate through all states neighbouring a state region ordered_neighbouring_state = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = state
 alias[effect:ordered_neighbouring_state] = {
         ## cardinality = 0..1
         limit = {
@@ -464,6 +493,7 @@ alias[effect:ordered_neighbouring_state] = {
     }
 
 ### Iterate through all states neighbouring a state region random_neighbouring_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = state
 alias[effect:random_neighbouring_state] = {
         ## cardinality = 0..1
         limit = {
@@ -479,6 +509,7 @@ alias[effect:random_neighbouring_state] = {
     }
 
 ### Iterate through all interest markers in a: country, strategic region every_scope_interest_marker = { limit = { <triggers> } <effects> }
+## push_scope = interest_marker
 alias[effect:every_scope_interest_marker] = {
         ## cardinality = 0..1
         limit = {
@@ -492,6 +523,7 @@ alias[effect:every_scope_interest_marker] = {
     }
 
 ### Iterate through all interest markers in a: country, strategic region ordered_scope_interest_marker = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = interest_marker
 alias[effect:ordered_scope_interest_marker] = {
         ## cardinality = 0..1
         limit = {
@@ -512,6 +544,7 @@ alias[effect:ordered_scope_interest_marker] = {
     }
 
 ### Iterate through all interest markers in a: country, strategic region random_scope_interest_marker = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = interest_marker
 alias[effect:random_scope_interest_marker] = {
         ## cardinality = 0..1
         limit = {
@@ -527,6 +560,7 @@ alias[effect:random_scope_interest_marker] = {
     }
 
 ### Iterate through all characters globally every_character = { limit = { <triggers> } <effects> }
+## push_scope = character
 alias[effect:every_character] = {
         ## cardinality = 0..1
         limit = {
@@ -540,6 +574,7 @@ alias[effect:every_character] = {
     }
 
 ### Iterate through characters in the void every_character_in_void = { limit = { <triggers> } <effects> }
+## push_scope = character
 alias[effect:every_character_in_void] = {
         ## cardinality = 0..1
         limit = {
@@ -553,6 +588,7 @@ alias[effect:every_character_in_void] = {
     }
 
 ### Iterate through all countries globally every_country = { limit = { <triggers> } <effects> }
+## push_scope = country
 alias[effect:every_country] = {
         ## cardinality = 0..1
         limit = {
@@ -566,6 +602,7 @@ alias[effect:every_country] = {
     }
 
 ### Iterate through all diplomatic plays globally every_diplomatic_play = { limit = { <triggers> } <effects> }
+## push_scope = diplomatic_play
 alias[effect:every_diplomatic_play] = {
         ## cardinality = 0..1
         limit = {
@@ -624,6 +661,7 @@ alias[effect:every_in_local_list] = {
     }
 
 ### Iterate through all markets globally every_market = { limit = { <triggers> } <effects> }
+## push_scope = market
 alias[effect:every_market] = {
         ## cardinality = 0..1
         limit = {
@@ -637,6 +675,7 @@ alias[effect:every_market] = {
     }
 
 ### Iterate through all states globally every_state = { limit = { <triggers> } <effects> }
+## push_scope = state
 alias[effect:every_state] = {
         ## cardinality = 0..1
         limit = {
@@ -650,6 +689,7 @@ alias[effect:every_state] = {
     }
 
 ### Iterate through all state regions every_state_region = { limit = { <triggers> } <effects> }
+## push_scope = state
 alias[effect:every_state_region] = {
         ## cardinality = 0..1
         limit = {
@@ -663,6 +703,7 @@ alias[effect:every_state_region] = {
     }
 
 ### Iterate through all characters globally ordered_character = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = character
 alias[effect:ordered_character] = {
         ## cardinality = 0..1
         limit = {
@@ -683,6 +724,7 @@ alias[effect:ordered_character] = {
     }
 
 ### Iterate through characters in the void ordered_character_in_void = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = character
 alias[effect:ordered_character_in_void] = {
         ## cardinality = 0..1
         limit = {
@@ -703,6 +745,7 @@ alias[effect:ordered_character_in_void] = {
     }
 
 ### Iterate through all countries globally ordered_country = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = country
 alias[effect:ordered_country] = {
         ## cardinality = 0..1
         limit = {
@@ -723,6 +766,7 @@ alias[effect:ordered_country] = {
     }
 
 ### Iterate through all diplomatic plays globally ordered_diplomatic_play = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = diplomatic_play
 alias[effect:ordered_diplomatic_play] = {
         ## cardinality = 0..1
         limit = {
@@ -806,6 +850,7 @@ alias[effect:ordered_in_local_list] = {
     }
 
 ### Iterate through all markets globally ordered_market = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = market
 alias[effect:ordered_market] = {
         ## cardinality = 0..1
         limit = {
@@ -826,6 +871,7 @@ alias[effect:ordered_market] = {
     }
 
 ### Iterate through all states globally ordered_state = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = state
 alias[effect:ordered_state] = {
         ## cardinality = 0..1
         limit = {
@@ -846,6 +892,7 @@ alias[effect:ordered_state] = {
     }
 
 ### Iterate through all state regions ordered_state_region = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+## push_scope = state_region
 alias[effect:ordered_state_region] = {
         ## cardinality = 0..1
         limit = {
@@ -866,6 +913,7 @@ alias[effect:ordered_state_region] = {
     }
 
 ### Iterate through all characters globally random_character = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = character
 alias[effect:random_character] = {
         ## cardinality = 0..1
         limit = {
@@ -881,6 +929,7 @@ alias[effect:random_character] = {
     }
 
 ### Iterate through characters in the void random_character_in_void = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = character
 alias[effect:random_character_in_void] = {
         ## cardinality = 0..1
         limit = {
@@ -896,6 +945,7 @@ alias[effect:random_character_in_void] = {
     }
 
 ### Iterate through all countries globally random_country = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = country
 alias[effect:random_country] = {
         ## cardinality = 0..1
         limit = {
@@ -911,6 +961,7 @@ alias[effect:random_country] = {
     }
 
 ### Iterate through all diplomatic plays globally random_diplomatic_play = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = diplomatic_play
 alias[effect:random_diplomatic_play] = {
         ## cardinality = 0..1
         limit = {
@@ -999,6 +1050,7 @@ alias[effect:random_log_scopes] = {
     }
 
 ### Iterate through all markets globally random_market = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = market
 alias[effect:random_market] = {
         ## cardinality = 0..1
         limit = {
@@ -1014,6 +1066,7 @@ alias[effect:random_market] = {
     }
 
 ### Iterate through all states globally random_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = state
 alias[effect:random_state] = {
         ## cardinality = 0..1
         limit = {
@@ -1029,6 +1082,7 @@ alias[effect:random_state] = {
     }
 
 ### Iterate through all state regions random_state_region = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = state_region
 alias[effect:random_state_region] = {
         ## cardinality = 0..1
         limit = {
@@ -1044,6 +1098,7 @@ alias[effect:random_state_region] = {
     }
 
 ### Iterate through all active political parties in a country every_active_party = { limit = { <triggers> } <effects> }
+## push_scope = party
 alias[effect:every_active_party] = {
         ## cardinality = 0..1
         limit = {
@@ -2247,6 +2302,7 @@ alias[effect:random_scope_admiral] = {
     }
 
 ### Iterate through all characters in a: country, interestgroup, or front random_scope_character = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = character
 alias[effect:random_scope_character] = {
         ## cardinality = 0..1
         limit = {
@@ -2262,6 +2318,7 @@ alias[effect:random_scope_character] = {
     }
 
 ### Iterate through all generals in a: country, interestgroup, or front random_scope_general = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = character
 alias[effect:random_scope_general] = {
         ## cardinality = 0..1
         limit = {
@@ -2277,6 +2334,7 @@ alias[effect:random_scope_general] = {
     }
 
 ### Iterate through all politicians in a: country or interestgroup random_scope_politician = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+## push_scope = character
 alias[effect:random_scope_politician] = {
         ## cardinality = 0..1
         limit = {
@@ -2292,6 +2350,7 @@ alias[effect:random_scope_politician] = {
     }
 
 ### Iterate through all companies in a country
+## push_scope = company
 alias[effect:every_company] = {
     ## cardinality = 0..1
     limit = {
@@ -2305,6 +2364,7 @@ alias[effect:every_company] = {
 }
 
 ### Iterate through all companies in a country
+## push_scope = company
 alias[effect:ordered_company] = {
     ## cardinality = 0..1
     limit = {
@@ -2325,6 +2385,7 @@ alias[effect:ordered_company] = {
 }
 
 ### Iterate through all companies in a country
+## push_scope = company
 alias[effect:random_company] = {
     ## cardinality = 0..1
     limit = {
@@ -2340,6 +2401,7 @@ alias[effect:random_company] = {
 }
 
 ### Iterate through all military formations currently present at input scope
+## push_scope = military_formation
 alias[effect:every_military_unit] = {
     ## cardinality = 0..1
     limit = {
@@ -2353,6 +2415,7 @@ alias[effect:every_military_unit] = {
 }
 
 ### Iterate through all military formations currently present at input scope
+## push_scope = military_formation
 alias[effect:ordered_military_unit] = {
     ## cardinality = 0..1
     limit = {
@@ -2373,6 +2436,7 @@ alias[effect:ordered_military_unit] = {
 }
 
 ### Iterate through all military formations currently present at input scope
+## push_scope = military_formation
 alias[effect:random_military_formation] = {
     ## cardinality = 0..1
     limit = {
@@ -2388,6 +2452,7 @@ alias[effect:random_military_formation] = {
 }
 
 ### Iterate through all Provinces in the scoped State
+## push_scope = province
 alias[effect:every_province] = {
     ## cardinality = 0..1
     limit = {
@@ -2401,6 +2466,7 @@ alias[effect:every_province] = {
 }
 
 ### Iterate through all Provinces in the scoped State
+## push_scope = province
 alias[effect:ordered_province] = {
     ## cardinality = 0..1
     limit = {
@@ -2421,6 +2487,7 @@ alias[effect:ordered_province] = {
 }
 
 ### Iterate through all Provinces in the scoped State
+## push_scope = province
 alias[effect:random_province] = {
     ## cardinality = 0..1
     limit = {
@@ -2436,6 +2503,7 @@ alias[effect:random_province] = {
 }
 
 ### Iterate through all interest markers held by a country
+## push_scope = interest_marker
 alias[effect:every_scope_held_interest_marker] = {
     ## cardinality = 0..1
     limit = {
@@ -2449,6 +2517,7 @@ alias[effect:every_scope_held_interest_marker] = {
 }
 
 ### Iterate through all interest markers held by a country
+## push_scope = interest_marker
 alias[effect:ordered_scope_held_interest_marker] = {
     ## cardinality = 0..1
     limit = {
@@ -2469,6 +2538,7 @@ alias[effect:ordered_scope_held_interest_marker] = {
 }
 
 ### Iterate through all interest markers held by a country
+## push_scope = interest_marker
 alias[effect:random_scope_held_interest_marker] = {
     ## cardinality = 0..1
     limit = {
@@ -2484,6 +2554,7 @@ alias[effect:random_scope_held_interest_marker] = {
 }
 
 ### Iterate through all states that share a sea node with a state
+## push_scope = state
 alias[effect:every_sea_node_adjacent_state] = {
     ## cardinality = 0..1
     limit = {
@@ -2497,6 +2568,7 @@ alias[effect:every_sea_node_adjacent_state] = {
 }
 
 ### Iterate through all states that share a sea node with a state
+## push_scope = state
 alias[effect:ordered_sea_node_adjacent_state] = {
     ## cardinality = 0..1
     limit = {
@@ -2517,6 +2589,7 @@ alias[effect:ordered_sea_node_adjacent_state] = {
 }
 
 ### Iterate through all states that share a sea node with a state
+## push_scope = state
 alias[effect:random_sea_node_adjacent_state] = {
     ## cardinality = 0..1
     limit = {
@@ -2532,6 +2605,7 @@ alias[effect:random_sea_node_adjacent_state] = {
 }
 
 ### Lists for cultures in the scoped country that are valid for mass migration
+## push_scope = culture
 alias[effect:every_valid_mass_migration_culture] = {
     ## cardinality = 0..1
     limit = {
@@ -2545,6 +2619,7 @@ alias[effect:every_valid_mass_migration_culture] = {
 }
 
 ### Lists for cultures in the scoped country that are valid for mass migration
+## push_scope = culture
 alias[effect:ordered_valid_mass_migration_culture] = {
     ## cardinality = 0..1
     limit = {
@@ -2565,6 +2640,7 @@ alias[effect:ordered_valid_mass_migration_culture] = {
 }
 
 ### Lists for cultures in the scoped country that are valid for mass migration
+## push_scope = culture
 alias[effect:random_valid_mass_migration_culture] = {
     ## cardinality = 0..1
     limit = {

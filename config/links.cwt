@@ -344,7 +344,25 @@ links = {
 		from_data = yes
 		data_source = <pop_type>
 	}
-	### Scope to rank value of a particular country rank (rank_value:great_power)
+	literacy_rate = {
+		desc = " Literacy rate of pop"
+		input_scopes = pop
+		output_scope = value
+		type = value
+	}
+	wealth = {
+		desc = " Wealth of pop"
+		input_scopes = pop
+		output_scope = value
+		type = value
+	}
+	standard_of_living = {
+		desc = " Standard of living of pop"
+		input_scopes = pop
+		output_scope = value
+		type = value
+	}
+    ### Scope to rank value of a particular country rank (rank_value:great_power)
 	rank_value = {
 		desc = " Scope to rank value of a particular country rank (rank_value:great_power)"
 		output_scope = value
@@ -1041,7 +1059,7 @@ links = {
 	### Scope to the state region of a state
 	state_region = {
 		desc = " Scope to the state region of a state"
-		input_scopes = state
+		input_scopes = { state country }
 		output_scope = state_region
 	}
 	### Get the scoped market good's current number of import trade routes owned by a market member
@@ -1348,6 +1366,30 @@ links = {
 	mobilization = {
 		desc = "Returns the unit's mobilization value between 0 and 1"
 		input_scopes = { combat_unit new_combat_unit }
+		output_scope = value
+		type = value
+	}
+	country_rank = {
+		desc = "Returns the countries rank"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	ai_army_comparison(root) = {
+		desc = "Returns the difference between countries armies"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	relations(scope:actor) = {
+		desc = " Scope to relations between two countries (example: relations:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_alliances_and_defensive_pacts_with_rivals(scope:actor) = {
+		desc = "Number of relations with rival countries"
+		input_scopes = country
 		output_scope = value
 		type = value
 	}

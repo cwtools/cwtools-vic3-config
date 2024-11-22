@@ -1,8 +1,9 @@
 types = {
     type[history_country] = {
         path = "game/common/history/countries"
-
     }
 }
 
-history_country = single_alias_right[effect_clause]
+history_country = {
+    alias_name[effect] = alias_match_left[effect]
+}

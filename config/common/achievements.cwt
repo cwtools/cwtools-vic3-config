@@ -3,3 +3,9 @@ types = {
         path = "game/common/achievements"
     }
 }
+
+achievement = {
+    possible = single_alias_right[trigger_clause]
+
+    happened = single_alias_right[trigger_clause]
+}

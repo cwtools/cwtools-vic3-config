@@ -80,7 +80,17 @@ alias[effect:add_modifier] = {
     ## cardinality = 0..1
     enum[duration] = int
     ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = enum[static_values]
+    ## cardinality = 0..1
+    enum[duration] = enum[duration]
+    ## cardinality = 0..1
     multiplier = value_field
+    ## cardinality = 0..1
+    multiplier = <script_value>
+    ## cardinality = 0..1
+    multiplier = enum[static_values]
     ## cardinality = 0..1
     is_decaying = bool
 }
@@ -128,6 +138,8 @@ alias[effect:add_journal_entry] = {
     type = <journal_entry>
     ## cardinality = 0..1
     target = scope_field
+    ## cardinality = 0..1
+    objective_subgoal = <objective_subgoal>
 }
 
 ### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
@@ -201,6 +213,16 @@ alias[effect:change_local_variable] = {
 alias[effect:change_variable] = {
     name = value[variable]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+alias[effect:kill_population] = {
+    value = value_field
+    pop_type = <pop_type>
+}
+
+alias[effect:add_radicals_in_state] = {
+    value = value_field
+    value = <script_value>
 }
 
 ### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
@@ -555,11 +577,27 @@ alias[effect:create_building] = {
     ## cardinality = 0..1
     reserves = value_field[0..1]
     ## cardinality = 0..1
-    level = int
+    level = value_field
     ## cardinality = 0..1
     level = arable_land
     ## cardinality = 0..1
     level = urbanization
+
+    ## cardinality = 0..1
+    add_ownership = {
+        ## cardinality = 0..1
+        building = {
+            type = <building>
+            country = scope[country]
+            levels = int
+            region = <state_region>
+        }
+        ## cardinality = 0..1
+        country = {
+            country = scope[country]
+            levels = int
+        }
+    }
 }
 
 ### Creates a pop in the scoped state
@@ -606,6 +644,7 @@ alias[effect:add_devastation] = int_value_field
 
 ### Adds scoped state region as Homeland for target culture add_homeland = scope/culture
 alias[effect:add_homeland] = <culture>
+alias[effect:add_homeland] = scope[culture]
 
 ### Increase/decrease pollution level in a scoped state region add_pollution = 10
 alias[effect:add_pollution] = int_value_field
@@ -817,6 +856,9 @@ alias[effect:create_character] = {
     }
 
     ## cardinality = 0..1
+    historical = bool
+
+    ## cardinality = 0..1
     role = scope[character]
 
     #TODO add hq scope?
@@ -834,22 +876,27 @@ alias[effect:create_character] = {
     save_scope_as = value_set[event_target]
 }
 
-### Create a diplomatic pact between two countries, with scope country as initiator create_diplomatic_pact = { 	tcountry = country scope/tag 	type = diplomatic action type }
+### Create a diplomatic pact between two countries, with scope country as initiator create_diplomatic_pact = { 	country = country scope/tag 	type = diplomatic action type }
 alias[effect:create_diplomatic_pact] = {
     country = scope[country]
     country = <country_definition>
     type = <diplomatic_action>
 }
 
+### Set liberty desire of a subject country
+alias[effect:add_liberty_desire] = int_value_field
+
 ### Create a diplomatic play with the scoped object as target create_diplomatic_play = { 	name = loc_key 	escalation = integer between 0 and 100 	war = bool 	initiator = country scope/tag 	type = diplomatic play type 	add_initiator_backers = { list of country scopes/tags } 	add_target_backers = { list of country scopes/tags } 	add_war_goal = { holder = country scope/tag, type = x, state = <state target>, country = <country target,> region = <region target>  } }
 alias[effect:create_diplomatic_play] = {
     ## cardinality = 0..1
     name = localisation
+
     ## cardinality = 0..1
     escalation = int_value_field[0..100]
 
     ## cardinality = 0..1
-    war = no
+    war = bool
+
     ## cardinality = 0..1
     initiator = scope[country]
     ## cardinality = 0..1
@@ -859,48 +906,10 @@ alias[effect:create_diplomatic_play] = {
 
     ## cardinality = 0..1
     target_state = scope[state]
+
     ## cardinality = 0..1
     target_country = scope[country]
-    ## cardinality = 0..1
-    target_region = scope[state_region]
 
-
-    ## cardinality = 0..1
-    add_initiator_backers = {
-        ## cardinality = 0..inf
-        scope[country]
-        ## cardinality = 0..inf
-        <country_definition>
-    }
-
-    ## cardinality = 0..1
-    add_target_backers = {
-        ## cardinality = 0..inf
-        scope[country]
-        ## cardinality = 0..inf
-        <country_definition>
-    }
-}
-
-### Create a diplomatic play with the scoped object as target create_diplomatic_play = { 	name = loc_key 	escalation = integer between 0 and 100 	war = bool 	initiator = country scope/tag 	type = diplomatic play type 	add_initiator_backers = { list of country scopes/tags } 	add_target_backers = { list of country scopes/tags } 	add_war_goal = { holder = country scope/tag, type = x, state = <state target>, country = <country target,> region = <region target>  } }
-alias[effect:create_diplomatic_play] = {
-    ## cardinality = 0..1
-    name = localisation
-    ## cardinality = 0..1
-    escalation = int_value_field[0..100]
-
-    war = yes
-    ## cardinality = 0..1
-    initiator = scope[country]
-    ## cardinality = 0..1
-    initiator = <country_definition>
-
-    type = <diplomatic_play>
-
-    ## cardinality = 0..1
-    target_state = scope[state]
-    ## cardinality = 0..1
-    target_country = scope[country]
     ## cardinality = 0..1
     target_region = scope[state_region]
 
@@ -932,6 +941,8 @@ alias[effect:create_diplomatic_play] = {
         target_country = scope[country]
         ## cardinality = 0..1
         target_region = scope[state_region]
+        ## cardinality = 0..1
+        primary_demand = bool
     }
 }
 
@@ -997,6 +1008,11 @@ alias[effect:remove_diplomatic_pact] = {
 ### Removes an enactment-related timed modifier effect to object in scope
 alias[effect:remove_enactment_modifier] = replace_me
 
+### Removes an enactment-related timed modifier effect to object in scope
+alias[effect:kill_population_percent_in_state] = {
+    percent = value_field[0..1]
+}
+
 ### Removes a culture from the primary cultures of a country remove_primary_culture = X Where X is a culture scope
 alias[effect:remove_primary_culture] = scope[culture]
 
@@ -1053,7 +1069,7 @@ alias[effect:set_relations] = {
 
 ### Creates a government for the country in scope from a set of interest groups set_ruling_interest_groups = { ig_tag1 ig_tag2 }
 alias[effect:set_ruling_interest_groups] = {
-    ## cardinality = 1..*
+    ## cardinality = 1..inf
     <interest_group>
 }
 
@@ -1352,6 +1368,10 @@ alias[effect:create_military_formation] = {
 
         count = int
     }
+
+    ## cardinality = 0..1
+    ### Saves the current scope as an arbitrarily-named target to be referenced later in the (unbroken) event chain save_event_target_as = <string>
+    save_scope_as = value_set[event_target]
 
     ## cardinality = 0..1
     ### mobilization_options are not applicable for fleets

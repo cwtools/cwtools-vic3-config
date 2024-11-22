@@ -10,7 +10,6 @@ alias[trigger:value_field] == value_field
 alias[trigger:scope_field] = scope_field
 
 alias[trigger:NOT] = {
-	# ## cardinality = 1..1
 	alias_name[trigger] = alias_match_left[trigger]
 }
 

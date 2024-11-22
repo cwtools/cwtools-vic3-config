@@ -64,6 +64,9 @@ event = {
 	# scope = enum[event_scope_types]
 
 	## cardinality = 0..1
+    dlc = <dlc>
+
+    ## cardinality = 0..1
 	hidden = bool
 
 	## cardinality = 0..1

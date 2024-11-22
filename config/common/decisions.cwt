@@ -2,12 +2,25 @@ types = {
     type[decision] = {
         path = "game/common/decisions"
     }
+    localisation = {
+        name = "$"
+    }
 }
 
 ## replace_scope = { ROOT = country THIS = country }
 decision = {
+    ## cardinality = 0..1
+    ### This trigger determines if a decision shows up at all (country scope)
     is_shown = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### This trigger determines if a decision can be taken (country scope)
     possible = single_alias_right[trigger_clause]
+
+    ### There is nothing special about this effect. It determines what happens when\na country takes the decision. It follows the same rules as any other effect.
     when_taken = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ### The scripted weight which determines how likely AI is to take it amongst all possible decisions (country scope).\nSimilar to event options. If it evaluates to 0, AI will not take the decision. Evaluates to 1 if unspecified
     ai_chance = single_alias_right[ai_chance_block]
 }
