@@ -1,5 +1,42 @@
 types = {
     type[party] = {
         path = "game/common/parties"
+        file_extension = .txt
     }
+}
+
+party = {
+    ### Party color
+    color = alias_match_right[color]
+
+    ### Party name
+    name = localisation
+    ### Party name
+    name = single_alias_right[complex_desc]
+
+    ### Icon
+    icon = {
+        default = filepath
+    }
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
+    ### Conditions that must evaluate true to have this party in a country
+    ### THIS IS RUN ONLY ONCE AT GAME START
+    valid_for_country = single_alias_right[trigger_clause]
+
+    ## replace_scope = { root = interest_group this = interest_group }
+    ### Conditions that must evaluate true to have an interest group join this party
+    available_for_interest_group = single_alias_right[trigger_clause]
+
+    ## replace_scope = { root = interest_group this = interest_group }
+    ### scope:number - the number of IGs that would join this party before the root IG
+    join_weight = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    unlocking_technologies = {
+        ## cardinality = 1..inf
+        <technology>
+    }
+
 }

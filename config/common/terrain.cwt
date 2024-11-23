@@ -1,5 +1,68 @@
 types = {
     type[terrain] = {
         path = "game/common/terrain"
+        file_extension = .txt
     }
+}
+
+terrain = {
+    ## replace_scope = { root = province this = province }
+    ### Script value for the terrain weight when determining the prevalent terrain in a province set, example:
+    ### 2 Plains provinces with weight 0.5 = total weight 1 for Plains; 3 mountain provinces weight 0.25 = total weight 0.75 for Mountains; prevalent terrain is Plains
+    weight = single_alias_right[formula]
+
+    ### Script value for the terrain weight when determining the prevalent terrain in a province set, example:
+    ### 2 Plains provinces with weight 0.5 = total weight 1 for Plains; 3 mountain provinces weight 0.25 = total weight 0.75 for Mountains; prevalent terrain is Plains
+    weight = value_field
+
+    ## cardinality = 1..inf
+    label = <label>
+
+    textures = {
+        ## cardinality = 1..inf
+        {
+            ## cardinality = 0..1
+            ## replace_scope = { root = province this = province }
+            ### Scripted value, by default 0, if more than zero the highest scoring texture will override the default one
+            ### Available scopes: scope:state, scope:region (for state region)
+            weight = single_alias_right[formula]
+            ## cardinality = 0..1
+            ### Scripted value, by default 0, if more than zero the highest scoring texture will override the default one
+            ### Available scopes: scope:state, scope:region (for state region)
+            weight = value_field
+
+            ### Path to additional texture
+            path = filepath
+
+            ### Effect entity for specific texture
+            ### Seems to be defined in gfx/models/particles/\vfx_entities_ui.asset
+            effect = scalar
+        }
+    }
+
+    ## cardinality = 0..1
+    ### The maximum numeric advantage a side can make use of in battle, 0.8 = up to 80% more of an advantage
+    combat_width = value_field
+
+    ## cardinality = 0..1
+    ### Risk of casualties in a terrain
+    risk = value_field
+
+    ## cardinality = 0..1
+    ### Materials and weights used to determine if province belongs to terrain type
+    materials = {
+        scalar = value_field
+    }
+
+    ## cardinality = 0..1
+    created_material = scalar
+
+    ### Color used in a debug mode
+    debug_color = alias_match_right[color]
+
+    ### Pollution mask strength
+    pollution_mask_strength = value_field
+
+    ### Devastation mask strength
+    devastation_mask_strength = value_field
 }

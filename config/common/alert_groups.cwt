@@ -1,6 +1,7 @@
 types = {
     type[alert_group] = {
         path = "game/common/alert_groups"
+        file_extension = .txt
     }
 }
 

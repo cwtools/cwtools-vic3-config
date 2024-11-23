@@ -1,6 +1,7 @@
 alias[colour:color] = <named_color>
 alias[colour:color] = colour[rgb]
 alias[colour:color] = colour[hsv]
+alias[colour:color] = colour[hsv360]
 ## color_type = hsv
 alias[colour:color] = {
     ## cardinality = 3..3

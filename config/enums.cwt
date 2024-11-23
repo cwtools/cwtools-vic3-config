@@ -50,10 +50,9 @@ enums = {
     }
 
     enum[pop_strata] = {
-        poor
         middle
-        rich
         upper
+        lower
     }
 
     enum[acceptance_status] = {
@@ -77,6 +76,8 @@ enums = {
 
     enum[cosmetic_dlc] = {
         "Victoria 2 Remastered Soundtrack"
+        "Voice of the People Theme"
+        "Melodies for the Masses"
     }
 
     # As of 1.8
@@ -124,10 +125,6 @@ enums = {
         defiant
     }
 
-    enum[political_movement_type] = {
-        movement_to_enact
-        movement_to_preserve
-    }
     enum[relations_thresholds] = {
         friendly
         amicable
@@ -305,5 +302,73 @@ enums = {
     enum[market_owners] = {
         first_country
         second_country
+    }
+
+    # TODO
+    enum[transfer_of_power_types] = {
+        hereditary
+        parliamentary_elective
+        dictatorial
+        presidential_elective
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[scripted_list_base] = {
+        country
+        character_in_void
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[open_popup_types] = {
+        diplomatic_proposal
+        diplomatic_proposal_break
+        sway_offer
+        diplomatic_demand
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[modifier_type_tags] = {
+        cultural_acceptance
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[message_types] = {
+        country
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[label_types] = {
+        terrain
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[label_modifier_keys] = {
+        flat
+        elevated
+        forested
+        hazardous
+        developed
+        water
+        travel_harsh_environment
+    }
+
+    enum[notification_types] = {
+        feed
+        toast
+        popup
+    }
+
+    enum[power_bloc_coa_piece_types] = {
+        shield_pattern
+        shield_frame
+        center
+        top
+        side
+    }
+
+    enum[political_lobby_categories] = {
+        foreign_pro_country
+        foreign_anti_country
+        foreign
     }
 }

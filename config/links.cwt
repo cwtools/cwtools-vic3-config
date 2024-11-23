@@ -372,6 +372,11 @@ links = {
 		output_scope = value
 		type = value
 	}
+	political_movement_support = {
+		input_scopes = political_movement
+		output_scope = value
+		type = value
+	}
 	sr = {
 		desc = " Scope to the strategic region of specified key"
 		from_data = yes
@@ -407,7 +412,7 @@ links = {
 		type = value
 	}
 	land_hq = {
-		desc = " Returns local land HQ"
+		desc = "Returns local land HQ"
 		input_scopes = province
 		output_scope = hq
 	}
@@ -477,6 +482,11 @@ links = {
 		desc = " Scope to the origin country of a civil war country"
 		input_scopes = country
 		output_scope = country
+	}
+	civil_war = {
+		desc = "Scope to civil war"
+		input_scopes = political_movement
+		output_scope = war
 	}
 	colonial_growth_per_colony = {
 		desc = " Scope to the country's colonial growth per colony value (example: colonial_growth_per_colony > 0)"
@@ -817,7 +827,7 @@ links = {
 	}
 	target = {
 		desc = " Scope to the target of the object"
-		input_scopes = { diplomatic_play journalentry diplomatic_catalyst }
+		input_scopes = { diplomatic_play journalentry diplomatic_catalyst political_lobby interest_group political_lobby }
 	}
 	level = {
 		desc = " Scope to the level of an object"
@@ -872,7 +882,7 @@ links = {
 	}
 	owner = {
 		desc = " Scope to the owner country of object"
-		input_scopes = { country state province pop building interest_group market market_goods interest_marker character institution law journalentry trade_route decree combat_unit new_combat_unit military_formation }
+		input_scopes = { country state province pop building interest_group market market_goods interest_marker character institution law journalentry trade_route decree combat_unit new_combat_unit military_formation political_movement }
 		output_scope = country
 	}
 	attacker_warleader = {
@@ -891,9 +901,20 @@ links = {
 		output_scope = pop_type
 	}
 	desired_law = {
-		desc = " Scope to the law the scoped political movement wants to enact/preserve."
+		desc = "Scope to the law the scoped political movement wants to enact/preserve."
 		input_scopes = political_movement
 		output_scope = law_type
+	}
+	political_movement = {
+		desc = "Scope to political movement a character supports."
+		input_scopes = character
+		output_scope = political_movement
+	}
+	government_legitimacy = {
+		desc = "Get the current goverment legitimacy of a country."
+		input_scopes = country
+		output_scope = value
+		type = value
 	}
 	leader = {
 		desc = " Scope to the leader of the interest group"
@@ -907,7 +928,7 @@ links = {
 	}
 	type = {
 		desc = " Scope from an object to its type"
-		input_scopes = { building institution law commander_order }
+		input_scopes = { building institution law commander_order company }
 		# TODO verify
 		output_scope = any
 	}
@@ -937,7 +958,7 @@ links = {
 	}
 	state_region = {
 		desc = " Scope to the state region of a state"
-		input_scopes = { state country }
+		input_scopes = { state country building }
 		output_scope = state_region
 	}
 	num_export_trade_routes = {
@@ -1007,7 +1028,7 @@ links = {
 	}
 	culture = {
 		desc = " Scope to pop's or character's culture"
-		input_scopes = { pop character combat_unit new_combat_unit }
+		input_scopes = { pop character combat_unit new_combat_unit political_movement }
 		output_scope = culture
 	}
 	ideology = {
@@ -1345,13 +1366,449 @@ links = {
 		output_scope = value
 		type = value
 	}
+	get_ruler_for = {
+		desc = "Gets ruler for a specific type of transfer of power"
+		from_data = yes
+		data_source = enum[transfer_of_power_types]
+		output_scope = character
+		prefix = get_ruler_for:
+	}
+	turmoil = {
+		desc = "Gets ammount of turmoil in a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	state_population = {
+		desc = "Gets a states population"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	primary_culture = {
+		desc = "Gets a characters primary culture"
+		input_scopes = character
+		output_scope = culture
+	}
+	imposed_law = {
+		desc = "Gets an imposed law on the country"
+		input_scopes = country
+		output_scope = law
+	}
+	home_country = {
+		desc = "Scope of characters home country"
+		input_scopes = character
+		output_scope = country
+	}
+	loyalty = {
+		desc = "Loyality value of a subject country"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	political_movement_radicalism = {
+		desc = "Radicalism value of a political movement"
+		input_scopes = political_movement
+		output_scope = value
+		type = value
+	}
+	gdp_per_capita_ranking = {
+		desc = "Ranking in the GDP per capita board"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	sol_ranking = {
+		desc = "Ranking in the standard of living board"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	lobby_type = {
+		desc = "Gets political lobby type scope"
+		from_data = yes
+		data_source = <political_lobby>
+		output_scope = lobby_type
+		prefix = lobby_type:
+	}
+	market_goods_sell_orders = {
+		desc = "Gets the amount of sell orders in a market for a specific market good"
+		input_scopes = market_goods
+		output_scope = value
+		type = value
+	}
+	total_urbanization = {
+		desc = "Gets the amount of urbanization for a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	infrastructure = {
+		desc = "Gets the amount of infrastructure for a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	num_cultural_communities = {
+		desc = "Gets the amount of cultural communities in a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	power_bloc_rank = {
+		desc = "Gets the rank of the power bloc in scope"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_great_power_non_leader_members = {
+		desc = "Gets the amount of great powers in the power bloc in scope that are not the leader of the power bloc"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_mandate_progress_per_great_power_member = {
+		desc = "Gets the amount of mandate progress per great power in the power bloc in scope"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_major_power_non_leader_members = {
+		desc = "Gets the amount of major powers in the power bloc in scope that are not the leader of the power bloc"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_mandate_progress_per_major_power_member = {
+		desc = "Gets the amount of mandate progress per major power in the power bloc in scope"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_minor_power_non_leader_members = {
+		desc = "Gets the amount of minor powers in the power bloc in scope that are not the leader of the power bloc"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_mandate_progress_per_minor_power_member = {
+		desc = "Gets the amount of mandate progress per minor power in the power bloc in scope"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_unrecognized_major_power_non_leader_members = {
+		desc = "Gets the amount of unrecognized major powers in the power bloc in scope that are not the leader of the power bloc"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_mandate_progress_per_unrecognized_major_power_member = {
+		desc = "Gets the amount of mandate progress per unrecognized major power in the power bloc in scope"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_unrecognized_regional_power_non_leader_members = {
+		desc = "Gets the amount of unrecognized regional powers in the power bloc in scope that are not the leader of the power bloc"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_mandate_progress_per_unrecognized_regional_power_member = {
+		desc = "Gets the amount of mandate progress per unrecognized regional power in the power bloc in scope"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_unrecognized_power_non_leader_members = {
+		desc = "Gets the amount of unrecognized powers in the power bloc in scope that are not the leader of the power bloc"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_mandate_progress_per_unrecognized_power_member = {
+		desc = "Gets the amount of mandate progress per unrecognized power in the power bloc in scope"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_insignificant_power_non_leader_members = {
+		desc = "Gets the amount of insignificant powers in the power bloc in scope that are not the leader of the power bloc"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_mandate_progress_per_insignificant_power_member = {
+		desc = "Gets the amount of mandate progress per insignificant power in the power bloc in scope"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	military_expenses_share = {
+		desc = "Gets the share in military expenses of the scope country in a power bloc (military_expenses_share < 0.25)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	military_expenses = {
+		desc = "Gets the military expenses of the scope country in a power bloc"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	free_arable_land = {
+		desc = "Gets the free arable land of the scope state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	radical_population_fraction = {
+		desc = "Gets the fraction of the population that is radical"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	infrastructure_usage = {
+		desc = "Gets the amount of used infrastructure for a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	num_mobilized_units_in_theater = {
+		desc = "Gets the amount of mobilized units in a theater"
+		input_scopes = theater
+		output_scope = value
+		type = value
+	}
+	num_provinces_in_theater = {
+		desc = "Gets the amount of provinces in a theater"
+		input_scopes = theater
+		output_scope = value
+		type = value
+	}
+	concentration_of_defensive_mobilized_battalions = {
+		desc = "Gets the concentration of defensive mobilized battalions in a theater"
+		input_scopes = theater
+		output_scope = value
+		type = value
+	}
+	provinces_with_hazardous_terrain = {
+		desc = "Gets the amount of provinces with hazardous terrain in a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	provinces_with_forested_terrain = {
+		desc = "Gets the amount of provinces with forested terrain in a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	provinces_with_elevated_terrain = {
+		desc = "Gets the amount of provinces with elevated terrain in a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	max_law_enactment_setbacks = {
+		desc = "Gets the maximum amount of time a law enactment can suffer setbacks"
+		input_scopes = law
+		output_scope = value
+		type = value
+	}
+	army_size_including_conscripts = {
+		desc = "Gets the size of a countries army including conscripts"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	military_size = {
+		desc = "Gets the size of a countries military"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	country_turmoil = {
+		desc = "Gets the countries turmoil"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	enemy_occupation = {
+		desc = "Gets the amount of the country that is under occupation"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	power_bloc_share_gdp = {
+		desc = "Gets share of world gdp that power bloc holds"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	state_urbanization_rate = {
+		desc = "Gets urbanization rate of a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	average_sol_for_slaves = {
+		desc = "Gets average standard of living for slaves in country"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	number_of_claims = {
+		desc = "Gets number of claims a country has"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	pop_acceptance = {
+		desc = "Gets accaptence of pop"
+		input_scopes = pop
+		output_scope = value
+		type = value
+	}
+	political_movement_identity_support = {
+		desc = "Gets support for identity based political movements"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	average_sol_for_primary_cultures = {
+		desc = "Gets average standard of living for primary cultures"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	pro_country_lobby_starting_appeasement = {
+		desc = "Gets starting appeasement of a positive lobby"
+		input_scopes = political_lobby
+		output_scope = value
+		type = value
+	}
+	anti_country_lobby_starting_appeasement = {
+		desc = "Gets starting appeasement of a negative lobby"
+		input_scopes = political_lobby
+		output_scope = value
+		type = value
+	}
+	pro_overlord_lobby_starting_appeasement = {
+		desc = "Gets starting appeasement of a positive lobby"
+		input_scopes = political_lobby
+		output_scope = value
+		type = value
+	}
+	anti_overlord_lobby_starting_appeasement = {
+		desc = "Gets starting appeasement of a negative lobby"
+		input_scopes = political_lobby
+		output_scope = value
+		type = value
+	}
+	commander_rank = {
+		desc = "Gets rank of a commander"
+		input_scopes = character
+		output_scope = value
+		type = value
+	}
+	appeasement = {
+		desc = "Gets rank of a commander"
+		input_scopes = political_lobby
+		output_scope = value
+		type = value
+	}
+	organization = {
+		desc = "Gets organisation of a military formation"
+		input_scopes = military_formation
+		output_scope = value
+		type = value
+	}
+	num_companies = {
+		desc = "Gets number of companies in a country"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	max_num_companies = {
+		desc = "Gets maximum number of companies in a country"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	market_goods_shortage_ratio = {
+		desc = "Gets ratio of shortage goods"
+		input_scopes = market
+		output_scope = value
+		type = value
+	}
+	investment_pool_net_income = {
+		desc = "Gets countries net income of investment pool"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	gold_reserves_limit = {
+		desc = "Gets countries gold reserves limit"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	population_below_expected_sol = {
+		desc = "Gets countries population that is living below the expected standard of living"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_mandates = {
+		desc = "Gets number of mandates of a power bloc"
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	current_manpower = {
+		desc = "Gets number of manpower available to a side in a battle"
+		input_scopes = battle_side
+		output_scope = value
+		type = value
+	}
+	starting_manpower = {
+		desc = "Gets number of manpower that was available at the start of a battle"
+		input_scopes = battle_side
+		output_scope = value
+		type = value
+	}
+	experience_level = {
+		desc = "Gets experience level of a character"
+		input_scopes = character
+		output_scope = value
+		type = value
+	}
+	tax_capacity = {
+		desc = "Gets tax capacity of a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	tax_capacity_usage = {
+		desc = "Gets tax capacity usage of a state"
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
 
-	# TODO
-	# Possible Hacks
-	# Needs to be investigated
-	# But looks like this is a missing feature in CWT
+	# TODO These are hacks to fix errors in the base game files.
+	# Looks like this is a missing feature in CWT
+	# This list can later be used for correct implementation
 
 	relations:root = {
+		desc = "Scope to relations between two countries (example: relations:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	relations:prev = {
 		desc = "Scope to relations between two countries (example: relations:root >= 2)"
 		input_scopes = country
 		output_scope = value
@@ -1364,6 +1821,24 @@ links = {
 		type = value
 	}
 	relations(scope:target_country) = {
+		desc = "Scope to relations between two countries (example: relations:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	relations(scope:first_country) = {
+		desc = "Scope to relations between two countries (example: relations:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	relations(c:BIC.top_overlord) = {
+		desc = "Scope to relations between two countries (example: relations:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	relations(scope:initiator) = {
 		desc = "Scope to relations between two countries (example: relations:root >= 2)"
 		input_scopes = country
 		output_scope = value
@@ -1420,7 +1895,22 @@ links = {
 		output_scope = value
 		type = value
 	}
+	lobby_in_government_foreign_anti_clout(scope:target_country) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	lobby_in_government_foreign_pro_clout(scope:target_country) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
 	num_mutual_trade_route_levels_with_country(root) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_mutual_trade_route_levels_with_country(scope:actor) = {
 		input_scopes = country
 		output_scope = value
 		type = value
@@ -1520,12 +2010,142 @@ links = {
 		output_scope = value
 		type = value
 	}
+	num_total_battalions(root) = {
+		input_scopes = front
+		output_scope = value
+		type = value
+	}
+	num_total_battalions(scope:enemy_country) = {
+		input_scopes = front
+		output_scope = value
+		type = value
+	}
 	potential_diplomatic_play_power_ratio(root) = {
 		input_scopes = country
 		output_scope = value
 		type = value
 	}
 	economic_dependence(root) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	economic_dependence(scope:actor) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	economic_dependence(scope:target_country) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(expedition_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(sepoy_mutiny_progress_bar_bengal) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(great_game_core_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(je_india_home_rule_progressbar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	potential_diplomatic_play_power_ratio(scope:third_party_country) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	potential_diplomatic_play_power_ratio(scope:relevant_country) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	enactment_chance_for_law(imposed_law.type) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	enemy_contested_wargoals(scope:war) = {
+		input_scopes = war
+		output_scope = value
+		type = value
+	}
+	num_country_casualties(root) = {
+		input_scopes = war
+		output_scope = value
+		type = value
+	}
+	lobby_war_opposition(scope:war) = {
+		input_scopes = political_lobby
+		output_scope = value
+		type = value
+	}
+	lobby_war_support(scope:war) = {
+		input_scopes = political_lobby
+		output_scope = value
+		type = value
+	}
+	additional_war_exhaustion(scope:war.diplomatic_play) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	goods_production_rank(g:small_arms) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	goods_production_rank(g:artillery) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	goods_production_rank(g:ammunition) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	institution_investment_level(institution_social_security) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	institution_investment_level(institution_workplace_safety) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	institution_investment_level(institution_schools) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	institution_investment_level(institution_police) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	average_sol_for_religion(scope:religion) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	average_sol_for_culture(scope:culture) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	gdp_ownership_ratio(prev) = {
 		input_scopes = country
 		output_scope = value
 		type = value

@@ -2,6 +2,7 @@ types = {
     ## unique = yes
     type[country_definition] = {
         path = "game/common/country_definitions"
+        file_extension = .txt
         localisation = {
 			## required
 			name = "$"
@@ -12,6 +13,7 @@ types = {
     ## unique = yes
     type[country_creation] = {
         path = "game/common/country_creation"
+        file_extension = .txt
         subtype[cultural] = {
             use_culture_states = yes
         }
@@ -25,6 +27,7 @@ types = {
     ## unique = yes
     type[country_formation] = {
         path = "game/common/country_formation"
+        file_extension = .txt
         subtype[major] = {
             is_major_formation = yes
         }
@@ -48,6 +51,13 @@ country_definition = {
 
     ### The country's 'tier'
     tier = enum[country_tier]
+
+    ## cardinality = 0..1
+    ### Social hierarchy used in the country
+    social_hierarchy = <social_hierarchy>
+
+    ## cardinality = 0..1
+    valid_as_home_country_for_separatists = single_alias_right[trigger_clause]
 
     ### The country's primary cultures
     cultures = {

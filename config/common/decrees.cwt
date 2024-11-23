@@ -1,10 +1,10 @@
 types = {
     type[decree] = {
         path = "game/common/decrees"
-    }
-    localisation = {
-        ## required
-        name = "$"
+        localisation = {
+            ## required
+            name = "$"
+        }
     }
 }
 

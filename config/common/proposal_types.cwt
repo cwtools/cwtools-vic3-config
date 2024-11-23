@@ -1,5 +1,23 @@
 types = {
     type[proposal_type] = {
         path = "game/common/proposal_types"
+        file_extension = .txt
     }
+}
+
+proposal_type = {
+    ## cardinality = 0..1
+    ### Default texture = "gfx/interface/icons/proposal_icons/proposal_default.dds"
+    texture = filepath
+
+    ## cardinality = 0..1
+    has_dynamic_texture = bool
+
+    ## cardinality = 0..1
+    dynamic_texture_postfix = scalar
+
+    open_popup = enum[open_popup_types]
+
+    # TODO is generally a define
+    days = scalar
 }

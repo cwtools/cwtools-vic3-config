@@ -1,9 +1,35 @@
 types = {
     type[political_movement_category] = {
         path = "game/common/political_movement_categories"
+        file_extension = .txt
+        images = {
+            ## primary
+            icon = icon
+        }
     }
 }
 
 political_movement_category = {
-    # TODO
+    ### The 2d icon for movements of this category
+    icon = filepath
+
+    ## cardinality = 0..1
+    ### If yes, movements of this category will always be created with an explicit religious identity
+    cultural_identity = bool
+
+    ## cardinality = 0..1
+    ### If yes, movements of this category will always be created with an explicit cultural identity
+    religious_identity = bool
+
+    ## cardinality = 0..1
+    ### If yes, the minimum support values will only look at support within the cultural and/or religious identity of the movement
+    ### Has no effect unless either cultural_identity or religious_identity is enabled
+    minimum_support_is_within_identity = bool
+
+    ### Minimum predicted support value for movements of this category to be created
+    minimum_support_to_create = value_field
+
+    ### Minimum predicted support value for movements of this category to not be disbanded
+    ### Newly created movements have a defined grace period before this is checked
+    minimum_support_to_maintain = value_field
 }

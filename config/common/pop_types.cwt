@@ -1,14 +1,25 @@
 types = {
     type[pop_type] = {
         path = "game/common/pop_types"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
 }
 
 pop_type = {
     texture = filepath
 
+    ### Color when shown in graphs and on map
     color = alias_match_right[color]
 
+    ## cardinality = 0..1
     ### Strata that profession belongs to
     strata = enum[pop_strata]
 
@@ -22,6 +33,8 @@ pop_type = {
     ### Whether this pop type receives wages in a non government funded building (default no)
     paid_private_wage = bool
 
+    ## cardinality = 0..1
+    ### Target literacy for a pop type. Default no literacy needed
     literacy_target = value_field[0.0..1.0]
 
     ## cardinality = 0..1
@@ -33,6 +46,10 @@ pop_type = {
 
     ### Can pop be unemployed
     unemployment = bool
+
+    ## cardinality = 0..1
+    ### Is this a military pop?
+    military = bool
 
     ## cardinality = 0..1
     ### Unemployed pops whose wealth drops to or below this level switches to this profession
@@ -47,10 +64,12 @@ pop_type = {
     ## push_scope = pop
     political_engagement_mult = single_alias_right[formula]
 
+    ## cardinality = 0..1
     ### Qualifications growth desc localization
     qualifications_growth_desc = localisation
 
     ## push_scope = pop
+    ## cardinality = 0..1
     ### Qualifications scripted values list
     qualifications = single_alias_right[formula]
 

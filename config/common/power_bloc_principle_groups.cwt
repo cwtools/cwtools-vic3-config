@@ -1,10 +1,11 @@
 types = {
     type[power_bloc_principle_group] = {
         path = "game/common/power_bloc_principle_groups"
-    }
-    localisation = {
-        ## required
-        name = "$"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
     }
 }
 

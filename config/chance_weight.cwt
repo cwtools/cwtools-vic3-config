@@ -39,9 +39,11 @@ single_alias[weight_chance_modifier] = {
     ## cardinality = 0..inf
     enum[weight_chance_modifier_operators] = value_field
     ## cardinality = 0..inf
-    enum[weight_chance_modifier_operators] = enum[static_values]
+    enum[weight_chance_modifier_operators] = <static_value>
     ## cardinality = 0..inf
     enum[weight_chance_modifier_operators] = <script_value>
+    ## cardinality = 0..inf
+    enum[weight_chance_modifier_operators] = single_alias_right[formula]
 
     ## cardinality = 0..1
     value = value_field
@@ -61,6 +63,9 @@ single_alias[weight_chance_modifier] = {
     ## cardinality = 0..1
     trigger = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
+    alias_name[trigger] = alias_match_left[trigger]
+
     ## cardinality = 0..inf
     if = single_alias_right[weight_chance_modifier]
 
@@ -75,6 +80,7 @@ single_alias[weight_chance_modifier] = {
     ## cardinality = 0..1
     desc = localisation
 
+    ## cardinality = 0..1
     scope:actor.power_bloc = {
         alias_name[weight_chance_modifier] = alias_match_left[weight_chance_modifier]
     }
@@ -86,20 +92,44 @@ single_alias[implicit_trigger_chance_modifier] = {
         limit = single_alias_right[trigger_clause]
         ## cardinality = 0..inf
         enum[weight_chance_modifier_operators] = value_field
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = <static_value>
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = <script_value>
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = single_alias_right[formula]
     }
     ## cardinality = 0..inf
     else_if = {
         limit = single_alias_right[trigger_clause]
         ## cardinality = 0..inf
         enum[weight_chance_modifier_operators] = value_field
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = <static_value>
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = <script_value>
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = single_alias_right[formula]
     }
     ## cardinality = 0..inf
     else = {
         ## cardinality = 0..inf
         enum[weight_chance_modifier_operators] = value_field
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = <static_value>
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = <script_value>
+        ## cardinality = 0..inf
+        enum[weight_chance_modifier_operators] = single_alias_right[formula]
     }
     ## cardinality = 0..inf
     enum[weight_chance_modifier_operators] = value_field
+    ## cardinality = 0..inf
+    enum[weight_chance_modifier_operators] = <static_value>
+    ## cardinality = 0..inf
+    enum[weight_chance_modifier_operators] = <script_value>
+    ## cardinality = 0..inf
+    enum[weight_chance_modifier_operators] = single_alias_right[formula]
 }
 
 single_alias[random_chance_weight_block] = {

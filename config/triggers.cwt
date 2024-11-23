@@ -106,9 +106,6 @@ alias[trigger:commander_pm_usage] = {
 ### Compares the commanders rank commander_rank > 2
 alias[trigger:commander_rank] == value_field
 
-### Compares the character experience level experience_level > 1
-alias[trigger:experience_level] == value_field
-
 ### Checks characters order has_order = order key/order scope
 alias[trigger:has_commander_order] = <commander_order>
 ### Checks characters order has_order = order key/order scope
@@ -1198,7 +1195,7 @@ alias[trigger:has_modifier] = <modifier_container>
 alias[trigger:has_port] = bool
 
 ### Check if a political movement is a particular type is_political_movement_type = movement_to_enact
-alias[trigger:is_political_movement_type] = enum[political_movement_type]
+alias[trigger:is_political_movement_type] = <political_movement>
 
 ### Compare radicalism of political movement political_movement_radicalism > 50
 alias[trigger:political_movement_radicalism] == value_field
@@ -1393,12 +1390,6 @@ alias[trigger:state_population] == value_field
 
 ### Checks the unemployment rate (percentage) in the scoped state state_unemployment_rate > 0.1
 alias[trigger:state_unemployment_rate] == value_field
-
-### Checks the taxation capacity of the scoped state tax_capacity > 50
-alias[trigger:tax_capacity] == value_field
-
-### Checks the taxation capacity usage of the scoped state tax_capacity_usage > 50
-alias[trigger:tax_capacity_usage] == value_field
 
 ### Compares the total urbanization of a given state/ntotal_urbanization > 5
 alias[trigger:total_urbanization] == value_field
@@ -1627,9 +1618,6 @@ alias[trigger:country_turmoil] == value_field
 ### Checks if the scoped culture can have mass migration to target country  
 alias[trigger:culture_can_have_mass_migration_to] = scope[country]
 
-### Compares the current manpower of a battle side  
-alias[trigger:current_manpower] == value_field
-
 ### Determines the fraction of wargoals that enemies in the war are currently contesting  
 alias[trigger:enemy_contested_wargoals] = {
     target = scope[war]
@@ -1732,9 +1720,6 @@ alias[trigger:scaled_gold_reserves] == value_field
 ### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
 alias[trigger:size_weighted_lost_battles_fraction] == value_field
 
-### Compares the starting manpower of a battle side 
-alias[trigger:starting_manpower] == value_field
-
 ### Checks if state goods is at least the specified percentage cheaper than base price  
 alias[trigger:state_goods_cheaper] == value_field
 
@@ -1786,6 +1771,7 @@ alias[trigger:has_principle_group] = scope[power_bloc_principle_group]
 ### Checks whether power bloc has the provided identity
 alias[trigger:has_identity] = scope[power_bloc_identity]
 
+## scopes = { country }
 ### Checks whether country is leader of a power_bloc
 alias[trigger:is_power_bloc_leader] == bool
 
@@ -1795,7 +1781,7 @@ alias[trigger:leverage_advantage] = {
     target = <country>
     value == value_field
     value == <script_value>
-    value == enum[static_values]
+    value == <static_value>
 }
 
 ### Checks whether country is in the same power bloc
@@ -1858,3 +1844,317 @@ alias[trigger:num_diplomatic_pacts] = {
     value == value_field
 }
 
+### Checks the chance a specific law type can be enacted
+alias[trigger:law_enactment_stance] = {
+    law = scope[law_type]
+    value == value_field
+    value == enum[relations_thresholds]
+}
+
+## scopes = { country }
+### Checks whether a country can increase its autonomy
+alias[trigger:government_transfer_of_power] = enum[transfer_of_power_types]
+
+## scopes = { character }
+### Checks whether a character is immortal
+alias[trigger:is_immortal] = bool
+
+## scopes = { character }
+### Checks whether a character is an agitator
+alias[trigger:is_agitator] = bool
+
+## scopes = { character }
+### Checks whether a character is historical
+alias[trigger:is_historical] = bool
+
+## scopes = { country }
+### Checks whether a country can create a specific type of diplomatic pact with another
+alias[trigger:can_create_diplomatic_pact] = {
+    target = scope[country]
+    type = <diplomatic_action>
+}
+
+## scopes = { country }
+### Checks whether a country can break a specific type of diplomatic pact with another
+alias[trigger:can_break_diplomatic_pact] = {
+    target = scope[country]
+    type = <diplomatic_action>
+}
+
+## scopes = { country }
+### Checks acceptance level of a specific culture in a country
+alias[trigger:cultural_acceptance_base] = {
+    target = scope[culture]
+    value == enum[acceptance_status]
+}
+
+## scopes = { political_lobby }
+### Checks whether a character is historical
+alias[trigger:lobby_formation_reason] = enum[lobby_formation_reasons]
+
+## scopes = { power_bloc }
+### Checks whether a country is a contender for a power struggle with another country in a power bloc
+alias[trigger:power_struggle_contender] = scope[country]
+
+## scopes = { law }
+### Checks whether a law can be enacted
+alias[trigger:can_be_enacted] = bool
+
+## scopes = { law }
+### Special code trigger that checks if:
+### 1: Anyone in government wants to enact this law, and nobody in government actively opposes it
+### 2: The law would ever be considered for enactment again by the AI (ie, no going back to serfdom)
+### 3: The law wouldn't be an unnecessarily radical enactment option (based on progressiveness delta to current law) when an alternative exists
+alias[trigger:is_reasonable_law_for_petition] = bool
+
+## scopes = { country }
+### Checks whether a country can leave their power bloc
+alias[trigger:can_leave_power_bloc] = bool
+
+## scopes = { country }
+### Checks whether lobbies in a country can target a specific other country
+alias[trigger:can_lobbies_target] = scope[country]
+
+## scopes = { country }
+### Checks whether a country is an indirect subject of another
+alias[trigger:is_indirect_subject_of] = scope[country]
+
+## scopes = { power_bloc }
+### Checks whether a power bloc is using a specific amount of principle slots
+alias[trigger:used_principle_slots] == int[1..4]
+
+## scopes = { power_bloc }
+### Checks whether a power bloc is of a specific rank
+alias[trigger:power_bloc_rank] == int
+
+## scopes = { power_bloc }
+### Checks whether a power bloc has a specific amount of members
+alias[trigger:num_power_bloc_members] == int
+
+## scopes = { country }
+### Checks whether a country is in a specific phase of enacting a law
+alias[trigger:enactment_phase] == int[0..3]
+
+## scopes = { state country }
+### Checks whether a state has a famine
+alias[trigger:has_famine] = bool
+
+## scopes = { state }
+### Checks whether a state is eligible as a mass migration target
+alias[trigger:state_is_eligible_as_mass_migration_target] = bool
+
+## scopes = { journal_entry }
+### Checks whether a journal entry is of a specific age (in days)
+alias[trigger:journal_entry_age] == int
+
+## scopes = { military_formation }
+### Checks whether a journal entry is of a specific age (in days)
+alias[trigger:current_hq] = scope[hq]
+
+## scopes = { state }
+### Checks percentage level of a specific culture in a state
+alias[trigger:culture_percent_state] = {
+    target = scope[culture]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+## scopes = { culture }
+### Checks whether a culture can mass migrate to a specific country
+alias[trigger:culture_can_have_mass_migration_to_country] = scope[country]
+
+## scopes = { interest_group }
+### Checks whether a state has a famine
+alias[trigger:is_member_of_lobby] = scope[lobby_type]
+
+## scopes = { state }
+### Checks acceptance level of a religion in a state
+alias[trigger:state_religious_acceptance] = {
+    target = scope[religion]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+## scopes = { state }
+### Checks acceptance level of a culture in a state
+alias[trigger:state_cultural_acceptance] = {
+    target = scope[culture]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+## scopes = { state }
+### Checks whether a building can be constructed in the state
+alias[trigger:can_construct_building] = <building>
+
+## scopes = { pop }
+### Checks whether a pop is in mild starvation
+alias[trigger:is_in_mild_starvation] = bool
+
+## scopes = { pop }
+### Checks whether a pop is in severe starvation
+alias[trigger:is_in_severe_starvation] = bool
+
+## scopes = { pop }
+### Checks whether a pop is in starvation
+alias[trigger:is_in_starvation] = bool
+
+## scopes = { character }
+### Checks whether a character is part of the exile pool
+alias[trigger:is_in_exile_pool] = bool
+
+## scopes = { state }
+### Checks whether a percentage of the state has a specific religion
+alias[trigger:religion_percent_state] = {
+    target = scope[religion]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+## scopes = { country }
+### Checks whether a percentage of the country has a specific religion
+alias[trigger:religion_percent_country] = {
+    target = scope[religion]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+## scopes = { country }
+### Checks whether a percentage of the country has a specific culture
+alias[trigger:culture_percent_country] = {
+    target = scope[culture]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+## scopes = { political_movement }
+### Checks whether a character is part of the exile pool
+alias[trigger:political_movement_identity_support] == value_field
+## scopes = { political_movement }
+### Checks whether a character is part of the exile pool
+alias[trigger:political_movement_identity_support] == <script_value>
+## scopes = { political_movement }
+### Checks whether a character is part of the exile pool
+alias[trigger:political_movement_identity_support] == <static_value>
+
+## scopes = { country }
+### Checks whether a country has empty agitator slots
+alias[trigger:empty_agitator_slots] == value_field
+## scopes = { country }
+### Checks whether a country has empty agitator slots
+alias[trigger:empty_agitator_slots] == <script_value>
+## scopes = { country }
+### Checks whether a country has empty agitator slots
+alias[trigger:empty_agitator_slots] == <static_value>
+
+## scopes = { building }
+### Checks whether a building has a specific amount of private ownership
+alias[trigger:private_ownership_fraction] == value_field
+## scopes = { building }
+### Checks whether a building has a specific amount of private ownership
+alias[trigger:private_ownership_fraction] == <script_value>
+## scopes = { building }
+### Checks whether a building has a specific amount of private ownership
+alias[trigger:private_ownership_fraction] == <static_value>
+
+## scopes = { country }
+### Checks whether a country has a specific inactive journal entry
+alias[trigger:has_inactive_journal_entry] = <journal_entry>
+
+## scopes = { building }
+### Checks whether a building can be further leveled by the specified amount
+alias[trigger:can_queue_building_levels] == int_value_field
+
+## scopes = { state building }
+### Checks a states infrastructure balance
+alias[trigger:state_infrastructure_balance] == int_value_field
+
+## scopes = { strategic_region }
+### Checks a country can have declared interest of a strategic region
+alias[trigger:can_have_declared_interest_here] = scope[country]
+
+## scopes = { harvest_condition }
+### Checks whether a country has a specific intensity of the harvest condition in scope
+alias[trigger:harvest_condition_intensity] = {
+    target = scope[country]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+## scopes = { state_region }
+### Checks whether a state region has a specific harvest condition
+alias[trigger:has_harvest_condition] = <harvest_condition_type>
+
+## scopes = { power_bloc }
+### Checks whether a power bloc has a specific amount of used principal levels
+alias[trigger:total_used_principle_levels] == value_field
+## scopes = { power_bloc }
+### Checks whether a power bloc has a specific amount of used principal levels
+alias[trigger:total_used_principle_levels] == <script_value>
+## scopes = { power_bloc }
+### Checks whether a power bloc has a specific amount of used principal levels
+alias[trigger:total_used_principle_levels] == <static_value>
+
+## scopes = { country }
+### Checks whether a country has a specific amount of investments
+alias[trigger:num_investments_of_type] = {
+    type = <building>
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+### Checks whether a naval invasion is stalled because of given orders
+alias[trigger:is_naval_invasion_stalled_due_to_orders] = bool
+
+## scopes = { war }
+### Checks whether a naval invasion is stalled because of given orders
+alias[trigger:war_has_active_peace_deal] = bool
+
+## scopes = { market }
+### Checks whether a country has local shortages
+alias[trigger:country_has_local_shortage] = scope[country]
+
+## scopes = { country }
+### Checks whether overlord can decrease countries autonomy
+alias[trigger:overlord_can_decrease_subject_autonomy] = bool
+
+## scopes = { country }
+### Checks whether subject can increase their autonomy
+alias[trigger:subject_can_increase_autonomy] = bool
+
+## scopes = { country }
+### Checks whether own autonomy can be decreased
+alias[trigger:can_own_autonomy_be_decreased] = bool
+
+## scopes = { country }
+### Checks whether a country has sufficient construction capacity for investment pool
+alias[trigger:has_sufficient_construction_capacity_for_investment] = bool
+
+## scopes = { country }
+### Checks whether a country has possible decisions
+alias[trigger:has_possible_decisions] = bool
+
+## scopes = { country }
+### Checks whether a country has a power struggle
+alias[trigger:has_power_struggle] = bool
+
+## scopes = { power_bloc }
+### Checks whether a power bloc can invite countries
+alias[trigger:can_invite_any_country] = bool
+
+## scopes = { building }
+### Checks whether a country has a specific amount of investments
+alias[trigger:levels_owned_by_country] = {
+    target = scope[country]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}

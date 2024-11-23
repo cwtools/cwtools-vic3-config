@@ -1,6 +1,7 @@
 types = {
     type[social_hierarchy] = {
         path = "game/common/social_hierarchies"
+        file_extension = .txt
     }
     localisation = {
         name = "$"
@@ -18,6 +19,7 @@ social_hierarchy = {
     is_default = bool
 
     ## push_scope = pop
+    ## cardinality = 0..1
     ### This is a trigger that determines whether a pop can be subject to the hierarchy.
     pop_criteria = {
         ## cardinality = 1..inf

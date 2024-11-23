@@ -1,6 +1,7 @@
 types = {
     type[diplomatic_play] = {
         path = "game/common/diplomatic_plays"
+        file_extension = .txt
     }
     localisation = {
         ## required
@@ -48,8 +49,7 @@ diplomatic_play = {
     ## cardinality = 0..1
     is_epic = bool
 
-    #TODO textures
-    texture = scalar
+    texture = filepath
 
     ## cardinality = 0..1
     selectable_in_lens = single_alias_right[trigger_clause]

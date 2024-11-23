@@ -1,0 +1,13 @@
+types = {
+    type[harvest_condition_type] = {
+        path = "game/common/harvest_condition_types"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+harvest_condition_type = {
+
+}

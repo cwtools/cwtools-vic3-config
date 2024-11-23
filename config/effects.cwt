@@ -82,7 +82,7 @@ alias[effect:add_modifier] = {
     ## cardinality = 0..1
     enum[duration] = <script_value>
     ## cardinality = 0..1
-    enum[duration] = enum[static_values]
+    enum[duration] = <static_value>
     ## cardinality = 0..1
     enum[duration] = enum[duration]
     ## cardinality = 0..1
@@ -90,10 +90,13 @@ alias[effect:add_modifier] = {
     ## cardinality = 0..1
     multiplier = <script_value>
     ## cardinality = 0..1
-    multiplier = enum[static_values]
+    multiplier = <static_value>
     ## cardinality = 0..1
     is_decaying = bool
 }
+
+### Adds a timed modifier effect to object in scope
+alias[effect:add_modifier] = <modifier_container>
 
 ### Removes a timed modifier effect to object in scope
 alias[effect:remove_modifier] = <modifier_container>
@@ -220,12 +223,9 @@ alias[effect:change_variable] = {
 
 alias[effect:kill_population] = {
     value = value_field
-    pop_type = <pop_type>
-}
-
-alias[effect:add_radicals_in_state] = {
-    value = value_field
     value = <script_value>
+    value = <static_value>
+    pop_type = <pop_type>
 }
 
 ### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
@@ -312,6 +312,9 @@ alias[effect:custom_tooltip] = {
     subject = scope_field
     alias_name[effect] = alias_match_left[effect]
 }
+
+### Log a string to the debug log when this effect executes, debug_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
+alias[effect:debug_log] = scalar
 
 ### Log a string to the debug log when this effect executes, debug_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
 alias[effect:debug_log] = localisation
@@ -477,13 +480,23 @@ alias[effect:set_variable] = {
 
     ## cardinality = 0..1
     enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
 
     ## cardinality = 0..1
     value = value_field
     ## cardinality = 0..1
+    value = single_alias_right[formula]
+    ## cardinality = 0..1
     value = scope_field
     ## cardinality = 0..1
     value = bool
+    ## cardinality = 0..1
+    value = <script_value>
+    ## cardinality = 0..1
+    value = <static_value>
 }
 
 ### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope
@@ -760,6 +773,7 @@ alias[effect:change_relations] = {
     country = scope[country]
     country = <country_definition>
     value = value_field
+    value = single_alias_right[formula]
 }
 
 ### Will change the subject type of the country that is the current scope. change_subject_type = subject_type_dominion
@@ -792,6 +806,9 @@ alias[effect:create_character] = {
     first_name = localisation
     ## cardinality = 0..1
     last_name = localisation
+
+    ## cardinality = 0..1
+    is_agitator = bool
 
     ## cardinality = 0..1
     culture = <culture>
@@ -903,7 +920,7 @@ alias[effect:add_liberty_desire] = single_alias_right[formula]
 alias[effect:add_liberty_desire] = <script_value>
 
 ### Set liberty desire of a subject country
-alias[effect:add_liberty_desire] = enum[static_values]
+alias[effect:add_liberty_desire] = <static_value>
 
 ### Create a diplomatic play with the scoped object as target create_diplomatic_play = { 	name = loc_key 	escalation = integer between 0 and 100 	war = bool 	initiator = country scope/tag 	type = diplomatic play type 	add_initiator_backers = { list of country scopes/tags } 	add_target_backers = { list of country scopes/tags } 	add_war_goal = { holder = country scope/tag, type = x, state = <state target>, country = <country target,> region = <region target>  } }
 alias[effect:create_diplomatic_play] = {
@@ -922,6 +939,9 @@ alias[effect:create_diplomatic_play] = {
     initiator = <country_definition>
 
     type = <diplomatic_play>
+
+    ## cardinality = 0..1
+    annex_as_civil_war = bool
 
     ## cardinality = 0..1
     target_state = scope[state]
@@ -1001,7 +1021,7 @@ alias[effect:deactivate_law] = scope[law_type]
 alias[effect:deactivate_parties] = yes
 
 ### Ends a truce betweeen two countries end_truce = { 	tcountry = country scope/tag 	months = integer }
-alias[effect:end_truce] = replace_me
+alias[effect:end_truce] = scope[country]
 
 ### Makes a country independent. make_independent = bool
 alias[effect:make_independent] = bool
@@ -1031,6 +1051,9 @@ alias[effect:remove_enactment_modifier] = replace_me
 ### Removes an enactment-related timed modifier effect to object in scope
 alias[effect:kill_population_percent_in_state] = {
     percent = value_field[0..1]
+
+    ## cardinality = 0..1
+    pop_type = <pop_type>
 }
 
 ### Removes a culture from the primary cultures of a country remove_primary_culture = X Where X is a culture scope
@@ -1159,6 +1182,8 @@ alias[effect:activate_production_method] = {
 ### Adds loyalists to pops in state or country, all parameters except value are optional add_loyalists = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
 alias[effect:add_loyalists] = {
     value = value_field
+    value = <script_value>
+    value = <static_value>
     ## cardinality = 0..1
     pop_type = <pop_type>
     ## cardinality = 0..1
@@ -1172,6 +1197,8 @@ alias[effect:add_loyalists] = {
 ### Adds radicals to pops in state or country, all parameters except value are optional add_radicals = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
 alias[effect:add_radicals] = {
     value = value_field
+    value = <script_value>
+    value = <static_value>
     ## cardinality = 0..1
     pop_type = <pop_type>
     ## cardinality = 0..1
@@ -1180,21 +1207,31 @@ alias[effect:add_radicals] = {
     culture = scope[culture]
     ## cardinality = 0..1
     religion = scope[religion]
+    ## cardinality = 0..1
+    interest_group = scope[interest_group]
 }
 
 ### Adds the wealth of the pop add_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where the distribution adding to wealth of the pop
-alias[effect:add_pop_wealth] = replace_me
+alias[effect:add_pop_wealth] = value_field
+### Adds the wealth of the pop add_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where the distribution adding to wealth of the pop
+alias[effect:add_pop_wealth] = <script_value>
+### Adds the wealth of the pop add_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where the distribution adding to wealth of the pop
+alias[effect:add_pop_wealth] = <static_value>
 
 ### Changes the culture of the scoped pop to a specified culture by a specified percentage change_pop_culture = { target = cu:spanish value = 0.33 }
 alias[effect:change_pop_culture] = {
     target = scope[culture]
     value = value_field
+    value = <script_value>
+    value = <static_value>
 }
 
 ### Changes the religion of the scoped pop to a specified religion by a specified percentage change_pop_religion = { target = rel:catholic value = 0.5 }
 alias[effect:change_pop_religion] = {
     target = scope[religion]
     value = value_field
+    value = <script_value>
+    value = <static_value>
 }
 
 ### Changes the type of the pop to the given type
@@ -1206,6 +1243,7 @@ alias[effect:move_pop] = scope[state]
 ### Sets the literacy of the pop set_pop_literacy = { literacy_rate = {...} } Where the ratio is a script value computing the percentage of (workforce) pops that will be literate
 alias[effect:set_pop_literacy] = {
     literacy_rate = value_field
+    literacy_rate = single_alias_right[formula]
 }
 
 ### Sets the pop qualifications of the pop for the given type set_pop_qualifications = { pop_type = {} qualifications = {...} } Where the qualifications is a script value computing the percentage of (workforce) pops that will have the qualifications
@@ -1214,6 +1252,7 @@ alias[effect:set_pop_qualifications] = replace_me
 ### Sets the wealth of the pop set_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where wealth is a script values
 alias[effect:set_pop_wealth] = {
     wealth_distribution = value_field
+    wealth_distribution = single_alias_right[formula]
     ## cardinality = 0..1
     update_loyalties = bool
 }
@@ -1293,8 +1332,14 @@ alias[effect:add_company] = scope[company_type]
 ### Adds the specified amount of Morale to the Combat Unit in scope
 alias[effect:add_morale] = value_field
 
+### Adds the specified amount of Morale to the Combat Unit in scope
+alias[effect:add_morale] = single_alias_right[formula]
+
 ### Adds the specified amount of Organization to the Military Formation in scope
 alias[effect:add_organization] = value_field
+
+### Adds the specified amount of Organization to the Military Formation in scope
+alias[effect:add_organization] = single_alias_right[formula]
 
 ### add state trait in a scoped state region
 alias[effect:add_state_trait] = <state_trait>
@@ -1320,7 +1365,7 @@ alias[effect:create_dynamic_country] = {
 
     ## cardinality = 0..1
     ### optional if origin is set, may be repeated, will try to inherit country tier from origin if not specified
-    country_tier = enum[country_tier]
+    tier = enum[country_tier]
 
     ## cardinality = 0..1
     ### optional if origin is set, may be repeated, will try to inherit cultures from origin if not specified
@@ -1490,7 +1535,7 @@ alias[effect:create_unidirectional_truce] = {
 
 ### Change appeasement value of a lobby
 alias[effect:change_appeasement] = {
-    amount = int
+    amount = int_value_field
     factor = <political_lobby_appeasement>
 }
 
@@ -1514,8 +1559,11 @@ alias[effect:add_progress] = {
 alias[effect:add_cohesion_percent] = {
     value = value_field
     value = <script_value>
-    value = enum[static_values]
+    value = <static_value>
 }
+
+### Add cohesion to a power bloc
+alias[effect:add_cohesion_percent] = value_field
 
 ### Change regime in a country
 alias[effect:regime_change] = scope[country]
@@ -1531,3 +1579,91 @@ alias[effect:join_war] = {
     target = scope[country]
     side = scope[country]
 }
+
+### Make a character the ruler of the country he is in
+alias[effect:set_character_as_ruler] = bool
+
+### Remove a specific role from a character
+alias[effect:remove_character_role] = enum[character_role]
+
+### Rename a state
+alias[effect:set_state_name] = localisation
+
+### Rename a hub of a state
+alias[effect:set_hub_name] = {
+    type = enum[city_type]
+    name = localisation
+}
+
+### Rename all hubs of a state
+alias[effect:set_hub_names] = localisation
+
+### Reset the name of a state
+alias[effect:reset_state_name] = bool
+
+### Reset the name of all hubs in a state
+alias[effect:reset_hub_names] = bool
+
+### Disinherit a character from transfer of power
+alias[effect:disinherit_character] = bool
+
+### Exiles a character from the current country
+alias[effect:exile_character] = bool
+
+### Rename a hub of a state
+alias[effect:set_bar_progress] = {
+    value = value_field
+    value = <script_value>
+    value = <static_value>
+    name = <scripted_progress_bar>
+}
+
+## scopes = { country }
+### Cancels the enactment of the current law
+alias[effect:cancel_enactment] = bool
+
+## scopes = { law }
+### Cancels the imposition of the scope law on the country
+alias[effect:cancel_imposition] = bool
+
+## scopes = { state }
+### Adds loyalists to a state
+alias[effect:add_loyalists_in_state] = {
+    value = value_field
+    value = <script_value>
+    value = <static_value>
+
+    ## cardinality = 0..1
+    religion = scope[religion]
+
+    ## cardinality = 0..1
+    culture = scope[culture]
+}
+
+## scopes = { state }
+### Adds radicals to a state
+alias[effect:add_radicals_in_state] = {
+    value = value_field
+    value = <script_value>
+    value = <static_value>
+
+    ## cardinality = 0..1
+    religion = scope[religion]
+
+    ## cardinality = 0..1
+    culture = scope[culture]
+}
+
+## scopes = { country }
+### Create a political movement in scope country
+alias[effect:create_political_movement] = {
+    type = <political_movement>
+}
+
+## scopes = { political_movement }
+### Cancels the imposition of the scope law on the country
+alias[effect:set_core_ideology] = <ideology>
+
+## scopes = { country }
+### Cancels the imposition of the scope law on the country
+alias[effect:add_enactment_phase] = int[1..3]

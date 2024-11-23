@@ -1,0 +1,11 @@
+types = {
+    type[scripted_list] = {
+        path = "game/common/scripted_lists"
+        file_extension = .txt
+    }
+}
+
+scripted_list = {
+    base = enum[scripted_list_base]
+    conditions = single_alias_right[trigger_clause]
+}

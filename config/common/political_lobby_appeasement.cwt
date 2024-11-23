@@ -1,6 +1,11 @@
 types = {
     type[political_lobby_appeasement] = {
         path = "game/common/political_lobby_appeasement"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
     }
 }
 
@@ -10,6 +15,7 @@ political_lobby_appeasement = {
         enum[duration] = int
     }
 
+    ## cardinality = 0..1
     ### Whether this appeasement reason is always usable for all lobby types
     is_always_usable = bool
 }

@@ -1,5 +1,15 @@
 types = {
     type[opinion_modifier] = {
         path = "game/common/opinion_modifiers"
+        file_extension = .txt
     }
+}
+
+opinion_modifier = {
+    ### The opinion value applied when this modifier is added
+    opinion = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ### How much the opinion decays by, if not present does not decay
+    decay = single_alias_right[formula]
 }

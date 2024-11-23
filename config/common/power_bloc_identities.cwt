@@ -1,14 +1,14 @@
 types = {
     type[power_bloc_identity] = {
         path = "game/common/power_bloc_identities"
-    }
-    localisation = {
-        ## required
-        name = "$"
-    }
-    images = {
-        ## primary
-        icon = icon
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
     }
 }
 
@@ -63,10 +63,12 @@ power_bloc_identity = {
     ### Determines whether the identity is selectable in the list when forming a power bloc.
     possible = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ## push_scope = country
     ### This trigger is used to check if a country can join a power bloc with this identity. Additional scope details TBD.
     can_join = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ## push_scope = country
     ### This trigger is used to check if a country can leave a power bloc with this identity. Additional scope details TBD.
     can_leave = single_alias_right[trigger_clause]

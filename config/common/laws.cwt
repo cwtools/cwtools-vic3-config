@@ -23,6 +23,21 @@ law = {
     modifier = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1
+    tax_modifier_very_low = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    tax_modifier_low = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    tax_modifier_medium = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    tax_modifier_high = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    tax_modifier_very_high = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
     ## push_scope = country
     can_impose = single_alias_right[trigger_clause]
 

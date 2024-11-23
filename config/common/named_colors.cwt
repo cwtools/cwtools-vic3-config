@@ -1,6 +1,7 @@
 types = {
     type[named_color] = {
         path = "game/common/named_colors"
+        file_extension = .txt
         skip_root_key = colors
     }
 }

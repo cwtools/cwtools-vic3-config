@@ -4,10 +4,13 @@ alias[trigger:<scripted_trigger>] = bool
 ###The scripted trigger will draw the value of the right clause via $left_clause$.
 #Todo: Make sure this works
 alias[trigger:<scripted_trigger>] = {
-	## cardinality = 1..inf
+	## cardinality = 0..inf
 	enum[scripted_effect_params] = scalar
-	## cardinality = 1..inf
+	## cardinality = 0..inf
 	enum[scripted_effect_params] = scope_field
+
+    ## cardinality = 0..1
+    target = scope[country]
 }
 
 types = {
@@ -17,6 +20,7 @@ types = {
 }
 
 scripted_trigger = {
-    ## cardinality = 1..inf
+    ## cardinality = 0..inf
     alias_name[trigger] = alias_match_left[trigger]
+
 }

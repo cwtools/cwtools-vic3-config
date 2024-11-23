@@ -1,6 +1,15 @@
 types = {
     type[objective] = {
         path = "game/common/objectives"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
     }
 }
 
@@ -11,10 +20,29 @@ objective = {
     ### Preview card shown for this objective
     enabled_background = filepath
 
+    ## cardinality = 0..1
+    ### Preview card shown for this objective when it is disabled (e.g. missing dlcs)
+    disabled_background = filepath
+
+    ## cardinality = 0..1
+    ### Whether this objective can be chosen for every country or just the recommended ones
+    available_for_all_countries = bool
+
+    ## cardinality = 0..1
+    ### When this dlc feature is missing the objective will be disabled
+    required_dlc_feature = enum[dlc_feature]
+
     ### Which countries will show as recommended for this objective
     recommended_tags = {
-        ## cardinality = 1..4
+        ## cardinality = 1..inf
         <country_definition>
+    }
+
+    ## cardinality = 0..1
+    ### Recommended game rules for this objective
+    recommended_game_rules = {
+        ## cardinality = 0..inf
+        <game_rule>
     }
 
     ### Which subgoals are associated with this objective

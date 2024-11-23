@@ -203,4 +203,7 @@ scopes = {
     "Political Lobby" = {
         aliases = { political_lobby }
     }
+    "Harvest Condition" = {
+        aliases = { harvest_condition }
+    }
 }
