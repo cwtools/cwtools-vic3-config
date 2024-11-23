@@ -3,3 +3,7 @@ types = {
         path = "game/common/subject_types"
     }
 }
+
+subject_type = {
+    # TODO
+}

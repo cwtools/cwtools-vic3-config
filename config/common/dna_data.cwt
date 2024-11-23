@@ -3,3 +3,7 @@ types = {
         path = "game/common/dna_data"
     }
 }
+
+dna_data = {
+
+}

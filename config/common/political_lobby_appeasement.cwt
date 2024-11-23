@@ -1,0 +1,15 @@
+types = {
+    type[political_lobby_appeasement] = {
+        path = "game/common/political_lobby_appeasement"
+    }
+}
+
+political_lobby_appeasement = {
+    ### For how long is this appeasement reason shown in the appeasement tooltip?
+    duration_to_show = {
+        enum[duration] = int
+    }
+
+    ### Whether this appeasement reason is always usable for all lobby types
+    is_always_usable = bool
+}

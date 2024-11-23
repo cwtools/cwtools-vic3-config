@@ -125,6 +125,9 @@ alias[effect:set_ig_suppression] = bool
 ### Renames interest group to the specified loc key set_interest_group_name = x
 alias[effect:set_interest_group_name] = localisation
 
+### Checks if a pop has a certain amount of wealth wealth = value
+alias[effect:set_ig_trait] = scope[interest_group]
+
 ### Lock a trade route for a set amount of time, preventing it from being cancelled manually lock_trade_route = { 	years = 5 }
 alias[effect:lock_trade_route] = {
     enum[duration] = int
@@ -479,6 +482,8 @@ alias[effect:set_variable] = {
     value = value_field
     ## cardinality = 0..1
     value = scope_field
+    ## cardinality = 0..1
+    value = bool
 }
 
 ### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope
@@ -891,6 +896,15 @@ alias[effect:create_diplomatic_pact] = {
 ### Set liberty desire of a subject country
 alias[effect:add_liberty_desire] = int_value_field
 
+### Set liberty desire of a subject country
+alias[effect:add_liberty_desire] = single_alias_right[formula]
+
+### Set liberty desire of a subject country
+alias[effect:add_liberty_desire] = <script_value>
+
+### Set liberty desire of a subject country
+alias[effect:add_liberty_desire] = enum[static_values]
+
 ### Create a diplomatic play with the scoped object as target create_diplomatic_play = { 	name = loc_key 	escalation = integer between 0 and 100 	war = bool 	initiator = country scope/tag 	type = diplomatic play type 	add_initiator_backers = { list of country scopes/tags } 	add_target_backers = { list of country scopes/tags } 	add_war_goal = { holder = country scope/tag, type = x, state = <state target>, country = <country target,> region = <region target>  } }
 alias[effect:create_diplomatic_play] = {
     ## cardinality = 0..1
@@ -956,6 +970,7 @@ alias[effect:create_incident] = {
     country = scope[country]
     country = <country_definition>
     value = value_field
+    value = single_alias_right[formula]
 }
 
 ### Creates a new Trade Route trade_route = { 	goods = x 	level = x 	import = yes/no 	origin = state_region 	target = state_region }
@@ -1030,8 +1045,11 @@ alias[effect:set_capital] = <state_region>
 ### Sets the type of country for a country, for history
 alias[effect:set_country_type] = enum[country_type]
 
-### Set diplomats expelled = bool
+### Set diplomats expelled = bool or scope county
 alias[effect:set_diplomats_expelled] = bool
+
+### Set diplomats expelled = bool or scope county
+alias[effect:set_diplomats_expelled] = scope[country]
 
 ### Sets the government wage level of scoped country set_government_wage_level = very_low/low/medium/high/very_high
 alias[effect:set_government_wage_level] = enum[wage_level]
@@ -1421,3 +1439,95 @@ alias[effect:start_enactment] = scope[law_type]
 
 ### Sets the establishment date of scope company  
 alias[effect:set_company_establishment_date] = date_field
+
+### Allows only one party
+alias[effect:set_only_legal_party_from_ig] = scope[interest_group]
+
+### Allows more than one party
+alias[effect:unset_only_legal_party] = bool
+
+### Seize investment pool of private sector
+alias[effect:seize_investment_pool] = bool
+
+alias[effect:add_lobby_appeasement_from_diplomacy_bidirectional] = {
+    first = scope[country]
+    second = scope[country]
+    pro_amount = value_field
+    anti_amount = value_field
+    factor = <political_lobby_appeasement>
+}
+
+alias[effect:add_lobby_appeasement_from_diplomacy_unidirectional] = {
+    first = scope[country]
+    second = scope[country]
+    pro_amount = value_field
+    anti_amount = value_field
+    factor = <political_lobby_appeasement>
+}
+
+alias[effect:add_overlord_lobby_appeasement_from_diplomacy] = {
+    first = scope[country]
+    second = scope[country]
+    pro_amount = value_field
+    anti_amount = value_field
+    factor = <political_lobby_appeasement>
+}
+
+alias[effect:create_diplomatic_catalyst] = {
+    type = <diplomatic_catalyst>
+    target = scope[country]
+}
+
+alias[effect:create_bidirectional_truce] = {
+    country = scope[country]
+    enum[duration] = int_value_field
+}
+
+alias[effect:create_unidirectional_truce] = {
+    country = scope[country]
+    enum[duration] = int_value_field
+}
+
+### Change appeasement value of a lobby
+alias[effect:change_appeasement] = {
+    amount = int
+    factor = <political_lobby_appeasement>
+}
+
+### Country joins power bloc in scope
+alias[effect:join_power_bloc] = scope[country]
+
+### Add leverage to another country
+alias[effect:add_leverage] = {
+    target = scope[country]
+    value = value_field
+    value = single_alias_right[formula]
+}
+
+### Add progress to a scripted progress bar
+alias[effect:add_progress] = {
+    name = <scripted_progress_bar>
+    value = value_field
+}
+
+### Add cohesion to a power bloc
+alias[effect:add_cohesion_percent] = {
+    value = value_field
+    value = <script_value>
+    value = enum[static_values]
+}
+
+### Change regime in a country
+alias[effect:regime_change] = scope[country]
+
+### Decrease autonomy of country
+alias[effect:decrease_autonomy] = bool
+
+### Decrease autonomy of country
+alias[effect:increase_autonomy] = bool
+
+### Join a war
+alias[effect:join_war] = {
+    target = scope[country]
+    side = scope[country]
+}

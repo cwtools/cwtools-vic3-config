@@ -3,3 +3,29 @@ types = {
         path = "game/common/dynamic_country_names"
     }
 }
+
+dynamic_country_name = {
+
+    ## cardinality = 0..1
+    dynamic_country_name = {
+        name = localisation
+
+        ## cardinality = 0..1
+        adjective = localisation
+
+        ## cardinality = 0..1
+        is_main_tag_only = bool
+
+        ## cardinality = 0..1
+        is_revolutionary = bool
+
+        ## cardinality = 0..1
+        use_overlord_prefix = bool
+
+        ## cardinality = 0..1
+        priority = int
+
+        ## cardinality = 0..1
+        trigger = single_alias_right[trigger_clause]
+    }
+}

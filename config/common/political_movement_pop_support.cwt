@@ -1,0 +1,9 @@
+types = {
+    type[political_movement_pop_support] = {
+        path = "game/common/political_movement_categories"
+    }
+}
+
+political_movement_pop_support = {
+    # TODO
+}

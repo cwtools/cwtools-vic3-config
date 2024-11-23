@@ -1,0 +1,68 @@
+types = {
+    type[diplomatic_catalyst] = {
+        path = "game/common/diplomatic_catalysts"
+    }
+}
+
+diplomatic_catalyst = {
+    ### Which diplomatic_catalyst_category does this catalyst belong to
+    category = <diplomatic_catalyst_category>
+
+    ## cardinality = 0..1
+    ### Data for creating lobbies as a result of this catalyst
+    political_lobby_creation = {
+        ## cardinality = 0..1
+        ## replace_scope = { this = country root = country }
+        ### Trigger for whether to evaluate the script values below at all
+        ### Mostly used to save on performance by avoiding costly calculations when not needed, as <= 0 lobby script value has the same effect
+        ### Scopes:
+        ### root = the country the catalyst was triggered for
+        ### scope:target_country = the country the catayst was triggered by
+        trigger = single_alias_right[trigger_clause]
+
+        ## cardinality = 1..inf
+        ## replace_scope = { this = country root = country }
+        ### Script values for chance to try and create one or more lobby types
+        ### Same scopes as trigger
+        <political_lobby> = single_alias_right[formula]
+    }
+
+    ## cardinality = 0..1
+    ### Data for changing AI strategic desires as a result of this catalyst
+    ai_country_goal_recalculation = {
+        ### Which directions the catalyst is allowed to change the AI's strategic desire, must be set
+        ### all = any valid strategic desire
+        ### more_friendly = only towards valid friendlier strategic desires (for instance antagonize -> none, none -> befriend or antagonize -> befriend)
+        ### more_hostile = only towards valid more hostile strategic desires (for instance none -> antagonize, befriend -> none or befriend -> antagonize)
+        ### only_friendly = only to a friendly valid strategic desire (for instance 'befriend') - no effect if current strategic desire is already friendly & valid
+        ### only_hostile = only to a hostile valid strategic desire (for instance 'antagonize') - no effect if current strategic desire is already hostile & valid
+        ### only_neutral = only to a neutral valid strategic desire (for instance 'none') - no effect if current strategic desire is already neutral & valid
+        type = enum[ai_country_goal_recalculation_types]
+
+        ## cardinality = 0..1
+        ## replace_scope = { this = country root = country }
+        ### Trigger for whether to evaluate the script value below at all
+        ### Mostly used to save on performance by avoiding costly calculations when not needed, as <= 0 chance has the same effect
+        ### Scopes:
+        ### root = the country the catalyst was triggered for
+        ### scope:target_country = the country the catayst was triggered by
+        trigger = single_alias_right[trigger_clause]
+
+        ## replace_scope = { this = country root = country }
+        ### Script value for chance to recalculate the AI's strategic desire (0 = 0%, 1 = 100%)
+        ### Same scopes as trigger
+        chance = single_alias_right[formula]
+        ### Script value for chance to recalculate the AI's strategic desire (0 = 0%, 1 = 100%)
+        ### Same scopes as trigger
+        chance = value_field[0..1]
+    }
+
+    ## cardinality = 0..1
+    ## replace_scope = { this = country root = country }
+    ### Effect that is executed when catalyst occurs
+    ### Scopes:
+    ### root = the country the catalyst was triggered for
+    ### scope:target_country = the country the catayst was triggered by
+    effect = single_alias_right[effect_clause]
+
+}

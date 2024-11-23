@@ -2654,3 +2654,34 @@ alias[effect:random_valid_mass_migration_culture] = {
     weight = single_alias_right[ai_chance_block]
     alias_name[effect] = alias_match_left[effect]
 }
+
+## push_scope = political_lobby
+alias[effect:every_political_lobby] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+
+## push_scope = country
+alias[effect:every_direct_subject] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## push_scope = state
+alias[effect:every_princely_state] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    alias_name[effect] = alias_match_left[effect]
+}

@@ -25,49 +25,69 @@ single_alias[range] = {
 
 # This is a hardcoded reference for value_field
 single_alias[formula] = {
-    ## cardinality = 1..inf
+    ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+
+    ## cardinality = 0..inf
+    ## push_scope = interest_group
+    scope[interest_group] = single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    ## push_scope = country
+    every_power_bloc_member = single_alias_right[formula]
 }
 
 script_value = {
     ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    ### Used when calculating values for actions between countries such as diplomatic plays
+    first_country = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    ### Used when calculating values for actions between countries such as diplomatic plays
+    second_country = single_alias_right[formula]
 }
 
+alias[arithmetic_operation:leader] = value_field
+alias[arithmetic_operation:leader] = single_alias_right[formula]
+alias[arithmetic_operation:leader] = <script_value>
+alias[arithmetic_operation:leader] = enum[static_values]
 alias[arithmetic_operation:add] = value_field
-alias[arithmetic_operation:add] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:add] = single_alias_right[formula]
+alias[arithmetic_operation:add] = <script_value>
+alias[arithmetic_operation:add] = enum[static_values]
 alias[arithmetic_operation:subtract] = value_field
-alias[arithmetic_operation:subtract] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:subtract] = single_alias_right[formula]
+alias[arithmetic_operation:subtract] = <script_value>
+alias[arithmetic_operation:subtract] = enum[static_values]
 alias[arithmetic_operation:multiply] = value_field
-alias[arithmetic_operation:multiply] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:multiply] = single_alias_right[formula]
+alias[arithmetic_operation:multiply] = <script_value>
+alias[arithmetic_operation:multiply] = enum[static_values]
 alias[arithmetic_operation:divide] = value_field
-alias[arithmetic_operation:divide] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:divide] = single_alias_right[formula]
+alias[arithmetic_operation:divide] = <script_value>
+alias[arithmetic_operation:divide] = enum[static_values]
 alias[arithmetic_operation:modulo] = value_field
-alias[arithmetic_operation:modulo] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:modulo] = single_alias_right[formula]
+alias[arithmetic_operation:modulo] = <script_value>
+alias[arithmetic_operation:modulo] = enum[static_values]
 alias[arithmetic_operation:value] = value_field
-alias[arithmetic_operation:value] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:value] = single_alias_right[formula]
+alias[arithmetic_operation:value] = <script_value>
+alias[arithmetic_operation:value] = enum[static_values]
 alias[arithmetic_operation:max] = value_field
+alias[arithmetic_operation:max] = <script_value>
+alias[arithmetic_operation:max] = enum[static_values]
 alias[arithmetic_operation:min] = value_field
-alias[arithmetic_operation:value] = value_field
+alias[arithmetic_operation:min] = <script_value>
+alias[arithmetic_operation:min] = enum[static_values]
 
+alias[arithmetic_operation:abs] = yes
 alias[arithmetic_operation:round] = yes
 alias[arithmetic_operation:ceiling] = yes
 alias[arithmetic_operation:floor] = yes
@@ -89,6 +109,8 @@ alias[arithmetic_operation:if] = {
 }
 
 alias[arithmetic_operation:else_if] = {
+    ## cardinality = 0..1
+    ### limit is optional in else_if
     limit = single_alias_right[trigger_clause]
     ## cardinality = 1..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]

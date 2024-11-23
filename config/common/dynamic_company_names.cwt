@@ -1,0 +1,16 @@
+types = {
+    type[dynamic_company_name] = {
+        path = "game/common/dynamic_company_names"
+    }
+    localisation = {
+        ## required
+        name = "$"
+    }
+}
+
+dynamic_company_name = {
+    uses_plural_naming = bool
+    use_for_flavored_companies = bool
+
+    weight = single_alias_right[formula]
+}

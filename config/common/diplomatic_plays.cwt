@@ -2,26 +2,46 @@ types = {
     type[diplomatic_play] = {
         path = "game/common/diplomatic_plays"
     }
+    localisation = {
+        ## required
+        name = "$"
+    }
 }
 
 ## replace_scope = { ROOT = country THIS = country }
 diplomatic_play = {
     ## cardinality = 0..1
     requires_interest_marker = bool
+
     ## cardinality = 0..1
     enable_switch_sides = bool
+
     ## cardinality = 0..1
     allow_negotiated_peace = bool
+
     ## cardinality = 0..1
     mirror_war_goal = bool
+
     ## cardinality = 0..1
     initiator_can_add_war_goals = bool
+
     ## cardinality = 0..1
     target_can_add_war_goals = bool
+
     ## cardinality = 0..1
 	backing_down_always_ends_play = bool
+
     ## cardinality = 0..1
     blocked_by_diplomatic_status = bool
+
+    ## cardinality = 0..1
+    add_infamy_for_starting_initiator_wargoals = bool
+
+    ## cardinality = 0..1
+    ai_acceptance_max = int
+
+    ## cardinality = 0..1
+    confirmation_sound = scalar
 
     war_goal = enum[war_goal]
 
@@ -39,9 +59,15 @@ diplomatic_play = {
     ## cardinality = 0..1
     additional_involvement_trigger = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     on_weekly_pulse = single_alias_right[effect_clause]
 
+    ## cardinality = 0..1
     on_war_begins = single_alias_right[effect_clause]
 
+    ## cardinality = 0..1
     on_war_end = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    on_demand_accepted = single_alias_right[effect_clause]
 }

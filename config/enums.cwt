@@ -1,6 +1,7 @@
 enums = {
     enum[duration] = {
         days
+        weeks
         months
         years
     }
@@ -52,6 +53,15 @@ enums = {
         poor
         middle
         rich
+        upper
+    }
+
+    enum[acceptance_status] = {
+        acceptance_status_5
+        acceptance_status_4
+        acceptance_status_3
+        acceptance_status_2
+        acceptance_status_1
     }
 
     enum[infamy_threshold] = {
@@ -67,6 +77,22 @@ enums = {
 
     enum[cosmetic_dlc] = {
         "Victoria 2 Remastered Soundtrack"
+    }
+
+    # As of 1.8
+    enum[dlc_feature] = {
+        rp1_content
+        ip2_content
+        ip2_cosmetics
+        ep1_content
+        ep1_cosmetics
+        voice_of_the_people_content
+        voice_of_the_people_preorder
+        power_bloc_features
+        agitators
+        foreign_investment
+        subject_and_bloc_actions
+        lobbies
     }
 
     enum[gameplay_dlc] = {
@@ -95,6 +121,7 @@ enums = {
         rebellious
         protective
         domineering
+        defiant
     }
 
     enum[political_movement_type] = {
@@ -123,6 +150,8 @@ enums = {
         make_puppet
         make_dominion
         make_vassal
+        make_tributary
+        make_protectorate
         conquer_state
         return_state
         take_treaty_port
@@ -135,6 +164,13 @@ enums = {
         independence
         secession
         unification
+        join_power_bloc
+        leave_power_bloc
+        increase_autonomy
+        reduce_autonomy
+        force_nationalization
+        foreign_investment_rights
+        colonization_rights
     }
 
     enum[secret_goal] = {
@@ -190,6 +226,8 @@ enums = {
         subject
         overlord
         power_bloc
+        power_bloc_leader
+        power_bloc_member
     }
 
     enum[city_type] = {
@@ -216,5 +254,56 @@ enums = {
     enum[dlc_types] = {
         minor
         major
+    }
+
+    enum[law_group_categories] = {
+        power_structure
+        economy
+        human_rights
+    }
+
+    enum[state_selection] = {
+        first_required
+        first_optional
+        second_required
+        second_optional
+        both_required
+        both_optional
+        any_required
+    }
+
+    enum[state_list] = {
+        first_country
+        second_country
+        all
+        first_country_and_subjects
+        second_country_and_subjects
+    }
+
+    enum[lobby_formation_reasons] = {
+        diplomacy
+        defense
+        ideology
+        funded
+        aggression
+        religion
+        technology
+        economy
+        none
+    }
+
+    enum[ai_country_goal_recalculation_types] = {
+        all
+        more_friendly
+        more_hostile
+        only_friendly
+        only_hostile
+        only_neutral
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[market_owners] = {
+        first_country
+        second_country
     }
 }

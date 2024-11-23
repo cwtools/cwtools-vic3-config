@@ -2,6 +2,10 @@ types = {
     type[decree] = {
         path = "game/common/decrees"
     }
+    localisation = {
+        ## required
+        name = "$"
+    }
 }
 
 ## replace_scope = { ROOT = state THIS = state }

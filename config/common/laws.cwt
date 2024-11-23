@@ -2,4 +2,108 @@ types = {
     type[law] = {
         path = "game/common/laws"
     }
+    localisation = {
+        ## required
+        name = "$"
+    }
+    images = {
+        ## primary
+        icon = icon
+    }
+}
+
+law = {
+    group = <law_group>
+
+    icon = filepath
+
+    progressiveness = int
+
+    ## cardinality = 0..1
+    modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    can_impose = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    can_enact = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    on_enact = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    on_activate = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    on_deactivate = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    acceptance_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    institution = <institution>
+
+    ## cardinality = 0..1
+    institution_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    unlocking_technologies = {
+        ## cardinality = 0..inf
+        <technology>
+    }
+
+    ## cardinality = 0..1
+    disallowing_laws = {
+        ## cardinality = 0..inf
+        <law>
+    }
+
+    ## cardinality = 0..1
+    unlocking_laws = {
+        ## cardinality = 0..inf
+        <law>
+    }
+
+    ## cardinality = 0..1
+    tariff_modifier_no_priority = {
+        ## cardinality = 0..1
+        tariff_export_add = value_field
+        ## cardinality = 0..1
+        tariff_import_add = value_field
+    }
+
+    ## cardinality = 0..1
+    tariff_modifier_export_priority = {
+        ## cardinality = 0..1
+        tariff_export_add = value_field
+        ## cardinality = 0..1
+        tariff_import_add = value_field
+    }
+
+    ## cardinality = 0..1
+    tariff_modifier_import_priority = {
+        ## cardinality = 0..1
+        tariff_export_add = value_field
+        ## cardinality = 0..1
+        tariff_import_add = value_field
+    }
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    ai_will_do = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    ai_impose_chance = single_alias_right[formula]
+
+    ai_enact_weight_modifier = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    is_visible = single_alias_right[trigger_clause]
 }

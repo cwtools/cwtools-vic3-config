@@ -2,6 +2,7 @@ enums = {
     # Aren't these just value fields?
     enum[weight_chance_modifier_operators] = {
         add
+        subtract
         multiply
         divide
         factor
@@ -37,6 +38,10 @@ single_alias[weight_block] = single_alias_right[formula]
 single_alias[weight_chance_modifier] = {
     ## cardinality = 0..inf
     enum[weight_chance_modifier_operators] = value_field
+    ## cardinality = 0..inf
+    enum[weight_chance_modifier_operators] = enum[static_values]
+    ## cardinality = 0..inf
+    enum[weight_chance_modifier_operators] = <script_value>
 
     ## cardinality = 0..1
     value = value_field
@@ -69,6 +74,10 @@ single_alias[weight_chance_modifier] = {
     desc = single_alias_right[complex_desc]
     ## cardinality = 0..1
     desc = localisation
+
+    scope:actor.power_bloc = {
+        alias_name[weight_chance_modifier] = alias_match_left[weight_chance_modifier]
+    }
 }
 
 single_alias[implicit_trigger_chance_modifier] = {

@@ -2,4 +2,26 @@ types = {
     type[interest_group_trait] = {
         path = "game/common/interest_group_traits"
     }
+    localisation = {
+        name = "$"
+    }
+    images = {
+        ## primary
+        texture = texture
+    }
+}
+
+interest_group_trait = {
+    icon = filepath
+
+    ## cardinality = 0..1
+    min_approval = enum[ig_approval]
+
+    ## cardinality = 0..1
+    max_approval = enum[ig_approval]
+
+    modifier = {
+        ## cardinality = 1..inf
+        <modifier_type> = float
+    }
 }

@@ -294,6 +294,18 @@ links = {
 		from_data = yes
 		data_source = <pop_type>
 	}
+	pop_loyalist_fraction = {
+		desc = " Fraction of pop that is loyalist"
+		input_scopes = pop
+		output_scope = value
+		type = value
+	}
+	pop_radical_fraction = {
+		desc = " Fraction of pop that is radical"
+		input_scopes = pop
+		output_scope = value
+		type = value
+	}
 	literacy_rate = {
 		desc = " Literacy rate of pop"
 		input_scopes = pop
@@ -349,6 +361,17 @@ links = {
         data_source = value[event_target]
 		prefix = scope:
 	}
+	ig_trait = {
+		desc = " Reference a an interest group"
+		from_data = yes
+		data_source = <interest_group_trait>
+		prefix = ig_trait:
+	}
+	ig_clout = {
+		input_scopes = { interest_group }
+		output_scope = value
+		type = value
+	}
 	sr = {
 		desc = " Scope to the strategic region of specified key"
 		from_data = yes
@@ -397,6 +420,17 @@ links = {
 		desc = " Scope to the scoped country's active law in the named law group (active_law:lawgroup_trade_policy)"
 		input_scopes = country
 		output_scope = law
+	}
+	active_law_group = {
+		desc = "Scope to the law with specified tag"
+		from_data = yes
+		data_source = <law_group>
+		prefix = active_law:
+		output_scope = law
+	}
+	progressiveness = {
+		output_scope = value
+		type = value
 	}
 	ai_army_comparison = {
 		desc = " Scope to comparative army strength between two countries (example: value = ai_army_comparison:root)"
@@ -743,12 +777,6 @@ links = {
 		prefix = py:
 		data_source = <party>
 	}
-	relations:root = {
-		desc = " Scope to relations between two countries (example: relations:root >= 2)"
-		input_scopes = country
-		output_scope = value
-		type = value
-	}
 	ruler = {
 		desc = " Scope to the ruler of a country"
 		input_scopes = country
@@ -789,7 +817,7 @@ links = {
 	}
 	target = {
 		desc = " Scope to the target of the object"
-		input_scopes = { diplomatic_play journalentry }
+		input_scopes = { diplomatic_play journalentry diplomatic_catalyst }
 	}
 	level = {
 		desc = " Scope to the level of an object"
@@ -1018,6 +1046,44 @@ links = {
 		output_scope = country
 		input_scopes = military_formation
 	}
+	num_subjects = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	liberty_desire = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	relations_change_rate = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	scaled_debt = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	weekly_net_fixed_income = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	scaled_gold_reserves = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	first_country = {
+		desc = "Used when calculating values for actions between countries such as diplomatic plays"
+		output_scope = country
+	}
+	second_country = {
+		desc = "Used when calculating values for actions between countries such as diplomatic plays"
+		output_scope = country
+	}
 	highest_ranked_commander = {
 		desc = "Scope from a military formation to its highest ranking commander character"
 		input_scopes = military_formation
@@ -1182,20 +1248,284 @@ links = {
 		output_scope = value
 		type = value
 	}
-	ai_army_comparison(root) = {
-		desc = "Returns the difference between countries armies"
+	prestige = {
+		desc = "Returns the countries prestige"
 		input_scopes = { country }
 		output_scope = value
 		type = value
 	}
+	supply_network_strength = {
+		desc = "Returns the countries supply network strength"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	power_bloc_principle = {
+		desc = "Provides a power bloc principle"
+		from_data = yes
+		data_source = <power_bloc_principle>
+		output_scope = power_bloc_principle
+		prefix = principle:
+	}
+	power_bloc_principle_group = {
+		desc = "Provides a power bloc principle group"
+		from_data = yes
+		data_source = <power_bloc_principle_group>
+		output_scope = power_bloc_principle_group
+		prefix = principle_group:
+	}
+	power_bloc_identity = {
+		desc = "Provides a power bloc principle group"
+		from_data = yes
+		data_source = <power_bloc_identity>
+		output_scope = power_bloc_identity
+		prefix = identity:
+	}
+	power_bloc = {
+		desc = "If used in a country scope, scope to the power bloc this country is a part of."
+		output_scope = power_bloc
+		input_scopes = country
+	}
+	power_bloc_leader = {
+		output_scope = country
+		input_scopes = power_bloc
+	}
+	power_bloc_share_prestige = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_worst_leader_relations = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	power_bloc_worst_liberty_desire = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	current_cohesion_number = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	leverage_threshold_to_invite = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	current_cohesion_percentage = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	tenure_in_current_power_bloc_years = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	income_transfer = {
+		input_scopes = diplomatic_pact
+		output_scope = value
+		type = value
+	}
+	liberty_desire_weekly_progress = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	market_access = {
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	army_power_projection = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+
+	# TODO
+	# Possible Hacks
+	# Needs to be investigated
+	# But looks like this is a missing feature in CWT
+
+	relations:root = {
+		desc = "Scope to relations between two countries (example: relations:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
 	relations(scope:actor) = {
-		desc = " Scope to relations between two countries (example: relations:root >= 2)"
+		desc = "Scope to relations between two countries (example: relations:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	relations(scope:target_country) = {
+		desc = "Scope to relations between two countries (example: relations:root >= 2)"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	ai_ideological_opinion(scope:country) = {
+		desc = "Number of relations with rival countries"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	ai_ideological_opinion(root) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	leverage_advantage(scope:actor) = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	predicted_cohesion_percentage_with(scope:actor) = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	leverage_advantage(root) = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+	}
+	relations_change_rate:root = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	lobby_foreign_anti_clout(scope:actor) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	lobby_foreign_anti_clout(scope:target_country) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	lobby_foreign_pro_clout(scope:actor) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	lobby_foreign_pro_clout(scope:target_country) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_mutual_trade_route_levels_with_country(root) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	ai_gdp_comparison(root) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	ai_ideological_opinion(scope:actor) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	ai_army_comparison(root) = {
+		desc = "Returns the difference between countries armies"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	ai_army_comparison(scope:actor) = {
+		desc = "Returns the difference between countries armies"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	ai_army_comparison(scope:target_country) = {
+		desc = "Returns the difference between countries armies"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	ai_ideological_opinion(scope:target_country) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	ai_state_value(scope:subject_taken_from) = {
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	ai_state_value(scope:target_country) = {
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	ai_state_value(root) = {
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	ai_state_value(scope:second_state.owner) = {
+		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	num_diplomatic_pacts(alliance) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_diplomatic_pacts(defensive_pact) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_diplomatic_pacts(military_assistance) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	diplomatic_pact_other_country(root) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_alliances_and_defensive_pacts_with_allies(scope:actor) = {
+		desc = "Number of relations with allied countries"
 		input_scopes = country
 		output_scope = value
 		type = value
 	}
 	num_alliances_and_defensive_pacts_with_rivals(scope:actor) = {
 		desc = "Number of relations with rival countries"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_shared_rivals(scope:actor) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_mutual_trade_route_levels_with_country(root) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	potential_diplomatic_play_power_ratio(root) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	economic_dependence(root) = {
 		input_scopes = country
 		output_scope = value
 		type = value

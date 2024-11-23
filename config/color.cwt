@@ -1,11 +1,15 @@
 alias[colour:color] = <named_color>
 alias[colour:color] = colour[rgb]
 alias[colour:color] = colour[hsv]
+## color_type = hsv
 alias[colour:color] = {
     ## cardinality = 3..3
     base = float
 }
-alias[color] = {
+## color_type = rgb
+alias[colour:color] = {
     ## cardinality = 3..3
-    base = int
+    base = int[0..255]
 }
+## color_type = hex
+alias[colour:color] = scalar

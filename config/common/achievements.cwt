@@ -2,6 +2,9 @@ types = {
     type[achievement] = {
         path = "game/common/achievements"
     }
+    localisation = {
+        name = "$"
+    }
 }
 
 achievement = {

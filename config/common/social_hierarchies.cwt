@@ -1,0 +1,26 @@
+types = {
+    type[social_hierarchy] = {
+        path = "game/common/social_hierarchies"
+    }
+    localisation = {
+        name = "$"
+    }
+}
+
+social_hierarchy = {
+    ## cardinality = 0..1
+    ### Determines whether this is the default hierarchy. Countries that don't have
+    ### a different hierarchy scripted usee this hierarchy implicitly.
+    ###
+    ### It is also used as a fallback when a pop cannot be subject to the de-jure
+    ### hierarchy of the country they live in. See the pop_criteria section for
+    ### additional information.
+    is_default = bool
+
+    ## push_scope = pop
+    ### This is a trigger that determines whether a pop can be subject to the hierarchy.
+    pop_criteria = {
+        ## cardinality = 1..inf
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+}

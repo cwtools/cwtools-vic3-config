@@ -7,17 +7,31 @@ types = {
 ## replace_scope = { ROOT = country THIS = country }
 diplomatic_action = {
     ## cardinality = 0..1
+    ### Whether this action requires the approval of the target, default no
     requires_approval = bool
+
     ## cardinality = 0..1
+    texture = filepath
+
+    ## cardinality = 0..1
+    ### Whether player should be prompted with a confirmation box when taking this action, default yes
     show_confirmation_box = bool
 
     ## cardinality = 0..1
     should_notify_third_parties = bool
+
     ## cardinality = 0..1
 	show_effect_in_tooltip = bool
 
     ## cardinality = 0..1
+    ### If this is true, then positive acceptance becomes a % chance to accept rather than always being accepted (+50 acceptance = 50% chance etc)
+    uses_random_approval = bool
+
+    ## cardinality = 0..1
     violates_sovereignty = bool
+
+    ## cardinality = 0..1
+    show_in_lens = bool
 
     ### Diplomatic action groups. Example: subject means a subject is taking an action.
     groups = {
@@ -27,20 +41,58 @@ diplomatic_action = {
     }
 
     ## cardinality = 0..1
+    ### If set, this allows or requires one or two states to be selected for this action, see below for all settings
+    ### first_required - Must select a state for initiator
+    ### first_optional - May select a state for initiator
+    ### second_required - Must select a state for target
+    ### second_optional - May select a state for target
+    ### both_required - Must select a state for initiator AND target
+    ### both_optional - May select a state for initiator OR target OR both
+    ### any_required - Must select a state for initiator OR target OR both
+    state_selection = enum[state_selection]
+
+    ## cardinality = 0..1
+    #### If there is a first_state_trigger, then evaluate it for each state in first_country (aka scope:country). Defaults to all
+    first_state_list = enum[state_list]
+
+    ## cardinality = 0..1
+    #### If there is a first_state_trigger, then evaluate it for each state in first_country (aka scope:country). Defaults to all
+    second_state_list = enum[state_list]
+
+    ## cardinality = 0..1
+    ## replace_scope = { ROOT = state THIS = state }
+    ### Trigger for whether a state is selectable for initiator. scope:country is the initiator, scope:target_country is the target
+    first_state_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## replace_scope = { ROOT = state THIS = state }
+    ### Trigger for whether a state is selectable for initiator. scope:country is the initiator, scope:target_country is the target
+    second_state_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### Trigger for whether action is potential, default evaluates to true. NOTE this also requires all requirement_to_maintain to be true
     potential = single_alias_right[trigger_clause]
+
     ## cardinality = 0..1
+    ### Trigger for whether action is possible, default evaluates to true. NOTE this also requires all requirement_to_maintain to be true
     possible = single_alias_right[trigger_clause]
+
     ## cardinality = 0..1
+    ### Trigger for whether action is visible/selectable with *any* target country, only evaluates proposing country, default evaluates to true
     selectable = single_alias_right[trigger_clause]
+
     ## cardinality = 0..1
+    ### Effect of action on execution
     effect = single_alias_right[effect_clause]
+
     ## cardinality = 0..1
     accept_effect = single_alias_right[effect_clause]
+
     ## cardinality = 0..1
     decline_effect = single_alias_right[effect_clause]
 
-    ### is this a hostile action, default no
     ## cardinality = 0..1
+    ### is this a hostile action, default no
     is_hostile = bool
 
     ## cardinality = 0..1
@@ -60,14 +112,90 @@ diplomatic_action = {
 
     ## cardinality = 0..1
     can_select = bool
+
     ## cardinality = 0..1
     can_select_to_break = bool
 
     ## cardinality = 0..1
+    ### "event:/SFX/UI/Global/alternate_confirmation" If set, overrides the sound path set in defines/00_audio.txt for this particular action
+    confirmation_sound = scalar
+
+    ## cardinality = 0..1
+    ### "event:/SFX/UI/MapInteraction/alternate_request" If set, overrides the sound path set in defines/00_audio.txt for this particular action
+    request_sound = scalar
+
+    ## cardinality = 0..1
+    ### "event:/SFX/UI/MapInteraction/alternate_hostile" If set, overrides the sound path set in defines/00_audio.txt for this particular action
+    hostile_sound = scalar
+
+    ## cardinality = 0..1
+    ### "event:/SFX/UI/MapInteraction/alternate_benign" If set, overrides the sound path set in defines/00_audio.txt for this particular action
+    benign_sound = scalar
+
+    ## cardinality = 0..1
     pact = {
+        ## cardinality = 0..1
+        ### is this a hostile action, default no
+        is_hostile = bool
+
+        ## cardinality = 0..1
+        exempt_from_service = bool
+
+        ## cardinality = 0..1
+        market_owner = enum[market_owners]
+
+        ## cardinality = 0..1
+        ### How many months after being established is it not possible to break this pact, overriden by OBLIGATION_FORCED_PACT_MONTHS if obligation is used, cannot be lower than PACT_REQUIRES_APPROVAL_MIN_FORCED_MONTHS for pacts that require approval
+        forced_duration = int
+
         ## cardinality = 0..1
         ### Cost in diplo capital to maintain the pact
         cost = int
+
+        ## cardinality = 0..1
+        can_be_used_in_sway_offers = bool
+
+        ## cardinality = 0..1
+        sway_maneuvers_cost = int # ? no documentation (seen example has the value 10)
+
+        ## cardinality = 0..1
+        is_guarantee_independence = bool
+
+        ## cardinality = 0..1
+        ### Income transfer cannot exceed this fraction of the sender's income, for pacts with income transfer based on second country
+        max_paying_country_income_to_transfer = value_field
+
+        ## cardinality = 0..1
+        ### If yes, actor pays money to recipient, if no recipient pays to actor.
+        second_country_gets_income_transfer = bool
+
+        ## cardinality = 0..1
+        ### If yes, the amount of money transferred to the other part is based on a fraction of recipient's tax income, if no it's based on a fraction of actor's income.
+        income_transfer_based_on_second_country = bool
+
+        ## cardinality = 0..1
+        ### If defined, the transfered income will go to appro pops of the target country instead of the treasury
+        income_transfer_to_pops = {
+            ## cardinality = 0..1
+            ### Do not fully accepted pops also get a share of the transferred money?
+            allow_non_fully_accepted = bool
+
+            ## cardinality = 0..1
+            ### Do discriminated pops also get a share of the transferred money?
+            allow_discriminated = bool
+
+            ### Script values for fraction of the money that will go to upper strata pops in target
+            ### Values are relative to each other, so if upper_strata_pops evaluates to 100 and the total value is 1000, upper strata pops will get 10% of the money
+            upper_strata_pops = single_alias_right[formula]
+
+            ### Script values for fraction of the money that will go to middle strata pops in target
+            ### Values are relative to each other, so if upper_strata_pops evaluates to 100 and the total value is 1000, upper strata pops will get 10% of the money
+            middle_strata_pops = single_alias_right[formula]
+
+            ### Script values for fraction of the money that will go to lower strata pops in target
+            ### Values are relative to each other, so if upper_strata_pops evaluates to 100 and the total value is 1000, upper strata pops will get 10% of the money
+            lower_strata_pops = single_alias_right[formula]
+        }
 
         ## cardinality = 0..1
         is_alliance = bool
@@ -76,23 +204,70 @@ diplomatic_action = {
         is_defensive_pact = bool
 
         ## cardinality = 0..1
+        first_modifier = single_alias_right[modifier_clause]
+
+        ## cardinality = 0..1
+        second_modifier = single_alias_right[modifier_clause]
+
+        ## cardinality = 0..1
+        ### Effect of pact on being manually broken by either part
+        manual_break_effect = single_alias_right[effect_clause]
+
+        ## cardinality = 0..1
+        ### Effect of pact on being automatically broken due to requirement invalidating
+        auto_break_effect = single_alias_right[effect_clause]
+
+        ## cardinality = 0..inf
+        ### Any number of these triggers can be added to a pact to set up the requirements to propose and maintain it. trigger = {} If this evaluates to false, the pact will automatically break the next tick UNLESS it is a forced duration pact, and also will not be able to be proposed (so you don't need to also check the condition in possible)
+        requirement_to_maintain = {
+            trigger = single_alias_right[trigger_clause]
+
+            ## cardinality = 0..1
+            show_about_to_break_warning = single_alias_right[trigger_clause]
+        }
+
+        ## cardinality = 0..1
         is_rivalry = bool
+
         ## cardinality = 0..1
         is_two_sided_pact = bool
+
         ## cardinality = 0..1
         is_embargo = bool
+
         ## cardinality = 0..1
         is_trade_agreement = bool
 
         ## cardinality = 0..1
+        junior_support_only_against_overlord = bool
+
+        ## cardinality = 0..1
         has_junior_participant = bool
+
         ## cardinality = 0..1
 		recipient_pays_maintenance = bool
+
+        ## cardinality = 0..inf
+        ### pact forces the initator to automatically join the targets side in diplomatic plays of specified type'. this is a list, so you can have multiple entries.
+        auto_support_type = <diplomatic_play>
+
+        ## cardinality = 0..1
+        second_foreign_pro_country_lobby_member_modifier = single_alias_right[modifier_clause]
+
+        ## cardinality = 0..1
+        second_foreign_anti_country_lobby_member_modifier = single_alias_right[modifier_clause]
+
         ## cardinality = 0..1
 		is_customs_union = bool
 
         ## cardinality = 0..1
         is_humiliation = bool
+
+        ## cardinality = 0..1
+        is_colonization_rights = bool
+
+        ## cardinality = 0..1
+        is_foreign_investment_rights = bool
 
         ## cardinality = 0..1
         show_in_outliner = bool
@@ -209,40 +384,51 @@ diplomatic_action = {
         will_break = single_alias_right[trigger_clause]
 
         ## cardinality = 0..1
-        evaluation_chance = single_alias_right[weight_chance_modifier]
+        evaluation_chance = single_alias_right[formula]
+
+        ## cardinality = 0..1
+        ## replace_scope = { ROOT = state THIS = state }
+        will_select_as_first_state = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ## replace_scope = { ROOT = state THIS = state }
+        will_select_as_second_state = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        will_propose_with_states = single_alias_right[trigger_clause]
 
         ## cardinality = 0..1
         ### If this value evaluates to above zero, AI will accept this action if proposed
-        accept_score = single_alias_right[weight_chance_modifier]
+        accept_score = single_alias_right[formula]
 
         ## cardinality = 0..1
-        junior_accept_score = single_alias_right[weight_chance_modifier]
+        junior_accept_score = single_alias_right[formula]
 
         ## cardinality = 0..1
         ### If this value evaluates to above zero, AI will accept breaking this pact if proposed
-        accept_break_score = single_alias_right[weight_chance_modifier]
+        accept_break_score = single_alias_right[formula]
 
         ## cardinality = 0..1
         ### This determines how much the AI will prioritize proposing this particular deal
-        propose_score = single_alias_right[weight_chance_modifier]
+        propose_score = single_alias_right[formula]
 
         ## cardinality = 0..1
         ### This determines how much the AI will prioritize proposing breaking this particular pact
-        propose_break_score = single_alias_right[weight_chance_modifier]
+        propose_break_score = single_alias_right[formula]
 
         ## cardinality = 0..1
-        use_obligation_chance = single_alias_right[weight_chance_modifier]
+        use_obligation_chance = single_alias_right[formula]
 
         ## cardinality = 0..1
-        owe_obligation_chance = single_alias_right[weight_chance_modifier]
+        owe_obligation_chance = single_alias_right[formula]
 
         ## cardinality = 0..1
         ### The chance (0 - 100%) that AI is willing to call in a favor to force this through
-        use_favor_chance = single_alias_right[weight_chance_modifier]
+        use_favor_chance = single_alias_right[formula]
 
         ## cardinality = 0..1
         ### The chance (0 - 100%) that AI is willing to owe a favor to get this accepted
-        owe_favor_chance = single_alias_right[weight_chance_modifier]
+        owe_favor_chance = single_alias_right[formula]
 
         ## cardinality = 0..1
 		check_acceptance_for_will_break = bool
@@ -251,5 +437,9 @@ diplomatic_action = {
 
         ## cardinality = 0..1
         max_influence_spending_fraction = value_field
+
+        ## cardinality = 0..1
+        ### Trigger for if AI will propose an action even if they think it's going to be declined, checked after will_propose
+        will_propose_even_if_not_accepted = single_alias_right[trigger_clause]
     }
 }

@@ -1,0 +1,29 @@
+types = {
+    type[power_bloc_principle_group] = {
+        path = "game/common/power_bloc_principle_groups"
+    }
+    localisation = {
+        ## required
+        name = "$"
+    }
+}
+
+power_bloc_principle_group = {
+    ## cardinality = 0..inf
+    ### Which identity blocks picking this Principle Group. Can be repeated
+    blocking_identity = <power_bloc_identity>
+
+    ## cardinality = 0..inf
+    ### Which identity unlocks this Principle Group. Can be repeated
+    unlocking_identity = <power_bloc_identity>
+
+    ## cardinality = 0..1
+    ### Specifies Identities for which Principle Groups should be considered Primary
+    primary_for_identity = <power_bloc_identity>
+
+    ### The order of principles defines each principle's Level
+    levels = {
+        <power_bloc_principle>
+    }
+
+}

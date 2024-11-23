@@ -3,3 +3,31 @@ types = {
         path = "game/common/law_groups"
     }
 }
+
+law_group = {
+    law_group_category = enum[law_group_categories]
+
+    ## cardinality = 0..1
+    ### the length of the enactment cycle (in days) prior to taking Legitimacy into account. If not specified, this value will be dictated by the LAW_ENACTMENT_DEFAULT_BASE_DAYS define. If specified, this overrides the define.
+    base_enactment_days = int
+
+    ## cardinality = 0..1
+    ### multiplier to the approval effects changing this law has on IGs, default 1.0
+    enactment_approval_mult = float
+
+    ## cardinality = 0..1
+    affected_by_regime_change = bool
+
+    progressive_movement_chance = float
+    regressive_movement_chance = float
+
+    ## cardinality = 0..1
+    linked_social_hierarchy = <social_hierarchy>
+
+    ## push_scope = country
+    ## cardinality = 0..1
+    change_allowed_trigger = {
+        ## cardinality = 1..inf
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+}

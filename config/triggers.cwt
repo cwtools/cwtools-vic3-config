@@ -51,6 +51,12 @@ alias[trigger:culture_secession_progress] = {
 ### Checks if a culture has a certain goods as obsession has_cultural_obsession = <goods key>
 alias[trigger:has_cultural_obsession] = <goods>
 
+alias[trigger:cultural_accpetance_base] = {
+    target = scope[culture]
+    target = <culture>
+    value == enum[acceptance_status]
+}
+
 ### Checks if a culture has a certain culture_graphics has_culture_graphics = <culture graphics key>
 alias[trigger:has_culture_graphics] = <culture_graphic>
 
@@ -110,6 +116,7 @@ alias[trigger:has_commander_order] = scope[commander_order]
 
 ### Checks characters culture has_culture = culture scope or character scope
 alias[trigger:has_culture] = scope[culture]
+alias[trigger:has_culture] = <culture>
 ### Checks characters culture has_culture = culture scope or character scope
 alias[trigger:has_culture] = scope[character]
 
@@ -183,6 +190,7 @@ alias[trigger:has_building] = <building>
 
 ### Checks if a culture is one of the cultures of the country definition country_definition_has_culture = <culture>
 alias[trigger:country_definition_has_culture] = scope[culture]
+alias[trigger:country_definition_has_culture] = <culture>
 
 ### Checks if the scoped trade route is active is_trade_route_active = yes/no
 alias[trigger:is_trade_route_active] = bool
@@ -305,6 +313,9 @@ alias[trigger:global_variable_list_size] = {
 
 ### Does the client have this cosmetic DLC An interface trigger, can only be used in specific places
 alias[trigger:has_cosmetic_dlc] = enum[cosmetic_dlc]
+
+### Does the client have this DLC
+alias[trigger:has_dlc_feature] = enum[dlc_feature]
 
 ### Is the given game rule setting enabled? has_game_rule = faster_conversion
 alias[trigger:has_game_rule] = <game_rule>
@@ -570,6 +581,7 @@ alias[trigger:construction_queue_num_queued_levels] == value_field
 
 ### Checks if a culture is one of the primary cultures in the country country_has_primary_culture = <culture>
 alias[trigger:country_has_primary_culture] = scope[culture]
+alias[trigger:country_has_primary_culture] = <culture>
 
 ### Checks if a religion is the state religion in the country country_has_accepted_religion = <religion>
 alias[trigger:country_has_state_religion] = scope[religion]
@@ -964,6 +976,9 @@ alias[trigger:pop_type_percent_country] = {
 ### Compare prestige
 alias[trigger:prestige] == value_field
 
+### Compare prestige
+alias[trigger:prestige] == single_alias_right[formula]
+
 ### Compares the produced authority of the scoped country
 alias[trigger:produced_authority] == value_field
 
@@ -1037,6 +1052,8 @@ alias[trigger:pop_has_primary_culture] = bool
 
 ### Checks if pop is discriminated against pop_is_discriminated = bool
 alias[trigger:pop_is_discriminated] = bool
+
+alias[trigger:pop_acceptance] == enum[acceptance_status]
 
 ### Compares the quality of life of the given pop quality_of_life > 10
 alias[trigger:quality_of_life] == value_field
@@ -1508,6 +1525,8 @@ alias[trigger:initiator_is] = scope[country]
 ### Checks diplomatic play is of a certain type is_diplomatic_play_type = play type
 alias[trigger:is_diplomatic_play_type] = <diplomatic_play>
 
+alias[trigger:is_diplomatic_action_type] == <diplomatic_action>
+
 ### True if the diplomatic play has escalated into war is_war = bool
 alias[trigger:is_war] = bool
 
@@ -1575,6 +1594,14 @@ alias[trigger:can_have_political_movement] = bool
 
 ### Checks if character is discriminated against  
 alias[trigger:character_is_discriminated] = bool
+
+### Checks if character is based on a specific template
+alias[trigger:has_template] = <character_template>
+
+### Checks if the trigger of the given ideology is valid
+alias[trigger:<ideology>_valid_trigger] = bool
+
+alias[trigger:<ideology>_scripted_trigger] = bool
 
 ### Checks if the scoped country can have mass migration to target country  
 alias[trigger:country_can_have_mass_migration_to] = scope[country]
@@ -1666,6 +1693,9 @@ alias[trigger:is_fully_mobilized]
 ### Checks if the country has been set to be immune to revolutions via set_immune_to_revolutions; Warning: This does not check if the country is naturally immune to revolutions due to for example being a revolutionary country itself, only for the effects of 
 alias[trigger:is_immune_to_revolutions] = bool
 
+### Checks if the country is in a power bloc
+alias[trigger:is_in_power_bloc] = bool
+
 ### Checks if the scoped country is the origin of mass migration 
 alias[trigger:is_mass_migration_origin] = bool
 
@@ -1747,21 +1777,84 @@ alias[trigger:scripted_bar_progress] = {
     value == value_field
 }
 
-### 
-alias[trigger:]
+### Checks whether power bloc has the provided principle
+alias[trigger:has_principle] = scope[power_bloc_principle]
 
-### 
-alias[trigger:]
+### Checks whether power bloc has the provided principle group
+alias[trigger:has_principle_group] = scope[power_bloc_principle_group]
 
-### 
-alias[trigger:]
+### Checks whether power bloc has the provided identity
+alias[trigger:has_identity] = scope[power_bloc_identity]
 
-### 
-alias[trigger:]
+### Checks whether country is leader of a power_bloc
+alias[trigger:is_power_bloc_leader] == bool
 
-### 
-alias[trigger:]
+### Checks whether country has a leverage advantage of a specific value over another
+alias[trigger:leverage_advantage] = {
+    target = scope[country]
+    target = <country>
+    value == value_field
+    value == <script_value>
+    value == enum[static_values]
+}
 
-### 
-alias[trigger:]
+### Checks whether country is in the same power bloc
+alias[trigger:is_in_same_power_bloc] = scope[country]
+
+### Checks whether an interest group is in the government and the strongest
+alias[trigger:is_strongest_ig_in_government] = bool
+
+### Checks whether a country was formed from another one
+alias[trigger:was_formed_from] = <country_definition>
+
+### Checks whether a political lobby is of a specific type
+alias[trigger:is_political_lobby_type] = <political_lobby>
+
+### Checks whether country is in a customs union with another country
+alias[trigger:is_in_customs_union_with] = scope[country]
+
+### Checks whether a country can reach a specific market
+alias[trigger:is_market_reachable_for_trade] = scope[market]
+
+### Checks whether a country borders another
+alias[trigger:has_strategic_land_adjacency] = scope[country]
+
+### Checks whether a country would accept a specific diplomatic action
+alias[trigger:would_accept_diplomatic_action] = {
+    actor = scope[country]
+    type = <diplomatic_action>
+}
+
+### Checks whether a diplomatic catalyst is of a specific type
+alias[trigger:is_diplomatic_catalyst_type] = <diplomatic_catalyst>
+
+### Checks whether this modifier is active for the given context
+alias[trigger:modifier:<modifier_type>] = bool
+
+### Checks whether the country has a war goal of a specific type against another country
+alias[trigger:play_participant_has_war_goal_of_type_against] = {
+    type = enum[war_goal]
+    target = scope[country]
+}
+
+### Checks whether a war participant has a war goal of a specific type against another country
+alias[trigger:war_participant_has_war_goal_of_type_against] = {
+    type = enum[war_goal]
+    target = scope[country]
+}
+
+### Checks whether a country is forced to join diplomatic plays of the target
+alias[trigger:is_forced_to_join_plays] = scope[country]
+
+### Checks whether a country can decrease its autonomy
+alias[trigger:can_decrease_autonomy] = bool
+
+### Checks whether a country can increase its autonomy
+alias[trigger:can_increase_autonomy] = bool
+
+### Checks whether a country has a number of diplomatic pacts of a type
+alias[trigger:num_diplomatic_pacts] = {
+    type = <diplomatic_action>
+    value == value_field
+}
 

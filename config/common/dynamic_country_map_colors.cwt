@@ -3,3 +3,9 @@ types = {
         path = "game/common/dynamic_country_map_colors"
     }
 }
+
+dynamic_country_map_color = {
+    color = alias_match_right[color]
+
+    possible = single_alias_right[trigger_clause]
+}

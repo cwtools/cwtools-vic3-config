@@ -2,4 +2,45 @@ types = {
     type[ideology] = {
         path = "game/common/ideologies"
     }
+    localisation = {
+        ## required
+        name = "$"
+    }
+}
+
+ideology = {
+    icon = filepath
+
+    ## cardinality = 0..1
+    show_in_list = bool
+
+    ## cardinality = 0..1
+    priority = int
+
+    ## cardinality = 0..1
+    character_ideology = bool
+
+    ## cardinality = 0..1
+    ## push_scope = character
+    non_interest_group_leader_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## push_scope = character
+    interest_group_leader_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    interest_group_leader_weight = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    non_interest_group_leader_weight = single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    <law_group> = {
+        ## cardinality = 1..inf
+        <law> = enum[law_stance_values]
+    }
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    country_trigger = single_alias_right[trigger_clause]
 }

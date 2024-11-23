@@ -2,4 +2,12 @@ types = {
     type[character_template] = {
         path = "game/common/character_templates"
     }
+    localisation = {
+        ## required
+        name = "$"
+    }
+}
+
+character_template = {
+
 }

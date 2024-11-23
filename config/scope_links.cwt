@@ -3,10 +3,13 @@
 #CWTools magic scope
 alias[trigger:scope_field] = { alias_name[trigger] = alias_match_left[trigger] }
 alias[effect:scope_field] = { alias_name[effect] = alias_match_left[effect] }
+alias[arithmetic_operation:scope_field] = { alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation] }
 alias[trigger:value_field] = { alias_name[trigger] = alias_match_left[trigger] }
 alias[effect:value_field] = { alias_name[effect] = alias_match_left[effect] }
+alias[arithmetic_operation:value_field] = { alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation] }
 
 alias[trigger:value_field] == value_field
+alias[trigger:value_field] == { alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation] }
 alias[trigger:scope_field] = scope_field
 
 alias[trigger:NOT] = {
