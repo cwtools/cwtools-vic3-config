@@ -14,6 +14,12 @@ types = {
     type[country_creation] = {
         path = "game/common/country_creation"
         file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+            ## required
+            adjective = "$_ADJ"
+        }
         subtype[cultural] = {
             use_culture_states = yes
         }
@@ -46,8 +52,9 @@ types = {
 country_definition = {
     ### Map color, use int with rgb (blank) or hsv360, float with hsv
     color = alias_match_right[color]
+
     ### The country's 'type'
-    country_type = enum[country_type]
+    country_type = <country_type>
 
     ### The country's 'tier'
     tier = enum[country_tier]
@@ -143,6 +150,7 @@ country_formation = {
     ## cardinality = 0..1
     possible = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ### Typically 'always = yes'
     ai_will_do = single_alias_right[trigger_clause]
 

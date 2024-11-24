@@ -49,10 +49,6 @@ single_alias[formula] = {
     every_power_bloc_member = single_alias_right[formula]
 }
 
-alias[arithmetic_operation:leader] = value_field
-alias[arithmetic_operation:leader] = single_alias_right[formula]
-alias[arithmetic_operation:leader] = <script_value>
-alias[arithmetic_operation:leader] = <static_value>
 alias[arithmetic_operation:add] = value_field
 alias[arithmetic_operation:add] = single_alias_right[formula]
 alias[arithmetic_operation:add] = <script_value>
@@ -87,9 +83,13 @@ alias[arithmetic_operation:min] = <script_value>
 alias[arithmetic_operation:min] = <static_value>
 
 alias[arithmetic_operation:abs] = yes
+alias[arithmetic_operation:abs] = value_field
 alias[arithmetic_operation:round] = yes
+alias[arithmetic_operation:round] = value_field
 alias[arithmetic_operation:ceiling] = yes
+alias[arithmetic_operation:ceiling] = value_field
 alias[arithmetic_operation:floor] = yes
+alias[arithmetic_operation:floor] = value_field
 
 alias[arithmetic_operation:save_temporary_value_as] = value_set[variable]
 

@@ -1,6 +1,7 @@
 types = {
     type[history_trade_route] = {
         path = "game/common/history/trade_routes"
+        file_extension = .txt
 
     }
 }

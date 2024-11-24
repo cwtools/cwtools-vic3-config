@@ -1,6 +1,7 @@
 types = {
     type[history_military_deployments] = {
         path = "game/common/history/military_deployments"
+        file_extension = .txt
 
     }
 }

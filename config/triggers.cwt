@@ -93,9 +93,6 @@ alias[trigger:shares_trait_with_any_primary_culture] = scope[country]
 ### Check if market has a shortage on any of its building inputs market_has_goods_shortage = yes/no
 alias[trigger:market_has_goods_shortage] = bool
 
-### Compares the character age age > 20
-alias[trigger:age] == value_field
-
 ### Checks how the ratio of Combat Units on the scoped Commander, on the target country's side, with the specified Production Method compares to the value commander_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
 alias[trigger:commander_pm_usage] = {
     target = scope[country]
@@ -339,13 +336,13 @@ alias[trigger:has_local_variable_list] = value[local_variable_list]
 alias[trigger:has_map_interaction] = <map_interaction_type>
 
 ### Checks if our current map interaction is a specific diplomatic action has_map_interaction_diplomatic_action = <key> An interface trigger, can only be used in specific places
-alias[trigger:has_map_interaction_diplomatic_action] = replace_me
+alias[trigger:has_map_interaction_diplomatic_action] = <diplomatic_action>
 
 ### Checks if the specified lens option is to export the specified goods has_selected_export_option_for_goods = <scope> An interface trigger, can only be used in specific places
 alias[trigger:has_map_interaction_export_goods] = replace_me
 
 ### Checks if the specified lens option is to import the specified goods has_selected_import_option_for_goods = <scope> An interface trigger, can only be used in specific places
-alias[trigger:has_map_interaction_import_goods] = replace_me
+alias[trigger:has_map_interaction_import_goods] = scope[goods]
 
 ### True if the end date (NDefines::NGame::END_DATE) has been reached has_reached_end_date = yes
 alias[trigger:has_reached_end_date] = bool
@@ -363,7 +360,7 @@ alias[trigger:has_variable_list] = value[variable_list]
 alias[trigger:hidden_trigger] = single_alias_right[trigger_clause]
 
 ### Checks if the CProductionMethodsPanelEntry for a particular CBuildingType is expanded is_building_type_expanded = <scope/key> An interface trigger, can only be used in specific places
-alias[trigger:is_building_type_expanded] = replace_me
+alias[trigger:is_building_type_expanded] = scope[building_type]
 
 ### Checks if the game is paused is_game_paused = yes/no An interface trigger, can only be used in specific places
 alias[trigger:is_game_paused] = bool
@@ -375,19 +372,34 @@ alias[trigger:is_gamestate_tutorial_active] = bool
 alias[trigger:is_in_list] = replace_me
 
 ### Checks if a certain lens is open, specified as a lens key. Specify an optional named tab to check if this tab is open. is_lens_open = { lens = lens_key tab_name = tab_key } An interface trigger, can only be used in specific places
-alias[trigger:is_lens_open] = replace_me
+alias[trigger:is_lens_open] = {
+    ## cardinality = 0..1
+    lens = scalar
+
+    ## cardinality = 0..1
+    tab_name = scalar
+}
 
 ### Is the objective completed for the country in scope? is_objective_completed = yes
 alias[trigger:is_objective_completed] = bool
 
 ### Checks if a certain infopanel is open, specified as an event target (target) or as a string (panel_name). Specify an optional named tab (tab_name) to check if this tab is open. is_panel_open = { target = <scope> OR panel_name = panel_name tab_name = tab_name } An interface trigger, can only be used in specific places
-alias[trigger:is_panel_open] = replace_me
+alias[trigger:is_panel_open] = {
+    ## cardinality = 0..1
+    panel_name = scalar
+
+    ## cardinality = 0..1
+    tab_name = scalar
+
+    ## cardinality = 0..1
+    target = scalar
+}
 
 ### Checks if the specified popup panel is open is_popup_open = popup An interface trigger, can only be used in specific places
-alias[trigger:is_popup_open] = replace_me
+alias[trigger:is_popup_open] = scalar
 
 ### Checks if the specified rightclick menu is open is_rightclick_menu_open = <menu_key> An interface trigger, can only be used in specific places
-alias[trigger:is_rightclick_menu_open] = replace_me
+alias[trigger:is_rightclick_menu_open] = scalar
 
 ### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[trigger:is_target_in_global_variable_list] = {
@@ -593,9 +605,6 @@ alias[trigger:country_pm_usage] = {
     value == value_field
 }
 
-### Compares a Country's Power Ranking country_rank < rank_value:major_power
-alias[trigger:country_rank] == value_field
-
 ### Compare tier of country tag country_tier = x
 alias[trigger:country_tier] = enum[country_tier]
 
@@ -607,12 +616,6 @@ alias[trigger:expanding_institution] = <institution>
 
 ### Compares a Country's Power Ranking (position) global_country_ranking > 42
 alias[trigger:global_country_ranking] == value_field
-
-### Does the country have the required gold reserves gold_reserves > 500
-alias[trigger:gold_reserves] == value_field
-
-### Compares the country's gold reserves limit gold_reserves > gold_reserves_limit
-alias[trigger:gold_reserves_limit] == value_field
 
 ### Compare Legitimacy
 alias[trigger:government_legitimacy] == value_field
@@ -1010,9 +1013,6 @@ alias[trigger:tax_level_value] == value_field
 
 ### Compares the total population of a given country total_population > 100000
 alias[trigger:total_population] == value_field
-
-### Does the country have this amount of weekly income after fixed expenses weekly_net_income > 1000
-alias[trigger:weekly_net_fixed_income] == value_field
 
 ### Checks if pop's culture is accepted culture_accepted = bool
 alias[trigger:culture_accepted] = bool
@@ -1424,9 +1424,6 @@ alias[trigger:market_goods_has_goods_shortage] = bool
 ### Checks if market goods has the specified number of imports market_goods_imports < X Where X = fixed point
 alias[trigger:market_goods_imports] == value_field
 
-### Checks if market goods is at least the specified percentage more expensive than base price market_goods_pricier > X Where X = fixed point
-alias[trigger:market_goods_pricier] == value_field
-
 ### Checks if market goods has the specified number of total production market_goods_production < X Where X = fixed point
 alias[trigger:market_goods_production] == value_field
 
@@ -1693,9 +1690,6 @@ alias[trigger:is_mass_migration_origin_of_culture] = bool
 ### Compares the effective maximum Organization of the Military Formation in scope
 alias[trigger:max_organization] == value_field
 
-### Compares a Country's naval_power_projection
-alias[trigger:naval_power_projection] == value_field
-
 ### Determines the number of mobilized units belonging to the scoped theater's owner or their allies, in fronts intersecting the scoped theater  
 alias[trigger:num_mobilized_units_in_theater] == value_field
 
@@ -1713,9 +1707,6 @@ alias[trigger:pop_neutral_fraction] == value_field
 
 ### Compares the number of Radicals in a pop to its total size  
 alias[trigger:pop_radical_fraction] == value_field
-
-### Compare value to a country's gold reserves relative to reserves limit 
-alias[trigger:scaled_gold_reserves] == value_field
 
 ### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
 alias[trigger:size_weighted_lost_battles_fraction] == value_field
@@ -2158,3 +2149,72 @@ alias[trigger:levels_owned_by_country] = {
     value == <script_value>
     value == <static_value>
 }
+
+## scopes = { country }
+### Checks whether a countries ruler can take command of an army
+alias[trigger:ruler_can_have_command] = bool
+
+## scopes = { country }
+### Checks whether a country has a specific amount of investments
+alias[trigger:country_average_cultural_acceptance] = {
+    target = scope[culture]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+## scopes = { character }
+### Checks whether a country has a specific amount of investments
+alias[trigger:character_acceptance] = {
+    target = scope[culture]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+}
+
+## scopes = { character }
+### Checks whether a character can agitate
+alias[trigger:can_agitate] = scope[country]
+
+## scopes = { country }
+### Checks whether a countries ruler can take command of an army
+alias[trigger:ruler_can_have_command] = bool
+
+## scopes = { character }
+### Checks whether a commander character is available
+alias[trigger:commander_is_available] = bool
+
+## scopes = { interest_group }
+### Checks whether an interest group supports a political movement
+alias[trigger:interest_group_supports_political_movement] = bool
+
+## scopes = { character }
+### Checks whether a character supports a political movement
+alias[trigger:character_supports_political_movement] = bool
+
+## scopes = { country }
+### Checks whether a character supports a political movement
+alias[trigger:has_social_hierarchy] = <social_hierarchy>
+
+## scopes = { military_formation }
+### Checks whether a character supports a political movement
+alias[trigger:is_fully_mobilized] = bool
+
+## scopes = { country }
+### Checks whether a country has a civil war from a specific political movement
+alias[trigger:has_civil_war_from_movement_type] = scope[political_movement]
+
+## scopes = { interest_group }
+### Checks whether a country has a specific amount of investments
+alias[trigger:prefers_law] = {
+    law = scope[law]
+    comparison_law = scope[law]
+}
+
+## scopes = { interest_group }
+### Checks whether a country has the right to impose a law on another country
+alias[trigger:has_law_imposition_rights] = {
+    target_country = scope[country]
+    law_type = scope[law_type]
+}
+

@@ -1,8 +1,11 @@
 types = {
     type[history_ai] = {
         path = "game/common/history/ai"
+        file_extension = .txt
 
     }
 }
 
-history_ai = single_alias_right[effect_clause]
+history_ai = {
+    alias_name[effect] = alias_match_left[effect]
+}

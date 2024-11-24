@@ -1,13 +1,14 @@
 types = {
     type[interest_group] = {
         path = "game/common/interest_groups"
-    }
-    localisation = {
-        name = "$"
-    }
-    images = {
-        ## primary
-        texture = texture
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
 }
 

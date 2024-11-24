@@ -4,7 +4,7 @@ types = {
         file_extension = .txt
         images = {
             ## primary
-            pattern = filepath[game/gfx/coat_of_arms/colored_emblems/$]
+            pattern = filepath[gfx/coat_of_arms/colored_emblems/$]
         }
     }
 }

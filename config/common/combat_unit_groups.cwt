@@ -1,6 +1,15 @@
 types = {
     type[combat_unit_group] = {
         path = "game/common/combat_unit_groups"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
     }
 }
 

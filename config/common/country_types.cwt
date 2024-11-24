@@ -1,5 +1,36 @@
 types = {
     type[country_type] = {
         path = "game/common/country_types"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
     }
+}
+
+country_type = {
+    ### yes/no: if a country is colonizable
+    is_colonizable = bool
+
+    ### yes/no: does non-colonial countries consider this an unrecognized country to be colonized (impacts certain AI decisions)
+    is_unrecognized = bool
+
+    ### yes/no: If no, always has a prestige of 0 and does not display a rank position
+    uses_prestige = bool
+
+    has_events = bool
+
+    has_military = bool
+
+    has_economy = bool
+
+    has_politics = bool
+
+    can_research = bool
+
+    default_rank = <country_rank>
+
+    ## cardinality = 0..1
+    default_subject_type = <subject_type>
 }

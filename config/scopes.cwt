@@ -93,7 +93,7 @@ scopes = {
         aliases = { law_type }
         }
     "Journal Entry" = {
-        aliases = { journalentry }
+        aliases = { journal_entry }
         }
     "Trade Route" = {
         aliases = { trade_route }

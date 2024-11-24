@@ -6,7 +6,7 @@ types = {
 
 dynamic_country_name = {
 
-    ## cardinality = 0..1
+    ## cardinality = 1..inf
     dynamic_country_name = {
         name = localisation
 

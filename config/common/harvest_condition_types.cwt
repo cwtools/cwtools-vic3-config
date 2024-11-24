@@ -3,11 +3,59 @@ types = {
         path = "game/common/harvest_condition_types"
         file_extension = .txt
         localisation = {
+            ## required
             name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
         }
     }
 }
 
 harvest_condition_type = {
+    icon = filepath
 
+    ### Under what condition does the state currently being checked possibly get this event
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### If the current game time is applicable for this harvest condition, default - yes
+    time = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    ### Can be repeated. The current harvest condition cannot spawn in a state region that already has any of the listed other conditions
+    incompatible_with = <harvest_condition_type>
+
+    ### Up to what distance from this state does the event also apply. 0 = only epicenter, 1 = direct neighbors, etc
+    range = single_alias_right[formula]
+
+    ### How long the event will last in weeks
+    duration = single_alias_right[formula]
+
+    ### Whatever modifiers we want to give the occurrence
+    modifier = single_alias_right[modifier_clause]
+
+    ### Multiplier to the numerical effects defined in modifier
+    intensity = single_alias_right[formula]
+
+    ### If the event is applicable, what is the chance of it triggering?
+    chance = single_alias_right[formula]
+
+    color = alias_match_right[color]
+
+    ## cardinality = 0..1
+    ### Which graphics to apply to the affected map provinces, default - none
+    graphics = enum[harvest_condition_graphics]
+
+    ## cardinality = 0..1
+    ### Which terrain types this condition is not graphically applicable
+    incompatible_terrain = {
+        ## cardinality = 0..inf
+        <terrain>
+    }
+
+    ## cardinality = 0..1
+    ### Which texture to use as a pattern in the map mode, default - none
+    map_texture = filepath
 }

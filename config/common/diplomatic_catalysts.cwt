@@ -1,6 +1,11 @@
 types = {
     type[diplomatic_catalyst] = {
         path = "game/common/diplomatic_catalysts"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
     }
 }
 
@@ -27,7 +32,7 @@ diplomatic_catalyst = {
         <political_lobby> = single_alias_right[formula]
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### Data for changing AI strategic desires as a result of this catalyst
     ai_country_goal_recalculation = {
         ### Which directions the catalyst is allowed to change the AI's strategic desire, must be set

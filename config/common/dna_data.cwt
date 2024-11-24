@@ -5,5 +5,24 @@ types = {
 }
 
 dna_data = {
+    enabled = bool
 
+    portrait_info = {
+        genes = {
+            hair_color = alias_match_right[color]
+
+            skin_color = alias_match_right[color]
+
+            eye_color = alias_match_right[color]
+
+            ## cardinality = 1..inf
+            <gene> = {
+                # TODO
+                ## cardinality = 1..inf
+                scalar
+                ## cardinality = 1..inf
+                int
+            }
+        }
+    }
 }

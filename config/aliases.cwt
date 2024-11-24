@@ -37,13 +37,15 @@ single_alias[triggered_desc] = {
     # We can omit the trigger. Common as the 'else' block in a first_valid block.
     ## cardinality = 0..inf
     trigger = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         alias_name[trigger] = alias_match_left[trigger]
     }
 }
 
 single_alias[duration_clause] = {
     enum[duration] = int_value_field
+    enum[duration] == <script_value>
+    enum[duration] == <static_value>
 }
 
 single_alias[scaled_modifier] = {
@@ -62,18 +64,25 @@ single_alias[added_modifier] = {
 single_alias[on_action] = {
     ## cardinality = 0..1
     effect = single_alias_right[effect_clause]
+
 	## cardinality = 0..1
 	random_events = {
+        ## cardinality = 0..1
+        chance_of_no_event = int
+
 		## cardinality = 0..inf
 		int = <event>
+
 		## cardinality = 0..inf
 		int = 0
 	}
+
     ## cardinality = 0..1
 	events = {
 		## cardinality = 0..inf
 		<event>
 	}
+
     ## cardinality  = 0..1
     on_actions = {
         ## cardinality = 0..inf

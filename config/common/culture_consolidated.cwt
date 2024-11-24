@@ -2,9 +2,11 @@ types = {
     ## unique = yes
     type[culture] = {
         path = "game/common/cultures"
+        file_extension = .txt
         localisation = {
-			name = "$"
-		}
+            ## required
+            name = "$"
+        }
     }
     ## unique = yes
     type[culture_graphic] = {
@@ -40,43 +42,64 @@ culture = {
         ## cardinality = 1..inf
         <goods.consumable>
     }
+
     ### Men's names
     male_common_first_names = {
         ## cardinality = 1..inf
         localisation
     }
+
     ### Women's names
     female_common_first_names = {
         ## cardinality = 1..inf
         localisation
     }
+
     ### Family names
     common_last_names = {
         ## cardinality = 1..inf
         localisation
     }
-    ### Noble family names
-    ## cardinality = ~1..1
-    noble_last_names = {
-        ## cardinality = 1..inf
+
+    ### Noble family first names
+    ## cardinality = 0..1
+    male_noble_first_names = {
+        ## cardinality = 0..inf
         localisation
     }
+
+    ### Noble family first names
+    ## cardinality = 0..1
+    female_noble_first_names = {
+        ## cardinality = 0..inf
+        localisation
+    }
+
+    ### Noble family names
+    ## cardinality = 0..1
+    noble_last_names = {
+        ## cardinality = 0..inf
+        localisation
+    }
+
     ### Kings' names
     ## cardinality = 0..1
     male_regal_first_names = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         localisation
     }
+
     ### Queens' names
     ## cardinality = 0..1
     female_regal_first_names = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         localisation
     }
+
     ### Royal family names
     ## cardinality = 0..1
     regal_last_names = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         localisation
     }
 

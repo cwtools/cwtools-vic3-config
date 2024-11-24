@@ -254,7 +254,7 @@ links = {
 	}
 	je_tutorial = {
 		desc = " Scope to the active tutorial lesson's journal entry (do not use this outside tutorial)"
-		output_scope = journalentry
+		output_scope = journal_entry
 	}
 	law_type = {
 		desc = " Scope to a law type from its name (law_type:law_protected_speech)"
@@ -506,15 +506,28 @@ links = {
 		type = value
 	}
 	currently_enacting_law = {
-		desc = " Scope from a country to the law that they're currently enacting"
+		desc = "Scope from a country to the law that they're currently enacting"
 		input_scopes = country
 		output_scope = law
 	}
+	currently_active_law_in_group = {
+		desc = "Scope from a law to the active law in the same group"
+		input_scopes = law
+		output_scope = law
+	}
 	decree_cost = {
-		desc = " Scope to a country's cost for a certain decree"
+		desc = "Scope to a country's cost for a certain decree"
 		input_scopes = country
 		output_scope = value
 		type = value
+	}
+	decree_cost_scope = {
+		desc = "Scope to a country's cost for a certain decree"
+		input_scopes = country
+		output_scope = value
+		from_data = yes
+		data_source = <decree>
+		prefix = decree_cost:
 	}
 	government_size = {
 		desc = " Get the scoped country's current number of Parties & independent IGs in government"
@@ -558,7 +571,7 @@ links = {
 	je = {
 		desc = " Scope to the journal entry of specified key belonging to the country"
 		input_scopes = country
-		output_scope = journalentry
+		output_scope = journal_entry
 		from_data = yes
 		data_source = <journal_entry>
 		prefix = je:
@@ -827,7 +840,8 @@ links = {
 	}
 	target = {
 		desc = " Scope to the target of the object"
-		input_scopes = { diplomatic_play journalentry diplomatic_catalyst political_lobby interest_group political_lobby }
+		input_scopes = { diplomatic_play journal_entry diplomatic_catalyst political_lobby interest_group political_lobby }
+		output_scope = any
 	}
 	level = {
 		desc = " Scope to the level of an object"
@@ -882,7 +896,7 @@ links = {
 	}
 	owner = {
 		desc = " Scope to the owner country of object"
-		input_scopes = { country state province pop building interest_group market market_goods interest_marker character institution law journalentry trade_route decree combat_unit new_combat_unit military_formation political_movement }
+		input_scopes = { country state province pop building interest_group market market_goods interest_marker character institution law journal_entry trade_route decree combat_unit new_combat_unit military_formation political_movement }
 		output_scope = country
 	}
 	attacker_warleader = {
@@ -928,13 +942,13 @@ links = {
 	}
 	type = {
 		desc = " Scope from an object to its type"
-		input_scopes = { building institution law commander_order company }
+		input_scopes = { building institution law commander_order company interest_group }
 		# TODO verify
 		output_scope = any
 	}
 	goods = {
 		desc = " Scope to the goods traded by a trade route"
-		input_scopes = { market_goods trade_route }
+		input_scopes = { market_goods trade_route goods }
 		output_scope = goods
 	}
 	momentum = {
@@ -983,7 +997,7 @@ links = {
 	}
 	goal_value = {
 		desc = " Scope to the journal entry's goal value"
-		input_scopes = journalentry
+		input_scopes = journal_entry
 		output_scope = value
 		type = value
 	}
@@ -1031,12 +1045,17 @@ links = {
 		input_scopes = { pop character combat_unit new_combat_unit political_movement }
 		output_scope = culture
 	}
-	ideology = {
+	ideology_scope = {
 		desc = " Scope to a ideology from its name (ideology:ideology_anarchist)"
 		output_scope = ideology
 		from_data = yes
 		data_source = <ideology>
 		prefix = ideology:
+	}
+	ideology = {
+		desc = "Scope to the ideology of a character"
+		output_scope = ideology
+		input_scopes = character
 	}
 	unit_type = {
 		desc = " Scope to a combat unit type from its name (unit_type:key)"
@@ -1749,6 +1768,12 @@ links = {
 		output_scope = value
 		type = value
 	}
+	gold_reserves = {
+		desc = "Gets countries gold reserves"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
 	gold_reserves_limit = {
 		desc = "Gets countries gold reserves limit"
 		input_scopes = country
@@ -1794,6 +1819,92 @@ links = {
 	tax_capacity_usage = {
 		desc = "Gets tax capacity usage of a state"
 		input_scopes = state
+		output_scope = value
+		type = value
+	}
+	movement_type = {
+		desc = "Gets political lobby type scope"
+		from_data = yes
+		data_source = <political_movement>
+		output_scope = political_movement
+		prefix = movement_type:
+	}
+	most_desired_law = {
+		desc = "Gets most desired law of apolitical lobby"
+		input_scope = political_movement
+		output_scope = law
+	}
+	leader = {
+		desc = "Gets leader character of a given scope"
+		input_scope = { political_movement country interest_group }
+		output_scope = character
+	}
+	interest_group_type = {
+		desc = "Gets type of interest group"
+		input_scope = interest_group
+	}
+	years_of_service = {
+		desc = "Gets years of service of a character"
+		input_scopes = character
+		output_scope = value
+		type = value
+	}
+	weekly_net_fixed_income = {
+		desc = "Gets weekly net fixed incom"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	naval_power_projection = {
+		desc = "Gets naval power projection"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_import_trade_routes = {
+		desc = "Gets number of import trade routes"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	tax_level_value = {
+		desc = "Gets tax level value"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	num_taxed_goods = {
+		desc = "Gets number of taxed goods"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	gdp_ownership_ratio = {
+		desc = "Gets gdp ownership ratio"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	market_goods_buy_orders = {
+		desc = "Gets market goods buy orders"
+		input_scopes = good
+		output_scope = value
+		type = value
+	}
+	enactment_phase = {
+		desc = "Gets enactment phase of a law"
+		input_scopes = law
+		output_scope = value
+		type = value
+	}
+	imposer_of_law = {
+		desc = "Gets imposing country of a law"
+		input_scopes = country
+		output_scope = country
+	}
+	market_goods_pricier = {
+		desc = "Gets market goods pricier"
+		input_scopes = goods
 		output_scope = value
 		type = value
 	}
@@ -2040,6 +2151,11 @@ links = {
 		output_scope = value
 		type = value
 	}
+	economic_dependence(top_overlord) = {
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
 	scripted_bar_progress(expedition_progress_bar) = {
 		input_scopes = journal_entry
 		output_scope = value
@@ -2056,6 +2172,76 @@ links = {
 		type = value
 	}
 	scripted_bar_progress(je_india_home_rule_progressbar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(sepoy_mutiny_progress_bar_bombay) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(sepoy_mutiny_progress_bar_madras) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(expedition_peril_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(divided_monarchists_orleanist_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(divided_monarchists_legitimist_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(divided_monarchists_bonapartist_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(communism_1_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(fascism_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(sikh_empire_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(sikh_empire_intrigue_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(matter_of_slavery_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(positivist_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(populist_unrest_progress_bar) = {
+		input_scopes = journal_entry
+		output_scope = value
+		type = value
+	}
+	scripted_bar_progress(earn_recognition_progress_bar) = {
 		input_scopes = journal_entry
 		output_scope = value
 		type = value

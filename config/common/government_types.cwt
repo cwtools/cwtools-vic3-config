@@ -1,5 +1,41 @@
 types = {
     type[government_type] = {
         path = "game/common/government_types"
+        file_extension = .txt
     }
+}
+
+government_type = {
+    transfer_of_power = enum[transfer_of_power_types]
+
+    male_ruler = localisation
+
+    female_ruler = localisation
+    # Support empty localisation keys
+    female_ruler = scalar
+
+    ## cardinality = 0..1
+    male_heir = localisation
+
+    # Support empty localisation keys
+    ## cardinality = 0..1
+    male_heir = scalar
+
+    ## cardinality = 0..1
+    female_heir = localisation
+
+    # Support empty localisation keys
+    ## cardinality = 0..1
+    female_heir = scalar
+
+    ## cardinality = 0..1
+    new_leader_on_reform_government = bool
+
+    possible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    on_government_type_change = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    on_post_government_type_change = single_alias_right[effect_clause]
 }

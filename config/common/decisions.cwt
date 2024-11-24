@@ -1,9 +1,10 @@
 types = {
     type[decision] = {
         path = "game/common/decisions"
-    }
-    localisation = {
-        name = "$"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
     }
 }
 

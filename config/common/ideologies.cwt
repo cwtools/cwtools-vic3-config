@@ -1,10 +1,15 @@
 types = {
     type[ideology] = {
         path = "game/common/ideologies"
-    }
-    localisation = {
-        ## required
-        name = "$"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
     }
 }
 

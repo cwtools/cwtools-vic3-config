@@ -1,5 +1,11 @@
 types = {
     type[gene] = {
         path = "game/common/genes"
+        file_extension = .txt
+        skip_root_key = any
     }
+}
+
+gene = {
+    # TODO
 }

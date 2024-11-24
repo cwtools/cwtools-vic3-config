@@ -1,0 +1,11 @@
+types = {
+    type[history_power_bloc] = {
+        path = "game/common/history/power_blocs"
+        file_extension = .txt
+
+    }
+}
+
+history_power_bloc = {
+    alias_name[effect] = alias_match_left[effect]
+}

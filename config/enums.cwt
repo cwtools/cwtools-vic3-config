@@ -27,13 +27,6 @@ enums = {
         incorporated
     }
 
-    enum[country_type] = {
-        unrecognized
-        recognized
-        colonial
-        decentralized
-    }
-
     enum[wage_level] ={
         very_low
         low
@@ -352,6 +345,15 @@ enums = {
         travel_harsh_environment
     }
 
+    # Undocumented. Added values that are used in base game
+    enum[customizable_localization_type] = {
+        character
+        country
+        culture
+        religion
+        goods
+    }
+
     enum[notification_types] = {
         feed
         toast
@@ -371,4 +373,65 @@ enums = {
         foreign_anti_country
         foreign
     }
+
+    enum[commander_types] = {
+        general
+        admiral
+    }
+
+    enum[character_trait_types] = {
+        personality
+        condition
+        skill
+    }
+
+    enum[ai_commander_order_usage] = {
+        advance
+        intercept
+        defend
+        raid_convoys
+        escort_convoys
+    }
+
+    enum[harvest_condition_graphics] = {
+        drought
+        flood
+        frost
+        wildfire
+        hail
+        torrential_rains
+        none
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[tutorial_lesson_window_names] = {
+        tutorial_popup
+        tutorial_popup_budget_balance
+        click_on_building_tutorial_popup
+        no_instructions_tutorial_popup
+        top_left_tutorial_popup
+        panel_bottom_tutorial_popup
+        expand_building_why_1_tutorial_popup
+        expand_building_why_6_tutorial_popup
+        expand_building_why_9_tutorial_popup
+        click_on_building_in_buildings_panel_tutorial_popup
+        down_middle_tutorial_popup
+        bottom_left_tutorial_popup
+        right_middle_tutorial_popup
+        really_bottom_left_tutorial_popup
+        top_middle_right_tutorial_popup
+        top_middle_tutorial_popup
+        core_tutorial_popup
+        camera_tutorial_popup
+        capacities_tutorial_popup
+        treasury_tutorial_popup
+        middle_left_tutorial_popup
+        lenses_tutorial_popup
+        top_right_tutorial_popup
+        pausing_tutorial_popup
+        politics_panel_left_tutorial_popup
+        politics_panel_overview_tutorial_popup
+        left_general_layout_for_popups
+    }
+
 }

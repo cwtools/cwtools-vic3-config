@@ -1,14 +1,15 @@
 types = {
     type[law] = {
         path = "game/common/laws"
-    }
-    localisation = {
-        ## required
-        name = "$"
-    }
-    images = {
-        ## primary
-        icon = icon
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
     }
 }
 

@@ -193,19 +193,20 @@ alias[trigger:any_in_list] = {
 
 ### Iterate through all items in local list. list = name or variable = name any_in_local_list = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_in_local_list] = {
-        variable = value[local_variable_list]
-        ## cardinality = 0..1
-        percent = value_field[0.0..1.0]
-        ## cardinality = 0..1
-        count = int_value_field
-        ## cardinality = 0..1
-        count = all
-        ## cardinality = 0..1
-        ### If set, count = all and percent only consider the filtered items for the denominator.
-        filter = single_alias_right[trigger_clause]
-        alias_name[trigger] = alias_match_left[trigger]
-    }
+    variable = value[local_variable_list]
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
 
+## push_scope = market
 ### Iterate through all markets globally any_market = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_market] = {
     ## cardinality = 0..1
@@ -220,6 +221,7 @@ alias[trigger:any_market] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## push_scope = state
 ### Iterate through all states globally any_state = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_state] = {
     ## cardinality = 0..1
@@ -234,6 +236,7 @@ alias[trigger:any_state] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## push_scope = state_region
 ### Iterate through all state regions any_state_region = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_state_region] = {
     ## cardinality = 0..1
@@ -248,6 +251,7 @@ alias[trigger:any_state_region] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## push_scope = party
 ### Iterate through all active political parties in a country any_active_party = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_active_party] = {
     ## cardinality = 0..1
@@ -262,6 +266,7 @@ alias[trigger:any_active_party] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## push_scope = war
 ### Iterate through all civil wars related to the scoped country any_civil_war = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_civil_war] = {
     ## cardinality = 0..1
@@ -290,6 +295,7 @@ alias[trigger:any_in_hierarchy] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## push_scope = law
 ### Iterate through all laws in a country any_law = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_law] = {
     ## cardinality = 0..1
@@ -984,6 +990,34 @@ alias[trigger:any_lobby_member] = {
 
 ## push_scope = harvest_condition
 alias[trigger:any_harvest_condition] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## push_scope = interest_group
+alias[trigger:any_influenced_interest_group] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## push_scope = power_bloc
+alias[trigger:any_power_bloc] = {
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
