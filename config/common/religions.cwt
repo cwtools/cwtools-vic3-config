@@ -7,7 +7,7 @@ types = {
 		}
         images = {
             ## primary
-            texture = texture # filepath
+            texture = texture
         }
     }
 }

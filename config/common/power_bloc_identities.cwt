@@ -55,10 +55,12 @@ power_bloc_identity = {
     cohesion = <script_value>
     cohesion = single_alias_right[formula]
 
+    ## cardinality = 0..1
     ## push_scope = country
     ### Determines whether the identity is visible in the list when forming a power bloc.
     visible = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ## push_scope = country
     ### Determines whether the identity is selectable in the list when forming a power bloc.
     possible = single_alias_right[trigger_clause]
