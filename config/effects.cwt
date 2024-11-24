@@ -378,7 +378,7 @@ alias[effect:random] = {
     chance = int_value_field
 
     ## cardinality = 0..inf
-    modifier = single_alias_right[weight_chance_modifier]
+    modifier = single_alias_right[formula]
 
     ## cardinality = 1..inf
     alias_name[effect] = alias_match_left[effect]

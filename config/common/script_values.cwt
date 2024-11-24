@@ -184,7 +184,7 @@ alias[arithmetic_operation:random_scope_front] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -265,7 +265,7 @@ alias[arithmetic_operation:random_market_goods] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -280,7 +280,7 @@ alias[arithmetic_operation:random_scope_country] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -328,7 +328,7 @@ alias[arithmetic_operation:random_trade_route] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -376,7 +376,7 @@ alias[arithmetic_operation:random_supporting_interest_group] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -424,7 +424,7 @@ alias[arithmetic_operation:random_primary_culture] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -472,7 +472,7 @@ alias[arithmetic_operation:random_scope_pop] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -520,7 +520,7 @@ alias[arithmetic_operation:random_combat_unit] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -569,7 +569,7 @@ alias[arithmetic_operation:random_scope_state] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -617,7 +617,7 @@ alias[arithmetic_operation:random_neighbouring_state] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -665,7 +665,7 @@ alias[arithmetic_operation:random_scope_interest_marker] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1019,7 +1019,7 @@ alias[arithmetic_operation:random_character] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1034,7 +1034,7 @@ alias[arithmetic_operation:random_character_in_void] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1049,7 +1049,7 @@ alias[arithmetic_operation:random_country] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1064,7 +1064,7 @@ alias[arithmetic_operation:random_diplomatic_play] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1080,7 +1080,7 @@ alias[arithmetic_operation:random_in_global_list] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1096,7 +1096,7 @@ alias[arithmetic_operation:random_in_list] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1112,14 +1112,14 @@ alias[arithmetic_operation:random_in_local_list] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
 alias[arithmetic_operation:random_list] = {
 ## cardinality = 2..inf
-int = single_alias_right[random_chance_weight_block]
+int = single_alias_right[formula]
 
 # ## cardinality = 0..inf
 #TODO chekc vic3
@@ -1137,7 +1137,7 @@ alias[arithmetic_operation:random_log_scopes] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1152,7 +1152,7 @@ alias[arithmetic_operation:random_market] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1167,7 +1167,7 @@ alias[arithmetic_operation:random_state] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1182,7 +1182,7 @@ alias[arithmetic_operation:random_state_region] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1692,7 +1692,7 @@ alias[arithmetic_operation:random_active_party] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1707,7 +1707,7 @@ alias[arithmetic_operation:random_civil_war] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1722,7 +1722,7 @@ alias[arithmetic_operation:random_in_hierarchy] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1737,7 +1737,7 @@ alias[arithmetic_operation:random_law] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1752,7 +1752,7 @@ alias[arithmetic_operation:random_overlord_or_above] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1767,7 +1767,7 @@ alias[arithmetic_operation:random_political_movement] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1782,7 +1782,7 @@ alias[arithmetic_operation:random_potential_party] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1797,7 +1797,7 @@ alias[arithmetic_operation:random_rival_country] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1812,7 +1812,7 @@ alias[arithmetic_operation:random_scope_ally] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1827,7 +1827,7 @@ alias[arithmetic_operation:random_scope_cobelligerent] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1842,7 +1842,7 @@ alias[arithmetic_operation:random_scope_theater] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1857,7 +1857,7 @@ alias[arithmetic_operation:random_scope_violate_sovereignty_interested_parties] 
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1872,7 +1872,7 @@ alias[arithmetic_operation:random_scope_violate_sovereignty_wars] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1887,7 +1887,7 @@ alias[arithmetic_operation:random_scope_war] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1902,7 +1902,7 @@ alias[arithmetic_operation:random_subject_or_below] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1988,7 +1988,7 @@ alias[arithmetic_operation:random_scope_building] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2004,7 +2004,7 @@ alias[arithmetic_operation:random_scope_culture] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2125,7 +2125,7 @@ alias[arithmetic_operation:random_scope_initiator_ally] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2141,7 +2141,7 @@ alias[arithmetic_operation:random_scope_play_involved] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2157,7 +2157,7 @@ alias[arithmetic_operation:random_scope_target_ally] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2243,7 +2243,7 @@ alias[arithmetic_operation:random_interest_group] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2259,7 +2259,7 @@ alias[arithmetic_operation:random_member] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2415,7 +2415,7 @@ alias[arithmetic_operation:random_scope_admiral] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2431,7 +2431,7 @@ alias[arithmetic_operation:random_scope_character] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2447,7 +2447,7 @@ alias[arithmetic_operation:random_scope_general] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2463,7 +2463,7 @@ alias[arithmetic_operation:random_scope_politician] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2514,7 +2514,7 @@ alias[arithmetic_operation:random_company] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2562,7 +2562,7 @@ alias[arithmetic_operation:random_military_formation] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2610,7 +2610,7 @@ alias[arithmetic_operation:random_province] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2658,7 +2658,7 @@ alias[arithmetic_operation:random_scope_held_interest_marker] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2709,7 +2709,7 @@ alias[arithmetic_operation:random_sea_node_adjacent_state] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2760,7 +2760,7 @@ alias[arithmetic_operation:random_valid_mass_migration_culture] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2775,7 +2775,7 @@ alias[arithmetic_operation:every_power_bloc_member] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2790,6 +2790,6 @@ alias[arithmetic_operation:every_active_law] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }

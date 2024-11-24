@@ -34,5 +34,5 @@ scripted_button = {
     effect = single_alias_right[effect_clause]
 
     ## cardinality = 0..1
-    ai_chance = single_alias_right[ai_chance_block]
+    ai_chance = single_alias_right[formula]
 }

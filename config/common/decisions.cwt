@@ -23,5 +23,5 @@ decision = {
 
     ## cardinality = 0..1
     ### The scripted weight which determines how likely AI is to take it amongst all possible decisions (country scope).\nSimilar to event options. If it evaluates to 0, AI will not take the decision. Evaluates to 1 if unspecified
-    ai_chance = single_alias_right[ai_chance_block]
+    ai_chance = single_alias_right[formula]
 }
