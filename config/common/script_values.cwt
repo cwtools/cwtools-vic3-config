@@ -39,14 +39,6 @@ single_alias[range] = {
 single_alias[formula] = {
     ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-
-    ## cardinality = 0..inf
-    ## push_scope = interest_group
-    scope[interest_group] = single_alias_right[formula]
-
-    ## cardinality = 0..inf
-    ## push_scope = country
-    every_power_bloc_member = single_alias_right[formula]
 }
 
 alias[arithmetic_operation:add] = value_field
@@ -2793,3 +2785,20 @@ alias[arithmetic_operation:every_active_law] = {
     weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
+
+## push_scope = power_bloc
+alias[arithmetic_operation:every_power_bloc_member] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+
