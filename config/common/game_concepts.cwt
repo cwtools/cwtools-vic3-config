@@ -1,6 +1,11 @@
 types = {
     type[game_concept] = {
         path = "game/common/game_concepts"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
     }
 }
 
@@ -10,4 +15,7 @@ game_concept = {
 
     ## cardinality = 0..1
     is_loading_tip = bool
+
+    ## cardinality = 0..1
+    tutorial_lesson = <tutorial_lesson>
 }

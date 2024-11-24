@@ -1,6 +1,7 @@
 enums = {
     enum[duration] = {
         days
+        weeks
         months
         years
     }
@@ -26,13 +27,6 @@ enums = {
         incorporated
     }
 
-    enum[country_type] = {
-        unrecognized
-        recognized
-        colonial
-        decentralized
-    }
-
     enum[wage_level] ={
         very_low
         low
@@ -49,9 +43,17 @@ enums = {
     }
 
     enum[pop_strata] = {
-        poor
         middle
-        rich
+        upper
+        lower
+    }
+
+    enum[acceptance_status] = {
+        acceptance_status_5
+        acceptance_status_4
+        acceptance_status_3
+        acceptance_status_2
+        acceptance_status_1
     }
 
     enum[infamy_threshold] = {
@@ -67,6 +69,24 @@ enums = {
 
     enum[cosmetic_dlc] = {
         "Victoria 2 Remastered Soundtrack"
+        "Voice of the People Theme"
+        "Melodies for the Masses"
+    }
+
+    # As of 1.8
+    enum[dlc_feature] = {
+        rp1_content
+        ip2_content
+        ip2_cosmetics
+        ep1_content
+        ep1_cosmetics
+        voice_of_the_people_content
+        voice_of_the_people_preorder
+        power_bloc_features
+        agitators
+        foreign_investment
+        subject_and_bloc_actions
+        lobbies
     }
 
     enum[gameplay_dlc] = {
@@ -95,12 +115,9 @@ enums = {
         rebellious
         protective
         domineering
+        defiant
     }
 
-    enum[political_movement_type] = {
-        movement_to_enact
-        movement_to_preserve
-    }
     enum[relations_thresholds] = {
         friendly
         amicable
@@ -123,6 +140,8 @@ enums = {
         make_puppet
         make_dominion
         make_vassal
+        make_tributary
+        make_protectorate
         conquer_state
         return_state
         take_treaty_port
@@ -135,6 +154,13 @@ enums = {
         independence
         secession
         unification
+        join_power_bloc
+        leave_power_bloc
+        increase_autonomy
+        reduce_autonomy
+        force_nationalization
+        foreign_investment_rights
+        colonization_rights
     }
 
     enum[secret_goal] = {
@@ -190,6 +216,8 @@ enums = {
         subject
         overlord
         power_bloc
+        power_bloc_leader
+        power_bloc_member
     }
 
     enum[city_type] = {
@@ -217,4 +245,193 @@ enums = {
         minor
         major
     }
+
+    enum[law_group_categories] = {
+        power_structure
+        economy
+        human_rights
+    }
+
+    enum[state_selection] = {
+        first_required
+        first_optional
+        second_required
+        second_optional
+        both_required
+        both_optional
+        any_required
+    }
+
+    enum[state_list] = {
+        first_country
+        second_country
+        all
+        first_country_and_subjects
+        second_country_and_subjects
+    }
+
+    enum[lobby_formation_reasons] = {
+        diplomacy
+        defense
+        ideology
+        funded
+        aggression
+        religion
+        technology
+        economy
+        none
+    }
+
+    enum[ai_country_goal_recalculation_types] = {
+        all
+        more_friendly
+        more_hostile
+        only_friendly
+        only_hostile
+        only_neutral
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[market_owners] = {
+        first_country
+        second_country
+    }
+
+    # TODO
+    enum[transfer_of_power_types] = {
+        hereditary
+        parliamentary_elective
+        dictatorial
+        presidential_elective
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[scripted_list_base] = {
+        country
+        character_in_void
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[open_popup_types] = {
+        diplomatic_proposal
+        diplomatic_proposal_break
+        sway_offer
+        diplomatic_demand
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[modifier_type_tags] = {
+        cultural_acceptance
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[message_types] = {
+        country
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[label_types] = {
+        terrain
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[label_modifier_keys] = {
+        flat
+        elevated
+        forested
+        hazardous
+        developed
+        water
+        travel_harsh_environment
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[customizable_localization_type] = {
+        character
+        country
+        culture
+        religion
+        goods
+    }
+
+    enum[notification_types] = {
+        feed
+        toast
+        popup
+    }
+
+    enum[power_bloc_coa_piece_types] = {
+        shield_pattern
+        shield_frame
+        center
+        top
+        side
+    }
+
+    enum[political_lobby_categories] = {
+        foreign_pro_country
+        foreign_anti_country
+        foreign
+    }
+
+    enum[commander_types] = {
+        general
+        admiral
+    }
+
+    enum[character_trait_types] = {
+        personality
+        condition
+        skill
+    }
+
+    enum[ai_commander_order_usage] = {
+        advance
+        intercept
+        defend
+        raid_convoys
+        escort_convoys
+    }
+
+    enum[harvest_condition_graphics] = {
+        drought
+        flood
+        frost
+        wildfire
+        hail
+        torrential_rains
+        none
+    }
+
+    # Undocumented. Added values that are used in base game
+    enum[tutorial_lesson_window_names] = {
+        tutorial_popup
+        tutorial_popup_budget_balance
+        click_on_building_tutorial_popup
+        no_instructions_tutorial_popup
+        top_left_tutorial_popup
+        panel_bottom_tutorial_popup
+        expand_building_why_1_tutorial_popup
+        expand_building_why_6_tutorial_popup
+        expand_building_why_9_tutorial_popup
+        click_on_building_in_buildings_panel_tutorial_popup
+        down_middle_tutorial_popup
+        bottom_left_tutorial_popup
+        right_middle_tutorial_popup
+        really_bottom_left_tutorial_popup
+        top_middle_right_tutorial_popup
+        top_middle_tutorial_popup
+        core_tutorial_popup
+        camera_tutorial_popup
+        capacities_tutorial_popup
+        treasury_tutorial_popup
+        middle_left_tutorial_popup
+        lenses_tutorial_popup
+        top_right_tutorial_popup
+        pausing_tutorial_popup
+        politics_panel_left_tutorial_popup
+        politics_panel_overview_tutorial_popup
+        left_general_layout_for_popups
+    }
+
 }

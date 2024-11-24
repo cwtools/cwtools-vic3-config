@@ -1,5 +1,16 @@
 types = {
     type[map_interaction_type] = {
         path = "game/common/map_interaction_types"
+        file_extension = .txt
     }
+}
+
+map_interaction_type = {
+    mapmode = localisation
+
+    ## cardinality = 0..1
+    clicksound = scalar
+
+    ## cardinality = 0..1
+    show_interaction_text_on_click = bool
 }

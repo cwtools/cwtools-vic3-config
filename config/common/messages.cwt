@@ -1,0 +1,38 @@
+types = {
+    type[message] = {
+        path = "game/common/messages"
+        file_extension = .txt
+        images = {
+            ## primary
+            texture = texture
+        }
+        localisation = {
+            ## required
+            name = "$"
+        }
+    }
+}
+
+message = {
+    ### Notification type
+    type = enum[message_types]
+
+    ### Texture icon. Mandatory if notification has a group. Otherwise, you will get a pink face placeholder in feed notifications.
+    texture = filepath
+
+    ## cardinality = 0..1
+    ### Group for "Current Situation". Also adds this notification to the Message Settings list.
+    group = localisation
+
+    ### How the notification will be presented
+    notification_type = enum[notification_types]
+
+    #TODO
+    ## cardinality = 0..1
+    ### GUI specification for popups, must be in gui/popups.gui
+    popup_name = scalar
+
+    ## cardinality = 0..1
+    ### Sound on creation
+    on_created_soundeffect = scalar
+}

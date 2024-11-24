@@ -1,5 +1,180 @@
 types = {
     type[tutorial_lesson] = {
         path = "game/common/tutorial_lessons"
+        file_extension = .txt
     }
+}
+
+tutorial_lesson = {
+    ### The lesson belongs to this lesson chain, current chain lessons are preferred when picking which lesson to show.
+    chain = <tutorial_lesson_chain>
+
+    ## cardinality = 0..1
+    ### Does the lesson start automatically if the trigger is fulfilled? Use the start_tutorial_lesson effect to manually start such lessons on user actions. Default: yes
+    start_automatically = bool
+
+    ## cardinality = 0..1
+    ### The lesson start will be delayed by that many seconds.
+    delay = int_value_field
+
+    ## cardinality = 0..1
+    ### The trigger has to be true for the lesson to start.
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### The pop up used for the lesson, default "tutorial_popup"
+    window_name = enum[tutorial_lesson_window_names]
+
+    ## cardinality = 0..inf
+    ### When any of this lesson's step is active, the specified tag is set and can be detected by IsTutorialTagOpen('X') in gui. There can be multiple gui_tag properties.
+    gui_tag = scalar
+
+    ## cardinality = 0..inf
+    ### When any of this lesson's step is active, the specified GUI widget (widgetid or name) will be highlighted. The widget's name should be unique for the functionality to work properly. Can not parse data functions.
+    highlight_widget = scalar
+
+    ## cardinality = 0..1
+    ### Same as above. However, this should only be used when a data function is required to specify which widget to look for. This also sends the specified string through loc, so be mindful that it should not match any loc-key name.
+    highlight_widget_dynamic_loc = scalar
+
+    ## cardinality = 0..inf
+    ### When any of this lesson's step is active, the specified event target will be highlighted.
+    ### e.g. a state, building or country
+    highlight_target = scalar
+
+    ## cardinality = 0..1
+    ### This trigger transition can happen whenever any of the lesson steps are active. There can be multiple trigger transitions. See the lesson step trigger transition documentation.
+    trigger_transition = single_alias_right[trigger_lesson_transition_clause]
+
+    ## cardinality = 0..1
+    ### The default delay for the lesson steps of this lesson.
+    default_lesson_step_delay = int_value_field
+
+    ## cardinality = 0..1
+    ### Disables the "railroaded" tutorial mode when the lesson is done. See save_progress_in_gamestate in tutorial chains. Default: no
+    finish_gamestate_tutorial = bool
+
+    ## cardinality = 0..1
+    ### Is this lesson shown in the encyclopedia. Default: yes
+    shown_in_encyclopedia = bool
+
+    scalar = {
+        ### The localization key of the text shown for this lesson.
+        text = localisation
+
+        ## cardinality = 0..1
+        ### The localization key of the text shown in the header of the lesson window
+        header_info = localisation
+
+        ## cardinality = 0..1
+        ### The localization key of the text shown in the encyclopedia
+        encyclopedia_text = localisation
+
+        ## cardinality = 0..1
+        ### Is this lesson shown in the encyclopedia. Default: yes
+        shown_in_encyclopedia = bool
+
+        ## cardinality = 0..1
+        ### The pop up used for the lesson, default "tutorial_popup"
+        window_name = enum[tutorial_lesson_window_names]
+
+        ## cardinality = 0..inf
+        ### When any of this lesson's step is active, the specified tag is set and can be detected by IsTutorialTagOpen('X') in gui. There can be multiple gui_tag properties.
+        gui_tag = scalar
+
+        ## cardinality = 0..inf
+        ### When any of this lesson's step is active, the specified GUI widget (widgetid or name) will be highlighted. The widget's name should be unique for the functionality to work properly. Can not parse data functions.
+        highlight_widget = scalar
+
+        ## cardinality = 0..inf
+        ### Same as above. However, this should only be used when a data function is required to specify which widget to look for. This also sends the specified string through loc, so be mindful that it should not match any loc-key name.
+        highlight_widget_dynamic_loc = scalar
+
+        ## cardinality = 0..1
+        ### The sound effect that should be played when this lesson is shown.
+        soundeffect = scalar
+
+        ## cardinality = 0..1
+        ### The sound effect that should be played when this lesson is shown.
+        voice = scalar
+
+        ## cardinality = 0..1
+        ### If set to yes, the sound effect will repeat every time this lesson step is shown. Otherwise, it will only play once. Yes by default
+        repeat_sound_effect = bool
+
+        ## cardinality = 0..1
+        ### The lesson start will be delayed by that many seconds.
+        delay = int_value_field
+
+        ## cardinality = 0..1
+        ### The lesson step window will perform this animation.
+        animation = scalar
+
+        ## cardinality = 0..inf
+        ### When any of this lesson's step is active, the specified event target will be highlighted.
+        ### e.g. a state, building or country
+        highlight_target = scalar
+
+        ## cardinality = 0..inf
+        ### This trigger transition can happen whenever any of the lesson steps are active. There can be multiple trigger transitions. See the lesson step trigger transition documentation.
+        trigger_transition = single_alias_right[trigger_lesson_transition_clause]
+
+        ## cardinality = 0..inf
+        ### A button transition, there can be multiple transitions. The player has to click the corresponding button for it to happen.
+        gui_transition = single_alias_right[gui_lesson_transition_clause]
+
+        ## cardinality = 0..1
+        ### The default delay for the lesson steps of this lesson.
+        default_lesson_step_delay = int_value_field
+
+        ## cardinality = 0..1
+        ### If set to yes, this lesson step will pause the game, but it can be unpaused manually. No by default.
+        ### requires save_progress_in_gamestate = yes in the chain
+        pause_game = bool
+
+        ## cardinality = 0..1
+        ### If set to no, this lesson step will pause the game and it cannot be unpaused manually. No by default.
+        ### requires save_progress_in_gamestate = yes in the chain
+        force_pause_game = bool
+
+        ## cardinality = 0..1
+        ### This effect will fire when the tutorial transitions to this lesson step
+        ### require save_progress_in_gamestate = yes in the chain
+        effect = single_alias_right[effect_clause]
+    }
+}
+
+
+single_alias[trigger_lesson_transition_clause] = {
+    ###  Arbitrary string used to determine which button the transition is attached to. Look for usages of "Tutorial.HasTransition" etc in the tutorial_window GUI script. The "next" ID is used to show instructions to the player (see enabled below).
+    button_id = scalar
+
+    ### The localization key of the text shown on the button.
+    button_text = localisation
+
+    # TODO refers to scalar type used on top
+    ### Name of the step to transition to
+    ### lesson_finish -> Finishes the lesson
+    ### lesson_abort -> Aborts the lesson
+    target = scalar
+
+    trigger = single_alias_right[trigger_clause]
+}
+
+single_alias[gui_lesson_transition_clause] = {
+    ###  Arbitrary string used to determine which button the transition is attached to. Look for usages of "Tutorial.HasTransition" etc in the tutorial_window GUI script. The "next" ID is used to show instructions to the player (see enabled below).
+    button_id = scalar
+
+    ### The localization key of the text shown on the button.
+    button_text = localisation
+
+    # TODO refers to scalar type used on top
+    ### Name of the step to transition to
+    ### lesson_finish -> Finishes the lesson
+    ### lesson_abort -> Aborts the lesson
+    target = scalar
+
+    ## cardinality = 0..1
+    ### Optional trigger to disable the button. The trigger description of the button with button_id "next" (define TUTORIAL_STEP_INSTRUCTION_BUTTON_ID) will be shown in the tutorial window as instructions.
+    enabled = single_alias_right[trigger_clause]
 }

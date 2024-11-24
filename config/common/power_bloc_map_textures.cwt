@@ -1,0 +1,15 @@
+types = {
+    type[power_bloc_map_texture] = {
+        path = "game/common/power_bloc_map_textures"
+        file_extension = .txt
+        images = {
+            ## primary
+            texture = texture
+        }
+    }
+}
+
+power_bloc_map_texture = {
+    ### Map texture pattern (gfx/map/map_painting/powerblocs_map_patterns/)
+    texture = filepath
+}

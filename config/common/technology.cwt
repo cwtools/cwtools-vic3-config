@@ -1,6 +1,7 @@
 types = {
     type[technology] = {
         path = "game/common/technology/technologies"
+        file_extension = .txt
         localisation = {
             name = "$"
         }
@@ -11,6 +12,7 @@ types = {
     }
     type[era] = {
         path = "game/common/technology/eras"
+        file_extension = .txt
     }
 }
 
@@ -35,6 +37,10 @@ technology = {
     can_research = bool
 
     ## cardinality = 0..1
+    ### does this technology change how the map is rendered?
+    should_update_map = bool
+
+    ## cardinality = 0..1
     ### optional list of required technologies to be able to research this technology
     unlocking_technologies = {
         ## cardinality = 0..inf
@@ -46,9 +52,10 @@ technology = {
     modifier = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1
+    ### Effect that is executed after this technology was researched
+    on_researched = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
     ### base AI weight, default 1.0
-    ai_weight = {
-        ## cardinality = 0..1
-        value = value_field
-    }
+    ai_weight = single_alias_right[formula]
 }

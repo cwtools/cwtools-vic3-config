@@ -1,0 +1,60 @@
+types = {
+    type[character_interaction] = {
+        path = "game/common/character_interactions"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+    }
+}
+
+character_interaction = {
+    ## cardinality = 0..1
+    ### Path to icon for both right click menu and character panel buttons
+    icon = filepath
+
+    ## cardinality = 0..1
+    ### Click sound for both right click menu and character panel buttons
+    clicksound = scalar
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
+    ### Checks against actor country scope and skips the interaction completely if false, before even looking at any characters
+    should_ai_evaluate = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### Required for AI to evaluate if interaction is possible on characters in exile pool
+    ai_considers_exiles = bool
+
+    ## replace_scope = { root = character this = character }
+    ### Trigger to check if the interaction should be shown
+    ### scope:actor interacting country
+    potential = single_alias_right[trigger_clause]
+
+    ## replace_scope = { root = character this = character }
+    ### Trigger to check if the interaction is available
+    ### scope:actor interacting country
+    possible = single_alias_right[trigger_clause]
+
+    ## replace_scope = { root = character this = character }
+    ### The effects of the interaction
+    ### scope:actor interacting country
+    effect = single_alias_right[effect_clause]
+
+    ### Scriptable value for the chance (0-100) that the AI will use this interaction when available, default 0
+    ### scope:actor interacting country
+    ai_chance = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ### Cooldown of interaction
+    cooldown = single_alias_right[duration_clause]
+
+    ## cardinality = 0..1
+    ### Whether to always show requirements, similar to highlighted options in events
+    show_requirements = bool
+
+    ## cardinality = 0..1
+    ### Whether to require confirmation
+    show_confirmation_box = bool
+}

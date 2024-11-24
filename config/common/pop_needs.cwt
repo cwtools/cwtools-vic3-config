@@ -1,6 +1,7 @@
 types = {
     type[pop_need] = {
         path = "game/common/pop_needs"
+        file_extension = .txt
     }
 }
 
@@ -12,13 +13,16 @@ pop_need = {
         ### The good being referenced
         goods = <good>
 
+        ## cardinality = 0..1
         ### The base weight that is applied to this good based on market Sell Order share
         weight = value_field
 
+        ## cardinality = 0..1
         ### The maximum weight that can be applied to this good based on market Sell Order share, relative supply above this amount will have no further impact on base weight
-        max_supply_share = 0.5
+        max_supply_share = value_field[0.0..1.0]
 
+        ## cardinality = 0..1
         ### If above 0, a minimum of this multiplier of the base weight will be applied to a good regardless of its market Sell Order share
-        min_supply_share = 0.0
+        min_supply_share = value_field[0.0..1.0]
     }
 }

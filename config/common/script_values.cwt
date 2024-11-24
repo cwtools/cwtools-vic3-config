@@ -3,18 +3,30 @@ types = {
     type[script_value] = {
         path = "game/common/script_values"
         path_strict = yes
+        file_extension = .txt
+    }
+    type[static_value] = {
+        path = "game/common/script_values"
+        path_strict = yes
+        file_extension = .txt
     }
 }
 
-# This is a hardcoded reference for value_field
-enums = {
-    complex_enum[static_values] = {
-        path = "game/common/script_values"
-        start_from_root = yes
-        name = {
-            enum_name = value_field
-        }
-    }
+static_value = value_field
+
+script_value = {
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    ### Used when calculating values for actions between countries such as diplomatic plays
+    first_country = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ## push_scope = country
+    ### Used when calculating values for actions between countries such as diplomatic plays
+    second_country = single_alias_right[formula]
 }
 
 # This is a hardcoded reference for value_field
@@ -25,70 +37,86 @@ single_alias[range] = {
 
 # This is a hardcoded reference for value_field
 single_alias[formula] = {
-    ## cardinality = 1..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
-
-script_value = {
     ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 alias[arithmetic_operation:add] = value_field
-alias[arithmetic_operation:add] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:add] = single_alias_right[formula]
+alias[arithmetic_operation:add] = <script_value>
+alias[arithmetic_operation:add] = <static_value>
 alias[arithmetic_operation:subtract] = value_field
-alias[arithmetic_operation:subtract] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:subtract] = single_alias_right[formula]
+alias[arithmetic_operation:subtract] = <script_value>
+alias[arithmetic_operation:subtract] = <static_value>
 alias[arithmetic_operation:multiply] = value_field
-alias[arithmetic_operation:multiply] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:multiply] = single_alias_right[formula]
+alias[arithmetic_operation:multiply] = <script_value>
+alias[arithmetic_operation:multiply] = <static_value>
 alias[arithmetic_operation:divide] = value_field
-alias[arithmetic_operation:divide] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:divide] = single_alias_right[formula]
+alias[arithmetic_operation:divide] = <script_value>
+alias[arithmetic_operation:divide] = <static_value>
 alias[arithmetic_operation:modulo] = value_field
-alias[arithmetic_operation:modulo] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:modulo] = single_alias_right[formula]
+alias[arithmetic_operation:modulo] = <script_value>
+alias[arithmetic_operation:modulo] = <static_value>
 alias[arithmetic_operation:value] = value_field
-alias[arithmetic_operation:value] = {
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
+alias[arithmetic_operation:value] = single_alias_right[formula]
+alias[arithmetic_operation:value] = <script_value>
+alias[arithmetic_operation:value] = <static_value>
 alias[arithmetic_operation:max] = value_field
+alias[arithmetic_operation:max] = single_alias_right[formula]
+alias[arithmetic_operation:max] = <script_value>
+alias[arithmetic_operation:max] = <static_value>
 alias[arithmetic_operation:min] = value_field
-alias[arithmetic_operation:value] = value_field
+alias[arithmetic_operation:min] = single_alias_right[formula]
+alias[arithmetic_operation:min] = <script_value>
+alias[arithmetic_operation:min] = <static_value>
 
+alias[arithmetic_operation:abs] = yes
+alias[arithmetic_operation:abs] = value_field
 alias[arithmetic_operation:round] = yes
+alias[arithmetic_operation:round] = value_field
 alias[arithmetic_operation:ceiling] = yes
+alias[arithmetic_operation:ceiling] = value_field
 alias[arithmetic_operation:floor] = yes
+alias[arithmetic_operation:floor] = value_field
+
+alias[arithmetic_operation:save_temporary_value_as] = value_set[variable]
 
 alias[arithmetic_operation:fixed_range] = {
     min = value_field
+    min = single_alias_right[formula]
+    min = <script_value>
+    min = <static_value>
     max = value_field
+    max = single_alias_right[formula]
+    max = <script_value>
+    max = <static_value>
 }
 
 alias[arithmetic_operation:integer_range] = {
-    min = int_value_field
-    max = int_value_field
+    min = value_field
+    min = single_alias_right[formula]
+    min = <script_value>
+    min = <static_value>
+    max = value_field
+    max = single_alias_right[formula]
+    max = <script_value>
+    max = <static_value>
 }
 
 alias[arithmetic_operation:if] = {
+    ## cardinality = 0..1
     limit = single_alias_right[trigger_clause]
     ## cardinality = 1..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 alias[arithmetic_operation:else_if] = {
+    ## cardinality = 0..1
+    ### limit is optional in else_if
     limit = single_alias_right[trigger_clause]
     ## cardinality = 1..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
@@ -148,7 +176,7 @@ alias[arithmetic_operation:random_scope_front] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -229,7 +257,7 @@ alias[arithmetic_operation:random_market_goods] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -244,7 +272,7 @@ alias[arithmetic_operation:random_scope_country] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -292,7 +320,7 @@ alias[arithmetic_operation:random_trade_route] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -340,7 +368,7 @@ alias[arithmetic_operation:random_supporting_interest_group] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -388,7 +416,7 @@ alias[arithmetic_operation:random_primary_culture] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -436,7 +464,7 @@ alias[arithmetic_operation:random_scope_pop] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -484,10 +512,11 @@ alias[arithmetic_operation:random_combat_unit] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = state
 ### Iterate through all states including provinces from a: country, state_region, theater, or front every_scope_state = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_state] = {
     ## cardinality = 0..1
@@ -532,7 +561,7 @@ alias[arithmetic_operation:random_scope_state] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -580,7 +609,7 @@ alias[arithmetic_operation:random_neighbouring_state] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -628,7 +657,7 @@ alias[arithmetic_operation:random_scope_interest_marker] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -982,7 +1011,7 @@ alias[arithmetic_operation:random_character] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -997,7 +1026,7 @@ alias[arithmetic_operation:random_character_in_void] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1012,7 +1041,7 @@ alias[arithmetic_operation:random_country] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1027,7 +1056,7 @@ alias[arithmetic_operation:random_diplomatic_play] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1043,7 +1072,7 @@ alias[arithmetic_operation:random_in_global_list] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1059,7 +1088,7 @@ alias[arithmetic_operation:random_in_list] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1075,14 +1104,14 @@ alias[arithmetic_operation:random_in_local_list] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
 alias[arithmetic_operation:random_list] = {
 ## cardinality = 2..inf
-int = single_alias_right[random_chance_weight_block]
+int = single_alias_right[formula]
 
 # ## cardinality = 0..inf
 #TODO chekc vic3
@@ -1100,7 +1129,7 @@ alias[arithmetic_operation:random_log_scopes] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1115,7 +1144,7 @@ alias[arithmetic_operation:random_market] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1130,7 +1159,7 @@ alias[arithmetic_operation:random_state] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1145,7 +1174,7 @@ alias[arithmetic_operation:random_state_region] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1655,7 +1684,7 @@ alias[arithmetic_operation:random_active_party] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1670,7 +1699,7 @@ alias[arithmetic_operation:random_civil_war] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1685,7 +1714,7 @@ alias[arithmetic_operation:random_in_hierarchy] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1700,7 +1729,7 @@ alias[arithmetic_operation:random_law] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1715,7 +1744,7 @@ alias[arithmetic_operation:random_overlord_or_above] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1730,7 +1759,7 @@ alias[arithmetic_operation:random_political_movement] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1745,7 +1774,7 @@ alias[arithmetic_operation:random_potential_party] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1760,7 +1789,7 @@ alias[arithmetic_operation:random_rival_country] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1775,7 +1804,7 @@ alias[arithmetic_operation:random_scope_ally] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1790,7 +1819,7 @@ alias[arithmetic_operation:random_scope_cobelligerent] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1805,7 +1834,7 @@ alias[arithmetic_operation:random_scope_theater] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1820,7 +1849,7 @@ alias[arithmetic_operation:random_scope_violate_sovereignty_interested_parties] 
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1835,7 +1864,7 @@ alias[arithmetic_operation:random_scope_violate_sovereignty_wars] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1850,7 +1879,7 @@ alias[arithmetic_operation:random_scope_war] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1865,10 +1894,11 @@ alias[arithmetic_operation:random_subject_or_below] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = building
 ### Iterate through all buildings in a: state, country every_scope_building = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_building] = {
     ## cardinality = 0..1
@@ -1882,6 +1912,7 @@ alias[arithmetic_operation:every_scope_building] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = culture
 ### Iterate through all cultures in the scope every_scope_culture = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_culture] = {
     ## cardinality = 0..1
@@ -1895,6 +1926,7 @@ alias[arithmetic_operation:every_scope_culture] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = building
 ### Iterate through all buildings in a: state, country ordered_scope_building = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_scope_building] = {
     ## cardinality = 0..1
@@ -1915,6 +1947,7 @@ alias[arithmetic_operation:ordered_scope_building] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = culture
 ### Iterate through all cultures in the scope ordered_scope_culture = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_scope_culture] = {
     ## cardinality = 0..1
@@ -1935,6 +1968,7 @@ alias[arithmetic_operation:ordered_scope_culture] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = building
 ### Iterate through all buildings in a: state, country random_scope_building = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_scope_building] = {
     ## cardinality = 0..1
@@ -1946,10 +1980,11 @@ alias[arithmetic_operation:random_scope_building] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = culture
 ### Iterate through all cultures in the scope random_scope_culture = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_scope_culture] = {
     ## cardinality = 0..1
@@ -1961,10 +1996,11 @@ alias[arithmetic_operation:random_scope_culture] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = country
 ### Iterate through all allies to an initiator in a: diplomatic play every_scope_initiator_ally = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_initiator_ally] = {
     ## cardinality = 0..1
@@ -1978,6 +2014,7 @@ alias[arithmetic_operation:every_scope_initiator_ally] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = country
 ### Iterate through all involved in a: diplomatic play every_scope_play_involved = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_play_involved] = {
     ## cardinality = 0..1
@@ -1991,6 +2028,7 @@ alias[arithmetic_operation:every_scope_play_involved] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = country
 ### Iterate through all allies to a target in a: diplomatic play every_scope_target_ally = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_target_ally] = {
     ## cardinality = 0..1
@@ -2004,6 +2042,7 @@ alias[arithmetic_operation:every_scope_target_ally] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = country
 ### Iterate through all allies to an initiator in a: diplomatic play ordered_scope_initiator_ally = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_scope_initiator_ally] = {
     ## cardinality = 0..1
@@ -2024,6 +2063,7 @@ alias[arithmetic_operation:ordered_scope_initiator_ally] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = country
 ### Iterate through all involved in a: diplomatic play ordered_scope_play_involved = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_scope_play_involved] = {
     ## cardinality = 0..1
@@ -2044,6 +2084,7 @@ alias[arithmetic_operation:ordered_scope_play_involved] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = country
 ### Iterate through all allies to a target in a: diplomatic play ordered_scope_target_ally = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_scope_target_ally] = {
     ## cardinality = 0..1
@@ -2064,6 +2105,7 @@ alias[arithmetic_operation:ordered_scope_target_ally] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = country
 ### Iterate through all allies to an initiator in a: diplomatic play random_scope_initiator_ally = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_scope_initiator_ally] = {
     ## cardinality = 0..1
@@ -2075,10 +2117,11 @@ alias[arithmetic_operation:random_scope_initiator_ally] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = country
 ### Iterate through all involved in a: diplomatic play random_scope_play_involved = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_scope_play_involved] = {
     ## cardinality = 0..1
@@ -2090,10 +2133,11 @@ alias[arithmetic_operation:random_scope_play_involved] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = country
 ### Iterate through all allies to a target in a: diplomatic play random_scope_target_ally = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_scope_target_ally] = {
     ## cardinality = 0..1
@@ -2105,10 +2149,11 @@ alias[arithmetic_operation:random_scope_target_ally] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = interest_group
 ### Iterate through all interest groups in a country every_interest_group = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_interest_group] = {
     ## cardinality = 0..1
@@ -2122,6 +2167,7 @@ alias[arithmetic_operation:every_interest_group] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all interest group members of a party every_member = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_member] = {
     ## cardinality = 0..1
@@ -2135,6 +2181,7 @@ alias[arithmetic_operation:every_member] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = interest_group
 ### Iterate through all interest groups in a country ordered_interest_group = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_interest_group] = {
     ## cardinality = 0..1
@@ -2155,6 +2202,7 @@ alias[arithmetic_operation:ordered_interest_group] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all interest group members of a party ordered_member = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_member] = {
     ## cardinality = 0..1
@@ -2175,6 +2223,7 @@ alias[arithmetic_operation:ordered_member] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = interest_group
 ### Iterate through all interest groups in a country random_interest_group = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_interest_group] = {
     ## cardinality = 0..1
@@ -2186,10 +2235,11 @@ alias[arithmetic_operation:random_interest_group] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all interest group members of a party random_member = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_member] = {
     ## cardinality = 0..1
@@ -2201,10 +2251,11 @@ alias[arithmetic_operation:random_member] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all admirals in a: country or interestgroup every_scope_admiral = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_admiral] = {
     ## cardinality = 0..1
@@ -2218,6 +2269,7 @@ alias[arithmetic_operation:every_scope_admiral] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all characters in a: country, interestgroup, or front every_scope_character = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_character] = {
     ## cardinality = 0..1
@@ -2231,6 +2283,7 @@ alias[arithmetic_operation:every_scope_character] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all generals in a: country, interestgroup, or front every_scope_general = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_general] = {
     ## cardinality = 0..1
@@ -2244,6 +2297,7 @@ alias[arithmetic_operation:every_scope_general] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all politicians in a: country or interestgroup every_scope_politician = { limit = { <triggers> } <effects> }
 alias[arithmetic_operation:every_scope_politician] = {
     ## cardinality = 0..1
@@ -2257,6 +2311,7 @@ alias[arithmetic_operation:every_scope_politician] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all admirals in a: country or interestgroup ordered_scope_admiral = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_scope_admiral] = {
     ## cardinality = 0..1
@@ -2277,6 +2332,7 @@ alias[arithmetic_operation:ordered_scope_admiral] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all characters in a: country, interestgroup, or front ordered_scope_character = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_scope_character] = {
     ## cardinality = 0..1
@@ -2297,6 +2353,7 @@ alias[arithmetic_operation:ordered_scope_character] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all generals in a: country, interestgroup, or front ordered_scope_general = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_scope_general] = {
     ## cardinality = 0..1
@@ -2317,6 +2374,7 @@ alias[arithmetic_operation:ordered_scope_general] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all politicians in a: country or interestgroup ordered_scope_politician = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[arithmetic_operation:ordered_scope_politician] = {
     ## cardinality = 0..1
@@ -2337,6 +2395,7 @@ alias[arithmetic_operation:ordered_scope_politician] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all admirals in a: country or interestgroup random_scope_admiral = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_scope_admiral] = {
     ## cardinality = 0..1
@@ -2348,10 +2407,11 @@ alias[arithmetic_operation:random_scope_admiral] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all characters in a: country, interestgroup, or front random_scope_character = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_scope_character] = {
     ## cardinality = 0..1
@@ -2363,10 +2423,11 @@ alias[arithmetic_operation:random_scope_character] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all generals in a: country, interestgroup, or front random_scope_general = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_scope_general] = {
     ## cardinality = 0..1
@@ -2378,10 +2439,11 @@ alias[arithmetic_operation:random_scope_general] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = character
 ### Iterate through all politicians in a: country or interestgroup random_scope_politician = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[arithmetic_operation:random_scope_politician] = {
     ## cardinality = 0..1
@@ -2393,11 +2455,11 @@ alias[arithmetic_operation:random_scope_politician] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-
+## push_scope = company
 ### Iterate through all companies in a country
 alias[arithmetic_operation:every_company] = {
     ## cardinality = 0..1
@@ -2411,6 +2473,7 @@ alias[arithmetic_operation:every_company] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = company
 ### Iterate through all companies in a country
 alias[arithmetic_operation:ordered_company] = {
     ## cardinality = 0..1
@@ -2431,6 +2494,7 @@ alias[arithmetic_operation:ordered_company] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = company
 ### Iterate through all companies in a country
 alias[arithmetic_operation:random_company] = {
     ## cardinality = 0..1
@@ -2442,7 +2506,7 @@ alias[arithmetic_operation:random_company] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2490,7 +2554,7 @@ alias[arithmetic_operation:random_military_formation] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2538,7 +2602,7 @@ alias[arithmetic_operation:random_province] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -2586,10 +2650,11 @@ alias[arithmetic_operation:random_scope_held_interest_marker] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = state
 ### Iterate through all states that share a sea node with a state
 alias[arithmetic_operation:every_sea_node_adjacent_state] = {
     ## cardinality = 0..1
@@ -2603,6 +2668,7 @@ alias[arithmetic_operation:every_sea_node_adjacent_state] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = state
 ### Iterate through all states that share a sea node with a state
 alias[arithmetic_operation:ordered_sea_node_adjacent_state] = {
     ## cardinality = 0..1
@@ -2623,6 +2689,7 @@ alias[arithmetic_operation:ordered_sea_node_adjacent_state] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = state
 ### Iterate through all states that share a sea node with a state
 alias[arithmetic_operation:random_sea_node_adjacent_state] = {
     ## cardinality = 0..1
@@ -2634,10 +2701,11 @@ alias[arithmetic_operation:random_sea_node_adjacent_state] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = culture
 ### Lists for cultures in the scoped country that are valid for mass migration
 alias[arithmetic_operation:every_valid_mass_migration_culture] = {
     ## cardinality = 0..1
@@ -2651,6 +2719,7 @@ alias[arithmetic_operation:every_valid_mass_migration_culture] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = culture
 ### Lists for cultures in the scoped country that are valid for mass migration
 alias[arithmetic_operation:ordered_valid_mass_migration_culture] = {
     ## cardinality = 0..1
@@ -2671,6 +2740,7 @@ alias[arithmetic_operation:ordered_valid_mass_migration_culture] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
+## push_scope = culture
 ### Lists for cultures in the scoped country that are valid for mass migration
 alias[arithmetic_operation:random_valid_mass_migration_culture] = {
     ## cardinality = 0..1
@@ -2682,6 +2752,53 @@ alias[arithmetic_operation:random_valid_mass_migration_culture] = {
         alias_name[trigger] = alias_match_left[trigger]
     }
     ## cardinality = 0..1
-    weight = single_alias_right[ai_chance_block]
+    weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
+
+## push_scope = country
+alias[arithmetic_operation:every_power_bloc_member] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+## push_scope = law
+alias[arithmetic_operation:every_active_law] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+## push_scope = power_bloc
+alias[arithmetic_operation:every_power_bloc_member] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+

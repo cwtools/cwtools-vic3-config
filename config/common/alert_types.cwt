@@ -1,6 +1,7 @@
 types = {
     type[alert_type] = {
         path = "game/common/alert_types"
+        file_extension = .txt
     }
 }
 
@@ -36,10 +37,12 @@ alert_type = {
 enums = {
     enum[script_context] = {
         player_country
+        player_front
         player_diplomatic_play
         player_diplomatic_pact
         player_diplomatic_action
         player_diplomatic_relations
+        player_subject
         player_interest_group
         player_invaded_state
         player_national_market
@@ -48,9 +51,12 @@ enums = {
         player_state
         player_building
         player_market_goods
+        player_state_local_goods
         player_commander
         player_military_formation
         player_trade_route
+        player_war
+        player_market
     }
 
     enum[alert_type] = {

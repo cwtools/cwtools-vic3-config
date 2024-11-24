@@ -1,5 +1,38 @@
 types = {
     type[commander_rank] = {
         path = "game/common/commander_ranks"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
+}
+
+commander_rank = {
+    rank_value = int_value_field
+
+    texture = filepath
+
+    ## cardinality = 0..1
+    character_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    general_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    admiral_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    country_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    interest_group_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    title = single_alias_right[complex_desc]
 }

@@ -1,0 +1,24 @@
+types = {
+    type[liberty_desire_level] = {
+        path = "game/common/liberty_desire_levels"
+        file_extension = .txt
+        images = {
+            ## primary
+            background_texture = background_texture
+        }
+    }
+}
+
+liberty_desire_level = {
+    threshold = int_value_field
+
+    valid_sway_wargoals_against_overlord = {
+        ## cardinality = 0..inf
+        enum[war_goal]
+    }
+
+    ## cardinality = 0..1
+    modifier = single_alias_right[modifier_clause]
+
+    background_texture = filepath
+}

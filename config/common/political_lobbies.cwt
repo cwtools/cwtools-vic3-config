@@ -1,0 +1,89 @@
+types = {
+    type[political_lobby] = {
+        path = "game/common/political_lobbies"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
+    }
+}
+
+political_lobby = {
+    ### Icon
+    texture = filepath
+
+    ### Lobby category - this affects which type of country they target (foreign or self) and their general stance towards that country
+    category = enum[political_lobby_categories]
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = interest_group this = interest_group }
+    ### Trigger that must evaluate true to create a lobby
+    ### scope:country = the country the lobby belongs to
+    ### scope:target_country = the country the lobby is targeting (same as scope:country for domestic lobbies)
+    can_create = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
+    ### Effect that is fired after a lobby is created
+    ### scope:country = the country the lobby belongs to
+    ### scope:target_country = the country the lobby is targeting (same as scope:country for domestic lobbies)
+    ### scope:political_lobby = the lobby
+    on_created = single_alias_right[effect_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scope = { root = interest_group this = interest_group }
+    ### Conditions that must evaluate true to maintain a lobby
+    ### Any number of requirements can be scripted in
+    ### scope:country = the country the lobby belongs to
+    ### scope:target_country = the country the lobby is targeting (same as scope:country for domestic lobbies)
+    ### scope:political_lobby = the lobby. Not set if evaluating a potential lobby that could be created.
+    requirement_to_maintain = {
+        ## cardinality = 0..1
+        ### Trigger that must be satsified for the lobby to not disband or change type
+        trigger = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ## replace_scope = { root = country this = interest_group }
+        ### Effect that is executed if a requirement to maintain fails
+        on_failed = single_alias_right[effect_clause]
+
+        ## cardinality = 0..1
+        ### If this is set, the lobby attempts to change into a lobby of the specified type instead of being disbanded
+        swap_type_on_failed = <political_lobby>
+    }
+
+    ## cardinality = 0..1
+    ### List of appeasement_factors, pro
+    ### Appeasement factors not marked as is_always_usable must be set here to be usable for the lobby
+    ### Cannot contain appeasement factors marked as is_always_usable
+    appeasement_factors_pro = {
+        ## cardinality = 1..inf
+        <political_lobby_appeasement>
+    }
+
+    ## cardinality = 0..1
+    ### List of appeasement_factors, anti
+    ### Appeasement factors not marked as is_always_usable must be set here to be usable for the lobby
+    ### Cannot contain appeasement factors marked as is_always_usable
+    appeasement_factors_anti = {
+        ## cardinality = 1..inf
+        <political_lobby_appeasement>
+    }
+
+    ## replace_scope = { root = interest_group this = interest_group }
+    ### Trigger for whether an IG can join the lobby (not checked for IGs that are already members)
+    available_for_interest_group = single_alias_right[trigger_clause]
+
+    ## replace_scope = { root = interest_group this = interest_group }
+    ### Script value for how interested an IG is in joining a lobby
+    ### scope:country = the country the lobby belongs to
+    ### scope:target_country = the country the lobby is targeting (same as scope:country for domestic lobbies)
+    ### scope:political_lobby = the lobby. Not set if evaluating a potential lobby that could be created.
+    join_weight = single_alias_right[formula]
+
+}

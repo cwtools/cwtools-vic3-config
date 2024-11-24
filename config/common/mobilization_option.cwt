@@ -1,6 +1,15 @@
 types = {
     type[mobilization_option] = {
         path = "game/common/mobilization_options"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
 }
 
@@ -31,8 +40,28 @@ mobilization_option = {
     }
 
     ## cardinality = 0..1
+    ### Modifiers applied by this mobilisation type
+    upkeep_modifier_unscaled = single_alias_right[modifier_clause]
+
+    ### This is the minimum mobilization cost
+    unit_modifier = single_alias_right[modifier_clause]
+
+    ### This is the minimum mobilization cost
+    ai_weight = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ### trigger that determines if the option can be turned on or not
+    possible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
     ### trigger that determines if the option can be turned off or not
     can_be_turned_off = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### Power Bloc principles that unlock this mobilization option
+    unlocking_principles = {
+        <power_bloc_principle>
+    }
 
     ## push_scope = military_formation
     ## cardinality = 0..1

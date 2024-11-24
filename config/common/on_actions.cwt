@@ -1,10 +1,14 @@
 types = {
     type[on_action] = {
         path = "game/common/on_actions"
+        file_extension = .txt
     }
 }
 
 on_action = {
+    ## cardinality = 0..1
+    trigger = single_alias_right[trigger_clause]
+
     ## cardinality = 0..1
     effect = single_alias_right[effect_clause]
 
@@ -12,6 +16,9 @@ on_action = {
     random_events = {
         ## cardinality = 0..inf
         int = <event>
+
+        ## cardinality = 0..inf
+        delay = single_alias_right[duration_clause]
 
         ## cardinality = 0..inf
         int = 0

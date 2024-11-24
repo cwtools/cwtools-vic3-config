@@ -1,5 +1,27 @@
 types = {
     type[institution] = {
         path = "game/common/institutions"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
     }
+}
+
+institution = {
+    ### Path to graphical icon
+    icon = filepath
+
+    ### Path to background texture
+    background_texture = filepath
+
+    ## cardinality = 0..1
+    ## replace_scope = { this = country root = country }
+    ### Modifier on country for having adopted this institution
+    modifier = single_alias_right[modifier_clause]
 }

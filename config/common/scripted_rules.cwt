@@ -1,0 +1,10 @@
+types = {
+    type[scripted_rule] = {
+        path = "game/common/scripted_rules"
+        file_extension = .txt
+    }
+}
+
+scripted_rule = {
+    alias_name[trigger] = alias_match_left[trigger]
+}

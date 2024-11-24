@@ -1,6 +1,15 @@
 types = {
     type[company_type] = {
         path = "game/common/company_types"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
     }
 }
 
@@ -18,11 +27,10 @@ company_type = {
     uses_dynamic_naming = bool
 
     ## cardinality = 0..1
-    dynamic_company_names = {
+    dynamic_company_type_names = {
         ## cardinality = 0..inf
         localisation
     }
-
 
     ## cardinality = 0..1
     replaces_company = <company_type>
@@ -46,4 +54,6 @@ company_type = {
 
     ## cardinality = 0..1
     ai_weight = value_field
+    ## cardinality = 0..1
+    ai_weight = single_alias_right[formula]
 }

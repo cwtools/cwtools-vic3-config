@@ -1,6 +1,11 @@
 types = {
 	type[building_group] = {
 		path = "game/common/building_groups"
+		file_extension = .txt
+		localisation = {
+			## required
+			name = "$"
+		}
 		subtype[bg_child] = {
             parent_group = <building_group>
         }
@@ -15,6 +20,18 @@ building_group = {
     subtype[!bg_child] = {
         category = enum[bg_category]
     }
+
+	## cardinality = 0..1
+	economy_of_scale_ai_factor = value_field
+
+	## cardinality = 0..1
+	foreign_investment_ai_factor = value_field
+
+	## cardinality = 0..1
+	min_productivity_to_hire = value_field
+
+	## cardinality = 0..1
+	is_shown_in_outliner = bool
 
     ## cardinality = 0..1
     category = enum[bg_category]
@@ -48,6 +65,15 @@ building_group = {
 	## cardinality = 0..1
 	### If set to yes, will not let player build the building. Similar to Gold Fields, Subsistence Farms, Urban and Trade Centers.
 	auto_place_buildings = bool
+
+	## cardinality = 0..1
+	ignores_productivity_when_hiring = bool
+
+	## cardinality = 0..1
+	always_self_owning = bool
+
+	## cardinality = 0..1
+	owns_other_buildings = bool
 
 	## cardinality = 0..1
 	### If set to yes, building will be limited to a maximum number of resources defined in the state. Like mines and forestry.

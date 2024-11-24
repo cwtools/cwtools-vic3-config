@@ -1,6 +1,7 @@
 types = {
     type[scripted_progress_bar] = {
         path = "game/common/scripted_progress_bars"
+        file_extension = .txt
     }
 }
 
@@ -45,14 +46,17 @@ scripted_progress_bar = {
     double_sided_bad = bool
 
     ## cardinality = 0..1
+    ## replace_scope = { this = country root = country }
     ### weekly progress of progress bar
     weekly_progress = single_alias_right[formula]
 
     ## cardinality = 0..1
+    ## replace_scope = { this = country root = country }
     ### monthly progress of progress bar
     monthly_progress = single_alias_right[formula]
 
     ## cardinality = 0..1
+    ## replace_scope = { this = country root = country }
     ### yearly progress of progress bar
     yearly_progress = single_alias_right[formula]
 }

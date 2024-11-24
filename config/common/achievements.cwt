@@ -1,11 +1,18 @@
 types = {
     type[achievement] = {
         path = "game/common/achievements"
+        file_extension = .txt
+        localisation = {
+            name = "ACHIEVEMENT_$"
+        }
     }
 }
 
 achievement = {
+    ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
     possible = single_alias_right[trigger_clause]
 
+    ## replace_scope = { root = country this = country }
     happened = single_alias_right[trigger_clause]
 }

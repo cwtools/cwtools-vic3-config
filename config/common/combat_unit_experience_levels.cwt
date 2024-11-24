@@ -1,0 +1,26 @@
+types = {
+    type[combat_unit_experience_level] = {
+        path = "game/common/combat_unit_experience_levels"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
+    }
+}
+
+combat_unit_experience_level = {
+    icon = filepath
+
+    level = int_value_field
+
+    ## cardinality = 0..1
+    needed_experience = int_value_field
+
+    ## cardinality = 0..1
+    unit_modifier = single_alias_right[modifier_clause]
+}

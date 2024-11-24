@@ -1,5 +1,86 @@
 types = {
     type[interest_group] = {
         path = "game/common/interest_groups"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
+}
+
+interest_group = {
+    color = alias_match_right[color]
+    texture = filepath
+    layer = scalar
+    index = int
+
+
+    ideologies = {
+        ## cardinality = 1..inf
+        <ideology>
+    }
+
+    character_ideologies = {
+        ## cardinality = 1..inf
+        <ideology>
+    }
+
+    enable = {
+        ## cardinality = 1..inf
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    ### Deprecated; use on_enable effect to assign traits instead
+    traits = {
+        ## cardinality = 1..inf
+        <interest_group_trait>
+    }
+
+    ## push_scope = interest_group
+    on_enable = single_alias_right[effect_clause]
+
+    ## push_scope = interest_group
+    on_disable = single_alias_right[effect_clause]
+
+    ## push_scope = country
+    priority_cultures = {
+        # TODO
+    }
+
+    ## push_scope = character
+    on_character_ig_membership = single_alias_right[effect_clause]
+
+    ## push_scope = pop
+    pop_potential = single_alias_right[trigger_clause]
+
+    ## push_scope = pop
+    pop_weight = single_alias_right[formula]
+
+    ## push_scope = character
+    monarch_weight = single_alias_right[formula]
+
+    ## push_scope = character
+    agitator_weight = single_alias_right[formula]
+
+    ## push_scope = character
+    commander_weight = single_alias_right[formula]
+
+    ## push_scope = character
+    noble_chance = single_alias_right[formula]
+
+    ## push_scope = character
+    female_commander_chance = single_alias_right[formula]
+
+    ## push_scope = character
+    female_politician_chance = single_alias_right[formula]
+
+    ## push_scope = character
+    female_agitator_chance = single_alias_right[formula]
+
+    ## push_scope = character
+    commander_leader_chance = single_alias_right[formula]
 }
