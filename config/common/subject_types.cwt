@@ -1,5 +1,10 @@
 types = {
     type[subject_type] = {
         path = "game/common/subject_types"
+        file_extension = .txt
     }
+}
+
+subject_type = {
+    # TODO
 }

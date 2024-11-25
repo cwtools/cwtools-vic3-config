@@ -1,6 +1,15 @@
 types = {
     type[battle_condition] = {
         path = "game/common/battle_conditions"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
     }
 }
 
@@ -23,8 +32,13 @@ battle_condition = {
     ### a trigger determining if the current battle condition should be immediately switched to this other one (at the next check); weights are still considered if several instant_switch conditions apply; if empty, this will never be checked and the condition can only appear randomly with possible trigger and a positive weight
     instant_switch = single_alias_right[trigger_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ## push_scope = battle_side 
     ### a scripted value that represents how likely this condition is to be picked among all the possible conditions. Has access to a battle_side scope that can be used to make certain conditions more or less likely depending on external factors such as commander traits, or even a commander not being present. If unset, this is 1.
     weight = value_field
+
+    ## cardinality = 0..inf
+    ## push_scope = battle_side
+    ### a scripted value that represents how likely this condition is to be picked among all the possible conditions. Has access to a battle_side scope that can be used to make certain conditions more or less likely depending on external factors such as commander traits, or even a commander not being present. If unset, this is 1.
+    weight = single_alias_right[formula]
 }

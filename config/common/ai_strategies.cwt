@@ -1,5 +1,10 @@
 types = {
     type[ai_strategy] = {
         path = "game/common/ai_strategies"
+        file_extension = .txt
     }
+}
+
+ai_strategy = {
+    # TODO
 }

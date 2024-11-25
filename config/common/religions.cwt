@@ -1,12 +1,13 @@
 types = {
     type[religion] = {
         path = "game/common/religions"
+        file_extension = .txt
         localisation = {
 			name = "$"
 		}
         images = {
             ## primary
-            texture = texture # filepath
+            texture = texture
         }
     }
 }
@@ -15,6 +16,7 @@ religion = {
     ### The icon shown ingame
     texture = filepath
 
+    ## cardinality = 0..1
     ### Don't mix religious traits with cultural traits
     traits = {
         ## cardinality = 1..inf
@@ -23,8 +25,8 @@ religion = {
 
     color = alias_match_right[color]
 
-    ### These pops hate...
     ## cardinality = 0..1
+    ### These pops hate...
     taboos = {
         ## cardinality = 1..inf
         <goods.consumable>

@@ -2,6 +2,7 @@ types = {
     ## unique = yes
     type[state_trait] = {
         path = "game/common/state_traits"
+        file_extension = .txt
         localisation = {
 			name = "$"
 		}

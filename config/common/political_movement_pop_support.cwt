@@ -1,0 +1,19 @@
+types = {
+    type[political_movement_pop_support] = {
+        path = "game/common/political_movement_pop_support"
+        file_extension = .txt
+        localisation = {
+            name = name
+        }
+    }
+}
+
+political_movement_pop_support = {
+    ### Localization key that is displayed in the movement interface
+    name = localisation
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = political_movement this = political_movement }
+    ### Trigger for whether this factor should be shown in the movement interface
+    visible = single_alias_right[trigger_clause]
+}

@@ -1,6 +1,7 @@
 types = {
     type[modifier_type] = {
         path = "game/common/modifier_type_definitions"
+        file_extension = .txt
     }
 }
 
@@ -30,5 +31,11 @@ modifier_type = {
 
         ## cardinality = 0..1
         translate = localisation
+
+        ## cardinality = 0..1
+        tags = {
+            ## cardinality = 1..inf
+            enum[modifier_type_tags]
+        }
     }
 }

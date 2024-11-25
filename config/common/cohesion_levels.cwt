@@ -1,0 +1,20 @@
+types = {
+    type[cohesion_level] = {
+        path = "game/common/cohesion_levels"
+        file_extension = .txt
+    }
+}
+
+cohesion_level = {
+    threshold = int_value_field
+
+    ## cardinality = 0..1
+    loyalties_gain = single_alias_right[formula]
+
+    modifier = single_alias_right[modifier_clause]
+
+    background_texture = filepath
+
+    ## cardinality = 0..1
+    ai_unification_support_score = value_field
+}

@@ -1,0 +1,15 @@
+types = {
+    type[military_formation_flag] = {
+        path = "game/common/military_formation_flags"
+        file_extension = .txt
+        images = {
+            ## primary
+            icon = icon
+        }
+    }
+}
+
+military_formation_flag = {
+    icon = filepath
+    type = enum[military_unit_type]
+}

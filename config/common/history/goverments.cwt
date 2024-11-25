@@ -1,0 +1,11 @@
+types = {
+    type[history_government] = {
+        path = "game/common/history/governments"
+        file_extension = .txt
+
+    }
+}
+
+history_government = {
+    alias_name[effect] = alias_match_left[effect]
+}

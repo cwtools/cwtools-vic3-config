@@ -1,6 +1,7 @@
 types = {
     type[canal] = {
         path = "game/common/canals"
+        file_extension = .txt
         localisation = {
 			name = "$"
 		}
@@ -13,6 +14,9 @@ types = {
 
 canal = {
     texture = filepath
+
+    ## cardinality = 0..1
     possible = single_alias_right[trigger_clause]
+
     state_region = <state_region>
 }

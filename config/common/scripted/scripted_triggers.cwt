@@ -6,15 +6,19 @@ alias[trigger:<scripted_trigger>] = bool
 alias[trigger:<scripted_trigger>] = {
 	## cardinality = 0..inf
 	$parameter = $parameter_value
+
+    ## cardinality = 0..1
+    target = scope[country]
 }
 
 types = {
     type[scripted_trigger] = {
         path = "game/common/scripted_triggers"
+        file_extension = .txt
     }
 }
 
 scripted_trigger = {
-    ## cardinality = 1..inf
+    ## cardinality = 0..inf
     alias_name[trigger] = alias_match_left[trigger]
 }

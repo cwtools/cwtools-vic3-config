@@ -1,0 +1,48 @@
+types = {
+    type[acceptance_status] = {
+        path = "game/common/acceptance_statuses"
+        file_extension = .txt
+    }
+}
+
+acceptance_status = {
+    ### Is the minimum (inclusive) acceptance value that determines if a pop falls
+    ### within this status
+    threshold = value_field
+
+    ### Every pop falling in this status will have this as its base migration desire.
+    ### A higher migration desire makes pop more likely to be selected from migration,
+    ### but only if those pops are allowed to do so.
+    ###
+    ### Whether a pop is allowed to migrate is dictated by the migration restrictiveness
+    ### modifier, which is determined by laws.
+    base_migration_desire = value_field
+
+    ### When someone dies in a war, due to battles or attrition, we keep track of their culture.
+    ### Based on a country's Acceptance of that culture, they will gain War Exhaustion each week
+    ### relative to this factor compared to the number of total men mobilized in this war.
+    ### For example, if 300K individuals with the same acceptance status in a given country have
+    ### died  in the war compared to 500K currently mobilized, 140K on their side and 160K on
+    ### the other, and these values are set to 2.0 vs 0.5 respectively, a country with this level
+    ### of acceptance will gain
+    ### 140K/500K * 2 + 160K/500K * 0.5 = 0.56 + 0.16 = 0.72 War Exhaustion on a weekly basis
+    war_exhaustion_impact_own_side = value_field
+
+    ### When someone dies in a war, due to battles or attrition, we keep track of their culture.
+    ### Based on a country's Acceptance of that culture, they will gain War Exhaustion each week
+    ### relative to this factor compared to the number of total men mobilized in this war.
+    ### For example, if 300K individuals with the same acceptance status in a given country have
+    ### died  in the war compared to 500K currently mobilized, 140K on their side and 160K on
+    ### the other, and these values are set to 2.0 vs 0.5 respectively, a country with this level
+    ### of acceptance will gain
+    ### 140K/500K * 2 + 160K/500K * 0.5 = 0.56 + 0.16 = 0.72 War Exhaustion on a weekly basis
+    war_exhaustion_impact_other_side = value_field
+
+    color = alias_match_right[color]
+
+    small_icon = filepath
+
+    large_icon = filepath
+
+    background = filepath
+}

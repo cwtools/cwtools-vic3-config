@@ -1,6 +1,7 @@
 types = {
-    type[goods] = {
+    type[good] = {
         path = "game/common/goods"
+        file_extension = .txt
         subtype[consumable] = {
             obsession_chance = float
         }
@@ -10,10 +11,6 @@ types = {
         images = {
             ## primary
             texture = texture # filepath[game/gfx/interface/icons/goods_icons/]
-        }
-        images = {
-            ## primary
-            texture = texture
         }
     }
 }
@@ -28,7 +25,7 @@ enums = {
 }
 
 ## replace_scope = { ROOT = goods THIS = goods }
-goods = {
+good = {
     ### The icon shown ingame
     texture = filepath
 
@@ -57,6 +54,14 @@ goods = {
     ## cardinality = 0..1
     ### If the good can be traded. Like gold in vanilla game files.
     tradeable = bool
+
+    ## cardinality = 0..1
+    ### If the good is local. Like services in base game.
+    local = bool
+
+    ## cardinality = 0..1
+    ### Consumption of this good can add to state infrastructure
+    pop_consumption_can_add_infrastructure = bool
 
     ## cardinality = 0..1
     ### If the value is fixed or fluctuates depending on availability on the market. Like gold in the vanilla game files.

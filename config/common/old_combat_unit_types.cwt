@@ -1,5 +1,33 @@
 types = {
     type[old_combat_unit_type] = {
         path = "game/common/old_combat_unit_types"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
+    }
+}
+
+old_combat_unit_type = {
+    ### Maximum amount of manpower
+    max_manpower = int
+
+    ### Military Unit Type (navy or army)
+    type = enum[military_unit_type]
+
+    ### Combat Unit Icon
+    icon = filepath
+
+    ## cardinality = 0..inf
+    ### List images in priority order, since only the first matching image will be chosen
+    combat_unit_image = {
+        ## replace_scope = { root = combat_unit this = combat_unit }
+        trigger = single_alias_right[trigger_clause]
+        texture = filepath
     }
 }

@@ -1,6 +1,7 @@
 types = {
     type[strategic_region] = {
         path = "game/common/strategic_regions"
+        file_extension = .txt
         subtype[land] = {
             capital_province = enum[provinces]
         }
@@ -19,24 +20,19 @@ types = {
 }
 
 strategic_region = {
-    subtype[land] = {
-        ### Specific map stuff appearance
-        ## cardinality = 0..1
-        graphical_culture = enum[graphical_cultures]
-        ### Make sure its in a state in the region
-        capital_province = enum[provinces]
-        ### Not specified as to rgb vs. hsv or rgb255 vs. rgb100
-        map_color = alias_match_right[color]
-        states = {
-            ## cardinality = 1..inf
-            <state_region.land>
-        }
-    }
-    subtype[water] = {
-        states = {
-            ## cardinality = 1..inf
-            <state_region.water>
-        }
+    ### Specific map stuff appearance
+    ## cardinality = 0..1
+    graphical_culture = enum[graphical_cultures]
+
+    ### Make sure its in a state in the region
+    capital_province = enum[provinces]
+
+    ### Not specified as to rgb vs. hsv or rgb255 vs. rgb100
+    map_color = alias_match_right[color]
+
+    states = {
+        ## cardinality = 1..inf
+        <state_region>
     }
 }
 

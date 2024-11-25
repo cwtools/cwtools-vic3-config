@@ -5,11 +5,22 @@ types = {
 }
 
 customizable_localization = {
-    # Todo: probably some more restrictive type
-    type = scalar
+    ## cardinality = 0..1
+    type = enum[customizable_localization_type]
+
     ## cardinality = 0..1
     random_valid = bool
-    ## cardinality = 1..inf
+
+    ## cardinality = 0..1
+    log_loc_errors = bool
+
+    ## cardinality = 0..1
+    parent = <customizable_localization>
+
+    ## cardinality = 0..1
+    suffix = scalar
+
+    ## cardinality = 0..inf
     text = {
         ## cardinality = 0..1
         trigger = single_alias_right[trigger_clause]
@@ -18,5 +29,4 @@ customizable_localization = {
         fallback = bool
         localization_key = localisation
     }
-
 }

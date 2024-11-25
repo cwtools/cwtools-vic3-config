@@ -1,0 +1,25 @@
+types = {
+    type[map_notification_type] = {
+        path = "game/common/map_notification_types"
+        file_extension = .txt
+    }
+}
+
+map_notification_type = {
+    ## cardinality = 0..1
+    ### loc key of the message to show on the map at the location specified in code. Can be overridden from code and omitted in these cases.
+    message = localisation
+
+    ## cardinality = 0..1
+    ### Name of the widget that should be shown when the notification spawns. Default is "map_event_notification".
+    widget = scalar
+
+    ## cardinality = 0..1
+    ### The maximum zoom level this notification will still show at. Default is set by NGUI:MAP_NOTIFICATIONS_MAX_ZOOM define. Somewhat strange name, but it's the max value if not specified differently (in this file right here). A negative value means it will show at any zoom. Note that open lenses block all map notifications.
+    ### max_height values should usually be one of these as they specify our zoom steps (as defined in NCamera defines): ZOOM_STEPS = {24 32 40 50 75 100 200 300 400 600 800 1000 1200 1500 2500 4500}
+    max_height = int_value_field
+
+    ## cardinality = 0..1
+    ### The sound to play when the message spawns on the map, assuming it's visible to the player. Can be omitted.
+    sound = scalar
+}

@@ -1,0 +1,16 @@
+types = {
+    type[power_bloc_name] = {
+        path = "game/common/power_bloc_names"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+    }
+}
+
+## replace_scope = { root = country this = country }
+power_bloc_name = {
+    ### Determines whether the power bloc name is applied
+    trigger = single_alias_right[trigger_clause]
+}

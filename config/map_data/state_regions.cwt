@@ -2,6 +2,7 @@ types = {
     ## unique = yes
     type[state_region] = {
         path = "game/map_data/state_regions"
+        file_extension = .txt
 
         # Water-only states won't have arable land, and land states always should
         subtype[land] = {
@@ -23,90 +24,103 @@ types = {
 state_region = {
     ### State's numerical ID
     id = int
-    subtype[water] = {
-        ### List of provinces, each with double quotes, vanilla water states only have 1
-        provinces = {
-            ## cardinality = 1..1
-            enum[provinces]
-        }
-        ### List of impassable provinces, each with double quotes, also listed in provinces block
-        ## cardinality = 0..1
-        impassable = {
-            ## cardinality = 1..1
-            enum[provinces]
-        }
+
+    ## cardinality = 0..1
+    ### List of impassable provinces, each with double quotes, also listed in provinces block
+    impassable = {
+        ## cardinality = 1..1
+        enum[provinces]
     }
-    subtype[land] = {
-        ### Which type of subsistence building is used
-        subsistence_building = <building.subsistence>
-        ### List of provinces, each with double quotes
-        provinces = {
-            ## cardinality = 1..inf
-            enum[provinces]
-        }
-        ### List of prime provinces, each with double quotes, also listed in provinces block
-        ## cardinality = 0..1
-        prime_land = {
-            ## cardinality = 1..inf
-            enum[provinces]
-        }
-        ### List of impassable provinces, each with double quotes, also listed in provinces block
-        ## cardinality = 0..1
-        impassable = {
-            ## cardinality = 1..inf
-            enum[provinces]
-        }
-        ### State traits, each with double quotes
-        ## cardinality = 0..1
-        traits = {
-            ## cardinality = ~1..inf
-            <state_trait>
-        }
-        ### City hub province
-        ## cardinality = ~1..1
-        city = enum[provinces]
-        ### Farm hub province
-        ## cardinality = ~1..1
-        farm = enum[provinces]
-        ### Wood hub province
-        ## cardinality = ~1..1
-        wood = enum[provinces]
-        ### Mine hub province
-        ## cardinality = ~1..1
-        mine = enum[provinces]
-        ### Arable land
-        arable_land = int
-        ### Farm/plantation types, each with double quotes
-        arable_resources = {
-            ## cardinality = ~1..inf
-            <building_group>
-        }
-        ### Non-farm resource buildings, each with double quotes
-        ## cardinality = ~0..1
-        capped_resources = {
-            ## cardinality = ~1..inf
-            <building_group> = int
-        }
-        ### Undiscovered resources, one block per type
+
+    ## cardinality = 0..1
+    ### Which type of subsistence building is used
+    subsistence_building = <building.subsistence>
+
+    ### List of provinces, each with double quotes
+    provinces = {
+        ## cardinality = 1..inf
+        enum[provinces]
+    }
+
+    ## cardinality = 0..1
+    ### List of prime provinces, each with double quotes, also listed in provinces block
+    prime_land = {
         ## cardinality = 0..inf
-        resource = {
-            type = <building_group>
-            ### For resources which can "deplete"
-            ## cardinality = 0..1
-            depleted_type = <building_group>
-            ## cardinality = ~0..1
-            undiscovered_amount = int
-            ### For resources which are partially discovered at start
-            ## cardinality = 0..1
-            discovered_amount = int
-        }
+        enum[provinces]
     }
-    subtype[coastal] = {
-        ### Port hub province
-        port = enum[provinces]
-        ### Which sea province adjoins, matches the ID of a water state
-        naval_exit_id = int
+
+    ## cardinality = 0..1
+    ### List of impassable provinces, each with double quotes, also listed in provinces block
+    impassable = {
+        ## cardinality = 1..inf
+        enum[provinces]
     }
+
+    ## cardinality = 0..1
+    ### State traits, each with double quotes
+    traits = {
+        ## cardinality = 0..inf
+        <state_trait>
+    }
+
+    ## cardinality = 0..1
+    ### City hub province
+    city = enum[provinces]
+
+    ## cardinality = 0..1
+    ### Farm hub province
+    farm = enum[provinces]
+
+    ## cardinality = 0..1
+    ### Wood hub province
+    wood = enum[provinces]
+
+    ## cardinality = 0..1
+    ### Mine hub province
+    mine = enum[provinces]
+
+    ## cardinality = 0..1
+    ### Arable land
+    arable_land = int
+
+    ## cardinality = 0..1
+    ### Farm/plantation types, each with double quotes
+    arable_resources = {
+        ## cardinality = ~1..inf
+        <building_group>
+    }
+
+    ### Non-farm resource buildings, each with double quotes
+    ## cardinality = ~0..1
+    capped_resources = {
+        ## cardinality = ~1..inf
+        <building_group> = int
+    }
+
+    ## cardinality = 0..inf
+    ### Undiscovered resources, one block per type
+    resource = {
+        type = <building_group>
+
+        ## cardinality = 0..1
+        ### For resources which can "deplete"
+        depleted_type = <building_group>
+
+        ## cardinality = ~0..1
+        undiscovered_amount = int
+
+        ## cardinality = 0..1
+        ### For resources which are partially discovered at start
+        discovered_amount = int
+    }
+
+    ## cardinality = 0..1
+    ### Port hub province
+    port = enum[provinces]
+
+    ## cardinality = 0..1
+    ### Which sea province adjoins, matches the ID of a water state
+    naval_exit_id = int
 }
 
 enums = {

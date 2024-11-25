@@ -1,0 +1,15 @@
+types = {
+    type[legitimacy_level] = {
+        path = "game/common/legitimacy_levels"
+        file_extension = .txt
+    }
+}
+
+legitimacy_level = {
+    threshold = int_value_field
+
+    ## cardinality = 0..1
+    loyalties_gain = single_alias_right[formula]
+
+    modifier = single_alias_right[modifier_clause]
+}

@@ -1,5 +1,69 @@
 types = {
     type[character_trait] = {
         path = "game/common/character_traits"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
+}
+
+character_trait = {
+    ### Can be one of Personality, Skill, or Condition. Each category is limited by defines. Random traits can be applied based on a particular type.
+    type = enum[character_trait_types]
+
+    ### The trait's texture asset
+    texture = filepath
+
+    ## cardinality = 0..1
+    ### Applies to the Character regardless of role
+    character_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ### Applies to any Combat Units under the Character's command, assuming the unit is fully Mobilized (or does not need to Mobilize)
+    command_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ### Applies to the Character's Country if they are the Ruler of it
+    country_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ### Applies to the Character's Interest Group if they are the Leader of it
+    interest_group_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ### Applies to the Character if they are an agitator
+    agitator_modifier = single_alias_right[modifier_clause]
+
+    ## replace_scope = { root = character this = character }
+    ### Used to determine if this trait is a valid random choice
+    possible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = character this = character }
+    ### Script value to determine how likely it is the character will randomly get this trait, compared to other traits in its category. Default 1
+    weight = single_alias_right[formula]
+    ## cardinality = 0..1
+    ### Script value to determine how likely it is the character will randomly get this trait, compared to other traits in its category. Default 1
+    weight = value_field
+
+    ## cardinality = 0..1
+    ### When the character gains this trait, any traits they have in the following list are removed
+    replace = {
+        ## cardinality = 0..inf
+        <character_trait>
+    }
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = character this = character }
+    ### How much this trait is "worth" in experience levels traits or not. Default 1
+    value = single_alias_right[formula]
+    ## cardinality = 0..1
+    ### How much this trait is "worth" in experience levels traits or not. Default 1
+    value = value_field
 }

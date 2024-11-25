@@ -2,6 +2,7 @@ types = {
     ## unique = yes
     type[country_definition] = {
         path = "game/common/country_definitions"
+        file_extension = .txt
         localisation = {
 			name = "$"
 			adjective = "$_ADJ"
@@ -10,6 +11,13 @@ types = {
     ## unique = yes
     type[country_creation] = {
         path = "game/common/country_creation"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+            ## required
+            adjective = "$_ADJ"
+        }
         subtype[cultural] = {
             use_culture_states = yes
         }
@@ -23,6 +31,7 @@ types = {
     ## unique = yes
     type[country_formation] = {
         path = "game/common/country_formation"
+        file_extension = .txt
         subtype[major] = {
             is_major_formation = yes
         }
@@ -41,11 +50,19 @@ types = {
 country_definition = {
     ### Map color, use int with rgb (blank) or hsv360, float with hsv
     color = alias_match_right[color]
+
     ### The country's 'type'
-    country_type = enum[country_type]
+    country_type = <country_type>
 
     ### The country's 'tier'
     tier = enum[country_tier]
+
+    ## cardinality = 0..1
+    ### Social hierarchy used in the country
+    social_hierarchy = <social_hierarchy>
+
+    ## cardinality = 0..1
+    valid_as_home_country_for_separatists = single_alias_right[trigger_clause]
 
     ### The country's primary cultures
     cultures = {
@@ -131,6 +148,7 @@ country_formation = {
     ## cardinality = 0..1
     possible = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ### Typically 'always = yes'
     ai_will_do = single_alias_right[trigger_clause]
 

@@ -3,6 +3,7 @@ alias[effect:<scripted_effect>] = bool
 types = {
     type[scripted_effect] = {
         path = "game/common/scripted_effects"
+        file_extension = .txt
     }
 }
 

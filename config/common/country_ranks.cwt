@@ -1,5 +1,41 @@
 types = {
     type[country_rank] = {
         path = "game/common/country_ranks"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
     }
+}
+
+country_rank = {
+    rank_value = int_value_field
+
+    icon_index = int_value_field
+
+    ## cardinality = 0..1
+    enforce_subject_rank_check = bool
+
+    ## cardinality = 0..1
+    diplo_pact_cost = value_field
+
+    ## cardinality = 0..1
+    prestige_average_threshold = value_field
+
+    ## cardinality = 0..1
+    prestige_relative_threshold = value_field
+
+    ## cardinality = 0..1
+    infamy_aggressor_scaling = value_field
+
+    ## cardinality = 0..1
+    infamy_target_scaling = value_field
+
+    valid_country_types = {
+        ## cardinality = 0..inf
+        <country_type>
+    }
+
+    modifier = single_alias_right[modifier_clause]
 }

@@ -93,7 +93,7 @@ scopes = {
         aliases = { law_type }
         }
     "Journal Entry" = {
-        aliases = { journalentry }
+        aliases = { journal_entry }
         }
     "Trade Route" = {
         aliases = { trade_route }
@@ -184,5 +184,26 @@ scopes = {
     }
     "Mobilization Option" = {
         aliases = { mobilization_option }
+    }
+    "Power Bloc" = {
+        aliases = { power_bloc }
+    }
+    "Power Bloc Principle" = {
+        aliases = { power_bloc_principle }
+    }
+    "Power Bloc Principle Group" = {
+        aliases = { power_bloc_principle_group }
+    }
+    "Power Bloc Identity" = {
+        aliases = { power_bloc_identity }
+    }
+    "Diplomatic Catalyst" = {
+        aliases = { diplomatic_catalyst }
+    }
+    "Political Lobby" = {
+        aliases = { political_lobby }
+    }
+    "Harvest Condition" = {
+        aliases = { harvest_condition }
     }
 }

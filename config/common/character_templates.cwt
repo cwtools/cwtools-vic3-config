@@ -1,5 +1,146 @@
 types = {
     type[character_template] = {
         path = "game/common/character_templates"
+        file_extension = .txt
     }
+}
+
+character_template = {
+    ## cardinality = 0..1
+    first_name = localisation
+
+    ## cardinality = 0..1
+    last_name = localisation
+
+    ## cardinality = 0..1
+    historical = bool
+
+    ## cardinality = 0..1
+    birth_date = date_field
+
+    ## cardinality = 0..1
+    culture = scope[culture]
+
+    ## cardinality = 0..1
+    culture = random
+
+    ## cardinality = 0..1
+    religion = scope[religion]
+
+    ## cardinality = 0..1
+    religion = <religion>
+
+    ## cardinality = 0..1
+    religion = random
+
+    ## cardinality = 0..1
+    hq = <strategic_region>
+
+    ## cardinality = 0..1
+    age = int[1..inf]
+
+    ## cardinality = 0..1
+    age = date_field
+
+    ## cardinality = 0..1
+    is_agitator = bool
+
+    ## cardinality = 0..1
+    is_general = bool
+
+    ## cardinality = 0..1
+    is_admiral = bool
+
+    ## cardinality = 0..1
+    commander_rank = <commander_rank>
+
+    ## cardinality = 0..1
+    commander_rank = int
+
+    ## cardinality = 0..1
+    commander_rank = default
+
+    ## cardinality = 0..1
+    ig_leader = bool
+
+    ## cardinality = 0..1
+    noble = bool
+
+    ## cardinality = 0..1
+    ruler = bool
+
+    ## cardinality = 0..1
+    heir = bool
+
+    ## cardinality = 0..1
+    dna = <dna_data>
+
+    ## cardinality = 0..1
+    female = bool
+
+    ## cardinality = 0..1
+    interest_group = <interest_group>
+
+    ## cardinality = 0..1
+    ideology = <ideology>
+
+    ## cardinality = 0..1
+    traits = {
+        ## cardinality = 0..inf
+        <character_trait>
+    }
+
+    ## cardinality = 0..1
+    trait_generation = {
+        ## cardinality = 0..inf
+        <character_trait>
+    }
+
+    ## cardinality = 0..1
+    interest_group_leader_usage = {
+        ## replace_scope = { root = country this = country }
+        country_trigger = single_alias_right[trigger_clause]
+
+        ## replace_scope = { root = interest_group this = interest_group }
+        interest_group_trigger = single_alias_right[trigger_clause]
+
+        earliest_usage_date = date_field
+
+        latest_usage_date = date_field
+
+        chance = int_value_field
+    }
+
+    ## cardinality = 0..1
+    commander_usage = {
+        ## replace_scope = { root = country this = country }
+        country_trigger = single_alias_right[trigger_clause]
+
+        role = enum[commander_types]
+
+        earliest_usage_date = date_field
+
+        latest_usage_date = date_field
+
+        chance = int_value_field
+    }
+
+    ## cardinality = 0..1
+    agitator_usage = {
+        ## replace_scope = { root = country this = country }
+        country_trigger = single_alias_right[trigger_clause]
+
+        ## replace_scope = { root = interest_group this = interest_group }
+        interest_group_trigger = single_alias_right[trigger_clause]
+
+        earliest_usage_date = date_field
+
+        latest_usage_date = date_field
+
+        chance = int_value_field
+    }
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = character this = character }
+    on_created = single_alias_right[effect_clause]
 }

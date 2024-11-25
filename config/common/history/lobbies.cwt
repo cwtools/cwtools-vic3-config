@@ -1,0 +1,11 @@
+types = {
+    type[history_lobby] = {
+        path = "game/common/history/lobbies"
+        file_extension = .txt
+
+    }
+}
+
+history_lobby = {
+    alias_name[effect] = alias_match_left[effect]
+}

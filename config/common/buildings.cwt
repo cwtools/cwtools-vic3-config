@@ -1,6 +1,7 @@
 types = {
     type[building] = {
         path = "game/common/buildings"
+        file_extension = .txt
         subtype[military] = {
             recruits_combat_unit = <old_combat_unit_type>
         }
@@ -19,8 +20,7 @@ types = {
         }
         images = {
             ## primary
-            ## optional
-            texture = texture # filepath
+            icon = icon
         }
     }
 }
@@ -32,7 +32,7 @@ building = {
     building_group = <building_group>
 
     ## cardinality = 0..1
-    texture = filepath
+    icon = filepath
 
     ## cardinality = 0..1
     ### can this building be built? ( can otherwise be created via history or script or autoplace ), default yes
@@ -42,13 +42,25 @@ building = {
     ### can this building be expanded? default yes
     expandable = bool
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### can this building be downsized? default yes
     downsizeable = bool
 
     ## cardinality = 0..1
     ### if yes, a dynamic country modifier is created to determine max level, default no
     has_max_level = bool
+
+    ## cardinality = 0..1
+    ### if no, owner can switch, default yes
+    can_switch_owner = bool
+
+    ## cardinality = 0..1
+    ### if yes, the building will recruit combat units, default no
+    recruits_combat_units = bool
+
+    ## cardinality = 0..1
+    ### if yes, the building will recruit naval combat units, default no
+    naval = bool
 
     ## cardinality = 0..1
     ### if the building's building group has stateregion_max_level = yes, override it for this building type
@@ -68,6 +80,19 @@ building = {
         ## cardinality = 1..inf
         <technology>
     }
+
+    ## cardinality = 0..1
+    investment_scores = {
+        <building_group>_score = {
+            group = <building_group>
+            score = single_alias_right[formula]
+        }
+    }
+
+    ## cardinality = 0..1
+    ## push_scope = state
+    ### optional trigger that decides whether it can be potentially build in a state
+    potential = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
     ## push_scope = state
@@ -116,6 +141,10 @@ building = {
     ## cardinality = 0..1
     ### base AI value, default NAI.BUILDING_BASE_VALUE or NAI.GOVERNMENT_BUILDING_BASE_VALUE
     ai_value = int
+
+    ## cardinality = 0..1
+    ### base AI value, default NAI.BUILDING_BASE_VALUE or NAI.GOVERNMENT_BUILDING_BASE_VALUE
+    ai_value = single_alias_right[formula]
     
     ## cardinality = 0..1
     ### terrain manipulator updated by the building
@@ -130,6 +159,12 @@ building = {
         ### navy or army, default no, only applicable to military buildings, which is determined by building group
         naval = bool
     }
+
+    ## cardinality = 0..1
+    statue = bool
+
+    ## cardinality = 0..1
+    centerpiece_mesh_weight = value_field
 
     ## cardinality = 0..1
     ### how many total "residence points" this building adds to its hub to determine residential buildings created, default 1
@@ -173,7 +208,8 @@ building = {
             }
         }
 
-        # push_scope = state_region
+        ## push_scope = state_region
+        ## cardinality = 0..1
         possible = single_alias_right[trigger_clause]
     }
 
@@ -197,4 +233,6 @@ building = {
 single_alias[list_of_entities] = {
     ## cardinality = 0..inf
     <entity>
+    ## cardinality = 0..inf
+    scalar
 }
