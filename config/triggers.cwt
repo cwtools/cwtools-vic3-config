@@ -1055,12 +1055,6 @@ alias[trigger:tax_level] == enum[wage_level]
 ### Compares the overall tax level integer value of scoped country income_tax_level_value = <level>
 alias[trigger:tax_level_value] == value_field
 
-### Compares the total population of a given country total_population > 100000
-alias[trigger:total_population] == value_field
-
-### Checks if pop's culture is accepted culture_accepted = bool
-alias[trigger:culture_accepted] = bool
-
 ### Checks if the scoped pop has ongoing cultural assimilation has_ongoing_assimilation = yes
 alias[trigger:has_ongoing_assimilation] = bool
 

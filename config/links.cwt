@@ -242,15 +242,6 @@ links = {
 		prefix = cu:
 		output_scope = culture
 	}
-	### Reference the value of a numeric define: define:Namespace|Name
-	define = {
-		desc = "Reference the value of a numeric define: define:Namespace|Name"
-		from_data = yes
-		data_source = <define>
-		prefix = define:
-		output_scope = value
-		type = value
-	}
 	### Flag literals eg: flag:the_boss
 	flag = {
 		desc = "Flag literals eg: flag:the_boss"
@@ -1582,12 +1573,16 @@ links = {
 		output_scope = value
 		type = value
 	}
+	### Gets a states market access
 	market_access = {
+		desc = "Gets a states market access"
 		input_scopes = state
 		output_scope = value
 		type = value
 	}
+	### Gets a countries power projection from its army
 	army_power_projection = {
+		desc = "Gets a countries power projection from its army"
 		input_scopes = country
 		output_scope = value
 		type = value
@@ -1632,9 +1627,9 @@ links = {
 		input_scopes = character
 		output_scope = country
 	}
-    ### Loyality value of a subject country
+    ### Loyalty value of a subject country
 	loyalty = {
-		desc = "Loyality value of a subject country"
+		desc = "Loyalty value of a subject country"
 		input_scopes = country
 		output_scope = value
 		type = value
@@ -1941,9 +1936,9 @@ links = {
 		output_scope = value
 		type = value
 	}
-    ### Gets accaptence of pop
+    ### Gets acceptance of pop
 	pop_acceptance = {
-		desc = "Gets accaptence of pop"
+		desc = "Gets acceptance of pop"
 		input_scopes = pop
 		output_scope = value
 		type = value
@@ -2200,6 +2195,13 @@ links = {
 	market_goods_pricier = {
 		desc = "Gets market goods pricier"
 		input_scopes = goods
+		output_scope = value
+		type = value
+	}
+	### Returns the total population of country
+	total_population = {
+		desc = "Returns the total population of country"
+		input_scopes = front
 		output_scope = value
 		type = value
 	}
