@@ -1145,16 +1145,6 @@ alias[effect:random_in_local_list] = {
         alias_name[effect] = alias_match_left[effect]
     }
 
-### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
-alias[effect:random_list] = {
-    ## cardinality = 2..inf
-    int = single_alias_right[formula]
-
-    # ## cardinality = 0..inf
-    #TODO chekc vic3
-    # alias_name[effect] = alias_match_left[effect]
-    }
-
 ### Log the current scope to the random log when this effect executes. Only use temprorarily for debugging purposes as it can introduce localized strings into the Scopes._Random log. yes = full scope info, no=only current scope
 alias[effect:random_log_scopes] = {
         ## cardinality = 0..1

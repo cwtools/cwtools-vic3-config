@@ -96,20 +96,21 @@ alias[arithmetic_operation:integer_range] = {
 alias[arithmetic_operation:if] = {
     ## cardinality = 0..1
     limit = single_alias_right[trigger_clause]
-    ## cardinality = 1..inf
+
+    ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 alias[arithmetic_operation:else_if] = {
     ## cardinality = 0..1
-    ### limit is optional in else_if
     limit = single_alias_right[trigger_clause]
-    ## cardinality = 1..inf
+
+    ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 alias[arithmetic_operation:else] = {
-    ## cardinality = 1..inf
+    ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -1092,16 +1093,6 @@ alias[arithmetic_operation:random_in_local_list] = {
     ## cardinality = 0..1
     weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
-
-### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
-alias[arithmetic_operation:random_list] = {
-## cardinality = 2..inf
-int = single_alias_right[formula]
-
-# ## cardinality = 0..inf
-#TODO chekc vic3
-# alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Log the current scope to the random log when this effect executes. Only use temprorarily for debugging purposes as it can introduce localized strings into the Scopes._Random log. yes = full scope info, no=only current scope

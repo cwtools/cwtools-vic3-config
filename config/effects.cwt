@@ -392,7 +392,7 @@ alias[effect:if] = {
 }
 
 ### Posts notification
-alias[effect:post_notification] = <notification_type>
+alias[effect:post_notification] = <message>
 
 ### Posts proposal
 alias[effect:post_proposal] = <proposal_type>
@@ -1620,30 +1620,6 @@ alias[effect:unset_only_legal_party] = bool
 
 ### Seize investment pool of private sector
 alias[effect:seize_investment_pool] = bool
-
-alias[effect:add_lobby_appeasement_from_diplomacy_bidirectional] = {
-    first = scope[country]
-    second = scope[country]
-    pro_amount = value_field
-    anti_amount = value_field
-    factor = <political_lobby_appeasement>
-}
-
-alias[effect:add_lobby_appeasement_from_diplomacy_unidirectional] = {
-    first = scope[country]
-    second = scope[country]
-    pro_amount = value_field
-    anti_amount = value_field
-    factor = <political_lobby_appeasement>
-}
-
-alias[effect:add_overlord_lobby_appeasement_from_diplomacy] = {
-    first = scope[country]
-    second = scope[country]
-    pro_amount = value_field
-    anti_amount = value_field
-    factor = <political_lobby_appeasement>
-}
 
 alias[effect:create_diplomatic_catalyst] = {
     type = <diplomatic_catalyst>
