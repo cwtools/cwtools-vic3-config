@@ -1810,24 +1810,6 @@ alias[trigger:is_mass_migration_origin_of_culture] = bool
 ### Compares the effective maximum Organization of the Military Formation in scope
 alias[trigger:max_organization] == value_field
 
-### Determines the number of mobilized units belonging to the scoped theater's owner or their allies, in fronts intersecting the scoped theater  
-alias[trigger:num_mobilized_units_in_theater] == value_field
-
-### Determines the number provinces in the scoped theater  
-alias[trigger:num_provinces_in_theater] == value_field
-
-### Compares the Organization of the Military Formation in scope 
-alias[trigger:organization] == value_field
-
-### Compares the number of Loyalists in a pop to its total size  
-alias[trigger:pop_loyalist_fraction] == value_field
-
-### Compares the number of Neutrals (not Radical, not Loyalist) in a pop to its total size  
-alias[trigger:pop_neutral_fraction] == value_field
-
-### Compares the number of Radicals in a pop to its total size  
-alias[trigger:pop_radical_fraction] == value_field
-
 ### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
 alias[trigger:size_weighted_lost_battles_fraction] == value_field
 
