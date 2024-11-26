@@ -17,10 +17,10 @@ alias[effect:add_war_war_support] = {
 }
 
 ### Adds a new obsession to the culture in scope add_cultural_obsession = X Where X is a goods
-alias[effect:add_cultural_obsession] = <goods>
+alias[effect:add_cultural_obsession] = <good>
 
 ### Removes a new obsession to the culture in scope remove_cultural_obsession = X Where X is a goods
-alias[effect:remove_cultural_obsession] = <goods>
+alias[effect:remove_cultural_obsession] = <good>
 
 ### Adds a new role to a character add_character_role = general
 alias[effect:add_character_role] = enum[character_role]
@@ -1015,7 +1015,7 @@ alias[effect:create_incident] = {
 
 ### Creates a new Trade Route trade_route = { 	goods = x 	level = x 	import = yes/no 	origin = state_region 	target = state_region }
 alias[effect:create_trade_route] = {
-    goods = <goods>
+    goods = <good>
     level = int_value_field
     ## cardinality = 0..1
     import = bool

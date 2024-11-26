@@ -49,7 +49,7 @@ alias[trigger:culture_secession_progress] = {
 }
 
 ### Checks if a culture has a certain goods as obsession has_cultural_obsession = <goods key>
-alias[trigger:has_cultural_obsession] = <goods>
+alias[trigger:has_cultural_obsession] = <good>
 
 alias[trigger:cultural_accpetance_base] = {
     target = scope[culture]
@@ -821,7 +821,7 @@ alias[trigger:is_at_war] = bool
 ### Check if a country is banning a good is_banning_goods = <goods key/scope>
 alias[trigger:is_banning_goods] = scope[goods]
 ### Check if a country is banning a good is_banning_goods = <goods key/scope>
-alias[trigger:is_banning_goods] = <goods>
+alias[trigger:is_banning_goods] = <good>
 
 ### Check if construction in a state is paused.
 alias[trigger:is_construction_paused] = bool
@@ -923,7 +923,7 @@ alias[trigger:is_supporting_unification_candidate] = {
 }
 
 ### Check if a country is taxing a good has_embargo = <goods key/scope>
-alias[trigger:is_taxing_goods] = <goods>
+alias[trigger:is_taxing_goods] = <good>
 ### Check if a country is taxing a good has_embargo = <goods key/scope>
 alias[trigger:is_taxing_goods] = scope[goods]
 
