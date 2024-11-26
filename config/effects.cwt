@@ -8,12 +8,20 @@ alias[effect:add_civil_war_progress] = value_field[-1..1]
 alias[effect:add_war_exhaustion] = {
     target = scope[country]
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Adds war support to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_war_support = { target = country value = value }
 alias[effect:add_war_war_support] = {
     target = scope[country]
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Adds a new obsession to the culture in scope add_cultural_obsession = X Where X is a goods
@@ -229,8 +237,10 @@ alias[effect:change_variable] = {
 
 alias[effect:kill_population] = {
     value = value_field
+    value = single_alias_right[formula]
     value = <script_value>
     value = <static_value>
+    value = $define_reference
 
     ## cardinality = 0..1
     pop_type = <pop_type>
@@ -302,6 +312,14 @@ alias[effect:custom_description] = {
     object = scope_field
     ## cardinality = 0..1
     value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+    ## cardinality = 0..1
+    value = <script_value>
+    ## cardinality = 0..1
+    value = <static_value>
+    ## cardinality = 0..1
+    value = $define_reference
     alias_name[effect] = alias_match_left[effect]    
 }
 
@@ -314,6 +332,14 @@ alias[effect:custom_description_no_bullet] = {
     object = scope_field
     ## cardinality = 0..1
     value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+    ## cardinality = 0..1
+    value = <script_value>
+    ## cardinality = 0..1
+    value = <static_value>
+    ## cardinality = 0..1
+    value = $define_reference
     alias_name[effect] = alias_match_left[effect]    
 }
 
@@ -441,18 +467,30 @@ alias[effect:save_scope_as] = value_set[event_target]
 alias[effect:save_scope_value_as] = {
     name = value_set[event_target]
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Saves the current scope as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_event_target_as = <string>
 alias[effect:save_temporary_scope_value_as] = {
     name = value_set[temporary_scope]
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Saves a numerical or bool value as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_scope_value_as = { name = <string> value = x }
 alias[effect:save_temporary_scope_value_as] = {
     name = value_set[temporary_scope]
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope Can also be used as set_variable = X (equivalent to set_variable = { name = X value = yes })
@@ -464,6 +502,14 @@ alias[effect:set_global_variable] = {
 
     ## cardinality = 0..1
     value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+    ## cardinality = 0..1
+    value = <script_value>
+    ## cardinality = 0..1
+    value = <static_value>
+    ## cardinality = 0..1
+    value = $define_reference
     ## cardinality = 0..1
     value = scope_field
 }
@@ -480,6 +526,14 @@ alias[effect:set_local_variable] = {
 
     ## cardinality = 0..1
     value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+    ## cardinality = 0..1
+    value = <script_value>
+    ## cardinality = 0..1
+    value = <static_value>
+    ## cardinality = 0..1
+    value = $define_reference
     ## cardinality = 0..1
     value = scope_field
 }
@@ -500,6 +554,14 @@ alias[effect:set_variable] = {
 
     ## cardinality = 0..1
     value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+    ## cardinality = 0..1
+    value = <script_value>
+    ## cardinality = 0..1
+    value = <static_value>
+    ## cardinality = 0..1
+    value = $define_reference
     ## cardinality = 0..1
     value = single_alias_right[formula]
     ## cardinality = 0..1
@@ -597,6 +659,10 @@ alias[effect:add_religion_standard_of_living_modifier] = {
 alias[effect:convert_population] = {
     target = scope[religion]
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Creates a building in the scoped state. Supported values are: 	building = <building> 	activate_production_methods = { <production_methods> } 	subsidized = yes/no 	reserves = [0..1] (percentage of cash reserves the building should be created with) 	level = arable_land/integer  If level is "arable_land", the building will be of the necessary level to exhaust all available arable land in the state. If level is "urbanization", the building will be of the necessary level to exhaust all available urbanzation in the state. If level is an integer, the building will be of that level  Please note: this effect works a little differently if there already is a building of the specified type in the state. If that happens: 	1. the level will be the maximum between the scripted level and the level of the existing building 	2. the cash reserves will be the maximum between the scripted value and the existing cash reserves
@@ -735,6 +801,10 @@ alias[effect:add_change_relations_progress] = {
     country = scope[country]
     country = <country_definition>
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Will create a declared interest in the target strategic region c:FRA = { add_declared_interest = region_nile_basin }
@@ -794,6 +864,9 @@ alias[effect:change_relations] = {
     country = <country_definition>
     value = value_field
     value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Will change the subject type of the country that is the current scope. change_subject_type = subject_type_dominion
@@ -807,6 +880,10 @@ alias[effect:change_tension] = {
     country = scope[country]
     country = <country_definition>
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Clear country loans = bool
@@ -1011,6 +1088,9 @@ alias[effect:create_incident] = {
     country = <country_definition>
     value = value_field
     value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Creates a new Trade Route trade_route = { 	goods = x 	level = x 	import = yes/no 	origin = state_region 	target = state_region }
@@ -1178,6 +1258,10 @@ alias[effect:set_tension] = {
     country = scope[country]
     country = <country_definition>
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Scoped country starts research of any random technology they can start_research_random_technology = yes
@@ -1187,6 +1271,10 @@ alias[effect:start_research_random_technology] = yes
 alias[effect:take_on_scaled_debt] = {
     who = scope[country]
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Updates party support in scoped country. update_party_support = yes
@@ -1211,8 +1299,10 @@ alias[effect:activate_production_method] = {
 ### Adds loyalists to pops in state or country, all parameters except value are optional add_loyalists = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
 alias[effect:add_loyalists] = {
     value = value_field
+    value = single_alias_right[formula]
     value = <script_value>
     value = <static_value>
+    value = $define_reference
     ## cardinality = 0..1
     pop_type = <pop_type>
     ## cardinality = 0..1
@@ -1228,8 +1318,10 @@ alias[effect:add_loyalists] = {
 ### Adds radicals to pops in state or country, all parameters except value are optional add_radicals = { value = x pop_type = <key> strata = <key> culture = <scope/cu:key> religion = <scope/rel:key> }
 alias[effect:add_radicals] = {
     value = value_field
+    value = single_alias_right[formula]
     value = <script_value>
     value = <static_value>
+    value = $define_reference
     ## cardinality = 0..1
     pop_type = <pop_type>
     ## cardinality = 0..1
@@ -1253,16 +1345,20 @@ alias[effect:add_pop_wealth] = <static_value>
 alias[effect:change_pop_culture] = {
     target = scope[culture]
     value = value_field
+    value = single_alias_right[formula]
     value = <script_value>
     value = <static_value>
+    value = $define_reference
 }
 
 ### Changes the religion of the scoped pop to a specified religion by a specified percentage change_pop_religion = { target = rel:catholic value = 0.5 }
 alias[effect:change_pop_religion] = {
     target = scope[religion]
     value = value_field
+    value = single_alias_right[formula]
     value = <script_value>
     value = <static_value>
+    value = $define_reference
 }
 
 ### Changes the type of the pop to the given type
@@ -1578,19 +1674,28 @@ alias[effect:add_leverage] = {
     target = scope[country]
     value = value_field
     value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Add progress to a scripted progress bar
 alias[effect:add_progress] = {
     name = <scripted_progress_bar>
     value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
 }
 
 ### Add cohesion to a power bloc
 alias[effect:add_cohesion_percent] = {
     value = value_field
+    value = single_alias_right[formula]
     value = <script_value>
     value = <static_value>
+    value = $define_reference
 }
 ### Add cohesion to a power bloc
 alias[effect:add_cohesion_percent] = value_field
@@ -1647,8 +1752,10 @@ alias[effect:exile_character] = bool
 ### Rename a hub of a state
 alias[effect:set_bar_progress] = {
     value = value_field
+    value = single_alias_right[formula]
     value = <script_value>
     value = <static_value>
+    value = $define_reference
     name = <scripted_progress_bar>
 }
 
@@ -1664,8 +1771,10 @@ alias[effect:cancel_imposition] = bool
 ### Adds loyalists to a state
 alias[effect:add_loyalists_in_state] = {
     value = value_field
+    value = single_alias_right[formula]
     value = <script_value>
     value = <static_value>
+    value = $define_reference
 
     ## cardinality = 0..1
     religion = scope[religion]
@@ -1678,8 +1787,10 @@ alias[effect:add_loyalists_in_state] = {
 ### Adds radicals to a state
 alias[effect:add_radicals_in_state] = {
     value = value_field
+    value = single_alias_right[formula]
     value = <script_value>
     value = <static_value>
+    value = $define_reference
 
     ## cardinality = 0..1
     religion = scope[religion]

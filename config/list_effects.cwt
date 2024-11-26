@@ -22,11 +22,13 @@ alias[effect:ordered_scope_front] = {
     ## cardinality = 0..1
     order_by = value_field
     ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
     order_by = <script_value>
     ## cardinality = 0..1
     order_by = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
+    value = $define_reference
         ## cardinality = 0..1
         max = int_value_field
         ## cardinality = 0..1
@@ -92,11 +94,13 @@ alias[effect:ordered_market_goods] = {
     ## cardinality = 0..1
     order_by = value_field
     ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
     order_by = <script_value>
     ## cardinality = 0..1
     order_by = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
+    order_by = $define_reference
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
@@ -118,21 +122,23 @@ alias[effect:ordered_scope_country] = {
     ## cardinality = 0..1
     order_by = value_field
     ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
     order_by = <script_value>
     ## cardinality = 0..1
     order_by = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        position = int
-        ## cardinality = 0..1
-        check_range_bounds = no
-        alias_name[effect] = alias_match_left[effect]
-    }
+    order_by = $define_reference
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ### Iterate through all active (market) goods in a market random_market_goods = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 ## push_scope = goods
@@ -190,21 +196,23 @@ alias[effect:ordered_trade_route] = {
     ## cardinality = 0..1
     order_by = value_field
     ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
     order_by = <script_value>
     ## cardinality = 0..1
     order_by = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        position = int
-        ## cardinality = 0..1
-        check_range_bounds = no
-        alias_name[effect] = alias_match_left[effect]
-    }
+    order_by = $define_reference
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ### Iterate through all trade routes in a: market, country, marketgoods random_trade_route = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 ## push_scope = trade_route
@@ -246,21 +254,23 @@ alias[effect:ordered_supporting_interest_group] = {
     ## cardinality = 0..1
     order_by = value_field
     ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
     order_by = <script_value>
     ## cardinality = 0..1
     order_by = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        position = int
-        ## cardinality = 0..1
-        check_range_bounds = no
-        alias_name[effect] = alias_match_left[effect]
-    }
+    order_by = $define_reference
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ### Iterate through all interest groups supporting a political movement random_supporting_interest_group = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 ## push_scope = interest_group
@@ -302,21 +312,23 @@ alias[effect:ordered_primary_culture] = {
     ## cardinality = 0..1
     order_by = value_field
     ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
     order_by = <script_value>
     ## cardinality = 0..1
     order_by = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        position = int
-        ## cardinality = 0..1
-        check_range_bounds = no
-        alias_name[effect] = alias_match_left[effect]
-    }
+    order_by = $define_reference
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ### Primary cultures of the scoped country or country definition random_primary_culture = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 ## push_scope = culture
@@ -358,21 +370,23 @@ alias[effect:ordered_scope_pop] = {
     ## cardinality = 0..1
     order_by = value_field
     ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
     order_by = <script_value>
     ## cardinality = 0..1
     order_by = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        position = int
-        ## cardinality = 0..1
-        check_range_bounds = no
-        alias_name[effect] = alias_match_left[effect]
-    }
+    order_by = $define_reference
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ### Iterate through all pops in a: country, state, interest group, culture random_scope_pop = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 ## push_scope = pop
@@ -414,21 +428,23 @@ alias[effect:ordered_combat_unit] = {
     ## cardinality = 0..1
     order_by = value_field
     ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
     order_by = <script_value>
     ## cardinality = 0..1
     order_by = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        position = int
-        ## cardinality = 0..1
-        check_range_bounds = no
-        alias_name[effect] = alias_match_left[effect]
-    }
+    order_by = $define_reference
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ### Iterate through all combat units of input scope random_combat_unit = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 ## push_scope = combat_unit
@@ -475,16 +491,16 @@ alias[effect:ordered_scope_state] = {
     order_by = <static_value>
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        max = int_value_field
-        ## cardinality = 0..1
-        position = int
-        ## cardinality = 0..1
-        check_range_bounds = no
-        alias_name[effect] = alias_match_left[effect]
-    }
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ### Iterate through all states including provinces from a: country, state_region, theater, or front random_scope_state = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 ## push_scope = state
