@@ -19,10 +19,6 @@ pop_type = {
     ### Color when shown in graphs and on map
     color = alias_match_right[color]
 
-    ## cardinality = 0..1
-    ### Strata that profession belongs to
-    strata = enum[pop_strata]
-
     ### Basic quality of life
     start_quality_of_life = int
 
