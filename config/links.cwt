@@ -1621,6 +1621,12 @@ links = {
 		input_scopes = country
 		output_scope = law
 	}
+	### Gets type of a law
+	type = {
+		desc = "Gets type of a law"
+		input_scopes = law
+		output_scope = law_type
+	}
     ### Scope of characters home country
 	home_country = {
 		desc = "Scope of characters home country"
@@ -2204,5 +2210,371 @@ links = {
 		input_scopes = front
 		output_scope = value
 		type = value
+	}
+
+	# Comparison Links
+
+	### Value of relations between two countries (examples: relations:root >= 2, relations(root.owner) > 10)
+	relations = {
+		desc = "Value of relations between two countries (examples: relations:root >= 2, relations(root.owner) > 10)"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = relations:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of leverage advantage to another country
+	leverage_advantage = {
+		desc = "Value of leverage advantage to another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = leverage_advantage:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of predicted cohesion percentage with another country
+	predicted_cohesion_percentage_with = {
+		desc = "Value of predicted cohesion percentage with another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = predicted_cohesion_percentage_with:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of relation change rate with another country
+	relations_change_rate = {
+		desc = "Value of relation change rate with another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = relations_change_rate:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of clout the anti lobby has in another country
+	lobby_foreign_anti_clout = {
+		desc = "Value of clout the anti lobby has in another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_foreign_anti_clout:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of clout the pro lobby has in another country
+	lobby_foreign_pro_clout = {
+		desc = "Value of clout the pro lobby has in another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_foreign_pro_clout:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of clout the anti lobby that is part of the government has in another country
+	lobby_in_government_foreign_anti_clout = {
+		desc = "Value of clout the anti lobby that is part of the government has in another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_in_government_foreign_anti_clout:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of clout the pro lobby that is part of the government has in another country
+	lobby_in_government_foreign_pro_clout = {
+		desc = "Value of clout the pro lobby that is part of the government has in another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_in_government_foreign_pro_clout:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of mutual trade route levels with another country
+	num_mutual_trade_route_levels_with_country = {
+		desc = "Value of mutual trade route levels with another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_mutual_trade_route_levels_with_country:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of ai ideological opinion of another country
+	ai_ideological_opinion = {
+		desc = "Value of ai ideological opinion of another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = ai_ideological_opinion:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of ai gdp comparison with another country
+	ai_gdp_comparison = {
+		desc = "Value of ai gdp comparison with another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = ai_gdp_comparison:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of ai army comparison with another country
+	ai_army_comparison = {
+		desc = "Value of ai army comparison with another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = ai_army_comparison:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of how much an ai country values a state
+	ai_state_value = {
+		desc = "Value of ai army comparison with another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = ai_state_value:
+		data_source = scope[country]
+		input_scopes = { state }
+		output_scope = any
+	}
+	### Number of diplomatic pacts of a specific type a country has
+	num_diplomatic_pacts = {
+		desc = "Number of diplomatic pacts of a specific type a country has"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_diplomatic_pacts:
+		data_source = <diplomatic_action>
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Check whether another country has a diplomatic pact of this type with given country
+	diplomatic_pact_other_country = {
+		desc = "Check whether another country has a diplomatic pact of this type with given country"
+		type = scope
+		from_data = yes
+		from_argument = yes
+		prefix = diplomatic_pact_other_country:
+		data_source = scope[country]
+		input_scopes = { diplomatic_pact }
+		output_scope = country
+	}
+	### Number of alliances or defensive pacts with allies of another country
+	num_alliances_and_defensive_pacts_with_allies = {
+		desc = "Number of alliances or defensive pacts with allies of another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_alliances_and_defensive_pacts_with_allies:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Number of alliances or defensive pacts with rivals of another country
+	num_alliances_and_defensive_pacts_with_rivals = {
+		desc = "Number of alliances or defensive pacts with rivals of another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_alliances_and_defensive_pacts_with_rivals:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Number of shared rivals with another country
+	num_shared_rivals = {
+		desc = "Number of shared rivals with another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_shared_rivals:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Number of battalions that are part of a front from given country
+	num_total_battalions = {
+		desc = "Number of battalions that are part of a front from given country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_total_battalions:
+		data_source = scope[country]
+		input_scopes = { front }
+		output_scope = any
+	}
+	### Value of economic dependence on another country
+	economic_dependence = {
+		desc = "Value of economic dependence on another country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = economic_dependence:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of potential diplomatic play power ratio
+	potential_diplomatic_play_power_ratio = {
+		desc = "Value of potential diplomatic play power ratio"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = economic_dependence:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Value of progress a scripted progress bar has
+	scripted_bar_progress = {
+		desc = "Value of progress a scripted progress bar has"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = scripted_bar_progress:
+		data_source = <scripted_progress_bar>
+		input_scopes = { journal_entry }
+		output_scope = any
+	}
+	### Value of enactment chance for a given law
+	enactment_chance_for_law = {
+		desc = "Value of enactment chance for a given law"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = enactment_chance_for_law:
+		data_source = scope[law_type]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Number of contested war goals for a given war
+	enemy_contested_wargoals = {
+		desc = "Number of contested war goals for a given war"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = enactment_chance_for_law:
+		data_source = scope[war]
+		input_scopes = { any }
+		output_scope = any
+	}
+	### Number of casualties for a given war
+	num_country_casualties = {
+		desc = "Number of casualties for a given war"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_country_casualties:
+		data_source = scope[country]
+		input_scopes = { war }
+		output_scope = any
+	}
+	### Value of war support from a lobby for given war
+	lobby_war_support = {
+		desc = "Value of war support from a lobby for given war"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_war_support:
+		data_source = scope[country]
+		input_scopes = { lobby }
+		output_scope = any
+	}
+	### Value of war opposition from a lobby for given war
+	lobby_war_opposition = {
+		desc = "Value of war opposition from a lobby for given war"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_war_opposition:
+		data_source = scope[country]
+		input_scopes = { lobby }
+		output_scope = any
+	}
+	### Value of war opposition from a lobby for given war
+	additional_war_exhaustion = {
+		desc = "Value of war opposition from a lobby for given war"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = additional_war_exhaustion:
+		data_source = scope[diplomatic_play]
+		input_scopes = { war }
+		output_scope = any
+	}
+	### Countries rank of production for a specific good
+	goods_production_rank = {
+		desc = "Countries rank of production for a specific good"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = goods_production_rank:
+		data_source = scope[good]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Countries investment level in a given institution
+	institution_investment_level = {
+		desc = "Countries investment level in a given institution"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = institution_investment_level:
+		data_source = <institution>
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Standard of living for a given religion in country
+	average_sol_for_religion = {
+		desc = "Standard of living for a given religion in country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = average_sol_for_religion:
+		data_source = scope[religion]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Standard of living for a given culture in country
+	average_sol_for_culture = {
+		desc = "Standard of living for a given culture in country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = average_sol_for_culture:
+		data_source = scope[culture]
+		input_scopes = { country }
+		output_scope = any
+	}
+	### Ratio of gdp ownership another country has
+	gdp_ownership_ratio = {
+		desc = "Ratio of gdp ownership another country has"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = gdp_ownership_ratio:
+		data_source = scope[country]
+		input_scopes = { country }
+		output_scope = any
 	}
 }

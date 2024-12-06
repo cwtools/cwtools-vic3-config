@@ -67,6 +67,19 @@ alias[arithmetic_operation:floor] = value_field
 
 alias[arithmetic_operation:save_temporary_value_as] = value_set[variable]
 
+
+alias[arithmetic_operation:modifier] = value_field
+alias[arithmetic_operation:modifier] = single_alias_right[formula]
+alias[arithmetic_operation:modifier] = <script_value>
+alias[arithmetic_operation:modifier] = <static_value>
+alias[arithmetic_operation:modifier] = $define_reference
+alias[arithmetic_operation:modifier] = {
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
 alias[arithmetic_operation:fixed_range] = {
     min = value_field
     min = single_alias_right[formula]
