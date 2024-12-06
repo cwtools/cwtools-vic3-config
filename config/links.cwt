@@ -35,10 +35,9 @@ links = {
 		desc = "Scope from a market to the MarketGoods with the specified key"
 		input_scopes = market
 		output_scope = market_goods
+        from_data = yes
 		prefix = mg:
-		from_data = yes
-		#TODO: market goods vs goods
-		data_source = <good>
+		data_source = <good> # TODO: market goods vs goods
 	}
 	### Get the total number of participating countries in the scoped market
 	participants = {
@@ -206,27 +205,27 @@ links = {
 	### Reference the value of a numeric value in an array define: array_define:Namespace|Name|Index. Index is 0-based.
 	array_define = {
 		desc = "Reference the value of a numeric value in an array define: array_define:Namespace|Name|Index. Index is 0-based."
-		from_data = yes
-		data_source = <array_define>
-		prefix = array_define:
 		output_scope = value
 		type = value
+		from_data = yes
+		prefix = array_define:
+		data_source = <array_define>
 	}
 	### Scope to the country with specified tag
 	c = {
 		desc = "Scope to the country with specified tag"
-		from_data = yes
-		data_source = <country_definition>
-		prefix = c:
 		output_scope = country
+		from_data = yes
+		prefix = c:
+		data_source = <country_definition>
 	}
 	### Scope to the country definition with specified tag
 	cd = {
 		desc = "Scope to the country definition with specified tag"
-		from_data = yes
-		data_source = <country_definition>
-		prefix = cd:
 		output_scope = country_definition
+		from_data = yes
+		prefix = cd:
+		data_source = <country_definition>
 	}
 	### A comparison trigger that will return its value in the context it is used eg: root.gold
 	compare_value = {
@@ -237,26 +236,26 @@ links = {
 	### Scope to the culture with specified key
 	cu = {
 		desc = "Scope to the culture with specified key"
-		from_data = yes
-		data_source = <culture>
-		prefix = cu:
 		output_scope = culture
+		from_data = yes
+		prefix = cu:
+		data_source = <culture>
 	}
 	### Flag literals eg: flag:the_boss
 	flag = {
 		desc = "Flag literals eg: flag:the_boss"
-		from_data = yes
-		data_source = <flag>
-		prefix = flag:
 		output_scope = flag
+		from_data = yes
+		prefix = flag:
+		data_source = <flag>
 	}
 	### Scope to the goods with specified key
 	g = {
 		desc = "Scope to the goods with specified key"
-		from_data = yes
-		data_source = <good>
-		prefix = g:
 		output_scope = goods
+		from_data = yes
+		prefix = g:
+		data_source = <good>
 	}
 	### Get the global yearly predicted GDP
 	global_gdp = {
@@ -267,10 +266,10 @@ links = {
 	### Reference a previous set global variable via its name eg: global_var:important_thing
 	global_var = {
 		desc = "Reference a previous set global variable via its name eg: global_var:important_thing"
+		type = both
 		from_data = yes
-        type = both
-        data_source = value[global_variable]
 		prefix = global_var:
+		data_source = value[global_variable]
 	}
 	### Scope to infamy level threshold for comparison purposes (infamy_threshold:infamous)
 	infamy_threshold = {
@@ -278,8 +277,8 @@ links = {
 		output_scope = value
 		type = value
 		from_data = yes
-		data_source = enum[infamy_threshold]
 		prefix = infamy_threshold:
+		data_source = enum[infamy_threshold]
 	}
 	### Scope to true/false if gamestate is being initialized!
 	is_setup = {
@@ -295,18 +294,18 @@ links = {
 	law_type = {
 		desc = "Scope to a law type from its name (law_type:law_protected_speech)"
 		output_scope = law_type
-		from_data = yes
 		type = scope
+		from_data = yes
 		prefix = law_type:
 		data_source = <law>
 	}
 	### Reference a previous set local variable via its name eg: local_var:person_of_interest
 	local_var = {
 		desc = "Reference a previous set local variable via its name eg: local_var:person_of_interest"
-		from_data = yes
         type = both
-        data_source = value[local_variable]
+		from_data = yes
 		prefix = local_var:
+		data_source = value[local_variable]
 	}
 	### A script value that will calculate and returns its value in the context it is used
 	named_script_value = {
@@ -317,10 +316,10 @@ links = {
 	### Scope to province specified by hex key
 	p = {
 		desc = "Scope to province specified by hex key"
-		from_data = yes
-		data_source = enum[provinces]
-		prefix = p:
 		output_scope = province
+		from_data = yes
+		prefix = p:
+		data_source = enum[provinces]
 	}
 	### Scope to the player (do not use this outside tutorial)
 	player = {
@@ -331,8 +330,8 @@ links = {
 	pop_type = {
 		desc = "Scope to a pop type from its name (pop_type:laborers)"
 		output_scope = pop_type
-		prefix = pop_type:
 		from_data = yes
+		prefix = pop_type:
 		data_source = <pop_type>
 	}
 	pop_loyalist_fraction = {
@@ -371,16 +370,16 @@ links = {
 		output_scope = value
 		type = value
 		from_data = yes
-		data_source = <country_rank>
 		prefix = rank_value:
+		data_source = <country_rank>
 	}
 	### Scope to the religion with specified key
 	rel = {
 		desc = "Scope to the religion with specified key"
-		from_data = yes
-		data_source = <religion>
-		prefix = rel:
 		output_scope = religion
+		from_data = yes
+		prefix = rel:
+		data_source = <religion>
 	}
 	### Scope to relations threshold level for comparison purposes (relations_threshold:warm)
 	relations_threshold = {
@@ -394,24 +393,24 @@ links = {
 	### Scope to state region specified by key
 	s = {
 		desc = "Scope to state region specified by key"
-		from_data = yes
-		data_source = <state_region>
-		prefix = s:
 		output_scope = state_region
+		from_data = yes
+		prefix = s:
+		data_source = <state_region>
 	}
 	### Reference a previously saved scope via its name eg: scope:target
 	scope = {
 		desc = "Reference a previously saved scope via its name eg: scope:target"
 		from_data = yes
-        data_source = value[event_target]
 		prefix = scope:
+		data_source = value[event_target]
 	}
     ### Reference a an interest group
 	ig_trait = {
 		desc = "Reference a an interest group"
 		from_data = yes
-		data_source = <interest_group_trait>
 		prefix = ig_trait:
+		data_source = <interest_group_trait>
 	}
 	ig_clout = {
 		input_scopes = { interest_group }
@@ -426,10 +425,10 @@ links = {
     ### Scope to the strategic region of specified key
 	sr = {
 		desc = "Scope to the strategic region of specified key"
-		from_data = yes
-		data_source = <strategic_region>
-		prefix = sr:
 		output_scope = strategic_region
+		from_data = yes
+		prefix = sr:
+		data_source = <strategic_region>
 	}
 	### Scope to tension level threshold for comparison purposes (tension_threshold:warm)
 	tension_threshold = {
@@ -440,8 +439,8 @@ links = {
 	### Reference a previous set variable via its name eg: var:mortal_enemy
     var = {
         desc = "Reference a previous set variable via its name eg: var:mortal_enemy"
-        from_data = yes
 		type = both
+		from_data = yes
         prefix = var:
         data_source = value[variable]
     }
@@ -452,8 +451,8 @@ links = {
 		output_scope = value
 		type = value
 		from_data = yes
-		data_source = <modifier_type>
 		prefix = modifier:
+		data_source = <modifier_type>
 	}
 	### Scope to combat width multiplier of scope province
 	combat_width = {
@@ -474,49 +473,24 @@ links = {
 		input_scopes = province
 		output_scope = hq
 	}
-	### Scope to the scoped country's active law in the named law group (active_law:lawgroup_trade_policy)
+	### Scope to the law with specified tag
 	active_law = {
+		desc = "Scope to the law with specified tag"
+		output_scope = law
+		from_data = yes
+		prefix = active_law:
+		data_source = <law>
+	}
+	### Scope to the scoped country's active law in the named law group (active_law:lawgroup_trade_policy)
+	active_law_group = {
 		desc = "Scope to the scoped country's active law in the named law group (active_law:lawgroup_trade_policy)"
 		input_scopes = country
 		output_scope = law
-	}
-    ### Scope to the law with specified tag
-	active_law_group = {
-		desc = "Scope to the law with specified tag"
 		from_data = yes
+		prefix = active_law_group:
 		data_source = <law_group>
-		prefix = active_law:
-		output_scope = law
 	}
 	progressiveness = {
-		output_scope = value
-		type = value
-	}
-	### Scope to comparative army strength between two countries (example: value = ai_army_comparison:root)
-	ai_army_comparison = {
-		desc = "Scope to comparative army strength between two countries (example: value = ai_army_comparison:root)"
-		input_scopes = country
-		output_scope = value
-		type = value
-	}
-	### Scope to comparative GDP between two countries (example: value = ai_army_comparison:root)
-	ai_gdp_comparison = {
-		desc = "Scope to comparative GDP between two countries (example: value = ai_army_comparison:root)"
-		input_scopes = country
-		output_scope = value
-		type = value
-	}
-	### Scope to AI ideological opinion of scope country on target country (example: value = ai_ideological_opinion:root)
-	ai_ideological_opinion = {
-		desc = "Scope to AI ideological opinion of scope country on target country (example: value = ai_ideological_opinion:root)"
-		input_scopes = country
-		output_scope = value
-		type = value
-	}
-	### Scope to comparative navy strength between two countries (example: value = ai_navy_comparison:root)
-	ai_navy_comparison = {
-		desc = "Scope to comparative navy strength between two countries (example: value = ai_navy_comparison:root)"
-		input_scopes = country
 		output_scope = value
 		type = value
 	}
@@ -596,8 +570,8 @@ links = {
 		input_scopes = country
 		output_scope = value
 		from_data = yes
-		data_source = <decree>
 		prefix = decree_cost:
+		data_source = <decree>
 	}
 	### Get the scoped country's current number of Parties & independent IGs in government
 	government_size = {
@@ -618,8 +592,8 @@ links = {
 		input_scopes = country
 		output_scope = interest_group
 		from_data = yes
-		data_source = <interest_group>
 		prefix = ig:
+		data_source = <interest_group>
 	}
 	### Get the current weekly income of the scoped country
 	income = {
@@ -641,8 +615,8 @@ links = {
 		input_scopes = country
 		output_scope = institution
 		from_data = yes
-		data_source = <institution>
 		prefix = institution:
+		data_source = <institution>
 	}
 	### Scope to the journal entry of specified key belonging to the country
 	je = {
@@ -650,8 +624,8 @@ links = {
 		input_scopes = country
 		output_scope = journal_entry
 		from_data = yes
-		data_source = <journal_entry>
 		prefix = je:
+		data_source = <journal_entry>
 	}
 	### Scope to the current amount of legitimacy in country
 	legitimacy = {
@@ -714,6 +688,10 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_alliances:
+		data_source = scope[country]
 	}
 	### Scope to the number of alliances target country has with allies of scope country (example: num_alliances_and_defensive_pacts_with_allies:root >= 2)
 	num_alliances_and_defensive_pacts_with_allies = {
@@ -721,6 +699,10 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_alliances_and_defensive_pacts_with_allies:
+		data_source = scope[country]
 	}
 	### Scope to the number of alliances & defensive pacts target country has with rivals of scope country (example: num_alliances_and_defensive_pacts_with_rivals:root >= 2)
 	num_alliances_and_defensive_pacts_with_rivals = {
@@ -728,6 +710,10 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_alliances_and_defensive_pacts_with_rivals:
+		data_source = scope[country]
 	}
 	### Scope to the country's number of characters
 	num_characters = {
@@ -812,6 +798,10 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_mutual_trade_route_levels_with_country:
+		data_source = scope[country]
 	}
 	### Scope to the number of natural interests a country has (including inactive)
 	num_natural_interests = {
@@ -867,9 +857,10 @@ links = {
 		desc = "Scope to the number of shared rivals scope country has with target country (example: num_shared_rivals:root >= 2)"
 		input_scopes = country
 		output_scope = value
-		type = value
 		from_data = yes
+		from_argumnet = yes
 		prefix = num_shared_rivals:
+		data_source = scope[country]
 	}
 	### Get the scoped country's current number of states
 	num_states = {
@@ -938,7 +929,10 @@ links = {
 		desc = "Scope to tension between two countries (example: tension:root >= 2)"
 		input_scopes = country
 		output_scope = value
-		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = tension:
+		data_source = scope[country]
 	}
 	### Scope to the top overlord of the country in scope
 	top_overlord = {
@@ -1258,11 +1252,6 @@ links = {
 		output_scope = value
 		type = value
 	}
-	relations_change_rate = {
-		input_scopes = country
-		output_scope = value
-		type = value
-	}
 	scaled_debt = {
 		input_scopes = country
 		output_scope = value
@@ -1310,26 +1299,26 @@ links = {
 	###  Scope to a building type
 	bt = {
 		desc = "Scope to a building type"
-		from_data = yes
-		data_source = <building>
 		output_scope = building_type
+		from_data = yes
 		prefix = bt:
+		data_source = <building>
 	}
 	### Scope to a company type from its name (company_type:company_rheinmetall)
 	company_type = {
 		desc = "Scope to a company type from its name (company_type:company_rheinmetall)"
-		from_data = yes
-		data_source = <company_type>
 		output_scope = company_type
+		from_data = yes
 		prefix = company_type:
+		data_source = <company_type>
 	}
 	### Scope to a mobilization option from its name (mobilization_option:key)
 	mobilization_option = {
 		desc = "Scope to a mobilization option from its name (mobilization_option:key)"
-		from_data = yes
-		data_source = <mobilization_option>
 		output_scope = mobilization_option
+		from_data = yes
 		prefix = mobilization_option:
+		data_source = <mobilization_option>
 	}
 	### If used in a naval invasion scope, scope to the country executing the naval invasion.
 	naval_invasion_attacker = {
@@ -1342,20 +1331,90 @@ links = {
 		output_scope = country
 	}
 	### Scope to AI desire of target country to have scope country as a subject (example: value = ai_subject_value:root)
-	ai_subject_value:root = {
+	ai_subject_value = {
 		desc = "Scope to AI desire of target country to have scope country as a subject (example: value = ai_subject_value:root)"
 		input_scopes = country
 		output_scope = value
 		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = ai_subject_value:
+		data_source = scope[country]
+	}
+	### Scope to target country AI desire to own scope state (example: value = ai_state_value:root)
+	ai_state_value = {
+		desc = "Scope to target country AI desire to own scope state (example: value = ai_state_value:root)"
+		input_scopes = state
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = ai_state_value:
+		data_source = scope[state]
+	}
+	### Scope to target country AI desire to have a treaty port in scope state (example: value = ai_treaty_port_value:root)
+	ai_treaty_port_value = {
+		desc = "Scope to target country AI desire to have a treaty port in scope state (example: value = ai_treaty_port_value:root)	"
+		input_scopes = state
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = ai_treaty_port_value:
+		data_source = scope[state]
+	}
+	### Scope to comparative GDP between two countries (example: value = ai_gdp_comparison:root)
+	ai_gdp_comparison = {
+		desc = "Scope to comparative GDP between two countries (example: value = ai_gdp_comparison:root)"
+		input_scopes = country
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = ai_gdp_comparison:
+		data_source = scope[country]
+	}
+	### Scope to comparative army strength between two countries (example: value = ai_army_comparison:root)
+	ai_army_comparison = {
+		desc = "Scope to comparative army strength between two countries (example: value = ai_army_comparison:root)"
+		input_scopes = country
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = ai_army_comparison:
+		data_source = scope[country]
+	}
+	### Scope to comparative navy strength between two countries (example: value = ai_navy_comparison:root)
+	ai_navy_comparison = {
+		desc = "Scope to comparative navy strength between two countries (example: value = ai_navy_comparison:root)"
+		input_scopes = country
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = ai_navy_comparison:
+		data_source = scope[country]
+	}
+	### Scope to AI ideological opinion of scope country on target country (example: value = ai_ideological_opinion:root)
+	ai_ideological_opinion = {
+		desc = "Scope to AI ideological opinion of scope country on target country (example: value = ai_ideological_opinion:root)"
+		input_scopes = country
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = ai_ideological_opinion:
+		data_source = scope[country]
 	}
 	### Scope to the scoped country's company of the named company type (company:company_rheinmetall)
 	company = {
 		desc = "Scope to the scoped country's company of the named company type (company:company_rheinmetall)"
-		from_data = yes
-		data_source = <company_type>
 		input_scopes = country
 		output_scope = company
-		prefix = company:		
+		from_data = yes
+		prefix = company:
+		data_source = <company_type>
 	}
 	### Get the current weekly expenses of the scoped country
 	expenses = {
@@ -1416,20 +1475,6 @@ links = {
 		input_scopes = war
 		output_scope = diplomatic_play
 	}
-	### Scope to target country AI desire to own scope state (example: value = ai_state_value:root)
-	ai_state_value:root = {
-		desc = "Scope to target country AI desire to own scope state (example: value = ai_state_value:root)"
-		input_scopes = state
-		output_scope = value
-		type = value
-	}
-	### Scope to target country AI desire to have a treaty port in scope state (example: value = ai_treaty_port_value:root)
-	ai_treaty_port_value:root = {
-		desc = "Scope to target country AI desire to have a treaty port in scope state (example: value = ai_treaty_port_value:root)	"
-		input_scopes = state
-		output_scope = value
-		type = value
-	}
 	### Scope to the mass migration target culture of a state
 	mass_migration_culture = {
 		desc = "Scope to the mass migration target culture of a state"
@@ -1439,11 +1484,11 @@ links = {
 	### Scope from a state to the StateGoods with the specified key
 	sg = {
 		desc = "Scope from a state to the StateGoods with the specified key"
-		from_data = yes
-		data_source = <good>
 		input_scopes = state
 		output_scope = state_goods
+		from_data = yes
 		prefix = sg:
+		data_source = <good>
 	}
 	### Returns the unit's offense rating (including impact from their commander)
 	offense = {
@@ -1505,18 +1550,18 @@ links = {
     ### Provides a power bloc principle group
 	power_bloc_principle_group = {
 		desc = "Provides a power bloc principle group"
-		from_data = yes
-		data_source = <power_bloc_principle_group>
 		output_scope = power_bloc_principle_group
+		from_data = yes
 		prefix = principle_group:
+		data_source = <power_bloc_principle_group>
 	}
     ### Provides a power bloc principle group
 	power_bloc_identity = {
 		desc = "Provides a power bloc principle group"
-		from_data = yes
-		data_source = <power_bloc_identity>
 		output_scope = power_bloc_identity
+		from_data = yes
 		prefix = identity:
+		data_source = <power_bloc_identity>
 	}
     ### If used in a country scope, scope to the power bloc this country is a part of.
 	power_bloc = {
@@ -2170,6 +2215,10 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = gdp_ownership_ratio:
+		data_source = scope[country]
 	}
     ### Gets market goods buy orders
 	market_goods_buy_orders = {
@@ -2205,4 +2254,241 @@ links = {
 		output_scope = value
 		type = value
 	}
+
+    ### Scope to relations between two countries (example: relations:root >= 2)
+    relations = {
+		input_scopes = country
+		output_scope = value
+		type = value
+        from_data = yes
+        from_argument = yes
+        prefix = relations:
+        data_source = scope[country]
+    }
+    leverage_advantage = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+        from_data = yes
+        from_argument = yes
+        prefix = leverage_advantage:
+        data_source = scope[country]
+    }
+    predicted_cohesion_percentage_with = {
+		input_scopes = power_bloc
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = predicted_cohesion_percentage_with:
+		data_source = scope[country]
+    }
+    relations_change_rate = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argument = yes
+		prefix = relations_change_rate:
+		data_source = scope[country]
+    }
+    lobby_foreign_anti_clout = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_foreign_anti_clout:
+		data_source = scope[country]
+    }
+    lobby_foreign_pro_clout = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_foreign_pro_clout:
+		data_source = scope[country]
+    }
+    lobby_in_government_foreign_anti_clout = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_foreign_pro_clout:
+		data_source = scope[country]
+    }
+    lobby_in_government_foreign_pro_clout = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_foreign_pro_clout:
+		data_source = scope[country]
+    }
+    num_diplomatic_pacts = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_diplomatic_pacts:
+		data_source = scope[diplomatic_pact]
+    }
+    diplomatic_pact_other_country = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = diplomatic_pact_other_country:
+		data_source = scope[diplomatic_pact]
+    }
+	### Number of relations with allied countries
+    num_alliances_and_defensive_pacts_with_allies = {
+        desc = "Number of relations with allied countries"
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_alliances_and_defensive_pacts_with_allies:
+		data_source = scope[country]
+    }
+	### Number of relations with rival countries
+    num_alliances_and_defensive_pacts_with_rivals = {
+        desc = "Number of relations with rival countries"
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_alliances_and_defensive_pacts_with_rivals:
+		data_source = scope[country]
+    }
+    num_shared_rivals = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_shared_rivals:
+		data_source = scope[country]
+    }
+    num_total_battalions = {
+        input_scopes = front
+        output_scope = value
+        type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_total_battalions:
+		data_source = scope[country]
+    }
+	num_country_casualties = {
+		input_scopes = war
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argumnet = yes
+		prefix = num_country_casualties:
+		data_source = scope_field # TODO
+	}
+    economic_dependence = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = economic_dependence:
+		data_source = scope[country]
+    }
+    scripted_bar_progress = {
+        input_scopes = journal_entry
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = scripted_bar_progress:
+		data_source = <scripted_progress_bar>
+    }
+    potential_diplomatic_play_power_ratio = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = potential_diplomatic_play_power_ratio:
+		data_source = scope[country]
+    }
+    enactment_chance_for_law = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = enactment_chance_for_law:
+		data_source = scope[any]
+    }
+    enemy_contested_wargoals = {
+        input_scopes = war
+        output_scope = value
+		type = value
+		from_argumnet = yes
+		prefix = enemy_contested_wargoals:
+		data_source = scope[war]
+    }
+    lobby_war_opposition = {
+        input_scopes = political_lobby
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = lobby_war_opposition:
+		data_source = scope[war]
+    }
+    lobby_war_support = {
+        input_scopes = political_lobby
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = lobby_war_support:
+		data_source = scope[war]
+    }
+    additional_war_exhaustion = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = additional_war_exhaustion:
+		data_source = scope[diplomatic_play]
+    }
+    goods_production_rank = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = goods_production_rank:
+		data_source = scope[goods]
+    }
+    institution_investment_level = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = institution_investment_level:
+		data_source = institution
+    }
+    average_sol_for_religion = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = average_sol_for_religion:
+		data_source = scope[religion]
+    }
+    average_sol_for_culture = {
+        input_scopes = country
+        output_scope = value
+        type = value
+		from_argumnet = yes
+		prefix = average_sol_for_culture:
+		data_source = scope[culture]
+    }
 }
