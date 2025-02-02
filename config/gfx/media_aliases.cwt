@@ -10,5 +10,5 @@ media_alias = {
     audio = enum[sound_effects]
 
     ## cardinality = 0..1
-    title = <media_alias>
+    fallback = <media_alias>
 }
