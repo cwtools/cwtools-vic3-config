@@ -69,7 +69,6 @@ alias[arithmetic_operation:save_temporary_value_as] = value_set[variable]
 
 
 alias[arithmetic_operation:modifier] = value_field
-alias[arithmetic_operation:modifier] = single_alias_right[formula]
 alias[arithmetic_operation:modifier] = <script_value>
 alias[arithmetic_operation:modifier] = <static_value>
 alias[arithmetic_operation:modifier] = $define_reference

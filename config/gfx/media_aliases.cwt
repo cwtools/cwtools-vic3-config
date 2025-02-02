@@ -1,0 +1,14 @@
+types = {
+    type[media_alias] = {
+        path = "gfx/media_aliases"
+        file_extension = .txt
+    }
+}
+
+media_alias = {
+    video = filepath
+    audio = scalar
+
+    ## cardinality = 0..1
+    title = <media_alias>
+}

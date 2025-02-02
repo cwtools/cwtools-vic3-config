@@ -988,6 +988,7 @@ alias[trigger:any_lobby_member] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+### Iterate through all harvest conditions affecting a state, state region, strategic region, or country any_harvest_condition = { <count=num/all> / <percent=fixed_point> <triggers> }
 ## push_scope = harvest_condition
 alias[trigger:any_harvest_condition] = {
     ## cardinality = 0..1

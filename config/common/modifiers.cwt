@@ -2,9 +2,10 @@ types = {
     type[modifier_container] = {
         path = "game/common/static_modifiers"
         file_extension = .txt
-    }
-    localisation = {
-        name = "$"
+        localisation = {
+            ## optional
+            name = "$"
+        }
     }
 }
 
@@ -14,7 +15,17 @@ modifier_container = {
 
     ## cardinality = 0..inf
     <modifier_type> = value_field
-
     ## cardinality = 0..inf
     <modifier_type> = bool
+
+    ## cardinality = 0..inf
+    building_employment_<pop_type>_add = value_field
+    ## cardinality = 0..inf
+    building_employment_<pop_type>_mult = value_field
+
+    # PLACEHOLDER - anything, just to prevent errors. Add more modifier types if needed
+    ## cardinality = 0..inf
+    scalar = value_field
+    ## cardinality = 0..inf
+    scalar = bool
 }
