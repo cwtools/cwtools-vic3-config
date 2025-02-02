@@ -109,9 +109,9 @@ event = {
 			## cardinality = 0..1
 			trigger = single_alias_right[trigger_clause]
 			## cardinality = 0..1
-			on_created_soundeffect = scalar
+			on_created_soundeffect = enum[sound_effects]
 			## cardinality = 0..1
-			on_opened_soundeffect = scalar
+			on_opened_soundeffect = enum[sound_effects]
 		}
 		desc = localisation
 		desc = single_alias_right[complex_desc]
@@ -124,10 +124,10 @@ event = {
 
 	## cardinality = 0..1
 	# TODO
-	on_created_soundeffect = scalar
+	on_created_soundeffect = enum[sound_effects]
 	## cardinality = 0..1
 	# TODO
-	on_opened_soundeffect = scalar
+	on_opened_soundeffect = enum[sound_effects]
 	## cardinality = 0..1
 	# TODO
 	icon = filepath
