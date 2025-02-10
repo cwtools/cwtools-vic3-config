@@ -38,7 +38,7 @@ message = {
 
     ## cardinality = 0..1
     ### Sound on creation
-    on_created_soundeffect = scalar
+    on_created_soundeffect = enum[sound_effects]
 
     ## cardinality = 0..1
     enum[duration] = int_value_field

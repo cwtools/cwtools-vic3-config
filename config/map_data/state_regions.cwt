@@ -34,7 +34,7 @@ state_region = {
 
     ## cardinality = 0..1
     ### Which type of subsistence building is used
-    subsistence_building = <building.subsistence>
+    subsistence_building = <building>
 
     ### List of provinces, each with double quotes
     provinces = {

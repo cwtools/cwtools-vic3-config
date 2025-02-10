@@ -16,7 +16,7 @@ character_interaction = {
 
     ## cardinality = 0..1
     ### Click sound for both right click menu and character panel buttons
-    clicksound = scalar
+    clicksound = enum[sound_effects]
 
     ## cardinality = 0..1
     ## replace_scope = { root = country this = country }

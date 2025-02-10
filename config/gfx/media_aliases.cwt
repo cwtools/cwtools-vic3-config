@@ -1,0 +1,14 @@
+types = {
+    type[media_alias] = {
+        path = "gfx/media_aliases"
+        file_extension = .txt
+    }
+}
+
+media_alias = {
+    video = filepath
+    audio = enum[sound_effects]
+
+    ## cardinality = 0..1
+    fallback = <media_alias>
+}

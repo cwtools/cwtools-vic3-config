@@ -1,0 +1,54 @@
+types = {
+    type[scripted_gui] = {
+        path = "game/common/scripted_guis"
+        file_extension = .txt
+    }
+}
+
+scripted_gui = {
+    ### What scope type this SGUI is available to
+    ## cardinality = 0..1
+    scope = scalar
+
+    ### Determines whether the SGUI can be used by a player
+    ## cardinality = 0..1
+    is_valid = single_alias_right[trigger_clause]
+
+    ### Determines whether the SGUI is shown / available to a player
+    ## cardinality = 0..1
+    is_shown = single_alias_right[trigger_clause]
+
+    ### Determines what will happen when the SGUI element is activated
+    ## cardinality = 0..1
+    effect = single_alias_right[effect_clause]
+
+    ### List of strings corresponding to scopes you want event targets for in triggers / effects
+    ## cardinality = 0..1
+    saved_scopes = {
+        value_set[event_target]
+    }
+
+    ### Notification key when this SGUI is activated (default jomini_scripted_gui_confirm)
+    ## cardinality = 0..1
+    notification_key = scalar
+
+    ### Confirmation window title for this SGUI
+    ## cardinality = 0..1
+    confirm_title = localisation
+
+    ### Confirmation window text for this SGUI
+    ## cardinality = 0..1
+    confirm_text = localisation
+
+    ### Whether this SGUI is available to the AI or not (default false)
+    ## cardinality = 0..1
+    ai_is_valid = bool
+
+    ### The chance that the AI will activate this SGUI (script value between 1 and 100)
+    ## cardinality = 0..1
+    ai_chance = single_alias_right[formula]
+
+    ### Named value determining how frequently the AI will evaluate this SGUI (in months)
+    ## cardinality = 0..1
+    ai_frequency = <script_value>
+}

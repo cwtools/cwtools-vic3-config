@@ -79,11 +79,14 @@ event = {
 
 	subtype[hidden] = {
 		# So that things don't yell at you if you make an event hidden for a lil while
+		## cardinality = 0..1
 		title = localisation
 		## cardinality = 0..1
 		event_image = {
-			#TODO
-			video = scalar
+			## cardinality = 0..1
+			video = <media_alias>
+			## cardinality = 0..1
+			texture = filepath
 		}
 		## cardinality = 0..1
 		desc = localisation
@@ -99,14 +102,16 @@ event = {
 		title = localisation
 		title = single_alias_right[complex_desc]
 		event_image = {
-			#TODO
-			video = scalar
+			## cardinality = 0..1
+			video = <media_alias>
+			## cardinality = 0..1
+			texture = filepath
 			## cardinality = 0..1
 			trigger = single_alias_right[trigger_clause]
 			## cardinality = 0..1
-			on_created_soundeffect = scalar
+			on_created_soundeffect = enum[sound_effects]
 			## cardinality = 0..1
-			on_opened_soundeffect = scalar
+			on_opened_soundeffect = enum[sound_effects]
 		}
 		desc = localisation
 		desc = single_alias_right[complex_desc]
@@ -119,10 +124,10 @@ event = {
 
 	## cardinality = 0..1
 	# TODO
-	on_created_soundeffect = scalar
+	on_created_soundeffect = enum[sound_effects]
 	## cardinality = 0..1
 	# TODO
-	on_opened_soundeffect = scalar
+	on_opened_soundeffect = enum[sound_effects]
 	## cardinality = 0..1
 	# TODO
 	icon = filepath
@@ -131,11 +136,16 @@ event = {
 	## cardinality = 0..1
 	right_icon = scope_field
 	## cardinality = 0..1
+	center_icon = scope_field
+	## cardinality = 0..1
 	minor_left_icon = scope_field
 	## cardinality = 0..1
 	minor_right_icon = scope_field
 	## cardinality = 0..1
 	gui_window = scalar
+
+	## cardinality = 0..1
+	orphan = bool
 
 	# ## cardinality = 0..1
 	# on_trigger_fail = single_alias_right[effect_clause]

@@ -246,8 +246,8 @@ links = {
 		desc = "Flag literals eg: flag:the_boss"
 		output_scope = flag
 		from_data = yes
+		data_source = localisation
 		prefix = flag:
-		data_source = <flag>
 	}
 	### Scope to the goods with specified key
 	g = {
@@ -1077,8 +1077,17 @@ links = {
 	### Scope from an object to its type
 	type = {
 		desc = "Scope from an object to its type"
-		input_scopes = { building institution law commander_order company interest_group }
+		input_scopes = { building institution law commander_order company interest_group harvest_condition law }
 		output_scope = any
+	}
+	### Scope to a harvest condition type from its name (harvest_condition_type:drought)
+	harvest_condition_type = {
+		desc = "Scope to a harvest condition type from its name (harvest_condition_type:drought)"
+		input_scopes = any
+		output_scope = harvest_condition_type
+		from_data = yes
+		data_source = <harvest_condition_type>
+		prefix = harvest_condition_type:
 	}
 	### Scope to the goods traded by a trade route
 	goods = {
@@ -1665,12 +1674,6 @@ links = {
 		desc = "Gets an imposed law on the country"
 		input_scopes = country
 		output_scope = law
-	}
-	### Gets type of a law
-	type = {
-		desc = "Gets type of a law"
-		input_scopes = law
-		output_scope = law_type
 	}
     ### Scope of characters home country
 	home_country = {

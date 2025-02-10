@@ -1,3 +1,4 @@
+
 ### Sets whether a building is subsidized set_subsidized = yes/no
 alias[effect:set_subsidized] = bool
 
@@ -258,22 +259,46 @@ alias[effect:kill_population] = {
 ### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
 alias[effect:clamp_global_variable] = {
     name = value[global_variable]
-    max = value_field
     min = value_field
+    min = single_alias_right[formula]
+    min = <script_value>
+    min = <static_value>
+    min = $define_reference
+    max = value_field
+    max = single_alias_right[formula]
+    max = <script_value>
+    max = <static_value>
+    max = $define_reference
 }
 
 ### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
 alias[effect:clamp_local_variable] = {
     name = value[local_variable]
-    max = value_field
     min = value_field
+    min = single_alias_right[formula]
+    min = <script_value>
+    min = <static_value>
+    min = $define_reference
+    max = value_field
+    max = single_alias_right[formula]
+    max = <script_value>
+    max = <static_value>
+    max = $define_reference
 }
 
 ### Clamps a variable the specified max and min clamp_variable = { name = X max = Y min = Z } Where X is the name of the variable Where Y and Z are script values
 alias[effect:clamp_variable] = {
     name = value[variable]
-    max = value_field
     min = value_field
+    min = single_alias_right[formula]
+    min = <script_value>
+    min = <static_value>
+    min = $define_reference
+    max = value_field
+    max = single_alias_right[formula]
+    max = <script_value>
+    max = <static_value>
+    max = $define_reference
 }
 
 ### Empties the list clear_variable_list = variable_name
@@ -483,16 +508,6 @@ alias[effect:save_temporary_scope_value_as] = {
     value = $define_reference
 }
 
-### Saves a numerical or bool value as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_scope_value_as = { name = <string> value = x }
-alias[effect:save_temporary_scope_value_as] = {
-    name = value_set[temporary_scope]
-    value = value_field
-    value = single_alias_right[formula]
-    value = <script_value>
-    value = <static_value>
-    value = $define_reference
-}
-
 ### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope Can also be used as set_variable = X (equivalent to set_variable = { name = X value = yes })
 alias[effect:set_global_variable] = {
     name = value_set[global_variable]
@@ -555,8 +570,6 @@ alias[effect:set_variable] = {
     ## cardinality = 0..1
     value = value_field
     ## cardinality = 0..1
-    value = single_alias_right[formula]
-    ## cardinality = 0..1
     value = <script_value>
     ## cardinality = 0..1
     value = <static_value>
@@ -568,10 +581,6 @@ alias[effect:set_variable] = {
     value = scope_field
     ## cardinality = 0..1
     value = bool
-    ## cardinality = 0..1
-    value = <script_value>
-    ## cardinality = 0..1
-    value = <static_value>
 }
 
 ### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope
@@ -1405,7 +1414,17 @@ alias[effect:add_target_backers] = {
 ### Adds a war goal to a DP. Same data read in as add_war_goal in create_diplomatic_play random_diplomatic_play = { add_war_goal = { holder = initiator type = secession }
 alias[effect:add_war_goal] = {
     holder = scope[country]
+    holder = <country_definition>
     type = enum[war_goal]
+
+    ## cardinality = 0..1
+    target_state = scope[state]
+    ## cardinality = 0..1
+    target_country = scope[country]
+    ## cardinality = 0..1
+    target_region = scope[state_region]
+    ## cardinality = 0..1
+    primary_demand = bool
 }
 
 ### End a diplomatic play end_play = bool
@@ -1844,3 +1863,7 @@ alias[effect:unset_available_for_autonomous_investment] = scope[country]
 ## scopes = { state }
 ### Allow autonomous investment from country
 alias[effect:set_available_for_autonomous_investment] = scope[country]
+
+## scopes = { state_region }
+### Starts a harvest condition in the given state region
+alias[effect:start_harvest_condition] = <harvest_condition_type>

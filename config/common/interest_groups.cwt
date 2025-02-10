@@ -35,6 +35,7 @@ interest_group = {
     }
 
     ### Deprecated; use on_enable effect to assign traits instead
+    ## cardinality = 0..1
     traits = {
         ## cardinality = 1..inf
         <interest_group_trait>
