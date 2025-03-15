@@ -706,20 +706,6 @@ alias[trigger:any_member] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
-### Iterate through all combat units of input scope
-alias[trigger:any_combat_unit] = {
-    ## cardinality = 0..1
-    percent = value_field[0.0..1.0]
-    ## cardinality = 0..1
-    count = int_value_field
-    ## cardinality = 0..1
-    count = all
-    ## cardinality = 0..1
-    ### If set, count = all and percent only consider the filtered items for the denominator.
-    filter = single_alias_right[trigger_clause]
-    alias_name[trigger] = alias_match_left[trigger]
-}
-
 ## push_scope = company
 ### Iterate through all companies in a country  
 alias[trigger:any_company] = {

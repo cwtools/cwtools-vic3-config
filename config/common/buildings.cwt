@@ -71,6 +71,9 @@ building = {
     enable_air_connection = bool
 
     ## cardinality = 0..1
+    company_headquarter = bool
+
+    ## cardinality = 0..1
     ### if yes the building can connect different market areas, default no
     port = bool
 
@@ -207,10 +210,6 @@ building = {
                 clear_collision_mesh_area = bool
             }
         }
-
-        ## push_scope = state_region
-        ## cardinality = 0..1
-        possible = single_alias_right[trigger_clause]
     }
 
     ## cardinality = 0..1

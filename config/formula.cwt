@@ -11,46 +11,55 @@ single_alias[formula] = {
 }
 
 alias[arithmetic_operation:add] = value_field
+alias[arithmetic_operation:add] = scope_field
 alias[arithmetic_operation:add] = single_alias_right[formula]
 alias[arithmetic_operation:add] = <script_value>
 alias[arithmetic_operation:add] = <static_value>
 alias[arithmetic_operation:add] = $define_reference
 alias[arithmetic_operation:subtract] = value_field
+alias[arithmetic_operation:subtract] = scope_field
 alias[arithmetic_operation:subtract] = single_alias_right[formula]
 alias[arithmetic_operation:subtract] = <script_value>
 alias[arithmetic_operation:subtract] = <static_value>
 alias[arithmetic_operation:subtract] = $define_reference
 alias[arithmetic_operation:multiply] = value_field
+alias[arithmetic_operation:multiply] = scope_field
 alias[arithmetic_operation:multiply] = single_alias_right[formula]
 alias[arithmetic_operation:multiply] = <script_value>
 alias[arithmetic_operation:multiply] = <static_value>
 alias[arithmetic_operation:multiply] = $define_reference
 alias[arithmetic_operation:divide] = value_field
+alias[arithmetic_operation:divide] = scope_field
 alias[arithmetic_operation:divide] = single_alias_right[formula]
 alias[arithmetic_operation:divide] = <script_value>
 alias[arithmetic_operation:divide] = <static_value>
 alias[arithmetic_operation:divide] = $define_reference
 alias[arithmetic_operation:modulo] = value_field
+alias[arithmetic_operation:modulo] = scope_field
 alias[arithmetic_operation:modulo] = single_alias_right[formula]
 alias[arithmetic_operation:modulo] = <script_value>
 alias[arithmetic_operation:modulo] = <static_value>
 alias[arithmetic_operation:modulo] = $define_reference
 alias[arithmetic_operation:value] = value_field
+alias[arithmetic_operation:value] = scope_field
 alias[arithmetic_operation:value] = single_alias_right[formula]
 alias[arithmetic_operation:value] = <script_value>
 alias[arithmetic_operation:value] = <static_value>
 alias[arithmetic_operation:value] = $define_reference
 alias[arithmetic_operation:max] = value_field
+alias[arithmetic_operation:max] = scope_field
 alias[arithmetic_operation:max] = single_alias_right[formula]
 alias[arithmetic_operation:max] = <script_value>
 alias[arithmetic_operation:max] = <static_value>
 alias[arithmetic_operation:max] = $define_reference
 alias[arithmetic_operation:min] = value_field
+alias[arithmetic_operation:min] = scope_field
 alias[arithmetic_operation:min] = single_alias_right[formula]
 alias[arithmetic_operation:min] = <script_value>
 alias[arithmetic_operation:min] = <static_value>
 alias[arithmetic_operation:min] = $define_reference
 alias[arithmetic_operation:base] = value_field
+alias[arithmetic_operation:base] = scope_field
 alias[arithmetic_operation:base] = single_alias_right[formula]
 alias[arithmetic_operation:base] = <script_value>
 alias[arithmetic_operation:base] = <static_value>
@@ -73,10 +82,14 @@ alias[arithmetic_operation:modifier] = <script_value>
 alias[arithmetic_operation:modifier] = <static_value>
 alias[arithmetic_operation:modifier] = $define_reference
 alias[arithmetic_operation:modifier] = {
+    ## cardinality = 0..1
     trigger = single_alias_right[trigger_clause]
 
     ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+
+    ## cardinality = 0..inf
+    alias_name[trigger] = alias_match_left[trigger]
 }
 
 alias[arithmetic_operation:fixed_range] = {
@@ -2868,21 +2881,6 @@ alias[arithmetic_operation:every_power_bloc_member] = {
 
 ## push_scope = law
 alias[arithmetic_operation:every_active_law] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-    ## cardinality = 0..inf
-    alternative_limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-    ## cardinality = 0..1
-    weight = single_alias_right[formula]
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
-
-## push_scope = power_bloc
-alias[arithmetic_operation:every_power_bloc_member] = {
     ## cardinality = 0..1
     limit = {
         alias_name[trigger] = alias_match_left[trigger]

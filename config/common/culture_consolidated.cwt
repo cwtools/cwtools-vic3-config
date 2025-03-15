@@ -40,7 +40,7 @@ culture = {
     ## cardinality = 0..1
     obsessions = {
         ## cardinality = 1..inf
-        <goods.consumable>
+        <good.consumable>
     }
 
     ### Men's names

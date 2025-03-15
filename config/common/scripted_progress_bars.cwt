@@ -30,6 +30,9 @@ scripted_progress_bar = {
     default = bool
 
     ## cardinality = 0..1
+    is_inverted = bool
+
+    ## cardinality = 0..1
     ### default bad style of progress bar (red bar)
     default_bad = bool
 

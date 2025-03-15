@@ -74,6 +74,7 @@ country_definition = {
     religion = <religion>
     
     ### The default capital for the country, important for country releasing
+    ## cardinality = 0..1
     capital = <state_region>
     
     ## cardinality = 0..1

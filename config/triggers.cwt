@@ -127,6 +127,37 @@ alias[trigger:commander_pm_usage] = {
 ### Compares the commanders rank commander_rank > 2
 alias[trigger:commander_rank] == value_field
 
+### Compares the Organization of the Military Formation in scope
+### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
+## Scope = military_formation
+alias[trigger:organization] == value_field
+
+### Compares the Organization of the Military Formation in scope
+### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
+## Scope = military_formation
+alias[trigger:organization] == single_alias_right[formula]
+
+### Compares the Organization of the Military Formation in scope
+### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
+## Scope = military_formation
+alias[trigger:organization] == <script_value>
+
+### Compares the Organization of the Military Formation in scope
+### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
+## Scope = military_formation
+alias[trigger:organization] == <static_value>
+
+### Compares the Organization of the Military Formation in scope
+### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
+## Scope = military_formation
+alias[trigger:organization] == $define_reference
+
+alias[trigger:total_population_including_subjects_share] == value_field
+alias[trigger:total_population_including_subjects_share] == single_alias_right[formula]
+alias[trigger:total_population_including_subjects_share] == <script_value>
+alias[trigger:total_population_including_subjects_share] == <static_value>
+alias[trigger:total_population_including_subjects_share] == $define_reference
+
 ### Checks characters order has_order = order key/order scope
 alias[trigger:has_commander_order] = <commander_order>
 ### Checks characters order has_order = order key/order scope
@@ -268,9 +299,6 @@ alias[trigger:all_false] = single_alias_right[trigger_clause]
 ### Always the same value always = yes
 alias[trigger:always] = bool
 
-### all inside trigger must be true
-alias[trigger:and] = single_alias_right[trigger_clause]
-
 ### Conditionally cause an assert during run time assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
 alias[trigger:assert_if] = {
     limit = single_alias_right[trigger_clause]
@@ -327,6 +355,9 @@ alias[trigger:exists] = yes
 ### Compare to current game date current_game_date = 1837.1.1
 alias[trigger:game_date] == date_field
 
+### Compare to current game date current_game_date = 1837
+alias[trigger:game_date] == int
+
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
 alias[trigger:global_variable_list_size] = {
     name = value[global_variable_list]
@@ -336,6 +367,21 @@ alias[trigger:global_variable_list_size] = {
     value == <static_value>
     value == $define_reference
 }
+
+### Checks that a state's population has a certain percentage of the country's primary cultures
+alias[trigger:primary_cultures_percent_state] == value_field
+
+### Checks that a state's population has a certain percentage of the country's primary cultures
+alias[trigger:primary_cultures_percent_state] == single_alias_right[formula]
+
+### Checks that a state's population has a certain percentage of the country's primary cultures
+alias[trigger:primary_cultures_percent_state] == <script_value>
+
+### Checks that a state's population has a certain percentage of the country's primary cultures
+alias[trigger:primary_cultures_percent_state] == <static_value>
+
+### Checks that a state's population has a certain percentage of the country's primary cultures
+alias[trigger:primary_cultures_percent_state] == $define_reference
 
 ### Does the client have this cosmetic DLC An interface trigger, can only be used in specific places
 alias[trigger:has_cosmetic_dlc] = enum[cosmetic_dlc]
@@ -481,18 +527,6 @@ alias[trigger:local_variable_list_size] = {
     value == <static_value>
     value == $define_reference
 }
-
-### a negated AND trigger
-alias[trigger:nand] = single_alias_right[trigger_clause]
-
-### a negated OR trigger
-alias[trigger:nor] = single_alias_right[trigger_clause]
-
-### negates content of trigger
-alias[trigger:not] = single_alias_right[trigger_clause]
-
-### at least one entry inside trigger must be true
-alias[trigger:or] = single_alias_right[trigger_clause]
 
 ### Saves a temporary target for use during the trigger execution
 alias[trigger:save_temporary_scope_as] = value_set[event_target]
@@ -657,6 +691,13 @@ alias[trigger:enacting_any_law] = bool
 
 ### Checks if the institution is expanding expanding_institution = <scope/key>
 alias[trigger:expanding_institution] = <institution>
+### Checks if the institution is expanding expanding_institution = <scope/key>
+alias[trigger:expanding_institution] = scope[institution]
+
+alias[trigger:gdp_ownership_ratio] = {
+    target = scope[country]
+    value == value_field
+}
 
 ### Compares a Country's Power Ranking (position) global_country_ranking > 42
 alias[trigger:global_country_ranking] == value_field
@@ -1262,8 +1303,33 @@ alias[trigger:is_political_movement_type] = <political_movement>
 ### Compare radicalism of political movement political_movement_radicalism > 50
 alias[trigger:political_movement_radicalism] == value_field
 
+### Compare radicalism of political movement political_movement_radicalism > 50
+alias[trigger:political_movement_radicalism] == single_alias_right[formula]
+
+### Compare radicalism of political movement political_movement_radicalism > 50
+alias[trigger:political_movement_radicalism] == <script_value>
+
+### Compare radicalism of political movement political_movement_radicalism > 50
+alias[trigger:political_movement_radicalism] == <static_value>
+
+### Compare radicalism of political movement political_movement_radicalism > 50
+alias[trigger:political_movement_radicalism] == $define_reference
+
 ### Compare support of political movement political_movement_support > 50
 alias[trigger:political_movement_support] == value_field
+
+### Compare support of political movement political_movement_support > 50
+alias[trigger:political_movement_support] == single_alias_right[formula]
+
+### Compare support of political movement political_movement_support > 50
+alias[trigger:political_movement_support] == <script_value>
+
+### Compare support of political movement political_movement_support > 50
+alias[trigger:political_movement_support] == <static_value>
+
+### Compare support of political movement political_movement_support > 50
+alias[trigger:political_movement_support] == $define_reference
+
 
 ### True if IG scope has a party has_party = bool
 alias[trigger:has_party] = bool
@@ -1787,7 +1853,7 @@ alias[trigger:is_fleet] = bool
 alias[trigger:is_forced_pact] = bool
 
 ### Checks if the Military Formation is fully mobilized  
-alias[trigger:is_fully_mobilized]
+alias[trigger:is_fully_mobilized] = bool
 
 ### Checks if the country has been set to be immune to revolutions via set_immune_to_revolutions; Warning: This does not check if the country is naturally immune to revolutions due to for example being a revolutionary country itself, only for the effects of 
 alias[trigger:is_immune_to_revolutions] = bool
@@ -1802,7 +1868,24 @@ alias[trigger:is_mass_migration_origin] = bool
 alias[trigger:is_mass_migration_origin_of_culture] = bool
 
 ### Compares the effective maximum Organization of the Military Formation in scope
+## Scope = military_formation
 alias[trigger:max_organization] == value_field
+
+### Compares the effective maximum Organization of the Military Formation in scope
+## Scope = military_formation
+alias[trigger:max_organization] == single_alias_right[formula]
+
+### Compares the effective maximum Organization of the Military Formation in scope
+## Scope = military_formation
+alias[trigger:max_organization] == <script_value>
+
+### Compares the effective maximum Organization of the Military Formation in scope
+## Scope = military_formation
+alias[trigger:max_organization] == <static_value>
+
+### Compares the effective maximum Organization of the Military Formation in scope
+## Scope = military_formation
+alias[trigger:max_organization] == $define_reference
 
 ### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
 alias[trigger:size_weighted_lost_battles_fraction] == value_field
