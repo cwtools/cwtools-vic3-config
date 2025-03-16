@@ -105,8 +105,10 @@ character_template = {
         interest_group_trigger = single_alias_right[trigger_clause]
 
         earliest_usage_date = date_field
+        earliest_usage_date = int
 
         latest_usage_date = date_field
+        latest_usage_date = int
 
         chance = int_value_field
     }

@@ -369,6 +369,9 @@ enums = {
     enum[customizable_localization_type] = {
         character
         country
+        building
+        state
+        political_lobby
         culture
         religion
         goods
@@ -420,6 +423,10 @@ enums = {
         frost
         wildfire
         hail
+        locust_swarm
+        heatwave
+        disease_outbreak
+        extreme_winds
         torrential_rains
         none
     }

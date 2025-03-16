@@ -5,6 +5,7 @@ types = {
 }
 
 dna_data = {
+    ## cardinality = 0..1
     enabled = bool
 
     portrait_info = {
@@ -24,5 +25,8 @@ dna_data = {
                 int
             }
         }
+
+        ## cardinality = 0..1
+        entity = { float float }
     }
 }

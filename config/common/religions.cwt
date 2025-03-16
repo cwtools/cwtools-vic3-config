@@ -29,6 +29,6 @@ religion = {
     ### These pops hate...
     taboos = {
         ## cardinality = 1..inf
-        <goods.consumable>
+        <good.consumable>
     }
 }

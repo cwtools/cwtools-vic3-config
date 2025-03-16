@@ -207,8 +207,9 @@ event = {
 		#     ## cardinality = 0..1
 		#     fallback = bool
 	}
-	# ## cardinality = 0..inf
-	# after = single_alias_right[effect_clause]
+
+	## cardinality = 0..inf
+	after = single_alias_right[effect_clause]
 
 	# ## cardinality = 0..1
 	# weight_multiplier = single_alias_right[weight_block]

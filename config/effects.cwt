@@ -398,7 +398,7 @@ alias[effect:else] = {
 
 ### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met, and its own limit is met if = { limit = { <triggers> } <effects> } else_if = { limit = { <triggers> } <effects> }
 alias[effect:else_if] = {
-    ## cardinality = ~1..1
+    ## cardinality = 0..1
     limit = { alias_name[trigger] = alias_match_left[trigger] }
     alias_name[effect] = alias_match_left[effect]
 }
@@ -622,20 +622,19 @@ alias[effect:trigger_event] = {
     popup = bool
 }
 
+### Sets the state region for the scoped company, so the company building can be built there
+## Scope = company
+alias[effect:set_company_state_region] = scope[state_region]
 
 ### Repeats enclosed effects while limit criteria are met or until set iteration count is reached while = { limit = { <triggers> } <effects> }  while = { count = 3 <effects> } Default max of 1000.
 alias[effect:while] = {
+    ## cardinality = 0..1
+    count = int
+    ## cardinality = 0..1
     limit = {
         ## cardinality = 1..inf
         alias_name[trigger] = alias_match_left[trigger]
     }
-    ## cardinality = 0..inf
-    alias_name[effect] = alias_match_left[effect]
-}
-
-### Repeats enclosed effects while limit criteria are met or until set iteration count is reached while = { limit = { <triggers> } <effects> }  while = { count = 3 <effects> } Default max of 1000.
-alias[effect:while] = {
-    count = int
     ## cardinality = 0..inf
     alias_name[effect] = alias_match_left[effect]
 }
@@ -652,7 +651,21 @@ alias[effect:add_culture_standard_of_living_modifier] = {
     ## cardinality = 0..1
     enum[duration] = int
     ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = enum[duration]
+    ## cardinality = 0..1
     multiplier = value_field
+    ## cardinality = 0..1
+    multiplier = single_alias_right[formula]
+    ## cardinality = 0..1
+    multiplier = <script_value>
+    ## cardinality = 0..1
+    multiplier = <static_value>
+    ## cardinality = 0..1
+    multiplier = $define_reference
 }
 
 ### Apply a standard of living modifier in the scoped state for the given religion. Other than the required religion argument, this effect has the same syntax as add_modifier.
@@ -662,6 +675,10 @@ alias[effect:add_religion_standard_of_living_modifier] = {
     enum[duration] = int
     ## cardinality = 0..1
     multiplier = value_field
+    multiplier = single_alias_right[formula]
+    multiplier = <script_value>
+    multiplier = <static_value>
+    multiplier = $define_reference
 }
 
 ### Changes X% of the different religion population to the specified religion. convert_population = { target = rel:catholic value = 0.5 }
@@ -695,19 +712,19 @@ alias[effect:create_building] = {
 
     ## cardinality = 0..1
     add_ownership = {
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         building = {
             type = <building>
             country = scope[country]
             levels = int
             region = <state_region>
         }
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         country = {
             country = scope[country]
             levels = int
         }
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         company = {
             type = <company_type>
             country = scope[country]
@@ -772,7 +789,7 @@ alias[effect:create_state] = {
         ## cardinality = ~1..inf
         enum[provinces]
     }
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     state_type = enum[state_type]
 }
 
@@ -1074,7 +1091,7 @@ alias[effect:create_diplomatic_play] = {
         <country_definition>
     }
 
-    ## cardinality = 1..inf
+    ## cardinality = 0..inf
     add_war_goal = {
         holder = scope[country]
         holder = <country_definition>
@@ -1628,7 +1645,8 @@ alias[effect:transfer_to_formation] = scope[military_formation]
 ### Starts enacting the specified law type for the country in scope  
 alias[effect:start_enactment] = scope[law_type]
 
-### Sets the establishment date of scope company  
+### Sets the establishment date of scope company
+## Scope = company
 alias[effect:set_company_establishment_date] = date_field
 
 ### Allows only one party
@@ -1849,6 +1867,8 @@ alias[effect:create_political_lobby] = {
 
     ## cardinality = 0..inf
     religion = scope[religion]
+
+    ## cardinality = 1..inf
     add_interest_group = scope[interest_group]
 }
 

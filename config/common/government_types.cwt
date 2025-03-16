@@ -9,6 +9,8 @@ government_type = {
     transfer_of_power = enum[transfer_of_power_types]
 
     male_ruler = localisation
+    # Support empty localisation keys
+    male_ruler = scalar
 
     female_ruler = localisation
     # Support empty localisation keys
