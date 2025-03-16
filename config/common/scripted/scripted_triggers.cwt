@@ -1,16 +1,3 @@
-alias[trigger:<scripted_trigger>] = bool
-
-
-###The scripted trigger will draw the value of the right clause via $left_clause$.
-#Todo: Make sure this works
-alias[trigger:<scripted_trigger>] = {
-	## cardinality = 0..inf
-	$parameter = $parameter_value
-
-    ## cardinality = 0..1
-    target = scope[country]
-}
-
 types = {
     type[scripted_trigger] = {
         path = "game/common/scripted_triggers"
@@ -21,4 +8,15 @@ types = {
 scripted_trigger = {
     ## cardinality = 0..inf
     alias_name[trigger] = alias_match_left[trigger]
+}
+
+alias[trigger:<scripted_trigger>] = bool
+
+### The scripted trigger will draw the value of the right clause via $left_clause$.
+alias[trigger:<scripted_trigger>] = {
+    ## cardinality = 0..inf
+    $parameter = $parameter_value
+
+    ## cardinality = 0..1
+    target = scope[country]
 }

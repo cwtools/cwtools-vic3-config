@@ -4,6 +4,7 @@ enums = {
         weeks
         months
         years
+        long_modifier_time
     }
 
     enum[character_role] = {
