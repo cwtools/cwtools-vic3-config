@@ -1,9 +1,8 @@
 types = {
     type[define] = {
         path = "game/common/defines"
+        skip_root_key = any
     }
 }
 
-define = {
-
-}
+define = scalar
