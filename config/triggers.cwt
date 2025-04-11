@@ -33,17 +33,6 @@ alias[trigger:civil_war_progress] == <static_value>
 ### Compare progress of civil war civil_war_progress > 50
 alias[trigger:civil_war_progress] == $define_reference
 
-### Checks how much progress the civil war is gaining each tick. any_civil_war = { revolution_progress_gain > 0 }
-alias[trigger:civil_war_progress_gain] == value_field
-### Checks how much progress the civil war is gaining each tick. any_civil_war = { revolution_progress_gain > 0 }
-alias[trigger:civil_war_progress_gain] == single_alias_right[formula]
-### Checks how much progress the civil war is gaining each tick. any_civil_war = { revolution_progress_gain > 0 }
-alias[trigger:civil_war_progress_gain] == <script_value>
-### Checks how much progress the civil war is gaining each tick. any_civil_war = { revolution_progress_gain > 0 }
-alias[trigger:civil_war_progress_gain] == <static_value>
-### Checks how much progress the civil war is gaining each tick. any_civil_war = { revolution_progress_gain > 0 }
-alias[trigger:civil_war_progress_gain] == $define_reference
-
 ### Check if the scoped civil war is of a specific type is_civil_war_type = revolution / secession
 alias[trigger:is_civil_war_type] = enum[civil_war_type]
 
@@ -52,11 +41,6 @@ alias[trigger:is_revolutionary] = bool
 
 ### Checks if scoped culture or religion has the given discrimination trait has_trait = trait
 alias[trigger:has_discrimination_trait] = <discrimination_trait>
-
-### Checks if a culture is discriminated against within the scope country culture_is_discriminated_in = c:USA
-alias[trigger:culture_is_discriminated_in] = <country_definition>
-### Checks if a culture is discriminated against within the scope country culture_is_discriminated_in = c:USA
-alias[trigger:culture_is_discriminated_in] = scope[country]
 
 ### Checks the culture's progress percentage towards secession in a country. 0 if no secession movement is active for the culture. culture_secession_progress = { target = scope:example_country value > 0.5 }
 alias[trigger:culture_secession_progress] = {
@@ -70,12 +54,6 @@ alias[trigger:culture_secession_progress] = {
 
 ### Checks if a culture has a certain goods as obsession has_cultural_obsession = <goods key>
 alias[trigger:has_cultural_obsession] = <good>
-
-alias[trigger:cultural_accpetance_base] = {
-    target = scope[culture]
-    target = <culture>
-    value == enum[acceptance_status]
-}
 
 ### Checks if a culture has a certain culture_graphics has_culture_graphics = <culture graphics key>
 alias[trigger:has_culture_graphics] = <culture_graphic>
@@ -113,43 +91,32 @@ alias[trigger:shares_trait_with_any_primary_culture] = scope[country]
 ### Check if market has a shortage on any of its building inputs market_has_goods_shortage = yes/no
 alias[trigger:market_has_goods_shortage] = bool
 
-### Checks how the ratio of Combat Units on the scoped Commander, on the target country's side, with the specified Production Method compares to the value commander_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:commander_pm_usage] = {
-    target = scope[country]
-    production_method = <production_method>
-    value == value_field
-    value == single_alias_right[formula]
-    value == <script_value>
-    value == <static_value>
-    value == $define_reference
-}
-
 ### Compares the commanders rank commander_rank > 2
 alias[trigger:commander_rank] == value_field
 
 ### Compares the Organization of the Military Formation in scope
 ### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:organization] == value_field
 
 ### Compares the Organization of the Military Formation in scope
 ### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:organization] == single_alias_right[formula]
 
 ### Compares the Organization of the Military Formation in scope
 ### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:organization] == <script_value>
 
 ### Compares the Organization of the Military Formation in scope
 ### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:organization] == <static_value>
 
 ### Compares the Organization of the Military Formation in scope
 ### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:organization] == $define_reference
 
 alias[trigger:total_population_including_subjects_share] == value_field
@@ -250,17 +217,6 @@ alias[trigger:is_trade_route_productive] = bool
 ### Checks if the scoped trade route needs more convoys to be able to grow trade_route_needs_convoys_to_grow = yes/no
 alias[trigger:trade_route_needs_convoys_to_grow] = bool
 
-### Checks how the ratio of Combat Units on the scoped Front, on the target country's side, with the specified Production Method compares to the value front_side_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:front_side_pm_usage] = {
-    target = scope[country]
-    production_method = <production_method>
-    value == value_field
-    value == single_alias_right[formula]
-    value == <script_value>
-    value == <static_value>
-    value == $define_reference
-}
-
 ### Whether the scoped Front doesn't have any Battalions nor Generals on target side, and the enemy has at least one General. is_vulnerable_front = scope:example_country
 alias[trigger:is_vulnerable_front] = <country_definition>
 ### Whether the scoped Front doesn't have any Battalions nor Generals on target side, and the enemy has at least one General. is_vulnerable_front = scope:example_country
@@ -339,12 +295,6 @@ alias[trigger:debug_log] = scalar
 
 ### Log whether the parent trigger succeeded or failed. Log which children succeeded or failed
 alias[trigger:debug_log_details] = scalar
-
-### Checks an error in code that specifically uses the CErrorTable::CheckTrigger path, in general avoid this and just use normal script
-alias[trigger:error_check] = {
-    alias_name[trigger] = alias_match_left[trigger]
-    severity = enum[severity]
-}
 
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = scope_field
@@ -608,9 +558,6 @@ alias[trigger:approaching_bureaucracy_shortage] = bool
 ### Compare arable land in *all* states arable_land_country > 10
 alias[trigger:arable_land_country] == value_field
 
-### Compare the amount of Army Reserves
-alias[trigger:army_reserves] == value_field
-
 ### Compares the available authority of the scoped country
 alias[trigger:authority] == value_field
 
@@ -671,17 +618,6 @@ alias[trigger:country_has_state_religion] = scope[religion]
 
 ### Checks whether the scoped country or any of its subjects owns the entire specified state region country_or_subject_owns_entire_state_region = key
 alias[trigger:country_or_subject_owns_entire_state_region] = <state_region>
-
-### Checks how the ratio of Combat Units (of the same type) on the scoped Country with the specified Production Method compares to the value country_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:country_pm_usage] = {
-    target = scope[country]
-    production_method = <production_method>
-    value == value_field
-    value == single_alias_right[formula]
-    value == <script_value>
-    value == <static_value>
-    value == $define_reference
-}
 
 ### Compare tier of country tag country_tier = x
 alias[trigger:country_tier] = enum[country_tier]
@@ -1145,17 +1081,6 @@ alias[trigger:strata] == enum[pop_strata]
 
 ### Checks if a pop has a certain amount of wealth wealth = value
 alias[trigger:wealth] == value_field
-
-### Checks how the ratio of Combat Units on the scoped Battle, on the target country's side, with the specified Production Method compares to the value battle_side_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:battle_side_pm_usage] = {
-    target = scope[country]
-    production_method = <production_method>
-    value == value_field
-    value == single_alias_right[formula]
-    value == <script_value>
-    value == <static_value>
-    value == $define_reference
-}
 
 ### Check if building has a shortage of any of its inputs building_has_goods_shortage = yes/no
 alias[trigger:building_has_goods_shortage] = bool
@@ -1739,17 +1664,8 @@ alias[trigger:army_mobilization_option_fraction] = {
     value == $define_reference
 }
 
-### Compares the current total manpower of a country's Battalions  
-alias[trigger:battalion_manpower] == value_field
-
 ### Check if the country can establish a new companyTraits: yes/no   
 alias[trigger:can_establish_company] = bool
-
-### Checks if a political movement for the specified law can arise in scope country 
-alias[trigger:can_have_political_movement] = bool
-
-### Checks if character is discriminated against  
-alias[trigger:character_is_discriminated] = bool
 
 ### Checks if character is based on a specific template
 alias[trigger:has_template] = <character_template>
@@ -1788,9 +1704,6 @@ alias[trigger:country_has_building_type_levels] = {
 ### Compares the country's population weighted turmoil  
 alias[trigger:country_turmoil] == value_field
 
-### Checks if the scoped culture can have mass migration to target country  
-alias[trigger:culture_can_have_mass_migration_to] = scope[country]
-
 ### Determines the fraction of wargoals that enemies in the war are currently contesting  
 alias[trigger:enemy_contested_wargoals] = {
     target = scope[war]
@@ -1803,9 +1716,6 @@ alias[trigger:enemy_contested_wargoals] = {
 
 ### Determines the (weighted) enemy occupation score of a country  
 alias[trigger:enemy_occupation] == value_field
-
-### Compares the current total manpower of a country's Flotillas  
-alias[trigger:flotilla_manpower] == value_field
 
 ### Checks if a company of the specified type exists in scope country 
 alias[trigger:has_company] = scope[company_type]
@@ -1868,23 +1778,23 @@ alias[trigger:is_mass_migration_origin] = bool
 alias[trigger:is_mass_migration_origin_of_culture] = bool
 
 ### Compares the effective maximum Organization of the Military Formation in scope
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:max_organization] == value_field
 
 ### Compares the effective maximum Organization of the Military Formation in scope
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:max_organization] == single_alias_right[formula]
 
 ### Compares the effective maximum Organization of the Military Formation in scope
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:max_organization] == <script_value>
 
 ### Compares the effective maximum Organization of the Military Formation in scope
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:max_organization] == <static_value>
 
 ### Compares the effective maximum Organization of the Military Formation in scope
-## Scope = military_formation
+## scopes = { military_formation }
 alias[trigger:max_organization] == $define_reference
 
 ### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
@@ -2138,10 +2048,6 @@ alias[trigger:state_is_eligible_as_mass_migration_target] = bool
 ## scopes = { journal_entry }
 ### Checks whether a journal entry is of a specific age (in days)
 alias[trigger:journal_entry_age] == int
-
-## scopes = { military_formation }
-### Checks whether a journal entry is of a specific age (in days)
-alias[trigger:current_hq] = scope[hq]
 
 ## scopes = { state }
 ### Checks percentage level of a specific culture in a state
@@ -2464,4 +2370,111 @@ alias[trigger:has_law_imposition_rights] = {
     target_country = scope[country]
     law_type = scope[law_type]
 }
+
+## scopes = { country }
+### Compares the average standard of living for the target culture in the country
+### average_sol_for_culture = { target = cu:polish value > 10 }
+alias[trigger:average_sol_for_culture] = {
+    target = scope[culture]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Compares the average standard of living for the target religion in the country
+### average_sol_for_religion = { target = rel:catholic value > 10 }
+alias[trigger:average_sol_for_religion] = {
+    target = scope[religion]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Checks if scope country can add any wargoal against target country in an active diplomatic play
+### can_add_wargoal_against = <scope>
+alias[trigger:can_add_wargoal_against] = scope[country]
+
+## scopes = { country }
+### Checks if a diplomatic action is valid to send by scope country to target country
+### can_send_diplomatic_action = { target = <country scope> type = <action type key> first_state = <state scope, optional> second_state = <state scope, optional>
+alias[trigger:can_send_diplomatic_action] = {
+    target = scope[country]
+    action = <diplomatic_action>
+
+    ## cardinality = 0..1
+    first_state = scope[state]
+
+    ## cardinality = 0..1
+    second_state = scope[state]
+}
+
+## scopes = { country }
+### Check if country can trigger the specified event
+alias[trigger:can_trigger_event] = <event>
+
+## scopes = { character }
+### Check if a character could potentially support a political movement
+### could_support_political_movement = <scope>
+alias[trigger:could_support_political_movement] = scope[political_movement]
+
+## scopes = { country }
+### Compares the average acceptance of a religion that is present in a country against a value
+### country_average_religious_acceptance = { target = rel:catholic value > 10 }
+alias[trigger:country_average_religious_acceptance] = {
+    target = scope[religion]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { building }
+### Compares a Country's Power Ranking
+### country_rank < rank_value:major_power
+alias[trigger:country_rank] == value_field
+
+## scopes = { state }
+### Compare the current local delta (modification) to a culture's acceptance in the scoped state
+### cultural_acceptance_delta = { target = cu:romanian value < -10 }
+alias[trigger:cultural_acceptance_delta] = {
+    target = scope[culture]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { culture }
+### Checks if the scoped culture has a cultural community in a state.
+alias[trigger:culture_has_community_in_state] = scope[state]
+
+## scopes = { country }
+### Checks if the scoped country discriminates the given religion (key)
+### discriminates_religion = <religion key/scope>
+alias[trigger:discriminates_religion] = scope[religion]
+## scopes = { country }
+### Checks if the scoped country discriminates the given religion (key)
+### discriminates_religion = <religion key/scope>
+alias[trigger:discriminates_religion] = <religion>
+
+## scopes = { country }
+### Compares the degree of dependence the country in scope has to the target country. Note: This is an expensive trigger
+### economic_dependence = { target = scope:other_country value > 2.2 }
+alias[trigger:economic_dependence] = {
+    target = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
 

@@ -2954,4 +2954,104 @@ links = {
 		input_scopes = { war }
 		output_scope = any
 	}
+	### Compares the fraction of this building's levels that are owned by a country
+	country_ownership_fraction = {
+		desc = "Compares the fraction of this building's levels that are owned by a country"
+		type = value
+		input_scopes = { building }
+		output_scope = value
+	}
+	### Checks the amount of weekly innovation a country produces
+	country_innovation = {
+		desc = "Checks the amount of weekly innovation a country produces"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the very roughly approximated weeks remaining to finish the constructions in the private queue: construction_queue_private_duration < 52
+	construction_queue_private_duration = {
+		desc = "Compares the very roughly approximated weeks remaining to finish the constructions in the private queue: construction_queue_private_duration < 52"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the number of privately constructed building levels in the construction queue
+	construction_queue_num_queued_private_levels = {
+		desc = "Compares the number of privately constructed building levels in the construction queue"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the very roughly approximated weeks remaining to finish the constructions in the government queue: construction_queue_government_duration < 52
+	construction_queue_government_duration = {
+		desc = "Compares the very roughly approximated weeks remaining to finish the constructions in the government queue: construction_queue_government_duration < 52"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the number of government constructed building levels in the construction queue
+	construction_queue_num_queued_government_levels = {
+		desc = "CCompares the number of government constructed building levels in the construction queue"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare average standard of living for primary cultures
+	average_sol_for_primary_cultures = {
+		desc = "Compare average standard of living for primary cultures"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare average standard of living for enslaved pops
+	average_sol_for_slaves = {
+		desc = "Compare average standard of living for enslaved pops"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare to a country's total army power projection
+	army_power_projection = {
+		desc = "Compare to a country's total army power projection"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the appeasement of a political lobby.
+	appeasement = {
+		desc = "Compares the appeasement of a political lobby"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare to a country's total army power projection
+	### ### scope:example_country = { army_power_projection < root.army_power_projection
+	army_power_projection = {
+		desc = "Compare to a country's total army power projection"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Day value
+	day_value = {
+		desc = "Day value"
+		type = value
+		input_scopes = { any }
+		output_scope = value
+	}
+	### DayNight value
+	daynight_value = {
+		desc = "DayNight value"
+		type = value
+		input_scopes = { any }
+		output_scope = value
+	}
+	### Compares the dependents size of the scoped pop
+	### dependents >= 2000
+	daynight_value = {
+		desc = "Compares the dependents size of the scoped pop"
+		type = value
+		input_scopes = { pop }
+		output_scope = value
+	}
 }
