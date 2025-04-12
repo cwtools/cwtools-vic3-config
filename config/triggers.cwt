@@ -186,14 +186,8 @@ alias[trigger:is_monarch] = bool
 ### Checks is a character has been assigned to a Front and has arrived there is_on_front = yes/no
 alias[trigger:is_on_front] = bool
 
-### Checks if an Admiral is unavailable and repairing after loosing a naval battle is_repairing = bool
-alias[trigger:is_repairing] = bool
-
 ### Checks if character is a ruler/head of state of a country is_ruler = bool
 alias[trigger:is_ruler] = bool
-
-### Checks if the commander is traveling is_traveling = bool
-alias[trigger:is_traveling] = bool
 
 ### Compares the character's total trait value trait_value < experience_level
 alias[trigger:trait_value] == value_field
@@ -650,9 +644,6 @@ alias[trigger:has_any_secessionists_broken_out] = bool
 ### Check if the country has any secessionists growing
 alias[trigger:has_any_secessionists_growing] = bool
 
-### Check if the country has any new secessionists possible
-alias[trigger:has_any_secessionists_possible] = bool
-
 ### Checks if scoped country has a particular attitude towards another country has_attitude = { who = X attitude = Y } Where X = country and Y = attitude type
 alias[trigger:has_attitude] = {
     who = scope[country]
@@ -968,9 +959,6 @@ alias[trigger:leads_customs_union] = bool
 ### Compares the maximum number of declared interests of scoped country max_num_declared_interests = <value>
 alias[trigger:max_num_declared_interests] == value_field
 
-### Compare the amount of Navy Reserves
-alias[trigger:navy_reserves] == value_field
-
 ### Compares the number of declared interests of scoped country num_declared_interests = <value>
 alias[trigger:num_declared_interests] == value_field
 
@@ -1062,16 +1050,10 @@ alias[trigger:pop_employment_building_group] = <building_group>
 ### Checks if pop's culture is primary pop_has_primary_culture = bool
 alias[trigger:pop_has_primary_culture] = bool
 
-### Checks if pop is discriminated against pop_is_discriminated = bool
-alias[trigger:pop_is_discriminated] = bool
-
 alias[trigger:pop_acceptance] == enum[acceptance_status]
 
 ### Compares the quality of life of the given pop quality_of_life > 10
 alias[trigger:quality_of_life] == value_field
-
-### Checks if pop's religion is accepted religion_accepted = bool
-alias[trigger:religion_accepted] = bool
 
 ### Compares the standard of living of a given pop standard_of_living > 10
 alias[trigger:standard_of_living] == value_field
@@ -1729,9 +1711,6 @@ alias[trigger:has_mobilization_option] = scope[mobilization_option]
 ### Checks if any Building in a scoped State maintains any Combat Units that are currently mobilizing  
 alias[trigger:has_mobilizing_unit] = bool
 
-### Checks if a political movement for the specified law exists in scope country  
-alias[trigger:has_political_movement] = scope[law_type]
-
 ### Checks if a Combat Unit is of the specified type 
 alias[trigger:has_unit_type] = scope[combat_unit_type]
 
@@ -1840,9 +1819,6 @@ alias[trigger:state_has_building_type_levels] = {
     value == <static_value>
     value == $define_reference
 }
-
-### Compares the current total manpower of a country's combat units  
-alias[trigger:total_manpower] == value_field
 
 ### Checks scripted progress bar progress
 alias[trigger:scripted_bar_progress] = {
@@ -1960,10 +1936,6 @@ alias[trigger:government_transfer_of_power] = enum[transfer_of_power_types]
 ## scopes = { character }
 ### Checks whether a character is immortal
 alias[trigger:is_immortal] = bool
-
-## scopes = { character }
-### Checks whether a character is an agitator
-alias[trigger:is_agitator] = bool
 
 ## scopes = { character }
 ### Checks whether a character is historical
@@ -2477,4 +2449,195 @@ alias[trigger:economic_dependence] = {
     value == $define_reference
 }
 
+## scopes = { country }
+### Compares the enactment chance in scope country for given law (including values from enactment modifier)
+### enactment_chance_for_law = { target = scope:my_lawtype value > 0.2 }
+alias[trigger:enactment_chance_for_law] = {
+    target = scope[law_type]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
 
+## scopes = { country }
+### Compares the enactment chance in scope country for given law but excludes values from enactment modifier
+### enactment_chance_for_law_without_enactment_modifier = { target = scope:my_lawtype value > 0.2 }
+alias[trigger:enactment_chance_for_law_without_enactment_modifier] = {
+    target = scope[law_type]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { building }
+### Compares the fraction of total levels of a building a country owns
+alias[trigger:fraction_of_levels_owned_by_country] = {
+    target = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Compares the fraction of total levels of a building a country owns
+alias[trigger:goods_production_rank] = {
+    target = scope[good]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { political_movement }
+### Check if scoped political movement has character ideology
+alias[trigger:has_character_ideology] = bool
+
+## scopes = { political_movement }
+### Check if scoped political movement has core ideology
+alias[trigger:has_core_ideology] = bool
+
+## scopes = { state }
+### Checks if a culture has a cultural community in the scoped state.
+alias[trigger:has_cultural_community] = scope[culture]
+
+## scopes = { country }
+### Check if the target country could ever be able to form a nation
+alias[trigger:has_potential_to_form_country] = <country_definition>
+
+## scopes = { religion }
+### Checks if a religion has a certain goods as taboo
+alias[trigger:has_religious_taboo] = <good>
+
+## scopes = { pop }
+### Checks if the scoped pop belongs to a specific social class
+alias[trigger:has_social_class] = <social_class>
+
+## scopes = { country }
+### Checks if the scoped country is considered adjacent to the target country by virtue of the scoped country having wargoals that are adjacent to the target country in a committed diplomatic play
+alias[trigger:is_considered_adjacent_due_to_wargoals] = scope[country]
+
+## scopes = { state }
+### Scoped state is a mass migration target for the specified culture.
+alias[trigger:is_mass_migration_target_for_culture] = scope[culture]
+
+## scopes = { interest_group }
+### Checks if interest group is member of any lobby
+alias[trigger:is_member_of_any_lobby] = bool
+
+## scopes = { any }
+### Checks whether the specified scope target has been set (includes being the null object)
+### is_set = from.owner.var:cool_var.mother
+alias[trigger:is_set] = scalar
+
+## scopes = { state }
+### Checks if the scoped State is a Strategic Objective of a Country
+alias[trigger:is_strategic_objective] = scope[country]
+
+## scopes = { any }
+### Checks if character template has already been used
+alias[trigger:is_template_used] = <character_template>
+
+## scopes = { state }
+### Checks if the most prominent revolting interest group in the scoped state has the given interest group type. Evaluates false if the scoped state is not in revolt.
+alias[trigger:most_prominent_revolting_interest_group] = <interest_group>
+
+## scopes = { country }
+### Compares the total cost of nationalizing all buildings in scope country owned by the government or pops of target country
+alias[trigger:nationalization_cost] = {
+    target = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Checks if the scoped country neighbors any power bloc. Note: the scoped country is not considered to be neighboring the power bloc it belongs to (if any)
+alias[trigger:neighbors_any_power_bloc] = bool
+
+## scopes = { country }
+### Checks if the scoped country neighbors any other country belonging to the same power bloc
+alias[trigger:neighbors_member_of_same_power_bloc] = bool
+
+## scopes = { country }
+### Checks if the scoped country neighbors the target power bloc. Note: the scoped country is not considered to be neighboring the power bloc it belongs to (if any)
+alias[trigger:neighbors_member_of_same_power_bloc] = scope[power_bloc]
+
+## scopes = { country }
+### Checks if any country on the same side as scope country in any diplomatic play holds a wargoal of a specific type targeting a specific country
+alias[trigger:play_side_has_war_goal_of_type_against] = {
+    type = enum[war_goal]
+    target = scope[country]
+}
+
+## scopes = { state }
+### Compare the current population of a target culture in the scoped state
+alias[trigger:population_by_culture] = {
+    target = scope[culture]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Check the expected power ratio between scope country side and target country side in a potential diplomatic play
+### Attempts to predict which sides involved participants will take (if any) so doesn't just check 'starting strengths'
+### potential_diplomatic_play_power_ratio = { type = dp_open_market target = c:BEL state = c:BEL.capital value > 1.0 }
+### state and type are optional, will default to dp_open_market on target capital
+alias[trigger:potential_diplomatic_play_power_ratio] = {
+    target = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+
+    ## cardinality = 0..1
+    type = <diplomatic_play>
+
+    ## cardinality = 0..1
+    state = scope[state]
+}
+
+## scopes = { power_bloc }
+### Predicts the cohesion of a Power Bloc (as a fraction of 1) if it included target country as a member
+alias[trigger:predicted_cohesion_percentage_with] = {
+    target = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { war }
+### Determines the war exhaustion a country gets from their degree of cultural acceptance of manpower killed in the war, regardless of what side they were on
+alias[trigger:war_exhaustion_from_acceptance_of_dead] = {
+    target = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Checks if any country on the same side as scope country in any war holds a wargoal of a specific type targeting a specific country
+alias[trigger:war_side_has_war_goal_of_type_against] = {
+    type = <diplomatic_play>
+    target = scope[country]
+}
+
+## scopes = { character }
+### Checks whether the scoped character was exiled
+alias[trigger:was_exiled] = bool
