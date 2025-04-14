@@ -1251,12 +1251,16 @@ links = {
 		output_scope = country
 		input_scopes = military_formation
 	}
+	### Compares the number of subjects of scoped country
 	num_subjects = {
+		desc = "Compares the number of subjects of scoped country"
 		input_scopes = country
 		output_scope = value
 		type = value
 	}
+	### Compare trigger for the Liberty Desire value in a scoped country.
 	liberty_desire = {
+		desc = "Compare trigger for the Liberty Desire value in a scoped country."
 		input_scopes = country
 		output_scope = value
 		type = value
@@ -1617,12 +1621,9 @@ links = {
 		output_scope = value
 		type = value
 	}
-	income_transfer = {
-		input_scopes = diplomatic_pact
-		output_scope = value
-		type = value
-	}
+	### Compare trigger for the weekly Liberty Desire progress value in a scoped country.
 	liberty_desire_weekly_progress = {
+		desc = "Compare trigger for the weekly Liberty Desire progress value in a scoped country."
 		input_scopes = country
 		output_scope = value
 		type = value
@@ -2249,23 +2250,27 @@ links = {
 		input_scopes = country
 		output_scope = country
 	}
-	### Gets market goods pricier
+	### Checks if market goods is at least the specified percentage more expensive than base price
 	market_goods_pricier = {
-		desc = "Gets market goods pricier"
-		input_scopes = goods
+		desc = "Checks if market goods is at least the specified percentage more expensive than base price"
+		input_scopes = good
 		output_scope = value
 		type = value
 	}
 	### Returns the total population of country
 	total_population = {
 		desc = "Returns the total population of country"
-		input_scopes = front
+		input_scopes = { country }
 		output_scope = value
 		type = value
 	}
-
-	# Comparison Links
-
+	### Compares the total population in the scope country and its subjects
+	total_population_including_subjects = {
+		desc = "Compares the total population in the scope country and its subjects"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
 	### Value of relations between two countries (examples: relations:root >= 2, relations(root.owner) > 10)
 	relations = {
 		desc = "Value of relations between two countries (examples: relations:root >= 2, relations(root.owner) > 10)"
@@ -2525,7 +2530,7 @@ links = {
 		type = value
 		from_data = yes
 		from_argument = yes
-		prefix = enactment_chance_for_law:
+		prefix = enemy_contested_wargoals:
 		data_source = scope[war]
 		input_scopes = { any }
 		output_scope = any
@@ -2953,5 +2958,389 @@ links = {
 		data_source = scope[country]
 		input_scopes = { war }
 		output_scope = any
+	}
+	### Compares the fraction of this building's levels that are owned by a country
+	country_ownership_fraction = {
+		desc = "Compares the fraction of this building's levels that are owned by a country"
+		type = value
+		input_scopes = { building }
+		output_scope = value
+	}
+	### Checks the amount of weekly innovation a country produces
+	country_innovation = {
+		desc = "Checks the amount of weekly innovation a country produces"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the very roughly approximated weeks remaining to finish the constructions in the private queue: construction_queue_private_duration < 52
+	construction_queue_private_duration = {
+		desc = "Compares the very roughly approximated weeks remaining to finish the constructions in the private queue: construction_queue_private_duration < 52"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the number of privately constructed building levels in the construction queue
+	construction_queue_num_queued_private_levels = {
+		desc = "Compares the number of privately constructed building levels in the construction queue"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the very roughly approximated weeks remaining to finish the constructions in the government queue: construction_queue_government_duration < 52
+	construction_queue_government_duration = {
+		desc = "Compares the very roughly approximated weeks remaining to finish the constructions in the government queue: construction_queue_government_duration < 52"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the number of government constructed building levels in the construction queue
+	construction_queue_num_queued_government_levels = {
+		desc = "CCompares the number of government constructed building levels in the construction queue"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare average standard of living for primary cultures
+	average_sol_for_primary_cultures = {
+		desc = "Compare average standard of living for primary cultures"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare average standard of living for enslaved pops
+	average_sol_for_slaves = {
+		desc = "Compare average standard of living for enslaved pops"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare to a country's total army power projection
+	army_power_projection = {
+		desc = "Compare to a country's total army power projection"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the appeasement of a political lobby.
+	appeasement = {
+		desc = "Compares the appeasement of a political lobby"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare to a country's total army power projection
+	### ### scope:example_country = { army_power_projection < root.army_power_projection
+	army_power_projection = {
+		desc = "Compare to a country's total army power projection"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Day value
+	day_value = {
+		desc = "Day value"
+		type = value
+		input_scopes = { any }
+		output_scope = value
+	}
+	### DayNight value
+	daynight_value = {
+		desc = "DayNight value"
+		type = value
+		input_scopes = { any }
+		output_scope = value
+	}
+	### Night value
+	night_value = {
+		desc = "Night value"
+		type = value
+		input_scopes = { any }
+		output_scope = value
+	}
+	### Compares the dependents size of the scoped pop
+	### dependents >= 2000
+	dependents = {
+		desc = "Compares the dependents size of the scoped pop"
+		type = value
+		input_scopes = { pop }
+		output_scope = value
+	}
+	### Compares the current enactment chance in scope country (including values from enactment modifier)
+	enactment_chance = {
+		desc = "Compares the current enactment chance in scope country (including values from enactment modifier)"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the current enactment chance in scope country but excludes values from enactment modifier
+	enactment_chance_without_enactment_modifier = {
+		desc = "Compares the current enactment chance in scope country but excludes values from enactment modifier"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the current enactment setback count in scope country.
+	enactment_setback_count = {
+		desc = "Compares the current enactment setback count in scope country."
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the character experience level
+	experience_level = {
+		desc = "Compares the character experience level"
+		type = value
+		input_scopes = { character }
+		output_scope = value
+	}
+	### Checks if a pop has a certain amount of food security
+	food_security = {
+		desc = "Checks if a pop has a certain amount of food security"
+		type = value
+		input_scopes = { pop }
+		output_scope = value
+	}
+	### Compare a power bloc's free principle slot count
+	free_principle_slots = {
+		desc = "Compare a power bloc's free principhas_any_secessionists_possiblele slot count"
+		type = value
+		input_scopes = { power_bloc }
+		output_scope = value
+	}
+	### Compares a Country's GDP per Capita Ranking (position)
+	gdp_per_capita_ranking = {
+		desc = "Compares a Country's GDP per Capita Ranking (position)"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the global population
+	global_population = {
+		desc = "Compares the global population"
+		type = value
+		input_scopes = { any }
+		output_scope = value
+	}
+	### Does the country have the required gold reserves
+	gold_reserves = {
+		desc = "Does the country have the required gold reserves"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the country's gold reserves limit
+	gold_reserves_limit = {
+		desc = "Compares the country's gold reserves limit"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the government wage level value of scoped country
+	government_wage_level_value = {
+		desc = "Compares the government wage level value of scoped country"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the base income transfer of the diplomatic pact
+	income_transfer = {
+		desc = "Compares the base income transfer of the diplomatic pact"
+		type = value
+		input_scopes = { diplomatic_pact }
+		output_scope = value
+	}
+	### Does the country have this amount of gross income (income before expenses) for its investment pool
+	investment_pool_gross_income = {
+		desc = "Does the country have this amount of gross income (income before expenses) for its investment pool"
+		type = value
+		input_scopes = { diplomatic_pact }
+		output_scope = value
+	}
+	### Compares the progressiveness of the scoped law type to the target law type, higher value means greater difference
+	law_progressiveness_difference = {
+		desc = "Compares the progressiveness of the scoped law type to the target law type, higher value means greater difference"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = law_progressiveness_difference:
+		data_source = scope[law]
+		input_scopes = { law_type }
+		output_scope = value
+	}
+	### Compare to total clout of scoped lobby's interest groups
+	lobby_clout = {
+		desc = "Compare to total clout of scoped lobby's interest groups"
+		type = value
+		input_scopes = { political_lobby }
+		output_scope = value
+	}
+	### Compares the military wage level value of scoped country
+	military_wage_level_value = {
+		desc = "Compares the military wage level value of scoped country"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare to current game date month (Jan: 0, Dec: 11)
+	month = {
+		desc = "Compare to current game date month (Jan: 0, Dec: 11)"
+		type = value
+		input_scopes = { any }
+		output_scope = value
+	}
+	### Compare to current real date month (Jan: 1, Dec: 12)
+	real_month = {
+		desc = "Compare to current real date month (Jan: 1, Dec: 12)"
+		type = value
+		input_scopes = { any }
+		output_scope = value
+	}
+	### Compare to number of political lobbies in scoped country or interest group
+	num_political_lobbies = {
+		desc = "Compare to number of political lobbies in scoped country or interest group"
+		type = value
+		input_scopes = { country interest_group }
+		output_scope = value
+	}
+	### Compare the number of states in a power bloc against a value
+	num_power_bloc_states = {
+		desc = "Compare the number of states in a power bloc against a value"
+		type = value
+		input_scopes = { power_bloc }
+		output_scope = value
+	}
+	### The number of possible Descision a Country can take
+	number_of_possible_decisions = {
+		desc = "The number of possible Descision a Country can take"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare military support of political movement
+	political_movement_military_support = {
+		desc = "Compare military support of political movement"
+		type = value
+		input_scopes = { political_movement }
+		output_scope = value
+	}
+	### Compare popular support of political movement
+	political_movement_popular_support = {
+		desc = "Compare popular support of political movement"
+		type = value
+		input_scopes = { political_movement }
+		output_scope = value
+	}
+	### Compare wealth support of political movement
+	political_movement_wealth_support = {
+		desc = "Compare wealth support of political movement"
+		type = value
+		input_scopes = { political_movement }
+		output_scope = value
+	}
+	### Compares the percentage of politically involved population in a country
+	politically_involved_ratio = {
+		desc = "Compares the percentage of politically involved population in a country"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the number of Radicals in a pop to its total size
+	pop_loyalist_fraction = {
+		desc = "Compares the number of Radicals in a pop to its total size"
+		type = value
+		input_scopes = { pop }
+		output_scope = value
+	}
+	### Compares the number of Neutrals (not Radical, not Loyalist) in a pop to its total size
+	pop_neutral_fraction = {
+		desc = "Compares the number of Neutrals (not Radical, not Loyalist) in a pop to its total size"
+		type = value
+		input_scopes = { pop }
+		output_scope = value
+	}
+	### Compares the number of Radicals in a pop to its total size
+	pop_radical_fraction = {
+		desc = "Compares the number of Radicals in a pop to its total size"
+		type = value
+		input_scopes = { pop }
+		output_scope = value
+	}
+	### Checks that a country's population has a certain percentage of the country's primary cultures
+	primary_cultures_percent_country = {
+		desc = "Checks that a country's population has a certain percentage of the country's primary cultures"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the fraction of this building's levels that are owned by the building itself
+	self_ownership_fraction = {
+		desc = "Compares the fraction of this building's levels that are owned by the building itself"
+		type = value
+		input_scopes = { building }
+		output_scope = value
+	}
+	### Compare the target Cohesion as a numeric value
+	target_cohesion_number = {
+		desc = "Compare the target Cohesion as a numeric value"
+		type = value
+		input_scopes = { power_bloc }
+		output_scope = value
+	}
+	### Compare the target Cohesion as a percentage of the maximum of a Power Bloc in scope
+	target_cohesion_percentage = {
+		desc = "Compare the target Cohesion as a percentage of the maximum of a Power Bloc in scope"
+		type = value
+		input_scopes = { power_bloc }
+		output_scope = value
+	}
+	### Compare the number of days the country in scope has been a member of their current Power Bloc
+	tenure_in_current_power_bloc_days = {
+		desc = "Compare the number of days the country in scope has been a member of their current Power Bloc"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare the number of (whole) months the country in scope has been a member of their current Power Bloc
+	tenure_in_current_power_bloc_months = {
+		desc = "Compare the number of (whole) months the country in scope has been a member of their current Power Bloc"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare the number of (whole) weeks the country in scope has been a member of their current Power Bloc
+	tenure_in_current_power_bloc_weeks = {
+		desc = "Compare the number of (whole) weeks the country in scope has been a member of their current Power Bloc"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compare the number of (whole) years the country in scope has been a member of their current Power Bloc
+	tenure_in_current_power_bloc_years = {
+		desc = "Compare the number of (whole) years the country in scope has been a member of their current Power Bloc"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the total population of a given country's share of the global population
+	total_population_share = {
+		desc = "Compares the total population of a given country's share of the global population"
+		type = value
+		input_scopes = { country }
+		output_scope = value
+	}
+	### Compares the total size of the scoped pop
+	total_size = {
+		desc = "Compares the total size of the scoped pop"
+		type = value
+		input_scopes = { pop }
+		output_scope = value
+	}
+	### Compares the workforce size of the scoped pop
+	workforce = {
+		desc = "Compares the workforce size of the scoped pop"
+		type = value
+		input_scopes = { pop }
+		output_scope = value
 	}
 }

@@ -623,7 +623,7 @@ alias[effect:trigger_event] = {
 }
 
 ### Sets the state region for the scoped company, so the company building can be built there
-## Scope = company
+## scopes = { company }
 alias[effect:set_company_state_region] = scope[state_region]
 
 ### Repeats enclosed effects while limit criteria are met or until set iteration count is reached while = { limit = { <triggers> } <effects> }  while = { count = 3 <effects> } Default max of 1000.
@@ -682,6 +682,7 @@ alias[effect:add_religion_standard_of_living_modifier] = {
 }
 
 ### Changes X% of the different religion population to the specified religion. convert_population = { target = rel:catholic value = 0.5 }
+## scopes = { state }
 alias[effect:convert_population] = {
     target = scope[religion]
     value = value_field
@@ -1387,6 +1388,17 @@ alias[effect:change_pop_religion] = {
     value = $define_reference
 }
 
+### Adds an acceptance delta for a culture in a state
+## scopes = { state }
+alias[effect:add_acceptance] = {
+    culture = scope[culture]
+    value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
+}
+
 ### Changes the type of the pop to the given type
 alias[effect:change_poptype] = scope[pop_type]
 
@@ -1646,7 +1658,7 @@ alias[effect:transfer_to_formation] = scope[military_formation]
 alias[effect:start_enactment] = scope[law_type]
 
 ### Sets the establishment date of scope company
-## Scope = company
+## scopes = { company }
 alias[effect:set_company_establishment_date] = date_field
 
 ### Allows only one party
@@ -1726,11 +1738,16 @@ alias[effect:decrease_autonomy] = bool
 ### Decrease autonomy of country
 alias[effect:increase_autonomy] = bool
 
-### Join a war
+### Makes target join a scoped war in a specific side.
+## scopes = { war }
 alias[effect:join_war] = {
     target = scope[country]
     side = scope[country]
 }
+
+### Set a character's home country. This makes them start considering themselves as having been exiled, i.e. was_exiled starts evaluating to yes for them.
+## scopes = { character }
+alias[effect:set_home_country] = scope[country]
 
 ### Make a character the ruler of the country he is in
 alias[effect:set_character_as_ruler] = bool
@@ -1887,3 +1904,280 @@ alias[effect:set_available_for_autonomous_investment] = scope[country]
 ## scopes = { state_region }
 ### Starts a harvest condition in the given state region
 alias[effect:start_harvest_condition] = <harvest_condition_type>
+
+## scopes = { political_movement }
+### Adds a character ideology to the scoped political movement
+alias[effect:add_character_ideology] = scope[ideology]
+
+## scopes = { political_movement }
+### Removes a character ideology from the scoped political movement
+alias[effect:remove_character_ideology] = scope[ideology]
+
+## scopes = { power_bloc }
+### Adds a specific amount of Cohesion to the Power Bloc in scope
+### add_cohesion_number = 100 [adds 100 points to Cohesion]
+alias[effect:add_cohesion_number] = value
+
+## scopes = { state }
+### Adds a cultural community for the target culture in the scoped state.
+### scope:some_state = { add_cultural_community = cu:zulu }
+alias[effect:add_cultural_community] = scope[culture]
+
+## scopes = { culture }
+### Adds a cultural community for the scoped culture in the target state.
+### cu:zulu = { add_cultural_community_in_state = scope:some_state }
+alias[effect:add_cultural_community_in_state] = scope[state]
+
+## scopes = { country }
+### Changes the current law enactment setback count in scope country by an added amount.
+### The result will be clamped between 0 and country_law_max_setbacks_add The law enactment will fail if the resulting value equals country_law_max_setbacks_add
+alias[effect:add_enactment_setback] = int
+
+## scopes = { party }
+### Adds target interest group to scope party
+### py:py_key = { add_ig_to_party = ig:ig_key }
+alias[effect:add_ig_to_party] = scope[interest_group]
+
+## scopes = { political_lobby }
+### Adds an interest group as a member of scope political lobby
+### add_lobby_member = scope:interest_group
+alias[effect:add_lobby_member] = scope[interest_group]
+
+## scopes = { country }
+### Annexes a country with all the inheritance effects of a victorious side in a civil war
+### annex_as_civil_war = scope
+alias[effect:annex_as_civil_war] = scope[country]
+
+## scopes = { country }
+### Clears the current law enactment modifier of scope country.
+alias[effect:clear_enactment_modifier] = bool
+
+## scopes = { party }
+### Removes all interest groups from the party, causing it to disband
+alias[effect:disband_party] = bool
+
+## scopes = { political_lobby }
+### Disband scoped political lobby
+### disband_political_lobby = yes
+alias[effect:disband_political_lobby] = bool
+
+## scopes = { state_region }
+### Finish a harvest condition of type in the scoped state region
+### finish_harvest_condition = <key>
+alias[effect:finish_harvest_condition] = <harvest_condition_type>
+
+## scopes = { state_region }
+### Finish a harvest condition of type in the scoped state region
+### finish_harvest_condition = <key>
+alias[effect:finish_harvest_condition] = scope[harvest_condition_type]
+
+## scopes = { state }
+### Kills a number of individuals in the population in the scoped state.
+###
+### All parameters except percent are optional. Pop type and strata cannot be used at the same time.kill_population = {
+###    value = <integer value>
+###    culture = <scope/cu:key>
+###    religion = <scope/rel:key>
+###    interest_group = <scope/ig:key>
+###    pop_type = <scope/pop_type:key>
+###    strata = <key>
+### }
+alias[effect:kill_population_in_state] = {
+    value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
+
+    ## cardinality = 0..1
+    pop_type = <pop_type>
+
+    ## cardinality = 0..1
+    religion = scope[religion]
+
+    ## cardinality = 0..1
+    culture = scope[culture]
+
+    ## cardinality = 0..1
+    strata = enum[pop_strata]
+}
+
+## scopes = { country }
+### Kills a percentage of the population in the scoped country.
+###
+### All parameters except percent are optional. Pop type and strata cannot be used at the same time.kill_population_percent = {
+###    percent = <decimal value>
+###    culture = <scope/cu:key>
+###    religion = <scope/rel:key>
+###    interest_group = <scope/ig:key>
+###    pop_type = <scope/pop_type:key>
+###    strata = <key>
+### }
+alias[effect:kill_population_percent] = {
+    value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
+
+    ## cardinality = 0..1
+    pop_type = <pop_type>
+
+    ## cardinality = 0..1
+    religion = scope[religion]
+
+    ## cardinality = 0..1
+    culture = scope[culture]
+
+    ## cardinality = 0..1
+    strata = enum[pop_strata]
+}
+
+## scopes = { pop }
+### Moves the scoped pop to the specified state (they become unemployed)
+### move_partial_pop = { state = s:STATE_TUSCANY.region_state:TUS }
+### move_partial_pop = { state = s:STATE_TUSCANY.region_state:TUS population = 1000 }
+###  move_partial_pop = { state = s:STATE_TUSCANY.region_state:TUS population_ratio = 0.2 }
+###
+### NOTE: VERY IMPORTANT! This effect _may_ change the pop type of the moved pop. This will happen under the following conditions:
+### 1. if the current pop type cannot be unemployed, the new pop type will be the default one
+### 2.if the current pop type is a slave type and the target state does not allow slavery, the new pop type will be the default one
+alias[effect:move_partial_pop] = {
+    state = scope[state]
+
+    ## cardinality = 0..1
+    population = value_field
+    ## cardinality = 0..1
+    population = single_alias_right[formula]
+    ## cardinality = 0..1
+    population = <script_value>
+    ## cardinality = 0..1
+    population = <static_value>
+    ## cardinality = 0..1
+    population = $define_reference
+
+    ## cardinality = 0..1
+    population_ratio = value_field
+    ## cardinality = 0..1
+    population_ratio = single_alias_right[formula]
+    ## cardinality = 0..1
+    population_ratio = <script_value>
+    ## cardinality = 0..1
+    population_ratio = <static_value>
+    ## cardinality = 0..1
+    population_ratio = $define_reference
+}
+
+## scopes = { political_movement }
+### Removes a character ideology from the scoped political movement
+### remove_character_ideology = x
+alias[effect:remove_character_ideology] = <ideology>
+
+## scopes = { party }
+### Removes target interest group from scope party
+### py:py_key = {
+###    remove_ig_from_party = ig:ig_key
+### }
+alias[effect:remove_ig_from_party] = scope[interest_group]
+
+## scopes = { party }
+### Removes target interest group from scope party
+### py:py_key = {
+###    remove_ig_from_party = ig:ig_key
+### }
+alias[effect:remove_ig_from_party] = scope[interest_group]
+
+## scopes = { political_lobby }
+### Removes an interest group as a member of scope political lobby
+### remove_lobby_member = scope:interest_group
+alias[effect:remove_lobby_member] = scope[interest_group]
+
+## scopes = { power_bloc }
+### Removes principle from powerbloc
+### power_bloc = {
+###    remove_principle = test_principle_group_A_1
+### }
+alias[effect:remove_principle] = <power_bloc_principle>
+
+## scopes = { political_movement }
+### Starts/stops bolstering the political movement in scope
+### set_bolstering = yes/no
+alias[effect:set_bolstering] = bool
+
+## scopes = { political_movement }
+### Starts/stops suppressing the political movement in scope
+### set_suppression = yes/no
+alias[effect:set_suppression] = bool
+
+## scopes = { country }
+### Sets the heir of the scoped country to the character scope specified
+### set_heir = scope:victoria
+alias[effect:set_heir] = scope[character]
+
+## scopes = { character }
+### Set a character's home country directly to a tag, you can use this to avoid making sure that the tag exists, this makes them an exile
+### set_home_country_definition = cd:FRA
+alias[effect:set_home_country_definition] = scope[country_definition]
+
+## scopes = { character }
+### Sets the interest group of the character
+### set_interest_group = ruler.interest_group
+alias[effect:set_interest_group] = scope[interest_group]
+
+## scopes = { country }
+### Sets the social hierarchy the scoped country
+### set_social_hierarchy = <key>
+alias[effect:set_social_hierarchy] = <social_hierarchy>
+
+## scopes = { any }
+### Sorts a variable list
+### sort_global_variable_list = { name = X order = Y }
+### Where X is the name of the variable
+### Where Y is some math script to determine sort order
+alias[effect:sort_global_variable_list] = {
+    name = value_set[global_variable_list]
+    order = single_alias_right[formula]
+    order = <script_value>
+}
+
+## scopes = { any }
+### Sorts a variable list
+### sort_local_variable_list = { name = X order = Y }
+### Where X is the name of the variable
+### Where Y is some math script to determine sort order
+alias[effect:sort_local_variable_list] = {
+    name = value_set[local_variable_list]
+    order = single_alias_right[formula]
+    order = <script_value>
+}
+
+## scopes = { any }
+### Sorts a variable list
+### sort_variable_list = { name = X order = Y }
+### Where X is the name of the variable
+### Where Y is some math script to determine sort order
+alias[effect:sort_variable_list] = {
+    name = value_set[variable_list]
+    order = single_alias_right[formula]
+    order = <script_value>
+}
+
+## scopes = { state }
+### Start constructing a building in a scoped state as a private construction
+### start_privately_funded_building_construction = building_barracks
+alias[effect:start_privately_funded_building_construction] = <building>
+
+## scopes = { country }
+### Tries to form a new govt with provided IGs, If not possible with legitimacy provided will try and add as many IGs into the govt as possible
+### try_form_government_with = {
+###     value = 30
+###     interest_group_type = ig_armed_forces
+###     interest_group_type = ig_devout
+###     interest_group_type = ig_landowners
+### }
+alias[effect:try_form_government_with] = {
+    value = int[1..100]
+
+    ## cardinality = 1..inf
+    interest_group_type = <interest_group>
+}
