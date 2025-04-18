@@ -327,6 +327,26 @@ enums = {
     # Undocumented. Added values that are used in base game
     enum[message_types] = {
         country
+        diplomatic_action
+        diplomatic_play
+        law
+        institution
+        state_region
+        state
+        civil_war
+        character
+        journal_entry
+        building
+        military_formation
+        power_bloc
+        market
+        diplomatic_pact
+        diplomatic_demand
+        interest_marker
+        interest_group
+        culture
+        trade_route
+        political_movement
     }
 
     # Undocumented. Added values that are used in base game
@@ -349,12 +369,16 @@ enums = {
     enum[customizable_localization_type] = {
         character
         country
+        building
+        state
+        political_lobby
         culture
         religion
         goods
     }
 
     enum[notification_types] = {
+        none
         feed
         toast
         popup
@@ -399,6 +423,10 @@ enums = {
         frost
         wildfire
         hail
+        locust_swarm
+        heatwave
+        disease_outbreak
+        extreme_winds
         torrential_rains
         none
     }

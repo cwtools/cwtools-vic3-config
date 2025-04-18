@@ -1,0 +1,41 @@
+modifier_categories = {
+	none = {
+		supported_scopes = { any }
+	}
+	building = {
+		supported_scopes = { any }
+	}
+	state = {
+		supported_scopes = { any }
+	}
+	country = {
+		supported_scopes = { any }
+	}
+	market = {
+		supported_scopes = { any }
+	}
+	tariff = {
+		supported_scopes = { any }
+	}
+	unit = {
+		supported_scopes = { any }
+	}
+	battle = {
+		supported_scopes = { any }
+	}
+	character = {
+		supported_scopes = { any }
+	}
+	tax = {
+		supported_scopes = { any }
+	}
+	interest_group = {
+		supported_scopes = { any }
+	}
+	front = {
+		supported_scopes = { any }
+	}
+	political_movement = {
+		supported_scopes = { any }
+	}
+}

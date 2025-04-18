@@ -42,6 +42,12 @@ company_type = {
     }
 
     ## cardinality = 0..1
+    unlocking_principles = {
+        ## cardinality = 1..inf
+        <power_bloc_principle>
+    }
+
+    ## cardinality = 0..1
     potential = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1

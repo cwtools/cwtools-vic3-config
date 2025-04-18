@@ -2,21 +2,21 @@ types = {
     type[good] = {
         path = "game/common/goods"
         file_extension = .txt
-        localisation = {
-            name = "$"
-        }
         subtype[consumable] = {
             obsession_chance = float
         }
+        localisation = {
+            name = "$"
+        }
         images = {
             ## primary
-            texture = texture
+            texture = texture # filepath[game/gfx/interface/icons/goods_icons/]
         }
     }
 }
 
 enums = {
-    enum[good_categories] = {
+    enum[good_category] = {
         military
         staple
         industrial
@@ -33,7 +33,7 @@ good = {
     cost = int
 
     ### What category the game should put the good in
-    category = enum[good_categories]
+    category = enum[good_category]
     
     ## cardinality = 0..1
     ### Base prestige for occupying the rank MIN_PRESTIGE_AWARD spot on the goods production leaderboard. x2 awarded for every rank above the minimum.

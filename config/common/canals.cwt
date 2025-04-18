@@ -3,13 +3,12 @@ types = {
         path = "game/common/canals"
         file_extension = .txt
         localisation = {
-			## required
 			name = "$"
 		}
-        images = {
-            ## primary
-            texture = texture
-        }
+		images = {
+			## primary
+			texture = texture # filepath
+		}
     }
 }
 

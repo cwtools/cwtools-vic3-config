@@ -12,13 +12,16 @@ dlc = {
     ### DLC Name. Should be the same as the name field in the dlc file.
     name = scalar
 
-    ### The type of the DLC. Can be either major or minor.\nGenerally, expansion packs should be marked as major and other DLC's should be marked as minor.\nUsed for sorting, majors shows before minors
+    ### The type of the DLC. Can be either major or minor.
+    ### Generally, expansion packs should be marked as major and other DLC's should be marked as minor.
+    ### Used for sorting, majors shows before minors
     type = enum[dlc_types]
 
     ### App ID of the DLC on Steam. For mods use the base game id 529340
     steam_id = scalar
 
-    ### Sorting priority. Used for sorting within the majors and minors.\nHigher priority shows first.
+    ### Sorting priority. Used for sorting within the majors and minors.
+    ### Higher priority shows first.
     priority = int
 
     ## cardinality = 0..1

@@ -92,7 +92,7 @@ tutorial_lesson = {
 
         ## cardinality = 0..1
         ### The sound effect that should be played when this lesson is shown.
-        soundeffect = scalar
+        soundeffect = enum[sound_effects]
 
         ## cardinality = 0..1
         ### The sound effect that should be played when this lesson is shown.

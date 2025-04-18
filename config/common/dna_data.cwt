@@ -5,15 +5,16 @@ types = {
 }
 
 dna_data = {
+    ## cardinality = 0..1
     enabled = bool
 
     portrait_info = {
         genes = {
-            hair_color = alias_match_right[color]
+            hair_color = { int[0..255] int[0..255] int[0..255] int[0..255] }
 
-            skin_color = alias_match_right[color]
+            skin_color = { int[0..255] int[0..255] int[0..255] int[0..255] }
 
-            eye_color = alias_match_right[color]
+            eye_color = { int[0..255] int[0..255] int[0..255] int[0..255] }
 
             ## cardinality = 1..inf
             <gene> = {
@@ -23,6 +24,58 @@ dna_data = {
                 ## cardinality = 1..inf
                 int
             }
+
+            ## cardinality = 0..1
+            ### DEPRECATED
+            outfits = {
+                ## cardinality = 1..inf
+                scalar
+                ## cardinality = 1..inf
+                int
+            }
+            ## cardinality = 0..1
+            ### DEPRECATED
+            coats = {
+                ## cardinality = 1..inf
+                scalar
+                ## cardinality = 1..inf
+                int
+            }
+            ## cardinality = 0..1
+            ### DEPRECATED
+            medals = {
+                ## cardinality = 1..inf
+                scalar
+                ## cardinality = 1..inf
+                int
+            }
+            ## cardinality = 0..1
+            ### DEPRECATED
+            necklaces = {
+                ## cardinality = 1..inf
+                scalar
+                ## cardinality = 1..inf
+                int
+            }
+            ## cardinality = 0..1
+            ### DEPRECATED
+            legwear = {
+                ## cardinality = 1..inf
+                scalar
+                ## cardinality = 1..inf
+                int
+            }
+            ## cardinality = 0..1
+            ### DEPRECATED
+            headgear = {
+                ## cardinality = 1..inf
+                scalar
+                ## cardinality = 1..inf
+                int
+            }
         }
+
+        ## cardinality = 0..1
+        entity = { float float }
     }
 }

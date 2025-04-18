@@ -21,5 +21,5 @@ map_notification_type = {
 
     ## cardinality = 0..1
     ### The sound to play when the message spawns on the map, assuming it's visible to the player. Can be omitted.
-    sound = scalar
+    sound = enum[sound_effects]
 }

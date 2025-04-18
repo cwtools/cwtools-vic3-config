@@ -2,13 +2,6 @@ types = {
     type[building] = {
         path = "game/common/buildings"
         file_extension = .txt
-        localisation = {
-            name = "$"
-        }
-        images = {
-            ## primary
-            icon = icon
-        }
         subtype[military] = {
             recruits_combat_unit = <old_combat_unit_type>
         }
@@ -21,6 +14,13 @@ types = {
         }
         subtype[subsistence] = {
             building_group = <building_group.subsistence>
+        }
+        localisation = {
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
         }
     }
 }
@@ -69,6 +69,9 @@ building = {
     ## cardinality = 0..1
     ### if yes the region with that building built is considered for air travel, default no
     enable_air_connection = bool
+
+    ## cardinality = 0..1
+    company_headquarter = bool
 
     ## cardinality = 0..1
     ### if yes the building can connect different market areas, default no
@@ -207,10 +210,6 @@ building = {
                 clear_collision_mesh_area = bool
             }
         }
-
-        ## push_scope = state_region
-        ## cardinality = 0..1
-        possible = single_alias_right[trigger_clause]
     }
 
     ## cardinality = 0..1

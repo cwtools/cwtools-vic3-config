@@ -15,11 +15,11 @@ types = {
     ## unique = yes
     type[discrimination_trait] = {
         path = "game/common/discrimination_traits"
-        localisation = {
-			name = "$"
-		}
         subtype[heritage] = {
             heritage = yes
+        }
+        localisation = {
+            name = "$"
         }
     }
 }
@@ -40,7 +40,7 @@ culture = {
     ## cardinality = 0..1
     obsessions = {
         ## cardinality = 1..inf
-        <goods.consumable>
+        <good.consumable>
     }
 
     ### Men's names

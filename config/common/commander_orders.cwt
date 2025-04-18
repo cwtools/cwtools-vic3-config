@@ -41,7 +41,7 @@ commander_order = {
     modifier = single_alias_right[modifier_clause]
 
     ### the sound that will be played when this order is selected
-    clicksound = scalar
+    clicksound = enum[sound_effects]
 
     ## cardinality = 0..1
     entity_animation = scalar

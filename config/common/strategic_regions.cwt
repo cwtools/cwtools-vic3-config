@@ -2,10 +2,20 @@ types = {
     type[strategic_region] = {
         path = "game/common/strategic_regions"
         file_extension = .txt
+        subtype[land] = {
+            capital_province = enum[provinces]
+        }
+        subtype[land] = {
+            map_color = { }
+        }
+        subtype[land] = {
+            graphical_culture = enum[graphical_cultures]
+        }
+        ## only_if_not = { land }
+        subtype[water] = {}
         localisation = {
-			## required
-			name = "$"
-		}
+            name = "$"
+        }
     }
 }
 

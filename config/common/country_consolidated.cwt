@@ -4,9 +4,7 @@ types = {
         path = "game/common/country_definitions"
         file_extension = .txt
         localisation = {
-			## required
 			name = "$"
-			## required
 			adjective = "$_ADJ"
 		}
     }
@@ -76,6 +74,7 @@ country_definition = {
     religion = <religion>
     
     ### The default capital for the country, important for country releasing
+    ## cardinality = 0..1
     capital = <state_region>
     
     ## cardinality = 0..1

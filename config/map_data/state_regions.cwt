@@ -3,11 +3,21 @@ types = {
     type[state_region] = {
         path = "game/map_data/state_regions"
         file_extension = .txt
-        localisation = {
-			## required
-			name = "$"
-		}
 
+        # Water-only states won't have arable land, and land states always should
+        subtype[land] = {
+            arable_land = int
+        }
+        # Coastal states always have a naval_exit_id
+        subtype[coastal] = {
+            naval_exit_id = int
+        }
+        ## only_if_not = { land coastal }
+        subtype[water] = {}
+
+        localisation = {
+            name = "$"
+        }
     }
 }
 
@@ -24,7 +34,7 @@ state_region = {
 
     ## cardinality = 0..1
     ### Which type of subsistence building is used
-    subsistence_building = <building.subsistence>
+    subsistence_building = <building>
 
     ### List of provinces, each with double quotes
     provinces = {

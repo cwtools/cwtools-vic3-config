@@ -3,7 +3,10 @@ types = {
         path = "game/common/journal_entries"
         file_extension = .txt
         localisation = {
+            ## required
             name = "$"
+            ## required
+            reason = "$_reason"
         }
     }
 }

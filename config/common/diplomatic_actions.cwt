@@ -123,19 +123,19 @@ diplomatic_action = {
 
     ## cardinality = 0..1
     ### "event:/SFX/UI/Global/alternate_confirmation" If set, overrides the sound path set in defines/00_audio.txt for this particular action
-    confirmation_sound = scalar
+    confirmation_sound = enum[sound_effects]
 
     ## cardinality = 0..1
     ### "event:/SFX/UI/MapInteraction/alternate_request" If set, overrides the sound path set in defines/00_audio.txt for this particular action
-    request_sound = scalar
+    request_sound = enum[sound_effects]
 
     ## cardinality = 0..1
     ### "event:/SFX/UI/MapInteraction/alternate_hostile" If set, overrides the sound path set in defines/00_audio.txt for this particular action
-    hostile_sound = scalar
+    hostile_sound = enum[sound_effects]
 
     ## cardinality = 0..1
     ### "event:/SFX/UI/MapInteraction/alternate_benign" If set, overrides the sound path set in defines/00_audio.txt for this particular action
-    benign_sound = scalar
+    benign_sound = enum[sound_effects]
 
     ## cardinality = 0..1
     pact = {
