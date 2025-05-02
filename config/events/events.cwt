@@ -3,7 +3,8 @@ types = {
 	type[event] = {
 		path = "game/events"
 		file_extension = .txt
-		
+
+        ## group = event_attribute
 		subtype[hidden] = {
 			hidden = yes
 		}
