@@ -1852,7 +1852,22 @@ alias[effect:create_political_movement] = {
 alias[effect:create_power_bloc] = {
     name = localisation
 
-    map_color = alias_match_right[color]
+    map_color = enum[named_colors]
+    map_color = colour[rgb]
+    map_color = colour[hsv]
+    map_color = colour[hsv360]
+    ## color_type = hsv
+    map_color = {
+        ## cardinality = 3..3
+        base = float
+    }
+    ## color_type = rgb
+    map_color = {
+        ## cardinality = 3..3
+        base = int[0..255]
+    }
+    ## color_type = hex
+    map_color = scalar
 
     founding_date = date_field
 

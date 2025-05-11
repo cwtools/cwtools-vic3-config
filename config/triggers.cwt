@@ -605,7 +605,6 @@ alias[trigger:construction_queue_num_queued_levels] == value_field
 
 ### Checks if a culture is one of the primary cultures in the country country_has_primary_culture = <culture>
 alias[trigger:country_has_primary_culture] = scope[culture]
-alias[trigger:country_has_primary_culture] = <culture>
 
 ### Checks if a religion is the state religion in the country country_has_accepted_religion = <religion>
 alias[trigger:country_has_state_religion] = scope[religion]

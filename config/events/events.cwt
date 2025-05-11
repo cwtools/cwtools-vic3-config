@@ -142,6 +142,16 @@ event = {
 	## cardinality = 0..1
 	minor_right_icon = scope_field
 	## cardinality = 0..1
+	left_icon = filepath
+	## cardinality = 0..1
+	right_icon = filepath
+	## cardinality = 0..1
+	center_icon = filepath
+	## cardinality = 0..1
+	minor_left_icon = filepath
+	## cardinality = 0..1
+	minor_right_icon = filepath
+	## cardinality = 0..1
 	gui_window = scalar
 
 	## cardinality = 0..1
