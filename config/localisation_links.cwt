@@ -1,0 +1,7 @@
+localisation_links = {
+    concept = {
+        type = value
+        from_data = yes
+        data_source = <game_concept>
+    }
+}

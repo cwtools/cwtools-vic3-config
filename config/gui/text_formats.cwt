@@ -1,0 +1,14 @@
+types = {
+    ## type_key_filter = format
+    type[text_format] = {
+        path = "game/gui"
+        path_extension = .gui
+        skip_root_key = textformatting
+        name_field = name
+    }
+}
+
+text_format = {
+    name = scalar
+    format = scalar # css-like
+}
