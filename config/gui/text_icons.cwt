@@ -1,0 +1,25 @@
+types = {
+    ## type_key_filter = texticon
+    type[text_icon] = {
+        path = "game/gui"
+        path_extension = .gui
+        name_field = icon
+
+        images = {
+            ## primary
+            texture = iconsize/texture
+        }
+    }
+}
+
+text_icon = {
+    icon = scalar
+    iconsize = {
+        offset = {
+            ## cardinality = 2..2
+            int
+        }
+        texture = filepath
+        fontsize = int[1..inf]
+    }
+}
