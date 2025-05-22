@@ -1189,8 +1189,9 @@ alias[effect:remove_diplomatic_pact] = {
     type = <diplomatic_action>
 }
 
+## Scopes = { country }
 ### Removes an enactment-related timed modifier effect to object in scope
-alias[effect:remove_enactment_modifier] = replace_me
+alias[effect:remove_enactment_modifier] = <modifier_container>
 
 ### Removes an enactment-related timed modifier effect to object in scope
 alias[effect:kill_population_percent_in_state] = {
@@ -1429,7 +1430,12 @@ alias[effect:set_pop_literacy] = {
 }
 
 ### Sets the pop qualifications of the pop for the given type set_pop_qualifications = { pop_type = {} qualifications = {...} } Where the qualifications is a script value computing the percentage of (workforce) pops that will have the qualifications
-alias[effect:set_pop_qualifications] = replace_me
+## scopes = { pop }
+alias[effect:set_pop_qualifications] = {
+    pop_type = <pop_type>
+    qualifications = value_field
+    qualifications = single_alias_right[formula]
+}
 
 ### Sets the wealth of the pop set_pop_wealth = { wealth_distribution = {...} update_loyalties = true/false } Where wealth is a script values
 alias[effect:set_pop_wealth] = {
@@ -1440,7 +1446,11 @@ alias[effect:set_pop_wealth] = {
 }
 
 ### Adds war support to the target country in the scoped diplomatic play. The amount will appear under the 'situations' header in tooltips add_diplomatic_play_war_support = { target = country value = value }
-alias[effect:add_diplomatic_play_war_support] = replace_me
+## scopes = { diplomatic_play }
+alias[effect:add_diplomatic_play_war_support] = {
+    target = scope[country]
+    value = value_field
+}
 
 ### Add escalation to a diplomatic play add_escalation = integer
 alias[effect:add_escalation] = int_value_field
