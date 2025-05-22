@@ -1967,6 +1967,7 @@ alias[effect:random_scope_violate_sovereignty_interested_parties] = {
         alias_name[effect] = alias_match_left[effect]
     }
 
+## push_scope = war
 ### Iterate through all relevant wars if target country had their sovereignty violated by scoped country random_scope_violate_sovereignty_wars = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_violate_sovereignty_wars] = {
         ## cardinality = 0..1
@@ -1982,6 +1983,7 @@ alias[effect:random_scope_violate_sovereignty_wars] = {
         alias_name[effect] = alias_match_left[effect]
     }
 
+## push_scope = war
 ### Iterate through all wars related to the scope random_scope_war = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_scope_war] = {
         ## cardinality = 0..1
@@ -1997,7 +1999,7 @@ alias[effect:random_scope_war] = {
         alias_name[effect] = alias_match_left[effect]
     }
 
-## push_scope = culture
+## push_scope = country
 ### Any country below current in hierarchy random_subject_or_below = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
 alias[effect:random_subject_or_below] = {
     ## cardinality = 0..1

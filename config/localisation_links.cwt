@@ -4,4 +4,45 @@ localisation_links = {
         from_data = yes
         data_source = <game_concept>
     }
+    Country = {
+        output_scope = country
+        input_scopes = { any }
+    }
+    GetPlayer = {
+        output_scope = country
+        input_scopes = { any }
+    }
+    DiplomaticAction = {
+        output_scope = diplomatic_action
+        input_scopes = { any }
+    }
+    GetTechnology = {
+        output_scope = technology
+        from_argument = yes
+        from_data = yes
+        data_source = <technology>
+        input_scopes = { any }
+        prefix = GetTechnology
+
+    }
+    GetRelationsWithDesc = {
+        output_scope = value
+        type = value
+        from_argument = yes
+        from_data = yes
+        data_source = scope[country]
+        input_scopes = { country }
+        prefix = GetRelationsWithDesc
+
+    }
+    GetRelationsWith = {
+        output_scope = value
+        type = value
+        from_argument = yes
+        from_data = yes
+        data_source = scope[country]
+        input_scopes = { country }
+        prefix = GetRelationsWith
+
+    }
 }

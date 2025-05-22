@@ -15,6 +15,11 @@ types = {
 text_icon = {
     icon = scalar
     iconsize = {
+        ## cardinality = 0..1
+        size = {
+            ## cardinality = 2..2
+            int
+        }
         offset = {
             ## cardinality = 2..2
             int

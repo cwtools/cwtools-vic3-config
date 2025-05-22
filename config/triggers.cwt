@@ -8,6 +8,7 @@ alias[trigger:has_ideology] = scope[ideology]
 alias[trigger:law_stance] = {
     law = scope[law_type]
     value == enum[law_stance_values]
+    value == int
 }
 
 ### Compares areas of object to another object
@@ -143,6 +144,7 @@ alias[trigger:has_high_attrition] = bool
 alias[trigger:has_religion] = scope[character]
 ### Checks characters religion has_religion = religion/character scope
 alias[trigger:has_religion] = scope[religion]
+alias[trigger:has_religion] = <religion>
 
 ### Checks if character has the specified role has_role = role
 alias[trigger:has_role] = enum[character_role]
@@ -1050,6 +1052,7 @@ alias[trigger:pop_employment_building_group] = <building_group>
 alias[trigger:pop_has_primary_culture] = bool
 
 alias[trigger:pop_acceptance] == enum[acceptance_status]
+alias[trigger:pop_acceptance] == int
 
 ### Compares the quality of life of the given pop quality_of_life > 10
 alias[trigger:quality_of_life] == value_field
@@ -2406,7 +2409,7 @@ alias[trigger:country_average_religious_acceptance] = {
     value == $define_reference
 }
 
-## scopes = { building }
+## scopes = { country }
 ### Compares a Country's Power Ranking
 ### country_rank < rank_value:major_power
 alias[trigger:country_rank] == value_field
