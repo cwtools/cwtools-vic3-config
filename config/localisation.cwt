@@ -1,6 +1,4 @@
 localisation_promotions = {
-    # GetPlayer = { any }
 }
 localisation_commands = {
-    GetName = { country diplomatic_action technology }
 }
