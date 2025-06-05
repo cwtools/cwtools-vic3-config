@@ -8,6 +8,7 @@ alias[trigger:has_ideology] = scope[ideology]
 alias[trigger:law_stance] = {
     law = scope[law_type]
     value == enum[law_stance_values]
+    value == int
 }
 
 ### Compares areas of object to another object
@@ -143,6 +144,7 @@ alias[trigger:has_high_attrition] = bool
 alias[trigger:has_religion] = scope[character]
 ### Checks characters religion has_religion = religion/character scope
 alias[trigger:has_religion] = scope[religion]
+alias[trigger:has_religion] = <religion>
 
 ### Checks if character has the specified role has_role = role
 alias[trigger:has_role] = enum[character_role]
@@ -241,7 +243,7 @@ alias[trigger:active_lens] = replace_me
 alias[trigger:active_lens_option] = replace_me
 
 ### Saves a temporary target for use during the trigger execution This is used to build lists in triggers. If used within an any-trigger, placement within the trigger is quite important. The game will iterate through every instance of the any-trigger until it finds a single instance that fulfills the requirements, and then it will stop. In order to add every instance of a scope that fulfills certain conditions, use "count = all" while also placing this "effect" at the very end of the any-trigger (so that every condition is evaluated for every iteration).
-alias[trigger:add_to_temporary_list] = replace_me
+alias[trigger:add_to_temporary_list] = value_set[temporary_list]
 
 ### true if all children are false (equivalent to NOR)
 alias[trigger:all_false] = single_alias_right[trigger_clause]
@@ -272,7 +274,14 @@ alias[trigger:can_start_tutorial_lesson] = <tutorial_lesson>
 alias[trigger:current_tooltip_depth] == value_field
 
 ### Wraps triggers that get a custom description instead of the auto-generated one custom_description = { 	text = <trigger_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... triggers ... }
-alias[trigger:custom_description] = replace_me
+alias[trigger:custom_description] = {
+    text = localisation
+    ## cardinality = 0..1
+    subject = scope_field
+    ## cardinality = 0..1
+    object = scope_field
+    alias_name[trigger] = alias_match_left[trigger]
+}
 
 ### Replaces the tooltips for the enclosed triggers with a custom text custom_tooltip = { 	text = <text> 	subject = <scope> (optional) 	<trigger> }
 alias[trigger:custom_tooltip] = {
@@ -361,7 +370,7 @@ alias[trigger:has_map_interaction] = <map_interaction_type>
 alias[trigger:has_map_interaction_diplomatic_action] = <diplomatic_action>
 
 ### Checks if the specified lens option is to export the specified goods has_selected_export_option_for_goods = <scope> An interface trigger, can only be used in specific places
-alias[trigger:has_map_interaction_export_goods] = replace_me
+alias[trigger:has_map_interaction_export_goods] = scope[goods]
 
 ### Checks if the specified lens option is to import the specified goods has_selected_import_option_for_goods = <scope> An interface trigger, can only be used in specific places
 alias[trigger:has_map_interaction_import_goods] = scope[goods]
@@ -391,7 +400,7 @@ alias[trigger:is_game_paused] = bool
 alias[trigger:is_gamestate_tutorial_active] = bool
 
 ### Checks if a target in in a list
-alias[trigger:is_in_list] = replace_me
+alias[trigger:is_in_list] = scope_field
 
 ### Checks if a certain lens is open, specified as a lens key. Specify an optional named tab to check if this tab is open. is_lens_open = { lens = lens_key tab_name = tab_key } An interface trigger, can only be used in specific places
 alias[trigger:is_lens_open] = {
@@ -460,7 +469,14 @@ alias[trigger:is_tutorial_lesson_completed] = <tutorial_lesson>
 alias[trigger:is_tutorial_lesson_step_completed] = replace_me
 
 ### Checks the size of a list list_size = { name = X value >= Y } Where X is the name of the list Where Y is a script value
-alias[trigger:list_size] == replace_me_comparison
+alias[trigger:list_size] == {
+    name = value[variable_list]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
 
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
 alias[trigger:local_variable_list_size] = {
@@ -605,7 +621,6 @@ alias[trigger:construction_queue_num_queued_levels] == value_field
 
 ### Checks if a culture is one of the primary cultures in the country country_has_primary_culture = <culture>
 alias[trigger:country_has_primary_culture] = scope[culture]
-alias[trigger:country_has_primary_culture] = <culture>
 
 ### Checks if a religion is the state religion in the country country_has_accepted_religion = <religion>
 alias[trigger:country_has_state_religion] = scope[religion]
@@ -1051,6 +1066,7 @@ alias[trigger:pop_employment_building_group] = <building_group>
 alias[trigger:pop_has_primary_culture] = bool
 
 alias[trigger:pop_acceptance] == enum[acceptance_status]
+alias[trigger:pop_acceptance] == int
 
 ### Compares the quality of life of the given pop quality_of_life > 10
 alias[trigger:quality_of_life] == value_field
@@ -2407,7 +2423,7 @@ alias[trigger:country_average_religious_acceptance] = {
     value == $define_reference
 }
 
-## scopes = { building }
+## scopes = { country }
 ### Compares a Country's Power Ranking
 ### country_rank < rank_value:major_power
 alias[trigger:country_rank] == value_field

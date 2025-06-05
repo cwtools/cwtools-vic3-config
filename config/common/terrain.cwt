@@ -58,7 +58,22 @@ terrain = {
     created_material = scalar
 
     ### Color used in a debug mode
-    debug_color = alias_match_right[color]
+    debug_color = enum[named_colors]
+    debug_color = colour[rgb]
+    debug_color = colour[hsv]
+    debug_color = colour[hsv360]
+    ## color_type = hsv
+    debug_color = {
+        ## cardinality = 3..3
+        base = float
+    }
+    ## color_type = rgb
+    debug_color = {
+        ## cardinality = 3..3
+        base = int[0..255]
+    }
+    ## color_type = hex
+    debug_color = scalar
 
     ### Pollution mask strength
     pollution_mask_strength = value_field

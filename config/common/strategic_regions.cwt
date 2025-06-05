@@ -28,7 +28,22 @@ strategic_region = {
     capital_province = enum[provinces]
 
     ### Not specified as to rgb vs. hsv or rgb255 vs. rgb100
-    map_color = alias_match_right[color]
+    map_color = enum[named_colors]
+    map_color = colour[rgb]
+    map_color = colour[hsv]
+    map_color = colour[hsv360]
+    ## color_type = hsv
+    map_color = {
+        ## cardinality = 3..3
+        base = float
+    }
+    ## color_type = rgb
+    map_color = {
+        ## cardinality = 3..3
+        base = int[0..255]
+    }
+    ## color_type = hex
+    map_color = scalar
 
     states = {
         ## cardinality = 1..inf

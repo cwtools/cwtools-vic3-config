@@ -23,6 +23,18 @@ links = {
 		input_scopes = { combat_unit new_combat_unit }
 		output_scope = character
 	}
+	### Returns the current HQ of the scoped military formation (may not be valid if the formation is not currently stationed in an HQ)
+	current_hq = {
+		desc = "Returns the current HQ of the scoped military formation (may not be valid if the formation is not currently stationed in an HQ)"
+		input_scopes = { military_formation }
+		output_scope = hq
+	}
+	### Returns the home HQ of the scoped military formation
+	home_hq = {
+		desc = "Returns the home HQ of the scoped military formation"
+		input_scopes = { military_formation }
+		output_scope = hq
+	}
 	### Get the scoped combat unit's morale (0-1)
 	morale = {
 		desc = "Get the scoped combat unit's morale (0-1)"
@@ -268,6 +280,7 @@ links = {
 		desc = "Reference a previous set global variable via its name eg: global_var:important_thing"
 		output_scope = any
 		from_data = yes
+		type = both
 		prefix = global_var:
 		data_source = value[global_variable]
 	}
@@ -303,6 +316,7 @@ links = {
 	local_var = {
 		desc = "Reference a previous set local variable via its name eg: local_var:person_of_interest"
 		output_scope = any
+		type = both
 		from_data = yes
 		prefix = local_var:
 		data_source = value[local_variable]
@@ -440,6 +454,7 @@ links = {
 	var = {
 		desc = "Reference a previous set variable via its name eg: var:mortal_enemy"
 		output_scope = any
+		type = both
 		from_data = yes
 		prefix = var:
 		data_source = value[variable]

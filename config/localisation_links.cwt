@@ -4,4 +4,2261 @@ localisation_links = {
         from_data = yes
         data_source = <game_concept>
     }
+    # data_types_common.txt
+    # Promotes
+    # Missing promotes with arguments
+    Application = {
+        type = scope
+        output_scope = Application
+    }
+    GetVariableSystem = {
+        desc = "Access the global variable system"
+        type = scope
+        output_scope = VariableSystem
+    }
+    InDebugMode = {
+        desc = "Is the game in Debug mode?"
+        type = scope
+        output_scope = bool
+    }
+    InReleaseMode = {
+        desc = "Is the game in Release mode?"
+        type = scope
+        output_scope = bool
+    }
+    # data_types_gui.txt
+    # Promotes
+    # Missing promotes with arguments
+    GetServerInfo = {
+        desc = "Multiplayer - Server Info of current session"
+        type = scope
+        output_scope = ServerInformation
+    }
+    GuiScope = {
+        desc = "Jomini Scripted GUI - Get GUI top jomini scope"
+        type = scope
+        output_scope = TopScope
+    }
+    JominiPlayer = {
+        desc = "Jomini Script Systen - Get generic current playable object"
+        type = scope
+        output_scope = Playable
+    }
+    BindFoldOutContext = {
+        desc = "Add a new PdxGuiFoldOut data context to a widget."
+        type = scope
+        output_scope = void
+    }
+    CanEditSettingsAfterHost = {
+        desc = "Multiplayer - If you can edit settings after hosting (depends on MP platform)"
+        type = scope
+        output_scope = bool
+    }
+    ClearHostError = {
+        desc = "Multiplayer - Clear host error"
+        type = scope
+        output_scope = void
+    }
+    CopyServerID = {
+        desc = "Multiplayer - Copy Server ID of current session to clipboard"
+        type = scope
+        output_scope = void
+    }
+    GetCanGoToFrontend = {
+        desc = "Multiplayer GUI - Can we go back to the frontend?"
+        type = scope
+        output_scope = bool
+    }
+    GetCanGoToFrontendDesc = {
+        desc = "Multiplayer GUI - Message if we can't go back to the frontend"
+        type = scope
+        output_scope = CString
+    }
+    GetEthnicities = {
+        desc = "Portrait System - Get all Ethnicities"
+        type = scope
+        output_scope = DataModel
+    }
+    GetHostError = {
+        desc = "Multiplayer - Get host error"
+        type = scope
+        output_scope = CUTF8String
+    }
+    GetPlayersCount = {
+        desc = "Multiplayer - No of players of current session"
+        type = scope
+        output_scope = int32
+    }
+    GoToFrontend = {
+        desc = "Multiplayer GUI - Go back to the frontend"
+        type = scope
+        output_scope = void
+    }
+    HasHostError = {
+        desc = "Multiplayer - Does the host have an error"
+        type = scope
+        output_scope = bool
+    }
+    IsPreparationLobby = {
+        type = scope
+        output_scope = bool
+    }
+    JominiAccessPlayerJoinRequests = {
+        type = scope
+        output_scope = DataModel
+    }
+    JominiAreAchievementsAvailable = {
+        desc = "Jomini Achievements - Are achievements available?"
+        type = scope
+        output_scope = bool
+    }
+    JominiGetAchievementsNotAvailableString = {
+        desc = "Jomini Achievements - Get text why achievements are not available"
+        type = scope
+        output_scope = CString
+    }
+    JominiGetMultiplayerAccessibleString = {
+        type = scope
+        output_scope = CString
+    }
+    JominiHasPlayerJoinRequests = {
+        type = scope
+        output_scope = bool
+    }
+    JominiIsHostOrLocal = {
+        type = scope
+        output_scope = bool
+    }
+    JominiIsMultiplayerAccessible = {
+        type = scope
+        output_scope = bool
+    }
+    JominiMultiplayerIsCrossplayEnabled = {
+        type = scope
+        output_scope = bool
+    }
+    JominiMultiplayerIsCrossplayFilterAvailable = {
+        type = scope
+        output_scope = bool
+    }
+    NOP = {
+        desc = "No Operation (dummy callback function)"
+        type = scope
+        output_scope = void
+    }
+    OnCreateAccount = {
+        desc = "Start the account creation flow"
+        type = scope
+        output_scope = void
+    }
+    PlayerIsHost = {
+        desc = "Multiplayer GUI - Is the current player the host?"
+        type = scope
+        output_scope = bool
+    }
+    StatusCanLogin = {
+        type = scope
+        output_scope = bool
+    }
+    StatusGetLoginStatus = {
+        type = scope
+        output_scope = CUTF8String
+    }
+    StatusGetUserEmailMasked = {
+        type = scope
+        output_scope = CUTF8String
+    }
+    StatusGetUserName = {
+        type = scope
+        output_scope = CUTF8String
+    }
+    StatusIsAccountConnected = {
+        type = scope
+        output_scope = bool
+    }
+    StatusGetLoginStatus = {
+        type = scope
+        output_scope = bool
+    }
+    StatusIsLoggingIn = {
+        type = scope
+        output_scope = bool
+    }
+    StatusIsOffline = {
+        type = scope
+        output_scope = bool
+    }
+    StatusIsSupportConnectedAccount = {
+        type = scope
+        output_scope = bool
+    }
+    StatusIsUserNameEmpty = {
+        type = scope
+        output_scope = bool
+    }
+    DATE = {
+        type = scope
+        output_scope = Date
+    }
+    DATE_MAX = {
+        type = scope
+        output_scope = Date
+    }
+    DATE_MIN = {
+        type = scope
+        output_scope = Date
+    }
+    EmptyScope = {
+        type = scope
+        output_scope = TopScope
+    }
+    PREV = {
+        type = scope
+        output_scope = Scope
+    }
+    ROOT = {
+        type = scope
+        output_scope = Scope
+    }
+    SCOPE = {
+        type = scope
+        output_scope = TopScope
+    }
+    THIS = {
+        type = scope
+        output_scope = Scope
+    }
+    PREV = {
+        type = scope
+        output_scope = Scope
+    }
+    # data_types_uncategorized.txt
+    # Promotes
+    # Missing promotes with arguments
+    ACCEPTANCE_STATUS = {
+        type = scope
+        output_scope = AcceptanceStatus
+    }
+    AIATTITUDE = {
+        type = scope
+        output_scope = AIAttitude
+    }
+    AISTRATEGY = {
+        type = scope
+        output_scope = AIStrategy
+    }
+    ALERT = {
+        type = scope
+        output_scope = Alert
+    }
+    ALERT_GROUP = {
+        type = scope
+        output_scope = AlertGroup
+    }
+    ALLY_COUNTRY = {
+        type = scope
+        output_scope = Country
+    }
+    AccessGameRules = {
+        type = scope
+        output_scope = JominiGameRules
+    }
+    AccessHighlightManager = {
+        type = scope
+        output_scope = HighlightManager
+    }
+    AccessMetaPlayer = {
+        type = scope
+        output_scope = Player
+    }
+    AccessPlayer = {
+        type = scope
+        output_scope = Country
+    }
+    BATTLE = {
+        type = scope
+        output_scope = Battle
+    }
+    BATTLE_CONDITION = {
+        type = scope
+        output_scope = BattleCondition
+    }
+    BUILDING = {
+        type = scope
+        output_scope = Building
+    }
+    BUILDING_OWNERSHIP = {
+        type = scope
+        output_scope = BuildingOwnership
+    }
+    BUILDING_TYPE = {
+        type = scope
+        output_scope = BuildingType
+    }
+    CANAL_TYPE = {
+        type = scope
+        output_scope = CanalType
+    }
+    CHARACTER = {
+        type = scope
+        output_scope = Character
+    }
+    CHARACTER_INTERACTION = {
+        type = scope
+        output_scope = CharacterInteraction
+    }
+    CHARACTER_TRAIT = {
+        type = scope
+        output_scope = CharacterTrait
+    }
+    CIVIL_WAR = {
+        type = scope
+        output_scope = CivilWar
+    }
+    COMBAT_UNIT = {
+        type = scope
+        output_scope = CombatUnit
+    }
+    COMBAT_UNIT_GROUP = {
+        type = scope
+        output_scope = CombatUnitGroup
+    }
+    COMBAT_UNIT_TYPE = {
+        type = scope
+        output_scope = CombatUnitType
+    }
+    COMMANDER_ORDER_TYPE = {
+        type = scope
+        output_scope = CommanderOrderType
+    }
+    COMMANDER_RANK = {
+        type = scope
+        output_scope = CommanderRank
+    }
+    COMPANY = {
+        type = scope
+        output_scope = Company
+    }
+    COMPANY_TYPE = {
+        type = scope
+        output_scope = CompanyType
+    }
+    CONSTRUCTION_QUEUE_ELEMENT = {
+        type = scope
+        output_scope = ConstructionQueueElement
+    }
+    CONTEXTUAL_DIPLOMATIC_ACTION_TYPE = {
+        type = scope
+        output_scope = ContextualDiplomaticActionType
+    }
+    CONTEXTUAL_DIPLOMATIC_PACT = {
+        type = scope
+        output_scope = ContextualDiplomaticPact
+    }
+    COUNTRY = {
+        type = scope
+        output_scope = Country
+    }
+    COUNTRY_CREATION = {
+        type = scope
+        output_scope = CountryCreation
+    }
+    COUNTRY_DEFINITION = {
+        type = scope
+        output_scope = CountryDefinition
+    }
+    COUNTRY_FORMATION = {
+        type = scope
+        output_scope = CountryFormation
+    }
+    COUNTRY_THIRD_PARTY = {
+        type = scope
+        output_scope = Country
+    }
+    CULTURAL_COMMUNITY = {
+        type = scope
+        output_scope = CulturalCommunity
+    }
+    CULTURE = {
+        type = scope
+        output_scope = Culture
+    }
+    DECISION_TYPE = {
+        type = scope
+        output_scope = Decision
+    }
+    DECREE = {
+        type = scope
+        output_scope = Decree
+    }
+    DECREE_TYPE = {
+        type = scope
+        output_scope = DecreeType
+    }
+    DIPLOMATIC_ACTION = {
+        type = scope
+        output_scope = DiplomaticAction
+    }
+    DIPLOMATIC_ACTION_TYPE = {
+        type = scope
+        output_scope = DiplomaticActionType
+    }
+    DIPLOMATIC_CATALYST = {
+        type = scope
+        output_scope = DiplomaticCatalyst
+    }
+    DIPLOMATIC_CATALYST_CATEGORY = {
+        type = scope
+        output_scope = DiplomaticCatalystCategory
+    }
+    DIPLOMATIC_CATALYST_TYPE = {
+        type = scope
+        output_scope = DiplomaticCatalystType
+    }
+    DIPLOMATIC_DEMAND = {
+        type = scope
+        output_scope = DiplomaticDemand
+    }
+    DIPLOMATIC_PACT = {
+        type = scope
+        output_scope = DiplomaticPact
+    }
+    DIPLOMATIC_PLAY = {
+        type = scope
+        output_scope = DiplomaticPlay
+    }
+    DIPLOMATIC_PLAY_TYPE = {
+        type = scope
+        output_scope = DiplomaticPlayType
+    }
+    DIPLOMATIC_RELATIONS = {
+        type = scope
+        output_scope = DiplomaticRelations
+    }
+    DISCRIMINATION_TRAIT = {
+        type = scope
+        output_scope = DiscriminationTrait
+    }
+    DLC_METADATA = {
+        type = scope
+        output_scope = Dlc
+    }
+    ELECTION = {
+        type = scope
+        output_scope = Election
+    }
+    EMPLOYEE_TRANSFER = {
+        type = scope
+        output_scope = EmployeeTransfer
+    }
+    ENEMY_COUNTRY = {
+        type = scope
+        output_scope = Country
+    }
+    ERA = {
+        type = scope
+        output_scope = Era
+    }
+    EVENT = {
+        type = scope
+        output_scope = Event
+    }
+    FIRSTMARKET = {
+        type = scope
+        output_scope = Market
+    }
+    FRONT = {
+        type = scope
+        output_scope = Front
+    }
+    FRONTPARTICIPANT = {
+        type = scope
+        output_scope = Global
+    }
+    GAME_CONCEPT_TYPE = {
+        type = scope
+        output_scope = GameConceptType
+    }
+    GAME_RULE = {
+        type = scope
+        output_scope = GameRule
+    }
+    GAME_RULE_SETTING = {
+        type = scope
+        output_scope = GameRuleSetting
+    }
+    GOODS = {
+        type = scope
+        output_scope = Goods
+    }
+    GOODSPRODUCTIONINFO = {
+        type = scope
+        output_scope = GoodsProductionInfo
+    }
+    GOVERNMENT_TYPE = {
+        type = scope
+        output_scope = GovernmentType
+    }
+    GetConstructionSectorType = {
+        type = scope
+        output_scope = BuildingType
+    }
+    GetCurrentGameDate = {
+        type = scope
+        output_scope = Date
+    }
+    GetExilePool = {
+        type = scope
+        output_scope = ExilePool
+    }
+    GetGameEndDate = {
+        type = scope
+        output_scope = Date
+    }
+    GetGameRules = {
+        type = scope
+        output_scope = JominiGameRules
+    }
+    GetGameStartDate = {
+        type = scope
+        output_scope = Date
+    }
+    GetLensToolbar = {
+        type = scope
+        output_scope = LensToolbar
+    }
+    GetLoadingScreenManager = {
+        type = scope
+        output_scope = LoadingScreenManager
+    }
+    GetMetaPlayer = {
+        type = scope
+        output_scope = Player
+    }
+    GetPlayer = {
+        type = scope
+        output_scope = Country
+    }
+    HARVEST_CONDITION = {
+        type = scope
+        output_scope = HarvestCondition
+    }
+    HARVEST_CONDITION_AREA = {
+        type = scope
+        output_scope = HarvestConditionArea
+    }
+    HARVEST_CONDITION_TYPE = {
+        type = scope
+        output_scope = HarvestConditionType
+    }
+    HQ = {
+        type = scope
+        output_scope = Hq
+    }
+    IDEOLOGY = {
+        type = scope
+        output_scope = Ideology
+    }
+    INITIATOR_COUNTRY = {
+        type = scope
+        output_scope = Country
+    }
+    INITIATOR_STATE = {
+        type = scope
+        output_scope = State
+    }
+    INSTITUTION = {
+        type = scope
+        output_scope = Institution
+    }
+    INSTITUTION_TYPE = {
+        type = scope
+        output_scope = InstitutionType
+    }
+    INTEREST = {
+        type = scope
+        output_scope = Interest
+    }
+    INTEREST_GROUP = {
+        type = scope
+        output_scope = InterestGroup
+    }
+    INTEREST_GROUP_TRAIT = {
+        type = scope
+        output_scope = InterestGroupTrait
+    }
+    InformationPanelBar = {
+        type = scope
+        output_scope = InformationPanelBar
+    }
+    JOURNAL_ENTRY = {
+        type = scope
+        output_scope = JournalEntry
+    }
+    JOURNAL_ENTRY_GROUP = {
+        type = scope
+        output_scope = JournalEntryGroup
+    }
+    JOURNAL_ENTRY_TYPE = {
+        type = scope
+        output_scope = JournalEntryType
+    }
+    LAW = {
+        type = scope
+        output_scope = Law
+    }
+    LAW_GROUP = {
+        type = scope
+        output_scope = LawGroup
+    }
+    LAW_OTHER = {
+        type = scope
+        output_scope = Law
+    }
+    LAW_TYPE = {
+        type = scope
+        output_scope = LawType
+    }
+    LEGITIMACY_LEVEL = {
+        type = scope
+        output_scope = LegitimacyLevel
+    }
+    LIBERTY_DESIRE_LEVEL = {
+        type = scope
+        output_scope = LibertyDesireLevel
+    }
+    LabelingHelper = {
+        type = scope
+        output_scope = LabelingHelper
+    }
+    MAP_MODE = {
+        type = scope
+        output_scope = MapMode
+    }
+    MARKET = {
+        type = scope
+        output_scope = Market
+    }
+    MARKET_GOODS = {
+        type = scope
+        output_scope = MarketGoods
+    }
+    MILITARY_FORMATION = {
+        type = scope
+        output_scope = MilitaryFormation
+    }
+    MILITARY_FORMATION_FLAG = {
+        type = scope
+        output_scope = MilitaryFormationFlag
+    }
+    MOBILIZATION_OPTION = {
+        type = scope
+        output_scope = MobilizationOption
+    }
+    MOBILIZATION_OPTION_GROUP = {
+        type = scope
+        output_scope = MobilizationOptionGroup
+    }
+    MODIFIER = {
+        type = scope
+        output_scope = Modifier
+    }
+    MODIFIER_BREAKDOWN = {
+        type = scope
+        output_scope = ModifierBreakdown
+    }
+    MapInteractions = {
+        type = scope
+        output_scope = MapInteractionManager
+    }
+    MapListPanelManager = {
+        type = scope
+        output_scope = MapListPanelManager
+    }
+    MultiplayerSynchronizationInfo = {
+        type = scope
+        output_scope = MultiplayerSynchronizationInfo
+    }
+    NAVAL_INVASION = {
+        type = scope
+        output_scope = NavalInvasion
+    }
+    OBJECTIVE = {
+        type = scope
+        output_scope = Objective
+    }
+    OBJECTIVE_TYPE = {
+        type = scope
+        output_scope = ObjectiveType
+    }
+    OBJECT_SCOPE = {
+        type = scope
+        output_scope = Scope
+    }
+    Outliner = {
+        type = scope
+        output_scope = Outliner
+    }
+    PARTY = {
+        type = scope
+        output_scope = Party
+    }
+    PLAYER = {
+        type = scope
+        output_scope = Player
+    }
+    POLITICAL_LOBBY = {
+        type = scope
+        output_scope = PoliticalLobby
+    }
+    POLITICAL_LOBBY_APPEASEMENT_FACTOR = {
+        type = scope
+        output_scope = PoliticalLobbyAppeasementFactor
+    }
+    POLITICAL_LOBBY_TYPE = {
+        type = scope
+        output_scope = PoliticalLobbyType
+    }
+    POLITICAL_MOVEMENT = {
+        type = scope
+        output_scope = PoliticalMovement
+    }
+    POLITICAL_MOVEMENT_CATEGORY = {
+        type = scope
+        output_scope = PoliticalMovementCategory
+    }
+    POLITICAL_MOVEMENT_POP_SUPPORT_FACTOR = {
+        type = scope
+        output_scope = PoliticalMovementPopSupportFactor
+    }
+    POLITICAL_MOVEMENT_TYPE = {
+        type = scope
+        output_scope = PoliticalMovementType
+    }
+    POP = {
+        type = scope
+        output_scope = Pop
+    }
+    POP_GOODS_CONSUMPTION = {
+        type = scope
+        output_scope = PopConsumptionGoods
+    }
+    POP_NEED = {
+        type = scope
+        output_scope = PopNeed
+    }
+    POP_TYPE = {
+        type = scope
+        output_scope = PopType
+    }
+    POP_WITH_IG = {
+        type = scope
+        output_scope = PopWithIG
+    }
+    POWER_BLOC = {
+        type = scope
+        output_scope = PowerBloc
+    }
+    POWER_BLOC_IDENTITY = {
+        type = scope
+        output_scope = PowerBlocIdentity
+    }
+    POWER_BLOC_MAP_TEXTURE = {
+        type = scope
+        output_scope = PowerBlocMapTexture
+    }
+    POWER_BLOC_OTHER = {
+        type = scope
+        output_scope = PowerBloc
+    }
+    POWER_BLOC_PRINCIPLE = {
+        type = scope
+        output_scope = PowerBlocPrinciple
+    }
+    POWER_BLOC_PRINCIPLE_DATA = {
+        type = scope
+        output_scope = PowerBlocPrincipleData
+    }
+    POWER_BLOC_PRINCIPLE_GROUP = {
+        type = scope
+        output_scope = PowerBlocPrincipleGroup
+    }
+    POWER_BLOC_PRINCIPLE_OTHER = {
+        type = scope
+        output_scope = PowerBlocPrinciple
+    }
+    POWER_BLOC_STATUE = {
+        type = scope
+        output_scope = PowerBlocStatue
+    }
+    POWER_BLOC_STATUE_ACCESSORY_TYPE = {
+        type = scope
+        output_scope = PowerBlocStatueAccessoryType
+    }
+    POWER_BLOC_STATUE_HERO_TYPE = {
+        type = scope
+        output_scope = PowerBlocStatueHeroType
+    }
+    POWER_BLOC_STATUE_PEDESTAL_TYPE = {
+        type = scope
+        output_scope = PowerBlocStatuePedestalType
+    }
+    PRODUCTION_METHOD = {
+        type = scope
+        output_scope = ProductionMethod
+    }
+    PRODUCTION_METHOD_GROUP = {
+        type = scope
+        output_scope = ProductionMethodGroup
+    }
+    PROPOSAL = {
+        type = scope
+        output_scope = Proposal
+    }
+    PROVINCE = {
+        type = scope
+        output_scope = Province
+    }
+    PROVINCE_OTHER = {
+        type = scope
+        output_scope = Province
+    }
+    PdxAccount = {
+        type = scope
+        output_scope = PdxAccount
+    }
+    PopupManager = {
+        type = scope
+        output_scope = PopupManager
+    }
+    PowerBlocPanel = {
+        type = scope
+        output_scope = PowerBlocPanel
+    }
+    RELIGION = {
+        type = scope
+        output_scope = Religion
+    }
+    RightClickMenuManager = {
+        type = scope
+        output_scope = RightClickMenuManager
+    }
+    SCRIPTED_BUTTON = {
+        type = scope
+        output_scope = ScriptedButton
+    }
+    SCRIPTED_PROGRESS_BAR = {
+        type = scope
+        output_scope = ScriptedProgressBar
+    }
+    SECONDMARKET = {
+        type = scope
+        output_scope = Market
+    }
+    SHIPPING_LANE = {
+        type = scope
+        output_scope = ShippingLane
+    }
+    SOCIAL_CLASS = {
+        type = scope
+        output_scope = SocialClass
+    }
+    SOCIAL_HIERARCHY = {
+        type = scope
+        output_scope = SocialHierarchy
+    }
+    STATE = {
+        type = scope
+        output_scope = State
+    }
+    STATE_GOODS = {
+        type = scope
+        output_scope = StateGoods
+    }
+    STATE_OTHER = {
+        type = scope
+        output_scope = State
+    }
+    STATE_REGION = {
+        type = scope
+        output_scope = StateRegion
+    }
+    STATE_TRAIT = {
+        type = scope
+        output_scope = StateTrait
+    }
+    STRATEGIC_REGION = {
+        type = scope
+        output_scope = StrategicRegion
+    }
+    SUBJECT_SCOPE = {
+        type = scope
+        output_scope = Scope
+    }
+    SUBJECT_TYPE = {
+        type = scope
+        output_scope = SubjectType
+    }
+    SWAY = {
+        type = scope
+        output_scope = Sway
+    }
+    SWAY_OFFER = {
+        type = scope
+        output_scope = SwayOffer
+    }
+    SWAY_OFFER_TYPE = {
+        type = scope
+        output_scope = SwayOfferType
+    }
+    SwayCountryPanel = {
+        type = scope
+        output_scope = SwayCountryPanel
+    }
+    TARGET_ACCEPTANCE_STATUS = {
+        type = scope
+        output_scope = AcceptanceStatus
+    }
+    TARGET_AIATTITUDE = {
+        type = scope
+        output_scope = AIAttitude
+    }
+    TARGET_AISTRATEGY = {
+        type = scope
+        output_scope = AIStrategy
+    }
+    TARGET_ALERT = {
+        type = scope
+        output_scope = Alert
+    }
+    TARGET_BATTLE = {
+        type = scope
+        output_scope = Battle
+    }
+    TARGET_BATTLE_CONDITION = {
+        type = scope
+        output_scope = BattleCondition
+    }
+    TARGET_BUILDING = {
+        type = scope
+        output_scope = Building
+    }
+    TARGET_BUILDING_OWNERSHIP = {
+        type = scope
+        output_scope = BuildingOwnership
+    }
+    TARGET_BUILDING_TYPE = {
+        type = scope
+        output_scope = BuildingType
+    }
+    TARGET_CANAL_TYPE = {
+        type = scope
+        output_scope = CanalType
+    }
+    TARGET_CHARACTER = {
+        type = scope
+        output_scope = Character
+    }
+    TARGET_CHARACTER_INTERACTION = {
+        type = scope
+        output_scope = CharacterInteraction
+    }
+    TARGET_CHARACTER_TRAIT = {
+        type = scope
+        output_scope = CharacterTrait
+    }
+    TARGET_CIVIL_WAR = {
+        type = scope
+        output_scope = CivilWar
+    }
+    TARGET_COHESION_LEVEL = {
+        type = scope
+        output_scope = CohesionLevel
+    }
+    TARGET_COMBAT_UNIT = {
+        type = scope
+        output_scope = CombatUnit
+    }
+    TARGET_COMBAT_UNIT_GROUP = {
+        type = scope
+        output_scope = CombatUnitGroup
+    }
+    TARGET_COMBAT_UNIT_TYPE = {
+        type = scope
+        output_scope = CombatUnitType
+    }
+    TARGET_COMMANDER_ORDER_TYPE = {
+        type = scope
+        output_scope = CommanderOrderType
+    }
+    TARGET_COMMANDER_RANK = {
+        type = scope
+        output_scope = CommanderRank
+    }
+    TARGET_COMPANY = {
+        type = scope
+        output_scope = Company
+    }
+    TARGET_COMPANY_TYPE = {
+        type = scope
+        output_scope = CompanyType
+    }
+    TARGET_CONSTRUCTION_QUEUE_ELEMENT = {
+        type = scope
+        output_scope = ConstructionQueueElement
+    }
+    TARGET_CONTEXTUAL_DIPLOMATIC_ACTION_TYPE = {
+        type = scope
+        output_scope = ContextualDiplomaticActionType
+    }
+    TARGET_CONTEXTUAL_DIPLOMATIC_PACT = {
+        type = scope
+        output_scope = ContextualDiplomaticPact
+    }
+    TARGET_COUNTRY = {
+        type = scope
+        output_scope = Country
+    }
+    TARGET_COUNTRY_CREATION = {
+        type = scope
+        output_scope = CountryCreation
+    }
+    TARGET_COUNTRY_DEFINITION = {
+        type = scope
+        output_scope = CountryDefinition
+    }
+    TARGET_COUNTRY_FORMATION = {
+        type = scope
+        output_scope = CountryFormation
+    }
+    TARGET_CULTURAL_COMMUNITY = {
+        type = scope
+        output_scope = CulturalCommunity
+    }
+    TARGET_CULTURE = {
+        type = scope
+        output_scope = Culture
+    }
+    TARGET_DECISION_TYPE = {
+        type = scope
+        output_scope = Decision
+    }
+    TARGET_DECREE = {
+        type = scope
+        output_scope = Decree
+    }
+    TARGET_DECREE_TYPE = {
+        type = scope
+        output_scope = DecreeType
+    }
+    TARGET_DIPLOMATIC_ACTION = {
+        type = scope
+        output_scope = DiplomaticAction
+    }
+    TARGET_DIPLOMATIC_ACTION_TYPE = {
+        type = scope
+        output_scope = DiplomaticActionType
+    }
+    TARGET_DIPLOMATIC_CATALYST = {
+        type = scope
+        output_scope = DiplomaticCatalyst
+    }
+    TARGET_DIPLOMATIC_CATALYST_CATEGORY = {
+        type = scope
+        output_scope = DiplomaticCatalystCategory
+    }
+    TARGET_DIPLOMATIC_CATALYST_TYPE = {
+        type = scope
+        output_scope = DiplomaticCatalystType
+    }
+    TARGET_DIPLOMATIC_DEMAND = {
+        type = scope
+        output_scope = DiplomaticDemand
+    }
+    TARGET_DIPLOMATIC_PACT = {
+        type = scope
+        output_scope = DiplomaticPact
+    }
+    TARGET_DIPLOMATIC_PLAY = {
+        type = scope
+        output_scope = DiplomaticPlay
+    }
+    TARGET_DIPLOMATIC_PLAY_TYPE = {
+        type = scope
+        output_scope = DiplomaticPlayType
+    }
+    TARGET_DIPLOMATIC_RELATIONS = {
+        type = scope
+        output_scope = DiplomaticRelations
+    }
+    TARGET_DISCRIMINATION_TRAIT = {
+        type = scope
+        output_scope = DiscriminationTrait
+    }
+    TARGET_DLC_METADATA = {
+        type = scope
+        output_scope = Dlc
+    }
+    TARGET_ELECTION = {
+        type = scope
+        output_scope = Election
+    }
+    TARGET_EMPLOYEE_TRANSFER = {
+        type = scope
+        output_scope = EmployeeTransfer
+    }
+    TARGET_ERA = {
+        type = scope
+        output_scope = Era
+    }
+    TARGET_EVENT = {
+        type = scope
+        output_scope = Event
+    }
+    TARGET_FRONT = {
+        type = scope
+        output_scope = Front
+    }
+    TARGET_GAME_CONCEPT_TYPE = {
+        type = scope
+        output_scope = GameConceptType
+    }
+    TARGET_GOODS = {
+        type = scope
+        output_scope = Goods
+    }
+    TARGET_GOVERNMENT_TYPE = {
+        type = scope
+        output_scope = GovernmentType
+    }
+    TARGET_HARVEST_CONDITION = {
+        type = scope
+        output_scope = HarvestCondition
+    }
+    TARGET_HARVEST_CONDITION_AREA = {
+        type = scope
+        output_scope = HarvestConditionArea
+    }
+    TARGET_HARVEST_CONDITION_TYPE = {
+        type = scope
+        output_scope = HarvestConditionType
+    }
+    TARGET_HQ = {
+        type = scope
+        output_scope = Hq
+    }
+    TARGET_IDEOLOGY = {
+        type = scope
+        output_scope = Ideology
+    }
+    TARGET_INSTITUTION = {
+        type = scope
+        output_scope = Institution
+    }
+    TARGET_INSTITUTION_TYPE = {
+        type = scope
+        output_scope = InstitutionType
+    }
+    TARGET_INTEREST = {
+        type = scope
+        output_scope = Interest
+    }
+    TARGET_INTEREST_GROUP = {
+        type = scope
+        output_scope = InterestGroup
+    }
+    TARGET_INTEREST_GROUP_TRAIT = {
+        type = scope
+        output_scope = InterestGroupTrait
+    }
+    TARGET_JOURNAL_ENTRY = {
+        type = scope
+        output_scope = JournalEntry
+    }
+    TARGET_JOURNAL_ENTRY_GROUP = {
+        type = scope
+        output_scope = JournalEntryGroup
+    }
+    TARGET_JOURNAL_ENTRY_TYPE = {
+        type = scope
+        output_scope = JournalEntryType
+    }
+    TARGET_LAW = {
+        type = scope
+        output_scope = Law
+    }
+    TARGET_LAW_GROUP = {
+        type = scope
+        output_scope = LawGroup
+    }
+    TARGET_LAW_TYPE = {
+        type = scope
+        output_scope = LawType
+    }
+    TARGET_LEGITIMACY_LEVEL = {
+        type = scope
+        output_scope = LegitimacyLevel
+    }
+    TARGET_LIBERTY_DESIRE_LEVEL = {
+        type = scope
+        output_scope = LibertyDesireLevel
+    }
+    TARGET_MAP_MODE = {
+        type = scope
+        output_scope = MapMode
+    }
+    TARGET_MARKET = {
+        type = scope
+        output_scope = Market
+    }
+    TARGET_MARKET_GOODS = {
+        type = scope
+        output_scope = MarketGoods
+    }
+    TARGET_MILITARY_FORMATION = {
+        type = scope
+        output_scope = MilitaryFormation
+    }
+    TARGET_MILITARY_FORMATION_FLAG = {
+        type = scope
+        output_scope = MilitaryFormationFlag
+    }
+    TARGET_MOBILIZATION_OPTION = {
+        type = scope
+        output_scope = MobilizationOption
+    }
+    TARGET_MOBILIZATION_OPTION_GROUP = {
+        type = scope
+        output_scope = MobilizationOptionGroup
+    }
+    TARGET_MODIFIER = {
+        type = scope
+        output_scope = Modifier
+    }
+    TARGET_MODIFIER_BREAKDOWN = {
+        type = scope
+        output_scope = ModifierBreakdown
+    }
+    TARGET_NAVAL_INVASION = {
+        type = scope
+        output_scope = NavalInvasion
+    }
+    TARGET_OBJECTIVE = {
+        type = scope
+        output_scope = Objective
+    }
+    TARGET_OBJECTIVE_TYPE = {
+        type = scope
+        output_scope = ObjectiveType
+    }
+    TARGET_PARTY = {
+        type = scope
+        output_scope = Party
+    }
+    TARGET_PLAYER = {
+        type = scope
+        output_scope = Player
+    }
+    TARGET_POLITICAL_LOBBY = {
+        type = scope
+        output_scope = PoliticalLobby
+    }
+    TARGET_POLITICAL_LOBBY_APPEASEMENT_FACTOR = {
+        type = scope
+        output_scope = PoliticalLobbyAppeasementFactor
+    }
+    TARGET_POLITICAL_LOBBY_TYPE = {
+        type = scope
+        output_scope = PoliticalLobbyType
+    }
+    TARGET_POLITICAL_MOVEMENT = {
+        type = scope
+        output_scope = PoliticalMovement
+    }
+    TARGET_POLITICAL_MOVEMENT_CATEGORY = {
+        type = scope
+        output_scope = PoliticalMovementCategory
+    }
+    TARGET_POLITICAL_MOVEMENT_POP_SUPPORT_FACTOR = {
+        type = scope
+        output_scope = PoliticalMovementPopSupportFactor
+    }
+    TARGET_POLITICAL_MOVEMENT_TYPE = {
+        type = scope
+        output_scope = PoliticalMovementType
+    }
+    TARGET_POP = {
+        type = scope
+        output_scope = Pop
+    }
+    TARGET_POP_GOODS_CONSUMPTION = {
+        type = scope
+        output_scope = PopConsumptionGoods
+    }
+    TARGET_POP_NEED = {
+        type = scope
+        output_scope = PopNeed
+    }
+    TARGET_POP_TYPE = {
+        type = scope
+        output_scope = PopType
+    }
+    TARGET_POP_WITH_IG = {
+        type = scope
+        output_scope = PopWithIG
+    }
+    TARGET_POWER_BLOC = {
+        type = scope
+        output_scope = PowerBloc
+    }
+    TARGET_POWER_BLOC_IDENTITY = {
+        type = scope
+        output_scope = PowerBlocIdentity
+    }
+    TARGET_POWER_BLOC_MAP_TEXTURE = {
+        type = scope
+        output_scope = PowerBlocMapTexture
+    }
+    TARGET_POWER_BLOC_PRINCIPLE = {
+        type = scope
+        output_scope = PowerBlocPrinciple
+    }
+    TARGET_POWER_BLOC_PRINCIPLE_DATA = {
+        type = scope
+        output_scope = PowerBlocPrincipleData
+    }
+    TARGET_POWER_BLOC_PRINCIPLE_GROUP = {
+        type = scope
+        output_scope = PowerBlocPrincipleGroup
+    }
+    TARGET_POWER_BLOC_STATUE = {
+        type = scope
+        output_scope = PowerBlocStatue
+    }
+    TARGET_POWER_BLOC_STATUE_ACCESSORY_TYPE = {
+        type = scope
+        output_scope = PowerBlocStatueAccessoryType
+    }
+    TARGET_POWER_BLOC_STATUE_HERO_TYPE = {
+        type = scope
+        output_scope = PowerBlocStatueHeroType
+    }
+    TARGET_POWER_BLOC_STATUE_PEDESTAL_TYPE = {
+        type = scope
+        output_scope = PowerBlocStatuePedestalType
+    }
+    TARGET_PRODUCTION_METHOD = {
+        type = scope
+        output_scope = ProductionMethod
+    }
+    TARGET_PRODUCTION_METHOD_GROUP = {
+        type = scope
+        output_scope = ProductionMethodGroup
+    }
+    TARGET_PROPOSAL = {
+        type = scope
+        output_scope = Proposal
+    }
+    TARGET_PROVINCE = {
+        type = scope
+        output_scope = Province
+    }
+    TARGET_RELIGION = {
+        type = scope
+        output_scope = Religion
+    }
+    TARGET_SCRIPTED_BUTTON = {
+        type = scope
+        output_scope = ScriptedButton
+    }
+    TARGET_SCRIPTED_PROGRESS_BAR = {
+        type = scope
+        output_scope = ScriptedProgressBar
+    }
+    TARGET_SHIPPING_LANE = {
+        type = scope
+        output_scope = ShippingLane
+    }
+    TARGET_SOCIAL_CLASS = {
+        type = scope
+        output_scope = SocialClass
+    }
+    TARGET_SOCIAL_HIERARCHY = {
+        type = scope
+        output_scope = SocialHierarchy
+    }
+    TARGET_STATE = {
+        type = scope
+        output_scope = State
+    }
+    TARGET_STATE_GOODS = {
+        type = scope
+        output_scope = StateGoods
+    }
+    TARGET_STATE_REGION = {
+        type = scope
+        output_scope = StateRegion
+    }
+    TARGET_STATE_TRAIT = {
+        type = scope
+        output_scope = StateTrait
+    }
+    TARGET_STRATEGIC_REGION = {
+        type = scope
+        output_scope = StrategicRegion
+    }
+    TARGET_SUBJECT_TYPE = {
+        type = scope
+        output_scope = SubjectType
+    }
+    TARGET_SWAY = {
+        type = scope
+        output_scope = Sway
+    }
+    TARGET_SWAY_OFFER = {
+        type = scope
+        output_scope = SwayOffer
+    }
+    TARGET_SWAY_OFFER_TYPE = {
+        type = scope
+        output_scope = SwayOfferType
+    }
+    TARGET_TECHNOLOGY = {
+        type = scope
+        output_scope = Technology
+    }
+    TARGET_THEATER = {
+        type = scope
+        output_scope = Theater
+    }
+    TARGET_THEME = {
+        type = scope
+        output_scope = Theme
+    }
+    TARGET_TIMED_MODIFIER = {
+        type = scope
+        output_scope = TimedModifier
+    }
+    TARGET_TRADE_ROUTE = {
+        type = scope
+        output_scope = TradeRoute
+    }
+    TARGET_TYPE_LABEL = {
+        type = scope
+        output_scope = Label
+    }
+    TARGET_WAR = {
+        type = scope
+        output_scope = War
+    }
+    TARGET_WAR_GOAL = {
+        type = scope
+        output_scope = WarGoal
+    }
+    TARGET_WAR_GOAL_TYPE = {
+        type = scope
+        output_scope = WarGoalType
+    }
+    TECHNOLOGY = {
+        type = scope
+        output_scope = Technology
+    }
+    THEATER = {
+        type = scope
+        output_scope = Theater
+    }
+    THEME = {
+        type = scope
+        output_scope = Theme
+    }
+    TIMED_MODIFIER = {
+        type = scope
+        output_scope = TimedModifier
+    }
+    TRADE_ROUTE = {
+        type = scope
+        output_scope = TradeRoute
+    }
+    TYPE_LABEL = {
+        type = scope
+        output_scope = Label
+    }
+    TimeKeeper = {
+        type = scope
+        output_scope = TimeKeeper
+    }
+    WAR = {
+        type = scope
+        output_scope = War
+    }
+    WAR_GOAL = {
+        type = scope
+        output_scope = WarGoal
+    }
+    WAR_GOAL_TYPE = {
+        type = scope
+        output_scope = WarGoalType
+    }
+    WarManager = {
+        type = scope
+        output_scope = WarManager
+    }
+    AccessConstructionSpeeds = {
+        type = scope
+        output_scope = DataModel
+    }
+    AreAchievementsAvailable = {
+        type = scope
+        output_scope = bool
+    }
+    CanGetAchievements = {
+        type = scope
+        output_scope = bool
+    }
+    CanOpenLobby = {
+        type = scope
+        output_scope = bool
+    }
+    CanOpenRightClickContextMenu = {
+        type = scope
+        output_scope = bool
+    }
+    ClearDynamicTerrainOverrideForAllProvinces = {
+        type = scope
+        output_scope = void
+    }
+    CloseAllTooltips = {
+        type = scope
+        output_scope = void
+    }
+    CopyBuildVersionInfoToClipboard = {
+        type = scope
+        output_scope = void
+    }
+    DebugGetMapMode = {
+        type = scope
+        output_scope = CString
+    }
+    FocusCameraOnCityOutOfState = {
+        type = scope
+        output_scope = void
+    }
+    GameHasMultiplePlayers = {
+        type = scope
+        output_scope = bool
+    }
+    GameIsMultiplayer = {
+        type = scope
+        output_scope = bool
+    }
+    GetAchievementsAvailableString = {
+        type = scope
+        output_scope = CString
+    }
+    GetActivismLabelsDesc = {
+        type = scope
+        output_scope = CString
+    }
+    GetAllPowerBlocs = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetAutosaveName = {
+        type = scope
+        output_scope = CString
+    }
+    GetBasicAdmiralOrdersBreakdown = {
+        type = scope
+        output_scope = CString
+    }
+    GetBasicGeneralOrdersBreakdown = {
+        type = scope
+        output_scope = CString
+    }
+    GetBattalionGroupsList = {
+        type = scope
+        output_scope = CString
+    }
+    GetBuildVersionDescriptionWithClickToCopy = {
+        type = scope
+        output_scope = CString
+    }
+    GetCohesionLevels = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetCurrentFps = {
+        type = scope
+        output_scope = float
+    }
+    GetCurrentLoadingScreen = {
+        type = scope
+        output_scope = Texture
+    }
+    GetDefaultServerName = {
+        type = scope
+        output_scope = CUTF8String
+    }
+    GetDiscordUrl = {
+        type = scope
+        output_scope = CString # ?
+    }
+    GetDlcCollection = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetEnabledDlcNames = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetFlotillaGroupsList = {
+        type = scope
+        output_scope = CString
+    }
+    GetGameVersionInfo = {
+        type = scope
+        output_scope = CString
+    }
+    GetGameVersionInfoShort = {
+        type = scope
+        output_scope = Global
+    }
+    GetGlobalMaxLandDefense = {
+        type = scope
+        output_scope = CFixedPoint
+    }
+    GetGlobalMaxLandOffense = {
+        type = scope
+        output_scope = CFixedPoint
+    }
+    GetGlobalMaxNavalDefense = {
+        type = scope
+        output_scope = CFixedPoint
+    }
+    GetGlobalMaxNavalOffense = {
+        type = scope
+        output_scope = CFixedPoint
+    }
+    GetGuiEntityShaderRenderpass = {
+        type = scope
+        output_scope = RenderPass
+    }
+    GetHarvestConditionTypesList = {
+        type = scope
+        output_scope = CString
+    }
+    GetInterestingCountrySettings = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetLargeFlagFrameSize = {
+        type = scope
+        output_scope = CVector2i
+    }
+    GetLargePowerBlocCoaFrameSize = {
+        type = scope
+        output_scope = CVector2i
+    }
+    GetLegitimacyLevels = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetLibertyDesireLevels = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetLoyaltyTypes = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetMPChecksum = {
+        type = scope
+        output_scope = CString
+    }
+    GetMapModeIndices = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetMediumFlagFrameSize = {
+        type = scope
+        output_scope = CVector2i
+    }
+    GetMediumPowerBlocCoaFrameSize = {
+        type = scope
+        output_scope = CVector2i
+    }
+    GetMobilizationOptionGroups = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetNumberOfShadersCompiled = {
+        type = scope
+        output_scope = int32
+    }
+    GetOpenLobbyTooltip = {
+        type = scope
+        output_scope = CString
+    }
+    GetPlayerResourcesUrl = {
+        type = scope
+        output_scope = CString # ?
+    }
+    GetRandomLogInfo = {
+        type = scope
+        output_scope = CString
+    }
+    GetResolutionWithAspectRatio = {
+        type = scope
+        output_scope = CVector2f
+    }
+    GetSelectedMapMode = {
+        type = scope
+        output_scope = CVector2i
+    }
+    GetSelectedMapModeName = {
+        type = scope
+        output_scope = CString
+    }
+    GetSmallFlagFrameSize = {
+        type = scope
+        output_scope = CVector2i
+    }
+    GetSmallPowerBlocCoaFrameSize = {
+        type = scope
+        output_scope = CVector2i
+    }
+    GetStarvationTypes = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetSubjectTypes = {
+        type = scope
+        output_scope = DataModel
+    }
+    GetSubjectTypesList = {
+        type = scope
+        output_scope = CString
+    }
+    GetSupportLabelsDesc = {
+        type = scope
+        output_scope = CString
+    }
+    GetVeryLargePowerBlocCoaFrameSize = {
+        type = scope
+        output_scope = CVector2i
+    }
+    GetVerySmallPowerBlocCoaFrameSize = {
+        type = scope
+        output_scope = CVector2i
+    }
+    GetWikiUrl = {
+        type = scope
+        output_scope = CString # ?
+    }
+    GetYoutubeChannelUrl = {
+        type = scope
+        output_scope = CString # ?
+    }
+    HasAnyAvailableNewThemes = {
+        type = scope
+        output_scope = bool
+    }
+    HasAnyThemeIssues = {
+        type = scope
+        output_scope = bool
+    }
+    HasCitiesOutOfState = {
+        type = scope
+        output_scope = bool
+    }
+    HasGameLoadedToMainMenu = {
+        type = scope
+        output_scope = bool
+    }
+    HasGameStartedForTheFirstTime = {
+        type = scope
+        output_scope = bool
+    }
+    HasGameState = {
+        type = scope
+        output_scope = bool
+    }
+    IsDrawCityDebugGrid = {
+        type = scope
+        output_scope = bool
+    }
+    IsDrawCityDebugSpheres = {
+        type = scope
+        output_scope = bool
+    }
+    IsDynamicTerrainAutoUpdate = {
+        type = scope
+        output_scope = bool
+    }
+    IsDynamicsEnabled = {
+        type = scope
+        output_scope = bool
+    }
+    IsGameChecksumOk = {
+        type = scope
+        output_scope = bool
+    }
+    IsGameOverScreenShown = {
+        type = scope
+        output_scope = bool
+    }
+    IsGamePaused = {
+        type = scope
+        output_scope = bool
+    }
+    IsHost = {
+        type = scope
+        output_scope = bool
+    }
+    IsInGame = {
+        type = scope
+        output_scope = bool
+    }
+    IsIronmanEnabled = {
+        type = scope
+        output_scope = bool
+    }
+    IsLoadedFromSave = {
+        type = scope
+        output_scope = bool
+    }
+    IsMapModeLocked = {
+        type = scope
+        output_scope = bool
+    }
+    IsObserver = {
+        type = scope
+        output_scope = bool
+    }
+    IsPauseMenuShown = {
+        type = scope
+        output_scope = bool
+    }
+    IsSaving = {
+        type = scope
+        output_scope = bool
+    }
+    IsTerrainManipulatorProvincesPreview = {
+        type = scope
+        output_scope = bool
+    }
+    IsZoomLevelFar = {
+        type = scope
+        output_scope = bool
+    }
+    IsZoomLevelMax = {
+        type = scope
+        output_scope = bool
+    }
+    IsZoomLevelMid = {
+        type = scope
+        output_scope = bool
+    }
+    IsZoomLevelNear = {
+        type = scope
+        output_scope = bool
+    }
+    OnToggleLoginWindow = {
+        type = scope
+        output_scope = void
+    }
+    OpenAchievements = {
+        type = scope
+        output_scope = void
+    }
+    OpenDiscordUrl = {
+        type = scope
+        output_scope = void
+    }
+    OpenGameRules = {
+        type = scope
+        output_scope = void
+    }
+    OpenPlayerResourcesUrl = {
+        type = scope
+        output_scope = void
+    }
+    OpenWikiUrl = {
+        type = scope
+        output_scope = void
+    }
+    OpenYoutubeChannelUrl = {
+        type = scope
+        output_scope = void
+    }
+    PauseAllConstruction = {
+        type = scope
+        output_scope = Command
+    }
+    PopCursorOverride = {
+        type = scope
+        output_scope = void
+    }
+    ReleaseMode = {
+        type = scope
+        output_scope = bool
+    }
+    RemoveTempMapMode = {
+        type = scope
+        output_scope = void
+    }
+    ResumeAllConstruction = {
+        type = scope
+        output_scope = Command
+    }
+    ResumeAllConstructionTooltip = {
+        type = scope
+        output_scope = CString
+    }
+    ReturnToMenu = {
+        type = scope
+        output_scope = void
+    }
+    SetLockedMapMode = {
+        type = scope
+        output_scope = void
+    }
+    SetRandomPlayableObserverCharacter = {
+        type = scope
+        output_scope = void
+    }
+    ShouldShowAnimationInfo = {
+        type = scope
+        output_scope = bool
+    }
+    ToggleEncyclopedia = {
+        type = scope
+        output_scope = void
+    }
+    ToggleMainMenu = {
+        type = scope
+        output_scope = void
+    }
+    ToggleMessageSettings = {
+        type = scope
+        output_scope = void
+    }
+    ToggleMusicPlayer = {
+        type = scope
+        output_scope = void
+    }
+    ToggleThemeSettings = {
+        type = scope
+        output_scope = void
+    }
+    UnlockMapMode = {
+        type = scope
+        output_scope = void
+    }
+    UpdateDynamicTerrainInAllProvinces = {
+        type = scope
+        output_scope = void
+    }
+    UsesTimerLocking = {
+        type = scope
+        output_scope = bool
+    }
+
+
+
+
+
+
+    # Methods
+    GetName = {
+        output_scope = CString
+        input_scopes = {
+            AIAttitude
+            AIStrategy
+            AcceptanceStatus
+            Alert
+            AlertOptionItem
+            Battle
+            BattleCondition
+            Building
+            BuildingType
+            CanalType
+            CharacterInteraction
+            CharacterTrait
+            CivilWar
+            CohesionLevel
+            CombatUnit
+            CombatUnitGroup
+            CombatUnitType
+            CommanderOrderType
+            Company
+            CompanyType
+            Country
+            CountryCreation
+            CountryDefinition
+            CountryFormation
+            CulturalCommunity
+            Culture
+            DataColorPicker
+            Decision
+            Decree
+            DecreeType
+            DiplomaticAction
+            DiplomaticActionType
+            DiplomaticCatalystCategory
+            DiplomaticCatalystType
+            DiplomaticPact
+            DiplomaticPlay
+            DiplomaticPlayType
+            DiscriminationTrait
+            Dlc
+            Era
+            Front
+            GameConceptType
+            GameRule
+            GameRuleSetting
+            Goods
+            GoodsPanelChildValue
+            GoodsPanelValue
+            GoodsProductionInfo
+            GovernmentType
+            GuiGameRulePreset
+            HarvestCondition
+            HarvestConditionArea
+            HarvestConditionType
+            Hq
+            Ideology
+            ImportantAlert
+            Institution
+            InstitutionType
+            InterestGroup
+            InterestingCountrySetting
+            JournalEntry
+            JournalEntryGroup
+            JournalEntryType
+            Label
+            Law
+            LawGroup
+            LawType
+            LegitimacyLevel
+            LibertyDesireLevel
+            Location
+            MapMode
+            Market
+            MilitaryFormation
+            MilitaryFormationBorrowSetting
+            MilitaryFormationFlag
+            MobilizationOption
+            MobilizationOptionGroup
+            Modifier
+            ModifierBreakdown
+            ModifierEntry
+            ModifierNodeData
+            NationalizeBuildingGroup
+            NavalInvasion
+            NotificationOptionItem
+            NotificationSettingsItem
+            Objective
+            ObjectiveType
+            Party
+            Player
+            PlayerMessageItem
+            PoliticalLobby
+            PoliticalLobbyAppeasementFactor
+            PoliticalLobbyType
+            PoliticalMovement
+            PoliticalMovementCategory
+            PoliticalMovementPopSupportFactor
+            PoliticalMovementType
+            Pop
+            PopNeed
+            PopType
+            PowerBloc
+            PowerBlocCoaPiece
+            PowerBlocCoaPieceSelector
+            PowerBlocIdentity
+            PowerBlocMapTexture
+            PowerBlocPrinciple
+            PowerBlocPrincipleGroup
+            PowerBlocStatueAccessoryType
+            PowerBlocStatueAccessoryTypeSelector
+            PowerBlocStatueHeroType
+            PowerBlocStatuePedestalType
+            ProductionMethod
+            ProductionMethodGroup
+            Proposal
+            Religion
+            SaveGame
+            SaveGameItem
+            ScriptedButton
+            ScriptedProgressBar
+            SocialClass
+            SocialHierarchy
+            StagedFormation
+            StarvationType
+            State
+            StateRegion
+            StateTrait
+            StrategicRegion
+            SubjectType
+            SwayOfferType
+            Technology
+            Theater
+            Theme
+            ThemeCategory
+            TickTaskData
+            TimedModifier
+            TradeRoute
+            War
+            WarGoal
+            WarGoalType
+        }
+    }
+    GetNameNoFormatting = {
+        output_scope = CString
+        input_scopes = {
+            AcceptanceStatus
+            BattleCondition
+            Building
+            BuildingType
+            CanalType
+            CharacterTrait
+            CohesionLevel
+            CombatUnitType
+            CommanderOrderType
+            CompanyType
+            Country
+            Culture
+            DecreeType
+            DiplomaticAction
+            DiplomaticActionType
+            Front
+            GameConceptType
+            Goods
+            HarvestCondition
+            HarvestConditionArea
+            HarvestConditionType
+            Hq
+            Ideology
+            Institution
+            InstitutionType
+            InterestGroup
+            Law
+            LawGroup
+            LawType
+            LegitimacyLevel
+            LibertyDesireLevel
+            Market
+            MilitaryFormation
+            MobilizationOption
+            MobilizationOptionGroup
+            Objective
+            ObjectiveType
+            Party
+            PoliticalLobby
+            PoliticalMovement
+            Pop
+            PopNeed
+            PopType
+            PowerBloc
+            PowerBlocIdentity
+            PowerBlocPrinciple
+            PowerBlocPrincipleGroup
+            ProductionMethod
+            Religion
+            SaveGame
+            SaveGameItem
+            SocialClass
+            SocialHierarchy
+            State
+            StateRegion
+            StrategicRegion
+            SubjectType
+            Technology
+            War
+        }
+    }
+    GetNameNoFormattingIncludingStatus = {
+        output_scope = CString
+        input_scopes = { Market }
+    }
+    GetNameNoIcon = {
+        output_scope = CString
+        input_scopes = {
+            AcceptanceStatus
+            HarvestCondition
+            HarvestConditionArea
+            HarvestConditionType
+            InterestGroup
+            InterestGroupTrait
+            PoliticalLobby
+            PoliticalMovement
+            Pop
+            PopType
+            PowerBloc
+            SubjectType
+        }
+    }
+    GetNameNoIconNoFormatting = {
+        output_scope = CString
+        input_scopes = { PopType SubjectType }
+    }
+    GetNameNoFlag = {
+        output_scope = CString
+        input_scopes = { Country Hq }
+    }
+    GetNameWithConcept = {
+        output_scope = CString
+        input_scopes = { AlertOptionItem NotificationOptionItem }
+    }
+    GetNameNoFlagNoConcept = {
+        output_scope = CString
+        input_scopes = { Hq }
+    }
+    GetNameWithCountryVariant = {
+        output_scope = CString
+        input_scopes = { InterestGroup }
+    }
+    GetNameWithContext = {
+        output_scope = CString
+        input_scopes = { DiplomaticAction }
+    }
+
+    Country = {
+        output_scope = Country
+        input_scopes = { any }
+    }
+    DiplomaticAction = {
+        output_scope = DiplomaticAction
+        input_scopes = { any }
+    }
+
+    # This does not work
+    GetTechnology = {
+        output_scope = Technology
+        from_argument = yes
+        from_data = yes
+        data_source = CString # <technology>
+        input_scopes = { any }
+        prefix = GetTechnology
+    }
+    GetRelationsWithDesc = {
+        output_scope = value
+        type = value
+        from_argument = yes
+        from_data = yes
+        data_source = scope[country]
+        input_scopes = { country }
+        prefix = GetRelationsWithDesc
+    }
+    GetRelationsWith = {
+        output_scope = value
+        type = value
+        from_argument = yes
+        from_data = yes
+        data_source = scope[country]
+        input_scopes = { country }
+        prefix = GetRelationsWith
+
+    }
 }
