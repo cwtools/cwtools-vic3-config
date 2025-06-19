@@ -33,7 +33,7 @@ scopes = {
         aliases = { pop_type }
         }
     Building = {
-        aliases = { building }
+        aliases = { building Building }
         }
     "Building Type" = {
         aliases = { building_type }
@@ -66,7 +66,7 @@ scopes = {
         aliases = { diplomatic_relations }
         }
     Character = {
-        aliases = { character }
+        aliases = { character Character }
         }
     "State Region" = {
         aliases = { state_region }
@@ -94,9 +94,6 @@ scopes = {
         }
     "Journal Entry" = {
         aliases = { journal_entry }
-        }
-    "Trade Route" = {
-        aliases = { trade_route }
         }
     Decree = {
         aliases = { decree }
@@ -205,5 +202,17 @@ scopes = {
     }
     "Harvest Condition" = {
         aliases = { harvest_condition }
+    }
+    "Treaty" = {
+        aliases = { treaty }
+    }
+    "Treaty Options" = {
+        aliases = { treaty_options }
+    }
+    "Treaty Article" = {
+        aliases = { treaty_article }
+    }
+    "Treaty Article Options" = {
+        aliases = { treaty_article_options }
     }
 }

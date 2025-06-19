@@ -14,6 +14,7 @@ enums = {
         agitator
         ruler
         heir
+        executive
     }
 
     enum[character_trait_type] = {
@@ -461,6 +462,16 @@ enums = {
         politics_panel_left_tutorial_popup
         politics_panel_overview_tutorial_popup
         left_general_layout_for_popups
+    }
+
+    enum[tariff_levels] = {
+        max_tariffs
+        high_tariffs
+        low_tariffs
+        no_tariffs_or_subventions
+        low_subventions
+        high_subventions
+        max_subventions
     }
 
 }

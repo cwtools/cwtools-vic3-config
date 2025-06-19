@@ -1,0 +1,10 @@
+types = {
+    type[history_treaty] = {
+        path = "game/common/history/treaties"
+        file_extension = .txt
+    }
+}
+
+history_treaty = {
+    alias_name[effect] = alias_match_left[effect]
+}
