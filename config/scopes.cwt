@@ -95,6 +95,9 @@ scopes = {
     "Journal Entry" = {
         aliases = { journal_entry }
         }
+    "Trade Route" = {
+        aliases = { trade_route }
+        }
     Decree = {
         aliases = { decree }
         }
@@ -214,5 +217,11 @@ scopes = {
     }
     "Treaty Article Options" = {
         aliases = { treaty_article_options }
+    }
+    "Prestige Good" = {
+        aliases = { prestige_goods }
+    }
+    "Invasion" = {
+        aliases = { invasion }
     }
 }
