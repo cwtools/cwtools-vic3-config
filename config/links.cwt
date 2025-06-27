@@ -673,8 +673,43 @@ links = {
 		output_scope = value
 		type = value
 	}
-	### Scope to the number of alliances target country has in total (example: num_alliances:root >= 2)
+	### Get the maximum amount of goods the market can export based on it's production of the scoped MarketGoods
+	market_export_cap = {
+		desc = "Get the maximum amount of goods the market can export based on it's production of the scoped MarketGoods"
+		input_scopes = market_goods
+		output_scope = value
+		type = value
+	}
+	### Get the maximum amount of goods the market can import based on it's consumption of the scoped MarketGoods
+	market_import_cap = {
+		desc = "Get the maximum amount of goods the market can import based on it's consumption of the scoped MarketGoods"
+		input_scopes = market_goods
+		output_scope = value
+		type = value
+	}
+	### Checks if market goods has the specified number of total consumption
+	market_goods_consumption = {
+		desc = "Checks if market goods has the specified number of total consumption"
+		input_scopes = market_goods
+		output_scope = value
+		type = value
+	}
+	### Checks weekly profit of building
+	weekly_profit = {
+		desc = "Checks weekly profit of building"
+		input_scopes = building
+		output_scope = value
+		type = value
+	}
+	### Scope to the number of alliances target country has in total
 	num_alliances = {
+		desc = "Scope to the number of alliances target country has in total"
+		input_scopes = country
+		output_scope = value
+		type = value
+	}
+	### Scope to the number of alliances target country has in total (example: num_alliances:root >= 2)
+	num_alliances_scope = {
 		desc = "Scope to the number of alliances target country has in total (example: num_alliances:root >= 2)"
 		input_scopes = country
 		output_scope = value

@@ -3090,3 +3090,27 @@ alias[trigger:unit_formation_has_commander] = scope[character]
 ## scopes = { country }
 ### Checks if a country has a commitment to enact any law
 alias[trigger:has_any_law_commitment] = bool
+
+## scopes = { treaty_options treaty }
+### Checks if the scoped treaty is amending an existing treaty
+alias[trigger:is_renegotiation] = bool
+
+## scopes = { country }
+### Checks if a country has a certain law or one its variant laws active
+alias[trigger:has_law_or_variant] = scope[law_type]
+
+## scopes = { country }
+### Check if the scoped country has any level of subventions on a goods
+alias[trigger:has_any_subventions_on] = scope[goods]
+
+## scopes = { treaty_options treaty }
+### Checks if the scoped treaty has the same articles on both sides
+alias[trigger:is_equal_exchange] = bool
+
+## scopes = { country }
+### Check if the scoped country has any level of tariffs on a goods
+alias[trigger:has_any_tariffs_on] = scope[goods]
+
+## scopes = { law }
+### Checks if a law is available for its country, considering its current situation. Like can_be_enacted, but ignores government support
+alias[trigger:law_is_available] = bool
