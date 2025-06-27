@@ -75,10 +75,6 @@ pop_type = {
     ## push_scope = pop
     political_engagement_mult = single_alias_right[formula]
 
-    ## cardinality = 0..1
-    ### Qualifications growth desc localization
-    qualifications_growth_desc = localisation
-
     ## push_scope = pop
     ## cardinality = 0..1
     ### Qualifications scripted values list

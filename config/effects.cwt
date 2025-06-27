@@ -1051,6 +1051,7 @@ alias[effect:create_character] = {
     ## cardinality = 0..1
     noble = scope[character]
 
+    ## push_scope = character
     ## cardinality = 0..1
     on_created = single_alias_right[effect_clause]
 
@@ -1154,6 +1155,40 @@ alias[effect:create_diplomatic_play] = {
         holder = scope[country]
         holder = <country_definition>
         type = enum[war_goal]
+
+        ## cardinality = 0..1
+        article = {
+            article = <treaty_article>
+            source_country = scope[country]
+            target_country = scope[country]
+
+            ## cardinality = 0..1
+            inputs = {
+                ## cardinality = 0..1
+                { quantity = int }
+
+                ## cardinality = 0..1
+                { goods = scope[goods] }
+
+                ## cardinality = 0..1
+                { state = scope[state] }
+
+                ## cardinality = 0..1
+                { strategic_region = scope[strategic_region] }
+
+                ## cardinality = 0..1
+                { company = scope[company] }
+
+                ## cardinality = 0..1
+                { building_type = scope[building_type] }
+
+                ## cardinality = 0..1
+                { law_type = scope[law_type] }
+
+                ## cardinality = 0..1
+                { country = scope[country] }
+            }
+        }
 
         ## cardinality = 0..1
         target_state = scope[state]
@@ -1489,6 +1524,40 @@ alias[effect:add_war_goal] = {
     holder = scope[country]
     holder = <country_definition>
     type = enum[war_goal]
+
+    ## cardinality = 0..1
+    article = {
+        article = <treaty_article>
+        source_country = scope[country]
+        target_country = scope[country]
+
+        ## cardinality = 0..1
+        inputs = {
+            ## cardinality = 0..1
+            { quantity = int }
+
+            ## cardinality = 0..1
+            { goods = scope[goods] }
+
+            ## cardinality = 0..1
+            { state = scope[state] }
+
+            ## cardinality = 0..1
+            { strategic_region = scope[strategic_region] }
+
+            ## cardinality = 0..1
+            { company = scope[company] }
+
+            ## cardinality = 0..1
+            { building_type = scope[building_type] }
+
+            ## cardinality = 0..1
+            { law_type = scope[law_type] }
+
+            ## cardinality = 0..1
+            { country = scope[country] }
+        }
+    }
 
     ## cardinality = 0..1
     target_state = scope[state]
@@ -2386,14 +2455,14 @@ alias[effect:post_audio_event] = {
 ## scopes = { any }
 ### Sets export tariff level for a good in scoped country
 alias[effect:set_export_tariff_level] = {
-    goods = <good>
+    goods = scope[goods]
     level = enum[tariff_levels]
 }
 
 ## scopes = { any }
 ### Log a string to the error log when this effect executes, error_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
 alias[effect:set_import_tariff_level] = {
-    goods = <good>
+    goods = scope[goods]
     level = enum[tariff_levels]
 }
 

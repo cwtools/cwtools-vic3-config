@@ -1656,7 +1656,7 @@ alias[trigger:country_has_building_levels] == value_field
 
 ### Checks the sum of building levels for a building type in a country
 alias[trigger:country_has_building_type_levels] = {
-    type = scope[building_type]
+    target = scope[building_type]
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -3086,3 +3086,7 @@ alias[trigger:state_trade] = {
 ## scopes = { new_combat_unit }
 ### Checks if their formation of the scoped combat unit has the provided character as one of its commanders
 alias[trigger:unit_formation_has_commander] = scope[character]
+
+## scopes = { country }
+### Checks if a country has a commitment to enact any law
+alias[trigger:has_any_law_commitment] = bool

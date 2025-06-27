@@ -676,7 +676,7 @@ alias[trigger:any_interest_group] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
-## push_scope = country
+## push_scope = interest_group
 ### Iterate through all interest group members of a party any_member = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_member] = {
     ## cardinality = 0..1
@@ -1089,4 +1089,51 @@ alias[trigger:any_treaty] = {
     filter = single_alias_right[trigger_clause]
     alias_name[trigger] = alias_match_left[trigger]
 }
+
+## scopes = { country }
+## push_scope = law
+### Iterate through all active laws in a country
+alias[trigger:any_active_law] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scopes = { country }
+## push_scope = law
+### Iterate through all active laws in a country
+alias[trigger:any_active_law] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all active laws in a country
+alias[trigger:any_<scripted_list>] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
 

@@ -2240,6 +2240,7 @@ alias[effect:every_member] = {
     alias_name[effect] = alias_match_left[effect]
 }
 
+## push_scope = interest_group
 ### Iterate through all interest groups in a country ordered_interest_group = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
 alias[effect:ordered_interest_group] = {
     ## cardinality = 0..1
@@ -3210,6 +3211,132 @@ alias[effect:random_scope_regional_hqs] = {
 ## push_scope = building
 ### Iterate through regional HQs of the scoped company
 alias[effect:ordered_scope_regional_hqs] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## scopes = { country }
+## push_scope = law
+### Iterate through all active laws in a country
+alias[effect:every_active_law] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## scopes = { country }
+## push_scope = law
+### Iterate through all active laws in a country
+alias[effect:random_active_law] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## scopes = { country }
+## push_scope = law
+### Iterate through all active laws in a country
+alias[effect:ordered_active_law] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## scopes = { country }
+## push_scope = country
+### Iterate through all diplomatically relevant countries of a country scope
+alias[effect:every_diplomatically_relevant_country] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## scopes = { country }
+## push_scope = country
+### Iterate through all diplomatically relevant countries of a country scope
+alias[effect:random_diplomatically_relevant_country] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+## scopes = { country }
+## push_scope = country
+### Iterate through all diplomatically relevant countries of a country scope
+alias[effect:ordered_diplomatically_relevant_country] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+
+alias[effect:every_<scripted_list>] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+alias[effect:random_<scripted_list>] = {
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    alias_name[effect] = alias_match_left[effect]
+}
+
+alias[effect:ordered_<scripted_list>] = {
     ## cardinality = 0..1
     limit = {
         alias_name[trigger] = alias_match_left[trigger]

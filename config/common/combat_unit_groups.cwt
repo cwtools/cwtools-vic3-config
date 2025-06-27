@@ -15,7 +15,6 @@ types = {
 
 combat_unit_group = {
     type = enum[combat_unit_group_type]
-    manpower_max = int
     ## cardinality = 0..1
     default_group = bool
     color = enum[named_colors]

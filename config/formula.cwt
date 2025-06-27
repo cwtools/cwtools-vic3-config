@@ -75,6 +75,7 @@ alias[arithmetic_operation:floor] = yes
 alias[arithmetic_operation:floor] = value_field
 
 alias[arithmetic_operation:save_temporary_value_as] = value_set[variable]
+alias[arithmetic_operation:save_temporary_scope_as] = value_set[event_target]
 
 
 alias[arithmetic_operation:modifier] = value_field

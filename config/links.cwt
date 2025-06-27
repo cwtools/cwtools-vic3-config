@@ -2,7 +2,7 @@ links = {
 	### Scope to country or country definition's primary religion or pop religion
 	religion = {
 		desc = "Scope to country or country definition's primary religion or pop religion"
-		input_scopes = { country pop character country_definition }
+		input_scopes = { country pop character country_definition political_movement }
 		output_scope = religion
 	}
 	### Scope to the strategic region of the object!
@@ -2432,6 +2432,17 @@ links = {
 		input_scopes = { front }
 		output_scope = any
 	}
+	### Returns the total number of defending units on Front on the same side as Country
+	num_defending_battalions = {
+		desc = "Returns the total number of defending units on Front on the same side as Country"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_defending_battalions:
+		data_source = scope[country]
+		input_scopes = { front }
+		output_scope = any
+	}
 	### Value of economic dependence on another country
 	economic_dependence = {
 		desc = "Value of economic dependence on another country"
@@ -3618,9 +3629,9 @@ links = {
 		output_scope = country
 		type = scope
 	}
-	### Get the original binding period in days when the treaty was signed for the scoped treaty
-	binding_period_original = {
-		desc = "Get the original binding period in days when the treaty was signed for the scoped treaty"
+	### Get the current remaining binding period in days for the scoped treaty
+	remaining_binding_period = {
+		desc = "Get the current remaining binding period in days for the scoped treaty"
 		input_scopes = { treaty treaty_options }
 		output_scope = value
 		type = value
@@ -3760,6 +3771,13 @@ links = {
 	base_price = {
 		desc = "Get the base price of the scoped good"
 		input_scopes = { goods }
+		output_scope = value
+		type = value
+	}
+	### Scope to the level of a building after all queued constructions finish
+	level_after_queued_constructions = {
+		desc = "Scope to the level of a building after all queued constructions finish"
+		input_scopes = { building }
 		output_scope = value
 		type = value
 	}
