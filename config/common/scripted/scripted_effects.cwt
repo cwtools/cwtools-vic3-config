@@ -1,5 +1,3 @@
-alias[effect:<scripted_effect>] = bool
-
 types = {
     type[scripted_effect] = {
         path = "game/common/scripted_effects"
@@ -16,6 +14,6 @@ alias[effect:<scripted_effect>] = bool
 
 ### The scripted trigger will draw the value of the right clause via $left_clause$.
 alias[effect:<scripted_effect>] = {
-	## cardinality = 0..inf
-	$parameter = $parameter_value
+    ## cardinality = 0..inf
+    $parameter = $parameter_value
 }

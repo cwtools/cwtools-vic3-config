@@ -1,0 +1,610 @@
+types = {
+    type[treaty_article] = {
+        path = "game/common/treaty_articles"
+        file_extension = .txt
+    }
+}
+
+treaty_article = {
+    ### Must be explicitly set to either directed or mutual
+    kind = enum[treaty_article_kinds]
+
+    ## cardinality = 0..1
+    ### How much is deducted from the influence pool of every party to a treaty
+    ### containing an article of this type.
+    ### (default: 0)
+    ### must be non-negative
+    cost = int
+
+    relations_progress_per_day = value_field
+
+    ### How much progress is added to the relations between every party of a treaty
+    ### containing an article of this type. Progress is a percentage, when it reaches
+    ### 100 it resets to 0 and relations increase or decrease by a single point.
+    ### (default: 0)
+    relations_improvement_max = int
+
+    ### How much progress is added to the relations between every party of a treaty
+    ### containing an article of this type. Progress is a percentage, when it reaches
+    ### 100 it resets to 0 and relations increase or decrease by a single point.
+    ### (default: 0)
+    relations_improvement_min = int
+
+    icon = filepath
+
+    ## cardinality = 0..1
+    ### Must be specified for directed article types, must be unspecified for mutual article types.
+    ### For directed article types, specified who pays the maintenance cost for an article of this type. Can either by the
+    ### source country or the target country.
+    maintenance_paid_by = enum[treaty_article_maintenance]
+
+    ### A set of flags each of which determine some intrinsic behavior of the article.
+    ### The game makes use of these flags in various situations and for a variety of
+    ### tasks in code.
+    ### The behavior of each flag is hardcoded, but it is not mandatory to define any flags if you don't need them.
+    ### Articles are perfectly valid without any flags if all you need is available through the effect or modifiers.
+    flags = {
+        ## cardinality = 1..inf
+        enum[treaty_article_flags]
+    }
+
+    ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
+    ### If the trigger returns true, then the specific thing we're looking at is valid
+    ### The valid triggers have the following scopes available:
+    ### - `root`: Source country for the article (or potentially first otherwise)
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_valid_trigger` then `input` might be say `STATE_SVEALAND`
+    ### - `scope:other_country`: the other country that isn't the root
+    ### Specifically for the goods valid trigger:
+    ### - `scope:goods`: the goods input we're looking at
+    ### - `scope:market_goods`: the same goods, but as a market goods for the source country market
+    goods_valid_trigger = single_alias_right[trigger_clause]
+
+    ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
+    ### If the trigger returns true, then the specific thing we're looking at is valid
+    ### The valid triggers have the following scopes available:
+    ### - `root`: Source country for the article (or potentially first otherwise)
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_valid_trigger` then `input` might be say `STATE_SVEALAND`
+    ### - `scope:other_country`: the other country that isn't the root
+    state_valid_trigger = single_alias_right[trigger_clause]
+
+    ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
+    ### If the trigger returns true, then the specific thing we're looking at is valid
+    ### The valid triggers have the following scopes available:
+    ### - `root`: Source country for the article (or potentially first otherwise)
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_valid_trigger` then `input` might be say `STATE_SVEALAND`
+    ### - `scope:other_country`: the other country that isn't the root
+    strategic_region_valid_trigger = single_alias_right[trigger_clause]
+
+    ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
+    ### If the trigger returns true, then the specific thing we're looking at is valid
+    ### The valid triggers have the following scopes available:
+    ### - `root`: Source country for the article (or potentially first otherwise)
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_valid_trigger` then `input` might be say `STATE_SVEALAND`
+    ### - `scope:other_country`: the other country that isn't the root
+    company_valid_trigger = single_alias_right[trigger_clause]
+
+    ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
+    ### If the trigger returns true, then the specific thing we're looking at is valid
+    ### The valid triggers have the following scopes available:
+    ### - `root`: Source country for the article (or potentially first otherwise)
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_valid_trigger` then `input` might be say `STATE_SVEALAND`
+    ### - `scope:other_country`: the other country that isn't the root
+    building_type_valid_trigger = single_alias_right[trigger_clause]
+
+    ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
+    ### If the trigger returns true, then the specific thing we're looking at is valid
+    ### The valid triggers have the following scopes available:
+    ### - `root`: Source country for the article (or potentially first otherwise)
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_valid_trigger` then `input` might be say `STATE_SVEALAND`
+    ### - `scope:other_country`: the other country that isn't the root
+    law_type_valid_trigger = single_alias_right[trigger_clause]
+
+    ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
+    ### If the trigger returns true, then the specific thing we're looking at is valid
+    ### The valid triggers have the following scopes available:
+    ### - `root`: Source country for the article (or potentially first otherwise)
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_valid_trigger` then `input` might be say `STATE_SVEALAND`
+    ### - `scope:other_country`: the other country that isn't the root
+    country_valid_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### A set of inputs required by this article type, among the list of valid inputs
+    ### that article types can support.
+    required_inputs = {
+        ## cardinality = 1..inf
+        enum[treaty_article_inputs]
+    }
+
+    ## cardinality = 0..1
+    ### A set of article types that can't be part of a treaty at the same time.
+    ### An empty set means there are no restrictions.
+    mutual_exclusions = {
+        ## cardinality = 1..inf
+        <treaty_article>
+    }
+
+    ## cardinality = 0..1
+    ### A set of technologies that unlock this article type to be usable as part of
+    ### a treaty by a negotiating party. If a country has researched _any_ of the
+    ### technologies that are part of this set, the article type is unlocked for that
+    ### country.
+    ### An empty set means no requirements and the article type is always unlocked.
+    unlocked_by_technologies = {
+        <technology>
+    }
+
+    ## cardinality = 0..1
+    ### A set of diplomatic play types that will cause one party to a treaty with this
+    ### article type to automatically support the other party.
+    automatically_support = {
+        ## cardinality = 1..inf
+        <diplomatic_play>
+    }
+
+    ## cardinality = 0..1
+    ### Data that describes what should happen when the source country of an article is not fulfilling
+    ### their end of the agreement.
+    ### (default: none / 0 / empty)
+    non_fulfillment = {
+        ### - `none`: nothing happens
+        ### - `withdraw`: the contravening party automatically unilaterally withdraws from the
+        ###   treaty, becoming subject to any penalty that might apply
+        ### - `freeze`: causes the contravening party to have to keep up their end of the
+        ###   agreement, while the other party sees their obligations lifted, de facto
+        ###   turning the treaty into a one-sided deal until the contravening party is able
+        ###   to fulfill their end of the agreement again
+        consequences = enum[treaty_article_non_fulfillment_consequences]
+
+        ## cardinality = 0..1
+        ### A party of a treaty is allowed to fail to fulfill their end of the agreement
+        ### up to and including this amount of times consecutively. If they exceed this
+        ### value, the contravening party is considered to have failed to fulfill their
+        ### end of the agreement and the consequences will apply.
+        ### Must be zero if consequences = none
+        ### must be non negative
+        max_consecutive_contraventions = int
+
+        ## cardinality = 0..1
+        ### The conditions are triggers; if the trigger succeeds, it means the source country is
+        ### contravening to the agreement. If the source country is contravening to the agreement,
+        ### their current number of contraventions increases by one, potentially causing
+        ### it to exceed `max_consecutive_contraventions` and causing the non-fulfillment
+        ### consequences to apply.
+        ###
+        ### More than one condition can be specified, e.g. it's ok to have both a weekly
+        ### and a monthly condition, the weekly one will be checked every week while the
+        ### monthly one will be checked every month. Both will contribute 1 to the amount
+        ### of contraventions if the trigger for either succeeds when they are checked.
+        ### The start of a new month also corresponds with the start of a new week, so if
+        ### both weekly and monthly are specified, both triggers will be checked at the
+        ### start of every month, rather than just the monthly one.
+        ###
+        ### An empty trigger is equivalent to `always = no` (meaning "never contravenes")
+        ### but due to implementation details evaluating the empty trigger is faster.
+        ### Conditions are checked at specific time intervals
+        ### At least one of the conditions triggers must be non-empty if consequences is not none
+        conditions = {
+            ## cardinality = 0..1
+            ### checked the first day of every week
+            ### - `root`: The source country of the article
+            ### - `scope:article`
+            weekly = single_alias_right[trigger_clause]
+
+            ## cardinality = 0..1
+            ### checked the first day of every month
+            ### - `root`: The source country of the article
+            ### - `scope:article`
+            monthly = single_alias_right[trigger_clause]
+
+            ## cardinality = 0..1
+            ### checked the first day of every year
+            ### - `root`: The source country of the article
+            ### - `scope:article`
+            yearly = single_alias_right[trigger_clause]
+        }
+    }
+
+    ## cardinality = 0..1
+    ### For directed articles, this modifier applies to the source party of the
+    ### article (in other words: it applies to the "giving" party).
+    source_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ### For directed articles, this modifier applies to the target party of the
+    ### article (in other words: it applies to the "receiving" party).
+    target_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ### This modifier applies to every party of the article.
+    mutual_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ### This trigger controls the article type should be visible to the country at all.
+    ### This is the first "layer" of validation on articles
+    ### Within the visible trigger, the following scope objects are accessible:
+    ### - `root`: the country this trigger is evaluated on
+    ### - This trigger is checked for both countries
+    visible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### This trigger controls whether the article type is at all possible to consider between two parties
+    ### This is the second "layer" of validation on articles.
+    ### It also automatically runs the visible trigger, so you don't need to include anything from there here
+    ### Within the possible trigger, the following scope objects are accessible:
+    ### - `root`: the country this trigger is evaluated on
+    ### - `scope:other_country` refers to the opposite party in the treaty
+    possible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### This trigger controls whether the parties are allowed to ratify a treaty that
+    ### contains this article type.
+    ### An empty trigger is equivalent to `always = yes`, but note that due to
+    ### implementation details evaluating the empty trigger is faster.
+    ### This is the third and last "layer" of validation for articles.
+    ### It automatically also runs both the visible and possible triggers,
+    ### so you don't need to include those here.
+    ### Within the can_ratify trigger, the following scope objects are accessible:
+    ### - `root`: the country this trigger is evaluated on
+    ### - `scope:article` the article in question
+    ### - `scope:treaty` refers to the treaty that is being negotiated
+    ###
+    ### ONLY for mutual articles:
+    ### - `scope:first_country` is one of the parties that would be bound by the treaty if it entered into force
+    ### - `scope:second_country` is the other party that would be bound by the treaty if it entered into force
+    ###
+    ### ONLY for directed articles:
+    ### - `scope:source_country` is the specific party that would be bound as the source party of the article if the treaty entered into force
+    ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
+    can_ratify = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### A treaty enters into force once all parties have ratified it. This effect is
+    ### executed when that happens.
+    ### Within the `on_entry_into_force` effect, the following scope objects are accessible:
+    ### - `scope:treaty_options` are the parameters (settings) that made up the treaty
+    ### - `scope:article_options` are the parameters (settings) that made up the treaty article
+    on_entry_into_force = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ### Determines if a country is allowed to withdraw from a treaty. Defaults to true.
+    ### - `scope:withdrawing_country`
+    ### - `scope:non_withdrawing_country`
+    ###
+    ### ONLY for mutual articles:
+    ### - `scope:first_country` is one of the parties that would be bound by the treaty if it entered into force
+    ### - `scope:second_country` is the other party that would be bound by the treaty if it entered into force
+    ###
+    ### ONLY for directed articles:
+    ### - `scope:source_country` is the specific party that would be bound as the source party of the article if the treaty entered into force
+    ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
+    can_withdraw = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ### A treaty can only be withdrawn from unilaterally, because a treaty that every
+    ### party agrees to no longer honor is said to be dissolved.
+    ### This effect applies when a party withdraws from a treaty, immediately before
+    ### the withdrawal takes effect.
+    ### Do not take actions that can lead to the addition / removal of treaties or
+    ### addition / removal of articles from treaties during this effect.
+    ### Within the on_withdrawal effect, the following scope objects are accessible:
+    ### - `scope:treaty_options` are the parameters (settings) that made up the treaty which `scope:withdrawing_country` is withdrawing from
+    ### - `scope:article` refers to the article in question
+    ### - `scope:withdrawing_country` is the party that is withdrawing from the treaty
+    ### - `scope:non_withdrawing_country` is the party that is not withdrawing from the treaty
+    on_withdrawal = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ### This data controls the ai willingness to entertain treaties containing this
+    ### article type, and how much they value it
+    ### (default: empty / 0 / 0)
+    ai = {
+        ### Broad groups of types of treaties that the AI will prioritize when trying to propose treaties.
+        ### The weights for which one the AI prefers are set in AI strategies
+        treaty_categories = {
+            ## cardinality = 1..inf
+            enum[treaty_article_ai_categories]
+        }
+
+        ### If AI will offer or request an article. Can pick multiple
+        article_ai_usage = {
+            ## cardinality = 1..inf
+            enum[treaty_article_ai_usages]
+        }
+
+        ## cardinality = 0..1
+        ### Determines how likely the AI is to add this article to a treaty when trying to build a proposal.
+        ### Gets evaluated before anything else, if 0 the AI will never use it.
+        ### Only has root scope for the country we're looking at.
+        ### (default: 0)
+        evaluation_chance = single_alias_right[formula]
+
+        ## cardinality = 0..1
+        ### Filters for each input that determine which subsection of that category of inputs the AI would actually be ok with picking in this situation.
+        ### If the trigger returns true, then the specific thing we're looking at is included for consideration
+        ### The input filters have the following scopes available:
+        ### - `root`: Source country for the article (or potentially first otherwise)
+        ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+        ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_input_filter` then `input` might be say `STATE_SVEALAND`
+        ### - `scope:other_country`: the other country that isn't the root
+        ### Specifically for the goods input filter:
+        ### - `scope:goods`: the goods input we're looking at
+        ### - `scope:market_goods`: the same goods, but as a market goods for the source country market
+        goods_input_filter = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Filters for each input that determine which subsection of that category of inputs the AI would actually be ok with picking in this situation.
+        ### If the trigger returns true, then the specific thing we're looking at is included for consideration
+        ### The input filters have the following scopes available:
+        ### - `root`: Source country for the article (or potentially first otherwise)
+        ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+        ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_input_filter` then `input` might be say `STATE_SVEALAND`
+        ### - `scope:other_country`: the other country that isn't the root
+        state_input_filter = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Filters for each input that determine which subsection of that category of inputs the AI would actually be ok with picking in this situation.
+        ### If the trigger returns true, then the specific thing we're looking at is included for consideration
+        ### The input filters have the following scopes available:
+        ### - `root`: Source country for the article (or potentially first otherwise)
+        ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+        ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_input_filter` then `input` might be say `STATE_SVEALAND`
+        ### - `scope:other_country`: the other country that isn't the root
+        strategic_region_input_filter = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Filters for each input that determine which subsection of that category of inputs the AI would actually be ok with picking in this situation.
+        ### If the trigger returns true, then the specific thing we're looking at is included for consideration
+        ### The input filters have the following scopes available:
+        ### - `root`: Source country for the article (or potentially first otherwise)
+        ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+        ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_input_filter` then `input` might be say `STATE_SVEALAND`
+        ### - `scope:other_country`: the other country that isn't the root
+        company_input_filter = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Filters for each input that determine which subsection of that category of inputs the AI would actually be ok with picking in this situation.
+        ### If the trigger returns true, then the specific thing we're looking at is included for consideration
+        ### The input filters have the following scopes available:
+        ### - `root`: Source country for the article (or potentially first otherwise)
+        ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+        ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_input_filter` then `input` might be say `STATE_SVEALAND`
+        ### - `scope:other_country`: the other country that isn't the root
+        building_type_input_filter = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Filters for each input that determine which subsection of that category of inputs the AI would actually be ok with picking in this situation.
+        ### If the trigger returns true, then the specific thing we're looking at is included for consideration
+        ### The input filters have the following scopes available:
+        ### - `root`: Source country for the article (or potentially first otherwise)
+        ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+        ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_input_filter` then `input` might be say `STATE_SVEALAND`
+        ### - `scope:other_country`: the other country that isn't the root
+        law_type_input_filter = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### Filters for each input that determine which subsection of that category of inputs the AI would actually be ok with picking in this situation.
+        ### If the trigger returns true, then the specific thing we're looking at is included for consideration
+        ### The input filters have the following scopes available:
+        ### - `root`: Source country for the article (or potentially first otherwise)
+        ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+        ### - `scope:input`: the specific input we're looking at right now. E.g. if this is `state_input_filter` then `input` might be say `STATE_SVEALAND`
+        ### - `scope:other_country`: the other country that isn't the root
+        country_input_filter = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### What quantity input the AI will pick in this situation
+        ### - `root`: the source country (or first if relevant)
+        ### - `scope:other_country`: the other country that isn't the root
+        ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+        quantity_input_value = single_alias_right[formula]
+
+        ## cardinality = 0..1
+        ### Integer. Limits the maximum acceptance gained from articles of this type being added to a treaty
+        ### (default: empty)
+        combined_acceptance_cap_max = int
+
+        ## cardinality = 0..1
+        ### Integer. Establishes the minimum acceptance gained from articles of this type being added to a treaty
+        ### (default: empty)
+        combined_acceptance_cap_min = int
+
+        ## cardinality = 0..1
+        ### A script value determining the reasons for the AI to accept or reject a treaty.
+        ### `inherent_accept_score` and `contextual_accept_score` are added together to create the final acceptance value but maths conducted in one script value does not apply to the other and vice versa
+        ### Does not get reevaluated every time the AI tries to add an article, so it's more performant to put as much as possible here.
+        ### - `root`: The country we're looking to check the acceptance on.
+        ### - `scope:article`: The article in question with whatever inputs it might have
+        ###
+        ### ONLY for mutual articles:
+        ### - `scope:first_country` is one of the parties that would be bound by the treaty if it entered into force
+        ### - `scope:second_country` is the other party that would be bound by the treaty if it entered into force
+        ###
+        ### ONLY for directed articles:
+        ### - `scope:source_country` is the specific party that would be bound as the source party of the article if the treaty entered into force
+        ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
+        ### (default: 0)
+        inherent_accept_score = single_alias_right[formula]
+
+        ## cardinality = 0..1
+        ### A script value determining the reasons for the AI to accept or reject a treaty but with access to the treaty itself
+        ### Gets reevaluated every time the AI adds something to its own proposals, so should be avoided if you don't need the treaty scope.
+        ### `inherent_accept_score` and `contextual_accept_score` are added together to create the final acceptance value but maths conducted in one script value does not apply to the other and vice versa
+        ### - `root`: The country we're looking to check the acceptance on
+        ### - `scope:article`: The article in question with whatever inputs it might have
+        ### - `scope:treaty`: The current treaty with any articles that might have been added to it
+        ###
+        ### ONLY for mutual articles:
+        ### - `scope:first_country` is one of the parties that would be bound by the treaty if it entered into force
+        ### - `scope:second_country` is the other party that would be bound by the treaty if it entered into force
+        ###
+        ### ONLY for directed articles:
+        ### - `scope:source_country` is the specific party that would be bound as the source party of the article if the treaty entered into force
+        ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
+        ### (default: 0)
+        contextual_accept_score = single_alias_right[formula]
+
+        ### Multiplier on AI score for including an article in a treaty they are composing, root is composing AI country
+        proposal_weight = single_alias_right[formula]
+
+        ### Script value. A multiplier added to the AI acceptance determining how likely it is to pursue this article as a wargoal
+        ### - `root` - the country we're looking at
+        ### - `scope:article` refers to the article that is being enforced
+        ###
+        ### ONLY for mutual articles:
+        ### - `scope:first_country` is one of the parties that would be bound by the treaty if it entered into force
+        ### - `scope:second_country` is the other party that would be bound by the treaty if it entered into force
+        ###
+        ### ONLY for directed articles:
+        ### - `scope:source_country` is the specific party that would be bound as the source party of the article if the treaty entered into force
+        ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
+        wargoal_score_multiplier = single_alias_right[formula]
+    }
+
+    wargoal = {
+        ### An integer. Higher priority wargoals are executed later.
+        execution_priority = int
+
+        ### The scopes available for the maneuvers and infamy script values are the following always:
+        ### - `root`: War goal holder country
+        ### - `scope:target_country`
+        ###
+        ### And the following depending on relevant inputs:
+        ### - `scope:quantity`
+        ### - `scope:country`
+        ### - `scope:company`
+        ### - `scope:state`
+        ### - `scope:region`
+        ### - `scope:building`
+        ### - `scope:law`
+        ### - `scope:goods`
+        ### - `scope:market_goods`
+        maneuvers = single_alias_right[formula]
+
+        ### The scopes available for the maneuvers and infamy script values are the following always:
+        ### - `root`: War goal holder country
+        ### - `scope:target_country`
+        ###
+        ### And the following depending on relevant inputs:
+        ### - `scope:quantity`
+        ### - `scope:country`
+        ### - `scope:company`
+        ### - `scope:state`
+        ### - `scope:region`
+        ### - `scope:building`
+        ### - `scope:law`
+        ### - `scope:goods`
+        ### - `scope:market_goods`
+        infamy = single_alias_right[formula]
+
+        contestion_type = enum[treaty_article_wargoal_contestion_type]
+    }
+
+    ### This is what determines if an article is enforceable through a war goal or not.
+    can_be_enforced = bool
+
+    ### When renegotiating a treaty (note: renegotiation is different from standard
+    ### negotiation: renegotiation happens for treaties that have entered into force)
+    ### any article without this flag will not be able to be changed in any way. It
+    ### cannot be removed from the renegotiated treaty, and its inputs (if any) are
+    ### locked.
+    can_be_renegotiated = bool
+
+    ## cardinality = 0..1
+    ### What the min or max quantity input is allowed to be for an article with that input
+    ### - `root`: the source country (or first if relevant)
+    ### - `scope:other_country`: the other country that isn't the root
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ###
+    ### ONLY for mutual articles:
+    ### - `scope:first_country` is one of the parties that would be bound by the treaty if it entered into force
+    ### - `scope:second_country` is the other party that would be bound by the treaty if it entered into force
+    ###
+    ### ONLY for directed articles:
+    ### - `scope:source_country` is the specific party that would be bound as the source party of the article if the treaty entered into force
+    ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
+    quantity_min_value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ### What the min or max quantity input is allowed to be for an article with that input
+    ### - `root`: the source country (or first if relevant)
+    ### - `scope:other_country`: the other country that isn't the root
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ###
+    ### ONLY for mutual articles:
+    ### - `scope:first_country` is one of the parties that would be bound by the treaty if it entered into force
+    ### - `scope:second_country` is the other party that would be bound by the treaty if it entered into force
+    ###
+    ### ONLY for directed articles:
+    ### - `scope:source_country` is the specific party that would be bound as the source party of the article if the treaty entered into force
+    ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
+    quantity_max_value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ### What the min or max quantity input is allowed to be for an article with that input
+    ### - `root`: the source country (or first if relevant)
+    ### - `scope:other_country`: the other country that isn't the root
+    ### - `scope:article`: the article in question. Do note that not all inputs have been set at this point.
+    ###
+    ### ONLY for mutual articles:
+    ### - `scope:first_country` is one of the parties that would be bound by the treaty if it entered into force
+    ### - `scope:second_country` is the other party that would be bound by the treaty if it entered into force
+    ###
+    ### ONLY for directed articles:
+    ### - `scope:source_country` is the specific party that would be bound as the source party of the article if the treaty entered into force
+    ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
+    quantity_input_value = single_alias_right[formula]
+
+
+
+
+
+
+
+
+
+
+
+
+    ## cardinality = 0..1
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    effect = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    random_events = {
+        ## cardinality = 0..inf
+        int = <event>
+
+        ## cardinality = 0..inf
+        delay = single_alias_right[duration_clause]
+
+        ## cardinality = 0..inf
+        int = 0
+
+        ## cardinality = 0..1
+        chance_of_no_event = int
+
+        ## cardinality = 0..1
+        chance_to_happen = int
+    }
+
+    ## cardinality = 0..1
+    events = {
+        ## cardinality = 0..inf
+        <event>
+    }
+
+    ## cardinality  = 0..1
+    on_actions = {
+        ## cardinality = 0..inf
+        <on_action>
+    }
+}

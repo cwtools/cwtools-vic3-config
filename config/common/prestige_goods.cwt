@@ -1,0 +1,25 @@
+types = {
+    type[prestige_good] = {
+        path = "game/common/prestige_goods"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            texture = texture
+        }
+    }
+}
+
+prestige_good = {
+    ### This is the base goods that this prestige good is based on
+    base_good = <good>
+
+    ### This is a prestige bonus multiplier that this prestige good gives to the country that produces it
+    prestige_bonus = value_field
+
+    ### Prestige Good icon
+    texture = filepath
+}

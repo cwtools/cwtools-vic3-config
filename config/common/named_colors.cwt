@@ -1,9 +1,25 @@
 types = {
-    type[named_color] = {
+    type[named_color_edit] = {
         path = "game/common/named_colors"
         file_extension = .txt
-        skip_root_key = colors
     }
 }
 
-named_color = alias_match_right[color]
+named_color_edit = {
+    scalar = colour[rgb]
+    scalar = colour[hsv360]
+    scalar = colour[hsv]
+    scalar = scalar
+}
+
+enums = {
+    complex_enum[named_colors] = {
+        path = "game/common/named_colors"
+        file_extension = .txt
+        name = {
+            colors = {
+                enum_name
+            }
+        }
+    }
+}

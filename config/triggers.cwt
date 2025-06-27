@@ -8,6 +8,7 @@ alias[trigger:has_ideology] = scope[ideology]
 alias[trigger:law_stance] = {
     law = scope[law_type]
     value == enum[law_stance_values]
+    value == int
 }
 
 ### Compares areas of object to another object
@@ -143,6 +144,7 @@ alias[trigger:has_high_attrition] = bool
 alias[trigger:has_religion] = scope[character]
 ### Checks characters religion has_religion = religion/character scope
 alias[trigger:has_religion] = scope[religion]
+alias[trigger:has_religion] = <religion>
 
 ### Checks if character has the specified role has_role = role
 alias[trigger:has_role] = enum[character_role]
@@ -202,15 +204,6 @@ alias[trigger:has_building] = <building>
 alias[trigger:country_definition_has_culture] = scope[culture]
 alias[trigger:country_definition_has_culture] = <culture>
 
-### Checks if the scoped trade route is active is_trade_route_active = yes/no
-alias[trigger:is_trade_route_active] = bool
-
-### Checks if the scoped trade route is productive is_trade_route_productive = yes/no
-alias[trigger:is_trade_route_productive] = bool
-
-### Checks if the scoped trade route needs more convoys to be able to grow trade_route_needs_convoys_to_grow = yes/no
-alias[trigger:trade_route_needs_convoys_to_grow] = bool
-
 ### Whether the scoped Front doesn't have any Battalions nor Generals on target side, and the enemy has at least one General. is_vulnerable_front = scope:example_country
 alias[trigger:is_vulnerable_front] = <country_definition>
 ### Whether the scoped Front doesn't have any Battalions nor Generals on target side, and the enemy has at least one General. is_vulnerable_front = scope:example_country
@@ -241,7 +234,7 @@ alias[trigger:active_lens] = replace_me
 alias[trigger:active_lens_option] = replace_me
 
 ### Saves a temporary target for use during the trigger execution This is used to build lists in triggers. If used within an any-trigger, placement within the trigger is quite important. The game will iterate through every instance of the any-trigger until it finds a single instance that fulfills the requirements, and then it will stop. In order to add every instance of a scope that fulfills certain conditions, use "count = all" while also placing this "effect" at the very end of the any-trigger (so that every condition is evaluated for every iteration).
-alias[trigger:add_to_temporary_list] = replace_me
+alias[trigger:add_to_temporary_list] = value_set[temporary_list]
 
 ### true if all children are false (equivalent to NOR)
 alias[trigger:all_false] = single_alias_right[trigger_clause]
@@ -272,7 +265,14 @@ alias[trigger:can_start_tutorial_lesson] = <tutorial_lesson>
 alias[trigger:current_tooltip_depth] == value_field
 
 ### Wraps triggers that get a custom description instead of the auto-generated one custom_description = { 	text = <trigger_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... triggers ... }
-alias[trigger:custom_description] = replace_me
+alias[trigger:custom_description] = {
+    text = localisation
+    ## cardinality = 0..1
+    subject = scope_field
+    ## cardinality = 0..1
+    object = scope_field
+    alias_name[trigger] = alias_match_left[trigger]
+}
 
 ### Replaces the tooltips for the enclosed triggers with a custom text custom_tooltip = { 	text = <text> 	subject = <scope> (optional) 	<trigger> }
 alias[trigger:custom_tooltip] = {
@@ -360,12 +360,6 @@ alias[trigger:has_map_interaction] = <map_interaction_type>
 ### Checks if our current map interaction is a specific diplomatic action has_map_interaction_diplomatic_action = <key> An interface trigger, can only be used in specific places
 alias[trigger:has_map_interaction_diplomatic_action] = <diplomatic_action>
 
-### Checks if the specified lens option is to export the specified goods has_selected_export_option_for_goods = <scope> An interface trigger, can only be used in specific places
-alias[trigger:has_map_interaction_export_goods] = replace_me
-
-### Checks if the specified lens option is to import the specified goods has_selected_import_option_for_goods = <scope> An interface trigger, can only be used in specific places
-alias[trigger:has_map_interaction_import_goods] = scope[goods]
-
 ### True if the end date (NDefines::NGame::END_DATE) has been reached has_reached_end_date = yes
 alias[trigger:has_reached_end_date] = bool
 
@@ -378,7 +372,7 @@ alias[trigger:has_variable] = value[variable]
 ### Checks whether the current scope has the specified variable list set has_variable_list = name
 alias[trigger:has_variable_list] = value[variable_list]
 
-### AndTrigger that doesn't generate tooltips for contents within hidden_trigger = {}
+### Trigger that doesn't generate tooltips for contents within hidden_trigger = {}
 alias[trigger:hidden_trigger] = single_alias_right[trigger_clause]
 
 ### Checks if the CProductionMethodsPanelEntry for a particular CBuildingType is expanded is_building_type_expanded = <scope/key> An interface trigger, can only be used in specific places
@@ -391,7 +385,7 @@ alias[trigger:is_game_paused] = bool
 alias[trigger:is_gamestate_tutorial_active] = bool
 
 ### Checks if a target in in a list
-alias[trigger:is_in_list] = replace_me
+alias[trigger:is_in_list] = scope_field
 
 ### Checks if a certain lens is open, specified as a lens key. Specify an optional named tab to check if this tab is open. is_lens_open = { lens = lens_key tab_name = tab_key } An interface trigger, can only be used in specific places
 alias[trigger:is_lens_open] = {
@@ -460,7 +454,14 @@ alias[trigger:is_tutorial_lesson_completed] = <tutorial_lesson>
 alias[trigger:is_tutorial_lesson_step_completed] = replace_me
 
 ### Checks the size of a list list_size = { name = X value >= Y } Where X is the name of the list Where Y is a script value
-alias[trigger:list_size] == replace_me_comparison
+alias[trigger:list_size] == {
+    name = value[variable_list]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
 
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
 alias[trigger:local_variable_list_size] = {
@@ -570,12 +571,6 @@ alias[trigger:can_afford_diplomatic_action] = {
     type = <diplomatic_action>
 }
 
-### Check if a country can establish any export routes can_establish_any_export_route = <goods key/scope>
-alias[trigger:can_establish_any_export_route] = scope[goods]
-
-### Check if a country can establish any import routes can_establish_any_import_route = <goods key/scope>
-alias[trigger:can_establish_any_import_route] = scope[goods]
-
 ### Check if the target country is able to potentially form a nation can_form_nation = <tag>
 alias[trigger:can_form_nation] = <country_formation>
 
@@ -605,7 +600,6 @@ alias[trigger:construction_queue_num_queued_levels] == value_field
 
 ### Checks if a culture is one of the primary cultures in the country country_has_primary_culture = <culture>
 alias[trigger:country_has_primary_culture] = scope[culture]
-alias[trigger:country_has_primary_culture] = <culture>
 
 ### Checks if a religion is the state religion in the country country_has_accepted_religion = <religion>
 alias[trigger:country_has_state_religion] = scope[religion]
@@ -685,9 +679,6 @@ alias[trigger:has_diplomats_expelled] = <country_definition>
 ### Checks if country in scope has recently expelled diplomats of event target has_diplomats_expelled = country
 alias[trigger:has_diplomats_expelled] = scope[country]
 
-### Checks if scoped country has Import Prioritized tariffs for a good has_export_priority_tariffs = <key/scope>
-alias[trigger:has_export_priority_tariffs] = scope[goods]
-
 ### Check if the country has a free (of radicals) government reform has_free_government_reform = <yes/no>
 alias[trigger:has_free_government_reform] = bool
 
@@ -705,9 +696,6 @@ alias[trigger:has_government_type] = <government_type>
 
 ### Check if the country has a healthy economy
 alias[trigger:has_healthy_economy] = bool
-
-### Checks if scoped country has Import Prioritized tariffs for a good has_import_priority_tariffs = <key/scope>
-alias[trigger:has_import_priority_tariffs] = scope[goods]
 
 ### Checks if scope country has a particular type of institution has_institution = <scope/key>
 alias[trigger:has_institution] = <institution>
@@ -727,9 +715,6 @@ alias[trigger:has_journal_entry] = <journal_entry>
 
 ### Checks if a country has a certain Law active
 alias[trigger:has_law] = scope[law_type]
-
-### Checks if scoped country has Unprioritized tariffs for a good has_no_priority_tariffs = <key/scope>
-alias[trigger:has_no_priority_tariffs] = scope[goods]
 
 ### Checks if the scoped country has a certain objective type has_objective = objective_type_key
 alias[trigger:has_objective] = <objective>
@@ -784,11 +769,6 @@ alias[trigger:has_technology_progress] == {
 alias[trigger:has_technology_researched] = scope[technology]
 ### True if a country has researched an technology has_technology_researched = <scope/key>
 alias[trigger:has_technology_researched] = <technology>
-
-### Checks if the scoped country has a treaty port in target country c:POR = { has_treaty_port_in_country = c:CHI }
-alias[trigger:has_treaty_port_in_country] = <country_definition>
-### Checks if the scoped country has a treaty port in target country c:POR = { has_treaty_port_in_country = c:CHI }
-alias[trigger:has_treaty_port_in_country] = scope[country]
 
 ### Check if a country has a truce with a different target country has_truce_with = c:GBR
 alias[trigger:has_truce_with] = <country_definition>
@@ -1051,6 +1031,7 @@ alias[trigger:pop_employment_building_group] = <building_group>
 alias[trigger:pop_has_primary_culture] = bool
 
 alias[trigger:pop_acceptance] == enum[acceptance_status]
+alias[trigger:pop_acceptance] == int
 
 ### Compares the quality of life of the given pop quality_of_life > 10
 alias[trigger:quality_of_life] == value_field
@@ -1675,7 +1656,7 @@ alias[trigger:country_has_building_levels] == value_field
 
 ### Checks the sum of building levels for a building type in a country
 alias[trigger:country_has_building_type_levels] = {
-    type = scope[building_type]
+    target = scope[building_type]
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1713,9 +1694,6 @@ alias[trigger:has_mobilizing_unit] = bool
 
 ### Checks if a Combat Unit is of the specified type 
 alias[trigger:has_unit_type] = scope[combat_unit_type]
-
-### Checks if a naval invasion is currently active (started or ongoing) 
-alias[trigger:is_active] = bool
 
 ### Checks if country in scope is adjacent to a target country  
 alias[trigger:is_adjacent_to_country] = scope[country]
@@ -1755,26 +1733,6 @@ alias[trigger:is_mass_migration_origin] = bool
 
 ### Checks if the scoped country origin of mass migration of specific culture 
 alias[trigger:is_mass_migration_origin_of_culture] = bool
-
-### Compares the effective maximum Organization of the Military Formation in scope
-## scopes = { military_formation }
-alias[trigger:max_organization] == value_field
-
-### Compares the effective maximum Organization of the Military Formation in scope
-## scopes = { military_formation }
-alias[trigger:max_organization] == single_alias_right[formula]
-
-### Compares the effective maximum Organization of the Military Formation in scope
-## scopes = { military_formation }
-alias[trigger:max_organization] == <script_value>
-
-### Compares the effective maximum Organization of the Military Formation in scope
-## scopes = { military_formation }
-alias[trigger:max_organization] == <static_value>
-
-### Compares the effective maximum Organization of the Military Formation in scope
-## scopes = { military_formation }
-alias[trigger:max_organization] == $define_reference
 
 ### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
 alias[trigger:size_weighted_lost_battles_fraction] == value_field
@@ -2221,9 +2179,6 @@ alias[trigger:num_investments_of_type] = {
     value == $define_reference
 }
 
-### Checks whether a naval invasion is stalled because of given orders
-alias[trigger:is_naval_invasion_stalled_due_to_orders] = bool
-
 ## scopes = { war }
 ### Checks whether a naval invasion is stalled because of given orders
 alias[trigger:war_has_active_peace_deal] = bool
@@ -2407,7 +2362,7 @@ alias[trigger:country_average_religious_acceptance] = {
     value == $define_reference
 }
 
-## scopes = { building }
+## scopes = { country }
 ### Compares a Country's Power Ranking
 ### country_rank < rank_value:major_power
 alias[trigger:country_rank] == value_field
@@ -2641,3 +2596,497 @@ alias[trigger:war_side_has_war_goal_of_type_against] = {
 ## scopes = { character }
 ### Checks whether the scoped character was exiled
 alias[trigger:was_exiled] = bool
+
+## scopes = { treaty_options treaty }
+### Checks if the scoped treaty or treaty_options binds the given country
+alias[trigger:binds] = scope[country]
+
+### Checks if a treaty between countries can be created
+alias[trigger:can_create_treaty] = {
+    ## cardinality = 0..1
+    ### (default: empty) if specified, this treaty's name will be determined by the localization of the specified key
+    name = localisation
+
+    ## cardinality = 0..1
+    ### (default: none) must _not_ be specified if the created treaty is an amendment
+    first_country = scope[country]
+
+    ## cardinality = 0..1
+    ### (default: none) must _not_ be specified if the created treaty is an amendment
+    second_country = scope[country]
+
+    ## cardinality = 0..1
+    ### (default: none) if specified, the created treaty will be an amendment to the specified treaty
+    amends = scope[treaty]
+
+    ## cardinality = 0..1
+    ### (default: yes) must be yes if this treaty is an amendment to an existing treaty
+    is_draft = bool
+
+    ## cardinality = 0..1
+    ### (default: none) means "today" if not specified (for non-drafts). Must _not_ be specified for drafts. Cannot be in the future
+    entered_into_force_on = date_field
+
+    ### (default: 0) must be a non negative number, fractional parts will be ignored (truncation)
+    binding_period = {
+        ## cardinality = 0..1
+        enum[duration] = int
+        ## cardinality = 0..1
+        enum[duration] = <script_value>
+        ## cardinality = 0..1
+        enum[duration] = <static_value>
+        ## cardinality = 0..1
+        enum[duration] = enum[duration]
+    }
+
+    ## cardinality = 1..inf
+    ### (default: empty) non-amendments must have at least one article to create
+    articles_to_create = {
+        {
+            ### (default: empty) the type of article (determined by script)
+            article = <treaty_article>
+
+            ## cardinality = 0..1
+            ### (default: none) directed articles _must_ specify this value, mutual articles _must not_ specify this value
+            source_country = scope[country]
+
+            ## cardinality = 0..1
+            ### (default: none) directed articles _must_ specify this value, mutual articles _must not_ specify this value
+            target_country = scope[country]
+
+            ## cardinality = 0..1
+            ### (default: empty) list of inputs values as required by the article
+            inputs = {
+                ## cardinality = 0..1
+                { quantity = int }
+
+                ## cardinality = 0..1
+                { goods = scope[goods] }
+
+                ## cardinality = 0..1
+                { state = scope[state] }
+
+                ## cardinality = 0..1
+                { strategic_region = scope[strategic_region] }
+
+                ## cardinality = 0..1
+                { company = scope[company] }
+
+                ## cardinality = 0..1
+                { building_type = scope[building_type] }
+
+                ## cardinality = 0..1
+                { law_type = scope[law_type] }
+
+                ## cardinality = 0..1
+                { country = scope[country] }
+            }
+        }
+    }
+}
+
+## scopes = { company }
+### Checks if scope company can potentially produce target prestige good type
+### can_potentially_produce_prestige_good = pg:prestige_good_generic_clothes
+alias[trigger:binds] = scope[prestige_goods]
+
+## scopes = { company }
+### Check if the scoped company has a monopoly of the specified building type
+### company_has_building_type_monopoly = bt:building_food_industry
+alias[trigger:company_has_building_type_monopoly] = scope[building_type]
+
+## scopes = { company }
+### Check if the scoped company has any monopoly
+alias[trigger:company_has_monopoly] = bool
+
+## scopes = { company }
+### Check if a company is considered to be prosperous
+alias[trigger:company_is_prosperous] = bool
+
+## scopes = { country }
+### Check if the scoped country has any country monopolies
+alias[trigger:country_has_country_monopoly] = bool
+
+## scopes = { state_goods }
+### Checks if state goods has a particular export tariff level set
+alias[trigger:export_tariff_level] = enum[tariff_levels]
+
+## scopes = { state_goods }
+### Checks if state goods has a particular import tariff level set
+alias[trigger:import_tariff_level] = enum[tariff_levels]
+
+### Does the player have the item in the account (dlc)
+alias[trigger:has_account_item] = scalar
+
+## scopes = { country }
+### Checks if a country has a commitment to enact a certain law
+alias[trigger:has_law_commitment] = scope[law_type]
+
+## scopes = { state_goods market_goods }
+### Check if the market goods or state goods has a potential supply, either though local production or theoretical import
+alias[trigger:has_potential_supply] = bool
+
+## scopes = { country }
+### Checks if the scoped country has a treaty port in target market
+alias[trigger:has_treaty_port_in_market] = scope[market]
+
+## scopes = { treaty_article treaty_article_options }
+### Checks if the scoped object has the type identified by the given string
+alias[trigger:has_type] = <treaty_article>
+
+## scopes = { state }
+### Checks if a state is blockaded by a country
+alias[trigger:has_law_commitment] = scope[country]
+
+## scopes = { company }
+### Checks if scoped company is of the specified type
+alias[trigger:is_company_type] = scope[company_type]
+
+## scopes = { treaty }
+### Checks if the scoped treaty is enforced on either party
+alias[trigger:is_enforced] = bool
+
+## scopes = { treaty }
+### Check if the scoped treaty is fulfilled by the given country
+alias[trigger:is_fulfilled_by] = scope[country]
+
+## scopes = { invasion }
+### Checks if the invasion is stalled due to wrong commander orders
+alias[trigger:is_invasion_stalled] = bool
+
+## scopes = { state }
+### Checks if the scoped state has the potential to become a treaty port for target country
+alias[trigger:is_potential_treaty_port] = scope[country]
+
+## scopes = { company }
+### Checks if scope company is producing prstige goods
+alias[trigger:is_producing_prestige_goods] = bool
+
+## scopes = { state }
+### Check if state is a world market hub
+alias[trigger:is_world_market_hub] = bool
+
+## scopes = { market }
+### Compare fraction of scope market consumption coming from target country
+alias[trigger:market_consumption_share] = {
+    target = scope[country]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market }
+### Compare fraction of scope market production coming from target country
+alias[trigger:market_production_share] = {
+    target = scope[country]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market }
+### Compare total units of exports from scope to target market (if set) or world market in general (if no market specified)
+alias[trigger:market_exports] = {
+    ## cardinality = 0..1
+    target = scope[market]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market }
+### Compare fraction of buy orders in scope market that are due to exports to target market (if set) or world market in general (if no market specified)
+alias[trigger:market_exports_reliance] = {
+    ## cardinality = 0..1
+    target = scope[market]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market }
+### Compare total units of imports from target to scope market
+alias[trigger:market_imports] = {
+    ## cardinality = 0..1
+    target = scope[market]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market }
+### Compare fraction of buy orders in scope market that are due to imports from target market (if set) or world market in general (if no market specified)
+alias[trigger:market_imports_reliance] = {
+    ## cardinality = 0..1
+    target = scope[market]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market }
+### Compare total units of goods traded between scope market and target market (if set) or world market in general (if no market specified)
+alias[trigger:market_trade] = {
+    ## cardinality = 0..1
+    target = scope[market]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market }
+### Compare fraction of buy and sell orders in scope market that are due to trade with target market (if set) or world market in general (if no market specified)
+alias[trigger:market_trade_reliance] = {
+    ## cardinality = 0..1
+    target = scope[market]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market_goods }
+### Compare the buy orders of a specific prestige good type in the market
+alias[trigger:market_prestige_goods_buy_orders] = {
+    type = <prestige_good>
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market_goods }
+### Compare the consumption value of a specific prestige good type in the market
+alias[trigger:market_prestige_goods_consumption] = {
+    type = <prestige_good>
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market_goods }
+### Compare the delta (sell orders - buy orders) of a specific prestige good type in the market
+alias[trigger:market_prestige_goods_delta] = {
+    type = <prestige_good>
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market_goods }
+### Compare the world market expore share of a specific prestige good type in the market
+alias[trigger:market_prestige_goods_export_share] = {
+    type = <prestige_good>
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market_goods }
+### Compare the export value of a specific prestige good type in the market
+alias[trigger:market_prestige_goods_exports] = {
+    type = <prestige_good>
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market_goods }
+### Compare the world market export share of a specific prestige good type in the market
+alias[trigger:market_prestige_goods_import_share] = {
+    type = <prestige_good>
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market_goods }
+### Compare the import value of a specific prestige good type in the market
+alias[trigger:market_prestige_goods_imports] = {
+    type = <prestige_good>
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market_goods }
+### Compare the production value of a specific prestige good type in the market
+alias[trigger:market_prestige_goods_production] = {
+    type = <prestige_good>
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { market_goods }
+### Compare the sell orders of a specific prestige good type in the market
+alias[trigger:market_prestige_goods_sell_orders] = {
+    type = <prestige_good>
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { treaty_article }
+### Check if the scoped article has the given number of contravention from the given country
+alias[trigger:num_contraventions] = {
+    type = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { front }
+### Checks the number of casualties for the target country in the scoped front
+alias[trigger:num_front_casualties] = {
+    type = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { front }
+### Checks the number of dead for the target country in the scoped front
+alias[trigger:num_front_dead] = {
+    type = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { front }
+### Checks the number of wounded for the target country in the scoped front
+alias[trigger:num_front_wounded] = {
+    type = scope[country]
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { state }
+### Compare total units of exports from scope to target state (if set) or world state in general (if no state specified)
+alias[trigger:state_exports] = {
+    ## cardinality = 0..1
+    target = scope[state]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { state }
+### Compare total units of imports from scope to target state (if set) or world state in general (if no state specified)
+alias[trigger:state_imports] = {
+    ## cardinality = 0..1
+    target = scope[state]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { state }
+### Compare total units of goods traded between scope state and target state (if set) or world state in general (if no state specified)
+alias[trigger:state_trade] = {
+    ## cardinality = 0..1
+    target = scope[state]
+
+    ## cardinality = 0..1
+    goods = <good>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { new_combat_unit }
+### Checks if their formation of the scoped combat unit has the provided character as one of its commanders
+alias[trigger:unit_formation_has_commander] = scope[character]
+
+## scopes = { country }
+### Checks if a country has a commitment to enact any law
+alias[trigger:has_any_law_commitment] = bool

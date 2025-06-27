@@ -1,0 +1,1627 @@
+scopes = {
+    # Custom scopes
+    DataModel = {
+        # Scope for lists used in the GUI
+        aliases = { DataModel }
+    }
+    Texture = {
+        # Scope for methods that return textures
+        aliases = { Texture }
+    }
+    RenderPass = {
+        # GetGuiEntityShaderRenderpass is only referenced in a field called renderpass
+        aliases = { RenderPass }
+    }
+    # data_types_common.txt
+    CFixedPoint = {
+        aliases = { CFixedPoint }
+    }
+    CPdxFloatRect = {
+        aliases = { CPdxFloatRect }
+    }
+    CPdxIntRect = {
+        aliases = { CPdxIntRect }
+    }
+    CString = {
+        aliases = { CString }
+    }
+    CUTF8String = {
+        aliases = { CUTF8String }
+    }
+    CVector2f = {
+        aliases = { CVector2f }
+    }
+    CVector3f = {
+        aliases = { CVector3f }
+    }
+    CVector3i = {
+        aliases = { CVector3i }
+    }
+    CVector4f = {
+        aliases = { CVector4f }
+    }
+    CVector4i = {
+        aliases = { CVector4i }
+    }
+    Date = {
+        aliases = { Date }
+    }
+    Playable = {
+        aliases = { Playable }
+    }
+    VariableSystem = {
+        aliases = { VariableSystem }
+    }
+    bool = {
+        aliases = { bool }
+    }
+    double = {
+        aliases = { double }
+    }
+    float = {
+        aliases = { float }
+    }
+    int8 = {
+        aliases = { int8 }
+    }
+    int16 = {
+        aliases = { int16 }
+    }
+    int32 = {
+        aliases = { int32 }
+    }
+    int64 = {
+        aliases = { int64 }
+    }
+    uint8 = {
+        aliases = { uint8 }
+    }
+    uint16 = {
+        aliases = { uint16 }
+    }
+    uint32 = {
+        aliases = { uint32 }
+    }
+    void = {
+        aliases = { void }
+    }
+    int16 = {
+        aliases = { int16 }
+    }
+    int16 = {
+        aliases = { int16 }
+    }
+    int16 = {
+        aliases = { int16 }
+    }
+    ### data_types_gui.txt
+    AccountInventory = {
+        aliases = { AccountInventory }
+    }
+    Achievement = {
+        aliases = { Achievement }
+    }
+    AchievementPopup = {
+        aliases = { AchievementPopup }
+    }
+    AchievementWindow = {
+        aliases = { AchievementWindow }
+    }
+    AddFriendWindow = {
+        aliases = { AddFriendWindow }
+    }
+    AvailabilityEntry = {
+        aliases = { AvailabilityEntry }
+    }
+    CPdxInputBindingSetting = {
+        aliases = { CPdxInputBindingSetting }
+    }
+    Chat = {
+        aliases = { Chat }
+    }
+    ChatMessage = {
+        aliases = { ChatMessage }
+    }
+    ChatNotificationMessage = {
+        aliases = { ChatNotificationMessage }
+    }
+    ChatTab = {
+        aliases = { ChatTab }
+    }
+    ChatWindow = {
+        aliases = { ChatWindow }
+    }
+    CoatOfArms = {
+        aliases = { CoatOfArms }
+    }
+    CountryEntry = {
+        aliases = { CountryEntry }
+    }
+    CreateAccount = {
+        aliases = { CreateAccount }
+    }
+    CreateSocialProfileWindow = {
+        aliases = { CreateSocialProfileWindow }
+    }
+    CreditsWindow = {
+        aliases = { CreditsWindow }
+    }
+    EditorSettingCategory = {
+        aliases = { EditorSettingCategory }
+    }
+    EditorSettingsPage = {
+        aliases = { EditorSettingsPage }
+    }
+    EditorSettingsWindow = {
+        aliases = { EditorSettingsWindow }
+    }
+    Encyclopedia = {
+        aliases = { Encyclopedia }
+    }
+    EncyclopediaEntry = {
+        aliases = { EncyclopediaEntry }
+    }
+    EncyclopediaEntryView = {
+        aliases = { EncyclopediaEntryView }
+    }
+    EncyclopediaPage = {
+        aliases = { EncyclopediaPage }
+    }
+    EndPrepConfirm = {
+        aliases = { EndPrepConfirm }
+    }
+    EnumSettingEntry = {
+        aliases = { EnumSettingEntry }
+    }
+    Ethnicity = {
+        aliases = { Ethnicity }
+    }
+    Friend = {
+        aliases = { Friend }
+    }
+    FriendListWindow = {
+        aliases = { FriendListWindow }
+    }
+    FriendRequest = {
+        aliases = { FriendRequest }
+    }
+    FriendSearchResult = {
+        aliases = { FriendSearchResult }
+    }
+    Friends = {
+        aliases = { Friends }
+    }
+    FrontEndCreditsView = {
+        aliases = { FrontEndCreditsView }
+    }
+    FrontEndMultiplayerView = {
+        aliases = { FrontEndMultiplayerView }
+    }
+    GUIAchievement = {
+        aliases = { GUIAchievement }
+    }
+    GeneCategory = {
+        aliases = { GeneCategory }
+    }
+    GeneTemplate = {
+        aliases = { GeneTemplate }
+    }
+    Group = {
+        aliases = { Group }
+    }
+    GuiContext = {
+        aliases = { GuiContext }
+    }
+    GuiCurrentDrag = {
+        aliases = { GuiCurrentDrag }
+    }
+    InputActionBinding = {
+        aliases = { InputActionBinding }
+    }
+    JominiGUISetting = {
+        aliases = { JominiGUISetting }
+    }
+    JominiNotification = {
+        aliases = { JominiNotification }
+    }
+    JominiNotificationOverlay = {
+        aliases = { JominiNotificationOverlay }
+    }
+    JominiPasswordPopup = {
+        aliases = { JominiPasswordPopup }
+    }
+    JominiServer = {
+        aliases = { JominiServer }
+    }
+    JominiServerBrowserGui = {
+        aliases = { JominiServerBrowserGui }
+    }
+    JominiSettingsWindow = {
+        aliases = { JominiSettingsWindow }
+    }
+    LegalDocsViewer = {
+        aliases = { LegalDocsViewer }
+    }
+    LobbyPlayer = {
+        aliases = { LobbyPlayer }
+    }
+    LobbyView = {
+        aliases = { LobbyView }
+    }
+    LoginView = {
+        aliases = { LoginView }
+    }
+    MPConfig = {
+        aliases = { MPConfig }
+    }
+    MeshImporterMaterialEntry = {
+        aliases = { MeshImporterMaterialEntry }
+    }
+    MeshImporterMaterials = {
+        aliases = { MeshImporterMaterials }
+    }
+    MultiplayerSetupWindow = {
+        aliases = { MultiplayerSetupWindow }
+    }
+    MusicPlayer = {
+        aliases = { MusicPlayer }
+    }
+    MusicPlayerCategory = {
+        aliases = { MusicPlayerCategory }
+    }
+    MusicTrack = {
+        aliases = { MusicTrack }
+    }
+    NotificationDummyContext = {
+        aliases = { NotificationDummyContext }
+    }
+    OosData = {
+        aliases = { OosData }
+    }
+    OosWindow = {
+        aliases = { OosWindow }
+    }
+    OutgoingFriendRequest = {
+        aliases = { OutgoingFriendRequest }
+    }
+    PdxAccount = {
+        aliases = { PdxAccount }
+    }
+    PdxGuiFoldOut = {
+        aliases = { PdxGuiFoldOut }
+    }
+    PdxGuiGfxVideoControl = {
+        aliases = { PdxGuiGfxVideoControl }
+    }
+    PdxGuiTableRow = {
+        aliases = { PdxGuiTableRow }
+    }
+    PdxGuiTreeTable = {
+        aliases = { PdxGuiTreeTable }
+    }
+    PdxGuiWidget = {
+        aliases = { PdxGuiWidget }
+    }
+    PlayerJoinRequest = {
+        aliases = { PlayerJoinRequest }
+    }
+    PlotLine = {
+        aliases = { PlotLine }
+    }
+    PortraitTooltip = {
+        aliases = { PortraitTooltip }
+    }
+    RemoveFriendConfirmWindow = {
+        aliases = { RemoveFriendConfirmWindow }
+    }
+    ScopedEditorSettingsCategory = {
+        aliases = { ScopedEditorSettingsCategory }
+    }
+    ScopedEditorSettingsPage = {
+        aliases = { ScopedEditorSettingsPage }
+    }
+    ScopedJominiSettingsCategory = {
+        aliases = { ScopedJominiSettingsCategory }
+    }
+    ScopedJominiSettingsPage = {
+        aliases = { ScopedJominiSettingsPage }
+    }
+    ServerInformation = {
+        aliases = { ServerInformation }
+    }
+    SettingCategory = {
+        aliases = { SettingCategory }
+    }
+    SettingsPage = {
+        aliases = { SettingsPage }
+    }
+    Social = {
+        aliases = { Social }
+    }
+    SocialNotificationWindow = {
+        aliases = { SocialNotificationWindow }
+    }
+    SocialUI = {
+        aliases = { SocialUI }
+    }
+    SocialWidget = {
+        aliases = { SocialWidget }
+    }
+    StatusWidget = {
+        aliases = { StatusWidget }
+    }
+    # data_types_script.txt
+    Container = {
+        aliases = { Container }
+    }
+    Scope = {
+        aliases = { Scope }
+    }
+    ScriptedGui = {
+        aliases = { ScriptedGui }
+    }
+    TopScope = {
+        aliases = { TopScope }
+    }
+    # data_types_uncategorized.txt
+    AIAttitude = {
+        aliases = { AIAttitude }
+    }
+    AIStrategy = {
+        aliases = { AIStrategy }
+    }
+    AcceptanceStatus = {
+        aliases = { AcceptanceStatus }
+    }
+    AcceptanceStatusSegment = {
+        aliases = { AcceptanceStatusSegment }
+    }
+    AddWarGoalPanel = {
+        aliases = { AddWarGoalPanel }
+    }
+    AgitatorSlot = {
+        aliases = { AgitatorSlot }
+    }
+    Alert = {
+        aliases = { Alert }
+    }
+    AlertGroup = {
+        aliases = { AlertGroup }
+    }
+    AlertOptionItem = {
+        aliases = { AlertOptionItem }
+    }
+    AlertSettingsItem = {
+        aliases = { AlertSettingsItem }
+    }
+    Battle = {
+        aliases = { Battle }
+    }
+    BattleBuildingEntry = {
+        aliases = { BattleBuildingEntry }
+    }
+    BattleCondition = {
+        aliases = { BattleCondition }
+    }
+    BattleMarker = {
+        aliases = { BattleMarker }
+    }
+    BattleMilitaryFormation = {
+        aliases = { BattleMilitaryFormation }
+    }
+    BattlePanel = {
+        aliases = { BattlePanel }
+    }
+    BattleParticipant = {
+        aliases = { BattleParticipant }
+    }
+    BattleParticipantsPanel = {
+        aliases = { BattleParticipantsPanel }
+    }
+    BattleUnitType = {
+        aliases = { BattleUnitType }
+    }
+    BudgetPanel = {
+        aliases = { BudgetPanel }
+    }
+    Building = {
+        aliases = { Building }
+    }
+    BuildingBrowserBuildingTypeItem = {
+        aliases = { BuildingBrowserBuildingTypeItem }
+    }
+    BuildingBrowserPanel = {
+        aliases = { BuildingBrowserPanel }
+    }
+    BuildingDetailsPanel = {
+        aliases = { BuildingDetailsPanel }
+    }
+    BuildingMarker = {
+        aliases = { BuildingMarker }
+    }
+    BuildingOwnership = {
+        aliases = { BuildingOwnership }
+    }
+    BuildingPotentialMarker = {
+        aliases = { BuildingPotentialMarker }
+    }
+    BuildingProductionMethodsEntry = {
+        aliases = { BuildingProductionMethodsEntry }
+    }
+    BuildingType = {
+        aliases = { BuildingType }
+    }
+    CanalType = {
+        aliases = { CanalType }
+    }
+    ChangeLawPanel = {
+        aliases = { ChangeLawPanel }
+    }
+    ChangeProductionMethodMenuItem = {
+        aliases = { ChangeProductionMethodMenuItem }
+    }
+    ChangeProductionMethodsMenuItems = {
+        aliases = { ChangeProductionMethodsMenuItems }
+    }
+    Character = {
+        aliases = { Character }
+    }
+    CharacterInteraction = {
+        aliases = { CharacterInteraction }
+    }
+    CharacterTrait = {
+        aliases = { CharacterTrait }
+    }
+    Cities = {
+        aliases = { Cities }
+    }
+    CityMarker = {
+        aliases = { CityMarker }
+    }
+    CivilWar = {
+        aliases = { CivilWar }
+    }
+    CloudSaveData = {
+        aliases = { CloudSaveData }
+    }
+    CoatOfArmsPreviewWindow = {
+        aliases = { CoatOfArmsPreviewWindow }
+    }
+    CohesionLevel = {
+        aliases = { CohesionLevel }
+    }
+    CombatUnit = {
+        alias = { CombatUnit }
+    }
+    CombatUnitGroup = {
+        aliases = { CombatUnitGroup }
+    }
+    CombatUnitType = {
+        aliases = { CombatUnitType }
+    }
+    Command = {
+        aliases = { Command }
+    }
+    CommanderOrderType = {
+        aliases = { CommanderOrderType }
+    }
+    CommanderPanel = {
+        aliases = { CommanderPanel }
+    }
+    CommanderRank = {
+        aliases = { CommanderRank }
+    }
+    Company = {
+        aliases = { Company }
+    }
+    CompanyChangeNamePopup = {
+        aliases = { CompanyChangeNamePopup }
+    }
+    CompanyType = {
+        aliases = { CompanyType }
+    }
+    ConfirmationWindow = {
+        aliases = { ConfirmationWindow }
+    }
+    ConstructionPanel = {
+        aliases = { ConstructionPanel }
+    }
+    ConstructionQueueElement = {
+        aliases = { ConstructionQueueElement }
+    }
+    ContextualDiplomaticActionType = {
+        aliases = { ContextualDiplomaticActionType }
+    }
+    ContextualDiplomaticPact = {
+        aliases = { ContextualDiplomaticPact }
+    }
+    CountriesPanel = {
+        aliases = { CountriesPanel }
+    }
+    Country = {
+        aliases = { Country }
+    }
+    CountryCreation = {
+        aliases = { CountryCreation }
+    }
+    CountryDefinition = {
+        aliases = { CountryDefinition }
+    }
+    CountryFormation = {
+        aliases = { CountryFormation }
+    }
+    CountryFormationPanel = {
+        aliases = { CountryFormationPanel }
+    }
+    CountryMarker = {
+        aliases = { CountryMarker }
+    }
+    CountryPanel = {
+        aliases = { CountryPanel }
+    }
+    CountryTrendPair = {
+        aliases = { CountryTrendPair }
+    }
+    CulturalCommunity = {
+        aliases = { CulturalCommunity }
+    }
+    Culture = {
+        aliases = { Culture }
+    }
+    CultureCasualtyStatistics = {
+        aliases = { CultureCasualtyStatistics }
+    }
+    CultureInfoPanel = {
+        aliases = { CultureInfoPanel }
+    }
+    DataColorPicker = {
+        aliases = { DataColorPicker }
+    }
+    DataDynamicTrend = {
+        aliases = { DataDynamicTrend }
+    }
+    DataTrend = {
+        aliases = { DataTrend }
+    }
+    Decision = {
+        aliases = { Decision }
+    }
+    Decree = {
+        aliases = { Decree }
+    }
+    DecreeMarker = {
+        aliases = { DecreeMarker }
+    }
+    DecreeType = {
+        aliases = { DecreeType }
+    }
+    DiplomaticAction = {
+        aliases = { DiplomaticAction }
+    }
+    DiplomaticActionType = {
+        aliases = { DiplomaticActionType }
+    }
+    DiplomaticActionWindow = {
+        aliases = { DiplomaticActionWindow }
+    }
+    DiplomaticCatalyst = {
+        aliases = { DiplomaticCatalyst }
+    }
+    DiplomaticCatalystCategory = {
+        aliases = { DiplomaticCatalystCategory }
+    }
+    DiplomaticCatalystType = {
+        aliases = { DiplomaticCatalystType }
+    }
+    DiplomaticDemand = {
+        aliases = { DiplomaticDemand }
+    }
+    DiplomaticOverviewPanel = {
+        aliases = { DiplomaticOverviewPanel }
+    }
+    DiplomaticPact = {
+        aliases = { DiplomaticPact }
+    }
+    DiplomaticPlay = {
+        aliases = { DiplomaticPlay }
+    }
+    DiplomaticPlayConfirmation = {
+        aliases = { DiplomaticPlayConfirmation }
+    }
+    DiplomaticPlayPanel = {
+        aliases = { DiplomaticPlayPanel }
+    }
+    DiplomaticPlayType = {
+        aliases = { DiplomaticPlayType }
+    }
+    DiplomaticRelations = {
+        aliases = { DiplomaticRelations }
+    }
+    DiscriminationTrait = {
+        aliases = { DiscriminationTrait }
+    }
+    Dlc = {
+        aliases = { Dlc }
+    }
+    Election = {
+        aliases = { Election }
+    }
+    ElectionPanel = {
+        aliases = { ElectionPanel }
+    }
+    EmitterNodeWindow = {
+        aliases = { EmitterNodeWindow }
+    }
+    EmployeeTransfer = {
+        aliases = { EmployeeTransfer }
+    }
+    Era = {
+        aliases = { Era }
+    }
+    ErrorDeer = {
+        aliases = { ErrorDeer }
+    }
+    Event = {
+        aliases = { Event }
+    }
+    EventIcon = {
+        aliases = { EventIcon }
+    }
+    EventMarker = {
+        aliases = { EventMarker }
+    }
+    EventMarkerListItem = {
+        aliases = { EventMarkerListItem }
+    }
+    EventOption = {
+        aliases = { EventOption }
+    }
+    EventWindow = {
+        aliases = { EventWindow }
+    }
+    ExilePool = {
+        aliases = { ExilePool }
+    }
+    FeedMessageItem = {
+        aliases = { FeedMessageItem }
+    }
+    FoodSecurity = {
+        aliases = { FoodSecurity }
+    }
+    FoodSecurityFilter = {
+        aliases = { FoodSecurityFilter }
+    }
+    FormationMarker = {
+        aliases = { FormationMarker }
+    }
+    FormationPanel = {
+        aliases = { FormationPanel }
+    }
+    Front = {
+        aliases = { Front }
+    }
+    FrontEndLoadConfirmationWindow = {
+        aliases = { FrontEndLoadConfirmationWindow }
+    }
+    FrontEndLoadView = {
+        aliases = { FrontEndLoadView }
+    }
+    FrontEndMainView = {
+        aliases = { FrontEndMainView }
+    }
+    FrontMarker = {
+        aliases = { FrontMarker }
+    }
+    FrontMovementMarker = {
+        aliases = { FrontMovementMarker }
+    }
+    FrontPanel = {
+        aliases = { FrontPanel }
+    }
+    FrontParticipant = {
+        aliases = { FrontParticipant }
+    }
+    GameConceptType = {
+        aliases = { GameConceptType }
+    }
+    GameMpSetup = {
+        aliases = { GameMpSetup }
+    }
+    GameOverScreen = {
+        aliases = { GameOverScreen }
+    }
+    GameRule = {
+        aliases = { GameRule }
+    }
+    GameRuleSetting = {
+        aliases = { GameRuleSetting }
+    }
+    GameSetup = {
+        aliases = { GameSetup }
+    }
+    GeneralInformationWindow = {
+        aliases = { GeneralInformationWindow }
+    }
+    Goods = {
+        aliases = { Goods }
+    }
+    GoodsExpenseItem = {
+        aliases = { GoodsExpenseItem }
+    }
+    GoodsList = {
+        aliases = { GoodsList }
+    }
+    GoodsLocalPricesPanel = {
+        aliases = { GoodsLocalPricesPanel }
+    }
+    GoodsPanel = {
+        aliases = { GoodsPanel }
+    }
+    GoodsPanelChildValue = {
+        aliases = { GoodsPanelChildValue }
+    }
+    GoodsPanelValue = {
+        aliases = { GoodsPanelValue }
+    }
+    GoodsProductionInfo = {
+        aliases = { GoodsProductionInfo }
+    }
+    GoodsStatePanel = {
+        aliases = { GoodsStatePanel }
+    }
+    GoodsUsagePanel = {
+        aliases = { GoodsUsagePanel }
+    }
+    GovernmentType = {
+        aliases = { GovernmentType }
+    }
+    GraphInterfaceNodeWindow = {
+        aliases = { GraphInterfaceNodeWindow }
+    }
+    GuiGameRule = {
+        aliases = { GuiGameRule }
+    }
+    GuiGameRulePreset = {
+        aliases = { GuiGameRulePreset }
+    }
+    HQMarker = {
+        aliases = { HQMarker }
+    }
+    HQMovementMarker = {
+        aliases = { HQMovementMarker }
+    }
+    HarvestCondition = {
+        aliases = { HarvestCondition }
+    }
+    HarvestConditionArea = {
+        aliases = { HarvestConditionArea }
+    }
+    HarvestConditionList = {
+        aliases = { HarvestConditionList }
+    }
+    HarvestConditionRegionMarker = {
+        aliases = { HarvestConditionRegionMarker }
+    }
+    HarvestConditionType = {
+        aliases = { HarvestConditionType }
+    }
+    HighlightManager = {
+        aliases = { HighlightManager }
+    }
+    HistoryViewer = {
+        aliases = { HistoryViewer }
+    }
+    HomelandMarker = {
+        aliases = { HomelandMarker }
+    }
+    Hq = {
+        aliases = { Hq }
+    }
+    Ideology = {
+        aliases = { Ideology }
+    }
+    ImportantAlert = {
+        aliases = { ImportantAlert }
+    }
+    InformationPanel = {
+        aliases = { InformationPanel }
+    }
+    InformationPanelBar = {
+        aliases = { InformationPanelBar }
+    }
+    IngameHud = {
+        aliases = { IngameHud }
+    }
+    Institution = {
+        aliases = { Institution }
+    }
+    InstitutionInvestmentLevel = {
+        aliases = { InstitutionInvestmentLevel }
+    }
+    InstitutionType = {
+        aliases = { InstitutionType }
+    }
+    Interest = {
+        aliases = { Interest }
+    }
+    InterestGroup = {
+        aliases = { InterestGroup }
+    }
+    InterestGroupAndTraitPair = {
+        aliases = { InterestGroupAndTraitPair }
+    }
+    InterestGroupMarker = {
+        aliases = { InterestGroupMarker }
+    }
+    InterestGroupPanel = {
+        aliases = { InterestGroupPanel }
+    }
+    InterestGroupTrait = {
+        aliases = { InterestGroupTrait }
+    }
+    InterestingCountryItem = {
+        aliases = { InterestingCountryItem }
+    }
+    InterestingCountrySetting = {
+        aliases = { InterestingCountrySetting }
+    }
+    JominiGameRules = {
+        aliases = { JominiGameRules }
+    }
+    JournalEntry = {
+        aliases = { JournalEntry }
+    }
+    JournalEntryGroup = {
+        aliases = { JournalEntryGroup }
+    }
+    JournalEntryPanel = {
+        aliases = { JournalEntryPanel }
+    }
+    JournalEntryType = {
+        aliases = { JournalEntryType }
+    }
+    JournalPanel = {
+        aliases = { JournalPanel }
+    }
+    Label = {
+        aliases = { Label }
+    }
+    LabelingHelper = {
+        aliases = { LabelingHelper }
+    }
+    Law = {
+        aliases = { Law }
+    }
+    LawGroup = {
+        aliases = { LawGroup }
+    }
+    LawType = {
+        aliases = { LawType }
+    }
+    LegitimacyLevel = {
+        aliases = { LegitimacyLevel }
+    }
+    LensOption = {
+        aliases = { LensOption }
+    }
+    LensTab = {
+        aliases = { LensTab }
+    }
+    LensToolbar = {
+        aliases = { LensToolbar }
+    }
+    LibertyDesireLevel = {
+        aliases = { LibertyDesireLevel }
+    }
+    LoadIngameWindow = {
+        aliases = { LoadIngameWindow }
+    }
+    LoadingScreenManager = {
+        aliases = { LoadingScreenManager }
+    }
+    Location = {
+        aliases = { Location }
+    }
+    LocationFinder = {
+        aliases = { LocationFinder }
+    }
+    LoyaltyType = {
+        aliases = { LoyaltyType }
+    }
+    MapContentPropertyGroupsGui = {
+        aliases = { MapContentPropertyGroupsGui }
+    }
+    MapInteraction = {
+        aliases = { MapInteraction }
+    }
+    MapInteractionManager = {
+        aliases = { MapInteractionManager }
+    }
+    MapListActivateConscriptionCenterOption = {
+        aliases = { MapListActivateConscriptionCenterOption }
+    }
+    MapListActivateConscriptionCenterPanel = {
+        aliases = { MapListActivateConscriptionCenterPanel }
+    }
+    MapListAdvanceFrontOption = {
+        aliases = { MapListAdvanceFrontOption }
+    }
+    MapListAdvanceFrontPanel = {
+        aliases = { MapListAdvanceFrontPanel }
+    }
+    MapListBuildingOption = {
+        aliases = { MapListBuildingOption }
+    }
+    MapListBuildingPanel = {
+        aliases = { MapListBuildingPanel }
+    }
+    MapListColonyOption = {
+        aliases = { MapListColonyOption }
+    }
+    MapListCountriesPanel = {
+        aliases = { MapListCountriesPanel }
+    }
+    MapListCountryOption = {
+        aliases = { MapListCountryOption }
+    }
+    MapListDecreeOption = {
+        aliases = { MapListDecreeOption }
+    }
+    MapListDecreePanel = {
+        aliases = { MapListDecreePanel }
+    }
+    MapListDeployMilitaryFormationToFrontOption = {
+        aliases = { MapListDeployMilitaryFormationToFrontOption }
+    }
+    MapListDeployMilitaryFormationToFrontPanel = {
+        aliases = { MapListDeployMilitaryFormationToFrontPanel }
+    }
+    MapListDiploActionOption = {
+        aliases = { MapListDiploActionOption }
+    }
+    MapListHarvestConditionAreasPanel = {
+        aliases = { MapListHarvestConditionAreasPanel }
+    }
+    MapListHarvestConditionOption = {
+        aliases = { MapListHarvestConditionOption }
+    }
+    MapListInterestGroupOption = {
+        aliases = { MapListInterestGroupOption }
+    }
+    MapListInterestGroupsPanel = {
+        aliases = { MapListInterestGroupsPanel }
+    }
+    MapListMarketOption = {
+        aliases = { MapListMarketOption }
+    }
+    MapListMarketsPanel = {
+        aliases = { MapListMarketsPanel }
+    }
+    MapListMilitaryFormationOption = {
+        aliases = { MapListMilitaryFormationOption }
+    }
+    MapListMilitaryFormationPanel = {
+        aliases = { MapListMilitaryFormationPanel }
+    }
+    MapListOption = {
+        aliases = { MapListOption }
+    }
+    MapListPanel = {
+        aliases = { MapListPanel }
+    }
+    MapListPanelManager = {
+        aliases = { MapListPanelManager }
+    }
+    MapListPowerBlocInvitationPanel = {
+        aliases = { MapListPowerBlocInvitationPanel }
+    }
+    MapListPowerBlocOption = {
+        aliases = { MapListPowerBlocOption }
+    }
+    MapListPowerBlocsPanel = {
+        aliases = { MapListPowerBlocsPanel }
+    }
+    MapListStateOption = {
+        aliases = { MapListStateOption }
+    }
+    MapListStatePanel = {
+        aliases = { MapListStatePanel }
+    }
+    MapListStrategicRegionOption = {
+        aliases = { MapListStrategicRegionOption }
+    }
+    MapListStrategicRegionsPanel = {
+        aliases = { MapListStrategicRegionsPanel }
+    }
+    MapListTradeRouteOption = {
+        aliases = { MapListTradeRouteOption }
+    }
+    MapMode = {
+        aliases = { MapMode }
+    }
+    MapModeList = {
+        aliases = { MapModeList }
+    }
+    MapNotification = {
+        aliases = { MapNotification }
+    }
+    Market = {
+        aliases = { Market }
+    }
+    MarketGoods = {
+        aliases = { MarketGoods }
+    }
+    MarketPanel = {
+        aliases = { MarketPanel }
+    }
+    MarketsMarker = {
+        aliases = { MarketsMarker }
+    }
+    MarketsMarkerListItem = {
+        aliases = { MarketsMarkerListItem }
+    }
+    MaskPainterDynamicTerrain = {
+        aliases = { MaskPainterDynamicTerrain }
+    }
+    MessageFeedHandler = {
+        aliases = { MessageFeedHandler }
+    }
+    MessageSettingsWindow = {
+        aliases = { MessageSettingsWindow }
+    }
+    MilitaryFormation = {
+        aliases = { MilitaryFormation }
+    }
+    MilitaryFormationBorrowSetting = {
+        aliases = { MilitaryFormationBorrowSetting }
+    }
+    MilitaryFormationChangeNamePopup = {
+        aliases = { MilitaryFormationChangeNamePopup }
+    }
+    MilitaryFormationColor = {
+        aliases = { MilitaryFormationColor }
+    }
+    MilitaryFormationFlag = {
+        aliases = { MilitaryFormationFlag }
+    }
+    MilitaryFormationUnitEntry = {
+        aliases = { MilitaryFormationUnitEntry }
+    }
+    MilitaryPanelBuildingEntry = {
+        aliases = { MilitaryPanelBuildingEntry }
+    }
+    MobilizationOption = {
+        aliases = { MobilizationOption }
+    }
+    MobilizationOptionGroup = {
+        aliases = { MobilizationOptionGroup }
+    }
+    Modifier = {
+        aliases = { Modifier }
+    }
+    ModifierBreakdown = {
+        aliases = { ModifierBreakdown }
+    }
+    ModifierEntry = {
+        aliases = { ModifierEntry }
+    }
+    ModifierNodeData = {
+        aliases = { ModifierNodeData }
+    }
+    ModifierNodeDebuggerView = {
+        aliases = { ModifierNodeDebuggerView }
+    }
+    ModifierNodeDetailsView = {
+        aliases = { ModifierNodeDetailsView }
+    }
+    ModifierNodeGraphItem = {
+        aliases = { ModifierNodeGraphItem }
+    }
+    ModifierNodeGraphLine = {
+        aliases = { ModifierNodeGraphLine }
+    }
+    ModifierNodeListView = {
+        aliases = { ModifierNodeListView }
+    }
+    ModifiersPanel = {
+        aliases = { ModifiersPanel }
+    }
+    MultiplayerSynchronizationInfo = {
+        aliases = { MultiplayerSynchronizationInfo }
+    }
+    NationalizeBuildingGroup = {
+        aliases = { NationalizeBuildingGroup }
+    }
+    NationalizeBuildingTypeGroup = {
+        aliases = { NationalizeBuildingTypeGroup }
+    }
+    NationalizeBuildingWindow = {
+        aliases = { NationalizeBuildingWindow }
+    }
+    NavalInvasion = {
+        aliases = { NavalInvasion }
+    }
+    NavalInvasionMarker = {
+        aliases = { NavalInvasionMarker }
+    }
+    NavalInvasionPanel = {
+        aliases = { NavalInvasionPanel }
+    }
+    NavalInvasionPlannerPopup = {
+        aliases = { NavalInvasionPlannerPopup }
+    }
+    NodeEditorSearch = {
+        aliases = { NodeEditorSearch }
+    }
+    NotificationOptionItem = {
+        aliases = { NotificationOptionItem }
+    }
+    NotificationSettingsItem = {
+        aliases = { NotificationSettingsItem }
+    }
+    Objective = {
+        aliases = { Objective }
+    }
+    ObjectiveType = {
+        aliases = { ObjectiveType }
+    }
+    OccupationPiechartData = {
+        aliases = { OccupationPiechartData }
+    }
+    OpinionMarker = {
+        aliases = { OpinionMarker }
+    }
+    Outliner = {
+        aliases = { Outliner }
+    }
+    OutlinerEntry = {
+        aliases = { OutlinerEntry }
+    }
+    PanelMilitary = {
+        aliases = { PanelMilitary }
+    }
+    ParticleUserData = {
+        aliases = { ParticleUserData }
+    }
+    Party = {
+        aliases = { Party }
+    }
+    PartyPanel = {
+        aliases = { PartyPanel }
+    }
+    PastBattleMarker = {
+        aliases = { PastBattleMarker }
+    }
+    PauseMenu = {
+        aliases = { PauseMenu }
+    }
+    PieTimer = {
+        aliases = { PieTimer }
+    }
+    PieTimerSlice = {
+        aliases = { PieTimerSlice }
+    }
+    Player = {
+        aliases = { Player }
+    }
+    PlayerMessageItem = {
+        aliases = { PlayerMessageItem }
+    }
+    PoliticalLobby = {
+        aliases = { PoliticalLobby }
+    }
+    PoliticalLobbyAppeasementFactor = {
+        aliases = { PoliticalLobbyAppeasementFactor }
+    }
+    PoliticalLobbyMarker = {
+        aliases = { PoliticalLobbyMarker }
+    }
+    PoliticalLobbyPanel = {
+        aliases = { PoliticalLobbyPanel }
+    }
+    PoliticalLobbyType = {
+        aliases = { PoliticalLobbyType }
+    }
+    PoliticalMovement = {
+        aliases = { PoliticalMovement }
+    }
+    PoliticalMovementCategory = {
+        aliases = { PoliticalMovementCategory }
+    }
+    PoliticalMovementPanel = {
+        aliases = { PoliticalMovementPanel }
+    }
+    PoliticalMovementPopSupportFactor = {
+        aliases = { PoliticalMovementPopSupportFactor }
+    }
+    PoliticalMovementType = {
+        aliases = { PoliticalMovementType }
+    }
+    PoliticsPanel = {
+        aliases = { PoliticsPanel }
+    }
+    Pop = {
+        aliases = { Pop }
+    }
+    PopBrowserPanel = {
+        aliases = { PopBrowserPanel }
+    }
+    PopConsumptionGoods = {
+        aliases = { PopConsumptionGoods }
+    }
+    PopDetailsPanel = {
+        aliases = { PopDetailsPanel }
+    }
+    PopList = {
+        aliases = { PopList }
+    }
+    PopListItem = {
+        aliases = { PopListItem }
+    }
+    PopNeed = {
+        aliases = { PopNeed }
+    }
+    PopType = {
+        aliases = { PopType }
+    }
+    PopWithIG = {
+        aliases = { PopWithIG }
+    }
+    PopsOverviewPanel = {
+        aliases = { PopsOverviewPanel }
+    }
+    PopulationGrouping = {
+        aliases = { PopulationGrouping }
+    }
+    PopupManager = {
+        aliases = { PopupManager }
+    }
+    PotentialLeaderIdeology = {
+        aliases = { PotentialLeaderIdeology }
+    }
+    PowerBloc = {
+        aliases = { PowerBloc }
+    }
+    PowerBlocCoaPiece = {
+        aliases = { PowerBlocCoaPiece }
+    }
+    PowerBlocCoaPieceSelector = {
+        aliases = { PowerBlocCoaPieceSelector }
+    }
+    PowerBlocCustomizationPopup = {
+        aliases = { PowerBlocCustomizationPopup }
+    }
+    PowerBlocFormation = {
+        aliases = { PowerBlocFormation }
+    }
+    PowerBlocFormationPanel = {
+        aliases = { PowerBlocFormationPanel }
+    }
+    PowerBlocFormationPrincipleSlot = {
+        aliases = { PowerBlocFormationPrincipleSlot }
+    }
+    PowerBlocIdentity = {
+        aliases = { PowerBlocIdentity }
+    }
+    PowerBlocMapTexture = {
+        aliases = { PowerBlocMapTexture }
+    }
+    PowerBlocMapTextureSelector = {
+        aliases = { PowerBlocMapTextureSelector }
+    }
+    PowerBlocPanel = {
+        aliases = { PowerBlocPanel }
+    }
+    PowerBlocPrinciple = {
+        aliases = { Label }
+    }
+    PowerBlocPrincipleData = {
+        aliases = { PowerBlocPrincipleData }
+    }
+    PowerBlocPrincipleGroup = {
+        aliases = { PowerBlocPrincipleGroup }
+    }
+    PowerBlocPrincipleSelectionWindow = {
+        aliases = { PowerBlocPrincipleSelectionWindow }
+    }
+    PowerBlocPrincipleSlot = {
+        aliases = { PowerBlocPrincipleSlot }
+    }
+    PowerBlocStatue = {
+        aliases = { PowerBlocStatue }
+    }
+    PowerBlocStatueAccessoryType = {
+        aliases = { PowerBlocStatueAccessoryType }
+    }
+    PowerBlocStatueAccessoryTypeSelector = {
+        aliases = { PowerBlocStatueAccessoryTypeSelector }
+    }
+    PowerBlocStatueHeroType = {
+        aliases = { PowerBlocStatueHeroType }
+    }
+    PowerBlocStatuePedestalType = {
+        aliases = { PowerBlocStatuePedestalType }
+    }
+    ProductionMarker = {
+        aliases = { ProductionMarker }
+    }
+    ProductionMethod = {
+        aliases = { ProductionMethod }
+    }
+    ProductionMethodConfirmationPopup = {
+        aliases = { ProductionMethodConfirmationPopup }
+    }
+    ProductionMethodGroup = {
+        aliases = { ProductionMethodGroup }
+    }
+    ProgressInterface = {
+        aliases = { ProgressInterface }
+    }
+    Proposal = {
+        aliases = { Proposal }
+    }
+    Province = {
+        aliases = { Province }
+    }
+    ReformGovernment = {
+        aliases = { ReformGovernment }
+    }
+    ReleaseCountryWindow = {
+        aliases = { ReleaseCountryWindow }
+    }
+    Religion = {
+        aliases = { Religion }
+    }
+    ReligionInfoPanel = {
+        aliases = { ReligionInfoPanel }
+    }
+    ResignConfirmationWindow = {
+        aliases = { ResignConfirmationWindow }
+    }
+    RevolutionaryMovementMarker = {
+        aliases = { RevolutionaryMovementMarker }
+    }
+    RightClickMenuManager = {
+        aliases = { RightClickMenuManager }
+    }
+    SaveGame = {
+        aliases = { SaveGame }
+    }
+    SaveGameAnalyzer = {
+        aliases = { SaveGameAnalyzer }
+    }
+    SaveGameBlockData = {
+        aliases = { SaveGameBlockData }
+    }
+    SaveGameConfigView = {
+        aliases = { SaveGameConfigView }
+    }
+    SaveGameItem = {
+        aliases = { SaveGameItem }
+    }
+    SaveGameListView = {
+        aliases = { SaveGameListView }
+    }
+    SaveGameWindow = {
+        aliases = { SaveGameWindow }
+    }
+    ScriptProfilerEntry = {
+        aliases = { ScriptProfilerEntry }
+    }
+    ScriptProfilerFileLine = {
+        aliases = { ScriptProfilerFileLine }
+    }
+    ScriptProfilerGui = {
+        aliases = { ScriptProfilerGui }
+    }
+    ScriptedButton = {
+        aliases = { ScriptedButton }
+    }
+    ScriptedProgressBar = {
+        aliases = { ScriptedProgressBar }
+    }
+    SeaNodeMarker = {
+        aliases = { SeaNodeMarker }
+    }
+    SeaNodeMovementMarker = {
+        aliases = { SeaNodeMovementMarker }
+    }
+    SeaRegionInfraMarker = {
+        aliases = { SeaRegionInfraMarker }
+    }
+    SeaRegionPanel = {
+        aliases = { SeaRegionPanel }
+    }
+    SeaRegionWar = {
+        aliases = { SeaRegionWar }
+    }
+    SearchListNodeWindow = {
+        aliases = { SearchListNodeWindow }
+    }
+    SelectFromInputNodeWindow = {
+        aliases = { SelectFromInputNodeWindow }
+    }
+    SelectParticleUserDataDialog = {
+        aliases = { SelectParticleUserDataDialog }
+    }
+    ShippingLane = {
+        aliases = { ShippingLane }
+    }
+    SocialClass = {
+        aliases = { SocialClass }
+    }
+    SocialHierarchy = {
+        aliases = { SocialHierarchy }
+    }
+    SocietyPanel = {
+        aliases = { SocietyPanel }
+    }
+    StagedCommanderTransfer = {
+        aliases = { StagedCommanderTransfer }
+    }
+    StagedFormation = {
+        aliases = { StagedFormation }
+    }
+    StagedUnitsWithType = {
+        aliases = { StagedUnitsWithType }
+    }
+    StarvationType = {
+        aliases = { StarvationType }
+    }
+    State = {
+        aliases = { State }
+    }
+    StateGoods = {
+        aliases = { StateGoods }
+    }
+    StateInfraMarker = {
+        aliases = { StateInfraMarker }
+    }
+    StateMarker = {
+        aliases = { StateMarker }
+    }
+    StateNameChangePopup = {
+        aliases = { StateNameChangePopup }
+    }
+    StatePopulationPanel = {
+        aliases = { StatePopulationPanel }
+    }
+    StateRegion = {
+        aliases = { StateRegion }
+    }
+    StateTrait = {
+        aliases = { StateTrait }
+    }
+    StatesPanel = {
+        aliases = { StatesPanel }
+    }
+    StrategicRegion = {
+        aliases = { StrategicRegion }
+    }
+    StrategicRegionMarker = {
+        aliases = { StrategicRegionMarker }
+    }
+    SubjectType = {
+        aliases = { SubjectType }
+    }
+    SupplyNetworkEntry = {
+        aliases = { SupplyNetworkEntry }
+    }
+    Sway = {
+        aliases = { Sway }
+    }
+    SwayCountryPanel = {
+        aliases = { SwayCountryPanel }
+    }
+    SwayOffer = {
+        aliases = { SwayOffer }
+    }
+    SwayOfferType = {
+        aliases = { SwayOfferType }
+    }
+    TaxBurdenItem = {
+        aliases = { TaxBurdenItem }
+    }
+    TechTreeItem = {
+        aliases = { TechTreeItem }
+    }
+    TechTreeLine = {
+        aliases = { TechTreeLine }
+    }
+    TechTreePanel = {
+        aliases = { TechTreePanel }
+    }
+    Technology = {
+        aliases = { Technology }
+    }
+    TechnologyUnlock = {
+        aliases = { TechnologyUnlock }
+    }
+    Theater = {
+        aliases = { Theater }
+    }
+    Theme = {
+        aliases = { Theme }
+    }
+    ThemeCategory = {
+        aliases = { ThemeCategory }
+    }
+    ThemeWindow = {
+        aliases = { ThemeWindow }
+    }
+    TickTaskData = {
+        aliases = { TickTaskData }
+    }
+    TickTaskDebuggerView = {
+        aliases = { TickTaskDebuggerView }
+    }
+    TickTaskDetailsView = {
+        aliases = { TickTaskDetailsView }
+    }
+    TickTaskGraphItem = {
+        aliases = { TickTaskGraphItem }
+    }
+    TickTaskGraphLine = {
+        aliases = { TickTaskGraphLine }
+    }
+    TickTaskListView = {
+        aliases = { TickTaskListView }
+    }
+    TimeKeeper = {
+        aliases = { TimeKeeper }
+    }
+    TimedModifier = {
+        aliases = { TimedModifier }
+    }
+    ToastMessageHandler = {
+        aliases = { ToastMessageHandler }
+    }
+    TooltipInfo = {
+        aliases = { TooltipInfo }
+    }
+    TopFrontend = {
+        aliases = { TopFrontend }
+    }
+    TradeRoute = {
+        aliases = { TradeRoute }
+    }
+    TransferFormationPopup = {
+        aliases = { TransferFormationPopup }
+    }
+    Truce = {
+        aliases = { Truce }
+    }
+    Tutorial = {
+        aliases = { Tutorial }
+    }
+    UndoHistoryViewerClient = {
+        aliases = { UndoHistoryViewerClient }
+    }
+    UndoStack = {
+        aliases = { UndoStack }
+    }
+    War = {
+        aliases = { War }
+    }
+    WarGoal = {
+        aliases = { WarGoal }
+    }
+    WarGoalMarker = {
+        aliases = { WarGoalMarker }
+    }
+    WarGoalPanelPair = {
+        aliases = { WarGoalPanelPair }
+    }
+    WarGoalType = {
+        aliases = { WarGoalType }
+    }
+    WarManager = {
+        aliases = { WarManager }
+    }
+    WarPanel = {
+        aliases = { WarPanel }
+    }
+    WarParticipant = {
+        aliases = { WarParticipant }
+    }
+}
