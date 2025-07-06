@@ -572,4 +572,13 @@ enums = {
         high_threshold
     }
 
+    enum[company_charter_type_type] = {
+        industry
+        investment
+        monopoly
+        new_industry
+        trade
+        colonization
+    }
+
 }

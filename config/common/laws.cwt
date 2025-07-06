@@ -20,8 +20,10 @@ law = {
 
     progressiveness = int
 
+    ## cardinality = 0..1
     parent = <law>
 
+    ## cardinality = 0..1
     requires_law_or = {
         ## cardinality = 1..inf
         <law>

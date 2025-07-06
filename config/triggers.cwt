@@ -2740,7 +2740,7 @@ alias[trigger:has_law_commitment] = scope[country]
 
 ## scopes = { company }
 ### Checks if scoped company is of the specified type
-alias[trigger:is_company_type] = scope[company_type]
+alias[trigger:is_company_type] = <company_type>
 
 ## scopes = { treaty }
 ### Checks if the scoped treaty is enforced on either party
@@ -2994,7 +2994,7 @@ alias[trigger:market_prestige_goods_sell_orders] = {
 ## scopes = { treaty_article }
 ### Check if the scoped article has the given number of contravention from the given country
 alias[trigger:num_contraventions] = {
-    type = scope[country]
+    target = scope[country]
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -3005,7 +3005,7 @@ alias[trigger:num_contraventions] = {
 ## scopes = { front }
 ### Checks the number of casualties for the target country in the scoped front
 alias[trigger:num_front_casualties] = {
-    type = scope[country]
+    target = scope[country]
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -3016,7 +3016,7 @@ alias[trigger:num_front_casualties] = {
 ## scopes = { front }
 ### Checks the number of dead for the target country in the scoped front
 alias[trigger:num_front_dead] = {
-    type = scope[country]
+    target = scope[country]
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -3027,7 +3027,7 @@ alias[trigger:num_front_dead] = {
 ## scopes = { front }
 ### Checks the number of wounded for the target country in the scoped front
 alias[trigger:num_front_wounded] = {
-    type = scope[country]
+    target = scope[country]
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -3114,3 +3114,7 @@ alias[trigger:has_any_tariffs_on] = scope[goods]
 ## scopes = { law }
 ### Checks if a law is available for its country, considering its current situation. Like can_be_enacted, but ignores government support
 alias[trigger:law_is_available] = bool
+
+## scopes = { country }
+### Check if the scoped country has a monopoly of the specified building type
+alias[trigger:country_has_building_type_monopoly] = scope[building_type]

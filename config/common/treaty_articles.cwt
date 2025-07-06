@@ -56,6 +56,7 @@ treaty_article = {
     ### source country or the target country.
     maintenance_paid_by = enum[treaty_article_maintenance]
 
+    ## cardinality = 0..1
     ### A set of flags each of which determine some intrinsic behavior of the article.
     ### The game makes use of these flags in various situations and for a variety of
     ### tasks in code.
@@ -599,50 +600,4 @@ treaty_article = {
     ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
     quantity_input_value = single_alias_right[formula]
 
-
-
-
-
-
-
-
-
-
-
-
-    ## cardinality = 0..1
-    trigger = single_alias_right[trigger_clause]
-
-    ## cardinality = 0..1
-    effect = single_alias_right[effect_clause]
-
-    ## cardinality = 0..1
-    random_events = {
-        ## cardinality = 0..inf
-        int = <event>
-
-        ## cardinality = 0..inf
-        delay = single_alias_right[duration_clause]
-
-        ## cardinality = 0..inf
-        int = 0
-
-        ## cardinality = 0..1
-        chance_of_no_event = int
-
-        ## cardinality = 0..1
-        chance_to_happen = int
-    }
-
-    ## cardinality = 0..1
-    events = {
-        ## cardinality = 0..inf
-        <event>
-    }
-
-    ## cardinality  = 0..1
-    on_actions = {
-        ## cardinality = 0..inf
-        <on_action>
-    }
 }

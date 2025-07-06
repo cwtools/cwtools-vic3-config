@@ -23,6 +23,13 @@ links = {
 		input_scopes = { combat_unit new_combat_unit }
 		output_scope = character
 	}
+	### Get the current debt principal of the country
+	principal = {
+		desc = "Get the current debt principal of the country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
 	### Returns the current HQ of the scoped military formation (may not be valid if the formation is not currently stationed in an HQ)
 	current_hq = {
 		desc = "Returns the current HQ of the scoped military formation (may not be valid if the formation is not currently stationed in an HQ)"
@@ -1312,6 +1319,12 @@ links = {
 		prefix = company_type:
 		data_source = <company_type>
 	}
+	### Scope to the company owning the scoped country
+	owning_company = {
+		desc = "Scope to the company owning the scoped country"
+		input_scopes = { country }
+		output_scope = company
+	}
 	### Scope to a mobilization option from its name (mobilization_option:key)
 	mobilization_option = {
 		desc = "Scope to a mobilization option from its name (mobilization_option:key)"
@@ -1320,15 +1333,23 @@ links = {
 		prefix = mobilization_option:
 		data_source = <mobilization_option>
 	}
-	### If used in a naval invasion scope, scope to the country executing the naval invasion.
-	naval_invasion_attacker = {
-		desc = "If used in a naval invasion scope, scope to the country executing the naval invasion."
+	### If used in an invasion scope, scope to the country executing the invasion.
+	invasion_attacker = {
+		desc = "If used in an invasion scope, scope to the country executing the invasion."
+		input_scopes = { invasion }
 		output_scope = country
 	}
-	### If used in a naval invasion scope, scope to the country the attacked state is controlled by.
-	naval_invasion_defender = {
-		desc = "If used in a naval invasion scope, scope to the country the attacked state is controlled by."
+	### If used in an invasion scope, scope to the country the attacked state is controlled by.
+	invasion_defender = {
+		desc = "If used in an invasion scope, scope to the country the attacked state is controlled by."
+		input_scopes = { invasion }
 		output_scope = country
+	}
+	### Returns the invasion of the scoped front if any
+	invasion_defender = {
+		desc = "Returns the invasion of the scoped front if any"
+		input_scopes = { front }
+		output_scope = invasion
 	}
 	### Scope to AI desire of target country to have scope country as a subject (example: value = ai_subject_value:root)
 	ai_subject_value = {

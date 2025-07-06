@@ -1,0 +1,46 @@
+types = {
+    type[company_charter_type] = {
+        path = "game/common/company_charter_types"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+        images = {
+            ## primary
+            icon = icon
+        }
+    }
+}
+
+company_charter_type = {
+    ## cardinality = ~1..1
+    type = enum[company_charter_type_type]
+
+    ## cardinality = ~1..1
+    icon = filepath
+
+    ## cardinality = 0..1
+    ### Cooldown, in case it is not defined the charter will have no cooldown
+    cooldown = {
+        ## cardinality = 0..1
+        enum[duration] = int
+        ## cardinality = 0..1
+        enum[duration] = <script_value>
+        ## cardinality = 0..1
+        enum[duration] = <static_value>
+        ## cardinality = 0..1
+        enum[duration] = enum[duration]
+    }
+
+    ## cardinality = 0..1
+    additional_input = bool
+
+    ## replace_scope = { root = company this = company }
+    ### If this charter is possible to be picked up by AI
+    ai_possible = single_alias_right[trigger_clause]
+
+    ## replace_scope = { root = company this = company }
+    ### Check score for AI to pickup charter, will be scaled by company relative size to other companies
+    ai_weight = single_alias_right[formula]
+}

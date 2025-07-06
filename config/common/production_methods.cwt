@@ -17,6 +17,7 @@ production_method = {
     ### is this the default pm for its group? if no pm in a group is designated as the default, the first pm is considered the default.
     is_default = bool
 
+    ## cardinality = 0..1
     profession_ratio = {
         <pop_type> = int
     }
