@@ -33,6 +33,15 @@ building_group = {
 	## cardinality = 0..1
 	is_shown_in_outliner = bool
 
+	## cardinality = 0..1
+	company_headquarter = bool
+
+	## cardinality = 0..1
+	regional_company_headquarter = bool
+
+	## cardinality = 0..1
+	has_trade_revenue = bool
+
     ## cardinality = 0..1
     category = enum[bg_category]
 
@@ -171,6 +180,7 @@ enums = {
 		rural
 	}
 	enum[lens_key] = {
+		development
 		light_industry
 		heavy_industry
 		agriculture

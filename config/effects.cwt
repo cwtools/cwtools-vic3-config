@@ -142,11 +142,6 @@ alias[effect:set_interest_group_name] = localisation
 ### Checks if a pop has a certain amount of wealth wealth = value
 alias[effect:set_ig_trait] = scope[interest_group]
 
-### Lock a trade route for a set amount of time, preventing it from being cancelled manually lock_trade_route = { 	years = 5 }
-alias[effect:lock_trade_route] = {
-    enum[duration] = int
-}
-
 ### Adds momentum to a Party during a campaign period dd_momentum = value
 alias[effect:add_momentum] = value_field
 ### Adds momentum to a Party during a campaign period dd_momentum = value
@@ -171,10 +166,30 @@ alias[effect:add_to_global_variable_list] = {
     target = value_field
     ## cardinality = 0..1
     target = scope_field
+
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = { int int }
 }
 
 ### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the (unbroken) event chain add_to_list = <string> NOTE, if adding a permanent target to a temporary list, the whole list becomes permanent
 alias[effect:add_to_list] = value_set[list]
+
+### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the (unbroken) event chain add_to_list = <string> NOTE, if adding a permanent target to a temporary list, the whole list becomes permanent
+alias[effect:add_to_list] = {
+    name = value_set[list]
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = scope_field
+
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = { int int }
+}
 
 ### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[effect:add_to_local_variable_list] = {
@@ -184,10 +199,30 @@ alias[effect:add_to_local_variable_list] = {
     target = value_field
     ## cardinality = 0..1
     target = scope_field
+
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = { int int }
 }
 
 ### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the same effect add_to_temporary_list = <string> NOTE, if adding a temporary target to a permanent list, the list will stay permanent
 alias[effect:add_to_temporary_list] = value_set[temporary_list]
+
+### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the same effect add_to_temporary_list = <string> NOTE, if adding a temporary target to a permanent list, the list will stay permanent
+alias[effect:add_to_temporary_list] = {
+    name = value_set[temporary_list]
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = scope_field
+
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = { int int }
+}
 
 ### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[effect:add_to_variable_list] = {
@@ -197,6 +232,11 @@ alias[effect:add_to_variable_list] = {
     target = value_field
     ## cardinality = 0..1
     target = scope_field
+
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = { int int }
 }
 
 ### Conditionally cause an assert during run time assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
@@ -626,7 +666,12 @@ alias[effect:trigger_event] = {
     id = <event>
     ## cardinality = 0..1
     enum[duration] = int
-
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = enum[duration]
     ## cardinality = 0..1
     enum[duration] = { int int }
     ## cardinality = 0..1
@@ -1011,6 +1056,7 @@ alias[effect:create_character] = {
     ## cardinality = 0..1
     noble = scope[character]
 
+    ## push_scope = character
     ## cardinality = 0..1
     on_created = single_alias_right[effect_clause]
 
@@ -1116,6 +1162,40 @@ alias[effect:create_diplomatic_play] = {
         type = enum[war_goal]
 
         ## cardinality = 0..1
+        article = {
+            article = <treaty_article>
+            source_country = scope[country]
+            target_country = scope[country]
+
+            ## cardinality = 0..1
+            inputs = {
+                ## cardinality = 0..1
+                { quantity = int }
+
+                ## cardinality = 0..1
+                { goods = scope[goods] }
+
+                ## cardinality = 0..1
+                { state = scope[state] }
+
+                ## cardinality = 0..1
+                { strategic_region = scope[strategic_region] }
+
+                ## cardinality = 0..1
+                { company = scope[company] }
+
+                ## cardinality = 0..1
+                { building_type = scope[building_type] }
+
+                ## cardinality = 0..1
+                { law_type = scope[law_type] }
+
+                ## cardinality = 0..1
+                { country = scope[country] }
+            }
+        }
+
+        ## cardinality = 0..1
         target_state = scope[state]
         ## cardinality = 0..1
         target_country = scope[country]
@@ -1135,20 +1215,6 @@ alias[effect:create_incident] = {
     value = <script_value>
     value = <static_value>
     value = $define_reference
-}
-
-### Creates a new Trade Route trade_route = { 	goods = x 	level = x 	import = yes/no 	origin = state_region 	target = state_region }
-alias[effect:create_trade_route] = {
-    goods = <good>
-    level = int_value_field
-    ## cardinality = 0..1
-    import = bool
-    ## cardinality = 0..1
-    origin = scope[market]
-    #TODO: market?
-    target = scope[market]
-    direction = import
-    direction = export
 }
 
 ### Create a truce betweeen two countries create_truce = { 	tcountry = country scope/tag 	months = integer }
@@ -1285,15 +1351,6 @@ alias[effect:set_state_religion] = scope[religion]
 
 ### Set AI strategy for scope country set_strategy = <key>
 alias[effect:set_strategy] = <ai_strategy>
-
-### Sets Export Prioritized tariffs for a good in scoped country set_tariffs_export_priority = <scope/key>
-alias[effect:set_tariffs_export_priority] = scope[goods]
-
-### Sets Import Prioritized tariffs for a good in scoped country set_tariffs_import_priority = <scope/key>
-alias[effect:set_tariffs_import_priority] = scope[goods]
-
-### Sets tariffs to have no import/export priority for a good in scoped country set_tariffs_no_priority = <scope/key>
-alias[effect:set_tariffs_no_priority] = scope[goods]
 
 ### Sets the overall tax level of scoped country set_tax_level = very_low/low/medium/high/very_high
 alias[effect:set_tax_level] = enum[wage_level]
@@ -1472,6 +1529,40 @@ alias[effect:add_war_goal] = {
     holder = scope[country]
     holder = <country_definition>
     type = enum[war_goal]
+
+    ## cardinality = 0..1
+    article = {
+        article = <treaty_article>
+        source_country = scope[country]
+        target_country = scope[country]
+
+        ## cardinality = 0..1
+        inputs = {
+            ## cardinality = 0..1
+            { quantity = int }
+
+            ## cardinality = 0..1
+            { goods = scope[goods] }
+
+            ## cardinality = 0..1
+            { state = scope[state] }
+
+            ## cardinality = 0..1
+            { strategic_region = scope[strategic_region] }
+
+            ## cardinality = 0..1
+            { company = scope[company] }
+
+            ## cardinality = 0..1
+            { building_type = scope[building_type] }
+
+            ## cardinality = 0..1
+            { law_type = scope[law_type] }
+
+            ## cardinality = 0..1
+            { country = scope[country] }
+        }
+    }
 
     ## cardinality = 0..1
     target_state = scope[state]
@@ -1782,10 +1873,13 @@ alias[effect:join_war] = {
 ## scopes = { character }
 alias[effect:set_home_country] = scope[country]
 
-### Make a character the ruler of the country he is in
+### Set scoped character as ruler in their country.
+### scope:larry = { set_character_as_ruler = yes }CAUTION: Do not use this effect with chartered companies, as the character's country will be affected
+## scopes = { character }
 alias[effect:set_character_as_ruler] = bool
 
 ### Remove a specific role from a character
+## scopes = { character }
 alias[effect:remove_character_role] = enum[character_role]
 
 ### Rename a state
@@ -2238,3 +2332,162 @@ alias[effect:try_form_government_with] = {
     ## cardinality = 1..inf
     interest_group_type = <interest_group>
 }
+
+## scopes = { company }
+### Adds a monopoly to a company scope: add_company_monopoly = bt:building_textile_mills
+alias[effect:add_company_monopoly] = scope[building_type]
+
+## scopes = { country }
+### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mills
+alias[effect:add_country_monopoly] = scope[building_type]
+
+## scopes = { state_goods }
+### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mills
+alias[effect:add_exports] = scope[goods]
+
+## scopes = { state_goods }
+### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mills
+alias[effect:add_imports] = scope[goods]
+
+## scopes = { state }
+### Cedes a treaty port in scope state to target country
+alias[effect:cede_treaty_port] = scope[country]
+
+## scopes = { any }
+### Creates a treaty between countries
+alias[effect:create_treaty] = {
+    ## cardinality = 0..1
+    ### (default: empty) if specified, this treaty's name will be determined by the localization of the specified key
+    name = localisation
+
+    ## cardinality = 0..1
+    ### (default: none) must _not_ be specified if the created treaty is an amendment
+    first_country = scope[country]
+
+    ## cardinality = 0..1
+    ### (default: none) must _not_ be specified if the created treaty is an amendment
+    second_country = scope[country]
+
+    ## cardinality = 0..1
+    ### (default: none) if specified, the created treaty will be an amendment to the specified treaty
+    amends = scope[treaty]
+
+    ## cardinality = 0..1
+    ### (default: yes) must be yes if this treaty is an amendment to an existing treaty
+    is_draft = bool
+
+    ## cardinality = 0..1
+    ### (default: none) means "today" if not specified (for non-drafts). Must _not_ be specified for drafts. Cannot be in the future
+    entered_into_force_on = date_field
+
+    ### (default: 0) must be a non negative number, fractional parts will be ignored (truncation)
+    binding_period = {
+        ## cardinality = 0..1
+        enum[duration] = int
+        ## cardinality = 0..1
+        enum[duration] = <script_value>
+        ## cardinality = 0..1
+        enum[duration] = <static_value>
+        ## cardinality = 0..1
+        enum[duration] = enum[duration]
+    }
+
+    ## cardinality = 1..inf
+    ### (default: empty) non-amendments must have at least one article to create
+    articles_to_create = {
+        {
+            ### (default: empty) the type of article (determined by script)
+            article = <treaty_article>
+
+            ## cardinality = 0..1
+            ### (default: none) directed articles _must_ specify this value, mutual articles _must not_ specify this value
+            source_country = scope[country]
+
+            ## cardinality = 0..1
+            ### (default: none) directed articles _must_ specify this value, mutual articles _must not_ specify this value
+            target_country = scope[country]
+
+            ## cardinality = 0..1
+            ### (default: empty) list of inputs values as required by the article
+            inputs = {
+                ## cardinality = 0..1
+                { quantity = int }
+
+                ## cardinality = 0..1
+                { goods = scope[goods] }
+
+                ## cardinality = 0..1
+                { state = scope[state] }
+
+                ## cardinality = 0..1
+                { strategic_region = scope[strategic_region] }
+
+                ## cardinality = 0..1
+                { company = scope[company] }
+
+                ## cardinality = 0..1
+                { building_type = scope[building_type] }
+
+                ## cardinality = 0..1
+                { law_type = scope[law_type] }
+
+                ## cardinality = 0..1
+                { country = scope[country] }
+            }
+        }
+    }
+}
+
+## scopes = { any }
+### Log a string to the error log when this effect executes, error_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
+alias[effect:error_log] = scalar
+
+## scopes = { any }
+### Log a string to the error log when this effect executes, error_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
+alias[effect:error_log] = localisation
+
+## scopes = { any }
+### Runs an audio even on a "persistent" audio object
+### post_audio_event = {
+###  persistent_object = [object_name] # For example music_manager
+### 	event = [audio_event] # For example start_debug_music
+### }
+alias[effect:post_audio_event] = {
+    persistent_object = scalar
+    event = enum[sound_effects]
+}
+
+## scopes = { any }
+### Sets export tariff level for a good in scoped country
+alias[effect:set_export_tariff_level] = {
+    goods = scope[goods]
+    level = enum[tariff_levels]
+}
+
+## scopes = { any }
+### Log a string to the error log when this effect executes, error_log = message, the message can be a localization string with ROOT, SCOPE and PREV available
+alias[effect:set_import_tariff_level] = {
+    goods = scope[goods]
+    level = enum[tariff_levels]
+}
+
+## scopes = { state_goods }
+### Sets a multiplier of exports to the state for the scoped state goods
+alias[effect:set_exports] = value_field
+
+## scopes = { state_goods }
+### Sets a multiplier of imports to the state for the scoped state goods
+alias[effect:set_imports] = value_field
+
+## scopes = { treaty }
+### Withdraws a country from a treaty
+### scope:treaty = {
+### 	withdraw = {
+### 		country = <country>	# must be valid and must be bound by the treaty
+### 	}
+### }
+alias[effect:withdraw] = {
+    country = scope[country]
+}
+
+

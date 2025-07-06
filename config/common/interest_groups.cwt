@@ -86,10 +86,21 @@ interest_group = {
     commander_weight = single_alias_right[formula]
 
     ## push_scope = character
+    executive_weight = single_alias_right[formula]
+
+    ## push_scope = character
     noble_chance = single_alias_right[formula]
 
     ## push_scope = character
     female_commander_chance = single_alias_right[formula]
+
+    ## push_scope = character
+    female_executive_chance = single_alias_right[formula]
+
+    ### The chance that a executive belonging to this IG takes over leadership when it changes
+    ### scope:character is the most popular executive in the IG
+    ## push_scope = character
+    executive_leader_chance = single_alias_right[formula]
 
     ## push_scope = character
     female_politician_chance = single_alias_right[formula]
@@ -97,6 +108,8 @@ interest_group = {
     ## push_scope = character
     female_agitator_chance = single_alias_right[formula]
 
+    ### The chance that a commander belonging to this IG takes over leadership when it changes
+    ### scope:character is the most popular commander in the IG
     ## push_scope = character
     commander_leader_chance = single_alias_right[formula]
 }

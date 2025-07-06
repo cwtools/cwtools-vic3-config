@@ -35,4 +35,11 @@ scripted_button = {
 
     ## cardinality = 0..1
     ai_chance = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    cooldown = {
+        enum[duration] = int_value_field
+        enum[duration] == <script_value>
+        enum[duration] == <static_value>
+    }
 }

@@ -18,6 +18,11 @@ production_method = {
     is_default = bool
 
     ## cardinality = 0..1
+    profession_ratio = {
+        <pop_type> = int
+    }
+
+    ## cardinality = 0..1
     ### is this pm hidden to countries that can not enable them
     is_hidden_when_unavailable = bool
 

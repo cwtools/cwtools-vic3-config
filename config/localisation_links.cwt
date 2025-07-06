@@ -2223,6 +2223,10 @@ localisation_links = {
         output_scope = CString
         input_scopes = { DiplomaticAction }
     }
+    MakeScope = {
+        output_scope = Scope
+        input_scopes = { Country }
+    }
 
     Country = {
         output_scope = Country

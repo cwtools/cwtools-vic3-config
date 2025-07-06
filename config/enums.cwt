@@ -14,6 +14,7 @@ enums = {
         agitator
         ruler
         heir
+        executive
     }
 
     enum[character_trait_type] = {
@@ -81,6 +82,8 @@ enums = {
         ip2_cosmetics
         ep1_content
         ep1_cosmetics
+        mp1_content
+        mp1_treaties
         voice_of_the_people_content
         voice_of_the_people_preorder
         power_bloc_features
@@ -162,6 +165,97 @@ enums = {
         force_nationalization
         foreign_investment_rights
         colonization_rights
+        enforce_treaty_article
+    }
+
+    enum[treaty_article_kinds] = {
+        directed
+        mutual
+    }
+
+    enum[treaty_article_usage_limits] = {
+        once_per_side
+        once_per_treaty
+        once_per_side_with_same_inputs
+    }
+
+    enum[treaty_article_maintenance] = {
+        source_country
+        target_country
+    }
+
+    enum[treaty_article_flags] = {
+        is_alliance
+        is_defensive_pact
+        is_gurantee_independence
+        is_support_independence
+        is_investment_rights
+        is_trade_privilege
+        is_military_access
+        is_transit_rights
+        is_non_colonization_agreement
+        is_goods_transfer
+        is_money_transfer
+        is_monopoly_for_company
+        is_prohibit_goods_trade_with_world_market
+        is_no_tariffs
+        is_no_subventions
+        is_treaty_port
+        is_law_commitment
+        is_guarantee_independence
+        is_take_on_debt
+        is_join_power_bloc
+        is_host_power_bloc_embassy
+        is_military_assistance
+        is_offer_embassy
+        can_be_renegotiated
+        can_be_enforced
+        causes_state_transfer
+    }
+
+    enum[treaty_article_inputs] = {
+        quantity
+        goods
+        state
+        strategic_region
+        company
+        building_type
+        law_type
+        country
+    }
+
+    enum[treaty_article_non_fulfillment_consequences] = {
+        none
+        withdraw
+        freeze
+    }
+
+    enum[treaty_article_ai_categories] = {
+        economy
+        trade
+        military
+        military_defense
+        ideology
+        expansion
+        power_bloc
+        other
+        none
+    }
+
+    enum[treaty_article_ai_usages] = {
+        none
+        offer
+        request
+    }
+
+    enum[treaty_article_wargoal_contestion_type] = {
+        control_target_state
+        control_target_country_capital
+        control_any_target_country_state
+        control_own_state
+        control_own_capital
+        control_all_own_states
+        control_all_target_country_claims
     }
 
     enum[secret_goal] = {
@@ -346,8 +440,9 @@ enums = {
         interest_marker
         interest_group
         culture
-        trade_route
         political_movement
+        company
+        treaty
     }
 
     # Undocumented. Added values that are used in base game
@@ -461,6 +556,29 @@ enums = {
         politics_panel_left_tutorial_popup
         politics_panel_overview_tutorial_popup
         left_general_layout_for_popups
+    }
+
+    enum[tariff_levels] = {
+        max_tariffs
+        high_tariffs
+        low_tariffs
+        no_tariffs_or_subventions
+        low_subventions
+        high_subventions
+        max_subventions
+    }
+
+    enum[productivity_thresholds] = {
+        high_threshold
+    }
+
+    enum[company_charter_type_type] = {
+        industry
+        investment
+        monopoly
+        new_industry
+        trade
+        colonization
     }
 
 }
