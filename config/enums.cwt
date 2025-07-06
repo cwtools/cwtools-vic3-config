@@ -83,6 +83,7 @@ enums = {
         ep1_content
         ep1_cosmetics
         mp1_content
+        mp1_treaties
         voice_of_the_people_content
         voice_of_the_people_preorder
         power_bloc_features
@@ -172,6 +173,12 @@ enums = {
         mutual
     }
 
+    enum[treaty_article_usage_limits] = {
+        once_per_side
+        once_per_treaty
+        once_per_side_with_same_inputs
+    }
+
     enum[treaty_article_maintenance] = {
         source_country
         target_country
@@ -195,6 +202,12 @@ enums = {
         is_no_subventions
         is_treaty_port
         is_law_commitment
+        is_guarantee_independence
+        is_take_on_debt
+        is_join_power_bloc
+        is_host_power_bloc_embassy
+        is_military_assistance
+        is_offer_embassy
         can_be_renegotiated
         can_be_enforced
         causes_state_transfer
@@ -226,12 +239,13 @@ enums = {
         expansion
         power_bloc
         other
+        none
     }
 
     enum[treaty_article_ai_usages] = {
         none
-        will_offer
-        will_request
+        offer
+        request
     }
 
     enum[treaty_article_wargoal_contestion_type] = {
@@ -556,6 +570,15 @@ enums = {
 
     enum[productivity_thresholds] = {
         high_threshold
+    }
+
+    enum[company_charter_type_type] = {
+        industry
+        investment
+        monopoly
+        new_industry
+        trade
+        colonization
     }
 
 }

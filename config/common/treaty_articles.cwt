@@ -16,6 +16,13 @@ treaty_article = {
     ### must be non-negative
     cost = int
 
+    ## cardinality = 0..1
+    usage_limit = enum[treaty_article_usage_limits]
+
+    ## cardinality = 0..1
+    relations_progress_per_day = value_field
+
+    ## cardinality = 0..1
     relations_progress_per_day = value_field
 
     ### How much progress is added to the relations between every party of a treaty
@@ -24,11 +31,23 @@ treaty_article = {
     ### (default: 0)
     relations_improvement_max = int
 
+    ## cardinality = 0..1
     ### How much progress is added to the relations between every party of a treaty
     ### containing an article of this type. Progress is a percentage, when it reaches
     ### 100 it resets to 0 and relations increase or decrease by a single point.
     ### (default: 0)
     relations_improvement_min = int
+
+    ## cardinality = 0..inf
+    ### Any number of these triggers can be added to set up the requirements to propose and maintain an article
+    requirement_to_maintain = {
+        ### If this evaluates to false, the article will automatically break on next update
+        trigger = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ### If this evaluates to true, the player will get an alert that this specific requirement to maintain is in danger of failing
+        show_about_to_break_warning = single_alias_right[trigger_clause]
+    }
 
     icon = filepath
 
@@ -38,6 +57,7 @@ treaty_article = {
     ### source country or the target country.
     maintenance_paid_by = enum[treaty_article_maintenance]
 
+    ## cardinality = 0..1
     ### A set of flags each of which determine some intrinsic behavior of the article.
     ### The game makes use of these flags in various situations and for a variety of
     ### tasks in code.
@@ -48,6 +68,7 @@ treaty_article = {
         enum[treaty_article_flags]
     }
 
+    ## cardinality = 0..1
     ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
     ### If the trigger returns true, then the specific thing we're looking at is valid
     ### The valid triggers have the following scopes available:
@@ -60,6 +81,7 @@ treaty_article = {
     ### - `scope:market_goods`: the same goods, but as a market goods for the source country market
     goods_valid_trigger = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
     ### If the trigger returns true, then the specific thing we're looking at is valid
     ### The valid triggers have the following scopes available:
@@ -69,6 +91,7 @@ treaty_article = {
     ### - `scope:other_country`: the other country that isn't the root
     state_valid_trigger = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
     ### If the trigger returns true, then the specific thing we're looking at is valid
     ### The valid triggers have the following scopes available:
@@ -78,6 +101,7 @@ treaty_article = {
     ### - `scope:other_country`: the other country that isn't the root
     strategic_region_valid_trigger = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
     ### If the trigger returns true, then the specific thing we're looking at is valid
     ### The valid triggers have the following scopes available:
@@ -87,6 +111,7 @@ treaty_article = {
     ### - `scope:other_country`: the other country that isn't the root
     company_valid_trigger = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
     ### If the trigger returns true, then the specific thing we're looking at is valid
     ### The valid triggers have the following scopes available:
@@ -96,6 +121,7 @@ treaty_article = {
     ### - `scope:other_country`: the other country that isn't the root
     building_type_valid_trigger = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
     ### If the trigger returns true, then the specific thing we're looking at is valid
     ### The valid triggers have the following scopes available:
@@ -105,6 +131,7 @@ treaty_article = {
     ### - `scope:other_country`: the other country that isn't the root
     law_type_valid_trigger = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     ### Triggers for each input that determine which subsection of that category of inputs is actually valid in this situation.
     ### If the trigger returns true, then the specific thing we're looking at is valid
     ### The valid triggers have the following scopes available:
@@ -211,12 +238,12 @@ treaty_article = {
         }
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### For directed articles, this modifier applies to the source party of the
     ### article (in other words: it applies to the "giving" party).
     source_modifier = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### For directed articles, this modifier applies to the target party of the
     ### article (in other words: it applies to the "receiving" party).
     target_modifier = single_alias_right[modifier_clause]
@@ -273,6 +300,10 @@ treaty_article = {
     on_entry_into_force = single_alias_right[effect_clause]
 
     ## cardinality = 0..1
+    ### Executes in ADDITION to on_entry_into_force when treaty is imposed via play etc
+    on_enforced = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
     ### Determines if a country is allowed to withdraw from a treaty. Defaults to true.
     ### - `scope:withdrawing_country`
     ### - `scope:non_withdrawing_country`
@@ -299,6 +330,10 @@ treaty_article = {
     ### - `scope:withdrawing_country` is the party that is withdrawing from the treaty
     ### - `scope:non_withdrawing_country` is the party that is not withdrawing from the treaty
     on_withdrawal = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ### Executes in ADDITION to on_withdrawal when treaty is withdrawn from within the binding period
+    on_break = single_alias_right[effect_clause]
 
     ## cardinality = 0..1
     ### This data controls the ai willingness to entertain treaties containing this
@@ -450,9 +485,11 @@ treaty_article = {
         ### (default: 0)
         contextual_accept_score = single_alias_right[formula]
 
+        ## cardinality = 0..1
         ### Multiplier on AI score for including an article in a treaty they are composing, root is composing AI country
         proposal_weight = single_alias_right[formula]
 
+        ## cardinality = 0..1
         ### Script value. A multiplier added to the AI acceptance determining how likely it is to pursue this article as a wargoal
         ### - `root` - the country we're looking at
         ### - `scope:article` refers to the article that is being enforced
@@ -467,6 +504,7 @@ treaty_article = {
         wargoal_score_multiplier = single_alias_right[formula]
     }
 
+    ## cardinality = 0..1
     wargoal = {
         ### An integer. Higher priority wargoals are executed later.
         execution_priority = int
@@ -506,9 +544,11 @@ treaty_article = {
         contestion_type = enum[treaty_article_wargoal_contestion_type]
     }
 
+    ## cardinality = 0..1
     ### This is what determines if an article is enforceable through a war goal or not.
     can_be_enforced = bool
 
+    ## cardinality = 0..1
     ### When renegotiating a treaty (note: renegotiation is different from standard
     ### negotiation: renegotiation happens for treaties that have entered into force)
     ### any article without this flag will not be able to be changed in any way. It
@@ -561,50 +601,4 @@ treaty_article = {
     ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
     quantity_input_value = single_alias_right[formula]
 
-
-
-
-
-
-
-
-
-
-
-
-    ## cardinality = 0..1
-    trigger = single_alias_right[trigger_clause]
-
-    ## cardinality = 0..1
-    effect = single_alias_right[effect_clause]
-
-    ## cardinality = 0..1
-    random_events = {
-        ## cardinality = 0..inf
-        int = <event>
-
-        ## cardinality = 0..inf
-        delay = single_alias_right[duration_clause]
-
-        ## cardinality = 0..inf
-        int = 0
-
-        ## cardinality = 0..1
-        chance_of_no_event = int
-
-        ## cardinality = 0..1
-        chance_to_happen = int
-    }
-
-    ## cardinality = 0..1
-    events = {
-        ## cardinality = 0..inf
-        <event>
-    }
-
-    ## cardinality  = 0..1
-    on_actions = {
-        ## cardinality = 0..inf
-        <on_action>
-    }
 }

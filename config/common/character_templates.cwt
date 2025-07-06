@@ -143,6 +143,21 @@ character_template = {
     }
 
     ## cardinality = 0..1
+    executive_usage = {
+        ## replace_scope = { root = country this = country }
+        country_trigger = single_alias_right[trigger_clause]
+
+        ## replace_scope = { root = company this = company }
+        company_trigger = single_alias_right[trigger_clause]
+
+        earliest_usage_date = date_field
+
+        latest_usage_date = date_field
+
+        chance = int_value_field
+    }
+
+    ## cardinality = 0..1
     ## replace_scope = { root = character this = character }
     on_created = single_alias_right[effect_clause]
 }
