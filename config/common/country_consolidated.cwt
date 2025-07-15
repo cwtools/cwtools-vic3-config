@@ -4,9 +4,7 @@ types = {
         path = "game/common/country_definitions"
         file_extension = .txt
         localisation = {
-			## required
 			name = "$"
-			## required
 			adjective = "$_ADJ"
 		}
     }
@@ -51,7 +49,22 @@ types = {
 
 country_definition = {
     ### Map color, use int with rgb (blank) or hsv360, float with hsv
-    color = alias_match_right[color]
+    color = enum[named_colors]
+    color = colour[rgb]
+    color = colour[hsv]
+    color = colour[hsv360]
+    ## color_type = hsv
+    color = {
+        ## cardinality = 3..3
+        base = float
+    }
+    ## color_type = rgb
+    color = {
+        ## cardinality = 3..3
+        base = int[0..255]
+    }
+    ## color_type = hex
+    color = scalar
 
     ### The country's 'type'
     country_type = <country_type>
@@ -76,6 +89,7 @@ country_definition = {
     religion = <religion>
     
     ### The default capital for the country, important for country releasing
+    ## cardinality = 0..1
     capital = <state_region>
     
     ## cardinality = 0..1

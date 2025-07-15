@@ -2,6 +2,12 @@ types = {
     type[modifier_type] = {
         path = "game/common/modifier_type_definitions"
         file_extension = .txt
+        localisation = {
+            ## optional
+            name = "$"
+            ## optional
+            desc = "$_desc"
+        }
     }
 }
 

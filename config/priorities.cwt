@@ -1,0 +1,23 @@
+priorities = {
+    "common/history/ai" = ordered
+    "common/history/buildings" = ordered
+    "common/history/characters" = ordered
+    "common/history/countries" = ordered
+    "common/history/diplomacy" = ordered
+    "common/history/diplomatic_plays" = ordered
+    "common/history/global" = ordered
+    "common/history/military_deployments" = ordered
+    "common/history/military_formations" = ordered
+    "common/history/pops" = ordered
+    "common/history/population" = ordered
+    "common/history/production_methods" = ordered
+    "common/history/states" = ordered
+    "common/history/treaties" = ordered
+    "common/history/trade" = ordered
+    "common/history/government_setup" = ordered
+    "common/dna_data" = ordered
+    "common/on_actions" = ordered
+    "events" = fios
+    "gui" = fios
+    "localization" = fios
+}

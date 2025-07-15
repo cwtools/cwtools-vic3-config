@@ -32,4 +32,7 @@ political_movement_category = {
     ### Minimum predicted support value for movements of this category to not be disbanded
     ### Newly created movements have a defined grace period before this is checked
     minimum_support_to_maintain = value_field
+
+    ## cardinality = 0..1
+    sorting_order = int
 }

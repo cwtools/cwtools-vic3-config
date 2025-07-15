@@ -42,7 +42,7 @@ diplomatic_play = {
     ai_acceptance_max = int
 
     ## cardinality = 0..1
-    confirmation_sound = scalar
+    confirmation_sound = enum[sound_effects]
 
     war_goal = enum[war_goal]
 

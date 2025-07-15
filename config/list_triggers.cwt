@@ -481,21 +481,6 @@ alias[trigger:any_scope_front] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
-## push_scope = trade_route
-### Iterate through all trade routes in a: market, country, marketgoods any_trade_route = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_trade_route] = {
-    ## cardinality = 0..1
-    percent = value_field[0.0..1.0]
-    ## cardinality = 0..1
-    count = int_value_field
-    ## cardinality = 0..1
-    count = all
-    ## cardinality = 0..1
-    ### If set, count = all and percent only consider the filtered items for the denominator.
-    filter = single_alias_right[trigger_clause]
-    alias_name[trigger] = alias_match_left[trigger]
-}
-
 ## push_scope = interest_group
 ### Iterate through all interest groups supporting a political movement any_supporting_interest_group = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_supporting_interest_group] = {
@@ -691,23 +676,9 @@ alias[trigger:any_interest_group] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
-## push_scope = country
+## push_scope = interest_group
 ### Iterate through all interest group members of a party any_member = { <count=num/all> / <percent=fixed_point> <triggers> }
 alias[trigger:any_member] = {
-    ## cardinality = 0..1
-    percent = value_field[0.0..1.0]
-    ## cardinality = 0..1
-    count = int_value_field
-    ## cardinality = 0..1
-    count = all
-    ## cardinality = 0..1
-    ### If set, count = all and percent only consider the filtered items for the denominator.
-    filter = single_alias_right[trigger_clause]
-    alias_name[trigger] = alias_match_left[trigger]
-}
-
-### Iterate through all combat units of input scope
-alias[trigger:any_combat_unit] = {
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
@@ -988,6 +959,7 @@ alias[trigger:any_lobby_member] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+### Iterate through all harvest conditions affecting a state, state region, strategic region, or country any_harvest_condition = { <count=num/all> / <percent=fixed_point> <triggers> }
 ## push_scope = harvest_condition
 alias[trigger:any_harvest_condition] = {
     ## cardinality = 0..1
@@ -1029,4 +1001,139 @@ alias[trigger:any_power_bloc] = {
     filter = single_alias_right[trigger_clause]
     alias_name[trigger] = alias_match_left[trigger]
 }
+
+## push_scope = country
+alias[trigger:any_decentralized_country] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scopes = { treaty }
+## push_scope = treaty_article
+alias[trigger:any_scope_article] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scopes = { treaty_options treaty }
+## push_scope = treaty_article_options
+alias[trigger:any_scope_article_option] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scopes = { company }
+## push_scope = building
+alias[trigger:any_scope_regional_hqs] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scopes = { country }
+## push_scope = treaty
+alias[trigger:any_scope_treaty] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## push_scope = treaty
+alias[trigger:any_treaty] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scopes = { country }
+## push_scope = law
+### Iterate through all active laws in a country
+alias[trigger:any_active_law] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scopes = { country }
+## push_scope = law
+### Iterate through all active laws in a country
+alias[trigger:any_active_law] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all active laws in a country
+alias[trigger:any_<scripted_list>] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
+
 

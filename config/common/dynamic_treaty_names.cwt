@@ -1,0 +1,33 @@
+types = {
+    type[dynamic_treaty_name] = {
+        path = "game/common/dynamic_treaty_names"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+        }
+    }
+}
+
+dynamic_treaty_name = {
+    ### This trigger determines whether this name can be chosen for a given treaty.
+    ### An empty trigger is equivalent to `always = yes`, but due to technical reasons
+    ### an empty trigger is evaluated faster than an `always = yes` trigger.
+    ###
+    ### Within the `trigger` trigger, the following scope objects are accessible:
+    ### - `root` is a `treaty_options` scope, holding various information about a treaty, before the treaty is created
+    ###
+    ### Examples of information accessible from a `treaty_options` scope:
+    ### - `first_country` is one of the parties of the potential treaty
+    ### - `second_country` is the other party of te potential treaty
+    ### - `any_scope_article_option` is a scriptlist for evaluation of the article options of the potential treaty
+    ## push_scope = treaty_options
+    trigger = single_alias_right[trigger_clause]
+
+    ### This script values determines an absolute weight value for a given dynamic name.
+    ### Names with higher weights are more likely to be picked.
+    ###
+    ### The `root` scope of the weight value is the same `treaty_options` scope that
+    ### is the root of `trigger`.
+    weight = single_alias_right[formula]
+}

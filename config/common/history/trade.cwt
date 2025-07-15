@@ -1,0 +1,11 @@
+types = {
+    type[history_trade] = {
+        path = "game/common/history/trade"
+        file_extension = .txt
+
+    }
+}
+
+history_trade = {
+    alias_name[effect] = alias_match_left[effect]
+}

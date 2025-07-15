@@ -2,10 +2,20 @@ types = {
     type[strategic_region] = {
         path = "game/common/strategic_regions"
         file_extension = .txt
+        subtype[land] = {
+            capital_province = enum[provinces]
+        }
+        subtype[land] = {
+            map_color = { }
+        }
+        subtype[land] = {
+            graphical_culture = enum[graphical_cultures]
+        }
+        ## only_if_not = { land }
+        subtype[water] = {}
         localisation = {
-			## required
-			name = "$"
-		}
+            name = "$"
+        }
     }
 }
 
@@ -15,10 +25,33 @@ strategic_region = {
     graphical_culture = enum[graphical_cultures]
 
     ### Make sure its in a state in the region
+    ## cardinality = 0..1
     capital_province = enum[provinces]
 
     ### Not specified as to rgb vs. hsv or rgb255 vs. rgb100
-    map_color = alias_match_right[color]
+    ## cardinality = 0..1
+    map_color = enum[named_colors]
+    ## cardinality = 0..1
+    map_color = colour[rgb]
+    ## cardinality = 0..1
+    map_color = colour[hsv]
+    ## cardinality = 0..1
+    map_color = colour[hsv360]
+    ## cardinality = 0..1
+    ## color_type = hsv
+    map_color = {
+        ## cardinality = 3..3
+        base = float
+    }
+    ## cardinality = 0..1
+    ## color_type = rgb
+    map_color = {
+        ## cardinality = 3..3
+        base = int[0..255]
+    }
+    ## cardinality = 0..1
+    ## color_type = hex
+    map_color = scalar
 
     states = {
         ## cardinality = 1..inf

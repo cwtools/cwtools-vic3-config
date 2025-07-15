@@ -17,6 +17,15 @@ production_method = {
     ### is this the default pm for its group? if no pm in a group is designated as the default, the first pm is considered the default.
     is_default = bool
 
+    profession_ratio = {
+        <pop_type> = int
+    }
+
+    ## cardinality = 0..1
+    profession_ratio = {
+        <pop_type> = int
+    }
+
     ## cardinality = 0..1
     ### is this pm hidden to countries that can not enable them
     is_hidden_when_unavailable = bool

@@ -21,6 +21,10 @@ political_movement = {
         <ideology>
     }
 
+    ## cardinality = 0..1
+    ### Multiplies the impact active laws have on the activism of this movement type
+    active_law_radicalism_multiplier = value_field
+
     ## replace_scope = { root = country this = country }
     ### Trigger that must evaluate true for this movement type to be created
     creation_trigger = single_alias_right[trigger_clause]
@@ -34,6 +38,7 @@ political_movement = {
     ### The weight for this movement type to be picked for creation over other movement types that are valid at the same instance
     creation_weight = single_alias_right[formula]
 
+    ## cardinality = 0..1
     ## replace_scope = { root = political_movement this = political_movement }
     ### Effect that is executed when a movement of this type is created
     on_created = single_alias_right[effect_clause]

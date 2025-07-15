@@ -2,6 +2,12 @@ types = {
     type[government_type] = {
         path = "game/common/government_types"
         file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+            ## required
+            desc = "$_desc"
+        }
     }
 }
 
@@ -9,6 +15,8 @@ government_type = {
     transfer_of_power = enum[transfer_of_power_types]
 
     male_ruler = localisation
+    # Support empty localisation keys
+    male_ruler = scalar
 
     female_ruler = localisation
     # Support empty localisation keys

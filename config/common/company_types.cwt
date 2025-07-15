@@ -24,6 +24,30 @@ company_type = {
     flavored_company = bool
 
     ## cardinality = 0..1
+    preferred_headquarters = {
+        ## cardinality = 1..inf
+        <state_region>
+    }
+
+    ## cardinality = 0..1
+    extension_building_types = {
+        ## cardinality = 1..inf
+        <building>
+    }
+
+    ## cardinality = 0..1
+    ### This is a list of the prestige goods types that this company can produce
+    possible_prestige_goods = {
+        ## cardinality = 1..inf
+        <prestige_good>
+    }
+
+    ## cardinality = 0..1
+    ## push_scope = company
+    ### This trigger is executed in Company scope and checks if the company can produce prestige goods
+    prestige_goods_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
     uses_dynamic_naming = bool
 
     ## cardinality = 0..1
@@ -35,22 +59,62 @@ company_type = {
     ## cardinality = 0..1
     replaces_company = <company_type>
 
-    ## cardinality = 1
+    ## cardinality = ~1..1
     building_types = {
         ## cardinality = 1..inf
         <building>
     }
 
     ## cardinality = 0..1
+    unlocking_principles = {
+        ## cardinality = 1..inf
+        <power_bloc_principle>
+    }
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
+    ### The following three triggers (potential, attainable, possible) are used to split companies into four different categories: hidden/potential/attainable/available
+    ### All of them are evaluated in country scope.
+    ### If a company fails the first trigger it is hidden, if it passes the first but fails the second it is shown as a potential company,
+    ### so and so forth until if it passes all three triggers then it is shown as an available company.
     potential = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
+    ### The following three triggers (potential, attainable, possible) are used to split companies into four different categories: hidden/potential/attainable/available
+    ### All of them are evaluated in country scope.
+    ### If a company fails the first trigger it is hidden, if it passes the first but fails the second it is shown as a potential company,
+    ### so and so forth until if it passes all three triggers then it is shown as an available company.
     attainable = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
+    ### The following three triggers (potential, attainable, possible) are used to split companies into four different categories: hidden/potential/attainable/available
+    ### All of them are evaluated in country scope.
+    ### If a company fails the first trigger it is hidden, if it passes the first but fails the second it is shown as a potential company,
+    ### so and so forth until if it passes all three triggers then it is shown as an available company.
     possible = single_alias_right[trigger_clause]
 
     prosperity_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
+    ### If this trigger is true, then the AI will potentially select this company as the next company it will try to form. It will do this even if it does not meet the conditions to form the company, and will actively try to construct buildings etc to meet the further requirements to form the company.
+    ### To check this trigger, the company must be considered at least 'attainable'
+    ### If this trigger is not present, the AI never try to found this company
+    ai_will_do = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    # While the AI is trying to form a company (that has passed the ai_will_do, potential and attainable triggers) it will have increased weight for certain building types in certain states, which buildings, which states (determined through a trigger) and up to which level are all specified here
+    # Note that scripting this with an empty state trigger will do nothing, as it would otherwise result in indiscrimate construction in all states!
+    ai_construction_targets = {
+        <building> = {
+            level = int
+
+            ## push_scope = state
+            state_trigger = single_alias_right[trigger_clause]
+        }
+    }
 
     ## cardinality = 0..1
     ai_weight = value_field

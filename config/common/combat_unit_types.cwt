@@ -27,6 +27,12 @@ combat_unit_type = {
         <technology>
     }
 
+    ## cardinality = 0..1
+    conscript_peasant_levies = bool
+
+    ## cardinality = ~1..1
+    max_manpower = int
+
     ## push_scope = country
     ## cardinality = 0..1
     can_build = single_alias_right[trigger_clause]

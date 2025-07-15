@@ -105,8 +105,10 @@ character_template = {
         interest_group_trigger = single_alias_right[trigger_clause]
 
         earliest_usage_date = date_field
+        earliest_usage_date = int
 
         latest_usage_date = date_field
+        latest_usage_date = int
 
         chance = int_value_field
     }
@@ -132,6 +134,21 @@ character_template = {
 
         ## replace_scope = { root = interest_group this = interest_group }
         interest_group_trigger = single_alias_right[trigger_clause]
+
+        earliest_usage_date = date_field
+
+        latest_usage_date = date_field
+
+        chance = int_value_field
+    }
+
+    ## cardinality = 0..1
+    executive_usage = {
+        ## replace_scope = { root = country this = country }
+        country_trigger = single_alias_right[trigger_clause]
+
+        ## replace_scope = { root = company this = company }
+        company_trigger = single_alias_right[trigger_clause]
 
         earliest_usage_date = date_field
 

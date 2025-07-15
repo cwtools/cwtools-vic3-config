@@ -37,6 +37,7 @@ alert_type = {
 enums = {
     enum[script_context] = {
         player_country
+        player_company
         player_front
         player_diplomatic_play
         player_diplomatic_pact
@@ -46,7 +47,8 @@ enums = {
         player_interest_group
         player_invaded_state
         player_national_market
-        player_naval_invasion
+        player_invasion
+        player_treaty
         player_involved_market
         player_state
         player_building

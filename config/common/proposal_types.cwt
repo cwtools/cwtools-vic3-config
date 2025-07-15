@@ -18,6 +18,6 @@ proposal_type = {
 
     open_popup = enum[open_popup_types]
 
-    # TODO is generally a define
-    days = scalar
+    days = int
+    days = $define_reference
 }
