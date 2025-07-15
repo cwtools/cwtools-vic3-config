@@ -3118,3 +3118,8 @@ alias[trigger:law_is_available] = bool
 ## scopes = { country }
 ### Check if the scoped country has a monopoly of the specified building type
 alias[trigger:country_has_building_type_monopoly] = scope[building_type]
+
+## scopes = { company }
+### Checks if scope company can potentially produce target prestige good type
+alias[trigger:can_potentially_produce_prestige_goods] = <prestige_good>
+
