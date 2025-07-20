@@ -2,6 +2,16 @@ types = {
     type[treaty_article] = {
         path = "game/common/treaty_articles"
         file_extension = .txt
+        localisation = {
+            ## required
+            name = "$"
+            ## required
+            desc = "$_desc"
+            ## required
+            effects_desc = "$_effects_desc"
+            ## required
+            article_short_desc = "$_article_short_desc"
+        }
     }
 }
 
@@ -23,8 +33,6 @@ treaty_article = {
     relations_progress_per_day = value_field
 
     ## cardinality = 0..1
-    relations_progress_per_day = value_field
-
     ### How much progress is added to the relations between every party of a treaty
     ### containing an article of this type. Progress is a percentage, when it reaches
     ### 100 it resets to 0 and relations increase or decrease by a single point.
@@ -37,6 +45,7 @@ treaty_article = {
     ### 100 it resets to 0 and relations increase or decrease by a single point.
     ### (default: 0)
     relations_improvement_min = int
+
 
     ## cardinality = 0..inf
     ### Any number of these triggers can be added to set up the requirements to propose and maintain an article
