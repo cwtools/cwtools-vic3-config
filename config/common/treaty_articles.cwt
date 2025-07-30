@@ -46,7 +46,6 @@ treaty_article = {
     ### (default: 0)
     relations_improvement_min = int
 
-
     ## cardinality = 0..inf
     ### Any number of these triggers can be added to set up the requirements to propose and maintain an article
     requirement_to_maintain = {
