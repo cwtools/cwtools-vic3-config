@@ -3837,4 +3837,11 @@ links = {
 		output_scope = value
 		type = value
 	}
+	### Compares radical fraction in pops in state or country
+	radical_fraction = {
+		desc = "Compares radical fraction in pops in state or country"
+		input_scopes = { country state }
+		output_scope = value
+		type = value
+	}
 }
