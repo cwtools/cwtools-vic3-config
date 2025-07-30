@@ -2,6 +2,18 @@ types = {
     type[alert_type] = {
         path = "game/common/alert_types"
         file_extension = .txt
+        localisation = {
+            ## required
+            name = "alert_$_name"
+            ## optional
+            desc = "alert_$_desc"
+            ## required
+            hint = "alert_$_hint"
+            ## required
+            action = "alert_$_action"
+            ## required
+            setting = "$_setting_name"
+        }
     }
 }
 

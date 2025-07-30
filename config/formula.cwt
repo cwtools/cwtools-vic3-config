@@ -64,6 +64,12 @@ alias[arithmetic_operation:base] = single_alias_right[formula]
 alias[arithmetic_operation:base] = <script_value>
 alias[arithmetic_operation:base] = <static_value>
 alias[arithmetic_operation:base] = $define_reference
+alias[arithmetic_operation:round_to] = value_field
+alias[arithmetic_operation:round_to] = scope_field
+alias[arithmetic_operation:round_to] = single_alias_right[formula]
+alias[arithmetic_operation:round_to] = <script_value>
+alias[arithmetic_operation:round_to] = <static_value>
+alias[arithmetic_operation:round_to] = $define_reference
 
 alias[arithmetic_operation:abs] = yes
 alias[arithmetic_operation:abs] = value_field
