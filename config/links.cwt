@@ -414,6 +414,11 @@ links = {
 		output_scope = value
 		type = value
 	}
+	ig_approval = {
+		input_scopes = { interest_group }
+		output_scope = value
+		type = value
+	}
 	political_movement_support = {
 		input_scopes = political_movement
 		output_scope = value
