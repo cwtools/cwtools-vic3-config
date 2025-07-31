@@ -74,10 +74,6 @@ journal_entry = {
     timeout = int
 
     ## cardinality = 0..1
-    ### effect which is executed when journal entry is timed out
-    on_timeout = single_alias_right[effect_clause]
-
-    ## cardinality = 0..1
     ### failure trigger, should spawn event explaining what happens when triggered, framed as a failure; if left blank, cannot fail
     fail = single_alias_right[trigger_clause]
 
