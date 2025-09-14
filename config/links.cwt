@@ -414,6 +414,11 @@ links = {
 		output_scope = value
 		type = value
 	}
+	ig_approval = {
+		input_scopes = { interest_group }
+		output_scope = value
+		type = value
+	}
 	political_movement_support = {
 		input_scopes = political_movement
 		output_scope = value
@@ -3834,6 +3839,13 @@ links = {
 	level_after_queued_constructions = {
 		desc = "Scope to the level of a building after all queued constructions finish"
 		input_scopes = { building }
+		output_scope = value
+		type = value
+	}
+	### Compares radical fraction in pops in state or country
+	radical_fraction = {
+		desc = "Compares radical fraction in pops in state or country"
+		input_scopes = { country state }
 		output_scope = value
 		type = value
 	}

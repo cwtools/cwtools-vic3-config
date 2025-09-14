@@ -581,4 +581,13 @@ enums = {
         colonization
     }
 
+    enum[game_rule_flags] = {
+        blocks_achievements
+        lenient_ai
+        harsh_ai
+        low_ai_aggression
+        high_ai_aggression
+        no_subject_flags
+        no_subject_map_color
+    }
 }

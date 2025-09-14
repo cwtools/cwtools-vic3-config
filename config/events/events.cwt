@@ -77,7 +77,15 @@ event = {
 
 	## cardinality = 0..1
 	cooldown = {
+		## cardinality = 0..1
 		enum[duration] = int
+		## cardinality = 0..1
+		enum[duration] = <script_value>
+		## cardinality = 0..1
+		enum[duration] = <static_value>
+		## cardinality = 0..1
+		enum[duration] = enum[duration]
+		## cardinality = 0..1
 		enum[duration] = { int int }
 	}
 

@@ -1,0 +1,57 @@
+types = {
+    type[font_definition] = {
+        path = "game/fonts"
+        file_extension = .font
+        name_field = "name"
+
+        ## group = definition_type
+        ## display_name = Font
+        subtype[font] = {
+            ## cardinality = 1..inf
+            fontstyle = { }
+        }
+
+        ## group = definition_type
+        ## display_name = Fontfiles
+        subtype[fontfiles] = {
+            ## cardinality = 1..inf
+            group = { }
+        }
+    }
+}
+
+font_definition = {
+    name = scalar
+
+    subtype[font] = {
+        ## cardinality = 1..inf
+        fontstyle = {
+            style = enum[font_styles]
+            fontfiles = <font_definition.fontfiles>
+        }
+    }
+
+    subtype[fontfiles] = {
+        always_load = bool
+
+        ## cardinality = 1..inf
+        group = {
+            languages = {
+                ## cardinality = 1..inf
+                scalar
+            }
+            files = {
+                ## cardinality = 1..inf
+                filepath
+            }
+        }
+    }
+}
+
+enums = {
+    enum[font_styles] = {
+        regular
+        italic
+        bold
+    }
+}

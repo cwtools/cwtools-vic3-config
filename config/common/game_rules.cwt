@@ -3,9 +3,45 @@ types = {
         path = "game/common/game_rules"
         skip_root_key = any
         file_extension = .txt
+        localisation = {
+            ## required
+            name = "setting_$"
+            ## required
+            desc = "setting_$_desc"
+        }
+    }
+    type[game_rule_category] = {
+        path = "game/common/game_rules"
+        file_extension = .txt
+        localisation = {
+            ## required
+            name = "rule_$"
+        }
+    }
+}
+
+game_rule_category = {
+    default = <game_rule>
+
+    <game_rule> = {
+        ## cardinality = 0..inf
+        flag = enum[game_rule_flags]
+
+        ## cardinality = 0..inf
+        flag = force_<production_method>
+
+        ## cardinality = 0..inf
+        flag = disable_<production_method>
     }
 }
 
 game_rule = {
-    # TODO
+    ## cardinality = 0..inf
+    flag = enum[game_rule_flags]
+
+    ## cardinality = 0..inf
+    flag = force_<production_method>
+
+    ## cardinality = 0..inf
+    flag = disable_<production_method>
 }

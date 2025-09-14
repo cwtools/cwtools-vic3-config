@@ -30,6 +30,15 @@ law = {
     }
 
     ## cardinality = 0..1
+    parent = <law>
+
+    ## cardinality = 0..1
+    requires_law_or = {
+        ## cardinality = 1..inf
+        <law>
+    }
+
+    ## cardinality = 0..1
     modifier = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1

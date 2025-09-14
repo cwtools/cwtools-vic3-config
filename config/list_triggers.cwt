@@ -1136,4 +1136,17 @@ alias[trigger:any_<scripted_list>] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## push_scope = country
+alias[trigger:any_enemy_in_diplo_play] = {
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = all
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+    alias_name[trigger] = alias_match_left[trigger]
+}
 

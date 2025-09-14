@@ -8,6 +8,15 @@ types = {
 pop_need = {
     default = <good>
 
+    ## cardinality = 0..1
+    obsession_demand_min = value_field
+
+    ## cardinality = 0..1
+    obsession_demand_mult = value_field
+
+    ## cardinality = 0..1
+    prestige_goods_demand_increase = value_field
+
     ## cardinality = 1..inf
     entry = {
         ### The good being referenced
