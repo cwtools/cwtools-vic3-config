@@ -42,13 +42,6 @@ types = {
 				desc = desc
 			}
 		}
-		images = {
-			subtype[!hidden] = {
-				## primary
-				## optional
-				picture = picture # <sprite>, can be triggered or/and multiple
-			}
-		}
 	}
 }
 

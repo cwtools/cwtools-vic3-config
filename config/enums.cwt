@@ -211,6 +211,7 @@ enums = {
         can_be_renegotiated
         can_be_enforced
         causes_state_transfer
+        giftable
     }
 
     enum[treaty_article_inputs] = {

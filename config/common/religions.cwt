@@ -20,7 +20,7 @@ religion = {
     ### Don't mix religious traits with cultural traits
     traits = {
         ## cardinality = 1..inf
-        <discrimination_trait>
+        <discrimination_trait.heritage>
     }
 
     color = enum[named_colors]

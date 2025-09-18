@@ -2,7 +2,6 @@ types = {
     type[history_global] = {
         path = "game/common/history/global"
         file_extension = .txt
-
     }
 }
 

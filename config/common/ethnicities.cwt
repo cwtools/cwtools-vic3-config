@@ -3,13 +3,12 @@ types = {
         path = "game/common/ethnicities"
         file_extension = .txt
         localisation = {
-            ## required
+            ## optional
             name = "$"
         }
     }
 }
 
-# TODO needs full implementation of genes
 ethnicity = {
     ## cardinality = 0..1
     using = scalar
@@ -22,22 +21,19 @@ ethnicity = {
 
     ## cardinality = 0..inf
     <gene> = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         int = {
-            ## cardinality = 4..4
-            float
-        }
-    }
-
-    ## cardinality = 0..inf
-    <gene> = {
-        ## cardinality = 1..inf
-        int = {
+            ## cardinality = 0..1
             name = scalar
+
+            ## cardinality = 0..1
             range = {
                 ## cardinality = 2..2
                 float
             }
+
+            ## cardinality = 0..4
+            float
         }
     }
 }
