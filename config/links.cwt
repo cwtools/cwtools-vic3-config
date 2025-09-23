@@ -3877,4 +3877,25 @@ links = {
         output_scope = value
         type = value
     }
+    ### Compares state obstinance
+    obstinance = {
+        desc = "Compares state obstinance"
+        input_scopes = { state }
+        output_scope = value
+        type = value
+    }
+    ### Compares with the hightest fervor of a country's primary cultures
+    country_fervor_primary_culture = {
+        desc = "Compares with the hightest fervor of a country's primary cultures"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Compares the current fervor for a given culture, culture_current_fervor > 0.2
+    culture_current_fervor = {
+        desc = "Compares the current fervor for a given culture, culture_current_fervor > 0.2"
+        input_scopes = { culture }
+        output_scope = value
+        type = value
+    }
 }
