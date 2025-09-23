@@ -52,6 +52,13 @@ production_method = {
     }
 
     ## cardinality = 0..1
+    ### Category defined in company type
+    unlocking_company_categories = {
+        ## cardinality = 1..inf
+        enum[company_categories]
+    }
+
+    ## cardinality = 0..1
     ### Religions that forbid this production method
     disallowing_religions = {
         <religion>
