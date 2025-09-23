@@ -3849,4 +3849,32 @@ links = {
 		output_scope = value
 		type = value
 	}
+    ### Links from a culture scope to the state region with an active national awakening for that culture
+    national_awakening_state_region = {
+        desc = "Links from a culture scope to the state region with an active national awakening for that culture"
+        input_scopes = { culture }
+        output_scope = state_region
+        type = scope
+    }
+    ### Scope to the total value of scope country's exports to the world market (example: total_trade_value >= 1000)
+    total_export_value = {
+        desc = "Scope to the total value of scope country's exports to the world market (example: total_trade_value >= 1000)"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Scope to the total value of scope country's imports from the world market (example: total_trade_value >= 1000)
+    total_import_value = {
+        desc = "Scope to the total value of scope country's imports from the world market (example: total_trade_value >= 1000)"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Scope to the total value of scope country's trade with the world market (example: total_trade_value >= 1000)
+    total_trade_value = {
+        desc = "Scope to the total value of scope country's trade with the world market (example: total_trade_value >= 1000)"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
 }
