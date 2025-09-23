@@ -69,26 +69,6 @@ alias[trigger:is_primary_culture_of] = <country_definition>
 ### Checks if culture is any of a country's primary cultures is_primary_culture_of = <country>
 alias[trigger:is_primary_culture_of] = scope[country]
 
-### Checks if culture shares any trait marked as 'heritage' and other 'non-heritage' trait with any of a country's primary cultures shares_heritage_and_other_trait_with_any_primary_culture = <country>
-alias[trigger:shares_heritage_and_other_trait_with_any_primary_culture] = <country_definition>
-### Checks if culture shares any trait marked as 'heritage' and other 'non-heritage' trait with any of a country's primary cultures shares_heritage_and_other_trait_with_any_primary_culture = <country>
-alias[trigger:shares_heritage_and_other_trait_with_any_primary_culture] = scope[country]
-
-### Checks if culture shares any trait marked as 'heritage' with any of a country's primary cultures shares_heritage_trait_with_any_primary_culture = <country>
-alias[trigger:shares_heritage_trait_with_any_primary_culture] = <country_definition>
-### Checks if culture shares any trait marked as 'heritage' with any of a country's primary cultures shares_heritage_trait_with_any_primary_culture = <country>
-alias[trigger:shares_heritage_trait_with_any_primary_culture] = scope[country]
-
-### Checks if culture shares any trait *other than* one marked as 'heritage' with any of a country's primary cultures shares_non_heritage_trait_with_any_primary_culture = <country>
-alias[trigger:shares_non_heritage_trait_with_any_primary_culture] = <country_definition>
-### Checks if culture shares any trait *other than* one marked as 'heritage' with any of a country's primary cultures shares_non_heritage_trait_with_any_primary_culture = <country>
-alias[trigger:shares_non_heritage_trait_with_any_primary_culture] = scope[country]
-
-### Checks if the culture shares any trait with any of a country's primary cultures shares_trait_with_any_primary_culture = <country>
-alias[trigger:shares_trait_with_any_primary_culture] = <country_definition>
-### Checks if the culture shares any trait with any of a country's primary cultures shares_trait_with_any_primary_culture = <country>
-alias[trigger:shares_trait_with_any_primary_culture] = scope[country]
-
 ### Check if market has a shortage on any of its building inputs market_has_goods_shortage = yes/no
 alias[trigger:market_has_goods_shortage] = bool
 
@@ -216,16 +196,6 @@ alias[trigger:has_diplomatic_play] = bool
 alias[trigger:is_state_religion] = <country_definition>
 ### Checks if the religion is the state religion in a country is_accepted_religion = <country>
 alias[trigger:is_state_religion] = scope[country]
-
-### Checks if the religion shares any trait marked as 'religion_group' with a country's religion shares_heritage_trait_with_state_religion = <country>
-alias[trigger:shares_heritage_trait_with_state_religion] = <country_definition>
-### Checks if the religion shares any trait marked as 'religion_group' with a country's religion shares_heritage_trait_with_state_religion = <country>
-alias[trigger:shares_heritage_trait_with_state_religion] = scope[country]
-
-### Checks if the religion shares any trait with a country's state religion shares_trait_with_state_religion = <country>
-alias[trigger:shares_trait_with_state_religion] = <country_definition>
-### Checks if the religion shares any trait with a country's state religion shares_trait_with_state_religion = <country>
-alias[trigger:shares_trait_with_state_religion] = scope[country]
 
 ### Checks if the specified lens is open active_lens = lens An interface trigger, can only be used in specific places
 alias[trigger:active_lens] = replace_me
@@ -3122,3 +3092,91 @@ alias[trigger:country_has_building_type_monopoly] = scope[building_type]
 ## scopes = { company }
 ### Checks if scope company can potentially produce target prestige good type
 alias[trigger:can_potentially_produce_prestige_goods] = <prestige_good>
+
+## scopes = { culture }
+### Checks if the scoped culture has an active national awakening
+alias[trigger:culture_has_national_awakening] = bool
+
+## scopes = { culture }
+### Checks if the scoped culture has ever had a national awakening started
+alias[trigger:culture_national_awakening_occurred] = bool
+
+## scopes = { state }
+### Checks if the scoped state is in a state region with an active national awakening map marker
+alias[trigger:state_has_national_awakening] = bool
+
+## scopes = { culture religion }
+### Checks if scoped culture or religion has the given discrimination trait group
+alias[trigger:culture_national_awakening_occurred] = <discrimination_trait_group>
+
+## scopes = { war }
+### Checks if the specified country is the holder of any wargoal in the scoped war
+alias[trigger:is_holder_of_wargoal_in_war] = scope[country]
+
+## scopes = { war }
+### Checks if the specified country is the target of any wargoal in the scoped war
+alias[trigger:is_target_of_wargoal_in_war] = scope[country]
+
+## scopes = { political_movement }
+### Check if the political movement can generate obstinance in states
+alias[trigger:movement_can_cause_obstinance] = bool
+
+## scopes = { political_movement }
+### Check if the political movement is causing obstinance in any state
+alias[trigger:movement_is_causing_obstinance] = bool
+
+## scopes = { religion }
+### Checks if the religion shares any heritage trait with another religion
+alias[trigger:shares_heritage_trait_with_religion] = scope[religion]
+
+## scopes = { religion }
+### Checks if the religion shares any heritage trait with a country's religion
+alias[trigger:shares_heritage_trait_with_state_religion] = scope[country]
+
+## scopes = { religion }
+### Checks if the religion shares any heritage trait group with another religion
+alias[trigger:shares_heritage_trait_group_with_religion] = scope[religion]
+
+## scopes = { religion }
+### Checks if the religion shares any heritage trait group with a country's state religion
+alias[trigger:shares_heritage_trait_group_with_state_religion] = scope[country]
+
+## scopes = { culture }
+### Checks if culture shares any trait marked as 'heritage' with any of a country's primary cultures
+alias[trigger:shares_heritage_trait_with_any_primary_culture] = scope[country]
+
+## scopes = { culture }
+### Checks if culture shares any trait marked as 'language' with any of a country's primary cultures
+alias[trigger:shares_language_trait_with_any_primary_culture] = scope[country]
+
+## scopes = { culture }
+### Checks if culture shares any trait marked as 'tradition' with any of a country's primary cultures
+alias[trigger:shares_tradition_trait_with_any_primary_culture] = scope[country]
+
+## scopes = { culture }
+### Checks if culture shares any trait group marked as 'heritage' with any of a country's primary cultures
+alias[trigger:shares_heritage_trait_group_with_any_primary_culture] = scope[country]
+
+## scopes = { culture }
+### Checks if culture shares any trait group marked as 'language' with any of a country's primary cultures
+alias[trigger:shares_language_trait_group_with_any_primary_culture] = scope[country]
+
+## scopes = { culture }
+### Checks if culture shares any trait group marked as 'heritage' with another culture
+alias[trigger:shares_heritage_trait_group_with_culture] = scope[culture]
+
+## scopes = { culture }
+### Checks if culture shares any trait group marked as 'language' with another culture
+alias[trigger:shares_language_trait_group_with_culture] = scope[culture]
+
+## scopes = { culture }
+### Checks if culture shares any trait marked as 'heritage' with another culture
+alias[trigger:shares_heritage_trait_with_culture] = scope[culture]
+
+## scopes = { culture }
+### Checks if culture shares any trait marked as 'language' with another culture
+alias[trigger:shares_language_trait_with_culture] = scope[culture]
+
+## scopes = { culture }
+### Checks if culture shares any trait marked as 'tradition' with another culture
+alias[trigger:shares_tradition_trait_with_culture] = scope[culture]

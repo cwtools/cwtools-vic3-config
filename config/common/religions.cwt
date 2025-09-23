@@ -14,14 +14,8 @@ types = {
 
 religion = {
     ### The icon shown ingame
-    texture = filepath
-
-    ## cardinality = 0..1
-    ### Don't mix religious traits with cultural traits
-    traits = {
-        ## cardinality = 1..inf
-        <discrimination_trait>
-    }
+    icon = filepath
+    heritage = <discrimination_trait.heritage>
 
     color = enum[named_colors]
     color = colour[rgb]
