@@ -2492,4 +2492,118 @@ alias[effect:withdraw] = {
     country = scope[country]
 }
 
+## scopes = { country }
+### Apply a cultural acceptance modifier in the scoped country for the given culture. Other than the required culture argument, this effect has the same syntax as add_modifier.
+alias[effect:add_culture_acceptance_modifier] = {
+    culture = scope[culture]
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = enum[duration]
+    ## cardinality = 0..1
+    multiplier = value_field
+    ## cardinality = 0..1
+    multiplier = <script_value>
+    ## cardinality = 0..1
+    multiplier = scope_field
+    ## cardinality = 0..1
+    multiplier = <static_value>
+    ## cardinality = 0..1
+    multiplier = single_alias_right[formula]
+    ## cardinality = 0..1
+    is_decaying = bool
+}
+
+## scopes = { country }
+### Apply a fervor target modifier in the scoped country for the given culture. Other than the required culture argument, this effect has the same syntax as add_modifier.
+alias[effect:add_fervor_target_modifier] = {
+    culture = scope[culture]
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = enum[duration]
+    ## cardinality = 0..1
+    multiplier = value_field
+    ## cardinality = 0..1
+    multiplier = <script_value>
+    ## cardinality = 0..1
+    multiplier = scope_field
+    ## cardinality = 0..1
+    multiplier = <static_value>
+    ## cardinality = 0..1
+    multiplier = single_alias_right[formula]
+    ## cardinality = 0..1
+    is_decaying = bool
+}
+
+## scopes = { culture }
+### Sets the fervor of a scoped culture
+alias[effect:set_fervor] = value_field
+alias[effect:set_fervor] = single_alias_right[formula]
+alias[effect:set_fervor] = <script_value>
+alias[effect:set_fervor] = <static_value>
+alias[effect:set_fervor] = $define_reference
+
+## scopes = { culture }
+### Sets the fervor of a scoped culture
+alias[effect:add_fervor] = value_field
+alias[effect:add_fervor] = single_alias_right[formula]
+alias[effect:add_fervor] = <script_value>
+alias[effect:add_fervor] = <static_value>
+alias[effect:add_fervor] = $define_reference
+
+## scopes = { culture }
+### Adds a new tradition trait to the culture in scope
+alias[effect:add_tradition_trait] = <discrimination_trait.tradition>
+
+## scopes = { culture }
+### Removes an existing tradition trait from the culture in scope
+alias[effect:remove_tradition_trait] = <discrimination_trait.tradition>
+
+## scopes = { country }
+### Starts a cultural awakening
+alias[effect:add_fervor_target_modifier] = {
+    culture = scope[culture]
+
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+
+    ## cardinality = 0..1
+    state_region = scope[state_region]
+}
+
+## scopes = { country }
+### Ends a cultural awakening: end_national_awakening = cu:british
+alias[effect:end_national_awakening] = scope[culture]
+
+## scopes = { any }
+### Execute effects of the specified event option in the specified event (zero indexed)
+alias[effect:execute_event_option] = {
+    event = <event>
+    option = int[0..255]
+}
+
+## scopes = { country state }
+### Frees all slaves in the country/state
+alias[effect:liberate_slaves] = yes
+
+## scopes = { country }
+### Frees all slaves in the country's incorporated states
+alias[effect:liberate_slaves_in_incorporated_states] = yes
+
+## scopes = { country }
+### Frees all slaves in the country's unincorporated states
+alias[effect:liberate_slaves_in_unincorporated_states] = yes
 
