@@ -1,0 +1,35 @@
+types = {
+    type[scripted_test] = {
+        path = "game/tools/scripted_tests"
+        file_extension = .txt
+        skip_root_key = { tests }
+    }
+    ## type_key_filter = last_date
+    type[last_date] = {
+        path = "game/tools/scripted_tests"
+        file_extension = .txt
+        name_field = "-"
+        unique = no
+    }
+}
+
+last_date = scalar
+
+scripted_test = {
+    ### Omitting this field will default the value to 0.0
+    ### acceptable_fail_rate is output as metadata for use by test analysis, it does not impact the test behavior at all
+    ## cardinality = 0..1
+    acceptable_fail_rate = value[0..1]
+
+    ### Omitting this field will default the value to 1
+    ### the amount of times a test will run. Only counts runs that either fail or pass. A value less than 0 will cause the test to run indefinitely.
+    ### Each run overwrites the previous result. So if you have run_count = 3 and get results PASS, PASS, FAIL. It will count as a fail.
+    ## cardinality = 0..1
+    run_count = int
+
+    ### Trigger block that is checked every day. If it passes, the test is marked as passed.
+    success = single_alias_right[trigger_clause]
+
+    ### Trigger block that is checked every day. If it passes, the test is marked as failed.
+    fail = single_alias_right[trigger_clause]
+}
