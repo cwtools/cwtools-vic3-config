@@ -3898,4 +3898,11 @@ links = {
         output_scope = value
         type = value
     }
+    ### Compares loyalist fraction in pops in state or country, all parameters except value are optional
+    loyalist_fraction = {
+        desc = "Compares loyalist fraction in pops in state or country, all parameters except value are optional"
+        input_scopes = { country state }
+        output_scope = value
+        type = value
+    }
 }
