@@ -15,12 +15,45 @@ types = {
     ## unique = yes
     type[discrimination_trait] = {
         path = "game/common/discrimination_traits"
+        file_extension = .txt
         subtype[heritage] = {
-            heritage = yes
+            type = heritage
+        }
+        subtype[language] = {
+            type = language
+        }
+        subtype[tradition] = {
+            type = tradition
         }
         localisation = {
             name = "$"
         }
+    }
+    ## unique = yes
+    type[discrimination_trait_group] = {
+        path = "game/common/discrimination_trait_groups"
+        file_extension = .txt
+        subtype[heritage] = {
+            type = heritage
+        }
+        subtype[language] = {
+            type = language
+        }
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+enums = {
+    enum[discrimination_trait_types] = {
+        heritage
+        language
+        tradition
+    }
+    enum[discrimination_trait_group_types] = {
+        heritage
+        language
     }
 }
 
@@ -44,11 +77,13 @@ culture = {
     color = scalar
     ### Default religion for culture
     religion = <religion>
+    heritage = <discrimination_trait.heritage>
+    language = <discrimination_trait.language>
 
-    ### Don't mix religious traits with cultural traits
-    traits = {
-        ## cardinality = 1..inf
-        <discrimination_trait>
+    ## cardinality = 0..1
+    traditions = {
+        ## cardinality = 0..inf
+        <discrimination_trait.tradition>
     }
 
     ### This culture can't get enough of...
@@ -134,7 +169,15 @@ culture_graphic = {
 }
 
 discrimination_trait = {
+    type = enum[discrimination_trait_types]
     subtype[heritage] = {
-        heritage = yes
+        trait_group = <discrimination_trait_group.heritage>
     }
+    subtype[language] = {
+        trait_group = <discrimination_trait_group.language>
+    }
+}
+
+discrimination_trait_group = {
+    type = enum[discrimination_trait_group_types]
 }

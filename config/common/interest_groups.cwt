@@ -85,6 +85,7 @@ interest_group = {
     ## push_scope = character
     commander_weight = single_alias_right[formula]
 
+    ## cardinality = 0..1
     ## push_scope = character
     executive_weight = single_alias_right[formula]
 
@@ -94,11 +95,13 @@ interest_group = {
     ## push_scope = character
     female_commander_chance = single_alias_right[formula]
 
+    ## cardinality = 0..1
     ## push_scope = character
     female_executive_chance = single_alias_right[formula]
 
     ### The chance that a executive belonging to this IG takes over leadership when it changes
     ### scope:character is the most popular executive in the IG
+    ## cardinality = 0..1
     ## push_scope = character
     executive_leader_chance = single_alias_right[formula]
 
