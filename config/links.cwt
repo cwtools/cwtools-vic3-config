@@ -3849,13 +3849,6 @@ links = {
 		output_scope = value
 		type = value
 	}
-	### Compares radical fraction in pops in state or country
-	radical_fraction = {
-		desc = "Compares radical fraction in pops in state or country"
-		input_scopes = { country state }
-		output_scope = value
-		type = value
-	}
     ### Links from a culture scope to the state region with an active national awakening for that culture
     national_awakening_state_region = {
         desc = "Links from a culture scope to the state region with an active national awakening for that culture"
