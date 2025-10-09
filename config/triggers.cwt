@@ -236,7 +236,7 @@ alias[trigger:current_tooltip_depth] == value_field
 
 ### Wraps triggers that get a custom description instead of the auto-generated one custom_description = { 	text = <trigger_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... triggers ... }
 alias[trigger:custom_description] = {
-    text = localisation
+    text = <trigger_localization>
     ## cardinality = 0..1
     subject = scope_field
     ## cardinality = 0..1

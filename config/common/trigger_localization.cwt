@@ -1,5 +1,25 @@
 types = {
     type[trigger_localization] = {
         path = "game/common/trigger_localization"
+        file_extension = .txt
     }
+}
+
+trigger_localization = {
+    global = localisation
+
+    ## cardinality = 0..1
+    global_not = localisation
+
+    ## cardinality = 0..1
+    first = localisation
+
+    ## cardinality = 0..1
+    first_not = localisation
+
+    ## cardinality = 0..1
+    third = localisation
+
+    ## cardinality = 0..1
+    third_not = localisation
 }

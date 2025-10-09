@@ -134,6 +134,13 @@ single_alias[political_movement_revolution_secession] = {
     ### scope:clout = combined clout of IGs that would become insurrectionary
     possible = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
+    ## replace_scope = { root = interest_group this = interest_group }
+    ### Trigger for whether an interest group can join a civil war started by the movement
+    ### Root = interest group
+    ### scope:political_movement = political movement
+    interest_group_can_join = single_alias_right[trigger_clause]
+
     ## replace_scope = { root = political_movement this = political_movement }
     ### Weight for whether this civil war type should be selected over others
     ### scope:clout = combined clout of IGs that would become insurrectionary
