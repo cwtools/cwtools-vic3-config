@@ -80,6 +80,8 @@ enums = {
         rp1_content
         ip2_content
         ip2_cosmetics
+        ip3_content
+        ip3_cosmetics
         ep1_content
         ep1_cosmetics
         mp1_content

@@ -13,7 +13,7 @@ types = {
     }
 }
 
-last_date = scalar
+last_date = date_field
 
 scripted_test = {
     ### Omitting this field will default the value to 0.0

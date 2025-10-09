@@ -2289,8 +2289,12 @@ alias[effect:set_social_hierarchy] = <social_hierarchy>
 ### Where Y is some math script to determine sort order
 alias[effect:sort_global_variable_list] = {
     name = value_set[global_variable_list]
+
+    order = value_field
     order = single_alias_right[formula]
     order = <script_value>
+    order = <static_value>
+    order = $define_reference
 }
 
 ## scopes = { any }
@@ -2300,8 +2304,12 @@ alias[effect:sort_global_variable_list] = {
 ### Where Y is some math script to determine sort order
 alias[effect:sort_local_variable_list] = {
     name = value_set[local_variable_list]
+
+    order = value_field
     order = single_alias_right[formula]
     order = <script_value>
+    order = <static_value>
+    order = $define_reference
 }
 
 ## scopes = { any }
@@ -2311,8 +2319,12 @@ alias[effect:sort_local_variable_list] = {
 ### Where Y is some math script to determine sort order
 alias[effect:sort_variable_list] = {
     name = value_set[variable_list]
+
+    order = value_field
     order = single_alias_right[formula]
     order = <script_value>
+    order = <static_value>
+    order = $define_reference
 }
 
 ## scopes = { state }
@@ -2570,7 +2582,7 @@ alias[effect:remove_tradition_trait] = <discrimination_trait.tradition>
 
 ## scopes = { country }
 ### Starts a cultural awakening
-alias[effect:add_fervor_target_modifier] = {
+alias[effect:start_national_awakening] = {
     culture = scope[culture]
 
     ## cardinality = 0..1

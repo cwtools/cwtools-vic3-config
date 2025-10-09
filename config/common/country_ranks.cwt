@@ -10,15 +10,22 @@ types = {
 }
 
 country_rank = {
+    ### higher value rank effects take priority over lower ones in being assigned, also determines icon index
     rank_value = int_value_field
 
     icon_index = int_value_field
 
+    ### if yes, this rank is invalid for subjects with a subject type where overlord needs to have higher rank if overlord has that rank or higher
     ## cardinality = 0..1
     enforce_subject_rank_check = bool
 
+    ### Diplomatic pacts with country of this rank have their cost multiplied by this amount - Default = 1
     ## cardinality = 0..1
     diplo_pact_cost = value_field
+
+    ### Treaty articles with country of this rank have their cost multiplied by this amount - Default = 1
+    ## cardinality = 0..1
+    treaty_article_cost = value_field
 
     ## cardinality = 0..1
     prestige_average_threshold = value_field
