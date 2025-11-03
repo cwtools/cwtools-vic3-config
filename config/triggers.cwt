@@ -41,7 +41,12 @@ alias[trigger:is_civil_war_type] = enum[civil_war_type]
 alias[trigger:is_revolutionary] = bool
 
 ### Checks if scoped culture or religion has the given discrimination trait has_trait = trait
+## scopes = { culture religion }
 alias[trigger:has_discrimination_trait] = <discrimination_trait>
+
+### Checks if scoped culture or religion has the given discrimination trait has_trait = trait
+## scopes = { culture religion }
+alias[trigger:has_discrimination_trait_group] = <discrimination_trait_group>
 
 ### Checks the culture's progress percentage towards secession in a country. 0 if no secession movement is active for the culture. culture_secession_progress = { target = scope:example_country value > 0.5 }
 alias[trigger:culture_secession_progress] = {
