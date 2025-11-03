@@ -437,6 +437,9 @@ links = {
 		desc = "Scope to tension level threshold for comparison purposes (tension_threshold:warm)"
 		output_scope = value
 		type = value
+        from_data = yes
+        prefix = tension_threshold:
+        data_source = enum[tension_threshold]
 	}
 	### Reference a previous set variable via its name eg: var:mortal_enemy
 	var = {

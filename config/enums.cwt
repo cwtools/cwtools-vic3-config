@@ -593,4 +593,11 @@ enums = {
         no_subject_flags
         no_subject_map_color
     }
+
+    enum[tension_threshold] = {
+        warm
+        uneasy
+        tense
+        volatile
+    }
 }

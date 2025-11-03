@@ -535,10 +535,6 @@ localisation_links = {
         type = scope
         output_scope = Player
     }
-    GetPlayer = {
-        type = scope
-        output_scope = Country
-    }
     HARVEST_CONDITION = {
         type = scope
         output_scope = HarvestCondition
@@ -1964,156 +1960,7 @@ localisation_links = {
         output_scope = bool
     }
 
-
-
-
-
-
     # Methods
-    GetName = {
-        output_scope = CString
-        input_scopes = {
-            AIAttitude
-            AIStrategy
-            AcceptanceStatus
-            Alert
-            AlertOptionItem
-            Battle
-            BattleCondition
-            Building
-            BuildingType
-            CanalType
-            CharacterInteraction
-            CharacterTrait
-            CivilWar
-            CohesionLevel
-            CombatUnit
-            CombatUnitGroup
-            CombatUnitType
-            CommanderOrderType
-            Company
-            CompanyType
-            Country
-            CountryCreation
-            CountryDefinition
-            CountryFormation
-            CulturalCommunity
-            Culture
-            DataColorPicker
-            Decision
-            Decree
-            DecreeType
-            DiplomaticAction
-            DiplomaticActionType
-            DiplomaticCatalystCategory
-            DiplomaticCatalystType
-            DiplomaticPact
-            DiplomaticPlay
-            DiplomaticPlayType
-            DiscriminationTrait
-            Dlc
-            Era
-            Front
-            GameConceptType
-            GameRule
-            GameRuleSetting
-            Goods
-            GoodsPanelChildValue
-            GoodsPanelValue
-            GoodsProductionInfo
-            GovernmentType
-            GuiGameRulePreset
-            HarvestCondition
-            HarvestConditionArea
-            HarvestConditionType
-            Hq
-            Ideology
-            ImportantAlert
-            Institution
-            InstitutionType
-            InterestGroup
-            InterestingCountrySetting
-            JournalEntry
-            JournalEntryGroup
-            JournalEntryType
-            Label
-            Law
-            LawGroup
-            LawType
-            LegitimacyLevel
-            LibertyDesireLevel
-            Location
-            MapMode
-            Market
-            MilitaryFormation
-            MilitaryFormationBorrowSetting
-            MilitaryFormationFlag
-            MobilizationOption
-            MobilizationOptionGroup
-            Modifier
-            ModifierBreakdown
-            ModifierEntry
-            ModifierNodeData
-            NationalizeBuildingGroup
-            NavalInvasion
-            NotificationOptionItem
-            NotificationSettingsItem
-            Objective
-            ObjectiveType
-            Party
-            Player
-            PlayerMessageItem
-            PoliticalLobby
-            PoliticalLobbyAppeasementFactor
-            PoliticalLobbyType
-            PoliticalMovement
-            PoliticalMovementCategory
-            PoliticalMovementPopSupportFactor
-            PoliticalMovementType
-            Pop
-            PopNeed
-            PopType
-            PowerBloc
-            PowerBlocCoaPiece
-            PowerBlocCoaPieceSelector
-            PowerBlocIdentity
-            PowerBlocMapTexture
-            PowerBlocPrinciple
-            PowerBlocPrincipleGroup
-            PowerBlocStatueAccessoryType
-            PowerBlocStatueAccessoryTypeSelector
-            PowerBlocStatueHeroType
-            PowerBlocStatuePedestalType
-            ProductionMethod
-            ProductionMethodGroup
-            Proposal
-            Religion
-            SaveGame
-            SaveGameItem
-            ScriptedButton
-            ScriptedProgressBar
-            SocialClass
-            SocialHierarchy
-            StagedFormation
-            StarvationType
-            State
-            StateRegion
-            StateTrait
-            StrategicRegion
-            SubjectType
-            SwayOfferType
-            Technology
-            Theater
-            Theme
-            ThemeCategory
-            TickTaskData
-            TimedModifier
-            TradeRoute
-            War
-            WarGoal
-            WarGoalType
-        }
-    }
     GetNameNoFormatting = {
         output_scope = CString
         input_scopes = {
@@ -2237,31 +2084,68 @@ localisation_links = {
         input_scopes = { any }
     }
 
+    Var = {
+        type = scope
+        prefix = Var
+        from_argument = yes
+        data_source = scalar
+        input_scopes = { any }
+        output_scope = Scope
+    }
+
+    GetJournalEntry = {
+        type = scope
+        prefix = GetJournalEntry
+        input_scopes = { Scope }
+        output_scope = JournalEntry
+    }
+
+    CalcCurrentGoalValue = {
+        type = value
+        prefix = CalcCurrentGoalValue
+        input_scopes = { JournalEntry }
+        output_scope = value
+    }
+
+    GetPlayer = {
+        prefix = GetPlayer
+        input_scopes = { any }
+        type = scope
+        output_scope = Country
+    }
+
+    Concept = {
+        type = scope
+        prefix = Concept
+        from_argument = yes
+        data_source = scalar # <technology>
+        data_source = scalar # <technology>
+        input_scopes = { any }
+        output_scope = any
+    }
+
     # This does not work
     GetTechnology = {
-        output_scope = Technology
-        from_argument = yes
-        from_data = yes
-        data_source = CString # <technology>
-        input_scopes = { any }
         prefix = GetTechnology
+        from_argument = yes
+        data_source = scalar # <technology>
+        input_scopes = { any }
+        output_scope = Technology
     }
     GetRelationsWithDesc = {
         output_scope = value
         type = value
         from_argument = yes
-        from_data = yes
-        data_source = scope[country]
-        input_scopes = { country }
+        data_source = scope[Country]
+        input_scopes = { Country }
         prefix = GetRelationsWithDesc
     }
     GetRelationsWith = {
         output_scope = value
         type = value
         from_argument = yes
-        from_data = yes
-        data_source = scope[country]
-        input_scopes = { country }
+        data_source = scope[Country]
+        input_scopes = { Country }
         prefix = GetRelationsWith
 
     }
