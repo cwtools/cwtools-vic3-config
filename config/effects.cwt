@@ -138,6 +138,7 @@ alias[effect:set_ig_bolstering] = bool
 ### Starts/stops suppressing the interest group in scope set_ig_suppression = yes/no
 alias[effect:set_ig_suppression] = bool
 
+## scopes = { interest_group }
 ### Renames interest group to the specified loc key set_interest_group_name = x
 alias[effect:set_interest_group_name] = localisation
 
@@ -147,7 +148,7 @@ alias[effect:set_ig_trait] = scope[interest_group]
 ### Adds momentum to a Party during a campaign period dd_momentum = value
 alias[effect:add_momentum] = value_field
 ### Adds momentum to a Party during a campaign period dd_momentum = value
-alias[effect:add_momentum] = <scipt_valie>
+alias[effect:add_momentum] = <script_value>
 ### Adds momentum to a Party during a campaign period dd_momentum = value
 alias[effect:add_momentum] = <static_value>
 
@@ -156,6 +157,12 @@ alias[effect:add_journal_entry] = {
     type = <journal_entry>
     ## cardinality = 0..1
     target = scope_field
+    ## cardinality = 0..1
+    target = value_field
+    ## cardinality = 0..1
+    target = <script_value>
+    ## cardinality = 0..1
+    target = <static_value>
     ## cardinality = 0..1
     objective_subgoal = <objective_subgoal>
 }
