@@ -58,7 +58,7 @@ terrain = {
     created_material = scalar
 
     ### Color used in a debug mode
-    debug_color = enum[named_colors]
+    debug_color = <named_color>
     debug_color = colour[rgb]
     debug_color = colour[hsv]
     debug_color = colour[hsv360]

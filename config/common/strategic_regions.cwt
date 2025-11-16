@@ -30,7 +30,7 @@ strategic_region = {
 
     ### Not specified as to rgb vs. hsv or rgb255 vs. rgb100
     ## cardinality = 0..1
-    map_color = enum[named_colors]
+    map_color = <named_color>
     ## cardinality = 0..1
     map_color = colour[rgb]
     ## cardinality = 0..1

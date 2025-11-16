@@ -1997,7 +1997,7 @@ alias[effect:create_political_movement] = {
 alias[effect:create_power_bloc] = {
     name = localisation
 
-    map_color = enum[named_colors]
+    map_color = <named_color>
     map_color = colour[rgb]
     map_color = colour[hsv]
     map_color = colour[hsv360]

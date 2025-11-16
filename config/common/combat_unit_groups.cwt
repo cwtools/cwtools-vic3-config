@@ -17,22 +17,8 @@ combat_unit_group = {
     type = enum[combat_unit_group_type]
     ## cardinality = 0..1
     default_group = bool
-    color = enum[named_colors]
-    color = colour[rgb]
-    color = colour[hsv]
-    color = colour[hsv360]
-    ## color_type = hsv
-    color = {
-        ## cardinality = 3..3
-        base = float
-    }
-    ## color_type = rgb
-    color = {
-        ## cardinality = 3..3
-        base = int[0..255]
-    }
-    ## color_type = hex
-    color = scalar
+    color = <named_color>
+    color = color_field
     icon = filepath
 }
 
