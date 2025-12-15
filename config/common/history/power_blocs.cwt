@@ -1,4 +1,5 @@
 types = {
+    ## type_key_filter = POWER_BLOCS
     type[history_power_bloc] = {
         path = "game/common/history/power_blocs"
         file_extension = .txt

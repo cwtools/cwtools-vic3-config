@@ -17,22 +17,8 @@ pop_type = {
     texture = filepath
 
     ### Color when shown in graphs and on map
-    color = enum[named_colors]
-    color = colour[rgb]
-    color = colour[hsv]
-    color = colour[hsv360]
-    ## color_type = hsv
-    color = {
-        ## cardinality = 3..3
-        base = float
-    }
-    ## color_type = rgb
-    color = {
-        ## cardinality = 3..3
-        base = int[0..255]
-    }
-    ## color_type = hex
-    color = scalar
+    color = <named_color>
+    color = color_field
 
     ### Basic quality of life
     start_quality_of_life = int

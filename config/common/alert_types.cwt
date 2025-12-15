@@ -22,6 +22,7 @@ alert_type = {
 
     texture = filepath
 
+    ## cardinality = 0..1
     ### an invalid alert will not be shown
     valid = single_alias_right[trigger_clause]
 
@@ -49,6 +50,7 @@ alert_type = {
 enums = {
     enum[script_context] = {
         player_country
+        player_country_formation
         player_company
         player_front
         player_diplomatic_play
@@ -71,6 +73,8 @@ enums = {
         player_trade_route
         player_war
         player_market
+        player_article
+        player_decision
     }
 
     enum[alert_type] = {

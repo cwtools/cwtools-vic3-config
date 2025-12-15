@@ -1,0 +1,162 @@
+types = {
+    type[morph_gene] = {
+        path = "game/common/genes"
+        file_extension = .txt
+        skip_root_key = {
+            morph_genes
+        }
+    }
+    type[special_morph_gene] = {
+        path = "game/common/genes"
+        file_extension = .txt
+        skip_root_key = {
+            special_genes
+            morph_genes
+        }
+    }
+}
+
+morph_gene = single_alias_right[morph_gene_clause]
+special_morph_gene = single_alias_right[morph_gene_clause]
+
+single_alias[morph_gene_clause] = {
+    ## cardinality = 0..1
+    group = value_set[morph_gene_group]
+
+    value_set[morph_gene_variant] = {
+        index = int
+
+        ## cardinality = 0..1
+        male = single_alias_right[morph_gene_gender_settings_clause]
+        ## cardinality = 0..1
+        male = enum[gene_gender_reference]
+
+        ## cardinality = 0..1
+        female = single_alias_right[morph_gene_gender_settings_clause]
+        ## cardinality = 0..1
+        female = enum[gene_gender_reference]
+
+        ## cardinality = 0..1
+        boy = single_alias_right[morph_gene_gender_settings_clause]
+        ## cardinality = 0..1
+        boy = enum[gene_gender_reference]
+
+        ## cardinality = 0..1
+        girl = single_alias_right[morph_gene_gender_settings_clause]
+        ## cardinality = 0..1
+        girl = enum[gene_gender_reference]
+    }
+}
+
+single_alias[morph_gene_gender_settings_clause] = {
+    ## cardinality = 0..inf
+    texture_override = {
+        ### if there are multiple texture_overrides in a character's dna one will be picked by weighted random
+        weight = value_field
+
+        diffuse = filepath
+
+        normal = filepath
+
+        specular = filepath
+    }
+
+    ## cardinality = 0..inf
+    setting = {
+        attribute = scalar
+
+        curve = single_alias_right[gene_curve_clause]
+
+        ## cardinality = 0..1
+        required_tags = scalar
+
+        ## cardinality = 0..1
+        age = <age_preset>
+        ## cardinality = 0..1
+        age = single_alias_right[gene_age_clause]
+    }
+
+    ## cardinality = 0..inf
+    setting = {
+        attribute = scalar
+
+        ## cardinality = 0..1
+        required_tags = scalar
+
+        value = {
+            min = value_field[-1..1]
+
+            max = value_field[-1..1]
+        }
+
+        ## cardinality = 0..1
+        age = <age_preset>
+        ## cardinality = 0..1
+        age = single_alias_right[gene_age_clause]
+    }
+
+    ## cardinality = 0..inf
+    hair_hsv_shift_curve = {
+        curve = single_alias_right[gene_shift_curve_clause]
+
+        ## cardinality = 0..1
+        age = <age_preset>
+        ## cardinality = 0..1
+        age = single_alias_right[gene_age_clause]
+    }
+
+    ## cardinality = 0..inf
+    eye_hsv_shift_curve = {
+        curve = single_alias_right[gene_shift_curve_clause]
+
+        ## cardinality = 0..1
+        age = <age_preset>
+        ## cardinality = 0..1
+        age = single_alias_right[gene_age_clause]
+    }
+
+    ## cardinality = 0..inf
+    skin_hsv_shift_curve = {
+        curve = single_alias_right[gene_shift_curve_clause]
+
+        ## cardinality = 0..1
+        age = <age_preset>
+        ## cardinality = 0..1
+        age = single_alias_right[gene_age_clause]
+    }
+
+    ## cardinality = 0..inf
+    decal = {
+        body_part = enum[gene_body_part]
+
+        textures = {
+            diffuse = filepath
+
+            ## cardinality = 0..1
+            normal = filepath
+
+            ## cardinality = 0..1
+            properties = filepath
+        }
+
+        ## cardinality = 0..1
+        alpha_curve = single_alias_right[gene_curve_clause]
+
+        blend_modes = {
+            diffuse = enum[gene_decal_blend_mode]
+
+            ## cardinality = 0..1
+            normal = enum[gene_decal_blend_mode]
+
+            ## cardinality = 0..1
+            properties = enum[gene_decal_blend_mode]
+        }
+
+        ## cardinality = 0..1
+        age = <age_preset>
+        ## cardinality = 0..1
+        age = single_alias_right[gene_age_clause]
+
+        priority = int
+    }
+}

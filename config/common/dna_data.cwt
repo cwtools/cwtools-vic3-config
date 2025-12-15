@@ -17,59 +17,20 @@ dna_data = {
             eye_color = { int[0..255] int[0..255] int[0..255] int[0..255] }
 
             ## cardinality = 1..inf
-            <gene> = {
-                # TODO
+            <morph_gene> = {
                 ## cardinality = 1..inf
-                scalar
+                value[morph_gene_variant]
+
                 ## cardinality = 1..inf
                 int
             }
 
-            ## cardinality = 0..1
+            ## cardinality = 0..inf
             ### DEPRECATED
-            outfits = {
+            <accessory_gene> = {
                 ## cardinality = 1..inf
-                scalar
-                ## cardinality = 1..inf
-                int
-            }
-            ## cardinality = 0..1
-            ### DEPRECATED
-            coats = {
-                ## cardinality = 1..inf
-                scalar
-                ## cardinality = 1..inf
-                int
-            }
-            ## cardinality = 0..1
-            ### DEPRECATED
-            medals = {
-                ## cardinality = 1..inf
-                scalar
-                ## cardinality = 1..inf
-                int
-            }
-            ## cardinality = 0..1
-            ### DEPRECATED
-            necklaces = {
-                ## cardinality = 1..inf
-                scalar
-                ## cardinality = 1..inf
-                int
-            }
-            ## cardinality = 0..1
-            ### DEPRECATED
-            legwear = {
-                ## cardinality = 1..inf
-                scalar
-                ## cardinality = 1..inf
-                int
-            }
-            ## cardinality = 0..1
-            ### DEPRECATED
-            headgear = {
-                ## cardinality = 1..inf
-                scalar
+                value[accessory_gene_variant]
+
                 ## cardinality = 1..inf
                 int
             }

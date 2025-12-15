@@ -51,7 +51,7 @@ company_type = {
     ## cardinality = 0..1
     ### This is a list of the prestige goods types that this company can produce
     possible_prestige_goods = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         <prestige_good>
     }
 
@@ -109,17 +109,6 @@ company_type = {
     possible = single_alias_right[trigger_clause]
 
     prosperity_modifier = single_alias_right[modifier_clause]
-
-    # While the AI is trying to form a company (that has passed the ai_will_do, potential and attainable triggers) it will have increased weight for certain building types in certain states, which buildings, which states (determined through a trigger) and up to which level are all specified here
-    # Note that scripting this with an empty state trigger will do nothing, as it would otherwise result in indiscrimate construction in all states!
-    ai_construction_targets = {
-        <building> = {
-            level = int
-
-            ## push_scope = state
-            state_trigger = single_alias_right[trigger_clause]
-        }
-    }
 
     ## cardinality = 0..1
     ## replace_scope = { root = country this = country }

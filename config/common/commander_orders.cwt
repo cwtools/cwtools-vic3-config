@@ -21,23 +21,24 @@ commander_order = {
     military_type = enum[military_unit_type]
 
     ### Determines how the AI parses this Order; should eventually be replaced with AI parsing order Behavior instead
-    ai_usage = enum[ai_commander_order_usage]
+    behavior = enum[commander_order_behavior]
 
     ## cardinality = 0..1
     is_basic_order_type = bool
 
-    ## replace_scope = { this = character root = character }
     ### Check to determine if this order should be visible for the given commander
+    ## replace_scope = { this = character root = character }
     visible = single_alias_right[trigger_clause]
 
-    ## replace_scope = { this = character root = character }
     ### check to determine if it should be possible to select this order for the given commander
     ### NOTE: use of has_trait is brittle here, since data traits (in the UI) will try to determine if they
     ### unlock specific orders by parsing has_trait triggers; this means that e.g. NOT = { has_trait = child }
     ### could be parsed as if the child trait unlocks, rather than blocks, an Order
+    ## replace_scope = { this = character root = character }
     possible = single_alias_right[trigger_clause]
 
     ### the modifier that will apply to the character when they have this order; also determines order Behavior
+    ## cardinality = 0..1
     modifier = single_alias_right[modifier_clause]
 
     ### the sound that will be played when this order is selected
@@ -48,6 +49,9 @@ commander_order = {
 
     ### amount of additional character experience that will be gained per week while executing Order; note that this only matters for character trait gain
     experience = value_field
+
+    ## cardinality = 0..1
+    escape_power_ratio = value_field
 
     ai_weight = single_alias_right[formula]
 

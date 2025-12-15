@@ -29,7 +29,7 @@ enums = {
         incorporated
     }
 
-    enum[wage_level] ={
+    enum[wage_level] = {
         very_low
         low
         medium
@@ -75,17 +75,19 @@ enums = {
         "Melodies for the Masses"
     }
 
-    # As of 1.8
     enum[dlc_feature] = {
         rp1_content
         ip2_content
         ip2_cosmetics
         ip3_content
         ip3_cosmetics
+        ip4_content
+        ip4_cosmetics
         ep1_content
         ep1_cosmetics
         mp1_content
         mp1_treaties
+        mp1_cosmetics
         voice_of_the_people_content
         voice_of_the_people_preorder
         power_bloc_features
@@ -268,6 +270,8 @@ enums = {
         none
         befriend
         antagonize
+        reconcile
+        defy
     }
     enum[law_stance_values] = {
         strongly_disapprove
@@ -474,6 +478,8 @@ enums = {
         culture
         religion
         goods
+        journal_entry
+        interest_group
     }
 
     enum[notification_types] = {
@@ -508,12 +514,13 @@ enums = {
         skill
     }
 
-    enum[ai_commander_order_usage] = {
+    enum[commander_order_behavior] = {
         advance
         intercept
         defend
         raid_convoys
         escort_convoys
+        blockade
     }
 
     enum[harvest_condition_graphics] = {
@@ -592,6 +599,20 @@ enums = {
         high_ai_aggression
         no_subject_flags
         no_subject_map_color
+        free_construction_scaled_player_exemption
+        free_construction_unscaled
+        loyalties_grace_period_none
+        loyalties_grace_period_short
+        loyalties_grace_period_long
+        loyalties_grace_period_extra_long
+        no_pop_consolidation
+        minor_pop_consolidation
+        moderate_pop_consolidation
+        aggressive_pop_consolidation
+        give_fantastical_content
+        no_fantastical_content
+        use_custom_rng_seed
+        no_dynamic_naming
     }
 
     enum[tension_threshold] = {
@@ -599,5 +620,164 @@ enums = {
         uneasy
         tense
         volatile
+    }
+
+    enum[journal_entry_group_context] = {
+        none
+        country
+    }
+
+    enum[ai_strategy_subsidy_requirement] = {
+        must_have
+        nice_to_have
+        wants_to_have
+    }
+
+    enum[ai_strategy_goods_stance] = {
+        wants_high_supply
+        wants_export
+        does_not_want
+    }
+
+    enum[ai_strategy_type] = {
+        administrative
+        diplomatic
+        political
+    }
+
+    enum[culture_name_format] = {
+        last_first
+    }
+
+    enum[diplomatic_action_maintenance_payee] = {
+        first_country
+        second_country
+    }
+
+    enum[color_gene_type] = {
+        hair
+        skin
+        eye
+    }
+
+    enum[gene_mode] = {
+        multiply
+        add
+    }
+
+    enum[gene_body_part] = {
+        head
+    }
+
+    enum[gene_decal_blend_mode] = {
+        overlay
+        replace
+        hard_light
+        multiply
+    }
+
+    enum[gene_gender_reference] = {
+        male
+        female
+        boy
+        girl
+    }
+
+    enum[event_category] = {
+        enactment
+    }
+
+    enum[war_goal_kind] = {
+        annex_country
+        ban_slavery
+        colonization_rights
+        conquer_state
+        contain_threat
+        enforce_treaty_article
+        force_nationalization
+        foreign_investment_rights
+        humiliation
+        increase_autonomy
+        independence
+        join_power_bloc
+        leave_power_bloc
+        liberate_country
+        liberate_subject
+        make_dominion
+        make_protectorate
+        make_tributary
+        open_market
+        reduce_autonomy
+        regime_change
+        return_state
+        revoke_all_claims
+        revoke_claim
+        secession
+        take_treaty_port
+        transfer_subject
+        unification
+        unification_leadership
+        custom
+    }
+
+    enum[war_goal_setting] = {
+        require_target_be_part_of_war
+        can_add_for_other_country
+        annexes_entire_state
+        annexes_entire_country
+        country_creation
+        overlord_is_stakeholder
+        can_target_decentralized
+        has_other_stakeholder
+        turns_into_subject
+        skip_build_list
+        targets_enemy_subject
+        targets_enemy_claims
+        requires_interest
+        debug
+        validate_subject_relation
+        validate_formation_candidate_self
+        validate_formation_candidate_target
+        validate_sole_formation_candidate
+        validate_target_not_treaty_port
+        validate_join_power_bloc
+        validate_colonization_rights
+        validate_force_nationalization
+        validate_foreign_investment_rights
+        validate_regime_change
+        validate_contain_threat
+        validate_revoke_claims
+        validate_increase_autonomy
+        validate_take_treaty_port
+        validate_independence
+        validate_conflicts_war_goals_holder
+        validate_conflicts_war_goals_all
+        validate_conflicts_conquer_state
+        validate_conflicts_annex_country
+        validate_conflicts_make_subject
+        validate_conflicts_existing_subject
+        conflicts_with_make_subject
+        conflicts_with_country_creation
+        conflicts_with_annex_country
+        conflicts_with_annex_state
+        conflicts_with_existing_subject
+    }
+
+    enum[war_goal_contestion_type] = {
+        control_target_state
+        control_target_country_capital
+        control_any_target_country_state
+        control_any_target_incorporated_state
+        control_own_state
+        control_own_capital
+        control_all_own_states
+        control_all_target_country_claims
+        control_any_releasable_state
+    }
+
+    enum[war_goal_target_type] = {
+        country
+        state
+        treaty_article
     }
 }

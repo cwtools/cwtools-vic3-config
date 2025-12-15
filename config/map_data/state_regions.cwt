@@ -87,20 +87,20 @@ state_region = {
     ### Farm/plantation types, each with double quotes
     arable_resources = {
         ## cardinality = ~1..inf
-        <building_group>
+        <building>
     }
 
     ### Non-farm resource buildings, each with double quotes
     ## cardinality = ~0..1
     capped_resources = {
         ## cardinality = ~1..inf
-        <building_group> = int
+        <building> = int
     }
 
     ## cardinality = 0..inf
     ### Undiscovered resources, one block per type
     resource = {
-        type = <building_group>
+        type = <building>
 
         ## cardinality = 0..1
         ### For resources which can "deplete"

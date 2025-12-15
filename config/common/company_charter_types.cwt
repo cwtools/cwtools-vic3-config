@@ -13,6 +13,7 @@ types = {
     }
 }
 
+## replace_scope = { root = company this = company }
 company_charter_type = {
     ## cardinality = ~1..1
     type = enum[company_charter_type_type]
@@ -33,14 +34,16 @@ company_charter_type = {
         enum[duration] = enum[duration]
     }
 
+    ### A trigger evaluated in company scope to determine if this charter type should be available to the company
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
+
     ## cardinality = 0..1
     additional_input = bool
 
-    ## replace_scope = { root = company this = company }
     ### If this charter is possible to be picked up by AI
     ai_possible = single_alias_right[trigger_clause]
 
-    ## replace_scope = { root = company this = company }
     ### Check score for AI to pickup charter, will be scaled by company relative size to other companies
     ai_weight = single_alias_right[formula]
 }

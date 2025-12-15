@@ -59,26 +59,21 @@ enums = {
 
 culture = {
     ### Map color, use int with rgb or hsv360, float with hsv
-    color = enum[named_colors]
-    color = colour[rgb]
-    color = colour[hsv]
-    color = colour[hsv360]
-    ## color_type = hsv
-    color = {
-        ## cardinality = 3..3
-        base = float
-    }
-    ## color_type = rgb
-    color = {
-        ## cardinality = 3..3
-        base = int[0..255]
-    }
-    ## color_type = hex
-    color = scalar
+    color = <named_color>
+    ### Map color, use int with rgb or hsv360, float with hsv
+    color = color_field
+    ### Map color, use int with rgb or hsv360, float with hsv
+    color = { int[0..255] int[0..255] int[0..255] }
+
     ### Default religion for culture
     religion = <religion>
+
     heritage = <discrimination_trait.heritage>
+
     language = <discrimination_trait.language>
+
+    ## cardinality = 0..1
+    name_format = enum[culture_name_format]
 
     ## cardinality = 0..1
     traditions = {
@@ -90,8 +85,18 @@ culture = {
     ## cardinality = 0..1
     obsessions = {
         ## cardinality = 1..inf
-        <good.consumable>
+        <good>
     }
+
+    ### overrides religion taboos
+    ## cardinality = 0..1
+    taboos = {
+        ## cardinality = 1..inf
+        <good>
+    }
+
+    ## cardinality = 0..1
+    assimilation_rate = value_field
 
     ### Men's names
     male_common_first_names = {

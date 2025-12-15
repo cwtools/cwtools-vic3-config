@@ -1,0 +1,25 @@
+single_alias[gene_curve_clause] = {
+    ## cardinality = 1..inf
+    {
+        value_field[-1..1]
+        value_field[-1..1]
+    }
+}
+
+single_alias[gene_shift_curve_clause] = {
+    ## cardinality = 1..inf
+    {
+        ## cardinality = 1..1
+        value_field[-1..1]
+        {
+            value_field[-1..1]
+            value_field[-1..1]
+        }
+    }
+}
+
+single_alias[gene_age_clause] = {
+    mode = enum[gene_mode]
+
+    curve = single_alias_right[gene_curve_clause]
+}

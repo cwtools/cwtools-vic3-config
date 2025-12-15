@@ -42,6 +42,11 @@ production_method = {
     }
 
     ## cardinality = 0..1
+    unlocking_geographic_regions = {
+        <geographic_region>
+    }
+
+    ## cardinality = 0..1
     ### Power Bloc identity that unlock this production method
     unlocking_identity = <power_bloc_identity>
 

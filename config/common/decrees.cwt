@@ -17,12 +17,10 @@ types = {
 decree = {
     texture = filepath
 
-    modifier = {
-        ## cardinality = 1..inf
-        <modifier_type> = float
-    }
+    modifier = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1
+    ## replace_scope = { ROOT = country THIS = country }
     country_trigger = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1

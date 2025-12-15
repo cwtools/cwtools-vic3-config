@@ -38,22 +38,9 @@ acceptance_status = {
     ### 140K/500K * 2 + 160K/500K * 0.5 = 0.56 + 0.16 = 0.72 War Exhaustion on a weekly basis
     war_exhaustion_impact_other_side = value_field
 
-    color = enum[named_colors]
-    color = colour[rgb]
-    color = colour[hsv]
-    color = colour[hsv360]
-    ## color_type = hsv
-    color = {
-        ## cardinality = 3..3
-        base = float
-    }
-    ## color_type = rgb
-    color = {
-        ## cardinality = 3..3
-        base = int[0..255]
-    }
-    ## color_type = hex
-    color = scalar
+    color = <named_color>
+    color = color_field
+    color = { int[0..255] int[0..255] int[0..255] }
 
     small_icon = filepath
 

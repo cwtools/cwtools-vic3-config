@@ -287,7 +287,7 @@ links = {
 		output_scope = journal_entry
 	}
 	### Scope to a law type from its name (law_type:law_protected_speech)
-	law_type = {
+	law_type_link = {
 		desc = "Scope to a law type from its name (law_type:law_protected_speech)"
 		output_scope = law_type
 		type = scope
@@ -295,6 +295,13 @@ links = {
 		prefix = law_type:
 		data_source = <law>
 	}
+    ### Scope from an object to its law type
+    law_type = {
+        desc = "Scope from an object to its law type"
+        output_scope = law_type
+        input_scopes = { law }
+        type = scope
+    }
 	### Reference a previous set local variable via its name eg: local_var:person_of_interest
 	local_var = {
 		desc = "Reference a previous set local variable via its name eg: local_var:person_of_interest"
@@ -2200,13 +2207,20 @@ links = {
 		output_scope = value
 		type = value
 	}
-	### Gets weekly net fixed incom
-	weekly_net_fixed_income = {
-		desc = "Gets weekly net fixed incom"
+	### Does the country have this amount of income after expenses (counting only fixed income & expenses)
+    net_fixed_income = {
+		desc = "Does the country have this amount of income after expenses (counting only fixed income & expenses)"
 		input_scopes = country
 		output_scope = value
 		type = value
 	}
+    ### Does the country have this amount of income after expenses (counting all income & expenses)
+    net_total_income = {
+        desc = "Does the country have this amount of income after expenses (counting all income & expenses)"
+        input_scopes = country
+        output_scope = value
+        type = value
+    }
 	### Gets naval power projection
 	naval_power_projection = {
 		desc = "Gets naval power projection"
@@ -2288,16 +2302,25 @@ links = {
 		type = value
 	}
 	### Value of relations between two countries (examples: relations:root >= 2, relations(root.owner) > 10)
-	relations = {
+	relations_scope = {
 		desc = "Value of relations between two countries (examples: relations:root >= 2, relations(root.owner) > 10)"
 		type = value
 		from_data = yes
-		from_argument = yes
 		prefix = relations:
 		data_source = scope[country]
 		input_scopes = { country }
 		output_scope = any
 	}
+    ### Value of relations between two countries (examples: relations:root >= 2, relations(root.owner) > 10)
+    relations_argument = {
+        desc = "Value of relations between two countries (examples: relations:root >= 2, relations(root.owner) > 10)"
+        type = value
+        from_argument = yes
+        prefix = relations:
+        data_source = scope[country]
+        input_scopes = { country }
+        output_scope = any
+    }
 	### Value of leverage advantage to another country
 	leverage_advantage = {
 		desc = "Value of leverage advantage to another country"
@@ -2424,12 +2447,21 @@ links = {
 		desc = "Value of ai army comparison with another country"
 		type = value
 		from_data = yes
-		from_argument = yes
 		prefix = ai_state_value:
 		data_source = scope[country]
 		input_scopes = { state }
 		output_scope = any
 	}
+    ### Value of how much an ai country values a state
+    ai_state_value_argument = {
+        desc = "Value of ai army comparison with another country"
+        type = value
+        from_data = yes
+        prefix = ai_state_value:
+        data_source = scope[country]
+        input_scopes = { state }
+        output_scope = any
+    }
 	### Number of diplomatic pacts of a specific type a country has
 	num_diplomatic_pacts = {
 		desc = "Number of diplomatic pacts of a specific type a country has"
@@ -3907,5 +3939,224 @@ links = {
         input_scopes = { country state }
         output_scope = value
         type = value
+    }
+    ### Compares the number of amendments in scope law
+    amendment_count = {
+        desc = "Compares the number of amendments in scope law"
+        input_scopes = { law }
+        output_scope = value
+        type = value
+    }
+    ### Average acceptance of country pops of a specific culture and religion
+    country_average_culture_and_religion_pop_acceptance = {
+        desc = "Average acceptance of country pops of a specific culture and religion"
+        output_scope = value
+        type = value
+        from_argument = yes
+        argument_separator = pipe
+        input_scopes = { country }
+        prefix = country_average_culture_and_religion_pop_acceptance:
+        data_source = scope[culture]
+        data_source = scope[religion]
+    }
+    ### Average acceptance of country pops of a specific culture
+    country_average_culture_pop_acceptance = {
+        desc = "Average acceptance of country pops of a specific culture"
+        output_scope = value
+        type = value
+        from_argument = yes
+        input_scopes = { country }
+        prefix = country_average_culture_pop_acceptance:
+        data_source = scope[culture]
+    }
+    ### Average acceptance of country pops of a specific religion
+    country_average_religion_pop_acceptance = {
+        desc = "Average acceptance of country pops of a specific religion"
+        output_scope = value
+        type = value
+        from_argument = yes
+        input_scopes = { country }
+        prefix = country_average_religion_pop_acceptance:
+        data_source = scope[religion]
+    }
+    ### Average acceptance of state pops of a specific culture and religion
+    state_average_culture_and_religion_pop_acceptance = {
+        desc = "Average acceptance of state pops of a specific culture and religion"
+        output_scope = value
+        type = value
+        from_argument = yes
+        argument_separator = pipe
+        input_scopes = { state }
+        prefix = state_average_culture_and_religion_pop_acceptance:
+        data_source = scope[culture]
+        data_source = scope[religion]
+    }
+    ### Average acceptance of state pops of a specific culture
+    state_average_culture_pop_acceptance = {
+        desc = "Average acceptance of state pops of a specific culture"
+        output_scope = value
+        type = value
+        from_argument = yes
+        input_scopes = { state }
+        prefix = state_average_culture_pop_acceptance:
+        data_source = scope[culture]
+    }
+    ### Average acceptance of state pops of a specific religion
+    state_average_religion_pop_acceptance = {
+        desc = "Average acceptance of state pops of a specific religion"
+        output_scope = value
+        type = value
+        from_argument = yes
+        input_scopes = { state }
+        prefix = state_average_religion_pop_acceptance:
+        data_source = scope[religion]
+    }
+    ### Check what the scoped country's AI enactment score is for the currently enacting law
+    current_law_enactment_score = {
+        desc = "Check what the scoped country's AI enactment score is for the currently enacting law"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Compares the electoral confidence of scope country
+    electoral_confidence = {
+        desc = "Compares the electoral confidence of scope country"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Does the country have this amount of weekly fixed expenses
+    fixed_expenses = {
+        desc = "Does the country have this amount of weekly fixed expenses"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Does the country have this amount of weekly fixed income
+    fixed_income = {
+        desc = "Does the country have this amount of weekly fixed income"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Does the country have this amount of income after expenses (counting only fixed income & expenses)
+    net_fixed_income = {
+        desc = "Does the country have this amount of income after expenses (counting only fixed income & expenses)"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Does the country have this amount of income after expenses (counting all income & expenses)
+    net_total_income = {
+        desc = "Does the country have this amount of income after expenses (counting all income & expenses)"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Compares the current enactment stall chance in scope country (including values from enactment modifier)
+    stall_chance = {
+        desc = "Compares the current enactment stall chance in scope country (including values from enactment modifier)"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Compares the current enactment stall chance in scope country but excludes values from enactment modifier
+    stall_chance_without_enactment_modifier = {
+        desc = "Compares the current enactment stall chance in scope country but excludes values from enactment modifier"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Compares the enactment stall chance in scope country for given law (including values from enactment modifier)
+    stall_chance_for_law = {
+        desc = "Compares the enactment stall chance in scope country for given law (including values from enactment modifier)"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_argument = yes
+        input_scopes = { country }
+        prefix = stall_chance_for_law:
+        data_source = scope[law]
+    }
+    ### Compares the enactment stall chance in scope country for given law but excludes values from enactment modifier
+    stall_chance_for_law_without_enactment_modifier = {
+        desc = "Compares the enactment stall chance in scope country for given law but excludes values from enactment modifier"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_argument = yes
+        input_scopes = { country }
+        prefix = stall_chance_for_law_without_enactment_modifier:
+        data_source = scope[law]
+    }
+    ### Does the country have this amount of expenses, including from temporary sources
+    total_expenses = {
+        desc = "Does the country have this amount of expenses, including from temporary sources"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Does the country have this amount of income, including from temporary sources
+    total_income = {
+        desc = "Does the country have this amount of income, including from temporary sources"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Scope to the world market hub state associated with the scoped state
+    world_market_hub = {
+        desc = "Scope to the world market hub state associated with the scoped state"
+        input_scopes = { state }
+        output_scope = state
+        type = scope
+    }
+    ### Links from an amendment scope to the law the amendment is attached to
+    attached_law = {
+        desc = "Links from an amendment scope to the law the amendment is attached to"
+        input_scopes = { amendment }
+        output_scope = law
+        type = scope
+    }
+    ### Links from an amendment scope to the law type that is considered the amendment's parent
+    parent_law_type = {
+        desc = "Links from an amendment scope to the law type that is considered the amendment's parent"
+        input_scopes = { amendment }
+        output_scope = law_type
+        type = scope
+    }
+    ### Links from an amendment scope to the interest group that sponsored the amendment
+    sponsor = {
+        desc = "Links from an amendment scope to the interest group that sponsored the amendment"
+        input_scopes = { amendment }
+        output_scope = interest_group
+        type = scope
+    }
+    ### Get the average progressiveness of the scoped character or interest group
+    average_progressiveness = {
+        desc = "Get the average progressiveness of the scoped character or interest group"
+        input_scopes = { character interest_group }
+        output_scope = value
+        type = value
+    }
+    ### Get the required amount of construction for scope building type
+    required_construction = {
+        desc = "Get the required amount of construction for scope building type"
+        input_scopes = { building_type }
+        output_scope = value
+        type = value
+    }
+    ### Scope to the largest exporting market for the scope market good to the local market
+    largest_exporting_market = {
+        desc = "Scope to the largest exporting market for the scope market good to the local market"
+        input_scopes = { amendment }
+        output_scope = market_goods
+        type = market
+    }
+    ### Scope to the largest importing market for the scope market good from the local market
+    largest_importing_market = {
+        desc = "Scope to the largest importing market for the scope market good from the local market"
+        input_scopes = { amendment }
+        output_scope = market_goods
+        type = market
     }
 }

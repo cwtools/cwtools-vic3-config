@@ -8,16 +8,75 @@ types = {
             ## required
             reason = "$_reason"
         }
+        ## replace_scope = { ROOT = country THIS = country }
+        subtype[country] = {}
+        ## replace_scope = { ROOT = any THIS = any }
+        subtype[contextless] = {}
     }
 }
-## replace_scope = { ROOT = country THIS = country }
 journal_entry = {
     ## cardinality = 0..1
 	### optional image that shows in the journal entry widget near the description, default = NDefines::GUI::JOURNAL_ENTRY_ICON_DEFAULT (set in /defines/00_interfaces.txt)
     icon = filepath
 
-    ### journal entry group as specified in common/journal_entry_groups
-    group = <journal_entry_group>
+    subtype[country] = {
+        ### journal entry group as specified in common/journal_entry_groups
+        group = <journal_entry_group.country>
+
+        ## cardinality = 0..1
+        ### yes/no, determines if this journal entry should be transferred if the player switches country through a revolution or by releasing a subject. Note that external dependencies such as country variables etc are not automatically inherited
+        transferable = bool
+    }
+
+    subtype[contextless] = {
+        ### journal entry group as specified in common/journal_entry_groups
+        group = <journal_entry_group.contextless>
+
+        ### whether a country should become involved when a contextless JE activates
+        ## replace_scope = { ROOT = country THIS = country }
+        ## cardinality = 0..1
+        should_be_involved = single_alias_right[trigger_clause]
+
+        ### whether this JE should be visible to a country that is not involved in a contextles JE, also additionally determines who can see it when it's not active
+        ## replace_scope = { ROOT = country THIS = country }
+        ## cardinality = 0..1
+        should_show_when_not_involved = single_alias_right[trigger_clause]
+
+        ### as immediate, but fired individually for each involved country in a contextless JE
+        ## replace_scope = { ROOT = country THIS = country }
+        ## cardinality = 0..1
+        immediate_all_involved = single_alias_right[effect_clause]
+
+        ### as on_complete, but fired individually for each involved country in a contextless JE
+        ## replace_scope = { ROOT = country THIS = country }
+        ## cardinality = 0..1
+        on_complete_all_involved = single_alias_right[effect_clause]
+
+        ### as on_fail, but fired individually for each involved country in a contextless JE
+        ## replace_scope = { ROOT = country THIS = country }
+        ## cardinality = 0..1
+        on_fail_all_involved = single_alias_right[effect_clause]
+
+        ### as on_complete, but fired individually for each involved country in a contextless JE
+        ## replace_scope = { ROOT = country THIS = country }
+        ## cardinality = 0..1
+        on_invalid_all_involved = single_alias_right[effect_clause]
+
+        ### fires when a country becomes involved after activation of a contextless JE, ie not as a result of the should_be_involved trigger
+        ## replace_scope = { ROOT = country THIS = country }
+        ## cardinality = 0..1
+        on_become_involved_after_activation = single_alias_right[effect_clause]
+
+        ### fires when a country stops being involved in a contextless JE
+        ## replace_scope = { ROOT = country THIS = country }
+        ## cardinality = 0..1
+        on_no_longer_involved = single_alias_right[effect_clause]
+
+        ### as on_timeout, but fired individually for each involved country in a contextless JE
+        ## replace_scope = { ROOT = country THIS = country }
+        ## cardinality = 0..1
+        on_timeout_all_involved = single_alias_right[effect_clause]
+    }
 
     ## cardinality = 0..1
     ### optional trigger which determines if a journal entry can be shown, default = no
@@ -187,10 +246,6 @@ journal_entry = {
     ## cardinality = 0..1
     ### tutorial lesson explaining the WHY around the Journal Entry
     why_tutorial = <tutorial_lesson>
-
-    ## cardinality = 0..1
-    ### yes/no, determines if this journal entry should be transfered if the player switches country through a revolution or by releasing a subject. Note that external dependencies such as country variables etc are not automatically inherited
-    transferable = bool
 
     ## cardinality = 0..1
     ### yes/no, determines if this journal entry is allowed to be inherited by a victorious revolution. Revolutions also get all variables from the defeated parent country, so most JEs *should* be inherited in this way\nNOTE: transferable = yes will always mean that revolution inheritance is blocked as these JEs should stay with the player at all times
