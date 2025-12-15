@@ -137,42 +137,6 @@ enums = {
         neutral
     }
 
-    enum[war_goal] = {
-        war_reparations
-        humiliation
-        open_market
-        regime_change
-        ban_slavery
-        unification_leadership
-        annex_country
-        liberate_country
-        make_puppet
-        make_dominion
-        make_vassal
-        make_tributary
-        make_protectorate
-        conquer_state
-        return_state
-        take_treaty_port
-        revoke_all_claims
-        revoke_claim
-        contain_threat
-        transfer_subject
-        liberate_subject
-        force_recognition
-        independence
-        secession
-        unification
-        join_power_bloc
-        leave_power_bloc
-        increase_autonomy
-        reduce_autonomy
-        force_nationalization
-        foreign_investment_rights
-        colonization_rights
-        enforce_treaty_article
-    }
-
     enum[treaty_article_kinds] = {
         directed
         mutual

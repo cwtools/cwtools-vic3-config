@@ -300,17 +300,17 @@ ai_strategy = {
     ## cardinality = 0..1
     wargoal_scores = {
         ## cardinality = 0..inf
-        enum[war_goal] = single_alias_right[formula]
+        <war_goal_type> = single_alias_right[formula]
         ## cardinality = 0..inf
-        enum[war_goal] = value_field
+        <war_goal_type> = value_field
     }
 
     ## cardinality = 0..1
     wargoal_weights = {
         ## cardinality = 0..inf
-        enum[war_goal] = single_alias_right[formula]
+        <war_goal_type> = single_alias_right[formula]
         ## cardinality = 0..inf
-        enum[war_goal] = value_field
+        <war_goal_type> = value_field
     }
 
     ## cardinality = 0..1

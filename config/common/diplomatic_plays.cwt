@@ -47,7 +47,7 @@ diplomatic_play = {
     ## cardinality = 0..1
     confirmation_sound = enum[sound_effects]
 
-    war_goal = enum[war_goal]
+    war_goal = <war_goal_type>
 
     ## cardinality = 0..1
     is_epic = bool

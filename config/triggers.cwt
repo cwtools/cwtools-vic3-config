@@ -1093,7 +1093,7 @@ alias[trigger:has_war_exhaustion] = {
 }
 
 ### Checks if war has a certain war goal type has_war_goal = return_state
-alias[trigger:has_war_goal] = enum[war_goal]
+alias[trigger:has_war_goal] = <war_goal_type>
 
 ### Checks the war support of the target country in the scoped war has_war_support = { target = c:GBR value > 50 }
 alias[trigger:has_war_support] = {
@@ -1513,7 +1513,7 @@ alias[trigger:diplomatic_play_pm_usage] = {
 alias[trigger:escalation] = value_field
 
 ### Checks if diplomatic play has a certain war goal type has_play_goal = return_state
-alias[trigger:has_play_goal] = enum[war_goal]
+alias[trigger:has_play_goal] = <war_goal_type>
 
 ### Checks who the initiator of a diplomatic play is initiator_is = country
 alias[trigger:initiator_is] = <country_definition>
@@ -1825,13 +1825,13 @@ alias[trigger:modifier:<modifier_type>] = bool
 
 ### Checks whether the country has a war goal of a specific type against another country
 alias[trigger:play_participant_has_war_goal_of_type_against] = {
-    type = enum[war_goal]
+    type = <war_goal_type>
     target = scope[country]
 }
 
 ### Checks whether a war participant has a war goal of a specific type against another country
 alias[trigger:war_participant_has_war_goal_of_type_against] = {
-    type = enum[war_goal]
+    type = <war_goal_type>
     target = scope[country]
 }
 
@@ -2503,7 +2503,7 @@ alias[trigger:neighbors_member_of_same_power_bloc] = scope[power_bloc]
 ## scopes = { country }
 ### Checks if any country on the same side as scope country in any diplomatic play holds a wargoal of a specific type targeting a specific country
 alias[trigger:play_side_has_war_goal_of_type_against] = {
-    type = enum[war_goal]
+    type = <war_goal_type>
     target = scope[country]
 }
 

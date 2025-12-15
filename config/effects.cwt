@@ -1172,7 +1172,7 @@ alias[effect:create_diplomatic_play] = {
     add_war_goal = {
         holder = scope[country]
         holder = <country_definition>
-        type = enum[war_goal]
+        type = <war_goal_type>
 
         ## cardinality = 0..1
         article = {
@@ -1541,7 +1541,7 @@ alias[effect:add_target_backers] = {
 alias[effect:add_war_goal] = {
     holder = scope[country]
     holder = <country_definition>
-    type = enum[war_goal]
+    type = <war_goal>
 
     ## cardinality = 0..1
     article = {
@@ -1602,10 +1602,10 @@ alias[effect:remove_target_backers] = {
     scope[country]
 }
 
-### Removes a war goal from a DP if there's at least one other war goal present. any_diplomatic_play = { limit = { has_war_goal = return_state } remove_war_goal = { who = initiator war_goal = return_state } }
+### Removes a war goal from a DP if there's at least one other war goal present. any_diplomatic_play = { limit = { has_war_goal = return_state } remove_war_goal = { who = initiator type = return_state } }
 alias[effect:remove_war_goal] = {
     who = scope[country]
-    war_goal = enum[war_goal]
+    type = <war_goal>
 }
 
 ### effect end diplo play for one side, with it gaining war goals resolve_play_for = initiator resolve_play_for = scope:custom_scoped_country
