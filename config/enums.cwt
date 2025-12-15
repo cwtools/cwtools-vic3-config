@@ -75,7 +75,6 @@ enums = {
         "Melodies for the Masses"
     }
 
-    # As of 1.8
     enum[dlc_feature] = {
         rp1_content
         ip2_content
@@ -83,10 +82,12 @@ enums = {
         ip3_content
         ip3_cosmetics
         ip4_content
+        ip4_cosmetics
         ep1_content
         ep1_cosmetics
         mp1_content
         mp1_treaties
+        mp1_cosmetics
         voice_of_the_people_content
         voice_of_the_people_preorder
         power_bloc_features
