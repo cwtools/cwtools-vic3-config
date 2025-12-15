@@ -73,6 +73,7 @@ enums = {
         "Victoria 2 Remastered Soundtrack"
         "Voice of the People Theme"
         "Melodies for the Masses"
+        "Dawn of Wonder"
     }
 
     enum[dlc_feature] = {
@@ -663,6 +664,8 @@ enums = {
     enum[gene_mode] = {
         multiply
         add
+        replace
+        modify
     }
 
     enum[gene_body_part] = {
@@ -762,7 +765,6 @@ enums = {
         conflicts_with_annex_state
         conflicts_with_existing_subject
     }
-
     enum[war_goal_contestion_type] = {
         control_target_state
         control_target_country_capital
@@ -774,10 +776,17 @@ enums = {
         control_all_target_country_claims
         control_any_releasable_state
     }
-
     enum[war_goal_target_type] = {
         country
         state
         treaty_article
+    }
+
+    enum[portrait_modifier_usage] = {
+        game
+        none
+    }
+    enum[portrait_modifier_selection_behavior] = {
+        weighted_random
     }
 }
