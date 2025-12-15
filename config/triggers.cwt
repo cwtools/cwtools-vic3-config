@@ -795,6 +795,8 @@ alias[trigger:is_construction_paused] = bool
 
 ### Checks if the scoped country is alive, i.e. if it has at least one state on the map and can be interacted with is_country_alive = yes/no
 alias[trigger:is_country_alive] = bool
+### Checks if the scoped country is alive, i.e. if it has at least one state on the map and can be interacted with is_country_alive = yes/no
+alias[trigger:is_country_alive] = scope[country]
 
 ### Checks the countrys type is_country_type = country type
 alias[trigger:is_country_type] = <country_type>
@@ -955,6 +957,7 @@ alias[trigger:produced_influence] == value_field
 ### Compare value to a country's debt relative to debt ceiling scaled_debt = value
 alias[trigger:scaled_debt] == value_field
 
+## scopes = { country }
 ### Check if the country is lacking a primary wargoal in any diplomatic play it is part of
 alias[trigger:should_set_wargoal] = bool
 
@@ -1295,7 +1298,7 @@ alias[trigger:has_converting_pops] = bool
 alias[trigger:has_decree] = <decree>
 
 ### Checks if the specificed building group is allowed in the scoped state. Used to check if a state can potentially produce a resource has_potential_resource = bg_rubber_plantations
-alias[trigger:has_potential_resource] = <building_group>
+alias[trigger:has_potential_resource] = <building>
 
 ### Checks if scoped state region has a certain trait has_state_trait = key
 alias[trigger:has_state_trait] = <state_trait>
@@ -1441,9 +1444,9 @@ alias[trigger:is_state_region_land] = bool
 ### Compare state region pollution
 alias[trigger:pollution_amount] == value_field
 
-### Check remaining amount of resource, like gold mines in a state remaining_undepleted = { 	type = bg_gold_mining 	amount > 1 }
+### Check remaining amount of resource, like gold mines in a state remaining_undepleted = { 	type = building_gold_mine 	amount > 1 }
 alias[trigger:remaining_undepleted] = {
-    type = <building_group>
+    type = <building>
     amount == value_field
 }
 
@@ -1860,6 +1863,7 @@ alias[trigger:law_enactment_stance] = {
     value == <static_value>
     value == $define_reference
     value == enum[relations_thresholds]
+    value == enum[law_stance_values]
 }
 
 ## scopes = { country }
@@ -2298,11 +2302,6 @@ alias[trigger:average_sol_for_religion] = {
 }
 
 ## scopes = { country }
-### Checks if scope country can add any wargoal against target country in an active diplomatic play
-### can_add_wargoal_against = <scope>
-alias[trigger:can_add_wargoal_against] = scope[country]
-
-## scopes = { country }
 ### Checks if a diplomatic action is valid to send by scope country to target country
 ### can_send_diplomatic_action = { target = <country scope> type = <action type key> first_state = <state scope, optional> second_state = <state scope, optional>
 alias[trigger:can_send_diplomatic_action] = {
@@ -2713,6 +2712,9 @@ alias[trigger:has_type] = <treaty_article>
 ### Checks if a state is blockaded by a country
 alias[trigger:has_law_commitment] = scope[country]
 
+## scopes = { company }
+### Checks if scoped company is of the specified type
+alias[trigger:is_company_type] = scope[company_type]
 ## scopes = { company }
 ### Checks if scoped company is of the specified type
 alias[trigger:is_company_type] = <company_type>
@@ -3185,3 +3187,185 @@ alias[trigger:shares_language_trait_with_culture] = scope[culture]
 ## scopes = { culture }
 ### Checks if culture shares any trait marked as 'tradition' with another culture
 alias[trigger:shares_tradition_trait_with_culture] = scope[culture]
+
+## scopes = { any }
+alias[trigger:<script_value>] == value_field
+## scopes = { any }
+alias[trigger:<script_value>] == <script_value>
+## scopes = { any }
+alias[trigger:<script_value>] == <static_value>
+## scopes = { any }
+alias[trigger:<static_value>] == value_field
+## scopes = { any }
+alias[trigger:<static_value>] == <script_value>
+## scopes = { any }
+alias[trigger:<static_value>] == <static_value>
+
+## scopes = { amendment }
+### Check if the amendment can be repealed
+alias[trigger:amendment_can_be_repealed] = bool
+
+## scopes = { character interest_group political_movement }
+### Check if the amendment can be repealed
+alias[trigger:amendment_stance] = {
+    amendment = scope[amendment]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Check if the target country can be transferred as a subject to the scoped country
+alias[trigger:can_transfer_subject] = scope[country]
+
+## scopes = { country }
+### Average acceptance of country pops of a specific culture and religion
+alias[trigger:country_average_culture_and_religion_pop_acceptance] = {
+    culture = scope[culture]
+
+    religion = scope[religion]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Average acceptance of country pops of a specific culture
+alias[trigger:country_average_culture_pop_acceptance] = {
+    culture = scope[culture]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Average acceptance of country pops of a specific religion
+alias[trigger:country_average_religion_pop_acceptance] = {
+    religion = scope[religion]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { state }
+### Average acceptance of state pops of a specific culture and religion
+alias[trigger:state_average_culture_and_religion_pop_acceptance] = {
+    culture = scope[culture]
+
+    religion = scope[religion]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { state }
+### Average acceptance of state pops of a specific culture
+alias[trigger:state_average_culture_pop_acceptance] = {
+    culture = scope[culture]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { state }
+### Average acceptance of state pops of a specific religion
+alias[trigger:state_average_religion_pop_acceptance] = {
+    religion = scope[religion]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { law }
+### Check if scoped law has an amendment of the given type
+alias[trigger:has_amendment] = <amendment>
+
+## scopes = { interest_group }
+### Checks whether the interest group has finished negotiation
+alias[trigger:has_negotiated] = bool
+
+## scopes = { country interest_group }
+### Check if the scoped country or interest group is currently negotiating
+alias[trigger:is_negotiating] = bool
+
+## scopes = { amendment_type }
+### Check if the amendment type has a parent law
+alias[trigger:has_parent_law] = bool
+
+## scopes = { market_goods }
+### Whether the scoped market goods are being exported to the target market by the local market
+alias[trigger:is_exported_to] = scope[market]
+
+## scopes = { market_goods }
+### Whether the scoped market goods are being imported from the Target market by the local market
+alias[trigger:is_imported_from] = scope[market]
+
+## scopes = { country state state_region strategic_region }
+### Checks if a scoped object is in a specific geographic region
+alias[trigger:is_in_geographic_region] = <geographic_region>
+
+## scopes = { country state state_region strategic_region }
+### Checks if a scoped object is NOT in a specific geographic region
+alias[trigger:is_not_in_geographic_region] = <geographic_region>
+
+## scopes = { state }
+### Checks if scope state is in the same market area as target state
+alias[trigger:is_in_same_market_area] = scope[state]
+
+## scopes = { country }
+### Check if the country is involved in a specific journal entry
+alias[trigger:is_involved_in_journal_entry] = <journal_entry>
+
+## scopes = { country_formation }
+### Checks if a country formation is a major formation
+alias[trigger:is_major_formation] = bool
+
+## scopes = { country }
+### Compares the enactment stall chance in scope country for given law (including values from enactment modifier)
+alias[trigger:stall_chance_for_law] = {
+    target = scope[law]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { country }
+### Compares the enactment stall chance in scope country for given law but excludes values from enactment modifier
+alias[trigger:stall_chance_for_law_without_enactment_modifier] = {
+    target = scope[law]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { interest_group }
+### Check if scoped IG would sponsor an amendment of a given type
+alias[trigger:would_sponsor_amendment] = scope[amendment_type]
+

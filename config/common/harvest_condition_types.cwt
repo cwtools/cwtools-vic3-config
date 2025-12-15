@@ -44,6 +44,11 @@ harvest_condition_type = {
 
     color = <named_color>
     color = color_field
+    ## color_type = rgb
+    color = {
+        ## cardinality = 3..3
+        int[0..255]
+    }
 
     ## cardinality = 0..1
     ### Which graphics to apply to the affected map provinces, default - none

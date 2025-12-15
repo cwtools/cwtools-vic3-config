@@ -1,0 +1,41 @@
+types = {
+    ## type_key_filter = short_key
+    type[geographic_region_short_key] = {
+        path = "game/common/geographic_regions"
+        file_extension = .txt
+        skip_root_key = {
+            any
+        }
+        name_field = "-"
+    }
+    type[geographic_region] = {
+        path = "game/common/geographic_regions"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            ## optional
+            desc = "$_desc"
+        }
+    }
+}
+
+### All state/strategic regions are added together to form a geographic region
+### Add a "<geographic_region_key>_desc" localization key to include fluff/lore description of your geographic region
+geographic_region = {
+    short_key = <geographic_region_short_key>
+
+    ### The Strategic Regions this geographic region encompasses
+    ## cardinality = 0..1
+    strategic_regions = {
+        ## cardinality = 0..inf
+        scope[strategic_region]
+    }
+
+    ### The State Regions this geographic region encompasses
+    ## cardinality = 0..1
+    state_regions = {
+        ## cardinality = 0..inf
+        <state_region>
+    }
+
+}

@@ -18,13 +18,13 @@ law_group = {
 
     ## cardinality = 0..1
     ### multiplier to the approval effects changing this law has on IGs, default 1.0
-    enactment_approval_mult = float
+    enactment_approval_mult = value_field
 
     ## cardinality = 0..1
     affected_by_regime_change = bool
 
-    progressive_movement_chance = float
-    regressive_movement_chance = float
+    ## cardinality = 0..1
+    ideological_opinion_impact = value_field
 
     ## cardinality = 0..1
     linked_social_hierarchy = <social_hierarchy>

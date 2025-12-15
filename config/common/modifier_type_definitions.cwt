@@ -27,6 +27,10 @@ modifier_type = {
     ## cardinality = 0..1
     prefix = localisation
 
+    ### Doing this will suppress the error that you would otherwise receive and should no longer clog up your error log.
+    ## cardinality = 0..1
+    script_only = bool
+
     ## cardinality = 0..1
     suffix = localisation
 

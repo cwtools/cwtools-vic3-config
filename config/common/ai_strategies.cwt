@@ -2,9 +2,320 @@ types = {
     type[ai_strategy] = {
         path = "game/common/ai_strategies"
         file_extension = .txt
+        localisation = {
+            name = $
+            desc = $_desc
+        }
     }
 }
 
+## replace_scope = { root = country this = country }
 ai_strategy = {
-    # TODO
+    icon = filepath
+
+    ## cardinality = 0..1
+    type = enum[ai_strategy_type]
+
+    ### If this trigger evaluates to true for any active strategy, the AI will try to form a power bloc
+    ### Empty trigger counts as evaluating false in this specific case
+    ## cardinality = 0..1
+    will_form_power_bloc = single_alias_right[trigger_clause]
+
+    ### These are the tax levels the AI will try to stay within, though it can go above max tax level if in a financial emergency
+    ### Using a different value in a strategy will override these values
+    ## cardinality = 0..1
+    desired_tax_level = enum[wage_level]
+
+    ### These are the tax levels the AI will try to stay within, though it can go above max tax level if in a financial emergency
+    ### Using a different value in a strategy will override these values
+    ## cardinality = 0..1
+    max_tax_level = enum[wage_level]
+
+    ### These are the tax levels the AI will try to stay within, though it can go above max tax level if in a financial emergency
+    ### Using a different value in a strategy will override these values
+    ## cardinality = 0..1
+    min_tax_level = enum[wage_level]
+
+    ### The AI will avoid getting this much infamy unless it's a wargoal it really wants
+    ### Using a different value in a strategy will override this value
+    ## cardinality = 0..1
+    undesirable_infamy_level = single_alias_right[formula]
+    ## cardinality = 0..1
+    undesirable_infamy_level = value_field
+
+    ### The AI will never deliberately add wargoals that will bring its infamy this high
+    ### Using a different value in a strategy will override this value
+    ## cardinality = 0..1
+    unacceptable_infamy_level = single_alias_right[formula]
+    ## cardinality = 0..1
+    unacceptable_infamy_level = value_field
+
+    ### How much is the AI's diplomatic acceptance, etc affected by government ideological differences
+    ### Using a different value in a strategy will override this value
+    ## cardinality = 0..1
+    ideological_opinion_effect_mult = single_alias_right[formula]
+    ## cardinality = 0..1
+    ideological_opinion_effect_mult = value_field
+
+    ### Chance each day that the AI will stop enacting a law that is going to spark a civil war (1 aversion should translate into ~25% chance of avoiding a civil war)
+    ### Using a different value in a strategy will override this value
+    ## cardinality = 0..1
+    revolution_aversion = single_alias_right[formula]
+    ## cardinality = 0..1
+    revolution_aversion = value_field
+
+    ## cardinality = 0..1
+    min_law_chance_to_pass = single_alias_right[formula]
+    ## cardinality = 0..1
+    min_law_chance_to_pass = value_field
+
+    ## cardinality = 0..1
+    negotiation_chance = single_alias_right[formula]
+    ## cardinality = 0..1
+    negotiation_chance = value_field
+
+    ## cardinality = 0..1
+    max_progressiveness = single_alias_right[formula]
+    ## cardinality = 0..1
+    max_progressiveness = value_field
+
+    ## cardinality = 0..1
+    max_regressiveness = single_alias_right[formula]
+    ## cardinality = 0..1
+    max_regressiveness = value_field
+
+    ## cardinality = 0..1
+    diplomatic_play_support = single_alias_right[formula]
+    ## cardinality = 0..1
+    diplomatic_play_support = value_field
+
+    ## cardinality = 0..1
+    diplomatic_play_neutrality = single_alias_right[formula]
+    ## cardinality = 0..1
+    diplomatic_play_neutrality = value_field
+
+    ## cardinality = 0..1
+    diplomatic_play_boldness = single_alias_right[formula]
+    ## cardinality = 0..1
+    diplomatic_play_boldness = value_field
+
+    ## cardinality = 0..1
+    wargoal_maneuvers_fraction = single_alias_right[formula]
+    ## cardinality = 0..1
+    wargoal_maneuvers_fraction = value_field
+
+    ## cardinality = 0..1
+    change_law_chance = single_alias_right[formula]
+    ## cardinality = 0..1
+    change_law_chance = value_field
+
+    ## cardinality = 0..1
+    pro_interest_groups = {
+        ## cardinality = 0..inf
+        <interest_group>
+    }
+
+    ## cardinality = 0..1
+    anti_interest_groups = {
+        ## cardinality = 0..inf
+        <interest_group>
+    }
+
+    ## cardinality = 0..1
+    pro_movements = {
+        ## cardinality = 0..inf
+        <political_movement>
+    }
+
+    ## cardinality = 0..1
+    anti_movements = {
+        ## cardinality = 0..inf
+        <political_movement>
+    }
+
+    ## cardinality = 0..1
+    institution_scores = {
+        ## cardinality = 0..inf
+        <institution> = single_alias_right[formula]
+        ## cardinality = 0..inf
+        <institution> = value_field
+    }
+
+    ## cardinality = 0..1
+    obligation_value = single_alias_right[formula]
+    ## cardinality = 0..1
+    obligation_value = value_field
+
+    ## cardinality = 0..1
+    interest_group_government_weight = single_alias_right[formula]
+    ## cardinality = 0..1
+    interest_group_government_weight = value_field
+
+    ## cardinality = 0..1
+    state_value = single_alias_right[formula]
+    ## cardinality = 0..1
+    state_value = value_field
+
+    ## cardinality = 0..1
+    treaty_port_value = single_alias_right[formula]
+    ## cardinality = 0..1
+    treaty_port_value = value_field
+
+    ## cardinality = 0..1
+    subject_value = single_alias_right[formula]
+    ## cardinality = 0..1
+    subject_value = value_field
+
+    ## cardinality = 0..1
+    become_subject_value = single_alias_right[formula]
+    ## cardinality = 0..1
+    become_subject_value = value_field
+
+    ## cardinality = 0..1
+    recklessness = single_alias_right[formula]
+    ## cardinality = 0..1
+    recklessness = value_field
+
+    ## cardinality = 0..1
+    aggression = single_alias_right[formula]
+    ## cardinality = 0..1
+    aggression = value_field
+
+    ## cardinality = 0..1
+    wanted_construction_output = single_alias_right[formula]
+    ## cardinality = 0..1
+    wanted_construction_output = value_field
+
+    ## cardinality = 0..1
+    economic_vs_government_spending_balance = single_alias_right[formula]
+    ## cardinality = 0..1
+    economic_vs_government_spending_balance = value_field
+
+    ## cardinality = 0..1
+    wanted_army_size = single_alias_right[formula]
+    ## cardinality = 0..1
+    wanted_army_size = value_field
+
+    ## cardinality = 0..1
+    wanted_navy_size = single_alias_right[formula]
+    ## cardinality = 0..1
+    wanted_navy_size = value_field
+
+    ## cardinality = 0..1
+    combat_unit_group_weights = {
+        ## cardinality = 0..inf
+        <combat_unit_group> = single_alias_right[formula]
+        ## cardinality = 0..inf
+        <combat_unit_group> = value_field
+    }
+
+    ## cardinality = 0..1
+    conscript_battalion_ratio = single_alias_right[formula]
+    ## cardinality = 0..1
+    conscript_battalion_ratio = value_field
+
+    ## cardinality = 0..1
+    nationalization_desire = single_alias_right[formula]
+    ## cardinality = 0..1
+    nationalization_desire = value_field
+
+    ## cardinality = 0..1
+    building_group_weights = {
+        ## cardinality = 0..inf
+        <building_group> = single_alias_right[formula]
+        ## cardinality = 0..inf
+        <building_group> = value_field
+    }
+
+    ## cardinality = 0..1
+    subsidies = {
+        ## cardinality = 0..inf
+        <building> = enum[ai_strategy_subsidy_requirement]
+    }
+
+    ## cardinality = 0..1
+    war_subsidies = {
+        ## cardinality = 0..inf
+        <building> = enum[ai_strategy_subsidy_requirement]
+    }
+
+    ## cardinality = 0..1
+    goods_stances = {
+        ## cardinality = 0..inf
+        <good> = {
+            stance = enum[ai_strategy_goods_stance]
+
+            ## cardinality = 0..1
+            trigger = single_alias_right[trigger_clause]
+        }
+    }
+
+    ## cardinality = 0..1
+    colonial_interest_ratio = single_alias_right[formula]
+    ## cardinality = 0..1
+    colonial_interest_ratio = value_field
+
+    ## cardinality = 0..1
+    liberate_country_scores = {
+        ## cardinality = 0..inf
+        <country_definition> = single_alias_right[formula]
+        ## cardinality = 0..inf
+        <country_definition> = value_field
+    }
+
+    ## cardinality = 0..1
+    strategic_region_scores = {
+        ## cardinality = 0..inf
+        <strategic_region> = single_alias_right[formula]
+        ## cardinality = 0..inf
+        <strategic_region> = value_field
+    }
+
+    ## cardinality = 0..1
+    secret_goal_scores = {
+        ## cardinality = 0..inf
+        enum[secret_goal] = {
+            score = single_alias_right[formula]
+            score = value_field
+
+            ## cardinality = 0..1
+            trigger = single_alias_right[trigger_clause]
+        }
+    }
+
+    ## cardinality = 0..1
+    secret_goal_weights = {
+        ## cardinality = 0..inf
+        enum[secret_goal] = single_alias_right[formula]
+        ## cardinality = 0..inf
+        enum[secret_goal] = value_field
+    }
+
+    ## cardinality = 0..1
+    treaty_category_scores = {
+        ## cardinality = 0..inf
+        enum[treaty_article_ai_categories] = single_alias_right[formula]
+    }
+
+    ## cardinality = 0..1
+    wargoal_scores = {
+        ## cardinality = 0..inf
+        enum[war_goal] = single_alias_right[formula]
+        ## cardinality = 0..inf
+        enum[war_goal] = value_field
+    }
+
+    ## cardinality = 0..1
+    wargoal_weights = {
+        ## cardinality = 0..inf
+        enum[war_goal] = single_alias_right[formula]
+        ## cardinality = 0..inf
+        enum[war_goal] = value_field
+    }
+
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
+
+    weight = single_alias_right[formula]
+    weight = value_field
 }

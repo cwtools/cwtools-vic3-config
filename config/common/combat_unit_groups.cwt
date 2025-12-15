@@ -15,10 +15,14 @@ types = {
 
 combat_unit_group = {
     type = enum[combat_unit_group_type]
+
     ## cardinality = 0..1
     default_group = bool
+
     color = <named_color>
     color = color_field
+    color = { int[0..255] int[0..255] int[0..255] }
+
     icon = filepath
 }
 

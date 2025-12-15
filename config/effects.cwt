@@ -782,7 +782,7 @@ alias[effect:create_building] = {
     ## cardinality = 0..1
     level = urbanization
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     add_ownership = {
         ## cardinality = 0..inf
         building = {
@@ -821,10 +821,10 @@ alias[effect:deactivate_building] = {
 }
 
 ### Forces a resource depletion in state force_resource_depletion = bg_gold_mining
-alias[effect:force_resource_depletion] = <building_group>
+alias[effect:force_resource_depletion] = <building>
 
 ### Forces a resource discovery in state force_resource_discovery = bg_gold_mining
-alias[effect:force_resource_discovery] = <building_group>
+alias[effect:force_resource_discovery] = <building>
 
 ### Remove a building in the scope state remove_building = building_key
 alias[effect:remove_building] = <building>
@@ -835,7 +835,7 @@ alias[effect:set_state_owner] = scope[country]
 ### Sets a state to a certain type (incorporated, unincorporated, treaty_port)
 alias[effect:set_state_type] = enum[state_type]
 
-### Start constructing a building in a scoped state start_building_construction = building_barracks
+### Start constructing a building in a scoped state start_building_construction = building_barrack
 alias[effect:start_building_construction] = <building>
 
 ### Add/remove arable land from a state region
@@ -1095,8 +1095,12 @@ alias[effect:create_character] = {
 
     ## cardinality = 0..1
     template = <character_template>
+
     ## cardinality = 0..1
     save_scope_as = value_set[event_target]
+
+    ## cardinality = 0..1
+    save_temporary_scope_as = value_set[event_target]
 }
 
 ### Create a diplomatic pact between two countries, with scope country as initiator create_diplomatic_pact = { 	country = country scope/tag 	type = diplomatic action type }
@@ -1749,6 +1753,9 @@ alias[effect:create_military_formation] = {
         ## cardinality = 0..inf
         scope[mobilization_option]
     }
+
+    ## cardinality = 0..1
+    save_temporary_scope_as = value_set[event_target]
 }
 
 ### Deploys the scope formation to the target front
@@ -1776,7 +1783,15 @@ alias[effect:set_character_immortal] = bool
 alias[effect:set_immune_to_revolutions] = bool
 
 ### Teleports the scope formation to the target front
+## scopes = { military_formation }
 alias[effect:teleport_to_front] = scope[front]
+### Teleports the scope formation to the target front
+## scopes = { military_formation }
+alias[effect:teleport_to_front] = {
+    front = scope[front]
+
+    base_camp = scope[province]
+}
 
 ### Transfers scope character to target formation
 alias[effect:transfer_to_formation] = scope[military_formation]
@@ -1998,21 +2013,12 @@ alias[effect:create_power_bloc] = {
     name = localisation
 
     map_color = <named_color>
-    map_color = colour[rgb]
-    map_color = colour[hsv]
-    map_color = colour[hsv360]
-    ## color_type = hsv
-    map_color = {
-        ## cardinality = 3..3
-        base = float
-    }
+    map_color = color_field
     ## color_type = rgb
     map_color = {
         ## cardinality = 3..3
-        base = int[0..255]
+        int[0..255]
     }
-    ## color_type = hex
-    map_color = scalar
 
     founding_date = date_field
 
@@ -2336,7 +2342,7 @@ alias[effect:sort_variable_list] = {
 
 ## scopes = { state }
 ### Start constructing a building in a scoped state as a private construction
-### start_privately_funded_building_construction = building_barracks
+### start_privately_funded_building_construction = building_barrack
 alias[effect:start_privately_funded_building_construction] = <building>
 
 ## scopes = { country }
@@ -2355,20 +2361,20 @@ alias[effect:try_form_government_with] = {
 }
 
 ## scopes = { company }
-### Adds a monopoly to a company scope: add_company_monopoly = bt:building_textile_mills
+### Adds a monopoly to a company scope: add_company_monopoly = bt:building_textile_mill
 alias[effect:add_company_monopoly] = scope[building_type]
 
 ## scopes = { country }
-### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mills
+### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mill
 alias[effect:add_country_monopoly] = scope[building_type]
 
 ## scopes = { state_goods }
-### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mills
-alias[effect:add_exports] = scope[goods]
+### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mill
+alias[effect:add_exports] = value_field
 
 ## scopes = { state_goods }
-### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mills
-alias[effect:add_imports] = scope[goods]
+### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mill
+alias[effect:add_imports] = value_field
 
 ## scopes = { state }
 ### Cedes a treaty port in scope state to target country
@@ -2431,28 +2437,28 @@ alias[effect:create_treaty] = {
             ## cardinality = 0..1
             ### (default: empty) list of inputs values as required by the article
             inputs = {
-                ## cardinality = 0..1
+                ## cardinality = 0..inf
                 { quantity = int }
 
-                ## cardinality = 0..1
+                ## cardinality = 0..inf
                 { goods = scope[goods] }
 
-                ## cardinality = 0..1
+                ## cardinality = 0..inf
                 { state = scope[state] }
 
-                ## cardinality = 0..1
+                ## cardinality = 0..inf
                 { strategic_region = scope[strategic_region] }
 
-                ## cardinality = 0..1
+                ## cardinality = 0..inf
                 { company = scope[company] }
 
-                ## cardinality = 0..1
+                ## cardinality = 0..inf
                 { building_type = scope[building_type] }
 
-                ## cardinality = 0..1
+                ## cardinality = 0..inf
                 { law_type = scope[law_type] }
 
-                ## cardinality = 0..1
+                ## cardinality = 0..inf
                 { country = scope[country] }
             }
         }
@@ -2566,17 +2572,33 @@ alias[effect:add_fervor_target_modifier] = {
 ## scopes = { culture }
 ### Sets the fervor of a scoped culture
 alias[effect:set_fervor] = value_field
+## scopes = { culture }
+### Sets the fervor of a scoped culture
 alias[effect:set_fervor] = single_alias_right[formula]
+## scopes = { culture }
+### Sets the fervor of a scoped culture
 alias[effect:set_fervor] = <script_value>
+## scopes = { culture }
+### Sets the fervor of a scoped culture
 alias[effect:set_fervor] = <static_value>
+## scopes = { culture }
+### Sets the fervor of a scoped culture
 alias[effect:set_fervor] = $define_reference
 
 ## scopes = { culture }
 ### Sets the fervor of a scoped culture
 alias[effect:add_fervor] = value_field
+## scopes = { culture }
+### Sets the fervor of a scoped culture
 alias[effect:add_fervor] = single_alias_right[formula]
+## scopes = { culture }
+### Sets the fervor of a scoped culture
 alias[effect:add_fervor] = <script_value>
+## scopes = { culture }
+### Sets the fervor of a scoped culture
 alias[effect:add_fervor] = <static_value>
+## scopes = { culture }
+### Sets the fervor of a scoped culture
 alias[effect:add_fervor] = $define_reference
 
 ## scopes = { culture }
@@ -2625,4 +2647,103 @@ alias[effect:liberate_slaves_in_incorporated_states] = yes
 ## scopes = { country }
 ### Frees all slaves in the country's unincorporated states
 alias[effect:liberate_slaves_in_unincorporated_states] = yes
+
+## scopes = { amendment }
+### Removes an amendment immediately without checking cooldown
+alias[effect:remove_amendment] = yes
+
+## scopes = { journal_entry }
+### Makes target country an involved country in scope journal entry
+alias[effect:add_involved_country] = scope[country]
+
+## scopes = { journal_entry }
+### Removes target country from involved countries in scope journal entry
+alias[effect:remove_involved_country] = scope[country]
+
+## scopes = { character }
+### Kill a character
+alias[effect:retire_character] = yes
+
+## scopes = { character }
+### Makes scope character the executive of target company
+alias[effect:set_character_as_executive] = scope[company]
+
+## scopes = { country }
+### Set x% electoral confidence in scope country
+alias[effect:set_electoral_confidence] = value_field
+## scopes = { country }
+### Set x% electoral confidence in scope country
+alias[effect:set_electoral_confidence] = single_alias_right[formula]
+## scopes = { country }
+### Set x% electoral confidence in scope country
+alias[effect:set_electoral_confidence] = <script_value>
+## scopes = { country }
+### Set x% electoral confidence in scope country
+alias[effect:set_electoral_confidence] = <static_value>
+## scopes = { country }
+### Set x% electoral confidence in scope country
+alias[effect:set_electoral_confidence] = $define_reference
+
+## scopes = { country }
+### Adds x% electoral confidence in scope country
+alias[effect:add_electoral_confidence] = value_field
+## scopes = { country }
+### Adds x% electoral confidence in scope country
+alias[effect:add_electoral_confidence] = single_alias_right[formula]
+## scopes = { country }
+### Adds x% electoral confidence in scope country
+alias[effect:add_electoral_confidence] = <script_value>
+## scopes = { country }
+### Adds x% electoral confidence in scope country
+alias[effect:add_electoral_confidence] = <static_value>
+## scopes = { country }
+### Adds x% electoral confidence in scope country
+alias[effect:add_electoral_confidence] = $define_reference
+
+## scopes = { interest_group }
+### Sets whether an interest group has finished negotiating: set_has_negotiated = yes/no
+alias[effect:set_has_negotiated] = yes
+
+## scopes = { state_region }
+### Spawns a temporary entity at the center of the scoped state region for a number of seconds
+alias[effect:spawn_entity_effect] = {
+    name = <entity>
+
+    duration = int
+}
+
+## scopes = { state_region }
+### Starts an earthquake camera shake centered on the scoped state region
+alias[effect:start_earthquake_effect] = yes
+
+## scopes = { country }
+### Transfers subject from another country to current scope country
+alias[effect:transfer_subject] = scope[country]
+
+## scopes = { interest_group }
+### Finishes the negotiation that has started for an interest group
+alias[effect:finish_negotiation] = yes
+
+## scopes = { interest_group }
+### Improves the stance of an IG on the currently enacting law by the given number of steps
+alias[effect:improve_stance] = int
+
+## scopes = { law }
+### Adds an amendment to the scoped law
+alias[effect:add_amendment] = {
+    type = <amendment>
+
+    sponsor = scope[interest_group]
+
+    ### months
+    cooldown = value_field
+
+    ### months (optional, 0 = none)
+    ## cardinality = 0..1
+    timeout = value_field
+}
+
+## scopes = { any }
+### Activates a contextless journal entry of the given type
+alias[effect:add_contextless_journal_entry] = <journal_entry>
 

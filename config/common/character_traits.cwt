@@ -20,23 +20,27 @@ character_trait = {
     ### The trait's texture asset
     texture = filepath
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### Applies to the Character regardless of role
     character_modifier = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### Applies to any Combat Units under the Character's command, assuming the unit is fully Mobilized (or does not need to Mobilize)
     command_modifier = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### Applies to the Character's Country if they are the Ruler of it
     country_modifier = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### Applies to the Character's Interest Group if they are the Leader of it
     interest_group_modifier = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
+    ### Applies to building levels owned by the company that the character is the executive for
+    executive_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..inf
     ### Applies to the Character if they are an agitator
     agitator_modifier = single_alias_right[modifier_clause]
 

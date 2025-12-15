@@ -1,0 +1,19 @@
+types = {
+    type[color_gene] = {
+        path = "game/common/genes"
+        file_extension = .txt
+        skip_root_key = color_genes
+    }
+}
+
+color_gene = {
+    color = enum[color_gene_type]
+
+    ## cardinality = 0..1
+    sync_inheritance_with = <color_gene>
+
+    blend_range = {
+        value_field[-1..1]
+        value_field[-1..1]
+    }
+}

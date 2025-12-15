@@ -1,0 +1,97 @@
+types = {
+    type[war_goal_type] = {
+        path = "game/common/war_goal_types"
+        file_extension = .txt
+        localisation = {
+            name = "war_goal_$"
+            desc = "war_goal_$_desc"
+        }
+    }
+}
+
+## replace_scope = { this = country root = country }
+war_goal_type = {
+    icon = filepath
+
+    ### The Kind of the war goal defines the code-side predefined package of behavior that war goal will have, primarily defining what effect the war goal has when executed.
+    kind = enum[war_goal_kind]
+
+    ### Settings further customize how the war goal is treated in different checks. A war goal can only have one kind, but multiple settings.
+    ## cardinality = 0..1
+    settings = {
+        ## cardinality = 0..inf
+        enum[war_goal_setting]
+    }
+
+    ### Determines in what order war goals are executed in a peace deal. Higher value gets executed first. Changing this can make certain war goals not execute properly.
+    ## cardinality = 0..1
+    execution_priority = value_field
+
+    ### Determines what the war goal holder needs to do for the war goal to be considered controlled.
+    ## cardinality = 0..1
+    contestion_type = enum[war_goal_contestion_type]
+
+    ### What kind of entity the war goal primarily "targets". This primarily defines how the game generates potential alternatives for each war goal type when selecting one from the diplomatic play panel. Most war goal kinds will require a specific target type to work well and can't be changed (i.e. Conquer State can't have a Treaty Article target type). This field primarily allows you to have custom war goals target different entities.
+    target_type = enum[war_goal_target_type]
+
+    ### This determines if and when the war goal is listed when selecting war goals in a diplomatic play.
+    ### - root (holder country)
+    ### - creator_country
+    ### - diplomatic_play
+    ### - target_country
+    ### - target_state
+    ### - stakeholder
+    ### - target_region
+    ### - article_options
+    possible = single_alias_right[trigger_clause]
+
+    ### This determines if the war goal is valid from a script perspective. Additional validation is done in code base on the war goal kind and settings.
+    ### - root (holder country)
+    ### - creator_country
+    ### - diplomatic_play
+    ### - target_country
+    ### - target_state
+    ### - stakeholder
+    ### - target_region
+    ### - article_options
+    valid = single_alias_right[trigger_clause]
+
+    ### How many maneuvers it costs to select this war goal
+    ### - root (holder country)
+    ### - creator_country
+    ### - diplomatic_play
+    ### - target_country
+    ### - target_state
+    ### - stakeholder
+    ### - target_region
+    ### - article_options
+    maneuvers = single_alias_right[formula]
+
+    ### How much infamy it costs to claim this war goal
+    ### - root (holder country)
+    ### - creator_country
+    ### - diplomatic_play
+    ### - target_country
+    ### - target_state
+    ### - stakeholder
+    ### - target_region
+    ### - article_options
+    infamy = single_alias_right[formula]
+
+    ### Additional script effects that you might want the war goal to execute. Do note that validation will not automatically take this into account and you will need to add validation settings as appropriate to avoid conflicts with other war goals.
+    ### - root (holder country)
+    ### - creator_country
+    ### - diplomatic_play
+    ### - target_country
+    ### - target_state
+    ### - stakeholder
+    ### - target_region
+    ### - article_options
+    on_enforced = single_alias_right[effect_clause]
+
+    ### AI flag that determines how important AI considers this war goal to be.
+    ## cardinality = 0..1
+    ai = {
+        is_significant_demand = bool
+    }
+}

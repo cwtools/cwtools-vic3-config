@@ -1,0 +1,56 @@
+types = {
+    type[accessory_gene] = {
+        path = "game/common/genes"
+        file_extension = .txt
+        skip_root_key = accessory_genes
+    }
+    type[special_accessory_gene] = {
+        path = "game/common/genes"
+        file_extension = .txt
+        skip_root_key = {
+            special_genes
+            accessory_genes
+        }
+    }
+}
+
+accessory_gene = single_alias_right[accessory_gene_clause]
+
+special_accessory_gene = single_alias_right[accessory_gene_clause]
+
+single_alias[accessory_gene_gender_clause] = {
+    ## cardinality = 0..1
+    int = empty
+    ### weight = <object in gfx/portrait/accessories/>
+    ## cardinality = 0..inf
+    int = <portrait_accessory>
+}
+
+single_alias[accessory_gene_clause] = {
+    ## cardinality = 0..1
+    inheritable = bool
+
+    value_set[accessory_gene_variant] = {
+        index = int
+
+        ## cardinality = 0..1
+        male = single_alias_right[accessory_gene_gender_clause]
+        ## cardinality = 0..1
+        male = enum[gene_gender_reference]
+
+        ## cardinality = 0..1
+        female = single_alias_right[accessory_gene_gender_clause]
+        ## cardinality = 0..1
+        female = enum[gene_gender_reference]
+
+        ## cardinality = 0..1
+        boy = single_alias_right[accessory_gene_gender_clause]
+        ## cardinality = 0..1
+        boy = enum[gene_gender_reference]
+
+        ## cardinality = 0..1
+        girl = single_alias_right[accessory_gene_gender_clause]
+        ## cardinality = 0..1
+        girl = enum[gene_gender_reference]
+    }
+}

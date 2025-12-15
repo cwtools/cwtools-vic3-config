@@ -4,9 +4,15 @@ types = {
         localisation = {
             name = "$"
         }
+        subtype[country] = {
+            context = country
+        }
+        subtype[contextless] = {
+            context = none
+        }
     }
 }
 
 journal_entry_group = {
-
+    context = enum[journal_entry_group_context]
 }
