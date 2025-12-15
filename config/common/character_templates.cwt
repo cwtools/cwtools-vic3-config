@@ -8,9 +8,13 @@ types = {
 character_template = {
     ## cardinality = 0..1
     first_name = localisation
+    ## cardinality = 0..1
+    first_name = culture
 
     ## cardinality = 0..1
     last_name = localisation
+    ## cardinality = 0..1
+    last_name = culture
 
     ## cardinality = 0..1
     historical = bool
@@ -20,13 +24,13 @@ character_template = {
 
     ## cardinality = 0..1
     culture = scope[culture]
-
     ## cardinality = 0..1
     culture = random
+    ## cardinality = 0..1
+    culture = ig_before_primary_culture
 
     ## cardinality = 0..1
     religion = scope[religion]
-
     ## cardinality = 0..1
     religion = <religion>
 
@@ -37,10 +41,11 @@ character_template = {
     hq = <strategic_region>
 
     ## cardinality = 0..1
-    age = int[1..inf]
-
+    age = int[0..inf]
     ## cardinality = 0..1
     age = date_field
+    ## cardinality = 0..1
+    age = default
 
     ## cardinality = 0..1
     is_agitator = bool
@@ -74,15 +79,23 @@ character_template = {
 
     ## cardinality = 0..1
     dna = <dna_data>
+    ## cardinality = 0..1
+    dna = random
 
     ## cardinality = 0..1
     female = bool
 
     ## cardinality = 0..1
     interest_group = <interest_group>
+    ## cardinality = 0..1
+    interest_group = scope[interest_group]
+    ## cardinality = 0..1
+    interest_group = random
 
     ## cardinality = 0..1
     ideology = <ideology>
+    ## cardinality = 0..1
+    ideology = scope[ideology]
 
     ## cardinality = 0..1
     traits = {
@@ -118,10 +131,12 @@ character_template = {
         ## replace_scope = { root = country this = country }
         country_trigger = single_alias_right[trigger_clause]
 
+        ## cardinality = 0..1
         role = enum[commander_types]
 
         earliest_usage_date = date_field
 
+        ## cardinality = 0..1
         latest_usage_date = date_field
 
         chance = int_value_field

@@ -42,22 +42,13 @@ harvest_condition_type = {
     ### If the event is applicable, what is the chance of it triggering?
     chance = single_alias_right[formula]
 
-    color = enum[named_colors]
-    color = colour[rgb]
-    color = colour[hsv]
-    color = colour[hsv360]
-    ## color_type = hsv
-    color = {
-        ## cardinality = 3..3
-        base = float
-    }
+    color = <named_color>
+    color = color_field
     ## color_type = rgb
     color = {
         ## cardinality = 3..3
-        base = int[0..255]
+        int[0..255]
     }
-    ## color_type = hex
-    color = scalar
 
     ## cardinality = 0..1
     ### Which graphics to apply to the affected map provinces, default - none

@@ -2,10 +2,6 @@ types = {
     type[ethnicity] = {
         path = "game/common/ethnicities"
         file_extension = .txt
-        localisation = {
-            ## optional
-            name = "$"
-        }
     }
 }
 

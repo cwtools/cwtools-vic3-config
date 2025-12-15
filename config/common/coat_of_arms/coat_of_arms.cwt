@@ -1,0 +1,243 @@
+types = {
+    # Ignore templates
+    ## type_key_regex = "^((?!template).)*"
+    type[coat_of_arm] = {
+        path = "game/common/coat_of_arms/coat_of_arms"
+        file_extension = .txt
+    }
+    type[coat_of_arm_template] = {
+        path = "game/common/coat_of_arms/coat_of_arms"
+        file_extension = .txt
+        skip_root_key = {
+            template
+        }
+    }
+}
+
+coat_of_arm = {
+    ## cardinality = 0..1
+    pattern = filepath[gfx/coat_of_arms/patterns/]
+
+    ## cardinality = 0..inf
+    alias_name[coa_color] = alias_match_left[coa_color]
+
+    ## cardinality = 0..inf
+    colored_emblem = {
+        texture = filepath[gfx/coat_of_arms/colored_emblems/]
+
+        ## cardinality = 0..1
+        mask = {
+            value_field
+        }
+
+        ## cardinality = 0..inf
+        alias_name[coa_color] = alias_match_left[coa_color]
+
+        ## cardinality = 0..inf
+        instance = single_alias_right[instance_clause]
+    }
+
+    ## cardinality = 0..inf
+    textured_emblem = {
+        texture = filepath[gfx/coat_of_arms/textured_emblems/]
+
+        ## cardinality = 0..inf
+        instance = single_alias_right[instance_clause]
+    }
+
+    ## cardinality = 0..inf
+    sub = {
+        parent = <coat_of_arm>
+
+        ## cardinality = 0..inf
+        alias_name[coa_color] = alias_match_left[coa_color]
+
+        ## cardinality = 0..inf
+        instance = single_alias_right[instance_clause]
+    }
+}
+
+coat_of_arm_template = {
+    ## cardinality = 0..1
+    pattern = filepath[gfx/coat_of_arms/patterns/]
+    ## cardinality = 0..1
+    pattern = list <pattern_texture_list>
+
+    ## cardinality = 0..inf
+    alias_name[coa_color] = alias_match_left[coa_color]
+
+    ## cardinality = 0..inf
+    colored_emblem = {
+        texture = filepath[gfx/coat_of_arms/colored_emblems/]
+        texture = list <colored_emblem_texture_list>
+
+        ## cardinality = 0..1
+        mask = {
+            value_field
+        }
+
+        ## cardinality = 0..inf
+        alias_name[coa_color] = alias_match_left[coa_color]
+
+        ## cardinality = 0..inf
+        instance = single_alias_right[instance_clause]
+    }
+
+    ## cardinality = 0..inf
+    textured_emblem = {
+        texture = filepath[gfx/coat_of_arms/textured_emblems/]
+        texture = list <textured_emblem_texture_list>
+
+        ## cardinality = 0..inf
+        instance = single_alias_right[instance_clause]
+    }
+
+    ## cardinality = 0..inf
+    sub = {
+        parent = <coat_of_arm>
+
+        ## cardinality = 0..inf
+        alias_name[coa_color] = alias_match_left[coa_color]
+
+        ## cardinality = 0..inf
+        instance = single_alias_right[instance_clause]
+    }
+}
+
+single_alias[instance_clause] = {
+    ## cardinality = 0..1
+    scale = {
+        value_field
+        value_field
+    }
+    ## cardinality = 0..1
+    position = {
+        value_field
+        value_field
+    }
+    ## cardinality = 0..1
+    rotation = value_field[-360..360]
+
+    ## cardinality = 0..1
+    offset = {
+        value_field
+        value_field
+    }
+}
+
+alias[coa_color:color1] = <named_color>
+alias[coa_color:color1] = color_field
+alias[coa_color:color1] = list "<color_list>"
+alias[coa_color:color1] = color1
+alias[coa_color:color1] = color2
+alias[coa_color:color1] = color3
+alias[coa_color:color1] = color4
+alias[coa_color:color1] = color5
+alias[coa_color:color1] = color6
+alias[coa_color:color1] = color7
+alias[coa_color:color1] = color8
+alias[coa_color:color1] = color9
+
+alias[coa_color:color2] = <named_color>
+alias[coa_color:color2] = color_field
+alias[coa_color:color2] = list "<color_list>"
+alias[coa_color:color2] = color1
+alias[coa_color:color2] = color2
+alias[coa_color:color2] = color3
+alias[coa_color:color2] = color4
+alias[coa_color:color2] = color5
+alias[coa_color:color2] = color6
+alias[coa_color:color2] = color7
+alias[coa_color:color2] = color8
+alias[coa_color:color2] = color9
+
+alias[coa_color:color3] = <named_color>
+alias[coa_color:color3] = color_field
+alias[coa_color:color3] = list "<color_list>"
+alias[coa_color:color3] = color1
+alias[coa_color:color3] = color2
+alias[coa_color:color3] = color3
+alias[coa_color:color3] = color4
+alias[coa_color:color3] = color5
+alias[coa_color:color3] = color6
+alias[coa_color:color3] = color7
+alias[coa_color:color3] = color8
+alias[coa_color:color3] = color9
+
+alias[coa_color:color4] = <named_color>
+alias[coa_color:color4] = color_field
+alias[coa_color:color4] = list "<color_list>"
+alias[coa_color:color4] = color1
+alias[coa_color:color4] = color2
+alias[coa_color:color4] = color3
+alias[coa_color:color4] = color4
+alias[coa_color:color4] = color5
+alias[coa_color:color4] = color6
+alias[coa_color:color4] = color7
+alias[coa_color:color4] = color8
+alias[coa_color:color4] = color9
+
+alias[coa_color:color5] = <named_color>
+alias[coa_color:color5] = color_field
+alias[coa_color:color5] = list "<color_list>"
+alias[coa_color:color5] = color1
+alias[coa_color:color5] = color2
+alias[coa_color:color5] = color3
+alias[coa_color:color5] = color4
+alias[coa_color:color5] = color5
+alias[coa_color:color5] = color6
+alias[coa_color:color5] = color7
+alias[coa_color:color5] = color8
+alias[coa_color:color5] = color9
+
+alias[coa_color:color6] = <named_color>
+alias[coa_color:color6] = color_field
+alias[coa_color:color6] = list "<color_list>"
+alias[coa_color:color6] = color1
+alias[coa_color:color6] = color2
+alias[coa_color:color6] = color3
+alias[coa_color:color6] = color4
+alias[coa_color:color6] = color5
+alias[coa_color:color6] = color6
+alias[coa_color:color6] = color7
+alias[coa_color:color6] = color8
+alias[coa_color:color6] = color9
+
+alias[coa_color:color7] = <named_color>
+alias[coa_color:color7] = color_field
+alias[coa_color:color7] = list "<color_list>"
+alias[coa_color:color7] = color1
+alias[coa_color:color7] = color2
+alias[coa_color:color7] = color3
+alias[coa_color:color7] = color4
+alias[coa_color:color7] = color5
+alias[coa_color:color7] = color6
+alias[coa_color:color7] = color7
+alias[coa_color:color7] = color8
+alias[coa_color:color7] = color9
+
+alias[coa_color:color8] = <named_color>
+alias[coa_color:color8] = color_field
+alias[coa_color:color8] = list "<color_list>"
+alias[coa_color:color8] = color1
+alias[coa_color:color8] = color2
+alias[coa_color:color8] = color3
+alias[coa_color:color8] = color4
+alias[coa_color:color8] = color5
+alias[coa_color:color8] = color6
+alias[coa_color:color8] = color7
+alias[coa_color:color8] = color8
+alias[coa_color:color8] = color9
+
+alias[coa_color:color9] = <named_color>
+alias[coa_color:color9] = color_field
+alias[coa_color:color9] = list "<color_list>"
+alias[coa_color:color9] = color1
+alias[coa_color:color9] = color2
+alias[coa_color:color9] = color3
+alias[coa_color:color9] = color4
+alias[coa_color:color9] = color5
+alias[coa_color:color9] = color6
+alias[coa_color:color9] = color7
+alias[coa_color:color9] = color8
+alias[coa_color:color9] = color9

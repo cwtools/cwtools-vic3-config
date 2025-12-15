@@ -1,0 +1,177 @@
+types = {
+    type[coat_of_arms_template_list] = {
+        path = "game/common/coat_of_arms/template_lists"
+        file_extension = .txt
+        skip_root_key = {
+            coat_of_arms_template_lists
+        }
+    }
+    type[pattern_texture_list] = {
+        path = "game/common/coat_of_arms/template_lists"
+        file_extension = .txt
+        skip_root_key = {
+            pattern_texture_lists
+        }
+    }
+    type[color_list] = {
+        path = "game/common/coat_of_arms/template_lists"
+        file_extension = .txt
+        skip_root_key = {
+            color_lists
+        }
+    }
+    type[textured_emblem_texture_list] = {
+        path = "game/common/coat_of_arms/template_lists"
+        file_extension = .txt
+        skip_root_key = {
+            textured_emblem_texture_lists
+        }
+    }
+    type[colored_emblem_texture_list] = {
+        path = "game/common/coat_of_arms/template_lists"
+        file_extension = .txt
+        skip_root_key = {
+            colored_emblem_texture_lists
+        }
+    }
+}
+
+coat_of_arms_template_list = {
+    ## cardinality = 0..inf
+    int = <coat_of_arm_template>
+
+    ## cardinality = 0..inf
+    int = list <coat_of_arms_template_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_coa_list_clause]
+}
+
+single_alias[template_special_selection_coa_list_clause] = {
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    int = <coat_of_arm_template>
+
+    ## cardinality = 0..inf
+    int = list <coat_of_arms_template_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_clause]
+}
+
+pattern_texture_list = {
+    ## cardinality = 0..inf
+    int = filepath[gfx/coat_of_arms/patterns/]
+
+    ## cardinality = 0..inf
+    int = list <pattern_texture_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_pattern_list_clause]
+}
+
+single_alias[template_special_selection_pattern_list_clause] = {
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    int = filepath[gfx/coat_of_arms/patterns/]
+
+    ## cardinality = 0..inf
+    int = list <pattern_texture_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_pattern_list_clause]
+}
+
+color_list = {
+    ## cardinality = 0..inf
+    int = enum[named_colors]
+    ## cardinality = 0..inf
+    int = color_field
+    ## cardinality = 0..inf
+    int = list <color_list>
+    ## cardinality = 0..inf
+    int = <named_color>
+    ## cardinality = 0..inf
+    int = single_alias_right[scripted_color_clause]
+    ## cardinality = 0..inf
+    int = $define_reference
+
+    ## cardinality = 0..inf
+    int = list <color_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_color_list_clause]
+}
+
+single_alias[template_special_selection_color_list_clause] = {
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    int = enum[named_colors]
+    ## cardinality = 0..inf
+    int = color_field
+    ## cardinality = 0..inf
+    int = list <color_list>
+    ## cardinality = 0..inf
+    int = <named_color>
+    ## cardinality = 0..inf
+    int = single_alias_right[scripted_color_clause]
+    ## cardinality = 0..inf
+    int = $define_reference
+
+    ## cardinality = 0..inf
+    int = list <color_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_color_list_clause]
+}
+
+textured_emblem_texture_list = {
+    ## cardinality = 0..inf
+    int = filepath[gfx/coat_of_arms/textured_emblems/]
+
+    ## cardinality = 0..inf
+    int = list <textured_emblem_texture_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_texture_list_clause]
+}
+
+single_alias[template_special_selection_texture_list_clause] = {
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    int = filepath[gfx/coat_of_arms/textured_emblems/]
+
+    ## cardinality = 0..inf
+    int = list <textured_emblem_texture_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_texture_list_clause]
+}
+
+colored_emblem_texture_list = {
+    ## cardinality = 0..inf
+    int = filepath[gfx/coat_of_arms/colored_emblems/]
+
+    ## cardinality = 0..inf
+    int = list <colored_emblem_texture_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_emblem_list_clause]
+}
+
+single_alias[template_special_selection_emblem_list_clause] = {
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    int = filepath[gfx/coat_of_arms/colored_emblems/]
+
+    ## cardinality = 0..inf
+    int = list <colored_emblem_texture_list>
+
+    ## cardinality = 0..inf
+    special_selection = single_alias_right[template_special_selection_emblem_list_clause]
+}

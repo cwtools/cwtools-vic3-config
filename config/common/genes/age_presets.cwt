@@ -1,0 +1,13 @@
+types = {
+    type[age_preset] = {
+        path = "game/common/genes"
+        file_extension = .txt
+        skip_root_key = age_presets
+    }
+}
+
+age_preset = {
+    mode = enum[gene_mode]
+
+    curve = single_alias_right[gene_curve_clause]
+}

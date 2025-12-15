@@ -161,6 +161,9 @@ diplomatic_action = {
         can_be_used_in_sway_offers = bool
 
         ## cardinality = 0..1
+        maintenance_paid_by = enum[diplomatic_action_maintenance_payee]
+
+        ## cardinality = 0..1
         sway_maneuvers_cost = int # ? no documentation (seen example has the value 10)
 
         ## cardinality = 0..1

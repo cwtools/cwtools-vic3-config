@@ -1,6 +1,56 @@
-# Probably not a type as such
-# types = {
-#     type[effect_localization] = {
-#         path = "game/common/effect_localization"
-#     }
-# }
+types = {
+    type[effect_localization] = {
+        path = "game/common/effect_localization"
+        file_extension = .txt
+    }
+}
+
+effect_localization = {
+    ## cardinality = 0..1
+    global = localisation
+
+    ## cardinality = 0..1
+    global_neg = localisation
+
+    ## cardinality = 0..1
+    global_past = localisation
+
+    ## cardinality = 0..1
+    global_past_neg = localisation
+
+    ## cardinality = 0..1
+    first = localisation
+
+    ## cardinality = 0..1
+    first_neg = localisation
+
+    ## cardinality = 0..1
+    first_past = localisation
+
+    ## cardinality = 0..1
+    first_past_neg = localisation
+
+    ## cardinality = 0..1
+    none = localisation
+
+    ## cardinality = 0..1
+    none_neg = localisation
+
+    ## cardinality = 0..1
+    none_past = localisation
+
+    ## cardinality = 0..1
+    none_past_neg = localisation
+
+    ## cardinality = 0..1
+    third = localisation
+
+    ## cardinality = 0..1
+    third_neg = localisation
+
+    ## cardinality = 0..1
+    third_past = localisation
+
+    ## cardinality = 0..1
+    third_past_neg = localisation
+}

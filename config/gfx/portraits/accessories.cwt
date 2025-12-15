@@ -1,0 +1,8 @@
+types = {
+    type[portrait_accessory] = {
+        path = "gfx/portraits/accessories"
+        path_extension = .txt
+    }
+}
+
+portrait_accessory = {}

@@ -24,6 +24,9 @@ diplomatic_play = {
     mirror_war_goal = bool
 
     ## cardinality = 0..1
+    add_infamy_for_starting_target_wargoals = bool
+
+    ## cardinality = 0..1
     initiator_can_add_war_goals = bool
 
     ## cardinality = 0..1

@@ -39,6 +39,12 @@ building_group = {
 	## cardinality = 0..1
 	regional_company_headquarter = bool
 
+    ## cardinality = 0..1
+    self_investment_chance_modifier = bool
+
+    ## cardinality = 0..1
+    construction_efficiency_modifier = bool
+
 	## cardinality = 0..1
 	has_trade_revenue = bool
 

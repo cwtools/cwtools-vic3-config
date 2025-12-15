@@ -49,22 +49,32 @@ types = {
 
 country_definition = {
     ### Map color, use int with rgb (blank) or hsv360, float with hsv
-    color = enum[named_colors]
-    color = colour[rgb]
-    color = colour[hsv]
-    color = colour[hsv360]
-    ## color_type = hsv
-    color = {
-        ## cardinality = 3..3
-        base = float
-    }
-    ## color_type = rgb
-    color = {
-        ## cardinality = 3..3
-        base = int[0..255]
-    }
-    ## color_type = hex
-    color = scalar
+    color = <named_color>
+    ### Map color, use int with rgb (blank) or hsv360, float with hsv
+    color = color_field
+    ### Map color, use int with rgb (blank) or hsv360, float with hsv
+    color = { int[0..255] int[0..255] int[0..255] }
+
+    ## cardinality = 0..1
+    primary_unit_color = <named_color>
+    ## cardinality = 0..1
+    primary_unit_color = color_field
+    ## cardinality = 0..1
+    primary_unit_color = { int[0..255] int[0..255] int[0..255] }
+
+    ## cardinality = 0..1
+    secondary_unit_color = <named_color>
+    ## cardinality = 0..1
+    secondary_unit_color = color_field
+    ## cardinality = 0..1
+    secondary_unit_color = { int[0..255] int[0..255] int[0..255] }
+
+    ## cardinality = 0..1
+    tertiary_unit_color = <named_color>
+    ## cardinality = 0..1
+    tertiary_unit_color = color_field
+    ## cardinality = 0..1
+    tertiary_unit_color = { int[0..255] int[0..255] int[0..255] }
 
     ### The country's 'type'
     country_type = <country_type>
@@ -136,6 +146,8 @@ country_creation = {
 
 ## replace_scope = { root = country this = country }
 country_formation = {
+    geographic_region = <geographic_region>
+
     subtype[major] = {
         is_major_formation = yes
 
@@ -156,6 +168,18 @@ country_formation = {
             <state_region>
         }
     }
+
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    max_num_formation_candidates = int
+
+    ## cardinality = 0..1
+    can_be_formation_candidate = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    can_be_unification_target = single_alias_right[trigger_clause]
 
     ### Default 0.75 as in 00_defines.txt
     ## cardinality = 0..1
