@@ -2611,7 +2611,7 @@ alias[effect:remove_tradition_trait] = <discrimination_trait.tradition>
 
 ## scopes = { country }
 ### Starts a cultural awakening
-alias[effect:add_fervor_target_modifier] = {
+alias[effect:start_national_awakening] = {
     culture = scope[culture]
 
     ## cardinality = 0..1
