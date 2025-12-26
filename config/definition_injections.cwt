@@ -18,7 +18,7 @@ macro[definition_injection] = {
         ### @Example: <code>TRY_REPLACE:key</code>
         ### @See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
         TRY_REPLACE
-        ### @See: Same as <code>REPLACE</code> but if the entry does not exist, it will create it.
+        ### @Same as <code>REPLACE</code> but if the entry does not exist, it will create it.
         ### @Example: <code>INJECT_OR_CREATE:key</code>
         ### @See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
         INJECT_OR_CREATE
