@@ -959,7 +959,12 @@ alias[trigger:scaled_debt] == value_field
 
 ## scopes = { country }
 ### Check if the country is lacking a primary wargoal in any diplomatic play it is part of
-alias[trigger:should_set_wargoal] = bool
+alias[trigger:should_set_wargoal] = {
+    target = scope[diplomatic_play]
+
+    ## cardinality = 0..1
+    value = bool
+}
 
 ### Checks if the institution is shrinking expanding_institution = <scope/key>
 alias[trigger:shrinking_institution] = scope[institution]
@@ -3299,7 +3304,7 @@ alias[trigger:state_average_religion_pop_acceptance] = {
 
 ## scopes = { law }
 ### Check if scoped law has an amendment of the given type
-alias[trigger:has_amendment] = <amendment>
+alias[trigger:has_amendment] = scope[amendment_type]
 
 ## scopes = { interest_group }
 ### Checks whether the interest group has finished negotiation

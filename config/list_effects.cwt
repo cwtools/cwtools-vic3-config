@@ -3450,16 +3450,3 @@ alias[effect:random_scope_amendment] = single_alias_right[random_list_clause]
 ## push_scope = amendment
 alias[effect:ordered_scope_amendment] = single_alias_right[ordered_list_clause]
 
-### Iterate through amendment types that could be added to the scoped law
-## scopes = { law }
-## push_scope = amendment_type
-alias[effect:every_scope_amendment] = single_alias_right[every_list_clause]
-### Iterate through amendment types that could be added to the scoped law
-## scopes = { law }
-## push_scope = amendment_type
-alias[effect:random_scope_amendment] = single_alias_right[random_list_clause]
-### Iterate through amendment types that could be added to the scoped law
-## scopes = { law }
-## push_scope = amendment_type
-alias[effect:ordered_scope_amendment] = single_alias_right[ordered_list_clause]
-

@@ -4148,15 +4148,23 @@ links = {
     ### Scope to the largest exporting market for the scope market good to the local market
     largest_exporting_market = {
         desc = "Scope to the largest exporting market for the scope market good to the local market"
-        input_scopes = { amendment }
-        output_scope = market_goods
-        type = market
+        input_scopes = { market_goods }
+        output_scope = market
+        type = scope
     }
     ### Scope to the largest importing market for the scope market good from the local market
     largest_importing_market = {
         desc = "Scope to the largest importing market for the scope market good from the local market"
-        input_scopes = { amendment }
-        output_scope = market_goods
-        type = market
+        input_scopes = { market_goods }
+        output_scope = market
+        type = scope
     }
+	amendment_type = {
+		input_scopes = { any }
+		output_scope = amendment_type
+		type = scope
+		from_data = yes
+		prefix = amendment_type:
+		data_source = <amendment>
+	}
 }
