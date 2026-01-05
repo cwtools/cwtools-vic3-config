@@ -125,6 +125,7 @@ enums = {
         protective
         domineering
         defiant
+        aloof
     }
 
     enum[relations_thresholds] = {
@@ -181,6 +182,9 @@ enums = {
         can_be_enforced
         causes_state_transfer
         giftable
+        friendly
+        hostile
+        target_subjects_as_input
     }
 
     enum[treaty_article_inputs] = {
@@ -192,6 +196,7 @@ enums = {
         building_type
         law_type
         country
+        text
     }
 
     enum[treaty_article_non_fulfillment_consequences] = {
@@ -216,16 +221,6 @@ enums = {
         none
         offer
         request
-    }
-
-    enum[treaty_article_wargoal_contestion_type] = {
-        control_target_state
-        control_target_country_capital
-        control_any_target_country_state
-        control_own_state
-        control_own_capital
-        control_all_own_states
-        control_all_target_country_claims
     }
 
     enum[secret_goal] = {
@@ -376,6 +371,7 @@ enums = {
     enum[scripted_list_base] = {
         country
         character_in_void
+        interest_group
     }
 
     # Undocumented. Added values that are used in base game
@@ -752,5 +748,110 @@ enums = {
     }
     enum[portrait_modifier_selection_behavior] = {
         weighted_random
+    }
+
+    enum[theme_category] = {
+        ui_skin_theme
+        main_menu_image_theme
+        papermap_theme
+        table_top_theme
+        table_asset_1_theme
+        table_asset_2_theme
+        table_asset_3_theme
+        table_asset_4_theme
+        table_asset_cloth_theme
+        building_sets_themes
+    }
+
+    enum[subject_type_category] = {
+        same_as_puppet
+        same_as_vassal
+        same_as_personal_union
+    }
+
+    enum[map_mode_painting_mode] = {
+        none
+        countries
+        states
+        colonizable_provinces
+        strategic_regions
+        player_theaters
+        player_alliances
+        player_military_access
+        ig_strength
+        player_population
+        population
+        literacy
+        pollution
+        obstinance
+        culture_population
+        player_culture_population
+        culture_overview
+        culture_overview_minority
+        religion_overview
+        religion_overview_minority
+        religion_population
+        player_religion_population
+        goods_production
+        goods_consumption
+        player_goods_potentials
+        goods_local_prices
+        country_attitude
+        country_relations
+        technology_progress
+        country_infamy
+        market_access
+        market_areas
+        province_terrain
+        harvest_conditions
+        global_starvation
+        clout_nationally
+        loyalists
+        standard_of_living
+        radicals
+        gdp
+        gdp_nationally
+        gdp_ownership_ratio
+        migration
+        power_blocs
+        migration_pull
+        state_mass_migration_pull
+        mass_migration_pull
+        player_country
+    }
+    enum[map_mode_names] = {
+        countries
+        states
+        strategic_regions
+        theaters
+        cultures
+        religions
+        markets
+        market_areas
+        power_blocs
+        player
+    }
+    enum[map_mode_tooltip_offset] = {
+        state
+        strategic_region
+        theater
+    }
+    enum[map_mode_lists] = {
+        diplomacy
+        budget
+        country
+        military
+        buildings
+        population
+        society
+        goods
+        market
+        power_bloc
+    }
+    enum[map_mode_texture_mode] = {
+        occupation
+        harvest_conditions
+        power_blocs
+        power_blocs_leverage
     }
 }

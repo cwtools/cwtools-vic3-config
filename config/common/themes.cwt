@@ -1,0 +1,86 @@
+types = {
+    type[theme] = {
+        path = "game/common/themes"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+        subtype[ui_skin] = {
+            category = ui_skin_theme
+        }
+        subtype[menu_image] = {
+            category = main_menu_image_theme
+        }
+        subtype[papermap] = {
+            category = papermap_theme
+        }
+        subtype[table_asset] = {
+            category = papermap_theme
+            category = table_top_theme
+            category = table_asset_1_theme
+            category = table_asset_2_theme
+            category = table_asset_3_theme
+            category = table_asset_4_theme
+            category = table_asset_cloth_theme
+        }
+    }
+}
+
+theme = {
+    ### Each category also defines whether multiple themes can be applied at the same time.
+    category = enum[theme_category]
+
+    ### Key of the DLC inside game/dlc_metadata/00_dlc_metadata.txt. For example: dlc = "dlc003"
+    ## cardinality = 0..1
+    dlc = <dlc>
+
+    ## cardinality = 0..1
+    selectable = single_alias_right[trigger_clause]
+
+    ### Themes using the same key can be selected together as a group in the theme selector. Bulk selection groups are automatically created for each unique key, so the key can be named whatever you want.
+    ## cardinality = 0..1
+    bulk_selection_group = value_set[theme_bulk_selection_group]
+
+    subtype[ui_skin] = {
+        ### Skins are defined in .skin files in gfx/skins. This field must match the name in a skin file or default for the default skin. Only for ui_skin_theme category.
+        ui_skin = default
+        ### Skins are defined in .skin files in gfx/skins. This field must match the name in a skin file or default for the default skin. Only for ui_skin_theme category.
+        ui_skin = filepath[gfx/skins/,.skin]
+    }
+
+    subtype[menu_image] = {
+        video = filepath
+    }
+
+    subtype[papermap] = {
+        ### Path to a settings file for map textures. Only for category papermap_theme.
+        papermap_textures_file = filepath
+    }
+
+    subtype[table_asset] = {
+        ### Multiple allowed. This is a mesh or entity that will be spawned when this theme is active. Only applicable for categories: papermap_theme, table_top_theme, table_asset_N_theme
+        ## cardinality = 0..inf
+        map_object = single_alias_right[theme_map_object_clause]
+    }
+
+    ### Script value for which theme in the category to use for the "dynamic" theme option. The selectable theme with the highest weight is picked. Scope: local player country
+    ## cardinality = 0..1
+    dynamic_weight = single_alias_right[formula]
+    ### Script value for which theme in the category to use for the "dynamic" theme option. The selectable theme with the highest weight is picked. Scope: local player country
+    ## cardinality = 0..1
+    dynamic_weight = value_field
+}
+
+single_alias[theme_map_object_clause] = {
+    ### Name of mesh to spawn, mutually exclusive with entity.
+    ## cardinality = 0..1
+    pdxmesh = <entity>
+
+    ### Name of entity to spawn, mutually exclusive with pdxmesh.
+    ## cardinality = 0..1
+    entity = <entity>
+
+    ### Locator for the spawned object. Instance id 1 is used.
+    locator = <game_object_locator>
+}

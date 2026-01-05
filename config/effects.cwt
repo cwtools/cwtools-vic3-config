@@ -155,6 +155,7 @@ alias[effect:add_momentum] = <static_value>
 ### Adds a journal entry to a scoped country's journal, with optional saved scope target add_journal_entry = { type = <key> target = <scope> }
 alias[effect:add_journal_entry] = {
     type = <journal_entry>
+
     ## cardinality = 0..1
     target = scope_field
     ## cardinality = 0..1
@@ -163,6 +164,7 @@ alias[effect:add_journal_entry] = {
     target = <script_value>
     ## cardinality = 0..1
     target = <static_value>
+
     ## cardinality = 0..1
     objective_subgoal = <objective_subgoal>
 }
@@ -172,14 +174,26 @@ alias[effect:add_to_global_variable_list] = {
     name = value_set[global_variable_list]
 
     ## cardinality = 0..1
+    target = scope_field
+    ## cardinality = 0..1
     target = value_field
     ## cardinality = 0..1
-    target = scope_field
+    target = <script_value>
+    ## cardinality = 0..1
+    target = <static_value>
 
     ## cardinality = 0..1
-    enum[duration] = int
+    enum[duration] = value_field
     ## cardinality = 0..1
-    enum[duration] = { int int }
+    enum[duration] = single_alias_right[formula]
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = $define_reference
+    ## cardinality = 0..1
+    enum[duration] = scope_field
 }
 
 ### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the (unbroken) event chain add_to_list = <string> NOTE, if adding a permanent target to a temporary list, the whole list becomes permanent
@@ -190,14 +204,26 @@ alias[effect:add_to_list] = {
     name = value_set[list]
 
     ## cardinality = 0..1
-    value = value_field
+    target = scope_field
     ## cardinality = 0..1
-    value = scope_field
+    target = value_field
+    ## cardinality = 0..1
+    target = <script_value>
+    ## cardinality = 0..1
+    target = <static_value>
 
     ## cardinality = 0..1
-    enum[duration] = int
+    enum[duration] = value_field
     ## cardinality = 0..1
-    enum[duration] = { int int }
+    enum[duration] = single_alias_right[formula]
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = $define_reference
+    ## cardinality = 0..1
+    enum[duration] = scope_field
 }
 
 ### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
@@ -205,14 +231,26 @@ alias[effect:add_to_local_variable_list] = {
     name = value_set[local_variable_list]
 
     ## cardinality = 0..1
+    target = scope_field
+    ## cardinality = 0..1
     target = value_field
     ## cardinality = 0..1
-    target = scope_field
+    target = <script_value>
+    ## cardinality = 0..1
+    target = <static_value>
 
     ## cardinality = 0..1
-    enum[duration] = int
+    enum[duration] = value_field
     ## cardinality = 0..1
-    enum[duration] = { int int }
+    enum[duration] = single_alias_right[formula]
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = $define_reference
+    ## cardinality = 0..1
+    enum[duration] = scope_field
 }
 
 ### Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the same effect add_to_temporary_list = <string> NOTE, if adding a temporary target to a permanent list, the list will stay permanent
@@ -223,14 +261,26 @@ alias[effect:add_to_temporary_list] = {
     name = value_set[temporary_list]
 
     ## cardinality = 0..1
-    value = value_field
+    target = scope_field
     ## cardinality = 0..1
-    value = scope_field
+    target = value_field
+    ## cardinality = 0..1
+    target = <script_value>
+    ## cardinality = 0..1
+    target = <static_value>
 
     ## cardinality = 0..1
-    enum[duration] = int
+    enum[duration] = value_field
     ## cardinality = 0..1
-    enum[duration] = { int int }
+    enum[duration] = single_alias_right[formula]
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = $define_reference
+    ## cardinality = 0..1
+    enum[duration] = scope_field
 }
 
 ### Adds the event target to a variable list add_to_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
@@ -238,14 +288,26 @@ alias[effect:add_to_variable_list] = {
     name = value_set[variable_list]
 
     ## cardinality = 0..1
+    target = scope_field
+    ## cardinality = 0..1
     target = value_field
     ## cardinality = 0..1
-    target = scope_field
+    target = <script_value>
+    ## cardinality = 0..1
+    target = <static_value>
 
     ## cardinality = 0..1
-    enum[duration] = int
+    enum[duration] = value_field
     ## cardinality = 0..1
-    enum[duration] = { int int }
+    enum[duration] = single_alias_right[formula]
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = $define_reference
+    ## cardinality = 0..1
+    enum[duration] = scope_field
 }
 
 ### Conditionally cause an assert during run time assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
@@ -566,10 +628,17 @@ alias[effect:set_global_variable] = {
     name = value_set[global_variable]
 
     ## cardinality = 0..1
-    enum[duration] = int
-
+    enum[duration] = value_field
     ## cardinality = 0..1
-    enum[duration] = { int int }
+    enum[duration] = single_alias_right[formula]
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+    ## cardinality = 0..1
+    enum[duration] = $define_reference
+    ## cardinality = 0..1
+    enum[duration] = scope_field
 
     ## cardinality = 0..1
     value = value_field
@@ -764,23 +833,34 @@ alias[effect:convert_population] = {
 }
 
 ### Creates a building in the scoped state. Supported values are: 	building = <building> 	activate_production_methods = { <production_methods> } 	subsidized = yes/no 	reserves = [0..1] (percentage of cash reserves the building should be created with) 	level = arable_land/integer  If level is "arable_land", the building will be of the necessary level to exhaust all available arable land in the state. If level is "urbanization", the building will be of the necessary level to exhaust all available urbanzation in the state. If level is an integer, the building will be of that level  Please note: this effect works a little differently if there already is a building of the specified type in the state. If that happens: 	1. the level will be the maximum between the scripted level and the level of the existing building 	2. the cash reserves will be the maximum between the scripted value and the existing cash reserves
+## scopes = { state }
 alias[effect:create_building] = {
     building = <building>
+
     ## cardinality = 0..1
     activate_production_methods = {
         ## cardinality = 0..inf
         <production_method>
     }
+
     ## cardinality = 0..1
     subsidized = bool
+
     ## cardinality = 0..1
     reserves = value_field[0..1]
+
     ## cardinality = 0..1
     level = value_field
     ## cardinality = 0..1
-    level = arable_land
+    level = scope_field
     ## cardinality = 0..1
-    level = urbanization
+    level = single_alias_right[formula]
+    ## cardinality = 0..1
+    level = <script_value>
+    ## cardinality = 0..1
+    level = <static_value>
+    ## cardinality = 0..1
+    level = $define_reference
 
     ## cardinality = 0..inf
     add_ownership = {
@@ -1541,7 +1621,7 @@ alias[effect:add_target_backers] = {
 alias[effect:add_war_goal] = {
     holder = scope[country]
     holder = <country_definition>
-    type = <war_goal>
+    type = <war_goal_type>
 
     ## cardinality = 0..1
     article = {
@@ -1552,7 +1632,10 @@ alias[effect:add_war_goal] = {
         ## cardinality = 0..1
         inputs = {
             ## cardinality = 0..1
-            { quantity = int }
+            {
+                quantity = int
+                quantity = scope_field
+            }
 
             ## cardinality = 0..1
             { goods = scope[goods] }
@@ -1605,7 +1688,8 @@ alias[effect:remove_target_backers] = {
 ### Removes a war goal from a DP if there's at least one other war goal present. any_diplomatic_play = { limit = { has_war_goal = return_state } remove_war_goal = { who = initiator type = return_state } }
 alias[effect:remove_war_goal] = {
     who = scope[country]
-    type = <war_goal>
+
+    type = <war_goal_type>
 }
 
 ### effect end diplo play for one side, with it gaining war goals resolve_play_for = initiator resolve_play_for = scope:custom_scoped_country
@@ -1916,7 +2000,7 @@ alias[effect:set_hub_name] = {
 }
 
 ### Rename all hubs of a state
-alias[effect:set_hub_names] = localisation
+alias[effect:set_hub_names] = scalar
 
 ### Reset the name of a state
 alias[effect:reset_state_name] = bool
@@ -2521,6 +2605,7 @@ alias[effect:withdraw] = {
 ### Apply a cultural acceptance modifier in the scoped country for the given culture. Other than the required culture argument, this effect has the same syntax as add_modifier.
 alias[effect:add_culture_acceptance_modifier] = {
     culture = scope[culture]
+
     ## cardinality = 0..1
     enum[duration] = int
     ## cardinality = 0..1
@@ -2529,6 +2614,7 @@ alias[effect:add_culture_acceptance_modifier] = {
     enum[duration] = <static_value>
     ## cardinality = 0..1
     enum[duration] = enum[duration]
+
     ## cardinality = 0..1
     multiplier = value_field
     ## cardinality = 0..1
@@ -2539,6 +2625,7 @@ alias[effect:add_culture_acceptance_modifier] = {
     multiplier = <static_value>
     ## cardinality = 0..1
     multiplier = single_alias_right[formula]
+
     ## cardinality = 0..1
     is_decaying = bool
 }
@@ -2547,6 +2634,7 @@ alias[effect:add_culture_acceptance_modifier] = {
 ### Apply a fervor target modifier in the scoped country for the given culture. Other than the required culture argument, this effect has the same syntax as add_modifier.
 alias[effect:add_fervor_target_modifier] = {
     culture = scope[culture]
+
     ## cardinality = 0..1
     enum[duration] = int
     ## cardinality = 0..1
@@ -2555,6 +2643,7 @@ alias[effect:add_fervor_target_modifier] = {
     enum[duration] = <static_value>
     ## cardinality = 0..1
     enum[duration] = enum[duration]
+
     ## cardinality = 0..1
     multiplier = value_field
     ## cardinality = 0..1
@@ -2565,6 +2654,7 @@ alias[effect:add_fervor_target_modifier] = {
     multiplier = <static_value>
     ## cardinality = 0..1
     multiplier = single_alias_right[formula]
+
     ## cardinality = 0..1
     is_decaying = bool
 }
@@ -2608,22 +2698,6 @@ alias[effect:add_tradition_trait] = <discrimination_trait.tradition>
 ## scopes = { culture }
 ### Removes an existing tradition trait from the culture in scope
 alias[effect:remove_tradition_trait] = <discrimination_trait.tradition>
-
-## scopes = { country }
-### Starts a cultural awakening
-alias[effect:add_fervor_target_modifier] = {
-    culture = scope[culture]
-
-    ## cardinality = 0..1
-    enum[duration] = int
-    ## cardinality = 0..1
-    enum[duration] = <script_value>
-    ## cardinality = 0..1
-    enum[duration] = <static_value>
-
-    ## cardinality = 0..1
-    state_region = scope[state_region]
-}
 
 ## scopes = { country }
 ### Ends a cultural awakening: end_national_awakening = cu:british
@@ -2736,6 +2810,7 @@ alias[effect:add_amendment] = {
     sponsor = scope[interest_group]
 
     ### months
+    ## cardinality = 0..1
     cooldown = value_field
 
     ### months (optional, 0 = none)

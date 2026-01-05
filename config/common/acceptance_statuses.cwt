@@ -40,6 +40,7 @@ acceptance_status = {
 
     color = <named_color>
     color = color_field
+    ## color_type = rgb
     color = { int[0..255] int[0..255] int[0..255] }
 
     small_icon = filepath
