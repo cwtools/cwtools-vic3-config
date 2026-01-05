@@ -98,10 +98,13 @@ links = {
 		output_scope = value
 		type = value
 	}
-	### Get the current of units for a commander that is NOT in battle
-	num_units_not_in_battle = {
-		desc = "Get the current of units for a commander that is NOT in battle"
-		input_scopes = character
+	### Get the number of active units not in battle for military formations in the province that are allied to the specified country
+	num_units_not_in_battle_link = {
+		desc = "Get the number of active units not in battle for military formations in the province that are allied to the specified country"
+		input_scopes = province
+		from_argument = yes
+		prefix = num_units_not_in_battle:
+		data_source = scope[country]
 		output_scope = value
 		type = value
 	}
@@ -350,8 +353,9 @@ links = {
 		output_scope = value
 		type = value
 	}
+	### Checks if a pop, state or country has a certain amount of literacy literacy = value
 	literacy_rate = {
-		desc = "Literacy rate of pop"
+		desc = "Checks if a pop, state or country has a certain amount of literacy literacy = value"
 		input_scopes = pop
 		output_scope = value
 		type = value
@@ -1100,7 +1104,7 @@ links = {
 	### Scope from an object to its type
 	type = {
 		desc = "Scope from an object to its type"
-		input_scopes = { building institution law commander_order company interest_group harvest_condition law }
+		input_scopes = { building institution law commander_order company interest_group harvest_condition law amendment political_movement }
 		output_scope = any
 	}
 	### Scope to a harvest condition type from its name (harvest_condition_type:drought)
@@ -1372,8 +1376,7 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
-		from_data = yes
-		from_argumnet = yes
+		from_argument = yes
 		prefix = ai_subject_value:
 		data_source = scope[country]
 	}
@@ -1383,8 +1386,7 @@ links = {
 		input_scopes = state
 		output_scope = value
 		type = value
-		from_data = yes
-		from_argumnet = yes
+		from_argument = yes
 		prefix = ai_state_value:
 		data_source = scope[state]
 	}
@@ -1394,8 +1396,7 @@ links = {
 		input_scopes = state
 		output_scope = value
 		type = value
-		from_data = yes
-		from_argumnet = yes
+		from_argument = yes
 		prefix = ai_treaty_port_value:
 		data_source = scope[state]
 	}
@@ -1405,8 +1406,7 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
-		from_data = yes
-		from_argumnet = yes
+		from_argument = yes
 		prefix = ai_gdp_comparison:
 		data_source = scope[country]
 	}
@@ -1416,8 +1416,7 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
-		from_data = yes
-		from_argumnet = yes
+		from_argument = yes
 		prefix = ai_army_comparison:
 		data_source = scope[country]
 	}
@@ -1427,8 +1426,7 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
-		from_data = yes
-		from_argumnet = yes
+		from_argument = yes
 		prefix = ai_navy_comparison:
 		data_source = scope[country]
 	}
@@ -1438,9 +1436,18 @@ links = {
 		input_scopes = country
 		output_scope = value
 		type = value
-		from_data = yes
-		from_argumnet = yes
+		from_argument = yes
 		prefix = ai_ideological_opinion:
+		data_source = scope[country]
+	}
+	### Scope to target country AI desire to colonize a strategic region (example: value = ai_colonization_value:root)
+	ai_colonization_value = {
+		desc = "Scope to target country AI desire to colonize a strategic region (example: value = ai_colonization_value:root)"
+		input_scopes = strategic_region
+		output_scope = value
+		type = value
+		from_argument = yes
+		prefix = ai_colonization_value:
 		data_source = scope[country]
 	}
 	### Scope to the scoped country's company of the named company type (company:company_rheinmetall)
@@ -2435,7 +2442,6 @@ links = {
 	ai_army_comparison = {
 		desc = "Value of ai army comparison with another country"
 		type = value
-		from_data = yes
 		from_argument = yes
 		prefix = ai_army_comparison:
 		data_source = scope[country]
@@ -2446,7 +2452,7 @@ links = {
 	ai_state_value = {
 		desc = "Value of ai army comparison with another country"
 		type = value
-		from_data = yes
+		from_argument = yes
 		prefix = ai_state_value:
 		data_source = scope[country]
 		input_scopes = { state }
@@ -2456,7 +2462,7 @@ links = {
     ai_state_value_argument = {
         desc = "Value of ai army comparison with another country"
         type = value
-        from_data = yes
+		from_argument = yes
         prefix = ai_state_value:
         data_source = scope[country]
         input_scopes = { state }
@@ -2467,7 +2473,6 @@ links = {
 		desc = "Number of diplomatic pacts of a specific type a country has"
 		type = value
 		from_data = yes
-		from_argument = yes
 		prefix = num_diplomatic_pacts:
 		data_source = <diplomatic_action>
 		input_scopes = { country }
@@ -2477,7 +2482,6 @@ links = {
 	diplomatic_pact_other_country = {
 		desc = "Check whether another country has a diplomatic pact of this type with given country"
 		type = scope
-		from_data = yes
 		from_argument = yes
 		prefix = diplomatic_pact_other_country:
 		data_source = scope[country]
@@ -2518,10 +2522,9 @@ links = {
 		output_scope = any
 	}
 	### Number of battalions that are part of a front from given country
-	num_total_battalions = {
+	num_total_battalions_link = {
 		desc = "Number of battalions that are part of a front from given country"
 		type = value
-		from_data = yes
 		from_argument = yes
 		prefix = num_total_battalions:
 		data_source = scope[country]
@@ -2529,10 +2532,9 @@ links = {
 		output_scope = any
 	}
 	### Returns the total number of defending units on Front on the same side as Country
-	num_defending_battalions = {
+	num_defending_battalions_link = {
 		desc = "Returns the total number of defending units on Front on the same side as Country"
 		type = value
-		from_data = yes
 		from_argument = yes
 		prefix = num_defending_battalions:
 		data_source = scope[country]
@@ -3616,7 +3618,7 @@ links = {
 		desc = "Scope to target country AI desire to export scoped market good (example: value = ai_market_export_value:root)"
 		output_scope = value
 		type = value
-		from_data = yes
+		from_argument = yes
 		input_scopes = { market_goods }
 		prefix = ai_treaty_export_value:
 		data_source = scope[country]
@@ -3626,7 +3628,7 @@ links = {
 		desc = "Scope to target country AI desire to export scoped market good (example: value = ai_market_export_value:root)"
 		output_scope = value
 		type = value
-		from_data = yes
+		from_argument = yes
 		input_scopes = { market_goods }
 		prefix = ai_treaty_import_value:
 		data_source = scope[country]
@@ -3636,7 +3638,7 @@ links = {
 		desc = "Scope to target country AI desire to export scoped market good (example: value = ai_market_export_value:root)"
 		output_scope = value
 		type = value
-		from_data = yes
+		from_argument = yes
 		input_scopes = { market_goods }
 		prefix = ai_treaty_trade_value:
 		data_source = scope[country]
@@ -3682,7 +3684,7 @@ links = {
 		input_scopes = { treaty_article treaty_article_options }
 		output_scope = market_goods
 		type = scope
-		from_data = yes
+		from_argument = yes
 		prefix = input_market_goods:
 		data_source = scope[country]
 	}
@@ -3751,7 +3753,7 @@ links = {
 		desc = "Scope to AI desire of to have transit rights through target country (example: value = ai_transit_rights_value:root)"
 		output_scope = value
 		type = value
-		from_data = yes
+		from_argument = yes
 		input_scopes = { country }
 		prefix = ai_transit_rights_value:
 		data_source = scope[country]
@@ -3761,7 +3763,7 @@ links = {
 		desc = "Scope to AI evaluation of how fair (to both sides) it considers existing treaty articles with the target country to be (example: value = ai_treaty_fairness_score:root)"
 		output_scope = value
 		type = value
-		from_data = yes
+		from_argument = yes
 		input_scopes = { country }
 		prefix = ai_treaty_fairness:
 		data_source = scope[country]
@@ -3771,7 +3773,7 @@ links = {
 		desc = "Scope to AI evaluation of how favorable to itself it considers existing treaty articles with the target country to be (example: value = ai_treaty_value:root)"
 		output_scope = value
 		type = value
-		from_data = yes
+		from_argument = yes
 		input_scopes = { country }
 		prefix = ai_treaty_value:
 		data_source = scope[country]
@@ -3795,7 +3797,7 @@ links = {
 		desc = "Scope to the total base value of goods traded in trade routes between the two markets (example: mutual_trade_value_with_country:root >= 1000)"
 		output_scope = value
 		type = value
-		from_data = yes
+		from_argument = yes
 		input_scopes = { country }
 		prefix = mutual_trade_value_with_country:
 		data_source = scope[country]
@@ -4148,15 +4150,335 @@ links = {
     ### Scope to the largest exporting market for the scope market good to the local market
     largest_exporting_market = {
         desc = "Scope to the largest exporting market for the scope market good to the local market"
-        input_scopes = { amendment }
-        output_scope = market_goods
-        type = market
+        input_scopes = { market_goods }
+        output_scope = market
+        type = scope
     }
     ### Scope to the largest importing market for the scope market good from the local market
     largest_importing_market = {
         desc = "Scope to the largest importing market for the scope market good from the local market"
-        input_scopes = { amendment }
-        output_scope = market_goods
-        type = market
+        input_scopes = { market_goods }
+        output_scope = market
+        type = scope
     }
+	### Scope to an amendment type from its name (amendment_type:key)
+	amendment_type = {
+		desc = "Scope to an amendment type from its name (amendment_type:key)"
+		input_scopes = { any }
+		output_scope = amendment_type
+		type = scope
+		from_data = yes
+		prefix = amendment_type:
+		data_source = <amendment>
+	}
+	### Scope to the treaty the scoped treaty is amending
+	amended_treaty = {
+		desc = "Scope to the treaty the scoped treaty is amending"
+		input_scopes = { treaty_options treaty }
+		output_scope = treaty
+		type = scope
+	}
+	### Get the current number of treaty (NOT world market) exports of the good to the market of the scoped MarketGoods
+	treaty_exports = {
+		desc = "Get the current number of treaty (NOT world market) exports of the good to the market of the scoped MarketGoods"
+		input_scopes = { market_goods }
+		output_scope = value
+		type = value
+	}
+	### Get the current number of treaty (NOT world market) imports of the good to the market of the scoped MarketGoods
+	treaty_imports = {
+		desc = "Get the current number of treaty (NOT world market) imports of the good to the market of the scoped MarketGoods"
+		input_scopes = { market_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks if market has the specified goods delta (production + imports) - (consumption + exports)
+	market_goods_delta = {
+		desc = "Checks if market has the specified goods delta (production + imports) - (consumption + exports)"
+		input_scopes = { market_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks if market goods has the specified number of total production
+	market_goods_production = {
+		desc = "Checks if market goods has the specified number of total production"
+		input_scopes = { market_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks if market goods has the specified number of imports
+	market_goods_imports = {
+		desc = "Checks if market goods has the specified number of imports"
+		input_scopes = { market_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks if market goods has the specified number of exports
+	market_goods_exports = {
+		desc = "Checks if market goods has the specified number of exports"
+		input_scopes = { market_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks if market goods is at least the specified percentage cheaper than base price market_goods_cheaper > X Where X = fixed point
+	market_goods_cheaper = {
+		desc = "Checks if market goods is at least the specified percentage cheaper than base price market_goods_cheaper > X Where X = fixed point"
+		input_scopes = { market_goods }
+		output_scope = value
+		type = value
+	}
+	### Compare state region pollution
+	pollution_amount = {
+		desc = "Compare state region pollution"
+		input_scopes = { state_region }
+		output_scope = value
+		type = value
+	}
+	### Checks the unemployment rate (percentage) in the scoped state state_unemployment_rate > 0.1
+	state_unemployment_rate = {
+		desc = "Checks the unemployment rate (percentage) in the scoped state state_unemployment_rate > 0.1"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Compares the infrastructure to infrastructure usage of a state
+	relative_infrastructure = {
+		desc = "Compares the infrastructure to infrastructure usage of a state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Compare total pollution generation across all buildings in the state
+	pollution_generation = {
+		desc = "Compare total pollution generation across all buildings in the state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Checks the sum of building levels for a country
+	country_has_building_levels = {
+		desc = "Checks the sum of building levels for a country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Checks the sum of building levels for a state
+	state_has_building_levels = {
+		desc = "Checks the sum of building levels for a state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Checks if state goods has the specified number of total consumption
+	state_goods_consumption = {
+		desc = "Checks if state goods has the specified number of total consumption"
+		input_scopes = { state_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks if state goods is at least the specified percentage cheaper than base price
+	state_goods_cheaper = {
+		desc = "Checks if state goods is at least the specified percentage cheaper than base price"
+		input_scopes = { state_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks if state has the specified goods delta (production - consumption)
+	state_goods_delta = {
+		desc = "Checks if state has the specified goods delta (production - consumption)"
+		input_scopes = { state_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks if state goods is at least the specified percentage pricier than base price
+	state_goods_pricier = {
+		desc = "Checks if state goods is at least the specified percentage pricier than base price"
+		input_scopes = { state_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks if state goods has the specified number of total production
+	state_goods_production = {
+		desc = "Checks if state goods has the specified number of total production"
+		input_scopes = { state_goods }
+		output_scope = value
+		type = value
+	}
+	### Checks whether a country has empty agitator slots
+	empty_agitator_slots = {
+		desc = "Checks whether a country has empty agitator slots"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Checks whether a building has a specific amount of private ownership
+	private_ownership_fraction = {
+		desc = "Checks whether a building has a specific amount of private ownership"
+		input_scopes = { building }
+		output_scope = value
+		type = value
+	}
+	### Checks the amount of the specified building type allowed in the state. Will return an error if used on building types that are not level capped
+	num_potential_resources = {
+		desc = "Checks the amount of the specified building type allowed in the state. Will return an error if used on building types that are not level capped"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+		from_argument = yes
+		prefix = num_potential_resources:
+		data_source = scope[building_type]
+	}
+	### Compares a Country's GDP Ranking (position)
+	gdp_ranking = {
+		desc = "Compares a Country's GDP Ranking (position)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares a Country's Power Ranking (position)
+	global_country_ranking = {
+		desc = "Compares a Country's Power Ranking (position)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Checks that a state's population has a certain percentage of the country's primary cultures
+	primary_cultures_percent_state = {
+		desc = "Checks that a state's population has a certain percentage of the country's primary cultures"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Return the age of the journal entry (since activation) in days
+	journal_entry_age = {
+		desc = "Return the age of the journal entry (since activation) in days"
+		input_scopes = { journal_entry }
+		output_scope = value
+		type = value
+	}
+	### Scope to a building group from its name (bg:bg_logging)
+	bg = {
+		desc = "Scope to a building group from its name (bg:bg_logging)"
+		input_scopes = { any }
+		output_scope = building_group
+		from_data = yes
+		prefix = bg:
+		data_source = <building_group>
+		type = scope
+	}
+	### Compares the available bureaucracy of the scoped country
+	bureaucracy = {
+		desc = "Compares the available bureaucracy of the scoped country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Checks acceptance level of a specific culture in a country
+	cultural_acceptance_base = {
+		desc = "Checks acceptance level of a specific culture in a country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_argument = yes
+		prefix = cultural_acceptance_base:
+		data_source = scope[culture]
+	}
+	### Scope to total coastal population recorded in AI spending variables (example: value = cached_ai_coastal_population)
+	cached_ai_coastal_population = {
+		desc = "Scope to total coastal population recorded in AI spending variables (example: value = cached_ai_coastal_population)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to total incorporated coastal population recorded in AI spending variables (example: value = cached_ai_incorporated_coastal_population)
+	cached_ai_incorporated_coastal_population = {
+		desc = "Scope to total incorporated coastal population recorded in AI spending variables (example: value = cached_ai_incorporated_coastal_population)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to total incorporated population recorded in AI spending variables (example: value = cached_ai_incorporated_population)
+	cached_ai_incorporated_population = {
+		desc = "Scope to total incorporated population recorded in AI spending variables (example: value = cached_ai_incorporated_population)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to total population in direct non-adjacent subjects recorded in AI spending variables (example: value = cached_ai_overseas_subject_population)
+	cached_ai_overseas_subject_population = {
+		desc = "Scope to total population in direct non-adjacent subjects recorded in AI spending variables (example: value = cached_ai_overseas_subject_population)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to total population in direct subjects recorded in AI spending variables (example: value = cached_ai_subject_population)
+	cached_ai_subject_population = {
+		desc = "Scope to total population in direct subjects recorded in AI spending variables (example: value = cached_ai_subject_population)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to total population recorded in AI spending variables (example: value = cached_ai_total_population)
+	cached_ai_total_population = {
+		desc = "Scope to total population recorded in AI spending variables (example: value = cached_ai_total_population)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to total unincorporated coastal population recorded in AI spending variables (example: value = cached_ai_unincorporated_coastal_population)
+	cached_ai_unincorporated_coastal_population = {
+		desc = "Scope to total unincorporated coastal population recorded in AI spending variables (example: value = cached_ai_unincorporated_coastal_population)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to total unincorporated population recorded in AI spending variables (example: value = cached_ai_unincorporated_population)
+	cached_ai_unincorporated_population = {
+		desc = "Scope to total unincorporated population recorded in AI spending variables (example: value = cached_ai_unincorporated_population)"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Returns the invasion of the scoped front if any
+	invasion = {
+		desc = "Returns the invasion of the scoped front if any"
+		input_scopes = { front }
+		output_scope = invasion
+		type = scope
+	}
+	### Compare total units of exports from scope to target state (if set) or world state in general (if no state specified)
+	state_exports = {
+		desc = "Compare total units of exports from scope to target state (if set) or world state in general (if no state specified)"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Compare total units of imports from scope to target state (if set) or world state in general (if no state specified)
+	state_imports = {
+		desc = "Compare total units of imports from scope to target state (if set) or world state in general (if no state specified)"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Compares the current year of the game year > 1850
+	year = {
+		desc = "Compares the current year of the game year > 1850"
+		input_scopes = { any }
+		output_scope = value
+		type = value
+	}
+	### Number of battalions of scope country, including currently raised conscripts but excluding unraised conscripts
+	army_size_including_raised_conscripts = {
+		desc = "Number of battalions of scope country, including currently raised conscripts but excluding unraised conscripts"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares the Organization of the Military Formation in scope
+	organization = {
+		desc = "Compares the Organization of the Military Formation in scope"
+		input_scopes = { military_formation }
+		output_scope = value
+		type = value
+	}
 }

@@ -72,7 +72,7 @@ treaty_article = {
     ### The behavior of each flag is hardcoded, but it is not mandatory to define any flags if you don't need them.
     ### Articles are perfectly valid without any flags if all you need is available through the effect or modifiers.
     flags = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         enum[treaty_article_flags]
     }
 
@@ -549,7 +549,7 @@ treaty_article = {
         ### - `scope:market_goods`
         infamy = single_alias_right[formula]
 
-        contestion_type = enum[treaty_article_wargoal_contestion_type]
+        contestion_type = enum[war_goal_contestion_type]
     }
 
     ## cardinality = 0..1

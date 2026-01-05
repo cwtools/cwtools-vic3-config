@@ -15,8 +15,35 @@ ethnicity = {
     ## cardinality = 0..1
     template = <ethnicity>
 
+    ## cardinality = 0..1
+    hair_color = { int[0..255] int[0..255] int[0..255] int[0..255] }
+
+    ## cardinality = 0..1
+    skin_color = { int[0..255] int[0..255] int[0..255] int[0..255] }
+
+    ## cardinality = 0..1
+    eye_color = { int[0..255] int[0..255] int[0..255] int[0..255] }
+
     ## cardinality = 0..inf
-    <gene> = {
+    <morph_gene> = {
+        ## cardinality = 0..inf
+        int = {
+            ## cardinality = 0..1
+            name = scalar
+
+            ## cardinality = 0..1
+            range = {
+                ## cardinality = 2..2
+                float
+            }
+
+            ## cardinality = 0..4
+            float
+        }
+    }
+
+    ## cardinality = 0..inf
+    <accessory_gene> = {
         ## cardinality = 0..inf
         int = {
             ## cardinality = 0..1
