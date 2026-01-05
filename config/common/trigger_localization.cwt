@@ -6,6 +6,7 @@ types = {
 }
 
 trigger_localization = {
+    ## cardinality = 0..1
     global = localisation
 
     ## cardinality = 0..1
@@ -22,4 +23,10 @@ trigger_localization = {
 
     ## cardinality = 0..1
     third_not = localisation
+
+    ## cardinality = 0..1
+    none = localisation
+
+    ## cardinality = 0..1
+    none_not = localisation
 }

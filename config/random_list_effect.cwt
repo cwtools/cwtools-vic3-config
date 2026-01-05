@@ -1,17 +1,17 @@
 ### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
 alias[effect:random_list] = {
     ## cardinality = 0..inf
-    int = single_alias_right[random_list_clause]
+    int = single_alias_right[random_list_element]
 }
 
 ### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
 alias[arithmetic_operation:random_list] = {
     ## cardinality = 0..inf
-    int = single_alias_right[random_list_clause]
+    int = single_alias_right[random_list_element]
 }
 
 # Random lists seems to both use calculations as well as effects so this will allow both to work
-single_alias[random_list_clause] = {
+single_alias[random_list_element] = {
     ## cardinality = 0..inf
     alias_name[effect] = alias_match_left[effect]
 

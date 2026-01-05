@@ -27,3 +27,15 @@ script_value = {
     ### Used when calculating values for actions between countries such as diplomatic plays
     second_country = single_alias_right[formula]
 }
+
+alias[trigger:<static_value>] == value_field
+alias[trigger:<static_value>] == single_alias_right[formula]
+alias[trigger:<static_value>] == <script_value>
+alias[trigger:<static_value>] == <static_value>
+alias[trigger:<static_value>] == $define_reference
+
+alias[trigger:<script_value>] == value_field
+alias[trigger:<script_value>] == single_alias_right[formula]
+alias[trigger:<script_value>] == <script_value>
+alias[trigger:<script_value>] == <static_value>
+alias[trigger:<script_value>] == $define_reference

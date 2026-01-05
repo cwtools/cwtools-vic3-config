@@ -14,7 +14,7 @@ liberty_desire_level = {
 
     valid_sway_wargoals_against_overlord = {
         ## cardinality = 0..inf
-        enum[war_goal]
+        <war_goal_type>
     }
 
     ## cardinality = 0..1

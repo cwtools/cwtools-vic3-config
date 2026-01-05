@@ -80,31 +80,6 @@ alias[trigger:market_has_goods_shortage] = bool
 ### Compares the commanders rank commander_rank > 2
 alias[trigger:commander_rank] == value_field
 
-### Compares the Organization of the Military Formation in scope
-### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## scopes = { military_formation }
-alias[trigger:organization] == value_field
-
-### Compares the Organization of the Military Formation in scope
-### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## scopes = { military_formation }
-alias[trigger:organization] == single_alias_right[formula]
-
-### Compares the Organization of the Military Formation in scope
-### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## scopes = { military_formation }
-alias[trigger:organization] == <script_value>
-
-### Compares the Organization of the Military Formation in scope
-### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## scopes = { military_formation }
-alias[trigger:organization] == <static_value>
-
-### Compares the Organization of the Military Formation in scope
-### organization <= define:NMilitary|MILITARY_FORMATION_ORGANIZATION_MIN
-## scopes = { military_formation }
-alias[trigger:organization] == $define_reference
-
 alias[trigger:total_population_including_subjects_share] == value_field
 alias[trigger:total_population_including_subjects_share] == single_alias_right[formula]
 alias[trigger:total_population_including_subjects_share] == <script_value>
@@ -268,8 +243,13 @@ alias[trigger:debug_log_details] = scalar
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = scope_field
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
-#TODO verify
 alias[trigger:exists] = yes
+### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
+alias[trigger:exists] = value_field
+### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
+alias[trigger:exists] = <script_value>
+### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
+alias[trigger:exists] = <static_value>
 
 ### Compare to current game date current_game_date = 1837.1.1
 alias[trigger:game_date] == date_field
@@ -286,21 +266,6 @@ alias[trigger:global_variable_list_size] = {
     value == <static_value>
     value == $define_reference
 }
-
-### Checks that a state's population has a certain percentage of the country's primary cultures
-alias[trigger:primary_cultures_percent_state] == value_field
-
-### Checks that a state's population has a certain percentage of the country's primary cultures
-alias[trigger:primary_cultures_percent_state] == single_alias_right[formula]
-
-### Checks that a state's population has a certain percentage of the country's primary cultures
-alias[trigger:primary_cultures_percent_state] == <script_value>
-
-### Checks that a state's population has a certain percentage of the country's primary cultures
-alias[trigger:primary_cultures_percent_state] == <static_value>
-
-### Checks that a state's population has a certain percentage of the country's primary cultures
-alias[trigger:primary_cultures_percent_state] == $define_reference
 
 ### Does the client have this cosmetic DLC An interface trigger, can only be used in specific places
 alias[trigger:has_cosmetic_dlc] = enum[cosmetic_dlc]
@@ -498,9 +463,6 @@ alias[trigger:variable_list_size] = {
 ### Returns true if the sum of weights of fulfilled sub-triggers amount to the specified sum weighted_calc_true_if = { amount = 10 5 = { <trigger> } 15 = { <trigger> } 7 = { <trigger> } }
 alias[trigger:weighted_calc_true_if] = replace_me
 
-### Compares the current year of the game year > 1850
-alias[trigger:year] == value_field
-
 ### Compares the infrastructure value of a given state infrastructure > 10
 alias[trigger:infrastructure] == value_field
 
@@ -536,9 +498,6 @@ alias[trigger:average_country_infrastructure] == value_field
 
 ### Check average infrastructure in incorporated states owned by the scope country average_incorporated_country_infrastructure = 3
 alias[trigger:average_incorporated_country_infrastructure] == value_field
-
-### Compares the available bureaucracy of the scoped country
-alias[trigger:bureaucracy] == value_field
 
 ### Checks if the country in scope can afford the Influence for the specified diplomatic action (pact or ongoing) can_afford_diplomatic_action = { target = X type = Y } Where X = country and Y = diplomatic action type
 alias[trigger:can_afford_diplomatic_action] = {
@@ -597,12 +556,6 @@ alias[trigger:gdp_ownership_ratio] = {
     target = scope[country]
     value == value_field
 }
-
-### Compares a Country's Power Ranking (position) global_country_ranking > 42
-alias[trigger:global_country_ranking] == value_field
-
-### Compare Legitimacy
-alias[trigger:government_legitimacy] == value_field
 
 ### True if the country is in a war where there is a proposed peace deal has_active_peace_deal = bool
 alias[trigger:has_active_peace_deal] = bool
@@ -959,7 +912,12 @@ alias[trigger:scaled_debt] == value_field
 
 ## scopes = { country }
 ### Check if the country is lacking a primary wargoal in any diplomatic play it is part of
-alias[trigger:should_set_wargoal] = bool
+alias[trigger:should_set_wargoal] = {
+    target = scope[diplomatic_play]
+
+    ## cardinality = 0..1
+    value = bool
+}
 
 ### Checks if the institution is shrinking expanding_institution = <scope/key>
 alias[trigger:shrinking_institution] = scope[institution]
@@ -1093,7 +1051,7 @@ alias[trigger:has_war_exhaustion] = {
 }
 
 ### Checks if war has a certain war goal type has_war_goal = return_state
-alias[trigger:has_war_goal] = enum[war_goal]
+alias[trigger:has_war_goal] = <war_goal_type>
 
 ### Checks the war support of the target country in the scoped war has_war_support = { target = c:GBR value > 50 }
 alias[trigger:has_war_support] = {
@@ -1368,32 +1326,8 @@ alias[trigger:is_treaty_port] = bool
 ### Check if state is under colonization is_under_colonization = yes/no
 alias[trigger:is_under_colonization] = bool
 
-### Compares the loyalty in a given state, i.e. the fraction of Loyalists loyalty > 0.2
-alias[trigger:loyalty] == value_field
-
-### Checks the market access of the scoped state market_access > 0.8
-alias[trigger:market_access] == value_field
-
-### Compare total pollution generation across all buildings in the state
-alias[trigger:pollution_generation] == value_field
-
-### Compares the infrastructure to infrastructure usage of a state relative_infrastructure > 1.1
-alias[trigger:relative_infrastructure] == value_field
-
 ### Check if state has a shortage on any of its building inputs state_has_goods_shortage = yes/no
 alias[trigger:state_has_goods_shortage] = bool
-
-### Checks the total population of the scoped state state_population <= 250000
-alias[trigger:state_population] == value_field
-
-### Checks the unemployment rate (percentage) in the scoped state state_unemployment_rate > 0.1
-alias[trigger:state_unemployment_rate] == value_field
-
-### Compares the total urbanization of a given state/ntotal_urbanization > 5
-alias[trigger:total_urbanization] == value_field
-
-### Compares the turmoil in a given state, i.e. the fraction of Radicals turmoil > 0.2
-alias[trigger:turmoil] == value_field
 
 ### Check if the market goods is instrumental in running the bureaucratic machine
 alias[trigger:is_consumed_by_government_buildings] = bool
@@ -1401,32 +1335,8 @@ alias[trigger:is_consumed_by_government_buildings] = bool
 ### Check if the goods is instrumental in running the war machine
 alias[trigger:is_consumed_by_military_buildings] = bool
 
-### Checks if market goods has the specified number of buy orders market_goods_buy_orders < X Where X = fixed point
-alias[trigger:market_goods_buy_orders] == value_field
-
-### Checks if market goods is at least the specified percentage cheaper than base price market_goods_cheaper > X Where X = fixed point
-alias[trigger:market_goods_cheaper] == value_field
-
-### Checks if market goods has the specified number of total consumption market_goods_consumption < X Where X = fixed point
-alias[trigger:market_goods_consumption] == value_field
-
-### Checks if market has the specified goods delta (production + imports) - (consumption + exports) market_goods_delta < X Where X = fixed point
-alias[trigger:market_goods_delta] == value_field
-
-### Checks if market goods has the specified number of exports market_goods_exports < X Where X = fixed point
-alias[trigger:market_goods_exports] == value_field
-
 ### Check if market goods has a shortage in the market market_goods_has_goods_shortage = yes/no
 alias[trigger:market_goods_has_goods_shortage] = bool
-
-### Checks if market goods has the specified number of imports market_goods_imports < X Where X = fixed point
-alias[trigger:market_goods_imports] == value_field
-
-### Checks if market goods has the specified number of total production market_goods_production < X Where X = fixed point
-alias[trigger:market_goods_production] == value_field
-
-### Checks if market goods has the specified number of sell orders market_goods_sell_orders < X Where X = fixed point
-alias[trigger:market_goods_sell_orders] == value_field
 
 ### Checks if scoped state region contains the capital of target tag contains_capital_of = country scope/tag
 alias[trigger:contains_capital_of] = scope[country]
@@ -1440,9 +1350,6 @@ alias[trigger:is_homeland] = <culture>
 
 ### Check if the state region is on land
 alias[trigger:is_state_region_land] = bool
-
-### Compare state region pollution
-alias[trigger:pollution_amount] == value_field
 
 ### Check remaining amount of resource, like gold mines in a state remaining_undepleted = { 	type = building_gold_mine 	amount > 1 }
 alias[trigger:remaining_undepleted] = {
@@ -1513,7 +1420,7 @@ alias[trigger:diplomatic_play_pm_usage] = {
 alias[trigger:escalation] = value_field
 
 ### Checks if diplomatic play has a certain war goal type has_play_goal = return_state
-alias[trigger:has_play_goal] = enum[war_goal]
+alias[trigger:has_play_goal] = <war_goal_type>
 
 ### Checks who the initiator of a diplomatic play is initiator_is = country
 alias[trigger:initiator_is] = <country_definition>
@@ -1532,9 +1439,6 @@ alias[trigger:is_war] = bool
 alias[trigger:target_is] = <country_definition>
 ### Checks who the target of a diplomatic play is target_is = country
 alias[trigger:target_is] = scope[country]
-
-### Checks if a pop, state or country has a certain amount of literacy literacy = value
-alias[trigger:literacy_rate] == value_field
 
 ### Compares the military wage level of scoped country
 alias[trigger:military_wage_level] == enum[wage_level]
@@ -1585,7 +1489,7 @@ alias[trigger:formation_army_unit_type_fraction] = {
     value == $define_reference
 }
 
-### Compares the additional war exhaustion the scoped country has accumulated from scripted events in the target diplomatic play 
+### Compares the additional war exhaustion the scoped country has accumulated from scripted events in the target diplomatic play
 alias[trigger:additional_war_exhaustion] = {
     target = scope[diplomatic_play]
     value == value_field
@@ -1595,7 +1499,7 @@ alias[trigger:additional_war_exhaustion] = {
     value == $define_reference
 }
 
-### Checks that a countries army has a certain percentage of units with a specific monbilization option 
+### Checks that a countries army has a certain percentage of units with a specific monbilization option
 alias[trigger:army_mobilization_option_fraction] = {
     target = scope[mobilization_option]
     value == value_field
@@ -1605,7 +1509,7 @@ alias[trigger:army_mobilization_option_fraction] = {
     value == $define_reference
 }
 
-### Check if the country can establish a new companyTraits: yes/no   
+### Check if the country can establish a new companyTraits: yes/no
 alias[trigger:can_establish_company] = bool
 
 ### Checks if character is based on a specific template
@@ -1616,10 +1520,10 @@ alias[trigger:<ideology>_valid_trigger] = bool
 
 alias[trigger:<ideology>_scripted_trigger] = bool
 
-### Checks if the scoped country can have mass migration to target country  
+### Checks if the scoped country can have mass migration to target country
 alias[trigger:country_can_have_mass_migration_to] = scope[country]
 
-### Checks the sum of building levels for a building group in a country  
+### Checks the sum of building levels for a building group in a country
 alias[trigger:country_has_building_group_levels] = {
     type = <building_group>
     value == value_field
@@ -1628,9 +1532,6 @@ alias[trigger:country_has_building_group_levels] = {
     value == <static_value>
     value == $define_reference
 }
-
-### Checks the sum of building levels for a country 
-alias[trigger:country_has_building_levels] == value_field
 
 ### Checks the sum of building levels for a building type in a country
 alias[trigger:country_has_building_type_levels] = {
@@ -1642,9 +1543,6 @@ alias[trigger:country_has_building_type_levels] = {
     value == $define_reference
 }
 
-### Compares the country's population weighted turmoil  
-alias[trigger:country_turmoil] == value_field
-
 ### Determines the fraction of wargoals that enemies in the war are currently contesting  
 alias[trigger:enemy_contested_wargoals] = {
     target = scope[war]
@@ -1655,87 +1553,66 @@ alias[trigger:enemy_contested_wargoals] = {
     value == $define_reference
 }
 
-### Determines the (weighted) enemy occupation score of a country  
-alias[trigger:enemy_occupation] == value_field
-
 ### Checks if a company of the specified type exists in scope country 
 alias[trigger:has_company] = scope[company_type]
 
 ### Checks if character has a Military Formation
 alias[trigger:has_military_formation] = bool
 
-### Checks that a formation has a specific mobilization option  
+### Checks that a formation has a specific mobilization option
 alias[trigger:has_mobilization_option] = scope[mobilization_option]
 
-### Checks if any Building in a scoped State maintains any Combat Units that are currently mobilizing  
+### Checks if any Building in a scoped State maintains any Combat Units that are currently mobilizing
 alias[trigger:has_mobilizing_unit] = bool
 
-### Checks if a Combat Unit is of the specified type 
+### Checks if a Combat Unit is of the specified type
 alias[trigger:has_unit_type] = scope[combat_unit_type]
 
+## scopes = { country }
 ### Checks if country in scope is adjacent to a target country  
 alias[trigger:is_adjacent_to_country] = scope[country]
 
-### Checks if country in scope is adjacent to a target state  
+## scopes = { country }
+### Checks if country in scope is adjacent to a target state
 alias[trigger:is_adjacent_to_state] = scope[state]
 
-### Checks if a military formation is Army  
+### Checks if a military formation is Army
 alias[trigger:is_army] = bool
 
-### Checks if country in scope is in a diplomatic play together with event target  
+### Checks if country in scope is in a diplomatic play together with event target
 alias[trigger:is_diplomatic_play_ally_of] = scope[country]
 
-### Checks if country in scope is involved in the same diplomatic play as event target  
+### Checks if country in scope is involved in the same diplomatic play as event target
 alias[trigger:is_diplomatic_play_involved_with] = scope[country]
 
-### Checks if country in scope is a committed participant in the same diplomatic play as event target 
+### Checks if country in scope is a committed participant in the same diplomatic play as event target
 alias[trigger:is_diplomatic_play_participant_with] = scope[country]
 
-### Checks if a military formation is Fleet  
+### Checks if a military formation is Fleet
 alias[trigger:is_fleet] = bool
 
-### Check if a diplomatic pact has a forced duration due to reasons such as a sway or obligationTraits: yes/no   
+### Check if a diplomatic pact has a forced duration due to reasons such as a sway or obligationTraits: yes/no
 alias[trigger:is_forced_pact] = bool
 
-### Checks if the Military Formation is fully mobilized  
+### Checks if the Military Formation is fully mobilized
 alias[trigger:is_fully_mobilized] = bool
 
-### Checks if the country has been set to be immune to revolutions via set_immune_to_revolutions; Warning: This does not check if the country is naturally immune to revolutions due to for example being a revolutionary country itself, only for the effects of 
+### Checks if the country has been set to be immune to revolutions via set_immune_to_revolutions; Warning: This does not check if the country is naturally immune to revolutions due to for example being a revolutionary country itself, only for the effects of
 alias[trigger:is_immune_to_revolutions] = bool
 
 ### Checks if the country is in a power bloc
 alias[trigger:is_in_power_bloc] = bool
 
-### Checks if the scoped country is the origin of mass migration 
+### Checks if the scoped country is the origin of mass migration
 alias[trigger:is_mass_migration_origin] = bool
 
-### Checks if the scoped country origin of mass migration of specific culture 
+### Checks if the scoped country origin of mass migration of specific culture
 alias[trigger:is_mass_migration_origin_of_culture] = bool
 
 ### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
-alias[trigger:size_weighted_lost_battles_fraction] == value_field
+alias[trigger:size_weighted_lost_battles_fraction] = {
+    target = scope[war]
 
-### Checks if state goods is at least the specified percentage cheaper than base price  
-alias[trigger:state_goods_cheaper] == value_field
-
-### Checks if state goods has the specified number of total consumption  
-alias[trigger:state_goods_consumption] == value_field
-
-### Checks if state has the specified goods delta (production - consumption)  
-alias[trigger:state_goods_delta] == value_field
-
-### Check if state goods has a shortage in a state, but NOT in the whole market 
-alias[trigger:state_goods_has_local_goods_shortage] = bool
-
-### Checks if state goods is at least the specified percentage more expensive than base price  
-alias[trigger:state_goods_pricier] == value_field
-
-### Checks if state goods has the specified number of total production  
-alias[trigger:state_goods_production] == value_field
-
-### Checks the sum of building levels for a building group in a state 
-alias[trigger:state_has_building_group_levels] = {
-    type = <building_group>
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1743,8 +1620,19 @@ alias[trigger:state_has_building_group_levels] = {
     value == $define_reference
 }
 
-### Checks the sum of building levels for a state  
-alias[trigger:state_has_building_levels] == value_field
+### Check if state goods has a shortage in a state, but NOT in the whole market
+alias[trigger:state_goods_has_local_goods_shortage] = bool
+
+### Checks the sum of building levels for a building group in a state 
+alias[trigger:state_has_building_group_levels] = {
+    type = <building_group>
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
 
 ### Checks the sum of building levels for a building type in a state
 alias[trigger:state_has_building_type_levels] = {
@@ -1825,13 +1713,13 @@ alias[trigger:modifier:<modifier_type>] = bool
 
 ### Checks whether the country has a war goal of a specific type against another country
 alias[trigger:play_participant_has_war_goal_of_type_against] = {
-    type = enum[war_goal]
+    type = <war_goal_type>
     target = scope[country]
 }
 
 ### Checks whether a war participant has a war goal of a specific type against another country
 alias[trigger:war_participant_has_war_goal_of_type_against] = {
-    type = enum[war_goal]
+    type = <war_goal_type>
     target = scope[country]
 }
 
@@ -1896,6 +1784,12 @@ alias[trigger:can_break_diplomatic_pact] = {
 ### Checks acceptance level of a specific culture in a country
 alias[trigger:cultural_acceptance_base] = {
     target = scope[culture]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
     value == enum[acceptance_status]
 }
 
@@ -1953,10 +1847,6 @@ alias[trigger:has_famine] = bool
 ## scopes = { state }
 ### Checks whether a state is eligible as a mass migration target
 alias[trigger:state_is_eligible_as_mass_migration_target] = bool
-
-## scopes = { journal_entry }
-### Checks whether a journal entry is of a specific age (in days)
-alias[trigger:journal_entry_age] == int
 
 ## scopes = { state }
 ### Checks percentage level of a specific culture in a state
@@ -2051,54 +1941,6 @@ alias[trigger:culture_percent_country] = {
     value == <static_value>
     value == $define_reference
 }
-
-## scopes = { political_movement }
-### Checks whether a character is part of the exile pool
-alias[trigger:political_movement_identity_support] == value_field
-## scopes = { political_movement }
-### Checks whether a character is part of the exile pool
-alias[trigger:political_movement_identity_support] == <script_value>
-## scopes = { political_movement }
-### Checks whether a character is part of the exile pool
-alias[trigger:political_movement_identity_support] == <static_value>
-## scopes = { political_movement }
-### Checks whether a character is part of the exile pool
-alias[trigger:political_movement_identity_support] == single_alias_right[formula]
-## scopes = { political_movement }
-### Checks whether a character is part of the exile pool
-alias[trigger:political_movement_identity_support] == $define_reference
-
-## scopes = { country }
-### Checks whether a country has empty agitator slots
-alias[trigger:empty_agitator_slots] == value_field
-## scopes = { country }
-### Checks whether a country has empty agitator slots
-alias[trigger:empty_agitator_slots] == <script_value>
-## scopes = { country }
-### Checks whether a country has empty agitator slots
-alias[trigger:empty_agitator_slots] == <static_value>
-## scopes = { country }
-### Checks whether a country has empty agitator slots
-alias[trigger:empty_agitator_slots] == single_alias_right[formula]
-## scopes = { country }
-### Checks whether a country has empty agitator slots
-alias[trigger:empty_agitator_slots] == $define_reference
-
-## scopes = { building }
-### Checks whether a building has a specific amount of private ownership
-alias[trigger:private_ownership_fraction] == value_field
-## scopes = { building }
-### Checks whether a building has a specific amount of private ownership
-alias[trigger:private_ownership_fraction] == <script_value>
-## scopes = { building }
-### Checks whether a building has a specific amount of private ownership
-alias[trigger:private_ownership_fraction] == <static_value>
-## scopes = { building }
-### Checks whether a building has a specific amount of private ownership
-alias[trigger:private_ownership_fraction] == single_alias_right[formula]
-## scopes = { building }
-### Checks whether a building has a specific amount of private ownership
-alias[trigger:private_ownership_fraction] == $define_reference
 
 ## scopes = { country }
 ### Checks whether a country has a specific inactive journal entry
@@ -2430,7 +2272,7 @@ alias[trigger:has_character_ideology] = bool
 
 ## scopes = { political_movement }
 ### Check if scoped political movement has core ideology
-alias[trigger:has_core_ideology] = bool
+alias[trigger:has_core_ideology] = scope[ideology]
 
 ## scopes = { state }
 ### Checks if a culture has a cultural community in the scoped state.
@@ -2503,7 +2345,7 @@ alias[trigger:neighbors_member_of_same_power_bloc] = scope[power_bloc]
 ## scopes = { country }
 ### Checks if any country on the same side as scope country in any diplomatic play holds a wargoal of a specific type targeting a specific country
 alias[trigger:play_side_has_war_goal_of_type_against] = {
-    type = enum[war_goal]
+    type = <war_goal_type>
     target = scope[country]
 }
 
@@ -3299,7 +3141,7 @@ alias[trigger:state_average_religion_pop_acceptance] = {
 
 ## scopes = { law }
 ### Check if scoped law has an amendment of the given type
-alias[trigger:has_amendment] = <amendment>
+alias[trigger:has_amendment] = scope[amendment_type]
 
 ## scopes = { interest_group }
 ### Checks whether the interest group has finished negotiation
@@ -3369,3 +3211,18 @@ alias[trigger:stall_chance_for_law_without_enactment_modifier] = {
 ### Check if scoped IG would sponsor an amendment of a given type
 alias[trigger:would_sponsor_amendment] = scope[amendment_type]
 
+## scopes = { any }
+### Does the player have the theme selected in settings
+alias[trigger:is_theme_selected] = <theme>
+
+## scopes = { treaty_article treaty_article_options }
+### Check if the scoped article or article_options has positive inherent acceptance with the target country
+alias[trigger:is_desired_by] = scope[country]
+
+## scopes = { market }
+### Checks if market in scope is adjacent to a target market
+alias[trigger:is_adjacent_to_market] = scope[market]
+
+## scopes = { state }
+### Checks if the scoped state controls the treaty port province in the state region
+alias[trigger:controls_treaty_port_province] = bool

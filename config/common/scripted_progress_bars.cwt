@@ -11,6 +11,8 @@ scripted_progress_bar = {
 
     ### This will be printed on the left side of the progress bar
     desc = localisation
+    ### This will be printed on the left side of the progress bar
+    desc = single_alias_right[complex_desc]
 
     ## cardinality = 0..1
     ### This will be printed on the right side of the progress bar
@@ -43,6 +45,9 @@ scripted_progress_bar = {
     ## cardinality = 0..1
     ### double sided gold style of progress bar
     double_sided_gold = bool
+
+    ## cardinality = 0..1
+    double_sided_two_spains = bool
 
     ## cardinality = 0..1
     ### double sided bad style of progress bar

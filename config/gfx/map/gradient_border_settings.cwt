@@ -1,0 +1,8 @@
+types = {
+    type[gradient_border_setting] = {
+        path = "gfx/map/gradient_border_settings"
+        path_extension = .txt
+    }
+}
+
+gradient_border_setting = {}

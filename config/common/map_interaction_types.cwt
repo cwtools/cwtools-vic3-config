@@ -6,7 +6,7 @@ types = {
 }
 
 map_interaction_type = {
-    mapmode = localisation
+    mapmode = <map_mode>
 
     ## cardinality = 0..1
     clicksound = enum[sound_effects]

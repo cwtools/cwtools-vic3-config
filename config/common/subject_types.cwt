@@ -6,5 +6,88 @@ types = {
 }
 
 subject_type = {
-    # TODO
+    allow_change_country_flag = bool
+
+    use_overlord_map_color = bool
+
+    use_overlord_ruler = bool
+
+    annex_on_country_formation = bool
+
+    can_start_own_diplomatic_plays = bool
+
+    breaks_if_subject_not_protected = bool
+
+    join_overlord_wars = bool
+
+    can_have_subjects = bool
+
+    overlord_must_be_higher_rank = bool
+
+    overlord_must_be_same_country_type = bool
+
+    use_for_release_country = bool
+
+    gives_prestige_to_overlord = bool
+
+    ## cardinality = 0..1
+    can_offer_to_become_in_sway_offers = bool
+
+    ## cardinality = 0..1
+    can_target_with_transfer_wargoal = bool
+
+    ## cardinality = 0..1
+    can_be_used_in_sway_offers = bool
+
+    diplomatic_action = <diplomatic_action>
+
+    autonomy_level = int
+
+    category = enum[subject_type_category]
+
+    ## cardinality = 0..1
+    lower_autonomy_subject_type_alternatives = {
+        ## cardinality = 0..inf
+        <subject_type>
+    }
+
+    ## cardinality = 0..1
+    higher_autonomy_subject_type_alternatives = {
+        ## cardinality = 0..inf
+        <subject_type>
+    }
+
+    same_autonomy_subject_type_alternatives = {
+        ## cardinality = 0..inf
+        <subject_type>
+    }
+
+    valid_overlord_country_types = {
+        ## cardinality = 1..inf
+        <country_type>
+    }
+
+    valid_subject_country_types = {
+        ## cardinality = 1..inf
+        <country_type>
+    }
+
+    valid_overlord_ranks = {
+        ## cardinality = 1..inf
+        <country_rank>
+    }
+
+    valid_subject_ranks = {
+        ## cardinality = 1..inf
+        <country_rank>
+    }
+
+    ### Multiplies both subject_value and become_subject_value in AI strategies
+    ### Higher value means AI is more interested in having this type of subject but less interested in *being* this type of subject
+    ### Cannot return a value lower than MIN_SUBJECT_TYPE_VALUE
+    ai_value = value_field
+    ### Multiplies both subject_value and become_subject_value in AI strategies
+    ### Higher value means AI is more interested in having this type of subject but less interested in *being* this type of subject
+    ### Cannot return a value lower than MIN_SUBJECT_TYPE_VALUE
+    ai_value = single_alias_right[formula]
 }
