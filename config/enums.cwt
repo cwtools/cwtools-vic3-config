@@ -37,7 +37,7 @@ enums = {
         very_high
     }
 
-    enum[ig_approval] ={
+    enum[ig_approval] = {
         angry
         happy
         unhappy

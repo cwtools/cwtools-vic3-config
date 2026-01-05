@@ -2700,6 +2700,22 @@ alias[effect:add_tradition_trait] = <discrimination_trait.tradition>
 alias[effect:remove_tradition_trait] = <discrimination_trait.tradition>
 
 ## scopes = { country }
+### Starts a cultural awakening
+alias[effect:start_national_awakening] = {
+    culture = scope[culture]
+
+    ## cardinality = 0..1
+    enum[duration] = int
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
+
+    ## cardinality = 0..1
+    state_region = scope[state_region]
+}
+
+## scopes = { country }
 ### Ends a cultural awakening: end_national_awakening = cu:british
 alias[effect:end_national_awakening] = scope[culture]
 

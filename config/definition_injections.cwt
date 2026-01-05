@@ -1,0 +1,30 @@
+### Definition Injection implemented via "database entry modes".
+### @See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
+macro[definition_injection] = {
+    modes = {
+        ### @This mode tries to inject the script into an existing entry; the injected script is added to the end of the object. Errors if the respective entry does not exist.
+        ### @Example: <code>INJECT:key</code>
+        ### @See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
+        INJECT
+        ### @This mode replaces an existing entry with a new one. Errors if the respective entry does not exist.
+        ### @Example: <code>REPLACE:key</code>
+        ### @See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
+        REPLACE
+        ### @Same as <code>INJECT</code> but does not error if the entry does not exist.
+        ### @Example: <code>TRY_INJECT:key</code>
+        ### @See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
+        TRY_INJECT
+        ### @Same as <code>REPLACE</code> but does not error if the entry does not exist.
+        ### @Example: <code>TRY_REPLACE:key</code>
+        ### @See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
+        TRY_REPLACE
+        ### @Same as <code>REPLACE</code> but if the entry does not exist, it will create it.
+        ### @Example: <code>INJECT_OR_CREATE:key</code>
+        ### @See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
+        INJECT_OR_CREATE
+        ### @Same as <code>INJECT</code> but if the entry does not exist, it will create it.
+        ### @Example: <code>REPLACE_OR_CREATE:key</code>
+        ### @See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
+        REPLACE_OR_CREATE
+    }
+}
