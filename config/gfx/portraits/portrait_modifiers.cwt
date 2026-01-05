@@ -1,0 +1,64 @@
+types = {
+    type[portrait_modifier] = {
+        path = "gfx/portraits/portrait_modifiers"
+        path_extension = .txt
+        subtype[weighted] = {
+            usage = game
+        }
+    }
+}
+
+portrait_modifier = {
+    usage = enum[portrait_modifier_usage]
+
+    ## cardinality = 0..1
+    selection_behavior = enum[portrait_modifier_selection_behavior]
+
+    ## cardinality = 0..1
+    fallback = value[portrait_modifier_set]
+
+    value_set[portrait_modifier_set] = {
+        ## cardinality = 1..inf
+        dna_modifiers = {
+            ## cardinality = 0..inf
+            accessory = {
+                mode = enum[gene_mode]
+
+                gene = <accessory_gene>
+                gene = <special_accessory_gene>
+
+                template = value[accessory_gene_variant]
+
+                ## cardinality = 0..1
+                accessory = <portrait_accessory>
+
+                ## cardinality = 0..1
+                range = { value_field[0..1] value_field[0..1] }
+
+                ## cardinality = 0..1
+                value = value_field[0..1]
+            }
+
+            ## cardinality = 0..inf
+            morph = {
+                mode = enum[gene_mode]
+
+                gene = <morph_gene>
+                gene = <special_morph_gene>
+
+                ## cardinality = 0..1
+                template = value[morph_gene_variant]
+
+                ## cardinality = 0..1
+                range = { value_field[-1..1] value_field[-1..1] }
+
+                ## cardinality = 0..1
+                value = value_field[-1..1]
+            }
+        }
+        subtype[weighted] = {
+            ## cardinality = 0..inf
+            weight = single_alias_right[formula]
+        }
+    }
+}

@@ -1,3 +1,9 @@
+# ============================================================
+# == DO NOT ADD LISTS HERE ANYMORE
+# == ADD THEM IN lists.cwt
+# ============================================================
+
+
 ### Iterate through all Fronts related to the scoped War every_scope_front = { limit = { <triggers> } <effects> }
 ## push_scope = front
 alias[effect:every_scope_front] = {
@@ -2880,29 +2886,9 @@ alias[effect:every_power_bloc] = {
     alias_name[effect] = alias_match_left[effect]
 }
 
-## push_scope = character
-alias[effect:random_character_in_exile_pool] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-
-    alias_name[effect] = alias_match_left[effect]
-}
-
 ## scopes = { power_bloc }
 ## push_scope = country
 alias[effect:every_power_bloc_member] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-
-    alias_name[effect] = alias_match_left[effect]
-}
-
-## push_scope = character
-alias[effect:every_character_in_exile_pool] = {
     ## cardinality = 0..1
     limit = {
         alias_name[trigger] = alias_match_left[trigger]
@@ -3317,149 +3303,3 @@ alias[effect:ordered_diplomatically_relevant_country] = {
     check_range_bounds = no
     alias_name[effect] = alias_match_left[effect]
 }
-
-# Generic
-
-single_alias[every_list_clause] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-
-    alias_name[effect] = alias_match_left[effect]
-}
-
-single_alias[random_list_clause] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-
-    alias_name[effect] = alias_match_left[effect]
-}
-
-single_alias[ordered_list_clause] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-
-    ## cardinality = 0..1
-    order_by = value_field
-
-    ## cardinality = 0..1
-    min = int_value_field
-
-    ## cardinality = 0..1
-    max = int_value_field
-
-    ## cardinality = 0..1
-    position = int
-
-    ## cardinality = 0..1
-    check_range_bounds = no
-
-    alias_name[effect] = alias_match_left[effect]
-}
-
-## scopes = { any }
-## push_scope = any
-alias[effect:every_<scripted_list>] = single_alias_right[every_list_clause]
-## scopes = { any }
-## push_scope = any
-alias[effect:random_<scripted_list>] = single_alias_right[random_list_clause]
-## scopes = { any }
-## push_scope = any
-alias[effect:ordered_<scripted_list>] = single_alias_right[ordered_list_clause]
-
-### Iterate over geographic region countries
-## scopes = { any }
-## push_scope = country
-alias[effect:every_country_in_<geographic_region_short_key>] = single_alias_right[every_list_clause]
-### Iterate over geographic region countries
-## scopes = { any }
-## push_scope = country
-alias[effect:random_country_in_<geographic_region_short_key>] = single_alias_right[random_list_clause]
-### Iterate over geographic region countries
-## scopes = { any }
-## push_scope = country
-alias[effect:ordered_country_in_<geographic_region_short_key>] = single_alias_right[ordered_list_clause]
-
-### Iterate over geographic region states
-## scopes = { any }
-## push_scope = state
-alias[effect:every_state_in_<geographic_region_short_key>] = single_alias_right[every_list_clause]
-### Iterate over geographic region states
-## scopes = { any }
-## push_scope = state
-alias[effect:random_state_in_<geographic_region_short_key>] = single_alias_right[random_list_clause]
-### Iterate over geographic region states
-## scopes = { any }
-## push_scope = state
-alias[effect:ordered_state_in_<geographic_region_short_key>] = single_alias_right[ordered_list_clause]
-
-### Iterate over geographic region provinces
-## scopes = { any }
-## push_scope = province
-alias[effect:every_province_in_<geographic_region_short_key>] = single_alias_right[every_list_clause]
-### Iterate over geographic region provinces
-## scopes = { any }
-## push_scope = province
-alias[effect:random_province_in_<geographic_region_short_key>] = single_alias_right[random_list_clause]
-### Iterate over geographic region provinces
-## scopes = { any }
-## push_scope = province
-alias[effect:ordered_province_in_<geographic_region_short_key>] = single_alias_right[ordered_list_clause]
-
-### Iterate over geographic region state regions
-## scopes = { any }
-## push_scope = state_region
-alias[effect:every_state_region_in_<geographic_region_short_key>] = single_alias_right[every_list_clause]
-### Iterate over geographic region state regions
-## scopes = { any }
-## push_scope = state_region
-alias[effect:random_state_region_in_<geographic_region_short_key>] = single_alias_right[random_list_clause]
-### Iterate over geographic region state regions
-## scopes = { any }
-## push_scope = state_region
-alias[effect:ordered_state_region_in_<geographic_region_short_key>] = single_alias_right[ordered_list_clause]
-
-### Iterate over geographic region strategic regions
-## scopes = { any }
-## push_scope = strategic_region
-alias[effect:every_strategic_region_in_<geographic_region_short_key>] = single_alias_right[every_list_clause]
-### Iterate over geographic region strategic regions
-## scopes = { any }
-## push_scope = strategic_region
-alias[effect:random_strategic_region_in_<geographic_region_short_key>] = single_alias_right[random_list_clause]
-### Iterate over geographic region strategic regions
-## scopes = { any }
-## push_scope = strategic_region
-alias[effect:ordered_strategic_region_in_<geographic_region_short_key>] = single_alias_right[ordered_list_clause]
-
-### Iterate through amendments of the scoped law
-## scopes = { law }
-## push_scope = amendment
-alias[effect:every_scope_amendment] = single_alias_right[every_list_clause]
-### Iterate through amendments of the scoped law
-## scopes = { law }
-## push_scope = amendment
-alias[effect:random_scope_amendment] = single_alias_right[random_list_clause]
-### Iterate through amendments of the scoped law
-## scopes = { law }
-## push_scope = amendment
-alias[effect:ordered_scope_amendment] = single_alias_right[ordered_list_clause]
-
-### Iterate through amendment types that could be added to the scoped law
-## scopes = { law }
-## push_scope = amendment_type
-alias[effect:every_scope_amendment] = single_alias_right[every_list_clause]
-### Iterate through amendment types that could be added to the scoped law
-## scopes = { law }
-## push_scope = amendment_type
-alias[effect:random_scope_amendment] = single_alias_right[random_list_clause]
-### Iterate through amendment types that could be added to the scoped law
-## scopes = { law }
-## push_scope = amendment_type
-alias[effect:ordered_scope_amendment] = single_alias_right[ordered_list_clause]
-

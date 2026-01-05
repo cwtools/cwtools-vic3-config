@@ -17,15 +17,17 @@ state_trait = {
     ### Icon for state trait
     icon = filepath
 
-    ## cardinality = 0..1
     ### Effects of state trait
+    ## cardinality = 0..1
     modifier = {
         ## cardinality = 0..inf
         <modifier_type> = value_field
     }
+
     ### Technology with removes effect of state trait
     ## cardinality = 0..1
     disabling_technologies = { <technology> }
+
     ### Technology required to colonize state with this trait
     ## cardinality = 0..1
     required_techs_for_colonization = { <technology> }

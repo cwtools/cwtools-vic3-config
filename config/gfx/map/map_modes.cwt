@@ -1,0 +1,97 @@
+types = {
+    type[map_mode] = {
+        path = "gfx/map/map_modes"
+        path_extension = .txt
+    }
+}
+
+map_mode = {
+    map_painting_mode = enum[map_mode_painting_mode]
+
+    ## cardinality = 0..1
+    map_painting_mode_secondary = enum[map_mode_painting_mode]
+
+    ## cardinality = 0..1
+    map_painting_mode_alternate = enum[map_mode_painting_mode]
+
+    ## cardinality = 0..1
+    map_names = enum[map_mode_names]
+
+    ## cardinality = 0..1
+    map_tooltip_offset = enum[map_mode_tooltip_offset]
+
+    ## cardinality = 0..1
+    map_texture_mode = enum[map_mode_texture_mode]
+
+    map_markers = {
+        ## cardinality = 0..inf
+        scalar
+    }
+
+    gradient_border_settings = <gradient_border_setting>
+
+    ## cardinality = 0..1
+    has_fog_of_war = bool
+
+    ## cardinality = 0..1
+    show_formation_movement_arrows = bool
+
+    ## cardinality = 0..1
+    is_visible = bool
+
+    ## cardinality = 0..1
+    is_visible_to_countryless_observer = bool
+
+    ## cardinality = 0..1
+    debug = bool
+
+    ## cardinality = 0..1
+    use_mapmode_textures = bool
+
+    ## cardinality = 0..1
+    use_alternate_country_borders = bool
+
+    ## cardinality = 0..1
+    primary_red_as_gradient_border = bool
+
+    ## cardinality = 0..1
+    primary_color_red = filepath[gfx/map/map_painting/]
+    ## cardinality = 0..1
+    primary_color_green = filepath[gfx/map/map_painting/]
+    ## cardinality = 0..1
+    primary_color_blue = filepath[gfx/map/map_painting/]
+    ## cardinality = 0..1
+    primary_color_alpha = filepath[gfx/map/map_painting/]
+
+    ## cardinality = 0..1
+    secondary_color_red = filepath[gfx/map/map_painting/]
+    ## cardinality = 0..1
+    secondary_color_green = filepath[gfx/map/map_painting/]
+    ## cardinality = 0..1
+    secondary_color_blue = filepath[gfx/map/map_painting/]
+    ## cardinality = 0..1
+    secondary_color_alpha = filepath[gfx/map/map_painting/]
+
+    ## cardinality = 0..1
+    alternate_color_red = filepath[gfx/map/map_painting/]
+    ## cardinality = 0..1
+    alternate_color_green = filepath[gfx/map/map_painting/]
+    ## cardinality = 0..1
+    alternate_color_blue = filepath[gfx/map/map_painting/]
+    ## cardinality = 0..1
+    alternate_color_alpha = filepath[gfx/map/map_painting/]
+
+    ## cardinality = 0..1
+    map_mode_lists = {
+        ## cardinality = 0..inf
+        enum[map_mode_lists]
+    }
+
+    ## cardinality = 0..1
+    icon = filepath
+
+    ## cardinality = 0..1
+    soundeffect = enum[sound_effects]
+    ## cardinality = 0..1
+    soundeffect = scalar
+}

@@ -1,0 +1,63 @@
+types = {
+    type[city_type] = {
+        path = "gfx/map/city_data/city_types"
+        path_extension = .txt
+    }
+}
+
+city_type = {
+    ## cardinality = 0..1
+    graphical_culture = scalar
+
+    ## cardinality = 0..1
+    city_type = enum[city_type]
+
+    ## cardinality = 0..1
+    min_residential_buildings = int
+
+    ## cardinality = 0..1
+    max_residential_buildings = int
+
+    ## cardinality = 0..1
+    max_residence_points = int
+
+    rich_building_meshes = {
+        <entity>
+    }
+
+    rich_building_offsets = single_alias_right[city_type_offset]
+
+    mid_building_meshes = {
+        <entity>
+    }
+
+    mid_building_offsets = single_alias_right[city_type_offset]
+
+    poor_building_meshes = {
+        <entity>
+    }
+
+    poor_building_offsets = single_alias_right[city_type_offset]
+
+    ### offsets for regular buildings
+    building_offsets = single_alias_right[city_type_offset]
+
+    ## cardinality = 0..inf
+    <building> = {
+        <entity>
+    }
+
+    ## cardinality = 0..1
+    weight = value_field
+
+    ## cardinality = 0..1
+    trigger = single_alias_right[trigger_clause]
+}
+
+single_alias[city_type_offset] = {
+    ### in grid-space units. 1.0 means the mesh can be placed anywhere inside its allotted cell
+    position = value_field
+
+    ### in degrees
+    rotation = value_field
+}

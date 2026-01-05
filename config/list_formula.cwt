@@ -1,3 +1,8 @@
+# ============================================================
+# == DO NOT ADD LISTS HERE ANYMORE
+# == ADD THEM IN lists.cwt
+# ============================================================
+
 ### Iterate through all Fronts related to the scoped War every_scope_front = { limit = { <triggers> } <effects> }
 ## push_scope = front
 alias[arithmetic_operation:every_scope_front] = {
@@ -2879,29 +2884,9 @@ alias[arithmetic_operation:every_power_bloc] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-## push_scope = character
-alias[arithmetic_operation:random_character_in_exile_pool] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
-
 ## scopes = { power_bloc }
 ## push_scope = country
 alias[arithmetic_operation:every_power_bloc_member] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
-
-## push_scope = character
-alias[arithmetic_operation:every_character_in_exile_pool] = {
     ## cardinality = 0..1
     limit = {
         alias_name[trigger] = alias_match_left[trigger]
@@ -3300,42 +3285,6 @@ alias[arithmetic_operation:random_diplomatically_relevant_country] = {
 ## push_scope = country
 ### Iterate through all diplomatically relevant countries of a country scope
 alias[arithmetic_operation:ordered_diplomatically_relevant_country] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-    ## cardinality = 0..1
-    order_by = value_field
-    ## cardinality = 0..1
-    max = int_value_field
-    ## cardinality = 0..1
-    max = int_value_field
-    ## cardinality = 0..1
-    position = int
-    ## cardinality = 0..1
-    check_range_bounds = no
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
-
-alias[arithmetic_operation:every_<scripted_list>] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
-
-alias[arithmetic_operation:random_<scripted_list>] = {
-    ## cardinality = 0..1
-    limit = {
-        alias_name[trigger] = alias_match_left[trigger]
-    }
-
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
-
-alias[arithmetic_operation:ordered_<scripted_list>] = {
     ## cardinality = 0..1
     limit = {
         alias_name[trigger] = alias_match_left[trigger]

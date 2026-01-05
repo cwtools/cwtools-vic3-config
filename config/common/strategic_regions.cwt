@@ -32,26 +32,19 @@ strategic_region = {
     ## cardinality = 0..1
     map_color = <named_color>
     ## cardinality = 0..1
-    map_color = colour[rgb]
-    ## cardinality = 0..1
-    map_color = colour[hsv]
-    ## cardinality = 0..1
-    map_color = colour[hsv360]
+    map_color = color_field
     ## cardinality = 0..1
     ## color_type = hsv
     map_color = {
         ## cardinality = 3..3
-        base = float
+        float
     }
     ## cardinality = 0..1
     ## color_type = rgb
     map_color = {
         ## cardinality = 3..3
-        base = int[0..255]
+        int[0..255]
     }
-    ## cardinality = 0..1
-    ## color_type = hex
-    map_color = scalar
 
     states = {
         ## cardinality = 1..inf
