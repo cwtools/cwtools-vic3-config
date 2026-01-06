@@ -1,7 +1,7 @@
 types = {
     type[ethnicity] = {
         path = "game/common/ethnicities"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

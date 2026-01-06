@@ -1,7 +1,7 @@
 types = {
     type[treaty_article] = {
         path = "game/common/treaty_articles"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"

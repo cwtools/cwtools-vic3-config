@@ -2,7 +2,7 @@ types = {
     type[game_rule] = {
         path = "game/common/game_rules"
         skip_root_key = any
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "setting_$"
@@ -12,7 +12,7 @@ types = {
     }
     type[game_rule_category] = {
         path = "game/common/game_rules"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "rule_$"

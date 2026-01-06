@@ -1,7 +1,7 @@
 types = {
     type[opinion_modifier] = {
         path = "game/common/opinion_modifiers"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

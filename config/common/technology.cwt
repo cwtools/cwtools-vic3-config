@@ -1,7 +1,7 @@
 types = {
     type[technology] = {
         path = "game/common/technology/technologies"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }
@@ -12,7 +12,7 @@ types = {
     }
     type[era] = {
         path = "game/common/technology/eras"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

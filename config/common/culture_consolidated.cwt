@@ -2,7 +2,7 @@ types = {
     ## unique = yes
     type[culture] = {
         path = "game/common/cultures"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"
@@ -15,7 +15,7 @@ types = {
     ## unique = yes
     type[discrimination_trait] = {
         path = "game/common/discrimination_traits"
-        file_extension = .txt
+        path_extension = .txt
         subtype[heritage] = {
             type = heritage
         }
@@ -32,7 +32,7 @@ types = {
     ## unique = yes
     type[discrimination_trait_group] = {
         path = "game/common/discrimination_trait_groups"
-        file_extension = .txt
+        path_extension = .txt
         subtype[heritage] = {
             type = heritage
         }

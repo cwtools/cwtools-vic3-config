@@ -1,7 +1,7 @@
 types = {
     type[production_method_group] = {
         path = "game/common/production_method_groups"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }

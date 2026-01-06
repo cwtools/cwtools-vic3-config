@@ -1,7 +1,7 @@
 types = {
     type[law] = {
         path = "game/common/laws"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"

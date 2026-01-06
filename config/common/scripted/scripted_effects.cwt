@@ -1,7 +1,7 @@
 types = {
     type[scripted_effect] = {
         path = "game/common/scripted_effects"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

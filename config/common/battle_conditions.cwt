@@ -1,7 +1,7 @@
 types = {
     type[battle_condition] = {
         path = "game/common/battle_conditions"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"
@@ -33,7 +33,7 @@ battle_condition = {
     instant_switch = single_alias_right[trigger_clause]
 
     ## cardinality = 0..inf
-    ## push_scope = battle_side 
+    ## push_scope = battle_side
     ### a scripted value that represents how likely this condition is to be picked among all the possible conditions. Has access to a battle_side scope that can be used to make certain conditions more or less likely depending on external factors such as commander traits, or even a commander not being present. If unset, this is 1.
     weight = value_field
 

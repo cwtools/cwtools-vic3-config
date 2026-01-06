@@ -1,7 +1,7 @@
 types = {
     type[pop_need] = {
         path = "game/common/pop_needs"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

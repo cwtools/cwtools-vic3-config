@@ -1,7 +1,7 @@
 types = {
     type[decision] = {
         path = "game/common/decisions"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }

@@ -1,7 +1,7 @@
 types = {
     type[political_movement] = {
         path = "game/common/political_movements"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }

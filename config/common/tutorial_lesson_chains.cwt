@@ -1,7 +1,7 @@
 types = {
     type[tutorial_lesson_chain] = {
         path = "game/common/tutorial_lesson_chains"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

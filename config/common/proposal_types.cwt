@@ -1,7 +1,7 @@
 types = {
     type[proposal_type] = {
         path = "game/common/proposal_types"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

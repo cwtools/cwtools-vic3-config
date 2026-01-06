@@ -1,7 +1,7 @@
 types = {
     type[scripted_progress_bar] = {
         path = "game/common/scripted_progress_bars"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

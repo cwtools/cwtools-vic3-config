@@ -1,7 +1,7 @@
 types = {
     type[production_method] = {
         path = "game/common/production_methods"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }
@@ -12,7 +12,7 @@ production_method = {
     ## cardinality = 0..1
     ### PM Icon
     texture = filepath
-    
+
     ## cardinality = 0..1
     ### is this the default pm for its group? if no pm in a group is designated as the default, the first pm is considered the default.
     is_default = bool

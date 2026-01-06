@@ -1,7 +1,7 @@
 types = {
     type[legitimacy_level] = {
         path = "game/common/legitimacy_levels"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

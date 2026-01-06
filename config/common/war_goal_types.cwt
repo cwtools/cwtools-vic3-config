@@ -1,7 +1,7 @@
 types = {
     type[war_goal_type] = {
         path = "game/common/war_goal_types"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "war_goal_$"
             desc = "war_goal_$_desc"

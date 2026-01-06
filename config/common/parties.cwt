@@ -1,7 +1,7 @@
 types = {
     type[party] = {
         path = "game/common/parties"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

@@ -1,7 +1,7 @@
 types = {
     type[scripted_gui] = {
         path = "game/common/scripted_guis"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

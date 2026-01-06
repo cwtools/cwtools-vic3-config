@@ -1,7 +1,7 @@
 types = {
     type[strategic_region] = {
         path = "game/common/strategic_regions"
-        file_extension = .txt
+        path_extension = .txt
         subtype[land] = {
             capital_province = enum[provinces]
         }

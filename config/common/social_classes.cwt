@@ -1,7 +1,7 @@
 types = {
     type[social_class] = {
         path = "game/common/social_classes"
-        file_extension = .txt
+        path_extension = .txt
     }
     localisation = {
         name = "$"

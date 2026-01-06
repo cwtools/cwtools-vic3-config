@@ -1,7 +1,7 @@
 types = {
     type[message] = {
         path = "game/common/messages"
-        file_extension = .txt
+        path_extension = .txt
         images = {
             ## optional
             ## optional

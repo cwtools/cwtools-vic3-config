@@ -1,7 +1,7 @@
 types = {
     type[liberty_desire_level] = {
         path = "game/common/liberty_desire_levels"
-        file_extension = .txt
+        path_extension = .txt
         images = {
             ## primary
             background_texture = background_texture
