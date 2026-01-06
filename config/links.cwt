@@ -3618,7 +3618,7 @@ links = {
 		desc = "Scope to target country AI desire to export scoped market good (example: value = ai_market_export_value:root)"
 		output_scope = value
 		type = value
-        from_data = yes
+        from_argument = yes
 		from_argument = yes
 		input_scopes = { market_goods }
 		prefix = ai_treaty_export_value:
@@ -3629,7 +3629,7 @@ links = {
 		desc = "Scope to target country AI desire to export scoped market good (example: value = ai_market_export_value:root)"
 		output_scope = value
 		type = value
-        from_data = yes
+        from_argument = yes
 		from_argument = yes
 		input_scopes = { market_goods }
 		prefix = ai_treaty_import_value:
@@ -3640,7 +3640,7 @@ links = {
 		desc = "Scope to target country AI desire to export scoped market good (example: value = ai_market_export_value:root)"
 		output_scope = value
 		type = value
-        from_data = yes
+        from_argument = yes
 		from_argument = yes
 		input_scopes = { market_goods }
 		prefix = ai_treaty_trade_value:
