@@ -1,4 +1,4 @@
-### Definition Injection implemented via "database entry modes".
+#### Definition Injection implemented via "database entry modes".
 #### See: <a href="https://vic3.paradoxwikis.com/Mod_files_load_order">Mod files load order - Victoria 3 Wiki</a>
 directive[definition_injection] = {
     modes = {
