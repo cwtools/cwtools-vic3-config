@@ -1,7 +1,7 @@
 types = {
     type[scripted_trigger] = {
         path = "game/common/scripted_triggers"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

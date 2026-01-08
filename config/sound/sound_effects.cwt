@@ -1,7 +1,7 @@
 enums = {
     complex_enum[sound_effects] = {
         path = game/sound
-        file_extension = .txt
+        path_extension = .txt
         name = {
             enum_name
         }

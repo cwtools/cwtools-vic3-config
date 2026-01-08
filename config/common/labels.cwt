@@ -1,7 +1,7 @@
 types = {
     type[label] = {
         path = "game/common/labels"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

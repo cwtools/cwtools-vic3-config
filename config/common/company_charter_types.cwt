@@ -1,7 +1,7 @@
 types = {
     type[company_charter_type] = {
         path = "game/common/company_charter_types"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"

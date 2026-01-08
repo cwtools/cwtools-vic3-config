@@ -1,7 +1,7 @@
 types = {
     type[media_alias] = {
         path = "gfx/media_aliases"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

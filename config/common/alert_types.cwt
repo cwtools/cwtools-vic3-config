@@ -1,7 +1,7 @@
 types = {
     type[alert_type] = {
         path = "game/common/alert_types"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "alert_$_name"

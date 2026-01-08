@@ -1,7 +1,7 @@
 types = {
     type[old_combat_unit_type] = {
         path = "game/common/old_combat_unit_types"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"

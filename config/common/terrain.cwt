@@ -1,7 +1,7 @@
 types = {
     type[terrain] = {
         path = "game/common/terrain"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

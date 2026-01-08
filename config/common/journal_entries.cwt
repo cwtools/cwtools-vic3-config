@@ -1,7 +1,7 @@
 types = {
     type[journal_entry] = {
         path = "game/common/journal_entries"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"

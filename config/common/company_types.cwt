@@ -1,7 +1,7 @@
 types = {
     type[company_type] = {
         path = "game/common/company_types"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"
@@ -16,7 +16,7 @@ types = {
 enums = {
     complex_enum[company_categories] = {
         path = "game/common/company_types"
-        file_extension = .txt
+        path_extension = .txt
         name = {
             category = enum_name
         }

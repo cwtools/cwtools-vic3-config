@@ -1,7 +1,7 @@
 types = {
     type[power_bloc_name] = {
         path = "game/common/power_bloc_names"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"

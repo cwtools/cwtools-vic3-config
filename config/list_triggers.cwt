@@ -7,31 +7,58 @@
 ## push_scope = any
 alias[trigger:any_in_global_list] = {
     variable = value[global_variable_list]
+
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
+
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = <script_value>
+    ## cardinality = 0..1
+    count = <static_value>
+    ## cardinality = 0..1
+    count = $define_reference
+    ## cardinality = 0..1
     count = all
+
     ## cardinality = 0..1
     ### If set, count = all and percent only consider the filtered items for the denominator.
     filter = single_alias_right[trigger_clause]
+
     alias_name[trigger] = alias_match_left[trigger]
 }
 
 ### Iterate through all items in list. list = name or variable = name any_in_list = { <count=num/all> / <percent=fixed_point> <triggers> }
 ## push_scope = any
 alias[trigger:any_in_list] = {
+    ## cardinality = 0..1
+    list = value[list]
+    ## cardinality = 0..1
     variable = value[variable_list]
+
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
+
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = <script_value>
+    ## cardinality = 0..1
+    count = <static_value>
+    ## cardinality = 0..1
+    count = $define_reference
+    ## cardinality = 0..1
     count = all
+
     ## cardinality = 0..1
     ### If set, count = all and percent only consider the filtered items for the denominator.
     filter = single_alias_right[trigger_clause]
+
     alias_name[trigger] = alias_match_left[trigger]
 }
 
@@ -39,300 +66,26 @@ alias[trigger:any_in_list] = {
 ## push_scope = any
 alias[trigger:any_in_local_list] = {
     variable = value[local_variable_list]
+
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
+
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = <script_value>
+    ## cardinality = 0..1
+    count = <static_value>
+    ## cardinality = 0..1
+    count = $define_reference
+    ## cardinality = 0..1
     count = all
+
     ## cardinality = 0..1
     ### If set, count = all and percent only consider the filtered items for the denominator.
     filter = single_alias_right[trigger_clause]
+
     alias_name[trigger] = alias_match_left[trigger]
 }
-
-
-# === Generic Lists
-
-## push_scope = market_goods
-### Iterate through all active (market) goods in a market any_market_goods = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_market_goods] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Iterate through all countries with a presence in the supported scope (currently: only market scope) any_scope_country = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_country] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = pop
-### Iterate through all pops in a: country, state, interest group, culture any_scope_pop = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_pop] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = state
-### Iterate through all states including provinces from a: country, state_region, theater, or front any_scope_state = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_state] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = interest_marker
-### Iterate through all interest markers in a: country, strategic region any_scope_interest_marker = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_interest_marker] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = state
-### Iterate through all states neighbouring a state region any_neighbouring_state = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_neighbouring_state] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = character
-### Iterate through all characters globally any_character = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_character] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = character
-### Iterate through characters in the void any_character_in_void = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_character_in_void] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Iterate through all countries globally any_country = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_country] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = diplomatic_play
-### Iterate through all diplomatic plays globally any_diplomatic_play = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_diplomatic_play] = single_alias_right[trigger_any_list_clause]
-
-### true if any child is false (equivalent to NAND)
-alias[trigger:any_false] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = market
-### Iterate through all markets globally any_market = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_market] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = state
-### Iterate through all states globally any_state = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_state] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = state_region
-### Iterate through all state regions any_state_region = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_state_region] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = party
-### Iterate through all active political parties in a country any_active_party = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_active_party] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = war
-### Iterate through all civil wars related to the scoped country any_civil_war = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_civil_war] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Any country in current hierarchy, including current any_in_hierarchy = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_in_hierarchy] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = law
-### Iterate through all laws in a country any_law = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_law] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Any country above current in hierarchy any_overlord_or_above = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_overlord_or_above] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = political_movement
-### Iterate through all political movements in a country any_political_movement = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_political_movement] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = party
-### Iterate through all potential political parties in a country any_potential_party = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_potential_party] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Any country that is rival to the country in a scope any_rival_country = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_rival_country] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Iterate through all allies to a: country any_scope_ally = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_ally] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = theater
-### Iterate through all theaters in a: country any_scope_theater = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_theater] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Iterate through all countries that would be interested if country in scope has their sovereignty violated any_scope_violate_sovereignty_interested_parties = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_violate_sovereignty_interested_parties] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = war
-### Iterate through all relevant wars if target country had their sovereignty violated by scoped country any_scope_violate_sovereignty_wars = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_violate_sovereignty_wars] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = war
-### Iterate through all wars related to the scope any_scope_war = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_war] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Any country below current in hierarchy any_subject_or_below = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_subject_or_below] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = front
-### Iterate through all Fronts related to the scoped War any_scope_front = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_front] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = interest_group
-### Iterate through all interest groups supporting a political movement any_supporting_interest_group = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_supporting_interest_group] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = culture
-### Primary cultures of the scoped country or country definition any_primary_culture = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_primary_culture] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = combat_unit
-### Iterate through all combat units of input scope any_combat_unit = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_combat_unit] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = building
-### Iterate through all buildings in a: state, country any_scope_building = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_building] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = culture
-### Iterate through all cultures in the scope any_scope_culture = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_culture] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Iterate through all allies to an initiator in a: diplomatic play any_scope_initiator_ally = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_initiator_ally] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Iterate through all involved in a: diplomatic play any_scope_play_involved = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_play_involved] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-### Iterate through all allies to a target in a: diplomatic play any_scope_target_ally = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_target_ally] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = character
-### Iterate through all admirals in a: country or interestgroup any_scope_admiral = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_admiral] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = character
-### Iterate through all characters in a: country, interestgroup, or front any_scope_character = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_character] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = character
-### Iterate through all generals in a: country, interestgroup, or front any_scope_general = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_general] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = character
-### Iterate through all politicians in a: country or interestgroup any_scope_politician = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_scope_politician] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = interest_group
-### Iterate through all interest groups in a country any_interest_group = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_interest_group] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = interest_group
-### Iterate through all interest group members of a party any_member = { <count=num/all> / <percent=fixed_point> <triggers> }
-alias[trigger:any_member] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = company
-### Iterate through all companies in a country  
-alias[trigger:any_company] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = military_formation
-### Iterate through all military formations currently present at input scope 
-alias[trigger:any_military_formation] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = province
-### Iterate through all Provinces in the scoped State
-alias[trigger:any_province] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = interest_marker
-### Iterate through all interest markers held by a country 
-alias[trigger:any_scope_held_interest_marker] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = state
-### Iterate through all states that share a sea node with a state 
-alias[trigger:any_sea_node_adjacent_state] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = culture
-### Lists for cultures in the scoped country that are valid for mass migration  
-alias[trigger:any_valid_mass_migration_culture] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = power_bloc
-alias[trigger:every_power_bloc_member] = single_alias_right[trigger_any_list_clause]
-
-### Iterate through all members of the scoped power bloc including the leader
-## scopes = { power_bloc }
-## push_scope = country
-alias[trigger:any_power_bloc_member] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = diplomatic_catalyst
-alias[trigger:any_diplomatic_catalyst] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = political_lobby
-alias[trigger:any_political_lobby] = single_alias_right[trigger_any_list_clause]
-
-## scopes = { country }
-## push_scope = diplomatic_pact
-alias[trigger:any_scope_diplomatic_pact] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-alias[trigger:any_war_participant] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-alias[trigger:any_enemy_in_war] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-alias[trigger:any_diplomatically_relevant_country] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = country
-alias[trigger:any_rivaling_country] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = character
-alias[trigger:any_supporting_character] = single_alias_right[trigger_any_list_clause]
-
-### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law
-## scopes = { interest_group }
-## push_scope = law
-alias[trigger:any_preferred_law] = single_alias_right[trigger_any_list_clause]
-
-## push_scope = party
-alias[trigger:any_lobby_member] = single_alias_right[trigger_any_list_clause]
-
-### Iterate through all harvest conditions affecting a state, state region, strategic region, or country any_harvest_condition = { <count=num/all> / <percent=fixed_point> <triggers> }
-## scopes = { country state state_region strategic_region }
-## push_scope = harvest_condition
-alias[trigger:any_harvest_condition] = single_alias_right[trigger_any_list_clause]
-
-## scopes = { political_movement }
-## push_scope = interest_group
-alias[trigger:any_influenced_interest_group] = single_alias_right[trigger_any_list_clause]
-
-## scopes = { any }
-## push_scope = power_bloc
-alias[trigger:any_power_bloc] = single_alias_right[trigger_any_list_clause]
-
-## scopes = { any }
-## push_scope = country
-alias[trigger:any_decentralized_country] = single_alias_right[trigger_any_list_clause]
-
-## scopes = { treaty }
-## push_scope = treaty_article
-alias[trigger:any_scope_article] = single_alias_right[trigger_any_list_clause]
-
-## scopes = { treaty_options treaty }
-## push_scope = treaty_article_options
-alias[trigger:any_scope_article_option] = single_alias_right[trigger_any_list_clause]
-
-## scopes = { company }
-## push_scope = building
-alias[trigger:any_scope_regional_hqs] = single_alias_right[trigger_any_list_clause]
-
-## scopes = { country }
-## push_scope = treaty
-alias[trigger:any_scope_treaty] = single_alias_right[trigger_any_list_clause]
-
-## scopes = { any }
-## push_scope = treaty
-alias[trigger:any_treaty] = single_alias_right[trigger_any_list_clause]
-
-### Iterate through all active laws in a country
-## scopes = { country }
-## push_scope = law
-alias[trigger:any_active_law] = single_alias_right[trigger_any_list_clause]
-
-
-
-
-

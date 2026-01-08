@@ -2,7 +2,7 @@ types = {
     ## type_key_filter = short_key
     type[geographic_region_short_key] = {
         path = "game/common/geographic_regions"
-        file_extension = .txt
+        path_extension = .txt
         skip_root_key = {
             any
         }
@@ -10,7 +10,7 @@ types = {
     }
     type[geographic_region] = {
         path = "game/common/geographic_regions"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
             ## optional

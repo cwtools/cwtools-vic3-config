@@ -1,7 +1,7 @@
 types = {
     type[scripted_list] = {
         path = "game/common/scripted_lists"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

@@ -1,7 +1,7 @@
 types = {
     type[age_preset] = {
         path = "game/common/genes"
-        file_extension = .txt
+        path_extension = .txt
         skip_root_key = age_presets
     }
 }

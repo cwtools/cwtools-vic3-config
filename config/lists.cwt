@@ -472,36 +472,6 @@ alias[arithmetic_operation:ordered_scope_je_involved] = single_alias_right[formu
 ## push_scope = country
 alias[trigger:any_scope_je_involved] = single_alias_right[trigger_any_list_clause]
 
-### Iterate through all enemies of scope country in all diplomatic plays (includes wars)
-## scopes = { country }
-## push_scope = country
-alias[effect:every_enemy_in_diplo_play] = single_alias_right[effect_every_list_clause]
-### Iterate through all enemies of scope country in all diplomatic plays (includes wars)
-## scopes = { country }
-## push_scope = country
-alias[effect:random_enemy_in_diplo_play] = single_alias_right[effect_random_list_clause]
-### Iterate through all enemies of scope country in all diplomatic plays (includes wars)
-## scopes = { country }
-## push_scope = country
-alias[effect:ordered_enemy_in_diplo_play] = single_alias_right[effect_ordered_list_clause]
-### Iterate through all enemies of scope country in all diplomatic plays (includes wars)
-## scopes = { country }
-## push_scope = country
-alias[arithmetic_operation:every_enemy_in_diplo_play] = single_alias_right[formula_every_list_clause]
-### Iterate through all enemies of scope country in all diplomatic plays (includes wars)
-## scopes = { country }
-## push_scope = country
-alias[arithmetic_operation:random_enemy_in_diplo_play] = single_alias_right[formula_random_list_clause]
-### Iterate through all enemies of scope country in all diplomatic plays (includes wars)
-## scopes = { country }
-## push_scope = country
-alias[arithmetic_operation:ordered_enemy_in_diplo_play] = single_alias_right[formula_ordered_list_clause]
-### Iterate through all enemies of scope country in all diplomatic plays (includes wars)
-## scopes = { country }
-## push_scope = country
-alias[trigger:any_enemy_in_diplo_play] = single_alias_right[trigger_any_list_clause]
-
-
 ### Iterate through characters in the exile pool
 ## scopes = { any }
 ## push_scope = character
@@ -530,3 +500,2207 @@ alias[arithmetic_operation:ordered_character_in_exile_pool] = single_alias_right
 ## scopes = { any }
 ## push_scope = character
 alias[trigger:any_character_in_exile_pool] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all active (market) goods in a market
+## scopes = { market }
+## push_scope = market_goods
+alias[effect:every_market_goods] = single_alias_right[effect_every_list_clause]
+### Iterate through all active (market) goods in a market
+## scopes = { market }
+## push_scope = market_goods
+alias[effect:random_market_goods] = single_alias_right[effect_random_list_clause]
+### Iterate through all active (market) goods in a market
+## scopes = { market }
+## push_scope = market_goods
+alias[effect:ordered_market_goods] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all active (market) goods in a market
+## scopes = { market }
+## push_scope = market_goods
+alias[arithmetic_operation:every_market_goods] = single_alias_right[formula_every_list_clause]
+### Iterate through all active (market) goods in a market
+## scopes = { market }
+## push_scope = market_goods
+alias[arithmetic_operation:random_market_goods] = single_alias_right[formula_random_list_clause]
+### Iterate through all active (market) goods in a market
+## scopes = { market }
+## push_scope = market_goods
+alias[arithmetic_operation:ordered_market_goods] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all active (market) goods in a market
+## scopes = { market }
+## push_scope = market_goods
+alias[trigger:any_market_goods] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all active political parties in a country
+## scopes = { country }
+## push_scope = party
+alias[effect:every_active_party] = single_alias_right[effect_every_list_clause]
+### Iterate through all active political parties in a country
+## scopes = { country }
+## push_scope = party
+alias[effect:random_active_party] = single_alias_right[effect_random_list_clause]
+### Iterate through all active political parties in a country
+## scopes = { country }
+## push_scope = party
+alias[effect:ordered_active_party] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all active political parties in a country
+## scopes = { country }
+## push_scope = party
+alias[arithmetic_operation:every_active_party] = single_alias_right[formula_every_list_clause]
+### Iterate through all active political parties in a country
+## scopes = { country }
+## push_scope = party
+alias[arithmetic_operation:random_active_party] = single_alias_right[formula_random_list_clause]
+### Iterate through all active political parties in a country
+## scopes = { country }
+## push_scope = party
+alias[arithmetic_operation:ordered_active_party] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all active political parties in a country
+## scopes = { country }
+## push_scope = party
+alias[trigger:any_active_party] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all characters globally  
+## scopes = { any }
+## push_scope = character
+alias[effect:every_character] = single_alias_right[effect_every_list_clause]
+### Iterate through all characters globally  
+## scopes = { any }
+## push_scope = character
+alias[effect:random_character] = single_alias_right[effect_random_list_clause]
+### Iterate through all characters globally  
+## scopes = { any }
+## push_scope = character
+alias[effect:ordered_character] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all characters globally  
+## scopes = { any }
+## push_scope = character
+alias[arithmetic_operation:every_character] = single_alias_right[formula_every_list_clause]
+### Iterate through all characters globally  
+## scopes = { any }
+## push_scope = character
+alias[arithmetic_operation:random_character] = single_alias_right[formula_random_list_clause]
+### Iterate through all characters globally  
+## scopes = { any }
+## push_scope = character
+alias[arithmetic_operation:ordered_character] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all characters globally  
+## scopes = { any }
+## push_scope = character
+alias[trigger:any_character] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through characters in the exile pool  
+## scopes = { any }
+## push_scope = character
+alias[effect:every_character_in_exile_pool] = single_alias_right[effect_every_list_clause]
+### Iterate through characters in the exile pool  
+## scopes = { any }
+## push_scope = character
+alias[effect:random_character_in_exile_pool] = single_alias_right[effect_random_list_clause]
+### Iterate through characters in the exile pool  
+## scopes = { any }
+## push_scope = character
+alias[effect:ordered_character_in_exile_pool] = single_alias_right[effect_ordered_list_clause]
+### Iterate through characters in the exile pool  
+## scopes = { any }
+## push_scope = character
+alias[arithmetic_operation:every_character_in_exile_pool] = single_alias_right[formula_every_list_clause]
+### Iterate through characters in the exile pool  
+## scopes = { any }
+## push_scope = character
+alias[arithmetic_operation:random_character_in_exile_pool] = single_alias_right[formula_random_list_clause]
+### Iterate through characters in the exile pool  
+## scopes = { any }
+## push_scope = character
+alias[arithmetic_operation:ordered_character_in_exile_pool] = single_alias_right[formula_ordered_list_clause]
+### Iterate through characters in the exile pool  
+## scopes = { any }
+## push_scope = character
+alias[trigger:any_character_in_exile_pool] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through characters in the void  
+## scopes = { any }
+## push_scope = character
+alias[effect:every_character_in_void] = single_alias_right[effect_every_list_clause]
+### Iterate through characters in the void  
+## scopes = { any }
+## push_scope = character
+alias[effect:random_character_in_void] = single_alias_right[effect_random_list_clause]
+### Iterate through characters in the void  
+## scopes = { any }
+## push_scope = character
+alias[effect:ordered_character_in_void] = single_alias_right[effect_ordered_list_clause]
+### Iterate through characters in the void  
+## scopes = { any }
+## push_scope = character
+alias[arithmetic_operation:every_character_in_void] = single_alias_right[formula_every_list_clause]
+### Iterate through characters in the void  
+## scopes = { any }
+## push_scope = character
+alias[arithmetic_operation:random_character_in_void] = single_alias_right[formula_random_list_clause]
+### Iterate through characters in the void  
+## scopes = { any }
+## push_scope = character
+alias[arithmetic_operation:ordered_character_in_void] = single_alias_right[formula_ordered_list_clause]
+### Iterate through characters in the void  
+## scopes = { any }
+## push_scope = character
+alias[trigger:any_character_in_void] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all civil wars related to the scoped country  
+## scopes = { country }
+## push_scope = civil_war
+alias[effect:every_civil_war] = single_alias_right[effect_every_list_clause]
+### Iterate through all civil wars related to the scoped country  
+## scopes = { country }
+## push_scope = civil_war
+alias[effect:random_civil_war] = single_alias_right[effect_random_list_clause]
+### Iterate through all civil wars related to the scoped country  
+## scopes = { country }
+## push_scope = civil_war
+alias[effect:ordered_civil_war] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all civil wars related to the scoped country  
+## scopes = { country }
+## push_scope = civil_war
+alias[arithmetic_operation:every_civil_war] = single_alias_right[formula_every_list_clause]
+### Iterate through all civil wars related to the scoped country  
+## scopes = { country }
+## push_scope = civil_war
+alias[arithmetic_operation:random_civil_war] = single_alias_right[formula_random_list_clause]
+### Iterate through all civil wars related to the scoped country  
+## scopes = { country }
+## push_scope = civil_war
+alias[arithmetic_operation:ordered_civil_war] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all civil wars related to the scoped country  
+## scopes = { country }
+## push_scope = civil_war
+alias[trigger:any_civil_war] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all co-belligerents of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_cobelligerent_in_diplo_play] = single_alias_right[effect_every_list_clause]
+### Iterate through all co-belligerents of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_cobelligerent_in_diplo_play] = single_alias_right[effect_random_list_clause]
+### Iterate through all co-belligerents of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_cobelligerent_in_diplo_play] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all co-belligerents of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_cobelligerent_in_diplo_play] = single_alias_right[formula_every_list_clause]
+### Iterate through all co-belligerents of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_cobelligerent_in_diplo_play] = single_alias_right[formula_random_list_clause]
+### Iterate through all co-belligerents of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_cobelligerent_in_diplo_play] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all co-belligerents of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_cobelligerent_in_diplo_play] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all co-belligerents of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_cobelligerent_in_war] = single_alias_right[effect_every_list_clause]
+### Iterate through all co-belligerents of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_cobelligerent_in_war] = single_alias_right[effect_random_list_clause]
+### Iterate through all co-belligerents of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_cobelligerent_in_war] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all co-belligerents of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_cobelligerent_in_war] = single_alias_right[formula_every_list_clause]
+### Iterate through all co-belligerents of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_cobelligerent_in_war] = single_alias_right[formula_random_list_clause]
+### Iterate through all co-belligerents of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_cobelligerent_in_war] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all co-belligerents of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_cobelligerent_in_war] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all combat units of input scope  
+## scopes = { battle building front hq military_formation }
+## push_scope = new_combat_unit
+alias[effect:every_combat_unit] = single_alias_right[effect_every_list_clause]
+### Iterate through all combat units of input scope  
+## scopes = { battle building front hq military_formation }
+## push_scope = new_combat_unit
+alias[effect:random_combat_unit] = single_alias_right[effect_random_list_clause]
+### Iterate through all combat units of input scope  
+## scopes = { battle building front hq military_formation }
+## push_scope = new_combat_unit
+alias[effect:ordered_combat_unit] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all combat units of input scope  
+## scopes = { battle building front hq military_formation }
+## push_scope = new_combat_unit
+alias[arithmetic_operation:every_combat_unit] = single_alias_right[formula_every_list_clause]
+### Iterate through all combat units of input scope  
+## scopes = { battle building front hq military_formation }
+## push_scope = new_combat_unit
+alias[arithmetic_operation:random_combat_unit] = single_alias_right[formula_random_list_clause]
+### Iterate through all combat units of input scope  
+## scopes = { battle building front hq military_formation }
+## push_scope = new_combat_unit
+alias[arithmetic_operation:ordered_combat_unit] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all combat units of input scope  
+## scopes = { battle building front hq military_formation }
+## push_scope = new_combat_unit
+alias[trigger:any_combat_unit] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all companies in a country  
+## scopes = { country }
+## push_scope = company
+alias[effect:every_company] = single_alias_right[effect_every_list_clause]
+### Iterate through all companies in a country  
+## scopes = { country }
+## push_scope = company
+alias[effect:random_company] = single_alias_right[effect_random_list_clause]
+### Iterate through all companies in a country  
+## scopes = { country }
+## push_scope = company
+alias[effect:ordered_company] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all companies in a country  
+## scopes = { country }
+## push_scope = company
+alias[arithmetic_operation:every_company] = single_alias_right[formula_every_list_clause]
+### Iterate through all companies in a country  
+## scopes = { country }
+## push_scope = company
+alias[arithmetic_operation:random_company] = single_alias_right[formula_random_list_clause]
+### Iterate through all companies in a country  
+## scopes = { country }
+## push_scope = company
+alias[arithmetic_operation:ordered_company] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all companies in a country  
+## scopes = { country }
+## push_scope = company
+alias[trigger:any_company] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all countries globally  
+## scopes = { any }
+## push_scope = country
+alias[effect:every_country] = single_alias_right[effect_every_list_clause]
+### Iterate through all countries globally  
+## scopes = { any }
+## push_scope = country
+alias[effect:random_country] = single_alias_right[effect_random_list_clause]
+### Iterate through all countries globally  
+## scopes = { any }
+## push_scope = country
+alias[effect:ordered_country] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all countries globally  
+## scopes = { any }
+## push_scope = country
+alias[arithmetic_operation:every_country] = single_alias_right[formula_every_list_clause]
+### Iterate through all countries globally  
+## scopes = { any }
+## push_scope = country
+alias[arithmetic_operation:random_country] = single_alias_right[formula_random_list_clause]
+### Iterate through all countries globally  
+## scopes = { any }
+## push_scope = country
+alias[arithmetic_operation:ordered_country] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all countries globally  
+## scopes = { any }
+## push_scope = country
+alias[trigger:any_country] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all countries that are decentralized  
+## scopes = { any }
+## push_scope = country
+alias[effect:every_decentralized_country] = single_alias_right[effect_every_list_clause]
+### Iterate through all countries that are decentralized  
+## scopes = { any }
+## push_scope = country
+alias[effect:random_decentralized_country] = single_alias_right[effect_random_list_clause]
+### Iterate through all countries that are decentralized  
+## scopes = { any }
+## push_scope = country
+alias[effect:ordered_decentralized_country] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all countries that are decentralized  
+## scopes = { any }
+## push_scope = country
+alias[arithmetic_operation:every_decentralized_country] = single_alias_right[formula_every_list_clause]
+### Iterate through all countries that are decentralized  
+## scopes = { any }
+## push_scope = country
+alias[arithmetic_operation:random_decentralized_country] = single_alias_right[formula_random_list_clause]
+### Iterate through all countries that are decentralized  
+## scopes = { any }
+## push_scope = country
+alias[arithmetic_operation:ordered_decentralized_country] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all countries that are decentralized  
+## scopes = { any }
+## push_scope = country
+alias[trigger:any_decentralized_country] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all diplomatic catalysts in the recent memory of a country  
+## scopes = { country }
+## push_scope = diplomatic_catalyst
+alias[effect:every_diplomatic_catalyst] = single_alias_right[effect_every_list_clause]
+### Iterate through all diplomatic catalysts in the recent memory of a country  
+## scopes = { country }
+## push_scope = diplomatic_catalyst
+alias[effect:random_diplomatic_catalyst] = single_alias_right[effect_random_list_clause]
+### Iterate through all diplomatic catalysts in the recent memory of a country  
+## scopes = { country }
+## push_scope = diplomatic_catalyst
+alias[effect:ordered_diplomatic_catalyst] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all diplomatic catalysts in the recent memory of a country  
+## scopes = { country }
+## push_scope = diplomatic_catalyst
+alias[arithmetic_operation:every_diplomatic_catalyst] = single_alias_right[formula_every_list_clause]
+### Iterate through all diplomatic catalysts in the recent memory of a country  
+## scopes = { country }
+## push_scope = diplomatic_catalyst
+alias[arithmetic_operation:random_diplomatic_catalyst] = single_alias_right[formula_random_list_clause]
+### Iterate through all diplomatic catalysts in the recent memory of a country  
+## scopes = { country }
+## push_scope = diplomatic_catalyst
+alias[arithmetic_operation:ordered_diplomatic_catalyst] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all diplomatic catalysts in the recent memory of a country  
+## scopes = { country }
+## push_scope = diplomatic_catalyst
+alias[trigger:any_diplomatic_catalyst] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all diplomatic plays globally  
+## scopes = { any }
+## push_scope = diplomatic_play
+alias[effect:every_diplomatic_play] = single_alias_right[effect_every_list_clause]
+### Iterate through all diplomatic plays globally  
+## scopes = { any }
+## push_scope = diplomatic_play
+alias[effect:random_diplomatic_play] = single_alias_right[effect_random_list_clause]
+### Iterate through all diplomatic plays globally  
+## scopes = { any }
+## push_scope = diplomatic_play
+alias[effect:ordered_diplomatic_play] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all diplomatic plays globally  
+## scopes = { any }
+## push_scope = diplomatic_play
+alias[arithmetic_operation:every_diplomatic_play] = single_alias_right[formula_every_list_clause]
+### Iterate through all diplomatic plays globally  
+## scopes = { any }
+## push_scope = diplomatic_play
+alias[arithmetic_operation:random_diplomatic_play] = single_alias_right[formula_random_list_clause]
+### Iterate through all diplomatic plays globally  
+## scopes = { any }
+## push_scope = diplomatic_play
+alias[arithmetic_operation:ordered_diplomatic_play] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all diplomatic plays globally  
+## scopes = { any }
+## push_scope = diplomatic_play
+alias[trigger:any_diplomatic_play] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all diplomatically relevant countries of a country scope  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_diplomatically_relevant_country] = single_alias_right[effect_every_list_clause]
+### Iterate through all diplomatically relevant countries of a country scope  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_diplomatically_relevant_country] = single_alias_right[effect_random_list_clause]
+### Iterate through all diplomatically relevant countries of a country scope  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_diplomatically_relevant_country] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all diplomatically relevant countries of a country scope  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_diplomatically_relevant_country] = single_alias_right[formula_every_list_clause]
+### Iterate through all diplomatically relevant countries of a country scope  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_diplomatically_relevant_country] = single_alias_right[formula_random_list_clause]
+### Iterate through all diplomatically relevant countries of a country scope  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_diplomatically_relevant_country] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all diplomatically relevant countries of a country scope  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_diplomatically_relevant_country] = single_alias_right[trigger_any_list_clause]
+
+### Any country directly below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_direct_subject] = single_alias_right[effect_every_list_clause]
+### Any country directly below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_direct_subject] = single_alias_right[effect_random_list_clause]
+### Any country directly below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_direct_subject] = single_alias_right[effect_ordered_list_clause]
+### Any country directly below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_direct_subject] = single_alias_right[formula_every_list_clause]
+### Any country directly below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_direct_subject] = single_alias_right[formula_random_list_clause]
+### Any country directly below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_direct_subject] = single_alias_right[formula_ordered_list_clause]
+### Any country directly below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_direct_subject] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all enemies of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_enemy_in_diplo_play] = single_alias_right[effect_every_list_clause]
+### Iterate through all enemies of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_enemy_in_diplo_play] = single_alias_right[effect_random_list_clause]
+### Iterate through all enemies of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_enemy_in_diplo_play] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all enemies of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_enemy_in_diplo_play] = single_alias_right[formula_every_list_clause]
+### Iterate through all enemies of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_enemy_in_diplo_play] = single_alias_right[formula_random_list_clause]
+### Iterate through all enemies of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_enemy_in_diplo_play] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all enemies of scope country in all diplomatic plays (includes wars)  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_enemy_in_diplo_play] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all enemies of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_enemy_in_war] = single_alias_right[effect_every_list_clause]
+### Iterate through all enemies of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_enemy_in_war] = single_alias_right[effect_random_list_clause]
+### Iterate through all enemies of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_enemy_in_war] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all enemies of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_enemy_in_war] = single_alias_right[formula_every_list_clause]
+### Iterate through all enemies of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_enemy_in_war] = single_alias_right[formula_random_list_clause]
+### Iterate through all enemies of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_enemy_in_war] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all enemies of scope country in all wars  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_enemy_in_war] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all harvest conditions affecting a state, state region, strategic region, or country  
+## scopes = { country state state_region strategic_region }
+## push_scope = harvest_condition
+alias[effect:every_harvest_condition] = single_alias_right[effect_every_list_clause]
+### Iterate through all harvest conditions affecting a state, state region, strategic region, or country  
+## scopes = { country state state_region strategic_region }
+## push_scope = harvest_condition
+alias[effect:random_harvest_condition] = single_alias_right[effect_random_list_clause]
+### Iterate through all harvest conditions affecting a state, state region, strategic region, or country  
+## scopes = { country state state_region strategic_region }
+## push_scope = harvest_condition
+alias[effect:ordered_harvest_condition] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all harvest conditions affecting a state, state region, strategic region, or country  
+## scopes = { country state state_region strategic_region }
+## push_scope = harvest_condition
+alias[arithmetic_operation:every_harvest_condition] = single_alias_right[formula_every_list_clause]
+### Iterate through all harvest conditions affecting a state, state region, strategic region, or country  
+## scopes = { country state state_region strategic_region }
+## push_scope = harvest_condition
+alias[arithmetic_operation:random_harvest_condition] = single_alias_right[formula_random_list_clause]
+### Iterate through all harvest conditions affecting a state, state region, strategic region, or country  
+## scopes = { country state state_region strategic_region }
+## push_scope = harvest_condition
+alias[arithmetic_operation:ordered_harvest_condition] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all harvest conditions affecting a state, state region, strategic region, or country  
+## scopes = { country state state_region strategic_region }
+## push_scope = harvest_condition
+alias[trigger:any_harvest_condition] = single_alias_right[trigger_any_list_clause]
+
+### Any country in current hierarchy, including current  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_in_hierarchy] = single_alias_right[effect_every_list_clause]
+### Any country in current hierarchy, including current  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_in_hierarchy] = single_alias_right[effect_random_list_clause]
+### Any country in current hierarchy, including current  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_in_hierarchy] = single_alias_right[effect_ordered_list_clause]
+### Any country in current hierarchy, including current  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_in_hierarchy] = single_alias_right[formula_every_list_clause]
+### Any country in current hierarchy, including current  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_in_hierarchy] = single_alias_right[formula_random_list_clause]
+### Any country in current hierarchy, including current  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_in_hierarchy] = single_alias_right[formula_ordered_list_clause]
+### Any country in current hierarchy, including current  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_in_hierarchy] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all interest groups influenced by a political movement  
+## scopes = { political_movement }
+## push_scope = interest_group
+alias[effect:every_influenced_interest_group] = single_alias_right[effect_every_list_clause]
+### Iterate through all interest groups influenced by a political movement  
+## scopes = { political_movement }
+## push_scope = interest_group
+alias[effect:random_influenced_interest_group] = single_alias_right[effect_random_list_clause]
+### Iterate through all interest groups influenced by a political movement  
+## scopes = { political_movement }
+## push_scope = interest_group
+alias[effect:ordered_influenced_interest_group] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all interest groups influenced by a political movement  
+## scopes = { political_movement }
+## push_scope = interest_group
+alias[arithmetic_operation:every_influenced_interest_group] = single_alias_right[formula_every_list_clause]
+### Iterate through all interest groups influenced by a political movement  
+## scopes = { political_movement }
+## push_scope = interest_group
+alias[arithmetic_operation:random_influenced_interest_group] = single_alias_right[formula_random_list_clause]
+### Iterate through all interest groups influenced by a political movement  
+## scopes = { political_movement }
+## push_scope = interest_group
+alias[arithmetic_operation:ordered_influenced_interest_group] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all interest groups influenced by a political movement  
+## scopes = { political_movement }
+## push_scope = interest_group
+alias[trigger:any_influenced_interest_group] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all interest groups in a country  
+## scopes = { country }
+## push_scope = interest_group
+alias[effect:every_interest_group] = single_alias_right[effect_every_list_clause]
+### Iterate through all interest groups in a country  
+## scopes = { country }
+## push_scope = interest_group
+alias[effect:random_interest_group] = single_alias_right[effect_random_list_clause]
+### Iterate through all interest groups in a country  
+## scopes = { country }
+## push_scope = interest_group
+alias[effect:ordered_interest_group] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all interest groups in a country  
+## scopes = { country }
+## push_scope = interest_group
+alias[arithmetic_operation:every_interest_group] = single_alias_right[formula_every_list_clause]
+### Iterate through all interest groups in a country  
+## scopes = { country }
+## push_scope = interest_group
+alias[arithmetic_operation:random_interest_group] = single_alias_right[formula_random_list_clause]
+### Iterate through all interest groups in a country  
+## scopes = { country }
+## push_scope = interest_group
+alias[arithmetic_operation:ordered_interest_group] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all interest groups in a country  
+## scopes = { country }
+## push_scope = interest_group
+alias[trigger:any_interest_group] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all laws in a country  
+## scopes = { country }
+## push_scope = law
+alias[effect:every_law] = single_alias_right[effect_every_list_clause]
+### Iterate through all laws in a country  
+## scopes = { country }
+## push_scope = law
+alias[effect:random_law] = single_alias_right[effect_random_list_clause]
+### Iterate through all laws in a country  
+## scopes = { country }
+## push_scope = law
+alias[effect:ordered_law] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all laws in a country  
+## scopes = { country }
+## push_scope = law
+alias[arithmetic_operation:every_law] = single_alias_right[formula_every_list_clause]
+### Iterate through all laws in a country  
+## scopes = { country }
+## push_scope = law
+alias[arithmetic_operation:random_law] = single_alias_right[formula_random_list_clause]
+### Iterate through all laws in a country  
+## scopes = { country }
+## push_scope = law
+alias[arithmetic_operation:ordered_law] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all laws in a country  
+## scopes = { country }
+## push_scope = law
+alias[trigger:any_law] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all interest group members of a lobby  
+## scopes = { political_lobby }
+## push_scope = interest_group
+alias[effect:every_lobby_member] = single_alias_right[effect_every_list_clause]
+### Iterate through all interest group members of a lobby  
+## scopes = { political_lobby }
+## push_scope = interest_group
+alias[effect:random_lobby_member] = single_alias_right[effect_random_list_clause]
+### Iterate through all interest group members of a lobby  
+## scopes = { political_lobby }
+## push_scope = interest_group
+alias[effect:ordered_lobby_member] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all interest group members of a lobby  
+## scopes = { political_lobby }
+## push_scope = interest_group
+alias[arithmetic_operation:every_lobby_member] = single_alias_right[formula_every_list_clause]
+### Iterate through all interest group members of a lobby  
+## scopes = { political_lobby }
+## push_scope = interest_group
+alias[arithmetic_operation:random_lobby_member] = single_alias_right[formula_random_list_clause]
+### Iterate through all interest group members of a lobby  
+## scopes = { political_lobby }
+## push_scope = interest_group
+alias[arithmetic_operation:ordered_lobby_member] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all interest group members of a lobby  
+## scopes = { political_lobby }
+## push_scope = interest_group
+alias[trigger:any_lobby_member] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all markets globally  
+## scopes = { any }
+## push_scope = market
+alias[effect:every_market] = single_alias_right[effect_every_list_clause]
+### Iterate through all markets globally  
+## scopes = { any }
+## push_scope = market
+alias[effect:random_market] = single_alias_right[effect_random_list_clause]
+### Iterate through all markets globally  
+## scopes = { any }
+## push_scope = market
+alias[effect:ordered_market] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all markets globally  
+## scopes = { any }
+## push_scope = market
+alias[arithmetic_operation:every_market] = single_alias_right[formula_every_list_clause]
+### Iterate through all markets globally  
+## scopes = { any }
+## push_scope = market
+alias[arithmetic_operation:random_market] = single_alias_right[formula_random_list_clause]
+### Iterate through all markets globally  
+## scopes = { any }
+## push_scope = market
+alias[arithmetic_operation:ordered_market] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all markets globally  
+## scopes = { any }
+## push_scope = market
+alias[trigger:any_market] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all interest group members of a party  
+## scopes = { party }
+## push_scope = interest_group
+alias[effect:every_member] = single_alias_right[effect_every_list_clause]
+### Iterate through all interest group members of a party  
+## scopes = { party }
+## push_scope = interest_group
+alias[effect:random_member] = single_alias_right[effect_random_list_clause]
+### Iterate through all interest group members of a party  
+## scopes = { party }
+## push_scope = interest_group
+alias[effect:ordered_member] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all interest group members of a party  
+## scopes = { party }
+## push_scope = interest_group
+alias[arithmetic_operation:every_member] = single_alias_right[formula_every_list_clause]
+### Iterate through all interest group members of a party  
+## scopes = { party }
+## push_scope = interest_group
+alias[arithmetic_operation:random_member] = single_alias_right[formula_random_list_clause]
+### Iterate through all interest group members of a party  
+## scopes = { party }
+## push_scope = interest_group
+alias[arithmetic_operation:ordered_member] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all interest group members of a party  
+## scopes = { party }
+## push_scope = interest_group
+alias[trigger:any_member] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all military formations currently present at input scope  
+## scopes = { country front hq }
+## push_scope = military_formation
+alias[effect:every_military_formation] = single_alias_right[effect_every_list_clause]
+### Iterate through all military formations currently present at input scope  
+## scopes = { country front hq }
+## push_scope = military_formation
+alias[effect:random_military_formation] = single_alias_right[effect_random_list_clause]
+### Iterate through all military formations currently present at input scope  
+## scopes = { country front hq }
+## push_scope = military_formation
+alias[effect:ordered_military_formation] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all military formations currently present at input scope  
+## scopes = { country front hq }
+## push_scope = military_formation
+alias[arithmetic_operation:every_military_formation] = single_alias_right[formula_every_list_clause]
+### Iterate through all military formations currently present at input scope  
+## scopes = { country front hq }
+## push_scope = military_formation
+alias[arithmetic_operation:random_military_formation] = single_alias_right[formula_random_list_clause]
+### Iterate through all military formations currently present at input scope  
+## scopes = { country front hq }
+## push_scope = military_formation
+alias[arithmetic_operation:ordered_military_formation] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all military formations currently present at input scope  
+## scopes = { country front hq }
+## push_scope = military_formation
+alias[trigger:any_military_formation] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all states neighbouring a state region  
+## scopes = { country state state_region strategic_region }
+## push_scope = state
+alias[effect:every_neighbouring_state] = single_alias_right[effect_every_list_clause]
+### Iterate through all states neighbouring a state region  
+## scopes = { country state state_region strategic_region }
+## push_scope = state
+alias[effect:random_neighbouring_state] = single_alias_right[effect_random_list_clause]
+### Iterate through all states neighbouring a state region  
+## scopes = { country state state_region strategic_region }
+## push_scope = state
+alias[effect:ordered_neighbouring_state] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all states neighbouring a state region  
+## scopes = { country state state_region strategic_region }
+## push_scope = state
+alias[arithmetic_operation:every_neighbouring_state] = single_alias_right[formula_every_list_clause]
+### Iterate through all states neighbouring a state region  
+## scopes = { country state state_region strategic_region }
+## push_scope = state
+alias[arithmetic_operation:random_neighbouring_state] = single_alias_right[formula_random_list_clause]
+### Iterate through all states neighbouring a state region  
+## scopes = { country state state_region strategic_region }
+## push_scope = state
+alias[arithmetic_operation:ordered_neighbouring_state] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all states neighbouring a state region  
+## scopes = { country state state_region strategic_region }
+## push_scope = state
+alias[trigger:any_neighbouring_state] = single_alias_right[trigger_any_list_clause]
+
+### Any country above current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_overlord_or_above] = single_alias_right[effect_every_list_clause]
+### Any country above current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_overlord_or_above] = single_alias_right[effect_random_list_clause]
+### Any country above current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_overlord_or_above] = single_alias_right[effect_ordered_list_clause]
+### Any country above current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_overlord_or_above] = single_alias_right[formula_every_list_clause]
+### Any country above current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_overlord_or_above] = single_alias_right[formula_random_list_clause]
+### Any country above current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_overlord_or_above] = single_alias_right[formula_ordered_list_clause]
+### Any country above current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_overlord_or_above] = single_alias_right[trigger_any_list_clause]
+
+### Any of two participants of the diplomatic pact in a scope  
+## scopes = { diplomatic_pact }
+## push_scope = country
+alias[effect:every_participant] = single_alias_right[effect_every_list_clause]
+### Any of two participants of the diplomatic pact in a scope  
+## scopes = { diplomatic_pact }
+## push_scope = country
+alias[effect:random_participant] = single_alias_right[effect_random_list_clause]
+### Any of two participants of the diplomatic pact in a scope  
+## scopes = { diplomatic_pact }
+## push_scope = country
+alias[effect:ordered_participant] = single_alias_right[effect_ordered_list_clause]
+### Any of two participants of the diplomatic pact in a scope  
+## scopes = { diplomatic_pact }
+## push_scope = country
+alias[arithmetic_operation:every_participant] = single_alias_right[formula_every_list_clause]
+### Any of two participants of the diplomatic pact in a scope  
+## scopes = { diplomatic_pact }
+## push_scope = country
+alias[arithmetic_operation:random_participant] = single_alias_right[formula_random_list_clause]
+### Any of two participants of the diplomatic pact in a scope  
+## scopes = { diplomatic_pact }
+## push_scope = country
+alias[arithmetic_operation:ordered_participant] = single_alias_right[formula_ordered_list_clause]
+### Any of two participants of the diplomatic pact in a scope  
+## scopes = { diplomatic_pact }
+## push_scope = country
+alias[trigger:any_participant] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all political lobbies in a country or interest group  
+## scopes = { country interest_group }
+## push_scope = political_lobby
+alias[effect:every_political_lobby] = single_alias_right[effect_every_list_clause]
+### Iterate through all political lobbies in a country or interest group  
+## scopes = { country interest_group }
+## push_scope = political_lobby
+alias[effect:random_political_lobby] = single_alias_right[effect_random_list_clause]
+### Iterate through all political lobbies in a country or interest group  
+## scopes = { country interest_group }
+## push_scope = political_lobby
+alias[effect:ordered_political_lobby] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all political lobbies in a country or interest group  
+## scopes = { country interest_group }
+## push_scope = political_lobby
+alias[arithmetic_operation:every_political_lobby] = single_alias_right[formula_every_list_clause]
+### Iterate through all political lobbies in a country or interest group  
+## scopes = { country interest_group }
+## push_scope = political_lobby
+alias[arithmetic_operation:random_political_lobby] = single_alias_right[formula_random_list_clause]
+### Iterate through all political lobbies in a country or interest group  
+## scopes = { country interest_group }
+## push_scope = political_lobby
+alias[arithmetic_operation:ordered_political_lobby] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all political lobbies in a country or interest group  
+## scopes = { country interest_group }
+## push_scope = political_lobby
+alias[trigger:any_political_lobby] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all political movements in a country  
+## scopes = { country }
+## push_scope = political_movement
+alias[effect:every_political_movement] = single_alias_right[effect_every_list_clause]
+### Iterate through all political movements in a country  
+## scopes = { country }
+## push_scope = political_movement
+alias[effect:random_political_movement] = single_alias_right[effect_random_list_clause]
+### Iterate through all political movements in a country  
+## scopes = { country }
+## push_scope = political_movement
+alias[effect:ordered_political_movement] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all political movements in a country  
+## scopes = { country }
+## push_scope = political_movement
+alias[arithmetic_operation:every_political_movement] = single_alias_right[formula_every_list_clause]
+### Iterate through all political movements in a country  
+## scopes = { country }
+## push_scope = political_movement
+alias[arithmetic_operation:random_political_movement] = single_alias_right[formula_random_list_clause]
+### Iterate through all political movements in a country  
+## scopes = { country }
+## push_scope = political_movement
+alias[arithmetic_operation:ordered_political_movement] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all political movements in a country  
+## scopes = { country }
+## push_scope = political_movement
+alias[trigger:any_political_movement] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through amendment types that could be added to the scoped law  
+## scopes = { law }
+## push_scope = amendment_type
+alias[effect:every_possible_amendment_type] = single_alias_right[effect_every_list_clause]
+### Iterate through amendment types that could be added to the scoped law  
+## scopes = { law }
+## push_scope = amendment_type
+alias[effect:random_possible_amendment_type] = single_alias_right[effect_random_list_clause]
+### Iterate through amendment types that could be added to the scoped law  
+## scopes = { law }
+## push_scope = amendment_type
+alias[effect:ordered_possible_amendment_type] = single_alias_right[effect_ordered_list_clause]
+### Iterate through amendment types that could be added to the scoped law  
+## scopes = { law }
+## push_scope = amendment_type
+alias[arithmetic_operation:every_possible_amendment_type] = single_alias_right[formula_every_list_clause]
+### Iterate through amendment types that could be added to the scoped law  
+## scopes = { law }
+## push_scope = amendment_type
+alias[arithmetic_operation:random_possible_amendment_type] = single_alias_right[formula_random_list_clause]
+### Iterate through amendment types that could be added to the scoped law  
+## scopes = { law }
+## push_scope = amendment_type
+alias[arithmetic_operation:ordered_possible_amendment_type] = single_alias_right[formula_ordered_list_clause]
+### Iterate through amendment types that could be added to the scoped law  
+## scopes = { law }
+## push_scope = amendment_type
+alias[trigger:any_possible_amendment_type] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all potential political parties in a country  
+## scopes = { country }
+## push_scope = party
+alias[effect:every_potential_party] = single_alias_right[effect_every_list_clause]
+### Iterate through all potential political parties in a country  
+## scopes = { country }
+## push_scope = party
+alias[effect:random_potential_party] = single_alias_right[effect_random_list_clause]
+### Iterate through all potential political parties in a country  
+## scopes = { country }
+## push_scope = party
+alias[effect:ordered_potential_party] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all potential political parties in a country  
+## scopes = { country }
+## push_scope = party
+alias[arithmetic_operation:every_potential_party] = single_alias_right[formula_every_list_clause]
+### Iterate through all potential political parties in a country  
+## scopes = { country }
+## push_scope = party
+alias[arithmetic_operation:random_potential_party] = single_alias_right[formula_random_list_clause]
+### Iterate through all potential political parties in a country  
+## scopes = { country }
+## push_scope = party
+alias[arithmetic_operation:ordered_potential_party] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all potential political parties in a country  
+## scopes = { country }
+## push_scope = party
+alias[trigger:any_potential_party] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all power blocs  
+## scopes = { any }
+## push_scope = power_bloc
+alias[effect:every_power_bloc] = single_alias_right[effect_every_list_clause]
+### Iterate through all power blocs  
+## scopes = { any }
+## push_scope = power_bloc
+alias[effect:random_power_bloc] = single_alias_right[effect_random_list_clause]
+### Iterate through all power blocs  
+## scopes = { any }
+## push_scope = power_bloc
+alias[effect:ordered_power_bloc] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all power blocs  
+## scopes = { any }
+## push_scope = power_bloc
+alias[arithmetic_operation:every_power_bloc] = single_alias_right[formula_every_list_clause]
+### Iterate through all power blocs  
+## scopes = { any }
+## push_scope = power_bloc
+alias[arithmetic_operation:random_power_bloc] = single_alias_right[formula_random_list_clause]
+### Iterate through all power blocs  
+## scopes = { any }
+## push_scope = power_bloc
+alias[arithmetic_operation:ordered_power_bloc] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all power blocs  
+## scopes = { any }
+## push_scope = power_bloc
+alias[trigger:any_power_bloc] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all members of the scoped power bloc including the leader  
+## scopes = { power_bloc }
+## push_scope = country
+alias[effect:every_power_bloc_member] = single_alias_right[effect_every_list_clause]
+### Iterate through all members of the scoped power bloc including the leader  
+## scopes = { power_bloc }
+## push_scope = country
+alias[effect:random_power_bloc_member] = single_alias_right[effect_random_list_clause]
+### Iterate through all members of the scoped power bloc including the leader  
+## scopes = { power_bloc }
+## push_scope = country
+alias[effect:ordered_power_bloc_member] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all members of the scoped power bloc including the leader  
+## scopes = { power_bloc }
+## push_scope = country
+alias[arithmetic_operation:every_power_bloc_member] = single_alias_right[formula_every_list_clause]
+### Iterate through all members of the scoped power bloc including the leader  
+## scopes = { power_bloc }
+## push_scope = country
+alias[arithmetic_operation:random_power_bloc_member] = single_alias_right[formula_random_list_clause]
+### Iterate through all members of the scoped power bloc including the leader  
+## scopes = { power_bloc }
+## push_scope = country
+alias[arithmetic_operation:ordered_power_bloc_member] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all members of the scoped power bloc including the leader  
+## scopes = { power_bloc }
+## push_scope = country
+alias[trigger:any_power_bloc_member] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
+## scopes = { interest_group }
+## push_scope = law
+alias[effect:every_preferred_law] = single_alias_right[effect_every_list_clause]
+### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
+## scopes = { interest_group }
+## push_scope = law
+alias[effect:random_preferred_law] = single_alias_right[effect_random_list_clause]
+### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
+## scopes = { interest_group }
+## push_scope = law
+alias[effect:ordered_preferred_law] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
+## scopes = { interest_group }
+## push_scope = law
+alias[arithmetic_operation:every_preferred_law] = single_alias_right[formula_every_list_clause]
+### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
+## scopes = { interest_group }
+## push_scope = law
+alias[arithmetic_operation:random_preferred_law] = single_alias_right[formula_random_list_clause]
+### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
+## scopes = { interest_group }
+## push_scope = law
+alias[arithmetic_operation:ordered_preferred_law] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
+## scopes = { interest_group }
+## push_scope = law
+alias[trigger:any_preferred_law] = single_alias_right[trigger_any_list_clause]
+
+### Primary cultures of the scoped country or country definition  
+## scopes = { country country_definition }
+## push_scope = culture
+alias[effect:every_primary_culture] = single_alias_right[effect_every_list_clause]
+### Primary cultures of the scoped country or country definition  
+## scopes = { country country_definition }
+## push_scope = culture
+alias[effect:random_primary_culture] = single_alias_right[effect_random_list_clause]
+### Primary cultures of the scoped country or country definition  
+## scopes = { country country_definition }
+## push_scope = culture
+alias[effect:ordered_primary_culture] = single_alias_right[effect_ordered_list_clause]
+### Primary cultures of the scoped country or country definition  
+## scopes = { country country_definition }
+## push_scope = culture
+alias[arithmetic_operation:every_primary_culture] = single_alias_right[formula_every_list_clause]
+### Primary cultures of the scoped country or country definition  
+## scopes = { country country_definition }
+## push_scope = culture
+alias[arithmetic_operation:random_primary_culture] = single_alias_right[formula_random_list_clause]
+### Primary cultures of the scoped country or country definition  
+## scopes = { country country_definition }
+## push_scope = culture
+alias[arithmetic_operation:ordered_primary_culture] = single_alias_right[formula_ordered_list_clause]
+### Primary cultures of the scoped country or country definition  
+## scopes = { country country_definition }
+## push_scope = culture
+alias[trigger:any_primary_culture] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Provinces in the scoped State  
+## scopes = { province }
+## push_scope = state
+alias[effect:every_province] = single_alias_right[effect_every_list_clause]
+### Iterate through all Provinces in the scoped State  
+## scopes = { province }
+## push_scope = state
+alias[effect:random_province] = single_alias_right[effect_random_list_clause]
+### Iterate through all Provinces in the scoped State  
+## scopes = { province }
+## push_scope = state
+alias[effect:ordered_province] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Provinces in the scoped State  
+## scopes = { province }
+## push_scope = state
+alias[arithmetic_operation:every_province] = single_alias_right[formula_every_list_clause]
+### Iterate through all Provinces in the scoped State  
+## scopes = { province }
+## push_scope = state
+alias[arithmetic_operation:random_province] = single_alias_right[formula_random_list_clause]
+### Iterate through all Provinces in the scoped State  
+## scopes = { province }
+## push_scope = state
+alias[arithmetic_operation:ordered_province] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Provinces in the scoped State  
+## scopes = { province }
+## push_scope = state
+alias[trigger:any_province] = single_alias_right[trigger_any_list_clause]
+
+### Any country that is being rivaled by the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_rival_country] = single_alias_right[effect_every_list_clause]
+### Any country that is being rivaled by the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_rival_country] = single_alias_right[effect_random_list_clause]
+### Any country that is being rivaled by the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_rival_country] = single_alias_right[effect_ordered_list_clause]
+### Any country that is being rivaled by the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_rival_country] = single_alias_right[formula_every_list_clause]
+### Any country that is being rivaled by the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_rival_country] = single_alias_right[formula_random_list_clause]
+### Any country that is being rivaled by the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_rival_country] = single_alias_right[formula_ordered_list_clause]
+### Any country that is being rivaled by the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_rival_country] = single_alias_right[trigger_any_list_clause]
+
+### Any country that is rivaling the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_rivaling_country] = single_alias_right[effect_every_list_clause]
+### Any country that is rivaling the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_rivaling_country] = single_alias_right[effect_random_list_clause]
+### Any country that is rivaling the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_rivaling_country] = single_alias_right[effect_ordered_list_clause]
+### Any country that is rivaling the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_rivaling_country] = single_alias_right[formula_every_list_clause]
+### Any country that is rivaling the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_rivaling_country] = single_alias_right[formula_random_list_clause]
+### Any country that is rivaling the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_rivaling_country] = single_alias_right[formula_ordered_list_clause]
+### Any country that is rivaling the country in a scope  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_rivaling_country] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all admirals in a: country, interestgroup, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:every_scope_admiral] = single_alias_right[effect_every_list_clause]
+### Iterate through all admirals in a: country, interestgroup, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:random_scope_admiral] = single_alias_right[effect_random_list_clause]
+### Iterate through all admirals in a: country, interestgroup, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:ordered_scope_admiral] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all admirals in a: country, interestgroup, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:every_scope_admiral] = single_alias_right[formula_every_list_clause]
+### Iterate through all admirals in a: country, interestgroup, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:random_scope_admiral] = single_alias_right[formula_random_list_clause]
+### Iterate through all admirals in a: country, interestgroup, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:ordered_scope_admiral] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all admirals in a: country, interestgroup, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[trigger:any_scope_admiral] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all allies to a: country  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_scope_ally] = single_alias_right[effect_every_list_clause]
+### Iterate through all allies to a: country  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_scope_ally] = single_alias_right[effect_random_list_clause]
+### Iterate through all allies to a: country  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_scope_ally] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all allies to a: country  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_scope_ally] = single_alias_right[formula_every_list_clause]
+### Iterate through all allies to a: country  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_scope_ally] = single_alias_right[formula_random_list_clause]
+### Iterate through all allies to a: country  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_scope_ally] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all allies to a: country  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_scope_ally] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through articles of the scoped treaty  
+## scopes = { treaty }
+## push_scope = treaty_article
+alias[effect:every_scope_article] = single_alias_right[effect_every_list_clause]
+### Iterate through articles of the scoped treaty  
+## scopes = { treaty }
+## push_scope = treaty_article
+alias[effect:random_scope_article] = single_alias_right[effect_random_list_clause]
+### Iterate through articles of the scoped treaty  
+## scopes = { treaty }
+## push_scope = treaty_article
+alias[effect:ordered_scope_article] = single_alias_right[effect_ordered_list_clause]
+### Iterate through articles of the scoped treaty  
+## scopes = { treaty }
+## push_scope = treaty_article
+alias[arithmetic_operation:every_scope_article] = single_alias_right[formula_every_list_clause]
+### Iterate through articles of the scoped treaty  
+## scopes = { treaty }
+## push_scope = treaty_article
+alias[arithmetic_operation:random_scope_article] = single_alias_right[formula_random_list_clause]
+### Iterate through articles of the scoped treaty  
+## scopes = { treaty }
+## push_scope = treaty_article
+alias[arithmetic_operation:ordered_scope_article] = single_alias_right[formula_ordered_list_clause]
+### Iterate through articles of the scoped treaty  
+## scopes = { treaty }
+## push_scope = treaty_article
+alias[trigger:any_scope_article] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through article_options of the scoped treaty or treaty_options  
+## scopes = { treaty_options treaty }
+## push_scope = treaty_article_options
+alias[effect:every_scope_article_option] = single_alias_right[effect_every_list_clause]
+### Iterate through article_options of the scoped treaty or treaty_options  
+## scopes = { treaty_options treaty }
+## push_scope = treaty_article_options
+alias[effect:random_scope_article_option] = single_alias_right[effect_random_list_clause]
+### Iterate through article_options of the scoped treaty or treaty_options  
+## scopes = { treaty_options treaty }
+## push_scope = treaty_article_options
+alias[effect:ordered_scope_article_option] = single_alias_right[effect_ordered_list_clause]
+### Iterate through article_options of the scoped treaty or treaty_options  
+## scopes = { treaty_options treaty }
+## push_scope = treaty_article_options
+alias[arithmetic_operation:every_scope_article_option] = single_alias_right[formula_every_list_clause]
+### Iterate through article_options of the scoped treaty or treaty_options  
+## scopes = { treaty_options treaty }
+## push_scope = treaty_article_options
+alias[arithmetic_operation:random_scope_article_option] = single_alias_right[formula_random_list_clause]
+### Iterate through article_options of the scoped treaty or treaty_options  
+## scopes = { treaty_options treaty }
+## push_scope = treaty_article_options
+alias[arithmetic_operation:ordered_scope_article_option] = single_alias_right[formula_ordered_list_clause]
+### Iterate through article_options of the scoped treaty or treaty_options  
+## scopes = { treaty_options treaty }
+## push_scope = treaty_article_options
+alias[trigger:any_scope_article_option] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all buildings in a: state, country  
+## scopes = { country state }
+## push_scope = building
+alias[effect:every_scope_building] = single_alias_right[effect_every_list_clause]
+### Iterate through all buildings in a: state, country  
+## scopes = { country state }
+## push_scope = building
+alias[effect:random_scope_building] = single_alias_right[effect_random_list_clause]
+### Iterate through all buildings in a: state, country  
+## scopes = { country state }
+## push_scope = building
+alias[effect:ordered_scope_building] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all buildings in a: state, country  
+## scopes = { country state }
+## push_scope = building
+alias[arithmetic_operation:every_scope_building] = single_alias_right[formula_every_list_clause]
+### Iterate through all buildings in a: state, country  
+## scopes = { country state }
+## push_scope = building
+alias[arithmetic_operation:random_scope_building] = single_alias_right[formula_random_list_clause]
+### Iterate through all buildings in a: state, country  
+## scopes = { country state }
+## push_scope = building
+alias[arithmetic_operation:ordered_scope_building] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all buildings in a: state, country  
+## scopes = { country state }
+## push_scope = building
+alias[trigger:any_scope_building] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all characters in a: country, interestgroup, or front  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:every_scope_character] = single_alias_right[effect_every_list_clause]
+### Iterate through all characters in a: country, interestgroup, or front  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:random_scope_character] = single_alias_right[effect_random_list_clause]
+### Iterate through all characters in a: country, interestgroup, or front  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:ordered_scope_character] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all characters in a: country, interestgroup, or front  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:every_scope_character] = single_alias_right[formula_every_list_clause]
+### Iterate through all characters in a: country, interestgroup, or front  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:random_scope_character] = single_alias_right[formula_random_list_clause]
+### Iterate through all characters in a: country, interestgroup, or front  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:ordered_scope_character] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all characters in a: country, interestgroup, or front  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[trigger:any_scope_character] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all countries with a presence in the supported scope (currently: market, strategic region)  
+## scopes = { market state_region strategic_region }
+## push_scope = country
+alias[effect:every_scope_country] = single_alias_right[effect_every_list_clause]
+### Iterate through all countries with a presence in the supported scope (currently: market, strategic region)  
+## scopes = { market state_region strategic_region }
+## push_scope = country
+alias[effect:random_scope_country] = single_alias_right[effect_random_list_clause]
+### Iterate through all countries with a presence in the supported scope (currently: market, strategic region)  
+## scopes = { market state_region strategic_region }
+## push_scope = country
+alias[effect:ordered_scope_country] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all countries with a presence in the supported scope (currently: market, strategic region)  
+## scopes = { market state_region strategic_region }
+## push_scope = country
+alias[arithmetic_operation:every_scope_country] = single_alias_right[formula_every_list_clause]
+### Iterate through all countries with a presence in the supported scope (currently: market, strategic region)  
+## scopes = { market state_region strategic_region }
+## push_scope = country
+alias[arithmetic_operation:random_scope_country] = single_alias_right[formula_random_list_clause]
+### Iterate through all countries with a presence in the supported scope (currently: market, strategic region)  
+## scopes = { market state_region strategic_region }
+## push_scope = country
+alias[arithmetic_operation:ordered_scope_country] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all countries with a presence in the supported scope (currently: market, strategic region)  
+## scopes = { market state_region strategic_region }
+## push_scope = country
+alias[trigger:any_scope_country] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all cultures in the scope  
+## scopes = { country state }
+## push_scope = culture
+alias[effect:every_scope_culture] = single_alias_right[effect_every_list_clause]
+### Iterate through all cultures in the scope  
+## scopes = { country state }
+## push_scope = culture
+alias[effect:random_scope_culture] = single_alias_right[effect_random_list_clause]
+### Iterate through all cultures in the scope  
+## scopes = { country state }
+## push_scope = culture
+alias[effect:ordered_scope_culture] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all cultures in the scope  
+## scopes = { country state }
+## push_scope = culture
+alias[arithmetic_operation:every_scope_culture] = single_alias_right[formula_every_list_clause]
+### Iterate through all cultures in the scope  
+## scopes = { country state }
+## push_scope = culture
+alias[arithmetic_operation:random_scope_culture] = single_alias_right[formula_random_list_clause]
+### Iterate through all cultures in the scope  
+## scopes = { country state }
+## push_scope = culture
+alias[arithmetic_operation:ordered_scope_culture] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all cultures in the scope  
+## scopes = { country state }
+## push_scope = culture
+alias[trigger:any_scope_culture] = single_alias_right[trigger_any_list_clause]
+
+### Any diplomatic pact of the country in a scope  
+## scopes = { country }
+## push_scope = diplomatic_pact
+alias[effect:every_scope_diplomatic_pact] = single_alias_right[effect_every_list_clause]
+### Any diplomatic pact of the country in a scope  
+## scopes = { country }
+## push_scope = diplomatic_pact
+alias[effect:random_scope_diplomatic_pact] = single_alias_right[effect_random_list_clause]
+### Any diplomatic pact of the country in a scope  
+## scopes = { country }
+## push_scope = diplomatic_pact
+alias[effect:ordered_scope_diplomatic_pact] = single_alias_right[effect_ordered_list_clause]
+### Any diplomatic pact of the country in a scope  
+## scopes = { country }
+## push_scope = diplomatic_pact
+alias[arithmetic_operation:every_scope_diplomatic_pact] = single_alias_right[formula_every_list_clause]
+### Any diplomatic pact of the country in a scope  
+## scopes = { country }
+## push_scope = diplomatic_pact
+alias[arithmetic_operation:random_scope_diplomatic_pact] = single_alias_right[formula_random_list_clause]
+### Any diplomatic pact of the country in a scope  
+## scopes = { country }
+## push_scope = diplomatic_pact
+alias[arithmetic_operation:ordered_scope_diplomatic_pact] = single_alias_right[formula_ordered_list_clause]
+### Any diplomatic pact of the country in a scope  
+## scopes = { country }
+## push_scope = diplomatic_pact
+alias[trigger:any_scope_diplomatic_pact] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Fronts related to the scoped War  
+## scopes = { war }
+## push_scope = front
+alias[effect:every_scope_front] = single_alias_right[effect_every_list_clause]
+### Iterate through all Fronts related to the scoped War  
+## scopes = { war }
+## push_scope = front
+alias[effect:random_scope_front] = single_alias_right[effect_random_list_clause]
+### Iterate through all Fronts related to the scoped War  
+## scopes = { war }
+## push_scope = front
+alias[effect:ordered_scope_front] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Fronts related to the scoped War  
+## scopes = { war }
+## push_scope = front
+alias[arithmetic_operation:every_scope_front] = single_alias_right[formula_every_list_clause]
+### Iterate through all Fronts related to the scoped War  
+## scopes = { war }
+## push_scope = front
+alias[arithmetic_operation:random_scope_front] = single_alias_right[formula_random_list_clause]
+### Iterate through all Fronts related to the scoped War  
+## scopes = { war }
+## push_scope = front
+alias[arithmetic_operation:ordered_scope_front] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Fronts related to the scoped War  
+## scopes = { war }
+## push_scope = front
+alias[trigger:any_scope_front] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all generals in a: country, interestgroup, front, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:every_scope_general] = single_alias_right[effect_every_list_clause]
+### Iterate through all generals in a: country, interestgroup, front, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:random_scope_general] = single_alias_right[effect_random_list_clause]
+### Iterate through all generals in a: country, interestgroup, front, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:ordered_scope_general] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all generals in a: country, interestgroup, front, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:every_scope_general] = single_alias_right[formula_every_list_clause]
+### Iterate through all generals in a: country, interestgroup, front, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:random_scope_general] = single_alias_right[formula_random_list_clause]
+### Iterate through all generals in a: country, interestgroup, front, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:ordered_scope_general] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all generals in a: country, interestgroup, front, or military formation  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[trigger:any_scope_general] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all interest markers held by a country  
+## scopes = { country }
+## push_scope = interest_marker
+alias[effect:every_scope_held_interest_marker] = single_alias_right[effect_every_list_clause]
+### Iterate through all interest markers held by a country  
+## scopes = { country }
+## push_scope = interest_marker
+alias[effect:random_scope_held_interest_marker] = single_alias_right[effect_random_list_clause]
+### Iterate through all interest markers held by a country  
+## scopes = { country }
+## push_scope = interest_marker
+alias[effect:ordered_scope_held_interest_marker] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all interest markers held by a country  
+## scopes = { country }
+## push_scope = interest_marker
+alias[arithmetic_operation:every_scope_held_interest_marker] = single_alias_right[formula_every_list_clause]
+### Iterate through all interest markers held by a country  
+## scopes = { country }
+## push_scope = interest_marker
+alias[arithmetic_operation:random_scope_held_interest_marker] = single_alias_right[formula_random_list_clause]
+### Iterate through all interest markers held by a country  
+## scopes = { country }
+## push_scope = interest_marker
+alias[arithmetic_operation:ordered_scope_held_interest_marker] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all interest markers held by a country  
+## scopes = { country }
+## push_scope = interest_marker
+alias[trigger:any_scope_held_interest_marker] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all allies to an initiator in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[effect:every_scope_initiator_ally] = single_alias_right[effect_every_list_clause]
+### Iterate through all allies to an initiator in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[effect:random_scope_initiator_ally] = single_alias_right[effect_random_list_clause]
+### Iterate through all allies to an initiator in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[effect:ordered_scope_initiator_ally] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all allies to an initiator in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[arithmetic_operation:every_scope_initiator_ally] = single_alias_right[formula_every_list_clause]
+### Iterate through all allies to an initiator in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[arithmetic_operation:random_scope_initiator_ally] = single_alias_right[formula_random_list_clause]
+### Iterate through all allies to an initiator in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[arithmetic_operation:ordered_scope_initiator_ally] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all allies to an initiator in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[trigger:any_scope_initiator_ally] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all interest markers in a: country, strategic region, state region  
+## scopes = { country state_region strategic_region }
+## push_scope = interest_marker
+alias[effect:every_scope_interest_marker] = single_alias_right[effect_every_list_clause]
+### Iterate through all interest markers in a: country, strategic region, state region  
+## scopes = { country state_region strategic_region }
+## push_scope = interest_marker
+alias[effect:random_scope_interest_marker] = single_alias_right[effect_random_list_clause]
+### Iterate through all interest markers in a: country, strategic region, state region  
+## scopes = { country state_region strategic_region }
+## push_scope = interest_marker
+alias[effect:ordered_scope_interest_marker] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all interest markers in a: country, strategic region, state region  
+## scopes = { country state_region strategic_region }
+## push_scope = interest_marker
+alias[arithmetic_operation:every_scope_interest_marker] = single_alias_right[formula_every_list_clause]
+### Iterate through all interest markers in a: country, strategic region, state region  
+## scopes = { country state_region strategic_region }
+## push_scope = interest_marker
+alias[arithmetic_operation:random_scope_interest_marker] = single_alias_right[formula_random_list_clause]
+### Iterate through all interest markers in a: country, strategic region, state region  
+## scopes = { country state_region strategic_region }
+## push_scope = interest_marker
+alias[arithmetic_operation:ordered_scope_interest_marker] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all interest markers in a: country, strategic region, state region  
+## scopes = { country state_region strategic_region }
+## push_scope = interest_marker
+alias[trigger:any_scope_interest_marker] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all involved in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[effect:every_scope_play_involved] = single_alias_right[effect_every_list_clause]
+### Iterate through all involved in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[effect:random_scope_play_involved] = single_alias_right[effect_random_list_clause]
+### Iterate through all involved in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[effect:ordered_scope_play_involved] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all involved in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[arithmetic_operation:every_scope_play_involved] = single_alias_right[formula_every_list_clause]
+### Iterate through all involved in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[arithmetic_operation:random_scope_play_involved] = single_alias_right[formula_random_list_clause]
+### Iterate through all involved in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[arithmetic_operation:ordered_scope_play_involved] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all involved in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[trigger:any_scope_play_involved] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all politicians in a: country or interestgroup  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:every_scope_politician] = single_alias_right[effect_every_list_clause]
+### Iterate through all politicians in a: country or interestgroup  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:random_scope_politician] = single_alias_right[effect_random_list_clause]
+### Iterate through all politicians in a: country or interestgroup  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[effect:ordered_scope_politician] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all politicians in a: country or interestgroup  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:every_scope_politician] = single_alias_right[formula_every_list_clause]
+### Iterate through all politicians in a: country or interestgroup  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:random_scope_politician] = single_alias_right[formula_random_list_clause]
+### Iterate through all politicians in a: country or interestgroup  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[arithmetic_operation:ordered_scope_politician] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all politicians in a: country or interestgroup  
+## scopes = { country front interest_group military_formation }
+## push_scope = character
+alias[trigger:any_scope_politician] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all pops in a: country, state, interest group, culture  
+## scopes = { country culture interest_group state }
+## push_scope = pop
+alias[effect:every_scope_pop] = single_alias_right[effect_every_list_clause]
+### Iterate through all pops in a: country, state, interest group, culture  
+## scopes = { country culture interest_group state }
+## push_scope = pop
+alias[effect:random_scope_pop] = single_alias_right[effect_random_list_clause]
+### Iterate through all pops in a: country, state, interest group, culture  
+## scopes = { country culture interest_group state }
+## push_scope = pop
+alias[effect:ordered_scope_pop] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all pops in a: country, state, interest group, culture  
+## scopes = { country culture interest_group state }
+## push_scope = pop
+alias[arithmetic_operation:every_scope_pop] = single_alias_right[formula_every_list_clause]
+### Iterate through all pops in a: country, state, interest group, culture  
+## scopes = { country culture interest_group state }
+## push_scope = pop
+alias[arithmetic_operation:random_scope_pop] = single_alias_right[formula_random_list_clause]
+### Iterate through all pops in a: country, state, interest group, culture  
+## scopes = { country culture interest_group state }
+## push_scope = pop
+alias[arithmetic_operation:ordered_scope_pop] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all pops in a: country, state, interest group, culture  
+## scopes = { country culture interest_group state }
+## push_scope = pop
+alias[trigger:any_scope_pop] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through regional HQs of the scoped company  
+## scopes = { company }
+## push_scope = building
+alias[effect:every_scope_regional_hqs] = single_alias_right[effect_every_list_clause]
+### Iterate through regional HQs of the scoped company  
+## scopes = { company }
+## push_scope = building
+alias[effect:random_scope_regional_hqs] = single_alias_right[effect_random_list_clause]
+### Iterate through regional HQs of the scoped company  
+## scopes = { company }
+## push_scope = building
+alias[effect:ordered_scope_regional_hqs] = single_alias_right[effect_ordered_list_clause]
+### Iterate through regional HQs of the scoped company  
+## scopes = { company }
+## push_scope = building
+alias[arithmetic_operation:every_scope_regional_hqs] = single_alias_right[formula_every_list_clause]
+### Iterate through regional HQs of the scoped company  
+## scopes = { company }
+## push_scope = building
+alias[arithmetic_operation:random_scope_regional_hqs] = single_alias_right[formula_random_list_clause]
+### Iterate through regional HQs of the scoped company  
+## scopes = { company }
+## push_scope = building
+alias[arithmetic_operation:ordered_scope_regional_hqs] = single_alias_right[formula_ordered_list_clause]
+### Iterate through regional HQs of the scoped company  
+## scopes = { company }
+## push_scope = building
+alias[trigger:any_scope_regional_hqs] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all states including provinces from a: country, state_region, theater, or front  
+## scopes = { country front state_region strategic_region theater }
+## push_scope = state
+alias[effect:every_scope_state] = single_alias_right[effect_every_list_clause]
+### Iterate through all states including provinces from a: country, state_region, theater, or front  
+## scopes = { country front state_region strategic_region theater }
+## push_scope = state
+alias[effect:random_scope_state] = single_alias_right[effect_random_list_clause]
+### Iterate through all states including provinces from a: country, state_region, theater, or front  
+## scopes = { country front state_region strategic_region theater }
+## push_scope = state
+alias[effect:ordered_scope_state] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all states including provinces from a: country, state_region, theater, or front  
+## scopes = { country front state_region strategic_region theater }
+## push_scope = state
+alias[arithmetic_operation:every_scope_state] = single_alias_right[formula_every_list_clause]
+### Iterate through all states including provinces from a: country, state_region, theater, or front  
+## scopes = { country front state_region strategic_region theater }
+## push_scope = state
+alias[arithmetic_operation:random_scope_state] = single_alias_right[formula_random_list_clause]
+### Iterate through all states including provinces from a: country, state_region, theater, or front  
+## scopes = { country front state_region strategic_region theater }
+## push_scope = state
+alias[arithmetic_operation:ordered_scope_state] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all states including provinces from a: country, state_region, theater, or front  
+## scopes = { country front state_region strategic_region theater }
+## push_scope = state
+alias[trigger:any_scope_state] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all allies to a target in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[effect:every_scope_target_ally] = single_alias_right[effect_every_list_clause]
+### Iterate through all allies to a target in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[effect:random_scope_target_ally] = single_alias_right[effect_random_list_clause]
+### Iterate through all allies to a target in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[effect:ordered_scope_target_ally] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all allies to a target in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[arithmetic_operation:every_scope_target_ally] = single_alias_right[formula_every_list_clause]
+### Iterate through all allies to a target in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[arithmetic_operation:random_scope_target_ally] = single_alias_right[formula_random_list_clause]
+### Iterate through all allies to a target in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[arithmetic_operation:ordered_scope_target_ally] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all allies to a target in a: diplomatic play  
+## scopes = { diplomatic_play }
+## push_scope = country
+alias[trigger:any_scope_target_ally] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all theaters in a: country  
+## scopes = { country }
+## push_scope = theater
+alias[effect:every_scope_theater] = single_alias_right[effect_every_list_clause]
+### Iterate through all theaters in a: country  
+## scopes = { country }
+## push_scope = theater
+alias[effect:random_scope_theater] = single_alias_right[effect_random_list_clause]
+### Iterate through all theaters in a: country  
+## scopes = { country }
+## push_scope = theater
+alias[effect:ordered_scope_theater] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all theaters in a: country  
+## scopes = { country }
+## push_scope = theater
+alias[arithmetic_operation:every_scope_theater] = single_alias_right[formula_every_list_clause]
+### Iterate through all theaters in a: country  
+## scopes = { country }
+## push_scope = theater
+alias[arithmetic_operation:random_scope_theater] = single_alias_right[formula_random_list_clause]
+### Iterate through all theaters in a: country  
+## scopes = { country }
+## push_scope = theater
+alias[arithmetic_operation:ordered_scope_theater] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all theaters in a: country  
+## scopes = { country }
+## push_scope = theater
+alias[trigger:any_scope_theater] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through in force treaties binding the scoped country  
+## scopes = { country }
+## push_scope = treaty
+alias[effect:every_scope_treaty] = single_alias_right[effect_every_list_clause]
+### Iterate through in force treaties binding the scoped country  
+## scopes = { country }
+## push_scope = treaty
+alias[effect:random_scope_treaty] = single_alias_right[effect_random_list_clause]
+### Iterate through in force treaties binding the scoped country  
+## scopes = { country }
+## push_scope = treaty
+alias[effect:ordered_scope_treaty] = single_alias_right[effect_ordered_list_clause]
+### Iterate through in force treaties binding the scoped country  
+## scopes = { country }
+## push_scope = treaty
+alias[arithmetic_operation:every_scope_treaty] = single_alias_right[formula_every_list_clause]
+### Iterate through in force treaties binding the scoped country  
+## scopes = { country }
+## push_scope = treaty
+alias[arithmetic_operation:random_scope_treaty] = single_alias_right[formula_random_list_clause]
+### Iterate through in force treaties binding the scoped country  
+## scopes = { country }
+## push_scope = treaty
+alias[arithmetic_operation:ordered_scope_treaty] = single_alias_right[formula_ordered_list_clause]
+### Iterate through in force treaties binding the scoped country  
+## scopes = { country }
+## push_scope = treaty
+alias[trigger:any_scope_treaty] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_scope_violate_sovereignty_interested_parties] = single_alias_right[effect_every_list_clause]
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_scope_violate_sovereignty_interested_parties] = single_alias_right[effect_random_list_clause]
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_scope_violate_sovereignty_interested_parties] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_scope_violate_sovereignty_interested_parties] = single_alias_right[formula_every_list_clause]
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_scope_violate_sovereignty_interested_parties] = single_alias_right[formula_random_list_clause]
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_scope_violate_sovereignty_interested_parties] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all countries that would be interested if country in scope has their sovereignty violated  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_scope_violate_sovereignty_interested_parties] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country  
+## scopes = { country }
+## push_scope = war
+alias[effect:every_scope_violate_sovereignty_wars] = single_alias_right[effect_every_list_clause]
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country  
+## scopes = { country }
+## push_scope = war
+alias[effect:random_scope_violate_sovereignty_wars] = single_alias_right[effect_random_list_clause]
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country  
+## scopes = { country }
+## push_scope = war
+alias[effect:ordered_scope_violate_sovereignty_wars] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country  
+## scopes = { country }
+## push_scope = war
+alias[arithmetic_operation:every_scope_violate_sovereignty_wars] = single_alias_right[formula_every_list_clause]
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country  
+## scopes = { country }
+## push_scope = war
+alias[arithmetic_operation:random_scope_violate_sovereignty_wars] = single_alias_right[formula_random_list_clause]
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country  
+## scopes = { country }
+## push_scope = war
+alias[arithmetic_operation:ordered_scope_violate_sovereignty_wars] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all relevant wars if target country had their sovereignty violated by scoped country  
+## scopes = { country }
+## push_scope = war
+alias[trigger:any_scope_violate_sovereignty_wars] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all wars related to the scope  
+## scopes = { country }
+## push_scope = war
+alias[effect:every_scope_war] = single_alias_right[effect_every_list_clause]
+### Iterate through all wars related to the scope  
+## scopes = { country }
+## push_scope = war
+alias[effect:random_scope_war] = single_alias_right[effect_random_list_clause]
+### Iterate through all wars related to the scope  
+## scopes = { country }
+## push_scope = war
+alias[effect:ordered_scope_war] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all wars related to the scope  
+## scopes = { country }
+## push_scope = war
+alias[arithmetic_operation:every_scope_war] = single_alias_right[formula_every_list_clause]
+### Iterate through all wars related to the scope  
+## scopes = { country }
+## push_scope = war
+alias[arithmetic_operation:random_scope_war] = single_alias_right[formula_random_list_clause]
+### Iterate through all wars related to the scope  
+## scopes = { country }
+## push_scope = war
+alias[arithmetic_operation:ordered_scope_war] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all wars related to the scope  
+## scopes = { country }
+## push_scope = war
+alias[trigger:any_scope_war] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all states that share a sea node with a state  
+## scopes = { state }
+## push_scope = state
+alias[effect:every_sea_node_adjacent_state] = single_alias_right[effect_every_list_clause]
+### Iterate through all states that share a sea node with a state  
+## scopes = { state }
+## push_scope = state
+alias[effect:random_sea_node_adjacent_state] = single_alias_right[effect_random_list_clause]
+### Iterate through all states that share a sea node with a state  
+## scopes = { state }
+## push_scope = state
+alias[effect:ordered_sea_node_adjacent_state] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all states that share a sea node with a state  
+## scopes = { state }
+## push_scope = state
+alias[arithmetic_operation:every_sea_node_adjacent_state] = single_alias_right[formula_every_list_clause]
+### Iterate through all states that share a sea node with a state  
+## scopes = { state }
+## push_scope = state
+alias[arithmetic_operation:random_sea_node_adjacent_state] = single_alias_right[formula_random_list_clause]
+### Iterate through all states that share a sea node with a state  
+## scopes = { state }
+## push_scope = state
+alias[arithmetic_operation:ordered_sea_node_adjacent_state] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all states that share a sea node with a state  
+## scopes = { state }
+## push_scope = state
+alias[trigger:any_sea_node_adjacent_state] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all states globally  
+## scopes = { any }
+## push_scope = state
+alias[effect:every_state] = single_alias_right[effect_every_list_clause]
+### Iterate through all states globally  
+## scopes = { any }
+## push_scope = state
+alias[effect:random_state] = single_alias_right[effect_random_list_clause]
+### Iterate through all states globally  
+## scopes = { any }
+## push_scope = state
+alias[effect:ordered_state] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all states globally  
+## scopes = { any }
+## push_scope = state
+alias[arithmetic_operation:every_state] = single_alias_right[formula_every_list_clause]
+### Iterate through all states globally  
+## scopes = { any }
+## push_scope = state
+alias[arithmetic_operation:random_state] = single_alias_right[formula_random_list_clause]
+### Iterate through all states globally  
+## scopes = { any }
+## push_scope = state
+alias[arithmetic_operation:ordered_state] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all states globally  
+## scopes = { any }
+## push_scope = state
+alias[trigger:any_state] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all state regions  
+## scopes = { any }
+## push_scope = state_region
+alias[effect:every_state_region] = single_alias_right[effect_every_list_clause]
+### Iterate through all state regions  
+## scopes = { any }
+## push_scope = state_region
+alias[effect:random_state_region] = single_alias_right[effect_random_list_clause]
+### Iterate through all state regions  
+## scopes = { any }
+## push_scope = state_region
+alias[effect:ordered_state_region] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all state regions  
+## scopes = { any }
+## push_scope = state_region
+alias[arithmetic_operation:every_state_region] = single_alias_right[formula_every_list_clause]
+### Iterate through all state regions  
+## scopes = { any }
+## push_scope = state_region
+alias[arithmetic_operation:random_state_region] = single_alias_right[formula_random_list_clause]
+### Iterate through all state regions  
+## scopes = { any }
+## push_scope = state_region
+alias[arithmetic_operation:ordered_state_region] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all state regions  
+## scopes = { any }
+## push_scope = state_region
+alias[trigger:any_state_region] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Strategic Objective states from the scoped Country  
+## scopes = { country }
+## push_scope = state
+alias[effect:every_strategic_objective] = single_alias_right[effect_every_list_clause]
+### Iterate through all Strategic Objective states from the scoped Country  
+## scopes = { country }
+## push_scope = state
+alias[effect:random_strategic_objective] = single_alias_right[effect_random_list_clause]
+### Iterate through all Strategic Objective states from the scoped Country  
+## scopes = { country }
+## push_scope = state
+alias[effect:ordered_strategic_objective] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Strategic Objective states from the scoped Country  
+## scopes = { country }
+## push_scope = state
+alias[arithmetic_operation:every_strategic_objective] = single_alias_right[formula_every_list_clause]
+### Iterate through all Strategic Objective states from the scoped Country  
+## scopes = { country }
+## push_scope = state
+alias[arithmetic_operation:random_strategic_objective] = single_alias_right[formula_random_list_clause]
+### Iterate through all Strategic Objective states from the scoped Country  
+## scopes = { country }
+## push_scope = state
+alias[arithmetic_operation:ordered_strategic_objective] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Strategic Objective states from the scoped Country  
+## scopes = { country }
+## push_scope = state
+alias[trigger:any_strategic_objective] = single_alias_right[trigger_any_list_clause]
+
+### Any country below direct subjects in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_subject_of_subject] = single_alias_right[effect_every_list_clause]
+### Any country below direct subjects in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_subject_of_subject] = single_alias_right[effect_random_list_clause]
+### Any country below direct subjects in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_subject_of_subject] = single_alias_right[effect_ordered_list_clause]
+### Any country below direct subjects in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_subject_of_subject] = single_alias_right[formula_every_list_clause]
+### Any country below direct subjects in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_subject_of_subject] = single_alias_right[formula_random_list_clause]
+### Any country below direct subjects in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_subject_of_subject] = single_alias_right[formula_ordered_list_clause]
+### Any country below direct subjects in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_subject_of_subject] = single_alias_right[trigger_any_list_clause]
+
+### Any country below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:every_subject_or_below] = single_alias_right[effect_every_list_clause]
+### Any country below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:random_subject_or_below] = single_alias_right[effect_random_list_clause]
+### Any country below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_subject_or_below] = single_alias_right[effect_ordered_list_clause]
+### Any country below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_subject_or_below] = single_alias_right[formula_every_list_clause]
+### Any country below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_subject_or_below] = single_alias_right[formula_random_list_clause]
+### Any country below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_subject_or_below] = single_alias_right[formula_ordered_list_clause]
+### Any country below current in hierarchy  
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_subject_or_below] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all characters that support the scoped political movement  
+## scopes = { political_movement }
+## push_scope = character
+alias[effect:every_supporting_character] = single_alias_right[effect_every_list_clause]
+### Iterate through all characters that support the scoped political movement  
+## scopes = { political_movement }
+## push_scope = character
+alias[effect:random_supporting_character] = single_alias_right[effect_random_list_clause]
+### Iterate through all characters that support the scoped political movement  
+## scopes = { political_movement }
+## push_scope = character
+alias[effect:ordered_supporting_character] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all characters that support the scoped political movement  
+## scopes = { political_movement }
+## push_scope = character
+alias[arithmetic_operation:every_supporting_character] = single_alias_right[formula_every_list_clause]
+### Iterate through all characters that support the scoped political movement  
+## scopes = { political_movement }
+## push_scope = character
+alias[arithmetic_operation:random_supporting_character] = single_alias_right[formula_random_list_clause]
+### Iterate through all characters that support the scoped political movement  
+## scopes = { political_movement }
+## push_scope = character
+alias[arithmetic_operation:ordered_supporting_character] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all characters that support the scoped political movement  
+## scopes = { political_movement }
+## push_scope = character
+alias[trigger:any_supporting_character] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through treaties (both in force and drafts)  
+## scopes = { any }
+## push_scope = treaty
+alias[effect:every_treaty] = single_alias_right[effect_every_list_clause]
+### Iterate through treaties (both in force and drafts)  
+## scopes = { any }
+## push_scope = treaty
+alias[effect:random_treaty] = single_alias_right[effect_random_list_clause]
+### Iterate through treaties (both in force and drafts)  
+## scopes = { any }
+## push_scope = treaty
+alias[effect:ordered_treaty] = single_alias_right[effect_ordered_list_clause]
+### Iterate through treaties (both in force and drafts)  
+## scopes = { any }
+## push_scope = treaty
+alias[arithmetic_operation:every_treaty] = single_alias_right[formula_every_list_clause]
+### Iterate through treaties (both in force and drafts)  
+## scopes = { any }
+## push_scope = treaty
+alias[arithmetic_operation:random_treaty] = single_alias_right[formula_random_list_clause]
+### Iterate through treaties (both in force and drafts)  
+## scopes = { any }
+## push_scope = treaty
+alias[arithmetic_operation:ordered_treaty] = single_alias_right[formula_ordered_list_clause]
+### Iterate through treaties (both in force and drafts)  
+## scopes = { any }
+## push_scope = treaty
+alias[trigger:any_treaty] = single_alias_right[trigger_any_list_clause]
+
+### Lists for cultures in the scoped country that are valid for mass migration  
+## scopes = { country }
+## push_scope = culture
+alias[effect:every_valid_mass_migration_culture] = single_alias_right[effect_every_list_clause]
+### Lists for cultures in the scoped country that are valid for mass migration  
+## scopes = { country }
+## push_scope = culture
+alias[effect:random_valid_mass_migration_culture] = single_alias_right[effect_random_list_clause]
+### Lists for cultures in the scoped country that are valid for mass migration  
+## scopes = { country }
+## push_scope = culture
+alias[effect:ordered_valid_mass_migration_culture] = single_alias_right[effect_ordered_list_clause]
+### Lists for cultures in the scoped country that are valid for mass migration  
+## scopes = { country }
+## push_scope = culture
+alias[arithmetic_operation:every_valid_mass_migration_culture] = single_alias_right[formula_every_list_clause]
+### Lists for cultures in the scoped country that are valid for mass migration  
+## scopes = { country }
+## push_scope = culture
+alias[arithmetic_operation:random_valid_mass_migration_culture] = single_alias_right[formula_random_list_clause]
+### Lists for cultures in the scoped country that are valid for mass migration  
+## scopes = { country }
+## push_scope = culture
+alias[arithmetic_operation:ordered_valid_mass_migration_culture] = single_alias_right[formula_ordered_list_clause]
+### Lists for cultures in the scoped country that are valid for mass migration  
+## scopes = { country }
+## push_scope = culture
+alias[trigger:any_valid_mass_migration_culture] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all participants in a war  
+## scopes = { war }
+## push_scope = country
+alias[effect:every_war_participant] = single_alias_right[effect_every_list_clause]
+### Iterate through all participants in a war  
+## scopes = { war }
+## push_scope = country
+alias[effect:random_war_participant] = single_alias_right[effect_random_list_clause]
+### Iterate through all participants in a war  
+## scopes = { war }
+## push_scope = country
+alias[effect:ordered_war_participant] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all participants in a war  
+## scopes = { war }
+## push_scope = country
+alias[arithmetic_operation:every_war_participant] = single_alias_right[formula_every_list_clause]
+### Iterate through all participants in a war  
+## scopes = { war }
+## push_scope = country
+alias[arithmetic_operation:random_war_participant] = single_alias_right[formula_random_list_clause]
+### Iterate through all participants in a war  
+## scopes = { war }
+## push_scope = country
+alias[arithmetic_operation:ordered_war_participant] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all participants in a war  
+## scopes = { war }
+## push_scope = country
+alias[trigger:any_war_participant] = single_alias_right[trigger_any_list_clause]

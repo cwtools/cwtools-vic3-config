@@ -1,7 +1,7 @@
 types = {
     type[objective] = {
         path = "game/common/objectives"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"

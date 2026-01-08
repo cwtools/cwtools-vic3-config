@@ -1,7 +1,7 @@
 types = {
     type[color_gene] = {
         path = "game/common/genes"
-        file_extension = .txt
+        path_extension = .txt
         skip_root_key = color_genes
     }
 }

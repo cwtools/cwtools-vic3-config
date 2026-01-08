@@ -2,12 +2,12 @@ types = {
     type[script_value] = {
         path = "game/common/script_values"
         path_strict = yes
-        file_extension = .txt
+        path_extension = .txt
     }
     type[static_value] = {
         path = "game/common/script_values"
         path_strict = yes
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 
