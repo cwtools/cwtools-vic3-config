@@ -1,7 +1,7 @@
 types = {
     type[acceptance_status] = {
         path = "game/common/acceptance_statuses"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

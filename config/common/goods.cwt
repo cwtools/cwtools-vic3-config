@@ -1,7 +1,7 @@
 types = {
     type[good] = {
         path = "game/common/goods"
-        file_extension = .txt
+        path_extension = .txt
         subtype[consumable] = {
             obsession_chance = float
         }
@@ -34,7 +34,7 @@ good = {
 
     ### What category the game should put the good in
     category = enum[good_category]
-    
+
     ## cardinality = 0..1
     ### Base prestige for occupying the rank MIN_PRESTIGE_AWARD spot on the goods production leaderboard. x2 awarded for every rank above the minimum.
     prestige_factor = int

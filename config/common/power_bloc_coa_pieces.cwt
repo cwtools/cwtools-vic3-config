@@ -1,7 +1,7 @@
 types = {
     type[power_bloc_coa_piece] = {
         path = "game/common/power_bloc_coa_pieces"
-        file_extension = .txt
+        path_extension = .txt
         images = {
             ## primary
             pattern = filepath[gfx/coat_of_arms/colored_emblems/$]

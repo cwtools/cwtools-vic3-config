@@ -1,7 +1,7 @@
 types = {
     type[history_government] = {
         path = "game/common/history/governments"
-        file_extension = .txt
+        path_extension = .txt
 
     }
 }

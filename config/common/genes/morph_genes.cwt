@@ -1,14 +1,14 @@
 types = {
     type[morph_gene] = {
         path = "game/common/genes"
-        file_extension = .txt
+        path_extension = .txt
         skip_root_key = {
             morph_genes
         }
     }
     type[special_morph_gene] = {
         path = "game/common/genes"
-        file_extension = .txt
+        path_extension = .txt
         skip_root_key = {
             special_genes
             morph_genes

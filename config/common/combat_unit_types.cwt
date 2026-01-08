@@ -1,7 +1,7 @@
 types = {
     type[combat_unit_type] = {
         path = "game/common/combat_unit_types"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"
@@ -11,10 +11,10 @@ types = {
 
 combat_unit_type = {
     group = <combat_unit_group>
-    
+
     ## cardinality = ~1..1
     upkeep_modifier = single_alias_right[modifier_clause]
-    
+
     ## cardinality = ~1..1
     battle_modifier = single_alias_right[modifier_clause]
 

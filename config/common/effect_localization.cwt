@@ -1,7 +1,7 @@
 types = {
     type[effect_localization] = {
         path = "game/common/effect_localization"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

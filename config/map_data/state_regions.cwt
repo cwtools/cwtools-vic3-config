@@ -2,7 +2,7 @@ types = {
     ## unique = yes
     type[state_region] = {
         path = "game/map_data/state_regions"
-        file_extension = .txt
+        path_extension = .txt
 
         # Water-only states won't have arable land, and land states always should
         subtype[land] = {

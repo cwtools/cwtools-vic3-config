@@ -1,7 +1,7 @@
 types = {
     type[font_definition] = {
         path = "game/fonts"
-        file_extension = .font
+        path_extension = .font
         name_field = "name"
 
         ## group = definition_type

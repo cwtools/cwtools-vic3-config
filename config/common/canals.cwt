@@ -1,7 +1,7 @@
 types = {
     type[canal] = {
         path = "game/common/canals"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
 			name = "$"
 		}

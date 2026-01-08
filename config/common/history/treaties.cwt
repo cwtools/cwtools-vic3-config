@@ -1,7 +1,7 @@
 types = {
     type[history_treaty] = {
         path = "game/common/history/treaties"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

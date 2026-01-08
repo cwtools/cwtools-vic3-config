@@ -1,7 +1,7 @@
 types = {
     type[cohesion_level] = {
         path = "game/common/cohesion_levels"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

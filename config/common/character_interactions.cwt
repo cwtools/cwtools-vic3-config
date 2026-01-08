@@ -1,7 +1,7 @@
 types = {
     type[character_interaction] = {
         path = "game/common/character_interactions"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"

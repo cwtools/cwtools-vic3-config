@@ -1,7 +1,7 @@
 types = {
     type[interest_group_trait] = {
         path = "game/common/interest_group_traits"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }

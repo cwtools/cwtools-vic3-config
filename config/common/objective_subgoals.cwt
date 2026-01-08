@@ -1,7 +1,7 @@
 types = {
     type[objective_subgoal] = {
         path = "game/common/objective_subgoals"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

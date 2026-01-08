@@ -1,7 +1,7 @@
 types = {
     type[mobilization_option] = {
         path = "game/common/mobilization_options"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "$"

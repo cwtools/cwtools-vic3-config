@@ -1,13 +1,13 @@
 types = {
     type[scripted_test] = {
         path = "game/tools/scripted_tests"
-        file_extension = .txt
+        path_extension = .txt
         skip_root_key = { tests }
     }
     ## type_key_filter = last_date
     type[last_date] = {
         path = "game/tools/scripted_tests"
-        file_extension = .txt
+        path_extension = .txt
         name_field = "-"
         unique = no
     }

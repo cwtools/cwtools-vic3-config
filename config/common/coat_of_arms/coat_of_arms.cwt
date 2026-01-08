@@ -3,11 +3,11 @@ types = {
     ## type_key_regex = "^((?!template).)*"
     type[coat_of_arm] = {
         path = "game/common/coat_of_arms/coat_of_arms"
-        file_extension = .txt
+        path_extension = .txt
     }
     type[coat_of_arm_template] = {
         path = "game/common/coat_of_arms/coat_of_arms"
-        file_extension = .txt
+        path_extension = .txt
         skip_root_key = {
             template
         }

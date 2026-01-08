@@ -1,7 +1,7 @@
 types = {
     type[ai_strategy] = {
         path = "game/common/ai_strategies"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = $
             desc = $_desc
