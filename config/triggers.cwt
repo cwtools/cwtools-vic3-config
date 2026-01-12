@@ -487,18 +487,6 @@ alias[trigger:aggressive_diplomatic_plays_permitted] = bool
 ### Check if Institutions in the country will incur a Bureaucracy shortage eventually
 alias[trigger:approaching_bureaucracy_shortage] = bool
 
-### Compare arable land in *all* states arable_land_country > 10
-alias[trigger:arable_land_country] == value_field
-
-### Compares the available authority of the scoped country
-alias[trigger:authority] == value_field
-
-### Check average infrastructure in all states owned by scope country average_country_infrastructure = 3
-alias[trigger:average_country_infrastructure] == value_field
-
-### Check average infrastructure in incorporated states owned by the scope country average_incorporated_country_infrastructure = 3
-alias[trigger:average_incorporated_country_infrastructure] == value_field
-
 ### Checks if the country in scope can afford the Influence for the specified diplomatic action (pact or ongoing) can_afford_diplomatic_action = { target = X type = Y } Where X = country and Y = diplomatic action type
 alias[trigger:can_afford_diplomatic_action] = {
     target = scope[country]
@@ -857,23 +845,11 @@ alias[trigger:is_violating_sovereignty_of] = <country_definition>
 ### Check if the scoped country is violating the sovereignty of a target country is_violating_sovereignty_of = c:GBR
 alias[trigger:is_violating_sovereignty_of] = scope[country]
 
-### Compare number of Isolated States
-alias[trigger:isolated_states] == value_field
-
 ### Checks if country is producing the most of a certain good leading_producer_of = g:luxury_clothes
 alias[trigger:leading_producer_of] = scope[goods]
 
 ### Check if any other country is part of this country's customs union leads_customs_union = bool
 alias[trigger:leads_customs_union] = bool
-
-### Compares the maximum number of declared interests of scoped country max_num_declared_interests = <value>
-alias[trigger:max_num_declared_interests] == value_field
-
-### Compares the number of declared interests of scoped country num_declared_interests = <value>
-alias[trigger:num_declared_interests] == value_field
-
-### Compares the number of consumption taxed goods of scoped country num_taxed_goods = <value>
-alias[trigger:num_taxed_goods] == value_field
 
 ### Checks if country in scope owes a obligation to event target owes_obligation_to = country
 alias[trigger:owes_obligation_to] = <country_definition>
@@ -891,21 +867,6 @@ alias[trigger:pop_type_percent_country] = {
     pop_type = <pop_type>
     percent == value_field[-1..1]
 }
-
-### Compare prestige
-alias[trigger:prestige] == value_field
-
-### Compare prestige
-alias[trigger:prestige] == single_alias_right[formula]
-
-### Compares the produced authority of the scoped country
-alias[trigger:produced_authority] == value_field
-
-### Compares the produced bureaucracy of the scoped country
-alias[trigger:produced_bureaucracy] == value_field
-
-### Compares the produced influence of the scoped country
-alias[trigger:produced_influence] == value_field
 
 ### Compare value to a country's debt relative to debt ceiling scaled_debt = value
 alias[trigger:scaled_debt] == value_field
@@ -1124,47 +1085,8 @@ alias[trigger:has_port] = bool
 ### Check if a political movement is a particular type is_political_movement_type = movement_to_enact
 alias[trigger:is_political_movement_type] = <political_movement>
 
-### Compare radicalism of political movement political_movement_radicalism > 50
-alias[trigger:political_movement_radicalism] == value_field
-
-### Compare radicalism of political movement political_movement_radicalism > 50
-alias[trigger:political_movement_radicalism] == single_alias_right[formula]
-
-### Compare radicalism of political movement political_movement_radicalism > 50
-alias[trigger:political_movement_radicalism] == <script_value>
-
-### Compare radicalism of political movement political_movement_radicalism > 50
-alias[trigger:political_movement_radicalism] == <static_value>
-
-### Compare radicalism of political movement political_movement_radicalism > 50
-alias[trigger:political_movement_radicalism] == $define_reference
-
-### Compare support of political movement political_movement_support > 50
-alias[trigger:political_movement_support] == value_field
-
-### Compare support of political movement political_movement_support > 50
-alias[trigger:political_movement_support] == single_alias_right[formula]
-
-### Compare support of political movement political_movement_support > 50
-alias[trigger:political_movement_support] == <script_value>
-
-### Compare support of political movement political_movement_support > 50
-alias[trigger:political_movement_support] == <static_value>
-
-### Compare support of political movement political_movement_support > 50
-alias[trigger:political_movement_support] == $define_reference
-
-
 ### True if IG scope has a party has_party = bool
 alias[trigger:has_party] = bool
-
-### Compare to scoped interest group approval Usages: ig_approval > 2, ig_approval < happy
-alias[trigger:ig_approval] == value_field
-### Compare to scoped interest group approval Usages: ig_approval > 2, ig_approval < happy
-alias[trigger:ig_approval] == enum[ig_approval]
-
-### Compare to scoped interest group's clout ig_clout >= 0.2
-alias[trigger:ig_clout] == value_field
 
 ### Compare to scoped interest group's political strength divided by total government political strength ig_government_power_share >= 0.5
 alias[trigger:ig_government_power_share] == value_field
@@ -1525,7 +1447,9 @@ alias[trigger:country_can_have_mass_migration_to] = scope[country]
 
 ### Checks the sum of building levels for a building group in a country
 alias[trigger:country_has_building_group_levels] = {
+    type = scope[building_group]
     type = <building_group>
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1536,6 +1460,7 @@ alias[trigger:country_has_building_group_levels] = {
 ### Checks the sum of building levels for a building type in a country
 alias[trigger:country_has_building_type_levels] = {
     target = scope[building_type]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1828,14 +1753,6 @@ alias[trigger:is_indirect_subject_of] = scope[country]
 ### Checks whether a power bloc is using a specific amount of principle slots
 alias[trigger:used_principle_slots] == int[1..4]
 
-## scopes = { power_bloc }
-### Checks whether a power bloc is of a specific rank
-alias[trigger:power_bloc_rank] == int
-
-## scopes = { power_bloc }
-### Checks whether a power bloc has a specific amount of members
-alias[trigger:num_power_bloc_members] == int
-
 ## scopes = { country }
 ### Checks whether a country is in a specific phase of enacting a law
 alias[trigger:enactment_phase] == int[0..3]
@@ -1852,6 +1769,7 @@ alias[trigger:state_is_eligible_as_mass_migration_target] = bool
 ### Checks percentage level of a specific culture in a state
 alias[trigger:culture_percent_state] = {
     target = scope[culture]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -2323,6 +2241,7 @@ alias[trigger:most_prominent_revolting_interest_group] = <interest_group>
 ### Compares the total cost of nationalizing all buildings in scope country owned by the government or pops of target country
 alias[trigger:nationalization_cost] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -3226,3 +3145,35 @@ alias[trigger:is_adjacent_to_market] = scope[market]
 ## scopes = { state }
 ### Checks if the scoped state controls the treaty port province in the state region
 alias[trigger:controls_treaty_port_province] = bool
+
+## scopes = { state }
+### Checks how many years it would take for target country to incorporate scope state
+alias[trigger:years_to_incorporate] = {
+    target = scope[country]
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
+}
+
+## scopes = { treaty_article }
+### Checks if treaty article is in danger of breaking
+alias[trigger:is_treaty_article_in_danger] = bool
+
+## scopes = { state }
+### Checks if a state is blockaded by a country
+alias[trigger:is_blockaded_by] = scope[country]
+
+## scopes = { treaty_options treaty }
+### Checks if the scoped treaty is exchanging any obligations
+alias[trigger:is_exchanging_obligations] = bool
+
+## scopes = { treaty_article treaty_article_options }
+### Check if the scoped article or article_options is giftable to target country
+alias[trigger:is_giftable_to] = scope[country]
+
+## scopes = { treaty_options treaty }
+### Checks if the scoped treaty is considered an equal exchange by target country
+alias[trigger:is_equal_exchange_for] = scope[country]

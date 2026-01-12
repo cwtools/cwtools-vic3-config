@@ -388,6 +388,10 @@ alias[arithmetic_operation:random_preferred_law] = single_alias_right[formula_ra
 ## scopes = { interest_group }
 ## push_scope = law
 alias[arithmetic_operation:ordered_preferred_law] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law
+## scopes = { interest_group }
+## push_scope = law
+alias[trigger:any_preferred_law] = single_alias_right[trigger_any_list_clause]
 
 ### Iterate through amendment types that could be added to the scoped law
 ## scopes = { law }
@@ -442,6 +446,10 @@ alias[arithmetic_operation:random_scope_diplomatic_pact] = single_alias_right[fo
 ## scopes = { country }
 ## push_scope = diplomatic_pact
 alias[arithmetic_operation:ordered_scope_diplomatic_pact] = single_alias_right[formula_ordered_list_clause]
+### Any diplomatic pact of the country in a scope
+## scopes = { country }
+## push_scope = diplomatic_pact
+alias[trigger:any_scope_diplomatic_pact] = single_alias_right[trigger_any_list_clause]
 
 ### Iterate through all involved in a journal entry
 ## scopes = { journal_entry }
@@ -587,35 +595,6 @@ alias[arithmetic_operation:ordered_character] = single_alias_right[formula_order
 ## scopes = { any }
 ## push_scope = character
 alias[trigger:any_character] = single_alias_right[trigger_any_list_clause]
-
-### Iterate through characters in the exile pool  
-## scopes = { any }
-## push_scope = character
-alias[effect:every_character_in_exile_pool] = single_alias_right[effect_every_list_clause]
-### Iterate through characters in the exile pool  
-## scopes = { any }
-## push_scope = character
-alias[effect:random_character_in_exile_pool] = single_alias_right[effect_random_list_clause]
-### Iterate through characters in the exile pool  
-## scopes = { any }
-## push_scope = character
-alias[effect:ordered_character_in_exile_pool] = single_alias_right[effect_ordered_list_clause]
-### Iterate through characters in the exile pool  
-## scopes = { any }
-## push_scope = character
-alias[arithmetic_operation:every_character_in_exile_pool] = single_alias_right[formula_every_list_clause]
-### Iterate through characters in the exile pool  
-## scopes = { any }
-## push_scope = character
-alias[arithmetic_operation:random_character_in_exile_pool] = single_alias_right[formula_random_list_clause]
-### Iterate through characters in the exile pool  
-## scopes = { any }
-## push_scope = character
-alias[arithmetic_operation:ordered_character_in_exile_pool] = single_alias_right[formula_ordered_list_clause]
-### Iterate through characters in the exile pool  
-## scopes = { any }
-## push_scope = character
-alias[trigger:any_character_in_exile_pool] = single_alias_right[trigger_any_list_clause]
 
 ### Iterate through characters in the void  
 ## scopes = { any }
@@ -1429,35 +1408,6 @@ alias[arithmetic_operation:ordered_political_movement] = single_alias_right[form
 ## push_scope = political_movement
 alias[trigger:any_political_movement] = single_alias_right[trigger_any_list_clause]
 
-### Iterate through amendment types that could be added to the scoped law  
-## scopes = { law }
-## push_scope = amendment_type
-alias[effect:every_possible_amendment_type] = single_alias_right[effect_every_list_clause]
-### Iterate through amendment types that could be added to the scoped law  
-## scopes = { law }
-## push_scope = amendment_type
-alias[effect:random_possible_amendment_type] = single_alias_right[effect_random_list_clause]
-### Iterate through amendment types that could be added to the scoped law  
-## scopes = { law }
-## push_scope = amendment_type
-alias[effect:ordered_possible_amendment_type] = single_alias_right[effect_ordered_list_clause]
-### Iterate through amendment types that could be added to the scoped law  
-## scopes = { law }
-## push_scope = amendment_type
-alias[arithmetic_operation:every_possible_amendment_type] = single_alias_right[formula_every_list_clause]
-### Iterate through amendment types that could be added to the scoped law  
-## scopes = { law }
-## push_scope = amendment_type
-alias[arithmetic_operation:random_possible_amendment_type] = single_alias_right[formula_random_list_clause]
-### Iterate through amendment types that could be added to the scoped law  
-## scopes = { law }
-## push_scope = amendment_type
-alias[arithmetic_operation:ordered_possible_amendment_type] = single_alias_right[formula_ordered_list_clause]
-### Iterate through amendment types that could be added to the scoped law  
-## scopes = { law }
-## push_scope = amendment_type
-alias[trigger:any_possible_amendment_type] = single_alias_right[trigger_any_list_clause]
-
 ### Iterate through all potential political parties in a country  
 ## scopes = { country }
 ## push_scope = party
@@ -1544,35 +1494,6 @@ alias[arithmetic_operation:ordered_power_bloc_member] = single_alias_right[formu
 ## scopes = { power_bloc }
 ## push_scope = country
 alias[trigger:any_power_bloc_member] = single_alias_right[trigger_any_list_clause]
-
-### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
-## scopes = { interest_group }
-## push_scope = law
-alias[effect:every_preferred_law] = single_alias_right[effect_every_list_clause]
-### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
-## scopes = { interest_group }
-## push_scope = law
-alias[effect:random_preferred_law] = single_alias_right[effect_random_list_clause]
-### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
-## scopes = { interest_group }
-## push_scope = law
-alias[effect:ordered_preferred_law] = single_alias_right[effect_ordered_list_clause]
-### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
-## scopes = { interest_group }
-## push_scope = law
-alias[arithmetic_operation:every_preferred_law] = single_alias_right[formula_every_list_clause]
-### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
-## scopes = { interest_group }
-## push_scope = law
-alias[arithmetic_operation:random_preferred_law] = single_alias_right[formula_random_list_clause]
-### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
-## scopes = { interest_group }
-## push_scope = law
-alias[arithmetic_operation:ordered_preferred_law] = single_alias_right[formula_ordered_list_clause]
-### Iterate through all active and possible laws in an interest group's country, ordered by how much they prefer that law  
-## scopes = { interest_group }
-## push_scope = law
-alias[trigger:any_preferred_law] = single_alias_right[trigger_any_list_clause]
 
 ### Primary cultures of the scoped country or country definition  
 ## scopes = { country country_definition }
@@ -1921,35 +1842,6 @@ alias[arithmetic_operation:ordered_scope_culture] = single_alias_right[formula_o
 ## scopes = { country state }
 ## push_scope = culture
 alias[trigger:any_scope_culture] = single_alias_right[trigger_any_list_clause]
-
-### Any diplomatic pact of the country in a scope  
-## scopes = { country }
-## push_scope = diplomatic_pact
-alias[effect:every_scope_diplomatic_pact] = single_alias_right[effect_every_list_clause]
-### Any diplomatic pact of the country in a scope  
-## scopes = { country }
-## push_scope = diplomatic_pact
-alias[effect:random_scope_diplomatic_pact] = single_alias_right[effect_random_list_clause]
-### Any diplomatic pact of the country in a scope  
-## scopes = { country }
-## push_scope = diplomatic_pact
-alias[effect:ordered_scope_diplomatic_pact] = single_alias_right[effect_ordered_list_clause]
-### Any diplomatic pact of the country in a scope  
-## scopes = { country }
-## push_scope = diplomatic_pact
-alias[arithmetic_operation:every_scope_diplomatic_pact] = single_alias_right[formula_every_list_clause]
-### Any diplomatic pact of the country in a scope  
-## scopes = { country }
-## push_scope = diplomatic_pact
-alias[arithmetic_operation:random_scope_diplomatic_pact] = single_alias_right[formula_random_list_clause]
-### Any diplomatic pact of the country in a scope  
-## scopes = { country }
-## push_scope = diplomatic_pact
-alias[arithmetic_operation:ordered_scope_diplomatic_pact] = single_alias_right[formula_ordered_list_clause]
-### Any diplomatic pact of the country in a scope  
-## scopes = { country }
-## push_scope = diplomatic_pact
-alias[trigger:any_scope_diplomatic_pact] = single_alias_right[trigger_any_list_clause]
 
 ### Iterate through all Fronts related to the scoped War  
 ## scopes = { war }
@@ -2704,3 +2596,32 @@ alias[arithmetic_operation:ordered_war_participant] = single_alias_right[formula
 ## scopes = { war }
 ## push_scope = country
 alias[trigger:any_war_participant] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all active laws in a country
+## scopes = { country }
+## push_scope = law
+alias[effect:every_active_law] = single_alias_right[effect_every_list_clause]
+### Iterate through all active laws in a country
+## scopes = { country }
+## push_scope = law
+alias[effect:random_active_law] = single_alias_right[effect_random_list_clause]
+### Iterate through all active laws in a country
+## scopes = { country }
+## push_scope = law
+alias[effect:ordered_active_law] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all active laws in a country
+## scopes = { country }
+## push_scope = law
+alias[arithmetic_operation:every_active_law] = single_alias_right[formula_every_list_clause]
+### Iterate through all active laws in a country
+## scopes = { country }
+## push_scope = law
+alias[arithmetic_operation:random_active_law] = single_alias_right[formula_random_list_clause]
+### Iterate through all active laws in a country
+## scopes = { country }
+## push_scope = law
+alias[arithmetic_operation:ordered_active_law] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all active laws in a country
+## scopes = { country }
+## push_scope = law
+alias[trigger:any_active_law] = single_alias_right[trigger_any_list_clause]

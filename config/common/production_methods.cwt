@@ -23,11 +23,6 @@ production_method = {
     }
 
     ## cardinality = 0..1
-    profession_ratio = {
-        <pop_type> = int
-    }
-
-    ## cardinality = 0..1
     ### is this pm hidden to countries that can not enable them
     is_hidden_when_unavailable = bool
 
@@ -141,8 +136,7 @@ production_method = {
 
     ## cardinality = 0..1
     ### base AI weight, default 1.0
-    ai_weight = value_field
-
+    ai_value = value_field
 }
 
 single_alias[pm_modifiers] = {

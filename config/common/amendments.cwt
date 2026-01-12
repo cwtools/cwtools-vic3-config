@@ -64,6 +64,12 @@ amendment = {
     ### trigger that checks if this amendment should be possible to attach to a law
     can_repeal = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
+    on_activate = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    on_deactivate = single_alias_right[effect_clause]
+
     ### Trigger that checks if IG would sponsor this amendment as part of negotiation
     ### If left empty, always returns false
     ### root = interest group

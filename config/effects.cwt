@@ -445,11 +445,14 @@ alias[effect:create_country] = {
 
 ### Wraps effects that get a custom description instead of the auto-generated one custom_description = { 	text = <effect_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... effects ... }
 alias[effect:custom_description] = {
-    text = localisation
+    text = <effect_localization>
+
     ## cardinality = 0..1
     subject = scope_field
+
     ## cardinality = 0..1
     object = scope_field
+
     ## cardinality = 0..1
     value = value_field
     ## cardinality = 0..1
@@ -460,6 +463,7 @@ alias[effect:custom_description] = {
     value = <static_value>
     ## cardinality = 0..1
     value = $define_reference
+
     alias_name[effect] = alias_match_left[effect]    
 }
 
@@ -540,8 +544,14 @@ alias[effect:post_proposal] = <proposal_type>
 ### a random effect, random = { chance = X modifier = Y effects... } where X is a chance of the enclosed effects being fired and can be modified by optional value modifier list (AKA MTTH) Y
 alias[effect:random] = {
     chance = int_value_field[1...99]
+    chance = single_alias_right[formula]
+    chance = <script_value>
+    chance = <static_value>
+    chance = $define_reference
+
     ## cardinality = 0..inf
     modifier = single_alias_right[formula]
+
     ## cardinality = 1..inf
     alias_name[effect] = alias_match_left[effect]
 }
@@ -742,6 +752,7 @@ alias[effect:trigger_event] = <event>
 ### Triggers an event for the current scope trigger_event = X trigger_event = { id = X days/weeks/months/years = Y } Where X is an event ID and Y is an integer to delay the event by
 alias[effect:trigger_event] = {
     id = <event>
+
     ## cardinality = 0..1
     enum[duration] = int
     ## cardinality = 0..1
@@ -752,8 +763,12 @@ alias[effect:trigger_event] = {
     enum[duration] = enum[duration]
     ## cardinality = 0..1
     enum[duration] = { int int }
+
     ## cardinality = 0..1
     popup = bool
+
+    ## cardinality = 0..1
+    on_action = <on_action>
 }
 
 ### Sets the state region for the scoped company, so the company building can be built there
@@ -888,9 +903,17 @@ alias[effect:create_building] = {
 ### Creates a pop in the scoped state
 alias[effect:create_pop] = {
     culture = <culture>
+
     size = int_value_field
+    size = scope_field
+    size = single_alias_right[formula]
+    size = <script_value>
+    size = <static_value>
+    size = $define_reference
+
     ## cardinality = 0..1
     pop_type = <pop_type>
+
     ## cardinality = 0..1
     religion = <religion>
 }
@@ -926,6 +949,14 @@ alias[effect:add_claim] = scope[country]
 
 ### Add/remove devastation from a state region
 alias[effect:add_devastation] = int_value_field
+### Add/remove devastation from a state region
+alias[effect:add_devastation] = single_alias_right[formula]
+### Add/remove devastation from a state region
+alias[effect:add_devastation] = <script_value>
+### Add/remove devastation from a state region
+alias[effect:add_devastation] = <static_value>
+### Add/remove devastation from a state region
+alias[effect:add_devastation] = $define_reference
 
 ### Adds scoped state region as Homeland for target culture add_homeland = scope/culture
 alias[effect:add_homeland] = <culture>
@@ -2837,4 +2868,8 @@ alias[effect:add_amendment] = {
 ## scopes = { any }
 ### Activates a contextless journal entry of the given type
 alias[effect:add_contextless_journal_entry] = <journal_entry>
+
+## scopes = { company }
+### Sets the scoped company as a founding company for the target country
+alias[effect:add_owned_country] = scope[country]
 

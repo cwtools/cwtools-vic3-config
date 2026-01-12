@@ -136,22 +136,44 @@ journal_entry = {
     ### multiple such entries can be added to a JE
     event_outcome_timeout_effect_desc = single_alias_right[je_effect_desc]
 
+    ## cardinality = 0..inf
+    event_outcome_activated_effect_desc = single_alias_right[je_effect_desc]
+
     ## cardinality = 0..1
     ### loc key to use instead of JOURNAL_ENTRY_COMPLETION_HEADER, for flavor
-    custom_completion_header = localization
+    custom_completion_header = localisation
 
     ## cardinality = 0..1
     ### loc key to use instead of JOURNAL_ENTRY_FAILURE_HEADER, for flavor
-    custom_failure_header = localization
+    custom_failure_header = localisation
 
     ## cardinality = 0..1
     ### loc key to use instead of JOURNAL_ENTRY_ON_COMPLETION, for flavor
-    custom_on_completion_header = localization
+    custom_on_completion_header = localisation
+
+    ## cardinality = 0..1
+    custom_on_failure_header = localisation
 
     ## cardinality = 0..1
     ### the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event,
     ### framed either as success, failure, or neutral; if left blank or set to zero, will not time out
-    timeout = int
+    timeout = int_value_field
+    ## cardinality = 0..1
+    ### the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event,
+    ### framed either as success, failure, or neutral; if left blank or set to zero, will not time out
+    timeout = <script_value>
+    ## cardinality = 0..1
+    ### the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event,
+    ### framed either as success, failure, or neutral; if left blank or set to zero, will not time out
+    timeout = <static_value>
+    ## cardinality = 0..1
+    ### the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event,
+    ### framed either as success, failure, or neutral; if left blank or set to zero, will not time out
+    timeout = $define_reference
+    ## cardinality = 0..1
+    ### the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event,
+    ### framed either as success, failure, or neutral; if left blank or set to zero, will not time out
+    timeout = single_alias_right[formula]
 
     ## cardinality = 0..1
     ### failure trigger, should spawn event explaining what happens when triggered, framed as a failure; if left blank, cannot fail
@@ -174,10 +196,6 @@ journal_entry = {
 	### To use in loc or UI: [JournalEntry.GetStatusDesc]
 	### If this is not specified, GetStatusDesc will instead return loc from key <journal_entry_key>_status
     status_desc = single_alias_right[complex_desc]
-
-    ## cardinality = 0..1
-    ### the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event, framed either as success, failure, or neutral; if left blank or set to zero, will not time out
-    timeout = int
 
     ## cardinality = 0..1
     ### effect which is executed when journal entry is timed out
@@ -274,9 +292,12 @@ journal_entry = {
 
     ## cardinality = 0..inf
     scripted_button = <scripted_button>
+
+    ## cardinality = 0..1
+    display_progressbar_as_months = bool
 }
 
 single_alias[je_effect_desc] = {
-    header = localization
+    header = localisation
     effect = single_alias_right[effect_clause]
 }

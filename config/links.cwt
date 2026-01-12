@@ -431,7 +431,9 @@ links = {
 		output_scope = value
 		type = value
 	}
+	### Compare support of political movement
 	political_movement_support = {
+		desc = "Compare support of political movement"
 		input_scopes = political_movement
 		output_scope = value
 		type = value
@@ -1080,7 +1082,7 @@ links = {
 	### Scope to political movement a character supports.
 	political_movement = {
 		desc = "Scope to political movement a character supports."
-		input_scopes = { character war }
+		input_scopes = { character civil_war }
 		output_scope = political_movement
 	}
 	### Get the current goverment legitimacy of a country.
@@ -1279,17 +1281,16 @@ links = {
 		output_scope = value
 		type = value
 	}
+	### Compare value to a country's debt relative to debt ceiling
 	scaled_debt = {
+		desc = "Compare value to a country's debt relative to debt ceiling"
 		input_scopes = country
 		output_scope = value
 		type = value
 	}
-	weekly_net_fixed_income = {
-		input_scopes = country
-		output_scope = value
-		type = value
-	}
+	### Compare value to a country's gold reserves relative to reserves limit
 	scaled_gold_reserves = {
+		desc = "Compare value to a country's gold reserves relative to reserves limit"
 		input_scopes = country
 		output_scope = value
 		type = value
@@ -4512,5 +4513,128 @@ links = {
 		input_scopes = { military_formation }
 		output_scope = value
 		type = value
+	}
+	### Checks how many years it would take for target country to incorporate scope state
+	years_to_incorporate = {
+		desc = "Checks how many years it would take for target country to incorporate scope state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = years_to_incorporate:
+		data_source = scope[country]
+	}
+	### Compares the maximum number of declared interests of scoped country
+	max_num_declared_interests = {
+		desc = "Compares the maximum number of declared interests of scoped country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compare number of Isolated States
+	isolated_states = {
+		desc = "Compare number of Isolated States"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares the produced authority of the scoped country
+	produced_authority = {
+		desc = "Compares the produced authority of the scoped country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares the produced bureaucracy of the scoped country
+	produced_bureaucracy = {
+		desc = "Compares the produced bureaucracy of the scoped country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares the produced influence of the scoped country
+	produced_influence = {
+		desc = "Compares the produced influence of the scoped country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to a diplomatic play type from its name
+	play_type = {
+		desc = "Scope to a diplomatic play type from its name"
+		input_scopes = { any }
+		output_scope = diplomatic_play_type
+		from_data = yes
+		prefix = play_type:
+		data_source = <diplomatic_play>
+	}
+	### Compares the total cost of nationalizing all buildings in scope country owned by the government or pops of target country
+	nationalization_cost = {
+		desc = "Compares the total cost of nationalizing all buildings in scope country owned by the government or pops of target country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = nationalization_cost:
+		data_source = scope[country]
+	}
+	### Compares the available authority of the scoped country
+	authority = {
+		desc = "Compares the available authority of the scoped country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compare arable land in *all* states
+	arable_land_country = {
+		desc = "Compare arable land in *all* states"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Check average infrastructure in all states owned by scope country
+	average_country_infrastructure = {
+		desc = "Check average infrastructure in all states owned by scope country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Check average infrastructure in incorporated states owned by the scope country
+	average_incorporated_country_infrastructure = {
+		desc = "Check average infrastructure in incorporated states owned by the scope country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Checks percentage level of a specific culture in a state
+	culture_percent_state = {
+		desc = "Checks percentage level of a specific culture in a state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = culture_percent_state:
+		data_source = scope[culture]
+	}
+	### Compare the number of members in a power bloc against a value
+	num_power_bloc_members = {
+		desc = "Compare the number of members in a power bloc against a value"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares loyalist fraction in pops in state or country, all parameters except value are optional
+	loyalist_fraction_culture_parameter = {
+		desc = "Compares loyalist fraction in pops in state or country, all parameters except value are optional"
+		input_scopes = { country state }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = loyalist_fraction:
+		data_source = scope[culture]
 	}
 }

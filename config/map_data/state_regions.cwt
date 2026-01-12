@@ -126,10 +126,10 @@ state_region = {
 enums = {
     complex_enum[provinces] = {
         path = "game/map_data/state_regions"
-		name = {
+        name = {
             provinces = {
                 enum_name
             }
-		}
+        }
     }
 }

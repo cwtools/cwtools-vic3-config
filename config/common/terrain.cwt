@@ -60,11 +60,6 @@ terrain = {
     ### Color used in a debug mode
     debug_color = <named_color>
     debug_color = color_field
-    ## color_type = hsv
-    debug_color = {
-        ## cardinality = 3..3
-        float
-    }
     ## color_type = rgb
     debug_color = {
         ## cardinality = 3..3

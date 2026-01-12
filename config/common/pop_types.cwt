@@ -31,6 +31,9 @@ pop_type = {
     paid_private_wage = bool
 
     ## cardinality = 0..1
+    pays_land_tax = bool
+
+    ## cardinality = 0..1
     ### Target literacy for a pop type. Default no literacy needed
     literacy_target = value_field[0.0..1.0]
 
@@ -40,6 +43,9 @@ pop_type = {
 
     ### Wage for dependents per year (multiplier to pop wage)
     dependent_wage = value_field
+
+    ## cardinality = 0..1
+    sol_change_impact = value_field
 
     ### Can pop be unemployed
     unemployment = bool
@@ -60,6 +66,8 @@ pop_type = {
 
     ## push_scope = pop
     political_engagement_mult = single_alias_right[formula]
+
+    qualifications_growth_desc = localisation
 
     ## push_scope = pop
     ## cardinality = 0..1

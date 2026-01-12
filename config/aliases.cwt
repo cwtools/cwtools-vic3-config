@@ -70,6 +70,9 @@ single_alias[on_action] = {
         ## cardinality = 0..1
         chance_of_no_event = int
 
+        ## cardinality = 0..1
+        chance_to_happen = int
+
 		## cardinality = 0..inf
 		int = <event>
 
