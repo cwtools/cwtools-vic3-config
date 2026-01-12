@@ -5,6 +5,9 @@ types = {
 			## required
 			name = "$"
 		}
+        images = {
+            icon = gfx/interface/icons/dlc_icons/$.dds
+        }
     }
 }
 
