@@ -4637,4 +4637,72 @@ links = {
 		prefix = loyalist_fraction:
 		data_source = scope[culture]
 	}
+	### Checks the sum of building levels for a building group in a country
+	country_has_building_group_levels = {
+		desc = "Checks the sum of building levels for a building group in a country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = country_has_building_group_levels:
+		data_source = <building_group>
+	}
+	### Checks whether escalation has passed a certain threshold
+	escalation = {
+		desc = "Checks whether escalation has passed a certain threshold"
+		input_scopes = { diplomatic_play }
+		output_scope = value
+		type = value
+	}
+	### Checks that a state's population has a certain percentage of a specific pop type
+	pop_type_percent_state = {
+		desc = "Checks that a state's population has a certain percentage of a specific pop type"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = pop_type_percent_state:
+		data_source = scope[pop_type]
+	}
+	### Compare progress of civil war
+	escalation = {
+		desc = "Compare progress of civil war"
+		input_scopes = { civil_war }
+		output_scope = value
+		type = value
+	}
+	### Checks the culture's progress percentage towards secession in a country. 0 if no secession movement is active for the culture.
+	culture_secession_progress = {
+		desc = "Checks the culture's progress percentage towards secession in a country. 0 if no secession movement is active for the culture."
+		input_scopes = { culture }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = culture_secession_progress:
+		data_source = scope[country]
+	}
+	### Compares the total population in the scope country and its subjects' share of the global population
+	total_population_including_subjects_share = {
+		desc = "Compares the total population in the scope country and its subjects' share of the global population"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares the character's total trait value
+	trait_value = {
+		desc = "Compares the character's total trait value"
+		input_scopes = { character }
+		output_scope = value
+		type = value
+	}
+	### Returns the number of tooltips currently open on screen
+	current_tooltip_depth = {
+		desc = "Returns the number of tooltips currently open on screen"
+		input_scopes = { character }
+		output_scope = value
+		type = value
+	}
 }

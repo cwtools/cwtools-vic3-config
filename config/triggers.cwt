@@ -1,42 +1,45 @@
+## scopes = { law }
 ### Checks whether the scoped law is approved by an interest group law_approved_by = ig_rural_folk
 alias[trigger:law_approved_by] = <interest_group>
 
+## scopes = { character interest_group political_movement }
 ### Check if scoped object has ideology
 alias[trigger:has_ideology] = scope[ideology]
 
+## scopes = { character interest_group political_movement }
 ### Compares the stance of the scoped character or interest group about the specified law
 alias[trigger:law_stance] = {
     law = scope[law_type]
+
     value == enum[law_stance_values]
     value == int
 }
 
+## scopes = { country market province state state_region strategic_region theater }
 ### Compares areas of object to another object
 alias[trigger:check_area] = {
     mode = adjacent
+
     target = scope[theater]
 }
 
-### Compares areas of object to another object
+## scopes = { state }
+### Checks that a state's population has a certain percentage of a specific pop type
 alias[trigger:pop_type_percent_state] = {
     target = scope[pop_type]
+
     value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
 }
 
-### Compare progress of civil war civil_war_progress > 50
-alias[trigger:civil_war_progress] == value_field
-### Compare progress of civil war civil_war_progress > 50
-alias[trigger:civil_war_progress] == single_alias_right[formula]
-### Compare progress of civil war civil_war_progress > 50
-alias[trigger:civil_war_progress] == <script_value>
-### Compare progress of civil war civil_war_progress > 50
-alias[trigger:civil_war_progress] == <static_value>
-### Compare progress of civil war civil_war_progress > 50
-alias[trigger:civil_war_progress] == $define_reference
-
+## scopes = { civil_war }
 ### Check if the scoped civil war is of a specific type is_civil_war_type = revolution / secession
 alias[trigger:is_civil_war_type] = enum[civil_war_type]
 
+## scopes = { country interest_group political_movement }
 ### Check if the country is revolutionary
 alias[trigger:is_revolutionary] = bool
 
@@ -48,9 +51,11 @@ alias[trigger:has_discrimination_trait] = <discrimination_trait>
 ## scopes = { culture religion }
 alias[trigger:has_discrimination_trait_group] = <discrimination_trait_group>
 
+## scopes = { culture }
 ### Checks the culture's progress percentage towards secession in a country. 0 if no secession movement is active for the culture. culture_secession_progress = { target = scope:example_country value > 0.5 }
 alias[trigger:culture_secession_progress] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -58,196 +63,253 @@ alias[trigger:culture_secession_progress] = {
     value == $define_reference
 }
 
+## scopes = { culture }
 ### Checks if a culture has a certain goods as obsession has_cultural_obsession = <goods key>
 alias[trigger:has_cultural_obsession] = <good>
 
+## scopes = { culture }
 ### Checks if a culture has a certain culture_graphics has_culture_graphics = <culture graphics key>
 alias[trigger:has_culture_graphics] = <culture_graphic>
 
+## scopes = { culture }
 ### Checks if scoped culture has a homeland in target state or state region has_homeland = state/state region
 alias[trigger:has_homeland] = scope[state]
+## scopes = { culture }
 ### Checks if scoped culture has a homeland in target state or state region has_homeland = state/state region
 alias[trigger:has_homeland] = scope[state_region]
 
+## scopes = { culture }
 ### Checks if culture is any of a country's primary cultures is_primary_culture_of = <country>
 alias[trigger:is_primary_culture_of] = <country_definition>
+## scopes = { culture }
 ### Checks if culture is any of a country's primary cultures is_primary_culture_of = <country>
 alias[trigger:is_primary_culture_of] = scope[country]
 
+## scopes = { market }
 ### Check if market has a shortage on any of its building inputs market_has_goods_shortage = yes/no
 alias[trigger:market_has_goods_shortage] = bool
 
-### Compares the commanders rank commander_rank > 2
-alias[trigger:commander_rank] == value_field
-
-alias[trigger:total_population_including_subjects_share] == value_field
-alias[trigger:total_population_including_subjects_share] == single_alias_right[formula]
-alias[trigger:total_population_including_subjects_share] == <script_value>
-alias[trigger:total_population_including_subjects_share] == <static_value>
-alias[trigger:total_population_including_subjects_share] == $define_reference
-
+## scopes = { character }
 ### Checks characters order has_order = order key/order scope
 alias[trigger:has_commander_order] = <commander_order>
+## scopes = { character }
 ### Checks characters order has_order = order key/order scope
 alias[trigger:has_commander_order] = scope[commander_order]
 
+## scopes = { character }
 ### Checks characters culture has_culture = culture scope or character scope
 alias[trigger:has_culture] = scope[culture]
+## scopes = { character }
+### Checks characters culture has_culture = culture scope or character scope
 alias[trigger:has_culture] = <culture>
+## scopes = { character }
 ### Checks characters culture has_culture = culture scope or character scope
 alias[trigger:has_culture] = scope[character]
 
+## scopes = { military_formation }
 ### Checks if a Commander's attrition is higher than defined NORMAL_ATTRITION has_high_attrition = bool
 alias[trigger:has_high_attrition] = bool
 
+## scopes = { character }
 ### Checks characters religion has_religion = religion/character scope
 alias[trigger:has_religion] = scope[character]
+## scopes = { character }
 ### Checks characters religion has_religion = religion/character scope
 alias[trigger:has_religion] = scope[religion]
+## scopes = { character }
+### Checks characters religion has_religion = religion/character scope
 alias[trigger:has_religion] = <religion>
 
+## scopes = { character }
 ### Checks if character has the specified role has_role = role
 alias[trigger:has_role] = enum[character_role]
 
+## scopes = { character }
 ### Checks if character has specific trait has_trait = trait
 alias[trigger:has_trait] = <character_trait>
 
+## scopes = { character }
 ### Checks if a commander is advancing on a front is_advancing_on_front = front
 alias[trigger:is_advancing_on_front] = scope[front]
 
+## scopes = { character }
 ### Checks if a Commander is attacker in a battle is_attacker_in_battle = bool
 alias[trigger:is_attacker_in_battle] = bool
 
+## scopes = { character }
 ### Check if character is busy is_busy = bool
 alias[trigger:is_busy] = bool
 
+## scopes = { character }
 ### Checks if the scoped character is alive is_character_alive = bool
 alias[trigger:is_character_alive] = bool
 
+## scopes = { character }
 ### Checks if a Commander is defender in a battle is_defender_in_battle = bool
 alias[trigger:is_defender_in_battle] = bool
 
+## scopes = { character }
 ### Check if character is female is_female = bool
 alias[trigger:is_female] = bool
 
+## scopes = { character }
 ### Checks whether the scoped character is an heir is_heir = yes / no
 alias[trigger:is_heir] = bool
 
+## scopes = { character }
 ### Checks if a Commander is engaged in battle is_in_battle = bool
 alias[trigger:is_in_battle] = bool
 
+## scopes = { character }
 ### Check if character is in the void is_in_void = bool
 alias[trigger:is_in_void] = bool
 
+## scopes = { character }
 ### Checks if the commander is mobilized is_mobilized = bool
 alias[trigger:is_mobilized] = bool
 
+## scopes = { character }
 ### Checks if character is a monarch of a country with hereditary succession is_monarch = bool
 alias[trigger:is_monarch] = bool
 
+## scopes = { character }
 ### Checks is a character has been assigned to a Front and has arrived there is_on_front = yes/no
 alias[trigger:is_on_front] = bool
 
+## scopes = { character }
 ### Checks if character is a ruler/head of state of a country is_ruler = bool
 alias[trigger:is_ruler] = bool
 
-### Compares the character's total trait value trait_value < experience_level
-alias[trigger:trait_value] == value_field
-
+## scopes = { law_type }
 ### Checks if scope law type is in the same group as the target law type scope is_same_law_group_as = <law type scope>
 alias[trigger:is_same_law_group_as] = scope[law_type]
 
+## scopes = { country market state state_region }
 ### True if a state/market/state region/country has a building type has_building = building
 alias[trigger:has_building] = <building>
 
+## scopes = { country_definition }
 ### Checks if a culture is one of the cultures of the country definition country_definition_has_culture = <culture>
 alias[trigger:country_definition_has_culture] = scope[culture]
+## scopes = { country_definition }
+### Checks if a culture is one of the cultures of the country definition country_definition_has_culture = <culture>
 alias[trigger:country_definition_has_culture] = <culture>
 
+## scopes = { front }
 ### Whether the scoped Front doesn't have any Battalions nor Generals on target side, and the enemy has at least one General. is_vulnerable_front = scope:example_country
 alias[trigger:is_vulnerable_front] = <country_definition>
+## scopes = { front }
 ### Whether the scoped Front doesn't have any Battalions nor Generals on target side, and the enemy has at least one General. is_vulnerable_front = scope:example_country
 alias[trigger:is_vulnerable_front] = scope[country]
 
+## scopes = { strategic_region }
 ### Check if strategic region has a diplomatic play or not
 alias[trigger:has_diplomatic_play] = bool
 
+## scopes = { religion }
 ### Checks if the religion is the state religion in a country is_accepted_religion = <country>
 alias[trigger:is_state_religion] = <country_definition>
+## scopes = { religion }
 ### Checks if the religion is the state religion in a country is_accepted_religion = <country>
 alias[trigger:is_state_religion] = scope[country]
 
+## scopes = { any }
 ### Checks if the specified lens is open active_lens = lens An interface trigger, can only be used in specific places
-alias[trigger:active_lens] = replace_me
+alias[trigger:active_lens] = scalar
 
+## scopes = { any }
 ### Checks if the specified lens option is activated active_lens_option = lens_option_key An interface trigger, can only be used in specific places
-alias[trigger:active_lens_option] = replace_me
+alias[trigger:active_lens_option] = scalar
 
+## scopes = { any }
 ### Saves a temporary target for use during the trigger execution This is used to build lists in triggers. If used within an any-trigger, placement within the trigger is quite important. The game will iterate through every instance of the any-trigger until it finds a single instance that fulfills the requirements, and then it will stop. In order to add every instance of a scope that fulfills certain conditions, use "count = all" while also placing this "effect" at the very end of the any-trigger (so that every condition is evaluated for every iteration).
 alias[trigger:add_to_temporary_list] = value_set[temporary_list]
 
+## scopes = { any }
 ### true if all children are false (equivalent to NOR)
 alias[trigger:all_false] = single_alias_right[trigger_clause]
 
+## scopes = { any }
 ### Always the same value always = yes
 alias[trigger:always] = bool
 
-### Conditionally cause an assert during run time assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
+### Conditiona
+### ## scopes = { any }lly cause an assert during run time assert_if = { limit = { X } text = Y }, where X is a trigger and Y is an optional string
 alias[trigger:assert_if] = {
     limit = single_alias_right[trigger_clause]
+
     ## cardinality = 0..1
     text = scalar
 }
 
+## scopes = { any }
 ### Conditionally cause an assert during read time assert_read = X, where X is yes or the string to be printed in the assert
 alias[trigger:assert_read] = scalar
 
+## scopes = { any }
 ### Returns true if the specified number of sub-triggers return true calc_true_if = { amount = 2 <trigger> <trigger> <trigger> }
 alias[trigger:calc_true_if] = {
     amount = int
+
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## scopes = { any }
 ### Can the specified tutorial lesson be started? can_start_tutorial_lesson = reactive_advice_succession An interface trigger, can only be used in specific places
 alias[trigger:can_start_tutorial_lesson] = <tutorial_lesson>
 
-### Returns the number of tooltips currently open on screen An interface trigger, can only be used in specific places
-alias[trigger:current_tooltip_depth] == value_field
-
+## scopes = { any }
 ### Wraps triggers that get a custom description instead of the auto-generated one custom_description = { 	text = <trigger_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... triggers ... }
 alias[trigger:custom_description] = {
     text = <trigger_localization>
+
     ## cardinality = 0..1
     subject = scope_field
+
     ## cardinality = 0..1
     object = scope_field
+
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## scopes = { any }
 ### Replaces the tooltips for the enclosed triggers with a custom text custom_tooltip = { 	text = <text> 	subject = <scope> (optional) 	<trigger> }
 alias[trigger:custom_tooltip] = {
     text = localisation
+
     ## cardinality = 0..1
     subject = scope_field
+
     alias_name[trigger] = alias_match_left[trigger]
 }
+## scopes = { any }
 ### Replaces the tooltips for the enclosed triggers with a custom text custom_tooltip = { 	text = <text> 	subject = <scope> (optional) 	<trigger> }
 alias[trigger:custom_tooltip] = localisation
 
+## scopes = { any }
 ### Log whether the parent trigger succeeded or failed
 alias[trigger:debug_log] = scalar
+## scopes = { any }
+### Log whether the parent trigger succeeded or failed
+alias[trigger:debug_log] = localisation
 
+## scopes = { any }
 ### Log whether the parent trigger succeeded or failed. Log which children succeeded or failed
 alias[trigger:debug_log_details] = scalar
 
+## scopes = { any }
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = scope_field
+## scopes = { any }
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = yes
+## scopes = { any }
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = value_field
+## scopes = { any }
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = <script_value>
+## scopes = { any }
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = <static_value>
 
@@ -1330,16 +1392,15 @@ alias[trigger:radical_fraction] = {
 ### Checks how the ratio of Combat Units (of the same type) on the scoped Diplomatic Play, on the target country's side, with the specified Production Method compares to the value diplomatic_play_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
 alias[trigger:diplomatic_play_pm_usage] = {
     target = scope[country]
+
     production_method = <production_method>
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
     value == <static_value>
     value == $define_reference
 }
-
-### Checks whether escalation has passed a certain threshold escalation > -58
-alias[trigger:escalation] = value_field
 
 ### Checks if diplomatic play has a certain war goal type has_play_goal = return_state
 alias[trigger:has_play_goal] = <war_goal_type>
@@ -1352,6 +1413,7 @@ alias[trigger:initiator_is] = scope[country]
 ### Checks diplomatic play is of a certain type is_diplomatic_play_type = play type
 alias[trigger:is_diplomatic_play_type] = <diplomatic_play>
 
+### Checks diplomatic pact is of a certain action type
 alias[trigger:is_diplomatic_action_type] == <diplomatic_action>
 
 ### True if the diplomatic play has escalated into war is_war = bool
