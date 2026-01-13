@@ -313,15 +313,18 @@ alias[trigger:exists] = <script_value>
 ### Checks whether the specified socope target exists (check for not being the null object) exists = from.owner.var:cool_var.mother
 alias[trigger:exists] = <static_value>
 
+## scopes = { any }
 ### Compare to current game date current_game_date = 1837.1.1
 alias[trigger:game_date] == date_field
-
+## scopes = { any }
 ### Compare to current game date current_game_date = 1837
 alias[trigger:game_date] == int
 
+## scopes = { any }
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
 alias[trigger:global_variable_list_size] = {
     name = value[global_variable_list]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -329,66 +332,87 @@ alias[trigger:global_variable_list_size] = {
     value == $define_reference
 }
 
+## scopes = { any }
 ### Does the client have this cosmetic DLC An interface trigger, can only be used in specific places
 alias[trigger:has_cosmetic_dlc] = enum[cosmetic_dlc]
 
+## scopes = { any }
 ### Does the client have this DLC
 alias[trigger:has_dlc_feature] = enum[dlc_feature]
 
+## scopes = { any }
 ### Is the given game rule setting enabled? has_game_rule = faster_conversion
 alias[trigger:has_game_rule] = <game_rule>
 
+## scopes = { any }
 ### True if game has started has_game_started = bool
 alias[trigger:has_game_started] = bool
 
+## scopes = { any }
 ### Does the host have this gameplay DLC
 alias[trigger:has_gameplay_dlc] = enum[gameplay_dlc]
 
+## scopes = { any }
 ### Checks whether the current scope has the specified variable set has_variable = name
 alias[trigger:has_global_variable] = value[global_variable]
 
+## scopes = { any }
 ### Checks whether the current scope has the specified variable list set has_variable_list = name
 alias[trigger:has_global_variable_list] = value[global_variable_list]
 
+## scopes = { any }
 ### Checks whether the current scope has the specified variable set has_variable = name
 alias[trigger:has_local_variable] = value[local_variable]
 
+## scopes = { any }
 ### Checks whether the current scope has the specified variable list set has_variable_list = name
 alias[trigger:has_local_variable_list] = value[local_variable_list]
 
+## scopes = { any }
 ### Checks if the map interaction type is active has_map_interaction = key An interface trigger, can only be used in specific places
 alias[trigger:has_map_interaction] = <map_interaction_type>
 
+## scopes = { any }
 ### Checks if our current map interaction is a specific diplomatic action has_map_interaction_diplomatic_action = <key> An interface trigger, can only be used in specific places
 alias[trigger:has_map_interaction_diplomatic_action] = <diplomatic_action>
 
+## scopes = { any }
 ### True if the end date (NDefines::NGame::END_DATE) has been reached has_reached_end_date = yes
 alias[trigger:has_reached_end_date] = bool
 
+## scopes = { any }
 ### Check if there is at least one unification candidate for country tag has_country_unification_candidate = GER
 alias[trigger:has_unification_candidate] = <country_formation.major>
 
+## scopes = { any }
 ### Checks whether the current scope has the specified variable set has_variable = name
 alias[trigger:has_variable] = value[variable]
 
+## scopes = { any }
 ### Checks whether the current scope has the specified variable list set has_variable_list = name
 alias[trigger:has_variable_list] = value[variable_list]
 
+## scopes = { any }
 ### Trigger that doesn't generate tooltips for contents within hidden_trigger = {}
 alias[trigger:hidden_trigger] = single_alias_right[trigger_clause]
 
+## scopes = { any }
 ### Checks if the CProductionMethodsPanelEntry for a particular CBuildingType is expanded is_building_type_expanded = <scope/key> An interface trigger, can only be used in specific places
 alias[trigger:is_building_type_expanded] = scope[building_type]
 
+## scopes = { any }
 ### Checks if the game is paused is_game_paused = yes/no An interface trigger, can only be used in specific places
 alias[trigger:is_game_paused] = bool
 
+## scopes = { any }
 ### Is the gamestate tutorial active? See save_progress_in_gamestate in tutorial_lesson_chains documentation. An interface trigger, can only be used in specific places
 alias[trigger:is_gamestate_tutorial_active] = bool
 
+## scopes = { any }
 ### Checks if a target in in a list
 alias[trigger:is_in_list] = scope_field
 
+## scopes = { any }
 ### Checks if a certain lens is open, specified as a lens key. Specify an optional named tab to check if this tab is open. is_lens_open = { lens = lens_key tab_name = tab_key } An interface trigger, can only be used in specific places
 alias[trigger:is_lens_open] = {
     ## cardinality = 0..1
@@ -398,9 +422,11 @@ alias[trigger:is_lens_open] = {
     tab_name = scalar
 }
 
+## scopes = { any }
 ### Is the objective completed for the country in scope? is_objective_completed = yes
 alias[trigger:is_objective_completed] = bool
 
+## scopes = { any }
 ### Checks if a certain infopanel is open, specified as an event target (target) or as a string (panel_name). Specify an optional named tab (tab_name) to check if this tab is open. is_panel_open = { target = <scope> OR panel_name = panel_name tab_name = tab_name } An interface trigger, can only be used in specific places
 alias[trigger:is_panel_open] = {
     ## cardinality = 0..1
@@ -413,51 +439,63 @@ alias[trigger:is_panel_open] = {
     target = scalar
 }
 
+## scopes = { any }
 ### Checks if the specified popup panel is open is_popup_open = popup An interface trigger, can only be used in specific places
 alias[trigger:is_popup_open] = scalar
 
+## scopes = { any }
 ### Checks if the specified rightclick menu is open is_rightclick_menu_open = <menu_key> An interface trigger, can only be used in specific places
 alias[trigger:is_rightclick_menu_open] = scalar
 
+## scopes = { any }
 ### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[trigger:is_target_in_global_variable_list] = {
     name = value[global_variable_list]
-    #TODO ?
+
     target = scope_field
 }
 
+## scopes = { any }
 ### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[trigger:is_target_in_local_variable_list] = {
     name = value[local_variable_list]
-    #TODO ?
+
     target = scope_field
 }
 
+## scopes = { any }
 ### Checks if a target is in a variable list is_target_in_variable_list = { name = X target = Y } Where X is the name of the variable Where Y is an event target
 alias[trigger:is_target_in_variable_list] = {
     name = value[variable_list]
-    #TODO ?
+
     target = scope_field
 }
 
+## scopes = { any }
 ### Is the tutorial active? An interface trigger, can only be used in specific places
 alias[trigger:is_tutorial_active] = bool
 
+## scopes = { any }
 ### Is this the current tutorial lesson? is_tutorial_lesson_active = reactive_advice_succession An interface trigger, can only be used in specific places
 alias[trigger:is_tutorial_lesson_active] = <tutorial_lesson>
 
+## scopes = { any }
 ### Has the tutorial lesson chain with the specified key been finished? An interface trigger, can only be used in specific places
 alias[trigger:is_tutorial_lesson_chain_completed] = <tutorial_lesson_chain>
 
+## scopes = { any }
 ### has the tutorial lesson with the specified name been finished? An interface trigger, can only be used in specific places
 alias[trigger:is_tutorial_lesson_completed] = <tutorial_lesson>
 
+## scopes = { any }
 ### Has the tutorial lesson step been finished? is_tutorial_lesson_step_completed = lesson_key:step_key An interface trigger, can only be used in specific places
-alias[trigger:is_tutorial_lesson_step_completed] = replace_me
+alias[trigger:is_tutorial_lesson_step_completed] = <tutorial_lesson>:value_set[tutorial_lesson_step]
 
+## scopes = { any }
 ### Checks the size of a list list_size = { name = X value >= Y } Where X is the name of the list Where Y is a script value
 alias[trigger:list_size] == {
     name = value[variable_list]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -465,6 +503,7 @@ alias[trigger:list_size] == {
     value == $define_reference
 }
 
+## scopes = { any }
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
 alias[trigger:local_variable_list_size] = {
     name = value[local_variable_list]
@@ -475,46 +514,59 @@ alias[trigger:local_variable_list_size] = {
     value == $define_reference
 }
 
+## scopes = { any }
 ### Saves a temporary target for use during the trigger execution
 alias[trigger:save_temporary_scope_as] = value_set[event_target]
 
+## scopes = { any }
 ### Saves a numerical or bool value as an arbitrarily-named temporary target to be referenced later in the same effect save_temporary_scope_value_as = { name = <string> value = x }
 alias[trigger:save_temporary_scope_value_as] = {
     name = value_set[variable]
     value = value_field
 }
 
+## scopes = { any }
 ### can nudity be shown? should_show_nudity = yes/no An interface trigger, can only be used in specific places
 alias[trigger:should_show_nudity] = bool
 
+## scopes = { any }
 ### Switch on a trigger for the evaluation of another trigger with an optional fallback trigger.
 alias[trigger:switch] = {
     trigger = alias_keys_field[trigger]
+
     ## cardinality = ~1..inf
     scalar = { alias_name[trigger] = alias_match_left[trigger] }
+
     ## cardinality = ~1..1
     fallback = { alias_name[trigger] = alias_match_left[trigger] }
 }
 
+## scopes = { any }
 ### Evaluates the triggers if the display_triggers of preceding 'trigger_if' or 'trigger_else_if' is not mettrigger_if = { limit = { <display_triggers> } <triggers> }  trigger_else = { <triggers> }
 alias[trigger:trigger_else] = single_alias_right[trigger_clause]
 
+## scopes = { any }
 ### Evaluates the enclosed triggers if the display_triggers of the preceding `trigger_if` or `trigger_else_if` is not met and its own display_trigger of the limit is mettrigger_if = { limit = { <display_triggers> } <triggers> } trigger_else_if = { limit = { <display_triggers> } <triggers> }
 alias[trigger:trigger_else_if] = {
     limit = single_alias_right[trigger_clause]
+
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## scopes = { any }
 ### Evaluates the triggers if the display_triggers of the limit are met trigger_if = { limit = { <display_triggers> } <triggers> }
 alias[trigger:trigger_if] = {
     ## cardinality = 0..inf
     limit = single_alias_right[trigger_clause]
+
     alias_name[trigger] = alias_match_left[trigger]
 }
 
+## scopes = { any }
 ### Checks the size of a variable list variable_list_size = { name = X target >= Y } Where X is the name of the variable Where Y is a script value or number
 alias[trigger:variable_list_size] = {
     name = value[variable_list]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -522,416 +574,551 @@ alias[trigger:variable_list_size] = {
     value == $define_reference
 }
 
+## scopes = { any }
 ### Returns true if the sum of weights of fulfilled sub-triggers amount to the specified sum weighted_calc_true_if = { amount = 10 5 = { <trigger> } 15 = { <trigger> } 7 = { <trigger> } }
-alias[trigger:weighted_calc_true_if] = replace_me
+alias[trigger:weighted_calc_true_if] = {
+    amount == value_field
+    amount == single_alias_right[formula]
+    amount == <script_value>
+    amount == <static_value>
+    amount == $define_reference
 
-### Compares the infrastructure value of a given state infrastructure > 10
-alias[trigger:infrastructure] == value_field
+    int = single_alias_right[trigger_clause]
+}
 
-### Compares the infrastructure usage value of a given state infrastructure_usage > 10
-alias[trigger:infrastructure_usage] == value_field
-
+## scopes = { province }
 ### Check if the scope object has the specified label has_label = label_key
 alias[trigger:has_label] = <label>
 
+## scopes = { province }
 ### Check if the province has the specified terrain type has_terrain = terrain_key
 alias[trigger:has_terrain] = <terrain>
 
+## scopes = { province }
 ### Check if the province is on land
 alias[trigger:is_province_land] = bool
 
+## scopes = { interest_marker }
 ### Is the interest marker active is_interest_active = yes/no
 alias[trigger:is_interest_active] = bool
 
+## scopes = { country }
 ### True if country is independent or permitted to start their own Diplomatic Plays aggressive_diplomatic_plays_permitted = bool
 alias[trigger:aggressive_diplomatic_plays_permitted] = bool
 
+## scopes = { country }
 ### Check if Institutions in the country will incur a Bureaucracy shortage eventually
 alias[trigger:approaching_bureaucracy_shortage] = bool
 
-### Checks if the country in scope can afford the Influence for the specified diplomatic action (pact or ongoing) can_afford_diplomatic_action = { target = X type = Y } Where X = country and Y = diplomatic action type
+## scopes = { country }
+### Checks if the country in scope can afford the Influence for the specified diplomatic action (pact or ongoing)
 alias[trigger:can_afford_diplomatic_action] = {
     target = scope[country]
+
     type = <diplomatic_action>
 }
 
+## scopes = { country }
 ### Check if the target country is able to potentially form a nation can_form_nation = <tag>
 alias[trigger:can_form_nation] = <country_formation>
 
-### Checks if a country can have another country as a particular type of subject can_have_as_subject = { who = X type = Y } Where X = country and Y = subject type
+## scopes = { country }
+### Checks if a country can have another country as a particular type of subject
 alias[trigger:can_have_as_subject] = {
     who = scope[country]
+
     type = <subject_type>
 }
 
+## scopes = { country }
 ### Check if the country is able to have subjects of it sown
 alias[trigger:can_have_subjects] = bool
 
+## scopes = { country }
 ### True if a country can research an technology can_research = technology
 alias[trigger:can_research] = <technology>
 
-### Checks if scoped country can take on a certain amount of scaled debt from another country can_take_on_scaled_debt = { who = X value = Y } Where X = country and Y = decimal value
+## scopes = { country }
+### Checks if scoped country can take on a certain amount of scaled debt from another country
 alias[trigger:can_take_on_scaled_debt] = {
     who = scope[country]
-    value = value_field
+
+    value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
 }
 
-### Compares the predicted duration in weeks of the total number of building projects in the construction queue
-alias[trigger:construction_queue_duration] == value_field
-
-### Compares the number of building levels in the construction queue
-alias[trigger:construction_queue_num_queued_levels] == value_field
-
+## scopes = { country }
 ### Checks if a culture is one of the primary cultures in the country country_has_primary_culture = <culture>
 alias[trigger:country_has_primary_culture] = scope[culture]
 
+## scopes = { country }
 ### Checks if a religion is the state religion in the country country_has_accepted_religion = <religion>
 alias[trigger:country_has_state_religion] = scope[religion]
 
+## scopes = { country }
 ### Checks whether the scoped country or any of its subjects owns the entire specified state region country_or_subject_owns_entire_state_region = key
 alias[trigger:country_or_subject_owns_entire_state_region] = <state_region>
 
+## scopes = { country }
 ### Compare tier of country tag country_tier = x
 alias[trigger:country_tier] = enum[country_tier]
 
+## scopes = { country }
 ### Checks if you're enacting any law. enacting_any_law = bool
 alias[trigger:enacting_any_law] = bool
 
+## scopes = { country }
 ### Checks if the institution is expanding expanding_institution = <scope/key>
 alias[trigger:expanding_institution] = <institution>
+## scopes = { country }
 ### Checks if the institution is expanding expanding_institution = <scope/key>
 alias[trigger:expanding_institution] = scope[institution]
 
+## scopes = { country }
+### Compares the ratio of GDP the specified country owns in the scoped country
 alias[trigger:gdp_ownership_ratio] = {
     target = scope[country]
+
     value == value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
 }
 
+## scopes = { country }
 ### True if the country is in a war where there is a proposed peace deal has_active_peace_deal = bool
 alias[trigger:has_active_peace_deal] = bool
 
+## scopes = { country }
 ### Check if the country has secessionists broken out
 alias[trigger:has_any_secessionists_broken_out] = bool
 
+## scopes = { country }
 ### Check if the country has any secessionists growing
 alias[trigger:has_any_secessionists_growing] = bool
 
-### Checks if scoped country has a particular attitude towards another country has_attitude = { who = X attitude = Y } Where X = country and Y = attitude type
+## scopes = { country }
+### Checks if scoped country has a particular attitude towards another country
 alias[trigger:has_attitude] = {
     who = scope[country]
+
     attitude = enum[diplo_play_attitute]
 }
 
+## scopes = { country }
 ### Checks if country in scope has a claim on state/state region has_claim = <scope>
 alias[trigger:has_claim] = scope[state]
+## scopes = { country }
 ### Checks if country in scope has a claim on state/state region has_claim = <scope>
 alias[trigger:has_claim] = scope[state_region]
 
+## scopes = { country }
 ### Checks if the scoped country has completed a certain subgoal has_completed_subgoal = subgoal_key
 alias[trigger:has_completed_subgoal] = <objective_subgoal>
 
+## scopes = { country }
 ### Checks if the country is taxing the target good. c:FRA = { has_consumption_tax = g:grain }
 alias[trigger:has_consumption_tax] = scope[goods]
 
+## scopes = { country }
 ### Check if the country has convoys being sunk through convoy raiding
 alias[trigger:has_convoys_being_sunk] = bool
 
+## scopes = { country }
 ### Checks if the country has decreasing interest levels
 alias[trigger:has_decreasing_interests] = bool
 
-### Checks if two countries have an active diplomatic pact of type has_diplomatic_pact = { who = X type = Y is_initiator = yes/no } Where X = country and Y = diplomatic action type, is_initiator is optional parameter that checks to see if scope country is the original initiator/target of the pact
+## scopes = { country }
+### Checks if two countries have an active diplomatic pact of type
 alias[trigger:has_diplomatic_pact] = {
     who = scope[country]
+
     type = <diplomatic_action>
+
     ## cardinality = 0..1
     is_initiator = bool
 }
 
+## scopes = { country }
 ### Checks if target country is diplomatically relevant for scope country has_diplomatic_relevance = <scope>
 alias[trigger:has_diplomatic_relevance] = <country_definition>
+## scopes = { country }
 ### Checks if target country is diplomatically relevant for scope country has_diplomatic_relevance = <scope>
 alias[trigger:has_diplomatic_relevance] = scope[country]
 
+## scopes = { country }
 ### Checks if country in scope has recently expelled diplomats of event target has_diplomats_expelled = country
 alias[trigger:has_diplomats_expelled] = <country_definition>
+## scopes = { country }
 ### Checks if country in scope has recently expelled diplomats of event target has_diplomats_expelled = country
 alias[trigger:has_diplomats_expelled] = scope[country]
 
+## scopes = { country }
 ### Check if the country has a free (of radicals) government reform has_free_government_reform = <yes/no>
 alias[trigger:has_free_government_reform] = bool
 
+## scopes = { country }
 ### Checks if the scoped country has the highest GDP has_global_highest_gdp = yes/no
 alias[trigger:has_global_highest_gdp] = bool
 
+## scopes = { country }
 ### Checks if the scoped country has the highest weekly innovation has_global_highest_innovation = yes/no
 alias[trigger:has_global_highest_innovation] = bool
 
-### Does the country's government have the necessary total Clout
-alias[trigger:has_government_clout] == value_field
-
+## scopes = { country }
 ### Is the country's government type as specified has_government_type = key
 alias[trigger:has_government_type] = <government_type>
 
+## scopes = { country }
 ### Check if the country has a healthy economy
 alias[trigger:has_healthy_economy] = bool
 
+## scopes = { country }
 ### Checks if scope country has a particular type of institution has_institution = <scope/key>
 alias[trigger:has_institution] = <institution>
+## scopes = { country }
 ### Checks if scope country has a particular type of institution has_institution = <scope/key>
 alias[trigger:has_institution] = scope[institution]
 
+## scopes = { country }
 ### Check if the country has Interest Groups that are insurrectionary
 alias[trigger:has_insurrectionary_interest_groups] = bool
 
+## scopes = { country }
 ### True if scope country has an interest marker in target region has_interest_marker_in_region = region scope/tag
 alias[trigger:has_interest_marker_in_region] = <strategic_region>
+## scopes = { country }
 ### True if scope country has an interest marker in target region has_interest_marker_in_region = region scope/tag
 alias[trigger:has_interest_marker_in_region] = scope[strategic_region]
 
+## scopes = { country }
 ### Check if the country has at least one active journal entry of the specified type has_journal_entry = key
 alias[trigger:has_journal_entry] = <journal_entry>
 
+## scopes = { country }
 ### Checks if a country has a certain Law active
 alias[trigger:has_law] = scope[law_type]
 
+## scopes = { country }
 ### Checks if the scoped country has a certain objective type has_objective = objective_type_key
 alias[trigger:has_objective] = <objective>
 
+## scopes = { country }
 ### Checks if country in scope has an overlapping interest marker with any of target country's interests has_overlapping_interests = <scope>
 alias[trigger:has_overlapping_interests] = <country_definition>
+## scopes = { country }
 ### Checks if country in scope has an overlapping interest marker with any of target country's interests has_overlapping_interests = <scope>
 alias[trigger:has_overlapping_interests] = scope[country]
 
+## scopes = { country }
 ### Check if the country has any researchable technology left.
 alias[trigger:has_researchable_technology] = bool
 
+## scopes = { country }
 ### Check if the country has revolutionary uprising
 alias[trigger:has_revolution] = bool
 
+## scopes = { country }
 ### Does the country's government include the named IG
 alias[trigger:has_ruling_interest_group] = <interest_group>
 
-### Does the country's government consist of the specified number of IGs
-alias[trigger:has_ruling_interest_group_count] == value_field
-
-### Checks if scoped country has a particular secret goal towards another country has_secret_goal = { who = X secret_goal = Y } Where X = country and Y = secret_goal type
+## scopes = { country }
+### Checks if scoped country has a particular secret goal towards another country
 alias[trigger:has_secret_goal] = {
     who = scope[country]
     who = <country_definition>
+
     secret_goal = enum[secret_goal]
 }
 
+## scopes = { country }
 ### Check if country has a state in the state region has_state_in_state_region = key
 alias[trigger:has_state_in_state_region] = <state_region>
 
+## scopes = { country }
 ### Checks if country in scope has a strategic adjacency (direct/coastal/wargoal adjacency) to target state/country has_strategic_adjacency = <scope>
 alias[trigger:has_strategic_adjacency] = scope[state]
+## scopes = { country }
 ### Checks if country in scope has a strategic adjacency (direct/coastal/wargoal adjacency) to target state/country has_strategic_adjacency = <scope>
 alias[trigger:has_strategic_adjacency] = scope[country]
 
+## scopes = { country }
 ### Checks if country in scope has a particular AI strategy has_strategy = <key>
 alias[trigger:has_strategy] = <ai_strategy>
 
+## scopes = { country }
 ### Checks if country in scope is subject or overlord of event target has_subject_relation_with = country
 alias[trigger:has_subject_relation_with] = <country_definition>
+## scopes = { country }
 ### Checks if country in scope is subject or overlord of event target has_subject_relation_with = country
 alias[trigger:has_subject_relation_with] = scope[country]
 
+## scopes = { country }
 ### Does the country have the required progress for an technology has_technology_progress = { technology = X progress = Y } Where X is an technology and Y is a fixed point
 alias[trigger:has_technology_progress] == {
     technology = <technology>
-    progress = value_field
+
+    progress == value_field
+    progress == single_alias_right[formula]
+    progress == <script_value>
+    progress == <static_value>
+    progress == $define_reference
 }
 
+## scopes = { country }
 ### True if a country has researched an technology has_technology_researched = <scope/key>
 alias[trigger:has_technology_researched] = scope[technology]
+## scopes = { country }
 ### True if a country has researched an technology has_technology_researched = <scope/key>
 alias[trigger:has_technology_researched] = <technology>
 
+## scopes = { country }
 ### Check if a country has a truce with a different target country has_truce_with = c:GBR
 alias[trigger:has_truce_with] = <country_definition>
+## scopes = { country }
 ### Check if a country has a truce with a different target country has_truce_with = c:GBR
 alias[trigger:has_truce_with] = scope[country]
 
+## scopes = { country }
 ### Checks if country in scope is at war with event target has_war_with = country
 alias[trigger:has_war_with] = <country_definition>
+## scopes = { country }
 ### Checks if country in scope is at war with event target has_war_with = country
 alias[trigger:has_war_with] = scope[country]
 
+## scopes = { country }
 ### Check if country is wasting any of its produced construction.
 alias[trigger:has_wasted_construction] = bool
 
-### Compares the highest secession progress of any secession movement in a given country highest_secession_progress > 0.7
-alias[trigger:highest_secession_progress] == value_field
-
+## scopes = { country }
 ### Check if the country is currently in default
 alias[trigger:in_default] = bool
 
+## scopes = { country }
 ### Check if the country is in election campaign period in_election_campaign = <yes/no>
 alias[trigger:in_election_campaign] = bool
 
-### Compares the available influence of the scoped country
-alias[trigger:influence] == value_field
-
+## scopes = { country }
 ### Compares the level of investment in an institution institution_investment_level = { institution = <key> value = <comparator value> }
 alias[trigger:institution_investment_level] == {
     institution = <institution>
-    value == int
+
+    value == int_value_field
+    value == single_alias_right[formula]
+    value == <script_value>
+    value == <static_value>
+    value == $define_reference
 }
 
-### Compares the money in the investment pool of a given country investment_pool > 1000
-alias[trigger:investment_pool] == value_field
-
+## scopes = { country }
 ### True if country scope is controlled by an AI is_ai = bool
 alias[trigger:is_ai] = bool
 
+## scopes = { country }
 ### Check if the country is at war
 alias[trigger:is_at_war] = bool
 
+## scopes = { country }
 ### Check if a country is banning a good is_banning_goods = <goods key/scope>
 alias[trigger:is_banning_goods] = scope[goods]
+## scopes = { country }
 ### Check if a country is banning a good is_banning_goods = <goods key/scope>
 alias[trigger:is_banning_goods] = <good>
 
+## scopes = { country }
 ### Check if construction in a state is paused.
 alias[trigger:is_construction_paused] = bool
 
+## scopes = { country }
 ### Checks if the scoped country is alive, i.e. if it has at least one state on the map and can be interacted with is_country_alive = yes/no
 alias[trigger:is_country_alive] = bool
+## scopes = { country }
 ### Checks if the scoped country is alive, i.e. if it has at least one state on the map and can be interacted with is_country_alive = yes/no
 alias[trigger:is_country_alive] = scope[country]
 
+## scopes = { country }
 ### Checks the countrys type is_country_type = country type
 alias[trigger:is_country_type] = <country_type>
 
+## scopes = { country }
 ### True if country is a committed participant of any diplomatic play is_diplomatic_play_participant = bool
 alias[trigger:is_diplomatic_play_committed_participant] = bool
 
+## scopes = { country }
 ### Checks if country in scope is in a diplomatic play against event target is_diplomatic_play_enemy_of = country
 alias[trigger:is_diplomatic_play_enemy_of] = <country_definition>
+## scopes = { country }
 ### Checks if country in scope is in a diplomatic play against event target is_diplomatic_play_enemy_of = country
 alias[trigger:is_diplomatic_play_enemy_of] = scope[country]
 
+## scopes = { country }
 ### True if country is the initiator of any diplomatic play is_diplomatic_play_initiator = bool
 alias[trigger:is_diplomatic_play_initiator] = bool
 
+## scopes = { country }
 ### True if country is the target of any diplomatic play is_diplomatic_play_target = bool
 alias[trigger:is_diplomatic_play_target] = bool
 
+## scopes = { country }
 ### True if country is a undecided participant of any diplomatic play is_diplomatic_play_participant = bool
 alias[trigger:is_diplomatic_play_undecided_participant] = bool
 
+## scopes = { country }
 ### Checks if country in scope is a direct subject (not subject-of-subject) of event target is_subject_of = country
 alias[trigger:is_direct_subject_of] = <country_definition>
+## scopes = { country }
 ### Checks if country in scope is a direct subject (not subject-of-subject) of event target is_subject_of = country
 alias[trigger:is_direct_subject_of] = scope[country]
 
+## scopes = { country }
 ### Checks if the scoped country is enacting a specific law type. is_enacting_law = law_type:law_conscription
 alias[trigger:is_enacting_law] = scope[law_type]
 
+## scopes = { country }
 ### Are you expanding an institution is_expanding_institution = <yes>/<no>
 alias[trigger:is_expanding_institution] = bool
 
+## scopes = { country }
 ### Checks if a country is the home country for target country
 alias[trigger:is_home_country_for] = <country_definition>
+## scopes = { country }
 ### Checks if a country is the home country for target country
 alias[trigger:is_home_country_for] = scope[country]
 
+## scopes = { country }
 ### Check if the country is part of a customs union
 alias[trigger:is_in_customs_union] = bool
 
+## scopes = { country }
 ### Checks if country in scope is in war on the same side as event target is_in_war_together = country
 alias[trigger:is_in_war_together] = <country_definition>
+## scopes = { country }
 ### Checks if country in scope is in war on the same side as event target is_in_war_together = country
 alias[trigger:is_in_war_together] = scope[country]
 
+## scopes = { country }
 ### True if country is a junior country in a customs custom is_junior_in_customs_union = bool
 alias[trigger:is_junior_in_customs_union] = bool
 
+## scopes = { country }
 ### True if country scope is a player is_local_player = bool
 alias[trigger:is_local_player] = bool
 
+## scopes = { country }
 ### Check if the country is in the process of dropping in power ranking
 alias[trigger:is_losing_power_rank] = bool
 
+## scopes = { country }
 ### Checks if the scoped country is owed a obligation by the target country is_owed_obligation_by = c:FRA
 alias[trigger:is_owed_obligation_by] = <country_definition>
+## scopes = { country }
 ### Checks if the scoped country is owed a obligation by the target country is_owed_obligation_by = c:FRA
 alias[trigger:is_owed_obligation_by] = scope[country]
 
+## scopes = { country }
 ### True if country scope is a player is_player = bool
 alias[trigger:is_player] = bool
 
+## scopes = { country }
 ### Check if the country is actively researching a tech is_researching_technology = <scope/key/any>
 alias[trigger:is_researching_technology] = <technology>
+## scopes = { country }
 ### Check if the country is actively researching a tech is_researching_technology = <scope/key/any>
 alias[trigger:is_researching_technology] = any
+## scopes = { country }
 ### Check if the country is actively researching a tech is_researching_technology = <scope/key/any>
 alias[trigger:is_researching_technology] = scope[technology]
 
+## scopes = { country }
 ### Check if the country is actively researching a tech category is_researching_technology_category = <key/any>
 alias[trigger:is_researching_technology_category] = any
+## scopes = { country }
 ### Check if the country is actively researching a tech category is_researching_technology_category = <key/any>
 alias[trigger:is_researching_technology_category] = <technology>
 
+## scopes = { country }
 ### Check if the country is secessionist
 alias[trigger:is_secessionist] = bool
 
+## scopes = { country }
 ### True if country is a subject is_subject = bool
 alias[trigger:is_subject] = bool
 
+## scopes = { country }
 ### Checks if country in scope is subject (or subject-of-subject) of event target is_subject_of = country
 alias[trigger:is_subject_of] = <country_definition>
+## scopes = { country }
 ### Checks if country in scope is subject (or subject-of-subject) of event target is_subject_of = country
 alias[trigger:is_subject_of] = scope[country]
 
+## scopes = { country }
 ### Checks the country's subject type is_subject_type = subject type
 alias[trigger:is_subject_type] = <subject_type>
 
+## scopes = { country }
 ### Check if scope country is supporting a unification candidate for a specific country formation is_supporting_unification_candidate = { who = c:PRU country_formation = GER }
 alias[trigger:is_supporting_unification_candidate] = {
     who = scope[country]
+
     country_formation = <country_formation.major>
 }
 
+## scopes = { country }
 ### Check if a country is taxing a good has_embargo = <goods key/scope>
 alias[trigger:is_taxing_goods] = <good>
+## scopes = { country }
 ### Check if a country is taxing a good has_embargo = <goods key/scope>
 alias[trigger:is_taxing_goods] = scope[goods]
 
+## scopes = { country }
 ### Check if scope country is a unification candidate for country tag has_country_unification_candidate = GER
 alias[trigger:is_unification_candidate] = <country_formation.major>
 
+## scopes = { country }
 ### Check if the scoped country is violating the sovereignty of a target country is_violating_sovereignty_of = c:GBR
 alias[trigger:is_violating_sovereignty_of] = <country_definition>
+## scopes = { country }
 ### Check if the scoped country is violating the sovereignty of a target country is_violating_sovereignty_of = c:GBR
 alias[trigger:is_violating_sovereignty_of] = scope[country]
 
+## scopes = { country }
 ### Checks if country is producing the most of a certain good leading_producer_of = g:luxury_clothes
 alias[trigger:leading_producer_of] = scope[goods]
 
+## scopes = { country }
 ### Check if any other country is part of this country's customs union leads_customs_union = bool
 alias[trigger:leads_customs_union] = bool
 
+## scopes = { country }
 ### Checks if country in scope owes a obligation to event target owes_obligation_to = country
 alias[trigger:owes_obligation_to] = <country_definition>
+## scopes = { country }
 ### Checks if country in scope owes a obligation to event target owes_obligation_to = country
 alias[trigger:owes_obligation_to] = scope[country]
 
+## scopes = { country }
 ### Check if country owns entire region owns_entire_state_region = key
 alias[trigger:owns_entire_state_region] = <state_region>
 
+## scopes = { country }
 ### Does country own the treaty port in assigned state region owns_treaty_port_in = key
 alias[trigger:owns_treaty_port_in] = <state_region>
 
+## scopes = { country }
 ### Checks whether the scoped country has <percent> of its population belonging to the specified pop type scope:example_country = { 	pop_type_percent_country = { 		pop_type = <pop_type> 		percent <compare operator (<,>,= and so on)> <percent> 	} }
 alias[trigger:pop_type_percent_country] = {
     pop_type = <pop_type>
-    percent == value_field[-1..1]
-}
 
-### Compare value to a country's debt relative to debt ceiling scaled_debt = value
-alias[trigger:scaled_debt] == value_field
+    percent == value_field[-1..1]
+    percent == single_alias_right[formula]
+    percent == <script_value>
+    percent == <static_value>
+    percent == $define_reference
+}
 
 ## scopes = { country }
 ### Check if the country is lacking a primary wargoal in any diplomatic play it is part of
@@ -942,130 +1129,138 @@ alias[trigger:should_set_wargoal] = {
     value = bool
 }
 
+## scopes = { country }
 ### Checks if the institution is shrinking expanding_institution = <scope/key>
 alias[trigger:shrinking_institution] = scope[institution]
+## scopes = { country }
 ### Checks if the institution is shrinking expanding_institution = <scope/key>
 alias[trigger:shrinking_institution] = <institution>
 
-### Compares the country's supply network strength (can exceed 1) supply_network_strength > 1.1
-alias[trigger:supply_network_strength] == value_field
-
+## scopes = { country }
 ### Check if the country is currently running a weekly deficit and taking loans to compensate
 alias[trigger:taking_loans] = bool
 
+## scopes = { country }
 ### Compares the overall tax level of scoped country tax_level = <level>
 alias[trigger:tax_level] == enum[wage_level]
 
-### Compares the overall tax level integer value of scoped country income_tax_level_value = <level>
-alias[trigger:tax_level_value] == value_field
-
+## scopes = { pop }
 ### Checks if the scoped pop has ongoing cultural assimilation has_ongoing_assimilation = yes
 alias[trigger:has_ongoing_assimilation] = bool
 
+## scopes = { pop }
 ### Checks if the scoped pop has ongoing religious conversion has_ongoing_conversion = yes
 alias[trigger:has_ongoing_conversion] = bool
 
+## scopes = { pop }
 ### Checks if pop has specific culture has_pop_culture = culture
 alias[trigger:has_pop_culture] = <culture>
 
+## scopes = { pop }
 ### Checks if pop has specific religion has_religion = religion
 alias[trigger:has_pop_religion] = <religion>
 
+## scopes = { pop }
 ### Check if the Pop has the state religion
 alias[trigger:has_state_religion] = bool
 
+## scopes = { pop }
 ### Check if the pop is employed
 alias[trigger:is_employed] = bool
 
+## scopes = { pop }
 ### Checks if pop is of specified type is_pop_type = poptype
 alias[trigger:is_pop_type] = <pop_type>
 
+## scopes = { pop }
 ### Checks if pop is working in a specific building type pop_employment_building = building
 alias[trigger:pop_employment_building] = <building>
 
+## scopes = { pop }
 ### Checks if pop is working in a specific building type pop_employment_building = building
 alias[trigger:pop_employment_building_group] = <building_group>
 
+## scopes = { pop }
 ### Checks if pop's culture is primary pop_has_primary_culture = bool
 alias[trigger:pop_has_primary_culture] = bool
 
+## scopes = { pop }
+### Compares the scoped pop's acceptance against an acceptence value
 alias[trigger:pop_acceptance] == enum[acceptance_status]
-alias[trigger:pop_acceptance] == int
 
-### Compares the quality of life of the given pop quality_of_life > 10
-alias[trigger:quality_of_life] == value_field
-
-### Compares the standard of living of a given pop standard_of_living > 10
-alias[trigger:standard_of_living] == value_field
-
+## scopes = { pop }
 ### Checks the strata of the scoped pop strata >= rich/middle/poor
 alias[trigger:strata] == enum[pop_strata]
 
-### Checks if a pop has a certain amount of wealth wealth = value
-alias[trigger:wealth] == value_field
-
+## scopes = { building }
 ### Check if building has a shortage of any of its inputs building_has_goods_shortage = yes/no
 alias[trigger:building_has_goods_shortage] = bool
 
-### Evaluates a production building's available cash reserves cash_reserves_available > 25000
-alias[trigger:cash_reserves_available] == value_field
-
-### Evaluates a production building's available cash reserve ratio compared to its maximum Returns 1 if the building has no maximum cash reserves cash_reserves_ratio > 0.2
-alias[trigger:cash_reserves_ratio] == value_field
-
-### Compare a building's current annual earnings per employee earnings >= 10
-alias[trigger:earnings] == value_field
-
+## scopes = { building }
+### Check if a building supports any units which have been deployed outside of home HQ
 alias[trigger:has_deployed_units] == bool
 
+## scopes = { building }
 ### Checks if a scoped building has the specified production method active has_active_production_method = key
 alias[trigger:has_active_production_method] = <production_method>
 
+## scopes = { building }
 ### Checks whether the amount of employees of a certain poptype are above or below a given percentage of the total amount the building can currently hire. I.e. if a building is at 80% (given as 0.8) of its current hiring capacity for Shopkeepers, for example. has_employee_slots_filled = { pop_type = X percent = Y } Where X is a pop type and Y is a fixed point
 alias[trigger:has_employee_slots_filled] = {
     pop_type = <pop_type>
-    percent = value_field
+
+    percent == value_field[-1..1]
+    percent == single_alias_right[formula]
+    percent == <script_value>
+    percent == <static_value>
+    percent == $define_reference
 }
 
+## scopes = { building }
 ### Checks if a building failed to hire someone last week has_failed_hires = yes/no
 alias[trigger:has_failed_hires] = bool
 
+## scopes = { building }
 ### Check if a building is buildable = yes (default) is_buildable = yes/no
 alias[trigger:is_buildable] = bool
 
+## scopes = { building }
 ### True if scope is a building of given group building_group = building
 alias[trigger:is_building_group] = <building_group>
 
+## scopes = { building }
 ### True if scope is a building of given type is_building_type = building
 alias[trigger:is_building_type] = <building>
 
+## scopes = { building }
 ### Check if a building is is_government_funded is_government_funded = yes/no
 alias[trigger:is_government_funded] = bool
 
+## scopes = { building }
 ### Check if a building is being subsidized is_subsidized = yes/no
 alias[trigger:is_subsidized] = bool
 
+## scopes = { building }
 ### Check if a building is a subsistence building is_subsistence_building = yes/no
 alias[trigger:is_subsistence_building] = bool
 
+## scopes = { building }
 ### Checks if building is under construction is_under_construction = bool
 alias[trigger:is_under_construction] = bool
 
-### Evaluates a building's current occupancy occupancy < 0.25
-alias[trigger:occupancy] == value_field
-
-### Checks whether the profits the building has made this week are above or below a given value weekly_profit >= 20.0
-alias[trigger:weekly_profit] == value_field
-
+## scopes = { goods market_goods }
 ### Check if a goods or market goods is tradeable is_tradeable = yes/no
 alias[trigger:is_tradeable] = bool
 
+## scopes = { diplomatic_pact }
 ### Checks if diplomatic pact is in danger of breaking is_diplomatic_pact_in_danger = yes
 alias[trigger:is_diplomatic_pact_in_danger] = bool
 
+## scopes = { war }
 ### Checks the war exhaustion of the target country in the scoped war has_war_exhaustion = { target = c:GBR value > 50 }
 alias[trigger:has_war_exhaustion] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1073,12 +1268,15 @@ alias[trigger:has_war_exhaustion] = {
     value == $define_reference
 }
 
+## scopes = { war }
 ### Checks if war has a certain war goal type has_war_goal = return_state
 alias[trigger:has_war_goal] = <war_goal_type>
 
+## scopes = { war }
 ### Checks the war support of the target country in the scoped war has_war_support = { target = c:GBR value > 50 }
 alias[trigger:has_war_support] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1086,22 +1284,25 @@ alias[trigger:has_war_support] = {
     value == $define_reference
 }
 
+## scopes = { war }
 ### Check if the target country is participant in a war
 alias[trigger:is_war_participant] = <country_definition>
+## scopes = { war }
 ### Check if the target country is participant in a war
 alias[trigger:is_war_participant] = scope[country]
 
+## scopes = { war }
 ### Check if country is warleader in war
 alias[trigger:is_warleader] = <country_definition>
+## scopes = { war }
 ### Check if country is warleader in war
 alias[trigger:is_warleader] = scope[country]
 
-### Checks the number of total casualties in the scoped war num_casualties >= 5000
-alias[trigger:num_casualties] == value_field
-
+## scopes = { war }
 ### checks the number of casualties for a specific country in the scoped war num_country_casualties = { target = country value < 5000 }
 alias[trigger:num_country_casualties] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1109,9 +1310,11 @@ alias[trigger:num_country_casualties] = {
     value == $define_reference
 }
 
+## scopes = { war }
 ### checks the number of dead for a specific country in the scoped war num_country_dead = { target = country value < 5000 }
 alias[trigger:num_country_dead] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1119,9 +1322,11 @@ alias[trigger:num_country_dead] = {
     value == $define_reference
 }
 
+## scopes = { war }
 ### checks the number of wounded for a specific country in the scoped war num_country_wounded = { target = country value < 5000 }
 alias[trigger:num_country_wounded] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1129,125 +1334,126 @@ alias[trigger:num_country_wounded] = {
     value == $define_reference
 }
 
-### Checks the number of total dead in the scoped war num_dead >= 5000
-alias[trigger:num_dead] == value_field
-
-### Checks the number of total wounded in the scoped war num_wounded >= 5000
-alias[trigger:num_wounded] == value_field
-
+## scopes = { market state }
 ### True if a state has an active building type has_active_building = building
 alias[trigger:has_active_building] = <building>
 
-### Check if a supported scope has a certain timed modifier Supported scopes: Country, Character, State, Building, InterestGroup, PoliticalMovement, Institution, Front has_modifier = <key>
+## scopes = { country building character institution interest_group journal_entry political_movement power_bloc state }
+### Check if a supported scope has a certain timed modifier
 alias[trigger:has_modifier] = <modifier_container>
 
+## scopes = { country market state }
 ### Check if state has at least one port has_port = yes/no
 alias[trigger:has_port] = bool
 
+## scopes = { political_movement }
 ### Check if a political movement is a particular type is_political_movement_type = movement_to_enact
 alias[trigger:is_political_movement_type] = <political_movement>
 
+## scopes = { interest_group }
 ### True if IG scope has a party has_party = bool
 alias[trigger:has_party] = bool
 
-### Compare to scoped interest group's political strength divided by total government political strength ig_government_power_share >= 0.5
-alias[trigger:ig_government_power_share] == value_field
-
-### Compares population number in an interest group interest_group_population > 1000
-alias[trigger:interest_group_population] == value_field
-
-### Compares percentage of population in an interest group interest_group_population_percentage > 0.2
-alias[trigger:interest_group_population_percentage] == value_field
-
-### Check if scoped ig is being bolstered is_being_bolstered = <yes>/<no>
+## scopes = { political_movement }
+### Check if scoped movement is being bolstered
 alias[trigger:is_being_bolstered] = bool
 
-### Check if scoped ig is being suppressed is_being_suppressed = <yes>/<no>
+## scopes = { political_movement }
+### Check if scoped movement is being suppressed
 alias[trigger:is_being_suppressed] = bool
 
+## scopes = { interest_group }
 ### True if IG scope is in the government is_in_government = bool
 alias[trigger:is_in_government] = bool
 
+## scopes = { country interest_group political_movement }
 ### True if IG scope is contributing to a brewing revolution is_insurrectionary = bool
 alias[trigger:is_insurrectionary] = bool
 
+## scopes = { character interest_group }
 ### Checks if Interest Group is of a certain type is_interest_group_type = x
 alias[trigger:is_interest_group_type] = <interest_group>
 
+## scopes = { interest_group }
 ### True if IG scope is marginal is_marginal = bool
 alias[trigger:is_marginal] = bool
 
+## scopes = { interest_group }
 ### Checks if Interest Group is a member of target party is_member_of_party = <party>
 alias[trigger:is_member_of_party] = scope[party]
 
+## scopes = { interest_group }
 ### True if IG scope is influential is_powerful = bool
 alias[trigger:is_powerful] = bool
 
+## scopes = { interest_group }
 ### Checks if Interest Group is of the same IG type as target is_interest_group_type = scope:neighbor_leading_ig
 alias[trigger:is_same_interest_group_type] = scope[interest_group]
 
+## scopes = { interest_group }
 ### Compares an interest groups most powerful strata
 alias[trigger:most_powerful_strata] = enum[strata]
 
-### Compare election momentum of the scoped party against a value election_momentum = 0.75
-alias[trigger:election_momentum] == value_field
-
+## scopes = { party }
 ### Checks if the target interest group is a member of scope party has_party_member = <ig>
 alias[trigger:has_party_member] = scope[interest_group]
 
+## scopes = { party }
 ### Checks if the target party is same as scoped party. Will only work on exact same party object, meaning you can't compare across countries. is_party = <party>
 alias[trigger:is_party] = scope[party]
 
+## scopes = { party }
 ### Checks if the scoped party's type is the specified one is_party_type = party_type_database_key
 alias[trigger:is_party_type] = <party>
 
+## scopes = { party }
 ### Checks if Party is of the same party type as target is_same_party_type_as = scope:neighboring_party
 alias[trigger:is_same_party_type] = scope[party]
 
+## scopes = { theater }
 ### Checks if a theater is a land theater is_land_theater = bool
 alias[trigger:is_land_theater] = bool
 
-### Check arable land in state arable_land > 10
-alias[trigger:arable_land] == value_field
-
-### Checks the state's number of available jobs in non-subsistence buildings available_jobs > 10000
-alias[trigger:available_jobs] == value_field
-
+## scopes = { state }
 ### Checks if the building of a particular type in scoped state is able to active the specified production method can_activate_production_method = { building_type = <key> production_method = <key> }
 alias[trigger:can_activate_production_method] = {
     building_type = <building>
+
     production_method = <production_method>
 }
 
-### Compares the devastation of a given state devastation > 5
-alias[trigger:devastation] == value_field
-
-### Check free arable land in state free_arable_land > 0
-alias[trigger:free_arable_land] == value_field
-
+## scopes = { state }
 ### Check if a state has any pops currently in the process of assimilating.
 alias[trigger:has_assimilating_pops] = bool
 
+## scopes = { state }
 ### Checks if a state is claimed by a country any_state = { 	owner = root 	has_claim_by = c:MEX }
 alias[trigger:has_claim_by] = <country_definition>
+## scopes = { state }
 ### Checks if a state is claimed by a country any_state = { 	owner = root 	has_claim_by = c:MEX }
 alias[trigger:has_claim_by] = scope[country]
 
+## scopes = { state }
 ### Check if a state has any pops currently in the process of converting.
 alias[trigger:has_converting_pops] = bool
 
+## scopes = { state }
 ### Checks if scope state has a particular type of decree has_decree = <key>
 alias[trigger:has_decree] = <decree>
 
+## scopes = { state }
 ### Checks if the specificed building group is allowed in the scoped state. Used to check if a state can potentially produce a resource has_potential_resource = bg_rubber_plantations
 alias[trigger:has_potential_resource] = <building>
 
+## scopes = { state }
 ### Checks if scoped state region has a certain trait has_state_trait = key
 alias[trigger:has_state_trait] = <state_trait>
 
+## scopes = { state }
 ### True if IG in scope has scripted political strength in state ig_state_pol_strength_share = { 	target = scope:target_ig 	value = 0.3 }
 alias[trigger:ig_state_pol_strength_share] = {
     target = scope[interest_group]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1255,145 +1461,178 @@ alias[trigger:ig_state_pol_strength_share] = {
     value == $define_reference
 }
 
-### Check incorporation progress in state incorporation_progress > 0.25
-alias[trigger:incorporation_progress] == value_field
-
+## scopes = { state }
 ### Check if state is the capital of the owner = bool
 alias[trigger:is_capital] = bool
 
+## scopes = { state }
 ### Check if state borders a (non-impassable) sea region is_coastal = yes/no
 alias[trigger:is_coastal] = bool
 
+## scopes = { state }
 ### Checks if state is homeland of any of the target country's primary cultures is_homeland_of_country_cultures = <country>
 alias[trigger:is_homeland_of_country_cultures] = <country_definition>
+## scopes = { state }
 ### Checks if state is homeland of any of the target country's primary cultures is_homeland_of_country_cultures = <country>
 alias[trigger:is_homeland_of_country_cultures] = scope[country]
 
+## scopes = { state }
 ### Check if a state has any chance to split off into a revolutionary or seceding country is_in_revolt = yes/no.
 alias[trigger:is_in_revolt] = bool
 
+## scopes = { state }
 ### Check if state is incorporated = bool
 alias[trigger:is_incorporated] = bool
 
+## scopes = { state }
 ### Check if a state is isolated from its market
 alias[trigger:is_isolated_from_market] = bool
 
+## scopes = { state }
 ### Check if state is the largest in the state region = bool
 alias[trigger:is_largest_state_in_region] = bool
 
+## scopes = { state }
 ### Mass migration target is state. any_state = { limit = { owner = ROOT is_mass_migration_target = yes } }
 alias[trigger:is_mass_migration_target] = bool
 
+## scopes = { state }
 ### Checks if the building of a particular type in scoped state has the specified production method active is_production_method_active = { building_type = <key> production_method = <key> }
 alias[trigger:is_production_method_active] = {
     building_type = <building>
+
     production_method = <production_method>
 }
 
+## scopes = { state }
 ### Check if state borders a sea region (regular or impassable) is_sea_adjacent = yes/no
 alias[trigger:is_sea_adjacent] = bool
 
+## scopes = { state }
 ### Check if a state employs or has the potential to employ slaves.
 alias[trigger:is_slave_state] = bool
 
+## scopes = { state }
 ### Checks if the scoped state is a split state. scope:example_state = { is_split_state = yes }
 alias[trigger:is_split_state] = bool
 
+## scopes = { state }
 ### Checks if state is target of any wargoal in wars involving a specific country has_war_goal = <country>
 alias[trigger:is_target_of_wargoal] = <country_definition>
+## scopes = { state }
 ### Checks if state is target of any wargoal in wars involving a specific country has_war_goal = <country>
 alias[trigger:is_target_of_wargoal] = scope[country]
 
+## scopes = { state }
 ### Checks if the scoped state is a treaty port is_treaty_port = yes/no
 alias[trigger:is_treaty_port] = bool
 
+## scopes = { state }
 ### Check if state is under colonization is_under_colonization = yes/no
 alias[trigger:is_under_colonization] = bool
 
+## scopes = { state }
 ### Check if state has a shortage on any of its building inputs state_has_goods_shortage = yes/no
 alias[trigger:state_has_goods_shortage] = bool
 
+## scopes = { market_goods }
 ### Check if the market goods is instrumental in running the bureaucratic machine
 alias[trigger:is_consumed_by_government_buildings] = bool
 
+## scopes = { market_goods }
 ### Check if the goods is instrumental in running the war machine
 alias[trigger:is_consumed_by_military_buildings] = bool
 
+## scopes = { market_goods }
 ### Check if market goods has a shortage in the market market_goods_has_goods_shortage = yes/no
 alias[trigger:market_goods_has_goods_shortage] = bool
 
+## scopes = { state_region }
 ### Checks if scoped state region contains the capital of target tag contains_capital_of = country scope/tag
 alias[trigger:contains_capital_of] = scope[country]
+## scopes = { state_region }
 ### Checks if scoped state region contains the capital of target tag contains_capital_of = country scope/tag
 alias[trigger:contains_capital_of] = <country_definition>
 
+## scopes = { state_region }
 ### Checks if scoped state region is a homeland of target culture is_homeland = culture scope/name
 alias[trigger:is_homeland] = scope[culture]
+## scopes = { state_region }
 ### Checks if scoped state region is a homeland of target culture is_homeland = culture scope/name
 alias[trigger:is_homeland] = <culture>
 
+## scopes = { state_region }
 ### Check if the state region is on land
 alias[trigger:is_state_region_land] = bool
 
+## scopes = { state_region }
 ### Check remaining amount of resource, like gold mines in a state remaining_undepleted = { 	type = building_gold_mine 	amount > 1 }
 alias[trigger:remaining_undepleted] = {
     type = <building>
+
     amount == value_field
+    amount == single_alias_right[formula]
+    amount == <script_value>
+    amount == <static_value>
+    amount == $define_reference
 }
 
+## scopes = { journal_entry }
 ### Check if the journal entry's goal has been met is_goal_complete = yes/no
 alias[trigger:is_goal_complete] = bool
 
+## scopes = { journal_entry }
 ### Check if the journal entry is progressing is_progressing = yes/no
 alias[trigger:is_progressing] = bool
 
+## scopes = { country state }
 ### Compares loyalist fraction in pops in state or country, all parameters except value are optional loyalist_fraction = { value = x pop_type = <key> strata = <key> culture = <key/scope> religion = <key/scope> }
 alias[trigger:loyalist_fraction] = {
+    ## cardinality = 0..1
+    pop_type = <pop_type>
+
+    ## cardinality = 0..1
+    strata = enum[pop_strata]
+
+    ## cardinality = 0..1
+    culture = <culture>
+
+    ## cardinality = 0..1
+    culture = scope[culture]
+
+    ## cardinality = 0..1
+    religion = <religion>
+
+    ## cardinality = 0..1
+    religion = scope[religion]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
     value == <static_value>
     value == $define_reference
-    ## cardinality = 0..1
-    pop_type = <pop_type>
-    ## cardinality = 0..1
-    strata = enum[pop_strata]
-    ## cardinality = 0..1
-    culture = <culture>
-    ## cardinality = 0..1
-    culture = scope[culture]
-    ## cardinality = 0..1
-    religion = <religion>
-    ## cardinality = 0..1
-    religion = scope[religion]
 }
 
+## scopes = { country state }
 ### Compares radical fraction in pops in state or country, all parameters except value are optional radical_fraction = { value = x pop_type = <key> strata = <key> culture = <key/scope> religion = <key/scope> }
 alias[trigger:radical_fraction] = {
-    value == value_field
-    value == single_alias_right[formula]
-    value == <script_value>
-    value == <static_value>
-    value == $define_reference
     ## cardinality = 0..1
     pop_type = <pop_type>
+
     ## cardinality = 0..1
     strata = enum[pop_strata]
+
     ## cardinality = 0..1
     culture = <culture>
+
     ## cardinality = 0..1
     culture = scope[culture]
+
     ## cardinality = 0..1
     religion = <religion>
+
     ## cardinality = 0..1
     religion = scope[religion]
-}
-
-### Checks how the ratio of Combat Units (of the same type) on the scoped Diplomatic Play, on the target country's side, with the specified Production Method compares to the value diplomatic_play_pm_usage = { target = X production_method = Y value <comparator> Z} where X = country scope and Y = production method key and Z = value to compare to
-alias[trigger:diplomatic_play_pm_usage] = {
-    target = scope[country]
-
-    production_method = <production_method>
 
     value == value_field
     value == single_alias_right[formula]
@@ -1402,34 +1641,45 @@ alias[trigger:diplomatic_play_pm_usage] = {
     value == $define_reference
 }
 
+## scopes = { diplomatic_play }
 ### Checks if diplomatic play has a certain war goal type has_play_goal = return_state
 alias[trigger:has_play_goal] = <war_goal_type>
 
+## scopes = { diplomatic_play }
 ### Checks who the initiator of a diplomatic play is initiator_is = country
 alias[trigger:initiator_is] = <country_definition>
+## scopes = { diplomatic_play }
 ### Checks who the initiator of a diplomatic play is initiator_is = country
 alias[trigger:initiator_is] = scope[country]
 
+## scopes = { diplomatic_play }
 ### Checks diplomatic play is of a certain type is_diplomatic_play_type = play type
 alias[trigger:is_diplomatic_play_type] = <diplomatic_play>
 
+## scopes = { diplomatic_play }
 ### Checks diplomatic pact is of a certain action type
-alias[trigger:is_diplomatic_action_type] == <diplomatic_action>
+alias[trigger:is_diplomatic_action_type] = <diplomatic_action>
 
+## scopes = { diplomatic_play }
 ### True if the diplomatic play has escalated into war is_war = bool
 alias[trigger:is_war] = bool
 
+## scopes = { diplomatic_play }
 ### Checks who the target of a diplomatic play is target_is = country
 alias[trigger:target_is] = <country_definition>
+## scopes = { diplomatic_play }
 ### Checks who the target of a diplomatic play is target_is = country
 alias[trigger:target_is] = scope[country]
 
+## scopes = { country }
 ### Compares the military wage level of scoped country
 alias[trigger:military_wage_level] == enum[wage_level]
 
-###  Compares the government wage level of scoped country
+## scopes = { country }
+### Compares the government wage level of scoped country
 alias[trigger:government_wage_level] == enum[wage_level]
 
+## scopes = { battle_side }
 ### True if the battle side currently has a condition with the given key
 alias[trigger:has_battle_condition] = <battle_condition>
 
@@ -1677,6 +1927,7 @@ alias[trigger:was_formed_from] = <country_definition>
 ### Checks whether a political lobby is of a specific type
 alias[trigger:is_political_lobby_type] = <political_lobby>
 
+## scopes = { country }
 ### Checks whether country is in a customs union with another country
 alias[trigger:is_in_customs_union_with] = scope[country]
 

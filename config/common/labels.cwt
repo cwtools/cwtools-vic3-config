@@ -2,11 +2,17 @@ types = {
     type[label] = {
         path = "game/common/labels"
         path_extension = .txt
+        localisation = {
+            name = $
+            desc = $_desc
+        }
     }
 }
 
 label = {
     type = enum[label_types]
+
     modifier_key = enum[label_modifier_keys]
+
     modifier = single_alias_right[modifier_clause]
 }

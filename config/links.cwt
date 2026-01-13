@@ -361,12 +361,14 @@ links = {
 		output_scope = value
 		type = value
 	}
+	### Checks if a pop has a certain amount of wealth
 	wealth = {
 		desc = "Wealth of pop"
 		input_scopes = pop
 		output_scope = value
 		type = value
 	}
+	### Compares the standard of living of a given pop
 	standard_of_living = {
 		desc = "Standard of living of pop"
 		input_scopes = pop
@@ -1483,9 +1485,9 @@ links = {
 		output_scope = value
 		type = value
 	}
-	### Get the current weekly investment pool income of the scoped country
-	investment_pool_income = {
-		desc = "Get the current weekly investment pool income of the scoped country"
+	### Does the country have this amount of money saved in its investment pool
+	investment_pool = {
+		desc = "Does the country have this amount of money saved in its investment pool"
 		input_scopes = country
 		output_scope = value
 		type = value
@@ -2620,6 +2622,28 @@ links = {
 		from_data = yes
 		from_argument = yes
 		prefix = num_country_casualties:
+		data_source = scope[country]
+		input_scopes = { war }
+		output_scope = any
+	}
+	### Checks the number of dead for the target country in the scoped war
+	num_country_dead = {
+		desc = "Checks the number of dead for the target country in the scoped war"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_country_dead:
+		data_source = scope[country]
+		input_scopes = { war }
+		output_scope = any
+	}
+	### Checks the number of wounded for the target country in the scoped war
+	num_country_wounded = {
+		desc = "Checks the number of wounded for the target country in the scoped war"
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_country_wounded:
 		data_source = scope[country]
 		input_scopes = { war }
 		output_scope = any
@@ -4701,8 +4725,228 @@ links = {
 	### Returns the number of tooltips currently open on screen
 	current_tooltip_depth = {
 		desc = "Returns the number of tooltips currently open on screen"
-		input_scopes = { character }
+		input_scopes = { any }
 		output_scope = value
 		type = value
+	}
+	### Compares the maximum of all the very roughly approximated weeks remaining to finish the constructions in any queue
+	construction_queue_duration = {
+		desc = "Compares the maximum of all the very roughly approximated weeks remaining to finish the constructions in any queue"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares the very roughly approximated weeks remaining to finish the constructions in the government queue
+	construction_queue_government_duration = {
+		desc = "Compares the very roughly approximated weeks remaining to finish the constructions in the government queue"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Does the country's government have the necessary total Clout
+	has_government_clout = {
+		desc = "Does the country's government have the necessary total Clout"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Does the country's government consist of the specified number of IGs
+	has_ruling_interest_group_count = {
+		desc = "Does the country's government consist of the specified number of IGs"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Does the country have the required progress for an technology
+	has_technology_progress = {
+		desc = "Does the country have the required progress for an technology"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = has_technology_progress:
+		data_source = <technology>
+	}
+	### Compares the highest secession progress of any secession movement in a given country
+	highest_secession_progress = {
+		desc = "Compares the highest secession progress of any secession movement in a given country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares the available influence of the scoped country
+	influence = {
+		desc = "Compares the available influence of the scoped country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Checks whether the scoped country has <percent> of its population belonging to the specified pop type
+	pop_type_percent_country = {
+		desc = "Checks whether the scoped country has <percent> of its population belonging to the specified pop type"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = pop_type_percent_country:
+		data_source = <pop_type>
+	}
+	### Compares the quality of life of the given pop
+	quality_of_life = {
+		desc = "Compares the quality of life of the given pop"
+		input_scopes = { pop }
+		output_scope = value
+		type = value
+	}
+	### Evaluates a production building's available cash reserves
+	cash_reserves_available = {
+		desc = "Evaluates a production building's available cash reserves"
+		input_scopes = { building }
+		output_scope = value
+		type = value
+	}
+	### Evaluates a production building's available cash reserve ratio compared to its maximum
+	cash_reserves_ratio = {
+		desc = "Evaluates a production building's available cash reserve ratio compared to its maximum"
+		input_scopes = { building }
+		output_scope = value
+		type = value
+	}
+	### Compare a building's current annual earnings per employee
+	earnings = {
+		desc = "Compare a building's current annual earnings per employee"
+		input_scopes = { building }
+		output_scope = value
+		type = value
+	}
+	### Evaluates a building's current occupancy
+	occupancy = {
+		desc = "Evaluates a building's current occupancy"
+		input_scopes = { building }
+		output_scope = value
+		type = value
+	}
+	### Checks the war exhaustion of the target country in the scoped war
+	has_war_exhaustion = {
+		desc = "Checks the war exhaustion of the target country in the scoped war"
+		input_scopes = war
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = has_war_exhaustion:
+		data_source = scope[country]
+	}
+	### Checks the war support of the target country in the scoped war
+	has_war_support = {
+		desc = "Checks the war support of the target country in the scoped war"
+		input_scopes = war
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = has_war_support:
+		data_source = scope[country]
+	}
+	### Checks the number of total casualties in the scoped war
+	num_casualties = {
+		desc = "Checks the number of total casualties in the scoped war"
+		input_scopes = { war }
+		output_scope = value
+		type = value
+	}
+	### Checks the number of total dead in the scoped war
+	num_dead = {
+		desc = "Checks the number of total dead in the scoped war"
+		input_scopes = { war }
+		output_scope = value
+		type = value
+	}
+	### Checks the number of total wounded in the scoped war
+	num_wounded = {
+		desc = "Checks the number of total wounded in the scoped war"
+		input_scopes = { war }
+		output_scope = value
+		type = value
+	}
+	### Compare to scoped interest group's political strength divided by total government political strength
+	ig_government_power_share = {
+		desc = "Compare to scoped interest group's political strength divided by total government political strength"
+		input_scopes = { interest_group }
+		output_scope = value
+		type = value
+	}
+	### Compares percentage of population in an interest group
+	interest_group_population = {
+		desc = "Compares percentage of population in an interest group"
+		input_scopes = { interest_group }
+		output_scope = value
+		type = value
+	}
+	### Compares percentage of population in an interest group
+	interest_group_population_percentage = {
+		desc = "Compares percentage of population in an interest group"
+		input_scopes = { interest_group }
+		output_scope = value
+		type = value
+	}
+	### Compare election momentum of the scoped party against a value
+	election_momentum = {
+		desc = "Compare election momentum of the scoped party against a value"
+		input_scopes = { party }
+		output_scope = value
+		type = value
+	}
+	### Check arable land in state
+	arable_land = {
+		desc = "Check arable land in state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Checks the state's number of available jobs in non-subsistence buildings
+	available_jobs = {
+		desc = "Checks the state's number of available jobs in non-subsistence buildings"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Compares the devastation of a given state
+	devastation = {
+		desc = "Compares the devastation of a given state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### True if IG in scope has scripted political strength in state
+	ig_state_pol_strength_share = {
+		desc = "True if IG in scope has scripted political strength in state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = ig_state_pol_strength_share:
+		data_source = scope[interest_group]
+	}
+	### Check incorporation progress in state
+	incorporation_progress = {
+		desc = "Check incorporation progress in state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Check remaining amount of resource, like gold mines in a state
+	remaining_undepleted = {
+		desc = "Check remaining amount of resource, like gold mines in a state"
+		input_scopes = { state_region }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = remaining_undepleted:
+		data_source = <building>
 	}
 }
