@@ -422,6 +422,8 @@ links = {
 		from_data = yes
 		prefix = ig_trait:
 		data_source = <interest_group_trait>
+		output_scope = interest_group_trait
+		type = scope
 	}
 	ig_clout = {
 		input_scopes = { interest_group }
