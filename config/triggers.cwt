@@ -1683,9 +1683,11 @@ alias[trigger:government_wage_level] == enum[wage_level]
 ### True if the battle side currently has a condition with the given key
 alias[trigger:has_battle_condition] = <battle_condition>
 
+## scopes = { country }
 ### Checks that a country has a certain percentage of a specific navy unit type
 alias[trigger:country_navy_unit_type_fraction] = {
     target = scope[combat_unit_type]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1693,9 +1695,11 @@ alias[trigger:country_navy_unit_type_fraction] = {
     value == $define_reference
 }
 
+## scopes = { military_formation }
 ### Checks that a formation has a certain percentage of a specific navy unit type
 alias[trigger:formation_navy_unit_type_fraction] = {
     target = scope[combat_unit_type]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1703,9 +1707,11 @@ alias[trigger:formation_navy_unit_type_fraction] = {
     value == $define_reference
 }
 
+## scopes = { country }
 ### Checks that a country has a certain percentage of a specific army unit type
 alias[trigger:country_army_unit_type_fraction] = {
     target = scope[combat_unit_type]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1713,9 +1719,11 @@ alias[trigger:country_army_unit_type_fraction] = {
     value == $define_reference
 }
 
+## scopes = { military_formation }
 ### Checks that a formation has a certain percentage of a specific army unit type
 alias[trigger:formation_army_unit_type_fraction] = {
     target = scope[combat_unit_type]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1723,9 +1731,11 @@ alias[trigger:formation_army_unit_type_fraction] = {
     value == $define_reference
 }
 
+## scopes = { country }
 ### Compares the additional war exhaustion the scoped country has accumulated from scripted events in the target diplomatic play
 alias[trigger:additional_war_exhaustion] = {
     target = scope[diplomatic_play]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1733,9 +1743,11 @@ alias[trigger:additional_war_exhaustion] = {
     value == $define_reference
 }
 
+## scopes = { country }
 ### Checks that a countries army has a certain percentage of units with a specific monbilization option
 alias[trigger:army_mobilization_option_fraction] = {
     target = scope[mobilization_option]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1743,20 +1755,19 @@ alias[trigger:army_mobilization_option_fraction] = {
     value == $define_reference
 }
 
+## scopes = { country }
 ### Check if the country can establish a new companyTraits: yes/no
 alias[trigger:can_establish_company] = bool
 
+## scopes = { character }
 ### Checks if character is based on a specific template
 alias[trigger:has_template] = <character_template>
 
-### Checks if the trigger of the given ideology is valid
-alias[trigger:<ideology>_valid_trigger] = bool
-
-alias[trigger:<ideology>_scripted_trigger] = bool
-
+## scopes = { country }
 ### Checks if the scoped country can have mass migration to target country
 alias[trigger:country_can_have_mass_migration_to] = scope[country]
 
+## scopes = { country }
 ### Checks the sum of building levels for a building group in a country
 alias[trigger:country_has_building_group_levels] = {
     type = scope[building_group]
@@ -1769,6 +1780,7 @@ alias[trigger:country_has_building_group_levels] = {
     value == $define_reference
 }
 
+## scopes = { country }
 ### Checks the sum of building levels for a building type in a country
 alias[trigger:country_has_building_type_levels] = {
     target = scope[building_type]
@@ -1780,9 +1792,11 @@ alias[trigger:country_has_building_type_levels] = {
     value == $define_reference
 }
 
+## scopes = { country }
 ### Determines the fraction of wargoals that enemies in the war are currently contesting  
 alias[trigger:enemy_contested_wargoals] = {
     target = scope[war]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1790,18 +1804,23 @@ alias[trigger:enemy_contested_wargoals] = {
     value == $define_reference
 }
 
+## scopes = { country }
 ### Checks if a company of the specified type exists in scope country 
 alias[trigger:has_company] = scope[company_type]
 
+## scopes = { character }
 ### Checks if character has a Military Formation
 alias[trigger:has_military_formation] = bool
 
+## scopes = { military_formation }
 ### Checks that a formation has a specific mobilization option
 alias[trigger:has_mobilization_option] = scope[mobilization_option]
 
+## scopes = { state }
 ### Checks if any Building in a scoped State maintains any Combat Units that are currently mobilizing
 alias[trigger:has_mobilizing_unit] = bool
 
+## scopes = { new_combat_unit }
 ### Checks if a Combat Unit is of the specified type
 alias[trigger:has_unit_type] = scope[combat_unit_type]
 
@@ -1813,39 +1832,51 @@ alias[trigger:is_adjacent_to_country] = scope[country]
 ### Checks if country in scope is adjacent to a target state
 alias[trigger:is_adjacent_to_state] = scope[state]
 
+## scopes = { military_formation }
 ### Checks if a military formation is Army
 alias[trigger:is_army] = bool
 
+## scopes = { country }
 ### Checks if country in scope is in a diplomatic play together with event target
 alias[trigger:is_diplomatic_play_ally_of] = scope[country]
 
+## scopes = { country }
 ### Checks if country in scope is involved in the same diplomatic play as event target
 alias[trigger:is_diplomatic_play_involved_with] = scope[country]
 
+## scopes = { country }
 ### Checks if country in scope is a committed participant in the same diplomatic play as event target
 alias[trigger:is_diplomatic_play_participant_with] = scope[country]
 
+## scopes = { military_formation }
 ### Checks if a military formation is Fleet
 alias[trigger:is_fleet] = bool
 
+## scopes = { diplomatic_pact }
 ### Check if a diplomatic pact has a forced duration due to reasons such as a sway or obligationTraits: yes/no
 alias[trigger:is_forced_pact] = bool
 
+## scopes = { military_formation }
 ### Checks if the Military Formation is fully mobilized
 alias[trigger:is_fully_mobilized] = bool
 
+## scopes = { country }
 ### Checks if the country has been set to be immune to revolutions via set_immune_to_revolutions; Warning: This does not check if the country is naturally immune to revolutions due to for example being a revolutionary country itself, only for the effects of
 alias[trigger:is_immune_to_revolutions] = bool
 
+## scopes = { country }
 ### Checks if the country is in a power bloc
 alias[trigger:is_in_power_bloc] = bool
 
+## scopes = { country }
 ### Checks if the scoped country is the origin of mass migration
 alias[trigger:is_mass_migration_origin] = bool
 
+## scopes = { country }
 ### Checks if the scoped country origin of mass migration of specific culture
-alias[trigger:is_mass_migration_origin_of_culture] = bool
+alias[trigger:is_mass_migration_origin_of_culture] = scope[culture]
 
+## scopes = { country }
 ### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
 alias[trigger:size_weighted_lost_battles_fraction] = {
     target = scope[war]
@@ -1857,11 +1888,14 @@ alias[trigger:size_weighted_lost_battles_fraction] = {
     value == $define_reference
 }
 
+## scopes = { state_goods }
 ### Check if state goods has a shortage in a state, but NOT in the whole market
 alias[trigger:state_goods_has_local_goods_shortage] = bool
 
+## scopes = { state }
 ### Checks the sum of building levels for a building group in a state 
 alias[trigger:state_has_building_group_levels] = {
+    type = scope[building_group]
     type = <building_group>
 
     value == value_field
@@ -1871,9 +1905,11 @@ alias[trigger:state_has_building_group_levels] = {
     value == $define_reference
 }
 
+## scopes = { state }
 ### Checks the sum of building levels for a building type in a state
 alias[trigger:state_has_building_type_levels] = {
     target = scope[building_type]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1881,9 +1917,11 @@ alias[trigger:state_has_building_type_levels] = {
     value == $define_reference
 }
 
+## scopes = { journal_entry }
 ### Checks scripted progress bar progress
 alias[trigger:scripted_bar_progress] = {
     name = <scripted_progress_bar>
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1891,12 +1929,15 @@ alias[trigger:scripted_bar_progress] = {
     value == $define_reference
 }
 
+## scopes = { power_bloc }
 ### Checks whether power bloc has the provided principle
 alias[trigger:has_principle] = scope[power_bloc_principle]
 
+## scopes = { power_bloc }
 ### Checks whether power bloc has the provided principle group
 alias[trigger:has_principle_group] = scope[power_bloc_principle_group]
 
+## scopes = { power_bloc }
 ### Checks whether power bloc has the provided identity
 alias[trigger:has_identity] = scope[power_bloc_identity]
 
@@ -1904,10 +1945,12 @@ alias[trigger:has_identity] = scope[power_bloc_identity]
 ### Checks whether country is leader of a power_bloc
 alias[trigger:is_power_bloc_leader] == bool
 
+## scopes = { country }
 ### Checks whether country has a leverage advantage of a specific value over another
 alias[trigger:leverage_advantage] = {
     target = scope[country]
     target = <country>
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1915,15 +1958,19 @@ alias[trigger:leverage_advantage] = {
     value == $define_reference
 }
 
+## scopes = { country }
 ### Checks whether country is in the same power bloc
 alias[trigger:is_in_same_power_bloc] = scope[country]
 
+## scopes = { interest_group }
 ### Checks whether an interest group is in the government and the strongest
 alias[trigger:is_strongest_ig_in_government] = bool
 
+## scopes = { country }
 ### Checks whether a country was formed from another one
 alias[trigger:was_formed_from] = <country_definition>
 
+## scopes = { political_lobby }
 ### Checks whether a political lobby is of a specific type
 alias[trigger:is_political_lobby_type] = <political_lobby>
 
@@ -1931,48 +1978,59 @@ alias[trigger:is_political_lobby_type] = <political_lobby>
 ### Checks whether country is in a customs union with another country
 alias[trigger:is_in_customs_union_with] = scope[country]
 
+## scopes = { country }
 ### Checks whether a country can reach a specific market
 alias[trigger:is_market_reachable_for_trade] = scope[market]
 
+## scopes = { country }
 ### Checks whether a country borders another
 alias[trigger:has_strategic_land_adjacency] = scope[country]
 
+## scopes = { country }
 ### Checks whether a country would accept a specific diplomatic action
 alias[trigger:would_accept_diplomatic_action] = {
     actor = scope[country]
+
     type = <diplomatic_action>
 }
 
+## scopes = { diplomatic_catalyst }
 ### Checks whether a diplomatic catalyst is of a specific type
 alias[trigger:is_diplomatic_catalyst_type] = <diplomatic_catalyst>
 
-### Checks whether this modifier is active for the given context
-alias[trigger:modifier:<modifier_type>] = bool
-
+## scopes = { country }
 ### Checks whether the country has a war goal of a specific type against another country
 alias[trigger:play_participant_has_war_goal_of_type_against] = {
     type = <war_goal_type>
+
     target = scope[country]
 }
 
+## scopes = { country }
 ### Checks whether a war participant has a war goal of a specific type against another country
 alias[trigger:war_participant_has_war_goal_of_type_against] = {
     type = <war_goal_type>
+
     target = scope[country]
 }
 
+## scopes = { country }
 ### Checks whether a country is forced to join diplomatic plays of the target
 alias[trigger:is_forced_to_join_plays] = scope[country]
 
+## scopes = { country }
 ### Checks whether a country can decrease its autonomy
 alias[trigger:can_decrease_autonomy] = bool
 
+## scopes = { country }
 ### Checks whether a country can increase its autonomy
 alias[trigger:can_increase_autonomy] = bool
 
+## scopes = { country }
 ### Checks whether a country has a number of diplomatic pacts of a type
 alias[trigger:num_diplomatic_pacts] = {
     type = <diplomatic_action>
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -1980,9 +2038,11 @@ alias[trigger:num_diplomatic_pacts] = {
     value == $define_reference
 }
 
+## scopes = { character interest_group political_movement }
 ### Checks the chance a specific law type can be enacted
 alias[trigger:law_enactment_stance] = {
     law = scope[law_type]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -2008,6 +2068,7 @@ alias[trigger:is_historical] = bool
 ### Checks whether a country can create a specific type of diplomatic pact with another
 alias[trigger:can_create_diplomatic_pact] = {
     target = scope[country]
+
     type = <diplomatic_action>
 }
 
@@ -2015,6 +2076,7 @@ alias[trigger:can_create_diplomatic_pact] = {
 ### Checks whether a country can break a specific type of diplomatic pact with another
 alias[trigger:can_break_diplomatic_pact] = {
     target = scope[country]
+
     type = <diplomatic_action>
 }
 
@@ -2204,26 +2266,11 @@ alias[trigger:harvest_condition_intensity] = {
 ### Checks whether a state region has a specific harvest condition
 alias[trigger:has_harvest_condition] = <harvest_condition_type>
 
-## scopes = { power_bloc }
-### Checks whether a power bloc has a specific amount of used principal levels
-alias[trigger:total_used_principle_levels] == value_field
-## scopes = { power_bloc }
-### Checks whether a power bloc has a specific amount of used principal levels
-alias[trigger:total_used_principle_levels] == <script_value>
-## scopes = { power_bloc }
-### Checks whether a power bloc has a specific amount of used principal levels
-alias[trigger:total_used_principle_levels] == <static_value>
-## scopes = { power_bloc }
-### Checks whether a power bloc has a specific amount of used principal levels
-alias[trigger:total_used_principle_levels] == single_alias_right[formula]
-## scopes = { power_bloc }
-### Checks whether a power bloc has a specific amount of used principal levels
-alias[trigger:total_used_principle_levels] == $define_reference
-
 ## scopes = { country }
 ### Checks whether a country has a specific amount of investments
 alias[trigger:num_investments_of_type] = {
     type = <building>
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -2402,6 +2449,7 @@ alias[trigger:could_support_political_movement] = scope[political_movement]
 ### country_average_religious_acceptance = { target = rel:catholic value > 10 }
 alias[trigger:country_average_religious_acceptance] = {
     target = scope[religion]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>
@@ -2409,16 +2457,12 @@ alias[trigger:country_average_religious_acceptance] = {
     value == $define_reference
 }
 
-## scopes = { country }
-### Compares a Country's Power Ranking
-### country_rank < rank_value:major_power
-alias[trigger:country_rank] == value_field
-
 ## scopes = { state }
 ### Compare the current local delta (modification) to a culture's acceptance in the scoped state
 ### cultural_acceptance_delta = { target = cu:romanian value < -10 }
 alias[trigger:cultural_acceptance_delta] = {
     target = scope[culture]
+
     value == value_field
     value == single_alias_right[formula]
     value == <script_value>

@@ -2612,8 +2612,8 @@ links = {
 		from_argument = yes
 		prefix = enemy_contested_wargoals:
 		data_source = scope[war]
-		input_scopes = { any }
-		output_scope = any
+		input_scopes = { country }
+		output_scope = value
 	}
 	### Number of casualties for a given war
 	num_country_casualties = {
@@ -2678,7 +2678,7 @@ links = {
 		from_argument = yes
 		prefix = additional_war_exhaustion:
 		data_source = scope[diplomatic_play]
-		input_scopes = { war }
+		input_scopes = { country }
 		output_scope = any
 	}
 	### Countries rank of production for a specific good
@@ -4948,5 +4948,133 @@ links = {
 		from_argument = yes
 		prefix = remaining_undepleted:
 		data_source = <building>
+	}
+	### Checks that a country has a certain percentage of a specific navy unit type
+	country_navy_unit_type_fraction = {
+		desc = "Checks that a country has a certain percentage of a specific navy unit type"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = country_navy_unit_type_fraction:
+		data_source = scope[combat_unit_type]
+	}
+	### Checks that a formation has a certain percentage of a specific navy unit type
+	formation_navy_unit_type_fraction = {
+		desc = "Checks that a formation has a certain percentage of a specific navy unit type"
+		input_scopes = { military_formation }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = formation_navy_unit_type_fraction:
+		data_source = scope[combat_unit_type]
+	}
+	### Checks that a country has a certain percentage of a specific army unit type
+	country_army_unit_type_fraction = {
+		desc = "Checks that a country has a certain percentage of a specific army unit type"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = country_army_unit_type_fraction:
+		data_source = scope[combat_unit_type]
+	}
+	### Checks that a formation has a certain percentage of a specific army unit type
+	formation_army_unit_type_fraction = {
+		desc = "Checks that a formation has a certain percentage of a specific army unit type"
+		input_scopes = { military_formation }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = formation_army_unit_type_fraction:
+		data_source = scope[combat_unit_type]
+	}
+	### Checks that a countries army has a certain percentage of units with a specific monbilization option
+	army_mobilization_option_fraction = {
+		desc = "Checks that a countries army has a certain percentage of units with a specific monbilization option"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = army_mobilization_option_fraction:
+		data_source = scope[mobilization_option]
+	}
+	### Checks the sum of building levels for a building type in a country
+	country_has_building_type_levels = {
+		desc = "Checks the sum of building levels for a building type in a country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = country_has_building_type_levels:
+		data_source = scope[building_type]
+	}
+	### Checks the sum of building levels for a building type in a state
+	state_has_building_group_levels = {
+		desc = "Checks the sum of building levels for a building type in a state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = state_has_building_group_levels:
+		data_source = <building_group>
+	}
+	### Checks the sum of building levels for a building type in a state
+	state_has_building_type_levels = {
+		desc = "Checks the sum of building levels for a building type in a state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = state_has_building_type_levels:
+		data_source = scope[building_type]
+	}
+	### Compare a power bloc's total number of active principle levels
+	total_used_principle_levels = {
+		desc = "Compare a power bloc's total number of active principle levels"
+		input_scopes = { power_bloc }
+		output_scope = value
+		type = value
+	}
+	### Checks the number of buildings levels of a given type the scoped country has outside their own country.
+	num_investments_of_type = {
+		desc = "Checks the number of buildings levels of a given type the scoped country has outside their own country."
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = num_investments_of_type:
+		data_source = <building>
+	}
+	### Compares the average acceptance of a religion that is present in a country against a value
+	country_average_religious_acceptance = {
+		desc = "Compares the average acceptance of a religion that is present in a country against a value"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = country_average_religious_acceptance:
+		data_source = scope[religion]
+	}
+	### Compare the current local delta (modification) to a culture's acceptance in the scoped state
+	cultural_acceptance_delta = {
+		desc = "Compare the current local delta (modification) to a culture's acceptance in the scoped state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = cultural_acceptance_delta:
+		data_source = scope[culture]
 	}
 }
