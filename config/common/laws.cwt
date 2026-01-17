@@ -23,28 +23,28 @@ law = {
     ## cardinality = 0..1
     parent = <law>
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     requires_law_or = {
         ## cardinality = 1..inf
         <law>
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     modifier = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     tax_modifier_very_low = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     tax_modifier_low = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     tax_modifier_medium = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     tax_modifier_high = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     tax_modifier_very_high = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1
@@ -67,28 +67,28 @@ law = {
     ## push_scope = country
     on_deactivate = single_alias_right[effect_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     acceptance_modifier = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1
     institution = <institution>
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     institution_modifier = single_alias_right[modifier_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     unlocking_technologies = {
         ## cardinality = 0..inf
         <technology>
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     disallowing_laws = {
         ## cardinality = 0..inf
         <law>
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     unlocking_laws = {
         ## cardinality = 0..inf
         <law>

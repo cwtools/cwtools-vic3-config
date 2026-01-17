@@ -3,7 +3,8 @@ types = {
         path = "game/common/technology/technologies"
         path_extension = .txt
         localisation = {
-            name = "$"
+            name = $
+            name = $_desc
         }
         images = {
             ## primary

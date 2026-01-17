@@ -5079,6 +5079,20 @@ links = {
 		prefix = cultural_acceptance_delta:
 		data_source = scope[culture]
 	}
+    ### Compare progress of civil war
+    civil_war_progress = {
+        desc = "Compare progress of civil war"
+        input_scopes = { civil_war }
+        output_scope = value
+        type = value
+    }
+    ### Get the current weekly investment pool income of the scoped country
+    investment_pool_income = {
+        desc = "Get the current weekly investment pool income of the scoped country"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
 
     # script value & static value
 

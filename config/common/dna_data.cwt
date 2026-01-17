@@ -21,6 +21,9 @@ dna_data = {
                 ## cardinality = 1..inf
                 value[morph_gene_variant]
 
+                ## cardinality = 0..inf
+                ""
+
                 ## cardinality = 1..inf
                 int
             }
@@ -29,6 +32,9 @@ dna_data = {
             <special_morph_gene> = {
                 ## cardinality = 1..inf
                 value[morph_gene_variant]
+
+                ## cardinality = 0..inf
+                ""
 
                 ## cardinality = 1..inf
                 int
@@ -39,6 +45,9 @@ dna_data = {
                 ## cardinality = 1..inf
                 value[accessory_gene_variant]
 
+                ## cardinality = 0..inf
+                ""
+
                 ## cardinality = 1..inf
                 int
             }
@@ -48,6 +57,9 @@ dna_data = {
             <special_accessory_gene> = {
                 ## cardinality = 1..inf
                 value[accessory_gene_variant]
+
+                ## cardinality = 0..inf
+                ""
 
                 ## cardinality = 1..inf
                 int
