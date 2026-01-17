@@ -116,13 +116,14 @@ alias[arithmetic_operation:ordered_in_list] = {
     alternative_limit = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    order_by = value_field
+    min = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
+    min = $define_reference
+
     ## cardinality = 0..1
-    order_by = <script_value>
+    max = int_value_field
     ## cardinality = 0..1
-    order_by = <static_value>
+    max = single_alias_right[formula]
     ## cardinality = 0..1
     order_by = $define_reference
 
@@ -169,13 +170,14 @@ alias[arithmetic_operation:ordered_in_local_list] = {
     alternative_limit = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    order_by = value_field
+    min = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
+    min = $define_reference
+
     ## cardinality = 0..1
-    order_by = <script_value>
+    max = int_value_field
     ## cardinality = 0..1
-    order_by = <static_value>
+    max = single_alias_right[formula]
     ## cardinality = 0..1
     order_by = $define_reference
 

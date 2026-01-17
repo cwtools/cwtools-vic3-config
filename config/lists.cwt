@@ -492,27 +492,27 @@ alias[trigger:any_scope_je_involved] = single_alias_right[trigger_any_list_claus
 ## scopes = { any }
 ## push_scope = character
 alias[effect:every_character_in_exile_pool] = single_alias_right[effect_every_list_clause]
-### Iterate through characters in the exile pool
+### Iterate through characters in the exile pool  
 ## scopes = { any }
 ## push_scope = character
 alias[effect:random_character_in_exile_pool] = single_alias_right[effect_random_list_clause]
-### Iterate through characters in the exile pool
+### Iterate through characters in the exile pool  
 ## scopes = { any }
 ## push_scope = character
 alias[effect:ordered_character_in_exile_pool] = single_alias_right[effect_ordered_list_clause]
-### Iterate through characters in the exile pool
+### Iterate through characters in the exile pool  
 ## scopes = { any }
 ## push_scope = character
 alias[arithmetic_operation:every_character_in_exile_pool] = single_alias_right[formula_every_list_clause]
-### Iterate through characters in the exile pool
+### Iterate through characters in the exile pool  
 ## scopes = { any }
 ## push_scope = character
 alias[arithmetic_operation:random_character_in_exile_pool] = single_alias_right[formula_random_list_clause]
-### Iterate through characters in the exile pool
+### Iterate through characters in the exile pool  
 ## scopes = { any }
 ## push_scope = character
 alias[arithmetic_operation:ordered_character_in_exile_pool] = single_alias_right[formula_ordered_list_clause]
-### Iterate through characters in the exile pool
+### Iterate through characters in the exile pool  
 ## scopes = { any }
 ## push_scope = character
 alias[trigger:any_character_in_exile_pool] = single_alias_right[trigger_any_list_clause]

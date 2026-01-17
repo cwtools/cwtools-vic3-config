@@ -10,6 +10,7 @@ alias[trigger:any_in_global_list] = {
 
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
+
     ## cardinality = 0..1
     percent = single_alias_right[formula]
     ## cardinality = 0..1
@@ -49,6 +50,7 @@ alias[trigger:any_in_list] = {
 
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
+
     ## cardinality = 0..1
     percent = single_alias_right[formula]
     ## cardinality = 0..1
@@ -85,6 +87,7 @@ alias[trigger:any_in_local_list] = {
 
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
+
     ## cardinality = 0..1
     percent = single_alias_right[formula]
     ## cardinality = 0..1
