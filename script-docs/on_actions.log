@@ -92,6 +92,12 @@ Expected Scope: none
 
 --------------------
 
+regency_monthly_events:
+From Code: No
+Expected Scope: country
+
+--------------------
+
 on_company_established:
 From Code: Yes
 Expected Scope: none
@@ -212,6 +218,12 @@ Expected Scope: country
 
 --------------------
 
+exile_pool_culling_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_diplomatic_demand:
 From Code: Yes
 Expected Scope: none
@@ -250,7 +262,7 @@ Expected Scope: country
 
 on_election_campaign_start:
 From Code: Yes
-Expected Scope: none
+Expected Scope: country
 
 --------------------
 
@@ -375,6 +387,12 @@ Expected Scope: none
 --------------------
 
 on_character_creation:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+on_empty_battle_lost:
 From Code: Yes
 Expected Scope: none
 
@@ -585,6 +603,12 @@ Expected Scope: country
 --------------------
 
 on_election_campaign_end:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+on_amendment_repealed:
 From Code: Yes
 Expected Scope: none
 
@@ -992,9 +1016,21 @@ Expected Scope: country
 
 --------------------
 
+on_ruler_selected:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 on_objective_completed:
 From Code: Yes
 Expected Scope: none
+
+--------------------
+
+on_negotiate_with:
+From Code: Yes
+Expected Scope: country
 
 --------------------
 
@@ -1094,6 +1130,12 @@ Expected Scope: country
 
 --------------------
 
+carlist_war_battle_score:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_peace_agreement_signed_war_participant:
 From Code: Yes
 Expected Scope: none
@@ -1106,6 +1148,12 @@ Expected Scope: none
 
 --------------------
 
+sweden_events:
+From Code: No
+Expected Scope: country
+
+--------------------
+
 on_diplo_play_start:
 From Code: Yes
 Expected Scope: none
@@ -1113,6 +1161,12 @@ Expected Scope: none
 --------------------
 
 montenegro_half_yearly_events:
+From Code: No
+Expected Scope: country
+
+--------------------
+
+spain_single_fire_yearly_events:
 From Code: No
 Expected Scope: country
 
@@ -1208,6 +1262,12 @@ Expected Scope: country
 
 --------------------
 
+coup_aftermath_half_yearly_events:
+From Code: No
+Expected Scope: country
+
+--------------------
+
 on_migration_target_created_other:
 From Code: Yes
 Expected Scope: none
@@ -1235,6 +1295,12 @@ Expected Scope: country
 on_resource_depleted:
 From Code: Yes
 Expected Scope: state
+
+--------------------
+
+portugal_single_fire_yearly_events:
+From Code: No
+Expected Scope: country
 
 --------------------
 
@@ -1269,6 +1335,12 @@ Expected Scope: none
 --------------------
 
 on_diplo_play_back_down:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+on_empty_battle_won:
 From Code: Yes
 Expected Scope: none
 

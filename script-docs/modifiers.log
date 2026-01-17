@@ -5,8 +5,8 @@ battle_casualties_mult:
   Description: A bonus or penalty to the number of Casualties this side takes in Battle
 battle_combat_width_mult:
   Mask: battle
-  Name: Combat Width
-  Description: A bonus or penalty to the Combat Width for this side of the Battle
+  Name: Terrain Combat Width
+  Description: A bonus or penalty to the Terrain Combat Width for this side of the Battle
 battle_defense_owned_province_mult:
   Mask: battle
   Name: Home Defense
@@ -15,6 +15,10 @@ battle_offense_owned_province_mult:
   Mask: battle
   Name: Home Offense
   Description: Alters the Offense of a Military Unit fighting in territory owned by its Country
+battle_total_combat_width_mult:
+  Mask: battle
+  Name: Total Combat Width
+  Description: A bonus or penalty to the total Combat Width for this side of the Battle
 building_cash_reserves_mult:
   Mask: building
   Name: Maximum Cash Reserves
@@ -35,14 +39,22 @@ building_goods_input_mult:
   Mask: building
   Name: Goods Input
   Description: An adjustment to the amount of Goods Consumed by a Building.
+building_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire new employees.
 building_level_bureaucracy_cost_add:
   Mask: building
   Name: Building Level Bureaucracy Cost
   Description: Increasing amount of Bureaucracy spent per goverment owned building level
+building_minimum_incorporated_subsistence_employment_add:
+  Mask: building
+  Name: Protected Subsistence Employment in Incorporated States
+  Description: An increase or decrease to the level of employment below which it is not possible for other Buildings to hire from Subsistence Building in Incorporated States.
 building_minimum_wage_mult:
   Mask: building
-  Name: Minimum Wage
-  Description: Employers must pay this fraction of the standard Normal Wage or higher to their employees
+  Name: Building Wage Target
+  Description: A bonus or penalty to what is considered an acceptable wage for a Building to pay to its employees. Increasing this will result in higher average wages over time.
 building_mobilization_cost_mult:
   Mask: building
   Name: Mobilization Goods Requirements
@@ -59,6 +71,10 @@ building_nationalization_radicals_mult:
   Mask: building
   Name: Radicals from Nationalization
   Description: An increase or decrease in the amount of Individuals that will become Radical when a Building is Nationalized
+building_self_investment_chance_add:
+  Mask: building
+  Name: Building Self-Investment Chance
+  Description: An increase or decrease to the chance that the Workforce of Buildings will be the owners of new invested levels.
 building_subsistence_output_add:
   Mask: building
   Name: Subsistence Output
@@ -92,6 +108,10 @@ building_working_conditions_mult:
   Name: Dangerous Working Conditions
   Description: An increase or decrease in workplace hazard levels
 character_advancement_speed_add:
+  Mask: character
+  Name: General Advancement Speed
+  Description: A bonus or penalty to how quickly a General accumulates Advancement Progress
+character_advancement_speed_mult:
   Mask: character
   Name: General Advancement Speed
   Description: A bonus or penalty to how quickly a General accumulates Advancement Progress
@@ -135,6 +155,10 @@ character_battle_condition_good_visibility_mult:
   Mask: character
   Name: Good Visibility Chance
   Description: Chance of being affected by the Good Visibility Battle Condition
+character_battle_condition_guerilla_ambush_mult:
+  Mask: character
+  Name: Ambush Chance
+  Description: Chance of being affected by the Ambush Battle Condition
 character_battle_condition_logistics_secured_mult:
   Mask: character
   Name: Logistics Secured Chance
@@ -194,6 +218,14 @@ character_convoy_raiding_mult:
   Mask: character
   Name: Admiral Convoys Raiding Efficiency
   Description: A bonus or penalty to a Admiral efficiency of raiding Convoys
+character_coup_strength_add:
+  Mask: character
+  Name: Coup Strength
+  Description: An increase or decrease to the Strength of a prospective Coup launched by this Commander
+character_coup_strength_mult:
+  Mask: character
+  Name: Coup Strength
+  Description: An increase or decrease to the Strength of a prospective Coup launched by this Commander
 character_expedition_events_explorer_mult:
   Mask: character
   Name: Expedition Opportunity
@@ -294,6 +326,10 @@ country_allow_multiple_alliances_bool:
   Mask: country
   Name: Allow Multiple Alliances
   Description: Whether the country is allowed to form multiple Alliance Diplomatic Pacts
+country_amenability_add:
+  Mask: country
+  Name: Country Amenability
+  Description: A bonus or penalty to the Amenability of all Interest Groups in the country
 country_assimilation_delta_threshold_add:
   Mask: country
   Name: Cultural Assimilation Threshold
@@ -310,6 +346,10 @@ country_authority_per_subject_add:
   Mask: country
   Name: aut! Authority per Subject
   Description: The amount of aut! Authority which is scaled by the number of Subjects
+country_block_government_reform_bool:
+  Mask: country
+  Name: Blocks Government Reform
+  Description: Blocks the Country from reforming it's current Government.
 country_bolster_attraction_factor:
   Mask: country
   Name: Bolstered impact on Political Movement attraction
@@ -398,6 +438,14 @@ country_convoys_capacity_mult:
   Description: Convoys are produced by Port Buildings and are required to operate a Countries’ Shipping Lanes.
 
 Convoy Cost is incurred by the Country unlike Merchant Marine which is utilized by Trade Center Buildings to conduct Trade on the World Market.
+country_coup_resistance_add:
+  Mask: country
+  Name: Coup Resistance
+  Description: An increase or decrease to the Strength of a prospective Coup launched by this Commander
+country_coup_resistance_mult:
+  Mask: country
+  Name: Coup Resistance
+  Description: An increase or decrease to the ability of a country to Resist a prospective Coup
 country_damage_relations_speed_mult:
   Mask: country
   Name: Damage Relations Speed
@@ -406,6 +454,10 @@ country_diplomatic_play_maneuvers_add:
   Mask: country
   Name: Maneuvers per Diplomatic Play
   Description: A bonus or penalty to the number of Maneuvers the country can take in a diplomatic play.
+country_diplomatic_reputation_add:
+  Mask: country
+  Name: Diplomatic Reputation
+  Description: An increase or decrease to the tendency of other Countries to sign Treaties with or offer Diplomatic Play support to a Country.
 country_disable_investment_pool_bool:
   Mask: country
   Name: Disable Investment Pool (except for Companies)
@@ -446,6 +498,10 @@ country_education_fervor_add:
   Mask: country
   Name: Education Institution Fervor
   Description: A bonus or penalty to Fervor as a result of the country's Education Institution
+country_electoral_confidence_impact_mult:
+  Mask: country
+  Name: Electoral Confidence Impact
+  Description: An increase or decrease to the impact that low Electoral Confidence will have on a Country, such as decreasing its Legitimacy.
 country_expedition_events_explorer_mult:
   Mask: country
   Name: Expedition Opportunity
@@ -454,6 +510,14 @@ country_expenses_add:
   Mask: country
   Name: Government Expenses
   Description: A flat increase or reduction of government expenses
+country_financial_districts_buy_farms_likelihood:
+  Mask: country
+  Name: Financial Districts investment into Plantations, Ranches, and Agriculture
+  Description: An increase or decrease to the chance for Financial Districts to invest into Plantations, Ranches, and Agriculture Buildings
+country_forbid_electoral_fraud_bool:
+  Mask: country
+  Name: Forbid Electoral Manipulation
+  Description: Disables options to control the outcomes of Elections
 country_forbid_monopoly_bool:
   Mask: country
   Name: Forbid Monopolies
@@ -558,6 +622,10 @@ country_law_enactment_max_setbacks_add:
   Mask: country
   Name: Maximum Law Enactment Setbacks
   Description: A bonus or penalty to the amount of Enactment Setbacks that can be suffered before Law enactment fails.
+country_law_enactment_stall_add:
+  Mask: country
+  Name: Enactment Stall Chance
+  Description: A flat percentage point increase to the likelihood of stalling when enacting a law
 country_law_enactment_stall_mult:
   Mask: country
   Name: Enactment Stall Chance
@@ -753,7 +821,7 @@ country_prestige_mult:
 country_primary_culture_fervor_from_laws_add:
   Mask: country
   Name: Primary Culture Fervor from Laws
-  Description: "Primary Culture Fervor from Laws is a bonus or penalty to Fervor as a result of the country's laws that affect the primary culture
+  Description: Primary Culture Fervor from Laws is a bonus or penalty to Fervor as a result of the country's laws that affect the primary culture
 country_private_construction_allocation_mult:
   Mask: country
   Name: Private Construction Allocation
@@ -866,6 +934,14 @@ country_treaty_leverage_generation_mult:
   Mask: country
   Name: Leverage Generation from Treaty
   Description: An increase or decrease to the amount of Leverage generated between two Countries with this Treaty when the dominant Country in the Treaty is a Power Bloc Leader
+country_two_spains_conservative_drift_add:
+  Mask: country
+  Name: The Two Spains Conservative Progress
+  Description: An increase or decrease to the amount of monthly progress towards Conservative in the The Two Spains Journal Entry
+country_two_spains_liberal_drift_add:
+  Mask: country
+  Name: The Two Spains Liberal Progress
+  Description: An increase or decrease to the amount of monthly progress towards Liberal in the The Two Spains Journal Entry
 country_voting_power_base_add:
   Mask: country
   Name: Political Strength per Vote
@@ -898,14 +974,18 @@ country_weekly_innovation_mult:
   Mask: country
   Name: Innovation
   Description: The amount of innovation! Innovation gained or lost each week
+country_yankee_and_dixie_cultures_obsessed_with_guns:
+  Mask: country
+  Name: Yankee and Dixie Cultures gain an Obsession with Small Arms
+  Description: Yankee and Dixie Cultures gain an Obsession with Small Arms
 dummy_modifier_type:
   Mask: 
   Name: warning! This modifier type should never be used
   Description: modifier_dummy_modifier_type
-goods_output_radio_mult:
-  Mask: goods
-  Name: Building radio! Radio output
-  Description: A bonus or penalty to the amount of radio! Radio produced by buildings
+interest_group_amenability_add:
+  Mask: interest_group
+  Name: Interest Group Amenability
+  Description: A bonus or penalty to the Amenability of an Interest Group
 interest_group_approval_add:
   Mask: interest_group
   Name: Interest Group Approval
@@ -1072,6 +1152,10 @@ power_bloc_leader_can_regime_change_bool:
   Mask: power_bloc
   Name: Allows Force Regime Change
   Description: The Power Bloc Leader may execute a Regime Change on a Power Bloc Member that deviates from their ideology
+power_bloc_leader_can_spread_culture_to_pb_bool:
+  Mask: power_bloc
+  Name: Allows Spread Primary Culture in Power Bloc Members
+  Description: Adds the largest Primary Culture of the Power Bloc Leader to a Power Bloc Member
 power_bloc_leverage_generation_mult:
   Mask: power_bloc
   Name: Leverage Generation
@@ -1100,6 +1184,10 @@ state_birth_rate_mult:
   Mask: state
   Name: Birth Rate
   Description: How many children are born each year
+state_blockade_resistance_add:
+  Mask: state
+  Name: Blockade Resistance
+  Description: An increase or decrease to the amount of Blockade strength required to fully Blockade a State.
 state_bureaucracy_population_base_cost_factor_mult:
   Mask: state
   Name: bur! Bureaucracy Population Cost Multiplier
@@ -1148,6 +1236,10 @@ state_dependent_wage_mult:
   Mask: state
   Name: Dependents Income
   Description: An increase or decrease in Dependents Income
+state_devastation_decay_mult:
+  Mask: state
+  Name: Devastation Recovery
+  Description: A bonus or penalty to the speed at which States recover from Devastation.
 state_disallow_incorporation_bool:
   Mask: state
   Name: State Incorporation Disallowed
@@ -1176,6 +1268,10 @@ state_food_security_add:
   Mask: state
   Name: Food Security
   Description: A bonus or penalty to the food security of all pops in a state
+state_free_state_pop_support_movement_anti_slavery_mult:
+  Mask: state
+  Name: Abolitionist Movement Pop Attraction in non-Slave States
+  Description: state_free_state_pop_support_movement_anti_slavery_mult_desc
 state_import_advantage_mult:
   Mask: state
   Name: Trade Advantage for Imports
@@ -1252,14 +1348,14 @@ state_migration_pull_unincorporated_mult:
   Mask: state
   Name: Migration Attraction in Unincorporated States
   Description: A bonus or penalty to the urge to migrate to Unincorporated States
-state_migration_push_mult:
-  Mask: state
-  Name: Emigration Push
-  Description: A bonus or penalty to the Pops in the state's desire to emigrate.
 state_migration_quota_mult:
   Mask: state
   Name: Migration Quota
   Description: A bonus or penalty to the amount of people that emigrate from or immigrate to a State
+state_minimum_incorporated_subsistence_arable_land_add:
+  Mask: state
+  Name: Minimum Subsistence Land Share in Incorporated States
+  Description: An increase or decrease to the minimum fraction of a Incorporated State’s arable land which is reserved for Subsistence Building and cannot be used for other types of Buildings.
 state_mortality_mult:
   Mask: state
   Name: Mortality
@@ -1448,10 +1544,6 @@ tax_per_capita_add:
   Mask: tax
   Name: Per Capita Tax
   Description: The amount of Per Capita Taxes collected from non-peasants! Peasants Pops
-unit_advancement_speed_mult:
-  Mask: unit
-  Name: Advancement Speed
-  Description: Alters a concept_front_possessive Advancement Speed
 unit_army_defense_add:
   Mask: unit
   Name: Army Defense
@@ -1496,10 +1588,6 @@ unit_convoy_raiding_mult:
   Mask: unit
   Name: Convoy Raiding Efficiency
   Description: Increase or decrease the effectiveness of our Flotillas to Raid Convoys.
-unit_convoy_requirements_mult:
-  Mask: unit
-  Name: Convoys Requirement
-  Description: How many Convoys are needed to maintain Military Units with Supply overseas
 unit_defense_add:
   Mask: unit
   Name: Defense
@@ -1594,6 +1682,10 @@ unit_supply_consumption_mult:
   Description: How many Goods it takes to maintain a Military Unit
 
 --- Dynamic modifier types ---
+building_academics_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for academics! Academics
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire academics! Academics.
 building_academics_mortality_mult:
   Mask: building
   Name: Mortality of academics! Academics
@@ -1602,54 +1694,102 @@ building_academics_shares_add:
   Mask: building
   Name: academics! Academics Pop Ownership Shares
   Description: An increase or decrease in an academics! Academics Pop Ownership Shares
+building_academics_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for academics! Academics
+  Description: A bonus or penalty to the Standard of Living for employed academics! Academics.
+building_aristocrats_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for aristocrats! Aristocrats
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire aristocrats! Aristocrats.
 building_aristocrats_shares_add:
   Mask: building
   Name: aristocrats! Aristocrats Pop Ownership Shares
   Description: An increase or decrease in an aristocrats! Aristocrats Pop Ownership Shares
+building_aristocrats_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for aristocrats! Aristocrats
+  Description: A bonus or penalty to the Standard of Living for employed aristocrats! Aristocrats.
 building_arms_industry_throughput_add:
   Mask: building
   Name: Arms Industries building Throughput
   Description: A bonus or penalty to both input and output of Arms Industries
-building_artillery_foundries_throughput_add:
-  Mask: building
-  Name: Artillery Foundry building Throughput
-  Description: A bonus or penalty to both input and output of Artillery Foundry
-building_arts_academy_throughput_add:
+building_art_academy_throughput_add:
   Mask: building
   Name: Arts Academy building Throughput
   Description: A bonus or penalty to both input and output of Arts Academy
+building_artillery_foundry_throughput_add:
+  Mask: building
+  Name: Artillery Foundry building Throughput
+  Description: A bonus or penalty to both input and output of Artillery Foundry
 building_automotive_industry_throughput_add:
   Mask: building
   Name: Automotive Industries building Throughput
   Description: A bonus or penalty to both input and output of Automotive Industries
-building_barracks_throughput_add:
+building_barrack_throughput_add:
   Mask: building
   Name: Barracks building Throughput
   Description: A bonus or penalty to both input and output of Barracks
+building_bureaucrats_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for bureaucrats! Bureaucrats
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire bureaucrats! Bureaucrats.
 building_bureaucrats_shares_add:
   Mask: building
   Name: bureaucrats! Bureaucrats Pop Ownership Shares
   Description: An increase or decrease in a bureaucrats! Bureaucrats Pop Ownership Shares
+building_bureaucrats_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for bureaucrats! Bureaucrats
+  Description: A bonus or penalty to the Standard of Living for employed bureaucrats! Bureaucrats.
+building_capitalists_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for capitalists! Capitalists
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire capitalists! Capitalists.
 building_capitalists_shares_add:
   Mask: building
   Name: capitalists! Capitalists Pop Ownership Shares
   Description: An increase or decrease in a capitalists! Capitalists Pop Ownership Shares
-building_chemical_plants_throughput_add:
+building_capitalists_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for capitalists! Capitalists
+  Description: A bonus or penalty to the Standard of Living for employed capitalists! Capitalists.
+building_chemical_plant_throughput_add:
   Mask: building
   Name: Fertilizer Plants building Throughput
   Description: A bonus or penalty to both input and output of Fertilizer Plants
+building_clergymen_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for clergymen! Clergymen
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire clergymen! Clergymen.
 building_clergymen_shares_add:
   Mask: building
   Name: clergymen! Clergymen Pop Ownership Shares
   Description: An increase or decrease in a clergymen! Clergymen Pop Ownership Shares
+building_clergymen_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for clergymen! Clergymen
+  Description: A bonus or penalty to the Standard of Living for employed clergymen! Clergymen.
+building_clerks_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for clerks! Clerks
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire clerks! Clerks.
 building_clerks_shares_add:
   Mask: building
   Name: clerks! Clerks Pop Ownership Shares
   Description: An increase or decrease in a clerks! Clerks Pop Ownership Shares
+building_clerks_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for clerks! Clerks
+  Description: A bonus or penalty to the Standard of Living for employed clerks! Clerks.
 building_coal_mine_throughput_add:
   Mask: building
   Name: Coal Mines building Throughput
   Description: A bonus or penalty to both input and output of Coal Mines
+building_coffee_plantation_throughput_add:
+  Mask: building
+  Name: Coffee Plantations building Throughput
+  Description: A bonus or penalty to both input and output of Coffee Plantations
 building_construction_sector_throughput_add:
   Mask: building
   Name: Construction Sector building Throughput
@@ -1718,10 +1858,18 @@ building_employment_shopkeepers_add:
   Mask: building
   Name: shopkeepers! Shopkeepers Per Level
   Description: Modifies the amount of shopkeepers! Shopkeepers a building can hire per level
+building_employment_slaves_add:
+  Mask: building
+  Name: slaves! Slaves Per Level
+  Description: Modifies the amount of slaves! Slaves a building can hire per level
 building_employment_soldiers_add:
   Mask: building
   Name: soldiers! Servicemen Per Level
   Description: Modifies the amount of soldiers! Servicemen a building can hire per level
+building_engineers_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for engineers! Engineers
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire engineers! Engineers.
 building_engineers_mortality_mult:
   Mask: building
   Name: Mortality of engineers! Engineers
@@ -1730,10 +1878,22 @@ building_engineers_shares_add:
   Mask: building
   Name: engineers! Engineers Pop Ownership Shares
   Description: An increase or decrease in an engineers! Engineers Pop Ownership Shares
+building_engineers_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for engineers! Engineers
+  Description: A bonus or penalty to the Standard of Living for employed engineers! Engineers.
 building_explosives_factory_throughput_add:
   Mask: building
   Name: Explosives Factory building Throughput
   Description: A bonus or penalty to both input and output of Explosives Factory
+building_farmers_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for farmers! Farmers
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire farmers! Farmers.
+building_farmers_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for farmers! Farmers
+  Description: A bonus or penalty to the Standard of Living for employed farmers! Farmers.
 building_fishing_wharf_throughput_add:
   Mask: building
   Name: Fishing Wharves building Throughput
@@ -1742,7 +1902,7 @@ building_food_industry_throughput_add:
   Mask: building
   Name: Food Industries building Throughput
   Description: A bonus or penalty to both input and output of Food Industries
-building_furniture_manufacturies_throughput_add:
+building_furniture_manufactory_throughput_add:
   Mask: building
   Name: Furniture Manufacturies building Throughput
   Description: A bonus or penalty to both input and output of Furniture Manufacturies
@@ -1750,7 +1910,7 @@ building_glassworks_throughput_add:
   Mask: building
   Name: Glassworks building Throughput
   Description: A bonus or penalty to both input and output of Glassworks
-building_gold_fields_throughput_add:
+building_gold_field_throughput_add:
   Mask: building
   Name: Gold Fields building Throughput
   Description: A bonus or penalty to both input and output of Gold Fields
@@ -1790,6 +1950,10 @@ building_group_bg_agriculture_mortality_mult:
   Mask: building
   Name: Agriculture Employee Mortality
   Description: A bonus or penalty to the mortality of employees in Agriculture Buildings
+building_group_bg_agriculture_self_investment_chance_add:
+  Mask: building
+  Name: Agriculture Building Self-Investment Chance
+  Description: An increase or decrease to the chance that the Workforce of Agriculture Buildings will be the owners of new invested levels.
 building_group_bg_agriculture_standard_of_living_add:
   Mask: building
   Name: Agriculture Employee Standard of Living
@@ -1810,26 +1974,6 @@ building_group_bg_arts_throughput_add:
   Mask: building
   Name: Arts Buildings Throughput
   Description: A bonus or penalty to both input and output of Arts Buildings Buildings.
-building_group_bg_coal_mining_employee_mult:
-  Mask: building
-  Name: Coal Mining Employees
-  Description: A bonus or penalty to the number of employees in Coal Mines
-building_group_bg_coal_mining_mortality_mult:
-  Mask: building
-  Name: Coal Mining Employee Mortality
-  Description: A bonus or penalty to the mortality of employees in Coal Mines
-building_group_bg_coal_mining_standard_of_living_add:
-  Mask: building
-  Name: Coal Mining Employee Standard of Living
-  Description: A bonus or penalty to the Standard of Living of employees in Coal Mines
-building_group_bg_coal_mining_tax_mult:
-  Mask: building
-  Name: Coal Mining Tax Income
-  Description: A bonus or penalty to tax income from Coal Mines
-building_group_bg_coffee_plantations_throughput_add:
-  Mask: building
-  Name: Coffee Plantation Throughput
-  Description: A bonus or penalty to both input and output of Coffee Plantations
 building_group_bg_construction_infrastructure_usage_mult:
   Mask: building
   Name: Infrastructure Usage of Construction Sector buildings
@@ -1846,6 +1990,10 @@ building_group_bg_extraction_construction_efficiency_add:
   Mask: building
   Name: Extraction Construction Efficiency
   Description: An increase or decrease to the weekly Construction progress for Extraction
+building_group_bg_extraction_self_investment_chance_add:
+  Mask: building
+  Name: Extraction Building Self-Investment Chance
+  Description: An increase or decrease to the chance that the Workforce of Extraction Buildings will be the owners of new invested levels.
 building_group_bg_extraction_throughput_add:
   Mask: building
   Name: Extraction Throughput
@@ -1882,22 +2030,6 @@ building_group_bg_fishing_throughput_add:
   Mask: building
   Name: Fishing Industry Throughput
   Description: A bonus or penalty to both input and output of the fishing Industry
-building_group_bg_gold_mining_employee_mult:
-  Mask: building
-  Name: Gold Mining Employees
-  Description: A bonus or penalty to the number of employees in Gold Mines
-building_group_bg_gold_mining_mortality_mult:
-  Mask: building
-  Name: Gold Mining Employee Mortality
-  Description: A bonus or penalty to the mortality of employees in Gold Mines
-building_group_bg_gold_mining_standard_of_living_add:
-  Mask: building
-  Name: Gold Mining Employee Standard of Living
-  Description: A bonus or penalty to the Standard of Living of employees in Gold Mines
-building_group_bg_gold_mining_tax_mult:
-  Mask: building
-  Name: Gold Mining Tax Income
-  Description: A bonus or penalty to tax income from Gold Mines
 building_group_bg_government_construction_efficiency_add:
   Mask: building
   Name: Government Structures Construction Efficiency
@@ -1922,6 +2054,10 @@ building_group_bg_government_throughput_add:
   Mask: building
   Name: Government Structures Throughput
   Description: A bonus or penalty to the Throughput of Government Structures
+building_group_bg_heavy_industry_allowed_collectivization_add:
+  Mask: building
+  Name: Minimum Worker-Owned Heavy Industries Building Levels
+  Description: The minimum amount of Heavy Industries Buildings that will be worker-owned.
 building_group_bg_heavy_industry_construction_efficiency_add:
   Mask: building
   Name: Heavy Industries Construction Efficiency
@@ -1970,6 +2106,10 @@ building_group_bg_infrastructure_mortality_mult:
   Mask: building
   Name: Infrastructure Employee Mortality
   Description: A bonus or penalty to the mortality of employees in Infrastructure Buildings
+building_group_bg_infrastructure_self_investment_chance_add:
+  Mask: building
+  Name: Infrastructure Building Self-Investment Chance
+  Description: An increase or decrease to the chance that the Workforce of Infrastructure Buildings will be the owners of new invested levels.
 building_group_bg_infrastructure_standard_of_living_add:
   Mask: building
   Name: Infrastructure Employee Standard of Living
@@ -1982,38 +2122,10 @@ building_group_bg_infrastructure_throughput_add:
   Mask: building
   Name: Infrastructure Throughput
   Description: A bonus or penalty to both input and output of Infrastructure Buildings
-building_group_bg_iron_mining_employee_mult:
+building_group_bg_light_industry_allowed_collectivization_add:
   Mask: building
-  Name: Iron Mining Employees
-  Description: A bonus or penalty to the number of employees in Iron Mines
-building_group_bg_iron_mining_mortality_mult:
-  Mask: building
-  Name: Iron Mining Employee Mortality
-  Description: A bonus or penalty to the mortality of employees in Iron Mines
-building_group_bg_iron_mining_standard_of_living_add:
-  Mask: building
-  Name: Iron Mining Employee Standard of Living
-  Description: A bonus or penalty to the Standard of Living of employees in Iron Mines
-building_group_bg_iron_mining_tax_mult:
-  Mask: building
-  Name: Iron Mining Tax Income
-  Description: A bonus or penalty to tax income from Iron Mines
-building_group_bg_lead_mining_employee_mult:
-  Mask: building
-  Name: Lead Mining Employees
-  Description: A bonus or penalty to the number of employees in Lead Mines
-building_group_bg_lead_mining_mortality_mult:
-  Mask: building
-  Name: Lead Mining Employee Mortality
-  Description: A bonus or penalty to the mortality of employees in Lead Mines
-building_group_bg_lead_mining_standard_of_living_add:
-  Mask: building
-  Name: Lead Mining Employee Standard of Living
-  Description: A bonus or penalty to the Standard of Living of employees in Lead Mines
-building_group_bg_lead_mining_tax_mult:
-  Mask: building
-  Name: Lead Mining Tax Income
-  Description: A bonus or penalty to tax income from Lead Mines
+  Name: Minimum Worker-Owned Light Industries Building Levels
+  Description: The minimum amount of Light Industries Buildings that will be worker-owned.
 building_group_bg_light_industry_construction_efficiency_add:
   Mask: building
   Name: Light Industries Construction Efficiency
@@ -2070,6 +2182,10 @@ building_group_bg_logging_unincorporated_throughput_add:
   Mask: building
   Name: Forestries Throughput in Unincorporated States
   Description: A bonus or penalty to the Throughput of Forestries in Unincorporated States
+building_group_bg_manor_houses_aristocrats_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living of aristocrats! Aristocrats employed in Manor Houses
+  Description: An increase or decrease in the Standard of Living of aristocrats! Aristocrats employed in Manor Houses
 building_group_bg_manufacturing_allowed_collectivization_add:
   Mask: building
   Name: Minimum Worker-Owned Manufacturing Industries Building Levels
@@ -2106,6 +2222,10 @@ building_group_bg_manufacturing_mortality_mult:
   Mask: building
   Name: Manufacturing Employee Mortality
   Description: A bonus or penalty to the mortality of employees in Manufacturing Buildings
+building_group_bg_manufacturing_self_investment_chance_add:
+  Mask: building
+  Name: Manufacturing Industries Building Self-Investment Chance
+  Description: An increase or decrease to the chance that the Workforce of Manufacturing Industries Buildings will be the owners of new invested levels.
 building_group_bg_manufacturing_standard_of_living_add:
   Mask: building
   Name: Manufacturing Employee Standard of Living
@@ -2126,6 +2246,34 @@ building_group_bg_military_construction_efficiency_add:
   Mask: building
   Name: Military Buildings Construction Efficiency
   Description: An increase or decrease to the weekly Construction progress for Military Buildings
+building_group_bg_military_industry_allowed_collectivization_add:
+  Mask: building
+  Name: Minimum Worker-Owned Military Industries Building Levels
+  Description: The minimum amount of Military Industries Buildings that will be worker-owned.
+building_group_bg_military_industry_construction_efficiency_add:
+  Mask: building
+  Name: Military Industries Construction Efficiency
+  Description: An increase or decrease to the weekly Construction progress for Military Industries
+building_group_bg_military_industry_engineers_mortality_mult:
+  Mask: building
+  Name: Mortality of engineers! Engineers employed in Military Industry
+  Description: An increase or decrease in the Mortality of engineers! Engineers employed in Military Industry
+building_group_bg_military_industry_laborers_mortality_mult:
+  Mask: building
+  Name: Mortality of laborers! Laborers employed in Military Industry
+  Description: An increase or decrease in the Mortality of laborers! Laborers employed in Military Industry
+building_group_bg_military_industry_machinists_mortality_mult:
+  Mask: building
+  Name: Mortality of machinists! Machinists employed in Military Industry
+  Description: An increase or decrease in the Mortality of machinists! Machinists employed in Military Industry
+building_group_bg_military_industry_mortality_mult:
+  Mask: building
+  Name: Military Industry Employee Mortality
+  Description: A bonus or penalty to the mortality of employees in Military Industry
+building_group_bg_military_industry_throughput_add:
+  Mask: building
+  Name: Military Industries Throughput
+  Description: A bonus or penalty to both input and output of Military Industries
 building_group_bg_military_throughput_add:
   Mask: building
   Name: Military Buildings Throughput
@@ -2246,6 +2394,14 @@ building_group_bg_plantations_mortality_mult:
   Mask: building
   Name: Plantation Employee Mortality
   Description: A bonus or penalty to the mortality of employees in Plantation Buildings
+building_group_bg_plantations_self_investment_chance_add:
+  Mask: building
+  Name: Plantations Building Self-Investment Chance
+  Description: An increase or decrease to the chance that the Workforce of Plantations Buildings will be the owners of new invested levels.
+building_group_bg_plantations_slaves_mortality_mult:
+  Mask: building
+  Name: Mortality of slaves! Slaves employed in Plantations
+  Description: An increase or decrease in the Mortality of slaves! Slaves employed in Plantations
 building_group_bg_plantations_standard_of_living_add:
   Mask: building
   Name: Plantation Employee Standard of Living
@@ -2266,6 +2422,10 @@ building_group_bg_power_allowed_collectivization_add:
   Mask: building
   Name: Minimum Worker-Owned Power Plants Building Levels
   Description: The minimum amount of Power Plants Buildings that will be worker-owned.
+building_group_bg_power_self_investment_chance_add:
+  Mask: building
+  Name: Power Plants Building Self-Investment Chance
+  Description: An increase or decrease to the chance that the Workforce of Power Plants Buildings will be the owners of new invested levels.
 building_group_bg_private_infrastructure_allowed_collectivization_add:
   Mask: building
   Name: Minimum Worker-Owned Private Infrastructure Building Levels
@@ -2294,6 +2454,14 @@ building_group_bg_ranching_mortality_mult:
   Mask: building
   Name: Ranching Employee Mortality
   Description: A bonus or penalty to the mortality of employees in Ranching Buildings
+building_group_bg_ranching_self_investment_chance_add:
+  Mask: building
+  Name: Ranches Building Self-Investment Chance
+  Description: An increase or decrease to the chance that the Workforce of Ranches Buildings will be the owners of new invested levels.
+building_group_bg_ranching_standard_of_living_add:
+  Mask: building
+  Name: Ranching Employee Standard of Living
+  Description: A bonus or penalty to the Standard of Living of employees in Ranching Buildings
 building_group_bg_ranching_tax_mult:
   Mask: building
   Name: Ranching Tax Income
@@ -2306,10 +2474,18 @@ building_group_bg_rubber_employee_mult:
   Mask: building
   Name: Rubber Industry Employees
   Description: A bonus or penalty to the number of employees in Rubber Industry Buildings
+building_group_bg_rubber_laborers_mortality_mult:
+  Mask: building
+  Name: Mortality of laborers! Laborers employed on Rubber Plantations
+  Description: building_group_bg_rubber_laborers_mortality_mult_desc
 building_group_bg_rubber_mortality_mult:
   Mask: building
   Name: Rubber Industry Employee Mortality
   Description: A bonus or penalty to the mortality of employees in Rubber Plantation Buildings
+building_group_bg_rubber_slaves_mortality_mult:
+  Mask: building
+  Name: Mortality of slaves! Slaves employed on Rubber Plantations
+  Description: building_group_bg_rubber_slaves_mortality_mult_desc
 building_group_bg_rubber_standard_of_living_add:
   Mask: building
   Name: Rubber Industry Employee Standard of Living
@@ -2346,46 +2522,22 @@ building_group_bg_service_throughput_add:
   Mask: building
   Name: Service Industries Throughput
   Description: A bonus or penalty to both input and output of Service Industries
-building_group_bg_silk_plantations_throughput_add:
-  Mask: building
-  Name: Silk Plantation Throughput
-  Description: A bonus or penalty to both input and output of Silk Plantations
 building_group_bg_subsistence_agriculture_allowed_collectivization_add:
   Mask: building
   Name: Minimum Worker-Owned Subsistence Agriculture Building Levels
   Description: The minimum amount of Subsistence Agriculture Buildings that will be worker-owned.
+building_group_bg_subsistence_agriculture_peasants_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living of peasants! Peasants employed in Subsistence Agriculture
+  Description: An increase or decrease in the Standard of Living of peasants! Peasants employed in Subsistence Agriculture
 building_group_bg_subsistence_ranching_allowed_collectivization_add:
   Mask: building
   Name: Minimum Worker-Owned Subsistence Ranching Building Levels
   Description: The minimum amount of Subsistence Ranching Buildings that will be worker-owned.
-building_group_bg_sugar_plantations_throughput_add:
+building_group_bg_subsistence_ranching_peasants_standard_of_living_add:
   Mask: building
-  Name: Sugar Plantation Throughput
-  Description: A bonus or penalty to both input and output of Sugar Plantations
-building_group_bg_sulfur_mining_employee_mult:
-  Mask: building
-  Name: Sulfur Mining Employees
-  Description: A bonus or penalty to the number of employees in Sulfur Mines
-building_group_bg_sulfur_mining_mortality_mult:
-  Mask: building
-  Name: Sulfur Mining Employee Mortality
-  Description: A bonus or penalty to the mortality of employees in Sulfur Mines
-building_group_bg_sulfur_mining_standard_of_living_add:
-  Mask: building
-  Name: Sulfur Mining Employee Standard of Living
-  Description: A bonus or penalty to the Standard of Living of employees in Sulfur Mines
-building_group_bg_sulfur_mining_tax_mult:
-  Mask: building
-  Name: Sulfur Mining Tax Income
-  Description: A bonus or penalty to tax income from Sulfur Mines
-building_group_bg_tea_plantations_throughput_add:
-  Mask: building
-  Name: Tea Plantation Throughput
-  Description: A bonus or penalty to both input and output of Tea Plantations
-building_group_bg_tobacco_plantations_throughput_add:
-  Mask: building
-  Name: Tobacco Plantation Throughput
-  Description: A bonus or penalty to both input and output of Tobacco Plantations
+  Name: Standard of Living of peasants! Peasants employed in Subsistence Ranching
+  Description: An increase or decrease in the Standard of Living of peasants! Peasants employed in Subsistence Ranching
 building_group_bg_whaling_employee_mult:
   Mask: building
   Name: Whaling Employees
@@ -2418,6 +2570,10 @@ building_iron_mine_throughput_add:
   Mask: building
   Name: Iron Mines building Throughput
   Description: A bonus or penalty to both input and output of Iron Mines
+building_laborers_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for laborers! Laborers
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire laborers! Laborers.
 building_laborers_mortality_mult:
   Mask: building
   Name: Mortality of laborers! Laborers
@@ -2426,6 +2582,10 @@ building_laborers_shares_add:
   Mask: building
   Name: laborers! Laborers Pop Ownership Shares
   Description: An increase or decrease in a laborers! Laborers Pop Ownership Shares
+building_laborers_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for laborers! Laborers
+  Description: A bonus or penalty to the Standard of Living for employed laborers! Laborers.
 building_lead_mine_throughput_add:
   Mask: building
   Name: Lead Mines building Throughput
@@ -2434,6 +2594,10 @@ building_livestock_ranch_throughput_add:
   Mask: building
   Name: Livestock Ranches building Throughput
   Description: A bonus or penalty to both input and output of Livestock Ranches
+building_machinists_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for machinists! Machinists
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire machinists! Machinists.
 building_machinists_mortality_mult:
   Mask: building
   Name: Mortality of machinists! Machinists
@@ -2442,11 +2606,15 @@ building_machinists_shares_add:
   Mask: building
   Name: machinists! Machinists Pop Ownership Shares
   Description: An increase or decrease in a machinists! Machinists Pop Ownership Shares
+building_machinists_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for machinists! Machinists
+  Description: A bonus or penalty to the Standard of Living for employed machinists! Machinists.
 building_maize_farm_throughput_add:
   Mask: building
   Name: Maize Farms building Throughput
   Description: A bonus or penalty to both input and output of Maize Farms
-building_military_shipyards_throughput_add:
+building_military_shipyard_throughput_add:
   Mask: building
   Name: Military Shipyards building Throughput
   Description: A bonus or penalty to both input and output of Military Shipyards
@@ -2458,7 +2626,7 @@ building_motor_industry_throughput_add:
   Mask: building
   Name: Motor Industries building Throughput
   Description: A bonus or penalty to both input and output of Motor Industries
-building_munition_plants_throughput_add:
+building_munition_plant_throughput_add:
   Mask: building
   Name: Munition Plants building Throughput
   Description: A bonus or penalty to both input and output of Munition Plants
@@ -2466,18 +2634,34 @@ building_naval_base_throughput_add:
   Mask: building
   Name: Naval Base building Throughput
   Description: A bonus or penalty to both input and output of Naval Base
+building_officers_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for officers! Officers
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire officers! Officers.
 building_officers_shares_add:
   Mask: building
   Name: officers! Officers Pop Ownership Shares
   Description: An increase or decrease in an officers! Officers Pop Ownership Shares
+building_officers_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for officers! Officers
+  Description: A bonus or penalty to the Standard of Living for employed officers! Officers.
 building_opium_plantation_throughput_add:
   Mask: building
   Name: Opium Plantations building Throughput
   Description: A bonus or penalty to both input and output of Opium Plantations
-building_paper_mills_throughput_add:
+building_paper_mill_throughput_add:
   Mask: building
   Name: Paper Mills building Throughput
   Description: A bonus or penalty to both input and output of Paper Mills
+building_peasants_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for peasants! Peasants
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire peasants! Peasants.
+building_peasants_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for peasants! Peasants
+  Description: A bonus or penalty to the Standard of Living for employed peasants! Peasants.
 building_port_throughput_add:
   Mask: building
   Name: Port building Throughput
@@ -2502,35 +2686,63 @@ building_rye_farm_throughput_add:
   Mask: building
   Name: Rye Farms building Throughput
   Description: A bonus or penalty to both input and output of Rye Farms
-building_shipyards_throughput_add:
+building_shipyard_throughput_add:
   Mask: building
   Name: Shipyards building Throughput
   Description: A bonus or penalty to both input and output of Shipyards
+building_shopkeepers_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for shopkeepers! Shopkeepers
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire shopkeepers! Shopkeepers.
 building_shopkeepers_shares_add:
   Mask: building
   Name: shopkeepers! Shopkeepers Pop Ownership Shares
   Description: An increase or decrease in a shopkeepers! Shopkeepers Pop Ownership Shares
+building_shopkeepers_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for shopkeepers! Shopkeepers
+  Description: A bonus or penalty to the Standard of Living for employed shopkeepers! Shopkeepers.
 building_silk_plantation_throughput_add:
   Mask: building
   Name: Silk Plantations building Throughput
   Description: A bonus or penalty to both input and output of Silk Plantations
+building_slaves_mortality_mult:
+  Mask: building
+  Name: Mortality of slaves! Slaves
+  Description: An increase or decrease in the Mortality of slaves! Slaves
+building_slaves_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for slaves! Slaves
+  Description: A bonus or penalty to the Standard of Living for employed slaves! Slaves.
+building_soldiers_job_attractiveness_mult:
+  Mask: building
+  Name: Job Attractiveness for soldiers! Servicemen
+  Description: A bonus or penalty to the wages a Building has to offer to be able to hire soldiers! Servicemen.
 building_soldiers_shares_add:
   Mask: building
   Name: soldiers! Servicemen Pop Ownership Shares
   Description: An increase or decrease in a soldiers! Servicemen Pop Ownership Shares
-building_steel_mills_throughput_add:
+building_soldiers_standard_of_living_add:
+  Mask: building
+  Name: Standard of Living for soldiers! Servicemen
+  Description: A bonus or penalty to the Standard of Living for employed soldiers! Servicemen.
+building_steel_mill_throughput_add:
   Mask: building
   Name: Steel Mills building Throughput
   Description: A bonus or penalty to both input and output of Steel Mills
-building_subsistence_farms_throughput_add:
+building_subsistence_farm_throughput_add:
   Mask: building
   Name: Subsistence Farms building Throughput
   Description: A bonus or penalty to both input and output of Subsistence Farms
+building_sugar_plantation_throughput_add:
+  Mask: building
+  Name: Sugar Plantations building Throughput
+  Description: A bonus or penalty to both input and output of Sugar Plantations
 building_sulfur_mine_throughput_add:
   Mask: building
   Name: Sulfur Mines building Throughput
   Description: A bonus or penalty to both input and output of Sulfur Mines
-building_synthetics_plants_throughput_add:
+building_synthetics_plant_throughput_add:
   Mask: building
   Name: Synthetics Plants building Throughput
   Description: A bonus or penalty to both input and output of Synthetics Plants
@@ -2538,11 +2750,15 @@ building_tea_plantation_throughput_add:
   Mask: building
   Name: Tea Plantations building Throughput
   Description: A bonus or penalty to both input and output of Tea Plantations
-building_textile_mills_throughput_add:
+building_textile_mill_throughput_add:
   Mask: building
   Name: Textile Mills building Throughput
   Description: A bonus or penalty to both input and output of Textile Mills
-building_tooling_workshops_throughput_add:
+building_tobacco_plantation_throughput_add:
+  Mask: building
+  Name: Tobacco Plantations building Throughput
+  Description: A bonus or penalty to both input and output of Tobacco Plantations
+building_tooling_workshop_throughput_add:
   Mask: building
   Name: Tooling Workshops building Throughput
   Description: A bonus or penalty to both input and output of Tooling Workshops
@@ -2558,7 +2774,7 @@ building_urban_center_throughput_add:
   Mask: building
   Name: Urban Center building Throughput
   Description: A bonus or penalty to both input and output of Urban Center
-building_vineyard_plantation_throughput_add:
+building_vineyard_throughput_add:
   Mask: building
   Name: Vineyards building Throughput
   Description: A bonus or penalty to both input and output of Vineyards
@@ -2710,6 +2926,10 @@ country_apache_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Apache Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_aragonese_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Aragonese Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_argentine_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Argentine Culture
@@ -2757,6 +2977,10 @@ country_assimilation_violent_hostility_mult:
 country_assyrian_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Assyrian Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_asturleonese_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Asturleonese Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_athabaskan_cultural_acceptance_add:
   Mask: country
@@ -2838,6 +3062,10 @@ country_berber_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Amazigh Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_bg_manufacturing_require_subsidies_bool:
+  Mask: country
+  Name: Forced Subsidies for Manufacturing
+  Description: country_bg_manufacturing_require_subsidies_bool_desc
 country_bidan_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Bidan Culture
@@ -2930,6 +3158,10 @@ country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool:
   Mask: country
   Name: Impose same Church and State Law on Bloc Members
   Description: Allowed to Impose the same Law as their own in the Church and State group on other Bloc Members
+country_can_impose_same_lawgroup_citizenship_in_power_bloc_bool:
+  Mask: country
+  Name: Impose same Citizenship Law on Bloc Members
+  Description: Allowed to Impose the same Law as their own in the Citizenship group on other Bloc Members
 country_can_impose_same_lawgroup_colonization_in_power_bloc_bool:
   Mask: country
   Name: Impose same Colonization Law on Bloc Members
@@ -3178,18 +3410,50 @@ country_edo_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Edo Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_enactment_success_chance_law_anarchy_add:
+  Mask: country
+  Name: Enactment Success chance for Anarchy
+  Description: A flat percentage point increase to the likelihood of enacting the specific law
+country_enactment_success_chance_law_autocracy_add:
+  Mask: country
+  Name: Enactment Success chance for Autocracy
+  Description: A flat percentage point increase to the likelihood of enacting the specific law
+country_enactment_success_chance_law_oligarchy_add:
+  Mask: country
+  Name: Enactment Success chance for Oligarchy
+  Description: A flat percentage point increase to the likelihood of enacting the specific law
 country_enactment_success_chance_law_public_schools_add:
   Mask: country
   Name: Enactment Success chance for Public Schools
+  Description: A flat percentage point increase to the likelihood of enacting the specific law
+country_enactment_success_chance_law_single_party_state_add:
+  Mask: country
+  Name: Enactment Success chance for Single-Party State
   Description: A flat percentage point increase to the likelihood of enacting the specific law
 country_enactment_success_chance_law_technocracy_add:
   Mask: country
   Name: Enactment Success chance for Technocracy
   Description: A flat percentage point increase to the likelihood of enacting the specific law
+country_enactment_time_law_anarchy_mult:
+  Mask: country
+  Name: country_enactment_time_law_anarchy_mult
+  Description: country_enactment_time_law_anarchy_mult_desc
+country_enactment_time_law_autocracy_mult:
+  Mask: country
+  Name: country_enactment_time_law_autocracy_mult
+  Description: country_enactment_time_law_autocracy_mult_desc
+country_enactment_time_law_oligarchy_mult:
+  Mask: country
+  Name: country_enactment_time_law_oligarchy_mult
+  Description: country_enactment_time_law_oligarchy_mult_desc
 country_enactment_time_law_public_schools_mult:
   Mask: country
   Name: Enactment Time for Public Schools
   Description: A reduction or increase to the time required for legislative enactments for the specific law
+country_enactment_time_law_single_party_state_mult:
+  Mask: country
+  Name: country_enactment_time_law_single_party_state_mult
+  Description: country_enactment_time_law_single_party_state_mult_desc
 country_enactment_time_law_technocracy_mult:
   Mask: country
   Name: Enactment Time for Technocracy
@@ -3298,6 +3562,10 @@ country_fervor_target_apache_add:
   Mask: country
   Name: Proportional Fervor for the Apache Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_aragonese_add:
+  Mask: country
+  Name: Proportional Fervor for the Aragonese Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_argentine_add:
   Mask: country
   Name: Proportional Fervor for the Argentine Culture
@@ -3317,6 +3585,10 @@ country_fervor_target_assamese_add:
 country_fervor_target_assyrian_add:
   Mask: country
   Name: Proportional Fervor for the Assyrian Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_asturleonese_add:
+  Mask: country
+  Name: Proportional Fervor for the Asturleonese Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_athabaskan_add:
   Mask: country
@@ -3596,7 +3868,15 @@ country_fervor_target_fang_add:
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_filipino_add:
   Mask: country
+  Name: Proportional Fervor for the Pilipino Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_filipino_hispanophone_add:
+  Mask: country
   Name: Proportional Fervor for the Filipino Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_filipino_mestizo_add:
+  Mask: country
+  Name: Proportional Fervor for the Filipino Mestizo Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_finnish_add:
   Mask: country
@@ -3650,6 +3930,10 @@ country_fervor_target_greek_add:
   Mask: country
   Name: Proportional Fervor for the Greek Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_griqua_add:
+  Mask: country
+  Name: Proportional Fervor for the Griqua Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_guajiro_add:
   Mask: country
   Name: Proportional Fervor for the Guajiro Culture
@@ -3702,6 +3986,10 @@ country_fervor_target_hungarian_add:
   Mask: country
   Name: Proportional Fervor for the Hungarian Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_iberian_add:
+  Mask: country
+  Name: Proportional Fervor for the Iberian Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_ibibio_add:
   Mask: country
   Name: Proportional Fervor for the Ibibio Culture
@@ -3713,6 +4001,10 @@ country_fervor_target_ibo_add:
 country_fervor_target_icelandic_add:
   Mask: country
   Name: Proportional Fervor for the Icelandic Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_ilocano_add:
+  Mask: country
+  Name: Proportional Fervor for the Ilocano Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_inuit_add:
   Mask: country
@@ -3833,6 +4125,10 @@ country_fervor_target_lomwe_add:
 country_fervor_target_luba_add:
   Mask: country
   Name: Proportional Fervor for the Luba Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_lumad_add:
+  Mask: country
+  Name: Proportional Fervor for the Lumad Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_lunda_add:
   Mask: country
@@ -4174,6 +4470,10 @@ country_fervor_target_scottish_add:
   Mask: country
   Name: Proportional Fervor for the Scottish Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_scottish_gaelic_add:
+  Mask: country
+  Name: Proportional Fervor for the Gael Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_sena_add:
   Mask: country
   Name: Proportional Fervor for the Sena Culture
@@ -4286,6 +4586,10 @@ country_fervor_target_szekely_add:
   Mask: country
   Name: Proportional Fervor for the Szekler Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_tagalog_add:
+  Mask: country
+  Name: Proportional Fervor for the Tagalog Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_tajik_add:
   Mask: country
   Name: Proportional Fervor for the Tajik Culture
@@ -4304,7 +4608,7 @@ country_fervor_target_tatar_add:
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_teda_add:
   Mask: country
-  Name: Proportional Fervor for the Teda Culture
+  Name: Proportional Fervor for the Tubu Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_telegu_add:
   Mask: country
@@ -4386,6 +4690,10 @@ country_fervor_target_vietnamese_add:
   Mask: country
   Name: Proportional Fervor for the Vietnamese Culture
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
+country_fervor_target_visayan_add:
+  Mask: country
+  Name: Proportional Fervor for the Visayan Culture
+  Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_fervor_target_wallonian_add:
   Mask: country
   Name: Proportional Fervor for the Wallonian Culture
@@ -4448,7 +4756,15 @@ country_fervor_target_zulu_add:
   Description: A bonus or penalty to a specific culture's [concept_fervor], to be proportioned according the percentage of the culture's [Concept('concept_pop', 'Pops')] that reside in the affected [concept_country].
 country_filipino_cultural_acceptance_add:
   Mask: country
+  Name: Acceptance of Pilipino Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_filipino_hispanophone_cultural_acceptance_add:
+  Mask: country
   Name: Acceptance of Filipino Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_filipino_mestizo_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Filipino Mestizo Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_finnish_cultural_acceptance_add:
   Mask: country
@@ -4502,6 +4818,10 @@ country_greek_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Greek Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_griqua_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Griqua Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_guajiro_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Guajiro Culture
@@ -4554,6 +4874,10 @@ country_hungarian_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Hungarian Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_iberian_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Iberian Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_ibibio_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Ibibio Culture
@@ -4565,6 +4889,10 @@ country_ibo_cultural_acceptance_add:
 country_icelandic_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Icelandic Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_ilocano_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Ilocano Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_institution_colonial_affairs_max_investment_add:
   Mask: country
@@ -4586,6 +4914,10 @@ country_institution_cost_institution_schools_mult:
   Mask: country
   Name: bur! Bureaucracy Cost of Education
   Description: An increase or reduction to the bur! Bureaucracy cost of bringing Education to the citizens
+country_institution_cost_institution_social_security_mult:
+  Mask: country
+  Name: bur! Bureaucracy Cost of Social Security
+  Description: An increase or reduction to the bur! Bureaucracy cost of bringing Social Security to the citizens
 country_institution_health_system_max_investment_add:
   Mask: country
   Name: Max Health System Institution Investment
@@ -4813,6 +5145,10 @@ country_loyalism_increases_violent_hostility_mult:
 country_luba_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Luba Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_lumad_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Lumad Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_lunda_cultural_acceptance_add:
   Mask: country
@@ -5254,6 +5590,10 @@ country_scottish_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Scottish Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_scottish_gaelic_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Gael Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_sena_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Sena Culture
@@ -5450,6 +5790,10 @@ country_szekely_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Szekler Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_tagalog_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Tagalog Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_tajik_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Tajik Culture
@@ -5468,7 +5812,7 @@ country_tatar_cultural_acceptance_add:
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_teda_cultural_acceptance_add:
   Mask: country
-  Name: Acceptance of Teda Culture
+  Name: Acceptance of Tubu Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_telegu_cultural_acceptance_add:
   Mask: country
@@ -5490,6 +5834,18 @@ country_tiv_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Tiv Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_tobacco_export_tariffs_rate_add:
+  Mask: country
+  Name: country_tobacco_export_tariffs_rate_add
+  Description: country_tobacco_export_tariffs_rate_add_desc
+country_tobacco_max_export_tariffs_level_add:
+  Mask: country
+  Name: country_tobacco_max_export_tariffs_level_add
+  Description: country_tobacco_max_export_tariffs_level_add_desc
+country_tobacco_min_export_tariffs_level_add:
+  Mask: country
+  Name: country_tobacco_min_export_tariffs_level_add
+  Description: country_tobacco_min_export_tariffs_level_add_desc
 country_tonga_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Tonga Culture
@@ -5589,6 +5945,10 @@ country_venezuelan_cultural_acceptance_add:
 country_vietnamese_cultural_acceptance_add:
   Mask: country
   Name: Acceptance of Vietnamese Culture
+  Description: A bonus or penalty to a specific culture's [concept_acceptance]
+country_visayan_cultural_acceptance_add:
+  Mask: country
+  Name: Acceptance of Visayan Culture
   Description: A bonus or penalty to a specific culture's [concept_acceptance]
 country_voting_power_cultural_erasure_mult:
   Mask: country
@@ -6094,6 +6454,10 @@ goods_output_radios_add:
   Mask: goods
   Name: radios! Radios output
   Description: The amount of radios! Radios produced by buildings
+goods_output_radios_mult:
+  Mask: goods
+  Name: Building radio! Radio output
+  Description: A bonus or penalty to the amount of radio! Radio produced by buildings
 goods_output_rubber_add:
   Mask: goods
   Name: rubber! Rubber output
@@ -6446,6 +6810,10 @@ state_apache_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Apache
   Description: A bonus or penalty to a specific culture's [concept_sol]
+state_aragonese_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Aragonese
+  Description: A bonus or penalty to a specific culture's [concept_sol]
 state_argentine_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Argentine
@@ -6477,6 +6845,10 @@ state_assamese_standard_of_living_add:
 state_assyrian_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Assyrian
+  Description: A bonus or penalty to a specific culture's [concept_sol]
+state_asturleonese_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Asturleonese
   Description: A bonus or penalty to a specific culture's [concept_sol]
 state_athabaskan_standard_of_living_add:
   Mask: state
@@ -6598,7 +6970,7 @@ state_british_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for English
   Description: A bonus or penalty to a specific culture's [concept_sol]
-state_building_barracks_max_level_add:
+state_building_barrack_max_level_add:
   Mask: state
   Name: Barracks Max Level
   Description: A bonus or penalty to the maximum level of Barracks buildings.
@@ -6638,6 +7010,18 @@ state_buryat_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Buryat
   Description: A bonus or penalty to a specific culture's [concept_sol]
+state_buy_orders_ammunition_add:
+  Mask: state
+  Name: ammunition! Ammunition Buy Orders
+  Description: An increase or decrease to Buy Orders for ammunition! Ammunition in a State
+state_buy_orders_artillery_add:
+  Mask: state
+  Name: artillery! Artillery Buy Orders
+  Description: An increase or decrease to Buy Orders for artillery! Artillery in a State
+state_buy_orders_small_arms_add:
+  Mask: state
+  Name: small_arms! Small Arms Buy Orders
+  Description: An increase or decrease to Buy Orders for small_arms! Small Arms in a State
 state_byelorussian_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Byelorussian
@@ -6834,9 +7218,17 @@ state_farmers_mortality_mult:
   Mask: state
   Name: Mortality of farmers! Farmers
   Description: An increase or decrease in the Mortality of farmers! Farmers
-state_filipino_standard_of_living_add:
+state_filipino_hispanophone_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Filipino
+  Description: A bonus or penalty to a specific culture's [concept_sol]
+state_filipino_mestizo_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Filipino Mestizo
+  Description: A bonus or penalty to a specific culture's [concept_sol]
+state_filipino_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Pilipino
   Description: A bonus or penalty to a specific culture's [concept_sol]
 state_finnish_standard_of_living_add:
   Mask: state
@@ -6893,6 +7285,10 @@ state_gondi_standard_of_living_add:
 state_greek_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Greek
+  Description: A bonus or penalty to a specific culture's [concept_sol]
+state_griqua_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Griqua
   Description: A bonus or penalty to a specific culture's [concept_sol]
 state_guajiro_standard_of_living_add:
   Mask: state
@@ -7018,6 +7414,10 @@ state_ibadi_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Ibadi
   Description: A bonus or penalty to a specific religion's [concept_sol]
+state_iberian_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Iberian
+  Description: A bonus or penalty to a specific culture's [concept_sol]
 state_ibibio_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Ibibio
@@ -7029,6 +7429,10 @@ state_ibo_standard_of_living_add:
 state_icelandic_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Icelandic
+  Description: A bonus or penalty to a specific culture's [concept_sol]
+state_ilocano_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Ilocano
   Description: A bonus or penalty to a specific culture's [concept_sol]
 state_infrastructure_from_automobiles_consumption_add:
   Mask: state
@@ -7189,6 +7593,10 @@ state_loyalism_increases_violent_hostility_mult:
 state_luba_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Luba
+  Description: A bonus or penalty to a specific culture's [concept_sol]
+state_lumad_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Lumad
   Description: A bonus or penalty to a specific culture's [concept_sol]
 state_lunda_standard_of_living_add:
   Mask: state
@@ -7554,6 +7962,14 @@ state_pop_support_movement_bonapartist_mult:
   Mask: state
   Name: Bonapartist Movement Pop Attraction
   Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
+state_pop_support_movement_carlist_add:
+  Mask: state
+  Name: Carlist Movement Pop Attraction
+  Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
+state_pop_support_movement_carlist_mult:
+  Mask: state
+  Name: Carlist Movement Pop Attraction
+  Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
 state_pop_support_movement_communist_add:
   Mask: state
   Name: Communist Movement Pop Attraction
@@ -7658,6 +8074,14 @@ state_pop_support_movement_liberal_mult:
   Mask: state
   Name: Liberal Movement Pop Attraction
   Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
+state_pop_support_movement_miguelist_add:
+  Mask: state
+  Name: Miguelist Movement Pop Attraction
+  Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
+state_pop_support_movement_miguelist_mult:
+  Mask: state
+  Name: Miguelist Movement Pop Attraction
+  Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
 state_pop_support_movement_modernizer_add:
   Mask: state
   Name: Modernization Movement Pop Attraction
@@ -7746,6 +8170,14 @@ state_pop_support_movement_royalist_constitutional_mult:
   Mask: state
   Name: Royalist Movement Pop Attraction
   Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
+state_pop_support_movement_slave_revolt_add:
+  Mask: state
+  Name: Slave Revolt Movement Pop Attraction
+  Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
+state_pop_support_movement_slave_revolt_mult:
+  Mask: state
+  Name: Slave Revolt Movement Pop Attraction
+  Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
 state_pop_support_movement_socialist_add:
   Mask: state
   Name: Socialist Movement Pop Attraction
@@ -7761,6 +8193,14 @@ state_pop_support_movement_utilitarian_add:
 state_pop_support_movement_utilitarian_mult:
   Mask: state
   Name: Utilitarian Movement Pop Attraction
+  Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
+state_pop_support_movement_yugoslav_national_add:
+  Mask: state
+  Name: state_pop_support_movement_yugoslav_national_add
+  Description: state_pop_support_movement_yugoslav_national_add_desc
+state_pop_support_movement_yugoslav_national_mult:
+  Mask: state
+  Name: German National Movement Pop Attraction
   Description: An increase or decrease to the attraction for Pops towards joining a Political Movement.
 state_portuguese_standard_of_living_add:
   Mask: state
@@ -7834,6 +8274,10 @@ state_sara_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Sara
   Description: A bonus or penalty to a specific culture's [concept_sol]
+state_scottish_gaelic_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Gael
+  Description: A bonus or penalty to a specific culture's [concept_sol]
 state_scottish_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Scottish
@@ -7846,6 +8290,10 @@ state_sell_orders_artillery_add:
   Mask: state
   Name: artillery! Artillery Sell Orders
   Description: An increase or decrease to Sell Orders for artillery! Artillery in a State
+state_sell_orders_grain_add:
+  Mask: state
+  Name: grain! Grain Sell Orders
+  Description: An increase or decrease to Sell Orders for grain! Grain in a State
 state_sell_orders_small_arms_add:
   Mask: state
   Name: small_arms! Small Arms Sell Orders
@@ -8002,6 +8450,10 @@ state_szekely_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Szekler
   Description: A bonus or penalty to a specific culture's [concept_sol]
+state_tagalog_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Tagalog
+  Description: A bonus or penalty to a specific culture's [concept_sol]
 state_tajik_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Tajik
@@ -8020,7 +8472,7 @@ state_tatar_standard_of_living_add:
   Description: A bonus or penalty to a specific culture's [concept_sol]
 state_teda_standard_of_living_add:
   Mask: state
-  Name: [concept_sol] Modifier for Teda
+  Name: [concept_sol] Modifier for Tubu
   Description: A bonus or penalty to a specific culture's [concept_sol]
 state_telegu_standard_of_living_add:
   Mask: state
@@ -8105,6 +8557,10 @@ state_venezuelan_standard_of_living_add:
 state_vietnamese_standard_of_living_add:
   Mask: state
   Name: [concept_sol] Modifier for Vietnamese
+  Description: A bonus or penalty to a specific culture's [concept_sol]
+state_visayan_standard_of_living_add:
+  Mask: state
+  Name: [concept_sol] Modifier for Visayan
   Description: A bonus or penalty to a specific culture's [concept_sol]
 state_wallonian_standard_of_living_add:
   Mask: state
@@ -8352,8 +8808,6 @@ building_clerks_mortality_mult:
   Mask: building
 building_clerks_shares_mult:
   Mask: building
-building_coffee_plantation_throughput_add:
-  Mask: building
 building_company_headquarter_throughput_add:
   Mask: building
 building_company_regional_headquarter_throughput_add:
@@ -8392,8 +8846,6 @@ building_employment_peasants_mult:
   Mask: building
 building_employment_shopkeepers_mult:
   Mask: building
-building_employment_slaves_add:
-  Mask: building
 building_employment_slaves_mult:
   Mask: building
 building_employment_soldiers_mult:
@@ -8401,6 +8853,8 @@ building_employment_soldiers_mult:
 building_engineers_fertility_mult:
   Mask: building
 building_engineers_shares_mult:
+  Mask: building
+building_estacion_de_madrid_atocha_throughput_add:
   Mask: building
 building_eye_of_sahara_throughput_add:
   Mask: building
@@ -8417,6 +8871,8 @@ building_financial_district_throughput_add:
 building_forbidden_city_throughput_add:
   Mask: building
 building_giza_necropolis_throughput_add:
+  Mask: building
+building_gran_teatro_de_la_habana_throughput_add:
   Mask: building
 building_group_bg_agriculture_academics_fertility_mult:
   Mask: building
@@ -8508,112 +8964,6 @@ building_group_bg_agriculture_soldiers_standard_of_living_add:
   Mask: building
 building_group_bg_agriculture_unincorporated_throughput_add:
   Mask: building
-building_group_bg_arms_industries_academics_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_academics_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_academics_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_aristocrats_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_aristocrats_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_aristocrats_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_bureaucrats_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_bureaucrats_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_bureaucrats_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_capitalists_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_capitalists_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_capitalists_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_clergymen_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_clergymen_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_clergymen_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_clerks_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_clerks_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_clerks_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_employee_mult:
-  Mask: building
-building_group_bg_arms_industries_engineers_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_engineers_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_engineers_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_farmers_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_farmers_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_farmers_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_infrastructure_usage_mult:
-  Mask: building
-building_group_bg_arms_industries_laborers_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_laborers_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_laborers_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_machinists_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_machinists_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_machinists_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_officers_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_officers_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_officers_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_peasants_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_peasants_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_peasants_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_shopkeepers_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_shopkeepers_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_shopkeepers_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_slaves_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_slaves_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_slaves_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_soldiers_fertility_mult:
-  Mask: building
-building_group_bg_arms_industries_soldiers_mortality_mult:
-  Mask: building
-building_group_bg_arms_industries_soldiers_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_standard_of_living_add:
-  Mask: building
-building_group_bg_arms_industries_tax_mult:
-  Mask: building
-building_group_bg_arms_industries_throughput_add:
-  Mask: building
-building_group_bg_arms_industries_unincorporated_throughput_add:
-  Mask: building
 building_group_bg_army_academics_fertility_mult:
   Mask: building
 building_group_bg_army_academics_mortality_mult:
@@ -8694,6 +9044,8 @@ building_group_bg_army_peasants_mortality_mult:
   Mask: building
 building_group_bg_army_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_army_self_investment_chance_add:
+  Mask: building
 building_group_bg_army_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_army_shopkeepers_mortality_mult:
@@ -8719,112 +9071,6 @@ building_group_bg_army_tax_mult:
 building_group_bg_army_throughput_add:
   Mask: building
 building_group_bg_army_unincorporated_throughput_add:
-  Mask: building
-building_group_bg_artillery_foundries_academics_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_academics_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_academics_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_aristocrats_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_aristocrats_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_aristocrats_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_bureaucrats_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_bureaucrats_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_bureaucrats_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_capitalists_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_capitalists_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_capitalists_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_clergymen_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_clergymen_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_clergymen_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_clerks_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_clerks_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_clerks_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_employee_mult:
-  Mask: building
-building_group_bg_artillery_foundries_engineers_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_engineers_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_engineers_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_farmers_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_farmers_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_farmers_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_infrastructure_usage_mult:
-  Mask: building
-building_group_bg_artillery_foundries_laborers_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_laborers_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_laborers_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_machinists_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_machinists_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_machinists_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_officers_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_officers_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_officers_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_peasants_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_peasants_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_peasants_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_shopkeepers_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_shopkeepers_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_shopkeepers_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_slaves_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_slaves_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_slaves_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_soldiers_fertility_mult:
-  Mask: building
-building_group_bg_artillery_foundries_soldiers_mortality_mult:
-  Mask: building
-building_group_bg_artillery_foundries_soldiers_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_standard_of_living_add:
-  Mask: building
-building_group_bg_artillery_foundries_tax_mult:
-  Mask: building
-building_group_bg_artillery_foundries_throughput_add:
-  Mask: building
-building_group_bg_artillery_foundries_unincorporated_throughput_add:
   Mask: building
 building_group_bg_arts_academics_fertility_mult:
   Mask: building
@@ -8905,6 +9151,8 @@ building_group_bg_arts_peasants_fertility_mult:
 building_group_bg_arts_peasants_mortality_mult:
   Mask: building
 building_group_bg_arts_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_arts_self_investment_chance_add:
   Mask: building
 building_group_bg_arts_shopkeepers_fertility_mult:
   Mask: building
@@ -9009,6 +9257,8 @@ building_group_bg_banana_plantations_peasants_fertility_mult:
 building_group_bg_banana_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_banana_plantations_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_banana_plantations_self_investment_chance_add:
   Mask: building
 building_group_bg_banana_plantations_shopkeepers_fertility_mult:
   Mask: building
@@ -9116,6 +9366,8 @@ building_group_bg_bureaucracy_peasants_mortality_mult:
   Mask: building
 building_group_bg_bureaucracy_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_bureaucracy_self_investment_chance_add:
+  Mask: building
 building_group_bg_bureaucracy_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_bureaucracy_shopkeepers_mortality_mult:
@@ -9222,6 +9474,8 @@ building_group_bg_canals_peasants_mortality_mult:
   Mask: building
 building_group_bg_canals_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_canals_self_investment_chance_add:
+  Mask: building
 building_group_bg_canals_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_canals_shopkeepers_mortality_mult:
@@ -9284,6 +9538,8 @@ building_group_bg_coal_mining_clerks_mortality_mult:
   Mask: building
 building_group_bg_coal_mining_clerks_standard_of_living_add:
   Mask: building
+building_group_bg_coal_mining_employee_mult:
+  Mask: building
 building_group_bg_coal_mining_engineers_fertility_mult:
   Mask: building
 building_group_bg_coal_mining_engineers_mortality_mult:
@@ -9312,6 +9568,8 @@ building_group_bg_coal_mining_machinists_mortality_mult:
   Mask: building
 building_group_bg_coal_mining_machinists_standard_of_living_add:
   Mask: building
+building_group_bg_coal_mining_mortality_mult:
+  Mask: building
 building_group_bg_coal_mining_officers_fertility_mult:
   Mask: building
 building_group_bg_coal_mining_officers_mortality_mult:
@@ -9323,6 +9581,8 @@ building_group_bg_coal_mining_peasants_fertility_mult:
 building_group_bg_coal_mining_peasants_mortality_mult:
   Mask: building
 building_group_bg_coal_mining_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_coal_mining_self_investment_chance_add:
   Mask: building
 building_group_bg_coal_mining_shopkeepers_fertility_mult:
   Mask: building
@@ -9341,6 +9601,10 @@ building_group_bg_coal_mining_soldiers_fertility_mult:
 building_group_bg_coal_mining_soldiers_mortality_mult:
   Mask: building
 building_group_bg_coal_mining_soldiers_standard_of_living_add:
+  Mask: building
+building_group_bg_coal_mining_standard_of_living_add:
+  Mask: building
+building_group_bg_coal_mining_tax_mult:
   Mask: building
 building_group_bg_coal_mining_throughput_add:
   Mask: building
@@ -9426,6 +9690,8 @@ building_group_bg_coffee_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_coffee_plantations_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_coffee_plantations_self_investment_chance_add:
+  Mask: building
 building_group_bg_coffee_plantations_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_coffee_plantations_shopkeepers_mortality_mult:
@@ -9447,6 +9713,8 @@ building_group_bg_coffee_plantations_soldiers_standard_of_living_add:
 building_group_bg_coffee_plantations_standard_of_living_add:
   Mask: building
 building_group_bg_coffee_plantations_tax_mult:
+  Mask: building
+building_group_bg_coffee_plantations_throughput_add:
   Mask: building
 building_group_bg_coffee_plantations_unincorporated_throughput_add:
   Mask: building
@@ -9529,6 +9797,8 @@ building_group_bg_company_headquarter_peasants_fertility_mult:
 building_group_bg_company_headquarter_peasants_mortality_mult:
   Mask: building
 building_group_bg_company_headquarter_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_company_headquarter_self_investment_chance_add:
   Mask: building
 building_group_bg_company_headquarter_shopkeepers_fertility_mult:
   Mask: building
@@ -9636,6 +9906,8 @@ building_group_bg_company_regional_headquarter_peasants_mortality_mult:
   Mask: building
 building_group_bg_company_regional_headquarter_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_company_regional_headquarter_self_investment_chance_add:
+  Mask: building
 building_group_bg_company_regional_headquarter_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_company_regional_headquarter_shopkeepers_mortality_mult:
@@ -9742,6 +10014,8 @@ building_group_bg_conscription_peasants_mortality_mult:
   Mask: building
 building_group_bg_conscription_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_conscription_self_investment_chance_add:
+  Mask: building
 building_group_bg_conscription_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_conscription_shopkeepers_mortality_mult:
@@ -9843,6 +10117,8 @@ building_group_bg_construction_peasants_fertility_mult:
 building_group_bg_construction_peasants_mortality_mult:
   Mask: building
 building_group_bg_construction_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_construction_self_investment_chance_add:
   Mask: building
 building_group_bg_construction_shopkeepers_fertility_mult:
   Mask: building
@@ -9950,6 +10226,8 @@ building_group_bg_cotton_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_cotton_plantations_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_cotton_plantations_self_investment_chance_add:
+  Mask: building
 building_group_bg_cotton_plantations_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_cotton_plantations_shopkeepers_mortality_mult:
@@ -10055,6 +10333,8 @@ building_group_bg_dye_plantations_peasants_fertility_mult:
 building_group_bg_dye_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_dye_plantations_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_dye_plantations_self_investment_chance_add:
   Mask: building
 building_group_bg_dye_plantations_shopkeepers_fertility_mult:
   Mask: building
@@ -10266,6 +10546,8 @@ building_group_bg_financial_districts_peasants_mortality_mult:
   Mask: building
 building_group_bg_financial_districts_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_financial_districts_self_investment_chance_add:
+  Mask: building
 building_group_bg_financial_districts_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_financial_districts_shopkeepers_mortality_mult:
@@ -10361,6 +10643,8 @@ building_group_bg_fishing_peasants_fertility_mult:
 building_group_bg_fishing_peasants_mortality_mult:
   Mask: building
 building_group_bg_fishing_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_fishing_self_investment_chance_add:
   Mask: building
 building_group_bg_fishing_shopkeepers_fertility_mult:
   Mask: building
@@ -10462,6 +10746,8 @@ building_group_bg_gold_fields_peasants_mortality_mult:
   Mask: building
 building_group_bg_gold_fields_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_gold_fields_self_investment_chance_add:
+  Mask: building
 building_group_bg_gold_fields_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_gold_fields_shopkeepers_mortality_mult:
@@ -10524,6 +10810,8 @@ building_group_bg_gold_mining_clerks_mortality_mult:
   Mask: building
 building_group_bg_gold_mining_clerks_standard_of_living_add:
   Mask: building
+building_group_bg_gold_mining_employee_mult:
+  Mask: building
 building_group_bg_gold_mining_engineers_fertility_mult:
   Mask: building
 building_group_bg_gold_mining_engineers_mortality_mult:
@@ -10552,6 +10840,8 @@ building_group_bg_gold_mining_machinists_mortality_mult:
   Mask: building
 building_group_bg_gold_mining_machinists_standard_of_living_add:
   Mask: building
+building_group_bg_gold_mining_mortality_mult:
+  Mask: building
 building_group_bg_gold_mining_officers_fertility_mult:
   Mask: building
 building_group_bg_gold_mining_officers_mortality_mult:
@@ -10563,6 +10853,8 @@ building_group_bg_gold_mining_peasants_fertility_mult:
 building_group_bg_gold_mining_peasants_mortality_mult:
   Mask: building
 building_group_bg_gold_mining_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_gold_mining_self_investment_chance_add:
   Mask: building
 building_group_bg_gold_mining_shopkeepers_fertility_mult:
   Mask: building
@@ -10581,6 +10873,10 @@ building_group_bg_gold_mining_soldiers_fertility_mult:
 building_group_bg_gold_mining_soldiers_mortality_mult:
   Mask: building
 building_group_bg_gold_mining_soldiers_standard_of_living_add:
+  Mask: building
+building_group_bg_gold_mining_standard_of_living_add:
+  Mask: building
+building_group_bg_gold_mining_tax_mult:
   Mask: building
 building_group_bg_gold_mining_throughput_add:
   Mask: building
@@ -10661,6 +10957,8 @@ building_group_bg_government_peasants_fertility_mult:
 building_group_bg_government_peasants_mortality_mult:
   Mask: building
 building_group_bg_government_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_government_self_investment_chance_add:
   Mask: building
 building_group_bg_government_shopkeepers_fertility_mult:
   Mask: building
@@ -10753,6 +11051,8 @@ building_group_bg_heavy_industry_peasants_fertility_mult:
 building_group_bg_heavy_industry_peasants_mortality_mult:
   Mask: building
 building_group_bg_heavy_industry_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_heavy_industry_self_investment_chance_add:
   Mask: building
 building_group_bg_heavy_industry_shopkeepers_fertility_mult:
   Mask: building
@@ -10904,6 +11204,8 @@ building_group_bg_iron_mining_clerks_mortality_mult:
   Mask: building
 building_group_bg_iron_mining_clerks_standard_of_living_add:
   Mask: building
+building_group_bg_iron_mining_employee_mult:
+  Mask: building
 building_group_bg_iron_mining_engineers_fertility_mult:
   Mask: building
 building_group_bg_iron_mining_engineers_mortality_mult:
@@ -10932,6 +11234,8 @@ building_group_bg_iron_mining_machinists_mortality_mult:
   Mask: building
 building_group_bg_iron_mining_machinists_standard_of_living_add:
   Mask: building
+building_group_bg_iron_mining_mortality_mult:
+  Mask: building
 building_group_bg_iron_mining_officers_fertility_mult:
   Mask: building
 building_group_bg_iron_mining_officers_mortality_mult:
@@ -10943,6 +11247,8 @@ building_group_bg_iron_mining_peasants_fertility_mult:
 building_group_bg_iron_mining_peasants_mortality_mult:
   Mask: building
 building_group_bg_iron_mining_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_iron_mining_self_investment_chance_add:
   Mask: building
 building_group_bg_iron_mining_shopkeepers_fertility_mult:
   Mask: building
@@ -10961,6 +11267,10 @@ building_group_bg_iron_mining_soldiers_fertility_mult:
 building_group_bg_iron_mining_soldiers_mortality_mult:
   Mask: building
 building_group_bg_iron_mining_soldiers_standard_of_living_add:
+  Mask: building
+building_group_bg_iron_mining_standard_of_living_add:
+  Mask: building
+building_group_bg_iron_mining_tax_mult:
   Mask: building
 building_group_bg_iron_mining_throughput_add:
   Mask: building
@@ -11002,6 +11312,8 @@ building_group_bg_lead_mining_clerks_mortality_mult:
   Mask: building
 building_group_bg_lead_mining_clerks_standard_of_living_add:
   Mask: building
+building_group_bg_lead_mining_employee_mult:
+  Mask: building
 building_group_bg_lead_mining_engineers_fertility_mult:
   Mask: building
 building_group_bg_lead_mining_engineers_mortality_mult:
@@ -11030,6 +11342,8 @@ building_group_bg_lead_mining_machinists_mortality_mult:
   Mask: building
 building_group_bg_lead_mining_machinists_standard_of_living_add:
   Mask: building
+building_group_bg_lead_mining_mortality_mult:
+  Mask: building
 building_group_bg_lead_mining_officers_fertility_mult:
   Mask: building
 building_group_bg_lead_mining_officers_mortality_mult:
@@ -11041,6 +11355,8 @@ building_group_bg_lead_mining_peasants_fertility_mult:
 building_group_bg_lead_mining_peasants_mortality_mult:
   Mask: building
 building_group_bg_lead_mining_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_lead_mining_self_investment_chance_add:
   Mask: building
 building_group_bg_lead_mining_shopkeepers_fertility_mult:
   Mask: building
@@ -11059,6 +11375,10 @@ building_group_bg_lead_mining_soldiers_fertility_mult:
 building_group_bg_lead_mining_soldiers_mortality_mult:
   Mask: building
 building_group_bg_lead_mining_soldiers_standard_of_living_add:
+  Mask: building
+building_group_bg_lead_mining_standard_of_living_add:
+  Mask: building
+building_group_bg_lead_mining_tax_mult:
   Mask: building
 building_group_bg_lead_mining_throughput_add:
   Mask: building
@@ -11139,6 +11459,8 @@ building_group_bg_light_industry_peasants_fertility_mult:
 building_group_bg_light_industry_peasants_mortality_mult:
   Mask: building
 building_group_bg_light_industry_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_light_industry_self_investment_chance_add:
   Mask: building
 building_group_bg_light_industry_shopkeepers_fertility_mult:
   Mask: building
@@ -11244,6 +11566,8 @@ building_group_bg_livestock_ranches_peasants_mortality_mult:
   Mask: building
 building_group_bg_livestock_ranches_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_livestock_ranches_self_investment_chance_add:
+  Mask: building
 building_group_bg_livestock_ranches_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_livestock_ranches_shopkeepers_mortality_mult:
@@ -11339,6 +11663,8 @@ building_group_bg_logging_peasants_fertility_mult:
 building_group_bg_logging_peasants_mortality_mult:
   Mask: building
 building_group_bg_logging_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_logging_self_investment_chance_add:
   Mask: building
 building_group_bg_logging_shopkeepers_fertility_mult:
   Mask: building
@@ -11436,6 +11762,8 @@ building_group_bg_maize_farms_peasants_mortality_mult:
   Mask: building
 building_group_bg_maize_farms_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_maize_farms_self_investment_chance_add:
+  Mask: building
 building_group_bg_maize_farms_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_maize_farms_shopkeepers_mortality_mult:
@@ -11471,8 +11799,6 @@ building_group_bg_manor_houses_academics_standard_of_living_add:
 building_group_bg_manor_houses_aristocrats_fertility_mult:
   Mask: building
 building_group_bg_manor_houses_aristocrats_mortality_mult:
-  Mask: building
-building_group_bg_manor_houses_aristocrats_standard_of_living_add:
   Mask: building
 building_group_bg_manor_houses_bureaucrats_fertility_mult:
   Mask: building
@@ -11541,6 +11867,8 @@ building_group_bg_manor_houses_peasants_fertility_mult:
 building_group_bg_manor_houses_peasants_mortality_mult:
   Mask: building
 building_group_bg_manor_houses_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_manor_houses_self_investment_chance_add:
   Mask: building
 building_group_bg_manor_houses_shopkeepers_fertility_mult:
   Mask: building
@@ -11702,6 +12030,104 @@ building_group_bg_military_farmers_standard_of_living_add:
   Mask: building
 building_group_bg_military_fertility_mult:
   Mask: building
+building_group_bg_military_industry_academics_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_academics_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_academics_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_aristocrats_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_aristocrats_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_aristocrats_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_bureaucrats_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_bureaucrats_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_bureaucrats_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_capitalists_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_capitalists_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_capitalists_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_clergymen_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_clergymen_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_clergymen_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_clerks_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_clerks_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_clerks_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_employee_mult:
+  Mask: building
+building_group_bg_military_industry_engineers_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_engineers_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_farmers_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_farmers_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_farmers_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_infrastructure_usage_mult:
+  Mask: building
+building_group_bg_military_industry_laborers_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_laborers_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_machinists_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_machinists_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_officers_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_officers_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_officers_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_peasants_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_peasants_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_self_investment_chance_add:
+  Mask: building
+building_group_bg_military_industry_shopkeepers_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_shopkeepers_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_shopkeepers_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_slaves_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_slaves_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_slaves_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_soldiers_fertility_mult:
+  Mask: building
+building_group_bg_military_industry_soldiers_mortality_mult:
+  Mask: building
+building_group_bg_military_industry_soldiers_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_standard_of_living_add:
+  Mask: building
+building_group_bg_military_industry_tax_mult:
+  Mask: building
+building_group_bg_military_industry_unincorporated_throughput_add:
+  Mask: building
 building_group_bg_military_infrastructure_usage_mult:
   Mask: building
 building_group_bg_military_laborers_fertility_mult:
@@ -11730,111 +12156,7 @@ building_group_bg_military_peasants_mortality_mult:
   Mask: building
 building_group_bg_military_peasants_standard_of_living_add:
   Mask: building
-building_group_bg_military_shipyards_academics_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_academics_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_academics_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_aristocrats_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_aristocrats_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_aristocrats_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_bureaucrats_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_bureaucrats_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_bureaucrats_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_capitalists_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_capitalists_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_capitalists_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_clergymen_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_clergymen_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_clergymen_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_clerks_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_clerks_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_clerks_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_employee_mult:
-  Mask: building
-building_group_bg_military_shipyards_engineers_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_engineers_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_engineers_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_farmers_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_farmers_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_farmers_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_infrastructure_usage_mult:
-  Mask: building
-building_group_bg_military_shipyards_laborers_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_laborers_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_laborers_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_machinists_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_machinists_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_machinists_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_officers_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_officers_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_officers_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_peasants_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_peasants_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_peasants_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_shopkeepers_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_shopkeepers_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_shopkeepers_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_slaves_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_slaves_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_slaves_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_soldiers_fertility_mult:
-  Mask: building
-building_group_bg_military_shipyards_soldiers_mortality_mult:
-  Mask: building
-building_group_bg_military_shipyards_soldiers_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_standard_of_living_add:
-  Mask: building
-building_group_bg_military_shipyards_tax_mult:
-  Mask: building
-building_group_bg_military_shipyards_throughput_add:
-  Mask: building
-building_group_bg_military_shipyards_unincorporated_throughput_add:
+building_group_bg_military_self_investment_chance_add:
   Mask: building
 building_group_bg_military_shopkeepers_fertility_mult:
   Mask: building
@@ -11940,6 +12262,8 @@ building_group_bg_millet_farms_peasants_mortality_mult:
   Mask: building
 building_group_bg_millet_farms_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_millet_farms_self_investment_chance_add:
+  Mask: building
 building_group_bg_millet_farms_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_millet_farms_shopkeepers_mortality_mult:
@@ -12029,6 +12353,8 @@ building_group_bg_mining_peasants_fertility_mult:
 building_group_bg_mining_peasants_mortality_mult:
   Mask: building
 building_group_bg_mining_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_mining_self_investment_chance_add:
   Mask: building
 building_group_bg_mining_shopkeepers_fertility_mult:
   Mask: building
@@ -12178,6 +12504,8 @@ building_group_bg_monuments_hidden_peasants_mortality_mult:
   Mask: building
 building_group_bg_monuments_hidden_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_monuments_hidden_self_investment_chance_add:
+  Mask: building
 building_group_bg_monuments_hidden_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_monuments_hidden_shopkeepers_mortality_mult:
@@ -12232,6 +12560,8 @@ building_group_bg_monuments_peasants_mortality_mult:
   Mask: building
 building_group_bg_monuments_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_monuments_self_investment_chance_add:
+  Mask: building
 building_group_bg_monuments_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_monuments_shopkeepers_mortality_mult:
@@ -12257,112 +12587,6 @@ building_group_bg_monuments_tax_mult:
 building_group_bg_monuments_throughput_add:
   Mask: building
 building_group_bg_monuments_unincorporated_throughput_add:
-  Mask: building
-building_group_bg_munition_plants_academics_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_academics_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_academics_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_aristocrats_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_aristocrats_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_aristocrats_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_bureaucrats_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_bureaucrats_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_bureaucrats_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_capitalists_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_capitalists_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_capitalists_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_clergymen_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_clergymen_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_clergymen_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_clerks_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_clerks_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_clerks_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_employee_mult:
-  Mask: building
-building_group_bg_munition_plants_engineers_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_engineers_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_engineers_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_farmers_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_farmers_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_farmers_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_infrastructure_usage_mult:
-  Mask: building
-building_group_bg_munition_plants_laborers_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_laborers_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_laborers_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_machinists_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_machinists_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_machinists_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_officers_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_officers_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_officers_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_peasants_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_peasants_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_peasants_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_shopkeepers_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_shopkeepers_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_shopkeepers_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_slaves_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_slaves_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_slaves_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_soldiers_fertility_mult:
-  Mask: building
-building_group_bg_munition_plants_soldiers_mortality_mult:
-  Mask: building
-building_group_bg_munition_plants_soldiers_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_standard_of_living_add:
-  Mask: building
-building_group_bg_munition_plants_tax_mult:
-  Mask: building
-building_group_bg_munition_plants_throughput_add:
-  Mask: building
-building_group_bg_munition_plants_unincorporated_throughput_add:
   Mask: building
 building_group_bg_navy_academics_fertility_mult:
   Mask: building
@@ -12443,6 +12667,8 @@ building_group_bg_navy_peasants_fertility_mult:
 building_group_bg_navy_peasants_mortality_mult:
   Mask: building
 building_group_bg_navy_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_navy_self_investment_chance_add:
   Mask: building
 building_group_bg_navy_shopkeepers_fertility_mult:
   Mask: building
@@ -12539,6 +12765,8 @@ building_group_bg_oil_extraction_peasants_fertility_mult:
 building_group_bg_oil_extraction_peasants_mortality_mult:
   Mask: building
 building_group_bg_oil_extraction_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_oil_extraction_self_investment_chance_add:
   Mask: building
 building_group_bg_oil_extraction_shopkeepers_fertility_mult:
   Mask: building
@@ -12639,6 +12867,8 @@ building_group_bg_opium_plantations_peasants_fertility_mult:
 building_group_bg_opium_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_opium_plantations_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_opium_plantations_self_investment_chance_add:
   Mask: building
 building_group_bg_opium_plantations_shopkeepers_fertility_mult:
   Mask: building
@@ -12746,6 +12976,8 @@ building_group_bg_owner_buildings_peasants_mortality_mult:
   Mask: building
 building_group_bg_owner_buildings_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_owner_buildings_self_investment_chance_add:
+  Mask: building
 building_group_bg_owner_buildings_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_owner_buildings_shopkeepers_mortality_mult:
@@ -12849,8 +13081,6 @@ building_group_bg_plantations_shopkeepers_mortality_mult:
 building_group_bg_plantations_shopkeepers_standard_of_living_add:
   Mask: building
 building_group_bg_plantations_slaves_fertility_mult:
-  Mask: building
-building_group_bg_plantations_slaves_mortality_mult:
   Mask: building
 building_group_bg_plantations_slaves_standard_of_living_add:
   Mask: building
@@ -13046,6 +13276,8 @@ building_group_bg_private_infrastructure_peasants_mortality_mult:
   Mask: building
 building_group_bg_private_infrastructure_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_private_infrastructure_self_investment_chance_add:
+  Mask: building
 building_group_bg_private_infrastructure_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_private_infrastructure_shopkeepers_mortality_mult:
@@ -13151,6 +13383,8 @@ building_group_bg_public_infrastructure_peasants_fertility_mult:
 building_group_bg_public_infrastructure_peasants_mortality_mult:
   Mask: building
 building_group_bg_public_infrastructure_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_public_infrastructure_self_investment_chance_add:
   Mask: building
 building_group_bg_public_infrastructure_shopkeepers_fertility_mult:
   Mask: building
@@ -13268,8 +13502,6 @@ building_group_bg_ranching_soldiers_mortality_mult:
   Mask: building
 building_group_bg_ranching_soldiers_standard_of_living_add:
   Mask: building
-building_group_bg_ranching_standard_of_living_add:
-  Mask: building
 building_group_bg_ranching_unincorporated_throughput_add:
   Mask: building
 building_group_bg_rice_farms_academics_fertility_mult:
@@ -13352,6 +13584,8 @@ building_group_bg_rice_farms_peasants_mortality_mult:
   Mask: building
 building_group_bg_rice_farms_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_rice_farms_self_investment_chance_add:
+  Mask: building
 building_group_bg_rice_farms_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_rice_farms_shopkeepers_mortality_mult:
@@ -13432,8 +13666,6 @@ building_group_bg_rubber_infrastructure_usage_mult:
   Mask: building
 building_group_bg_rubber_laborers_fertility_mult:
   Mask: building
-building_group_bg_rubber_laborers_mortality_mult:
-  Mask: building
 building_group_bg_rubber_laborers_standard_of_living_add:
   Mask: building
 building_group_bg_rubber_machinists_fertility_mult:
@@ -13454,6 +13686,8 @@ building_group_bg_rubber_peasants_mortality_mult:
   Mask: building
 building_group_bg_rubber_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_rubber_self_investment_chance_add:
+  Mask: building
 building_group_bg_rubber_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_rubber_shopkeepers_mortality_mult:
@@ -13461,8 +13695,6 @@ building_group_bg_rubber_shopkeepers_mortality_mult:
 building_group_bg_rubber_shopkeepers_standard_of_living_add:
   Mask: building
 building_group_bg_rubber_slaves_fertility_mult:
-  Mask: building
-building_group_bg_rubber_slaves_mortality_mult:
   Mask: building
 building_group_bg_rubber_slaves_standard_of_living_add:
   Mask: building
@@ -13551,6 +13783,8 @@ building_group_bg_rye_farms_peasants_fertility_mult:
 building_group_bg_rye_farms_peasants_mortality_mult:
   Mask: building
 building_group_bg_rye_farms_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_rye_farms_self_investment_chance_add:
   Mask: building
 building_group_bg_rye_farms_shopkeepers_fertility_mult:
   Mask: building
@@ -13654,6 +13888,8 @@ building_group_bg_service_peasants_mortality_mult:
   Mask: building
 building_group_bg_service_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_service_self_investment_chance_add:
+  Mask: building
 building_group_bg_service_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_service_shopkeepers_mortality_mult:
@@ -13673,112 +13909,6 @@ building_group_bg_service_soldiers_mortality_mult:
 building_group_bg_service_soldiers_standard_of_living_add:
   Mask: building
 building_group_bg_service_unincorporated_throughput_add:
-  Mask: building
-building_group_bg_shipyards_academics_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_academics_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_academics_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_aristocrats_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_aristocrats_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_aristocrats_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_bureaucrats_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_bureaucrats_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_bureaucrats_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_capitalists_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_capitalists_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_capitalists_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_clergymen_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_clergymen_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_clergymen_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_clerks_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_clerks_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_clerks_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_employee_mult:
-  Mask: building
-building_group_bg_shipyards_engineers_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_engineers_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_engineers_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_farmers_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_farmers_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_farmers_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_infrastructure_usage_mult:
-  Mask: building
-building_group_bg_shipyards_laborers_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_laborers_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_laborers_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_machinists_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_machinists_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_machinists_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_officers_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_officers_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_officers_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_peasants_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_peasants_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_peasants_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_shopkeepers_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_shopkeepers_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_shopkeepers_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_slaves_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_slaves_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_slaves_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_soldiers_fertility_mult:
-  Mask: building
-building_group_bg_shipyards_soldiers_mortality_mult:
-  Mask: building
-building_group_bg_shipyards_soldiers_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_standard_of_living_add:
-  Mask: building
-building_group_bg_shipyards_tax_mult:
-  Mask: building
-building_group_bg_shipyards_throughput_add:
-  Mask: building
-building_group_bg_shipyards_unincorporated_throughput_add:
   Mask: building
 building_group_bg_silk_plantations_academics_fertility_mult:
   Mask: building
@@ -13860,6 +13990,8 @@ building_group_bg_silk_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_silk_plantations_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_silk_plantations_self_investment_chance_add:
+  Mask: building
 building_group_bg_silk_plantations_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_silk_plantations_shopkeepers_mortality_mult:
@@ -13881,6 +14013,8 @@ building_group_bg_silk_plantations_soldiers_standard_of_living_add:
 building_group_bg_silk_plantations_standard_of_living_add:
   Mask: building
 building_group_bg_silk_plantations_tax_mult:
+  Mask: building
+building_group_bg_silk_plantations_throughput_add:
   Mask: building
 building_group_bg_silk_plantations_unincorporated_throughput_add:
   Mask: building
@@ -13964,6 +14098,8 @@ building_group_bg_skyscraper_peasants_mortality_mult:
   Mask: building
 building_group_bg_skyscraper_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_skyscraper_self_investment_chance_add:
+  Mask: building
 building_group_bg_skyscraper_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_skyscraper_shopkeepers_mortality_mult:
@@ -13989,6 +14125,114 @@ building_group_bg_skyscraper_tax_mult:
 building_group_bg_skyscraper_throughput_add:
   Mask: building
 building_group_bg_skyscraper_unincorporated_throughput_add:
+  Mask: building
+building_group_bg_staple_crops_academics_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_academics_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_academics_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_aristocrats_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_aristocrats_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_aristocrats_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_bureaucrats_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_bureaucrats_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_bureaucrats_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_capitalists_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_capitalists_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_capitalists_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_clergymen_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_clergymen_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_clergymen_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_clerks_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_clerks_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_clerks_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_employee_mult:
+  Mask: building
+building_group_bg_staple_crops_engineers_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_engineers_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_engineers_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_farmers_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_farmers_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_farmers_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_infrastructure_usage_mult:
+  Mask: building
+building_group_bg_staple_crops_laborers_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_laborers_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_laborers_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_machinists_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_machinists_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_machinists_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_officers_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_officers_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_officers_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_peasants_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_peasants_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_self_investment_chance_add:
+  Mask: building
+building_group_bg_staple_crops_shopkeepers_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_shopkeepers_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_shopkeepers_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_slaves_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_slaves_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_slaves_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_soldiers_fertility_mult:
+  Mask: building
+building_group_bg_staple_crops_soldiers_mortality_mult:
+  Mask: building
+building_group_bg_staple_crops_soldiers_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_standard_of_living_add:
+  Mask: building
+building_group_bg_staple_crops_tax_mult:
+  Mask: building
+building_group_bg_staple_crops_throughput_add:
+  Mask: building
+building_group_bg_staple_crops_unincorporated_throughput_add:
   Mask: building
 building_group_bg_subsistence_agriculture_academics_fertility_mult:
   Mask: building
@@ -14068,7 +14312,7 @@ building_group_bg_subsistence_agriculture_peasants_fertility_mult:
   Mask: building
 building_group_bg_subsistence_agriculture_peasants_mortality_mult:
   Mask: building
-building_group_bg_subsistence_agriculture_peasants_standard_of_living_add:
+building_group_bg_subsistence_agriculture_self_investment_chance_add:
   Mask: building
 building_group_bg_subsistence_agriculture_shopkeepers_fertility_mult:
   Mask: building
@@ -14174,7 +14418,7 @@ building_group_bg_subsistence_ranching_peasants_fertility_mult:
   Mask: building
 building_group_bg_subsistence_ranching_peasants_mortality_mult:
   Mask: building
-building_group_bg_subsistence_ranching_peasants_standard_of_living_add:
+building_group_bg_subsistence_ranching_self_investment_chance_add:
   Mask: building
 building_group_bg_subsistence_ranching_shopkeepers_fertility_mult:
   Mask: building
@@ -14282,6 +14526,8 @@ building_group_bg_sugar_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_sugar_plantations_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_sugar_plantations_self_investment_chance_add:
+  Mask: building
 building_group_bg_sugar_plantations_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_sugar_plantations_shopkeepers_mortality_mult:
@@ -14303,6 +14549,8 @@ building_group_bg_sugar_plantations_soldiers_standard_of_living_add:
 building_group_bg_sugar_plantations_standard_of_living_add:
   Mask: building
 building_group_bg_sugar_plantations_tax_mult:
+  Mask: building
+building_group_bg_sugar_plantations_throughput_add:
   Mask: building
 building_group_bg_sugar_plantations_unincorporated_throughput_add:
   Mask: building
@@ -14342,6 +14590,8 @@ building_group_bg_sulfur_mining_clerks_mortality_mult:
   Mask: building
 building_group_bg_sulfur_mining_clerks_standard_of_living_add:
   Mask: building
+building_group_bg_sulfur_mining_employee_mult:
+  Mask: building
 building_group_bg_sulfur_mining_engineers_fertility_mult:
   Mask: building
 building_group_bg_sulfur_mining_engineers_mortality_mult:
@@ -14370,6 +14620,8 @@ building_group_bg_sulfur_mining_machinists_mortality_mult:
   Mask: building
 building_group_bg_sulfur_mining_machinists_standard_of_living_add:
   Mask: building
+building_group_bg_sulfur_mining_mortality_mult:
+  Mask: building
 building_group_bg_sulfur_mining_officers_fertility_mult:
   Mask: building
 building_group_bg_sulfur_mining_officers_mortality_mult:
@@ -14381,6 +14633,8 @@ building_group_bg_sulfur_mining_peasants_fertility_mult:
 building_group_bg_sulfur_mining_peasants_mortality_mult:
   Mask: building
 building_group_bg_sulfur_mining_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_sulfur_mining_self_investment_chance_add:
   Mask: building
 building_group_bg_sulfur_mining_shopkeepers_fertility_mult:
   Mask: building
@@ -14399,6 +14653,10 @@ building_group_bg_sulfur_mining_soldiers_fertility_mult:
 building_group_bg_sulfur_mining_soldiers_mortality_mult:
   Mask: building
 building_group_bg_sulfur_mining_soldiers_standard_of_living_add:
+  Mask: building
+building_group_bg_sulfur_mining_standard_of_living_add:
+  Mask: building
+building_group_bg_sulfur_mining_tax_mult:
   Mask: building
 building_group_bg_sulfur_mining_throughput_add:
   Mask: building
@@ -14484,6 +14742,8 @@ building_group_bg_tea_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_tea_plantations_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_tea_plantations_self_investment_chance_add:
+  Mask: building
 building_group_bg_tea_plantations_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_tea_plantations_shopkeepers_mortality_mult:
@@ -14505,6 +14765,8 @@ building_group_bg_tea_plantations_soldiers_standard_of_living_add:
 building_group_bg_tea_plantations_standard_of_living_add:
   Mask: building
 building_group_bg_tea_plantations_tax_mult:
+  Mask: building
+building_group_bg_tea_plantations_throughput_add:
   Mask: building
 building_group_bg_tea_plantations_unincorporated_throughput_add:
   Mask: building
@@ -14587,6 +14849,8 @@ building_group_bg_technology_peasants_fertility_mult:
 building_group_bg_technology_peasants_mortality_mult:
   Mask: building
 building_group_bg_technology_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_technology_self_investment_chance_add:
   Mask: building
 building_group_bg_technology_shopkeepers_fertility_mult:
   Mask: building
@@ -14694,6 +14958,8 @@ building_group_bg_tobacco_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_tobacco_plantations_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_tobacco_plantations_self_investment_chance_add:
+  Mask: building
 building_group_bg_tobacco_plantations_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_tobacco_plantations_shopkeepers_mortality_mult:
@@ -14715,6 +14981,8 @@ building_group_bg_tobacco_plantations_soldiers_standard_of_living_add:
 building_group_bg_tobacco_plantations_standard_of_living_add:
   Mask: building
 building_group_bg_tobacco_plantations_tax_mult:
+  Mask: building
+building_group_bg_tobacco_plantations_throughput_add:
   Mask: building
 building_group_bg_tobacco_plantations_unincorporated_throughput_add:
   Mask: building
@@ -14797,6 +15065,8 @@ building_group_bg_trade_peasants_fertility_mult:
 building_group_bg_trade_peasants_mortality_mult:
   Mask: building
 building_group_bg_trade_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_trade_self_investment_chance_add:
   Mask: building
 building_group_bg_trade_shopkeepers_fertility_mult:
   Mask: building
@@ -14904,6 +15174,8 @@ building_group_bg_urban_facilities_peasants_mortality_mult:
   Mask: building
 building_group_bg_urban_facilities_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_urban_facilities_self_investment_chance_add:
+  Mask: building
 building_group_bg_urban_facilities_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_urban_facilities_shopkeepers_mortality_mult:
@@ -15010,6 +15282,8 @@ building_group_bg_vineyard_plantations_peasants_mortality_mult:
   Mask: building
 building_group_bg_vineyard_plantations_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_vineyard_plantations_self_investment_chance_add:
+  Mask: building
 building_group_bg_vineyard_plantations_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_vineyard_plantations_shopkeepers_mortality_mult:
@@ -15107,6 +15381,8 @@ building_group_bg_whaling_peasants_fertility_mult:
 building_group_bg_whaling_peasants_mortality_mult:
   Mask: building
 building_group_bg_whaling_peasants_standard_of_living_add:
+  Mask: building
+building_group_bg_whaling_self_investment_chance_add:
   Mask: building
 building_group_bg_whaling_shopkeepers_fertility_mult:
   Mask: building
@@ -15208,6 +15484,8 @@ building_group_bg_wheat_farms_peasants_mortality_mult:
   Mask: building
 building_group_bg_wheat_farms_peasants_standard_of_living_add:
   Mask: building
+building_group_bg_wheat_farms_self_investment_chance_add:
+  Mask: building
 building_group_bg_wheat_farms_shopkeepers_fertility_mult:
   Mask: building
 building_group_bg_wheat_farms_shopkeepers_mortality_mult:
@@ -15238,6 +15516,14 @@ building_hagia_sophia_throughput_add:
   Mask: building
 building_halloween_castledracula_throughput_add:
   Mask: building
+building_kaiserforum_1_throughput_add:
+  Mask: building
+building_kaiserforum_2_throughput_add:
+  Mask: building
+building_kaiserforum_3_throughput_add:
+  Mask: building
+building_kaiserforum_4_throughput_add:
+  Mask: building
 building_khaju_bridge_throughput_add:
   Mask: building
 building_laborers_fertility_mult:
@@ -15251,6 +15537,12 @@ building_machinists_fertility_mult:
 building_machinists_shares_mult:
   Mask: building
 building_machu_picchu_throughput_add:
+  Mask: building
+building_manila_cathedral_monument_throughput_add:
+  Mask: building
+building_manila_cathedral_original_throughput_add:
+  Mask: building
+building_manila_cathedral_ruins_throughput_add:
   Mask: building
 building_manor_house_throughput_add:
   Mask: building
@@ -15278,9 +15570,19 @@ building_peasants_shares_add:
   Mask: building
 building_peasants_shares_mult:
   Mask: building
+building_pena_convent_throughput_add:
+  Mask: building
+building_pena_palace_throughput_add:
+  Mask: building
 building_petra_throughput_add:
   Mask: building
 building_power_bloc_statue_throughput_add:
+  Mask: building
+building_sagrada_familia_cathedral_1_throughput_add:
+  Mask: building
+building_sagrada_familia_cathedral_2_throughput_add:
+  Mask: building
+building_sagrada_familia_cathedral_3_throughput_add:
   Mask: building
 building_saint_basils_cathedral_throughput_add:
   Mask: building
@@ -15294,7 +15596,7 @@ building_skyscraper_throughput_add:
   Mask: building
 building_slaves_fertility_mult:
   Mask: building
-building_slaves_mortality_mult:
+building_slaves_job_attractiveness_mult:
   Mask: building
 building_slaves_shares_add:
   Mask: building
@@ -15308,23 +15610,19 @@ building_soldiers_shares_mult:
   Mask: building
 building_statue_of_liberty_throughput_add:
   Mask: building
-building_subsistence_fishing_villages_throughput_add:
+building_subsistence_fishing_village_throughput_add:
   Mask: building
-building_subsistence_orchards_throughput_add:
+building_subsistence_orchard_throughput_add:
   Mask: building
-building_subsistence_pastures_throughput_add:
+building_subsistence_pasture_throughput_add:
   Mask: building
-building_subsistence_rice_paddies_throughput_add:
+building_subsistence_rice_farm_throughput_add:
   Mask: building
 building_suez_canal_throughput_add:
-  Mask: building
-building_sugar_plantation_throughput_add:
   Mask: building
 building_taj_mahal_throughput_add:
   Mask: building
 building_temple_of_poseidon_throughput_add:
-  Mask: building
-building_tobacco_plantation_throughput_add:
   Mask: building
 building_vatican_city_throughput_add:
   Mask: building
@@ -15334,17 +15632,483 @@ building_wat_arun_throughput_add:
   Mask: building
 building_white_house_throughput_add:
   Mask: building
+country_aeroplanes_export_tariffs_rate_add:
+  Mask: country
+country_aeroplanes_import_tariffs_rate_add:
+  Mask: country
+country_aeroplanes_max_export_tariffs_level_add:
+  Mask: country
+country_aeroplanes_max_import_tariffs_level_add:
+  Mask: country
+country_aeroplanes_min_export_tariffs_level_add:
+  Mask: country
+country_aeroplanes_min_import_tariffs_level_add:
+  Mask: country
+country_ammunition_export_tariffs_rate_add:
+  Mask: country
+country_ammunition_import_tariffs_rate_add:
+  Mask: country
+country_ammunition_max_export_tariffs_level_add:
+  Mask: country
+country_ammunition_max_import_tariffs_level_add:
+  Mask: country
+country_ammunition_min_export_tariffs_level_add:
+  Mask: country
+country_ammunition_min_import_tariffs_level_add:
+  Mask: country
+country_artillery_export_tariffs_rate_add:
+  Mask: country
+country_artillery_import_tariffs_rate_add:
+  Mask: country
+country_artillery_max_export_tariffs_level_add:
+  Mask: country
+country_artillery_max_import_tariffs_level_add:
+  Mask: country
+country_artillery_min_export_tariffs_level_add:
+  Mask: country
+country_artillery_min_import_tariffs_level_add:
+  Mask: country
+country_automobiles_export_tariffs_rate_add:
+  Mask: country
+country_automobiles_import_tariffs_rate_add:
+  Mask: country
+country_automobiles_max_export_tariffs_level_add:
+  Mask: country
+country_automobiles_max_import_tariffs_level_add:
+  Mask: country
+country_automobiles_min_export_tariffs_level_add:
+  Mask: country
+country_automobiles_min_import_tariffs_level_add:
+  Mask: country
+country_bg_agriculture_require_subsidies_bool:
+  Mask: country
+country_bg_army_require_subsidies_bool:
+  Mask: country
+country_bg_arts_require_subsidies_bool:
+  Mask: country
+country_bg_banana_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_bureaucracy_require_subsidies_bool:
+  Mask: country
+country_bg_canals_require_subsidies_bool:
+  Mask: country
+country_bg_coal_mining_require_subsidies_bool:
+  Mask: country
+country_bg_coffee_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_company_headquarter_require_subsidies_bool:
+  Mask: country
+country_bg_company_regional_headquarter_require_subsidies_bool:
+  Mask: country
+country_bg_conscription_require_subsidies_bool:
+  Mask: country
+country_bg_construction_require_subsidies_bool:
+  Mask: country
+country_bg_cotton_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_dye_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_extraction_require_subsidies_bool:
+  Mask: country
+country_bg_financial_districts_require_subsidies_bool:
+  Mask: country
+country_bg_fishing_require_subsidies_bool:
+  Mask: country
+country_bg_gold_fields_require_subsidies_bool:
+  Mask: country
+country_bg_gold_mining_require_subsidies_bool:
+  Mask: country
+country_bg_government_require_subsidies_bool:
+  Mask: country
+country_bg_heavy_industry_require_subsidies_bool:
+  Mask: country
+country_bg_infrastructure_require_subsidies_bool:
+  Mask: country
+country_bg_iron_mining_require_subsidies_bool:
+  Mask: country
+country_bg_lead_mining_require_subsidies_bool:
+  Mask: country
+country_bg_light_industry_require_subsidies_bool:
+  Mask: country
+country_bg_livestock_ranches_require_subsidies_bool:
+  Mask: country
+country_bg_logging_require_subsidies_bool:
+  Mask: country
+country_bg_maize_farms_require_subsidies_bool:
+  Mask: country
+country_bg_manor_houses_require_subsidies_bool:
+  Mask: country
+country_bg_military_industry_require_subsidies_bool:
+  Mask: country
+country_bg_military_require_subsidies_bool:
+  Mask: country
+country_bg_millet_farms_require_subsidies_bool:
+  Mask: country
+country_bg_mining_require_subsidies_bool:
+  Mask: country
+country_bg_monuments_hidden_require_subsidies_bool:
+  Mask: country
+country_bg_monuments_require_subsidies_bool:
+  Mask: country
+country_bg_navy_require_subsidies_bool:
+  Mask: country
+country_bg_oil_extraction_require_subsidies_bool:
+  Mask: country
+country_bg_opium_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_owner_buildings_require_subsidies_bool:
+  Mask: country
+country_bg_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_power_require_subsidies_bool:
+  Mask: country
+country_bg_private_infrastructure_require_subsidies_bool:
+  Mask: country
+country_bg_public_infrastructure_require_subsidies_bool:
+  Mask: country
+country_bg_ranching_require_subsidies_bool:
+  Mask: country
+country_bg_rice_farms_require_subsidies_bool:
+  Mask: country
+country_bg_rubber_require_subsidies_bool:
+  Mask: country
+country_bg_rye_farms_require_subsidies_bool:
+  Mask: country
+country_bg_service_require_subsidies_bool:
+  Mask: country
+country_bg_silk_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_skyscraper_require_subsidies_bool:
+  Mask: country
+country_bg_staple_crops_require_subsidies_bool:
+  Mask: country
+country_bg_subsistence_agriculture_require_subsidies_bool:
+  Mask: country
+country_bg_subsistence_ranching_require_subsidies_bool:
+  Mask: country
+country_bg_sugar_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_sulfur_mining_require_subsidies_bool:
+  Mask: country
+country_bg_tea_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_technology_require_subsidies_bool:
+  Mask: country
+country_bg_tobacco_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_trade_require_subsidies_bool:
+  Mask: country
+country_bg_urban_facilities_require_subsidies_bool:
+  Mask: country
+country_bg_vineyard_plantations_require_subsidies_bool:
+  Mask: country
+country_bg_whaling_require_subsidies_bool:
+  Mask: country
+country_bg_wheat_farms_require_subsidies_bool:
+  Mask: country
+country_building_angkor_wat_require_subsidies_bool:
+  Mask: country
+country_building_argebam_require_subsidies_bool:
+  Mask: country
+country_building_arms_industry_require_subsidies_bool:
+  Mask: country
+country_building_art_academy_require_subsidies_bool:
+  Mask: country
+country_building_artillery_foundry_require_subsidies_bool:
+  Mask: country
+country_building_automotive_industry_require_subsidies_bool:
+  Mask: country
+country_building_banana_plantation_require_subsidies_bool:
+  Mask: country
+country_building_barrack_require_subsidies_bool:
+  Mask: country
+country_building_big_ben_require_subsidies_bool:
+  Mask: country
+country_building_capitol_hill_require_subsidies_bool:
+  Mask: country
+country_building_central_park_require_subsidies_bool:
+  Mask: country
+country_building_chemical_plant_require_subsidies_bool:
+  Mask: country
+country_building_chichen_itza_require_subsidies_bool:
+  Mask: country
+country_building_coal_mine_require_subsidies_bool:
+  Mask: country
+country_building_coffee_plantation_require_subsidies_bool:
+  Mask: country
+country_building_company_headquarter_require_subsidies_bool:
+  Mask: country
+country_building_company_regional_headquarter_require_subsidies_bool:
+  Mask: country
+country_building_conscription_center_require_subsidies_bool:
+  Mask: country
+country_building_construction_sector_require_subsidies_bool:
+  Mask: country
+country_building_cotton_plantation_require_subsidies_bool:
+  Mask: country
+country_building_cristo_redentor_require_subsidies_bool:
+  Mask: country
+country_building_dye_plantation_require_subsidies_bool:
+  Mask: country
+country_building_easter_island_heads_require_subsidies_bool:
+  Mask: country
+country_building_eiffel_tower_require_subsidies_bool:
+  Mask: country
+country_building_electrics_industry_require_subsidies_bool:
+  Mask: country
+country_building_estacion_de_madrid_atocha_require_subsidies_bool:
+  Mask: country
+country_building_explosives_factory_require_subsidies_bool:
+  Mask: country
+country_building_eye_of_sahara_require_subsidies_bool:
+  Mask: country
+country_building_financial_district_require_subsidies_bool:
+  Mask: country
+country_building_fishing_wharf_require_subsidies_bool:
+  Mask: country
+country_building_food_industry_require_subsidies_bool:
+  Mask: country
+country_building_forbidden_city_require_subsidies_bool:
+  Mask: country
+country_building_furniture_manufactory_require_subsidies_bool:
+  Mask: country
+country_building_giza_necropolis_require_subsidies_bool:
+  Mask: country
+country_building_glassworks_require_subsidies_bool:
+  Mask: country
+country_building_gold_field_require_subsidies_bool:
+  Mask: country
+country_building_gold_mine_require_subsidies_bool:
+  Mask: country
+country_building_government_administration_require_subsidies_bool:
+  Mask: country
+country_building_gran_teatro_de_la_habana_require_subsidies_bool:
+  Mask: country
+country_building_hagia_sophia_require_subsidies_bool:
+  Mask: country
+country_building_halloween_castledracula_require_subsidies_bool:
+  Mask: country
+country_building_iron_mine_require_subsidies_bool:
+  Mask: country
+country_building_kaiserforum_1_require_subsidies_bool:
+  Mask: country
+country_building_kaiserforum_2_require_subsidies_bool:
+  Mask: country
+country_building_kaiserforum_3_require_subsidies_bool:
+  Mask: country
+country_building_kaiserforum_4_require_subsidies_bool:
+  Mask: country
+country_building_khaju_bridge_require_subsidies_bool:
+  Mask: country
+country_building_lead_mine_require_subsidies_bool:
+  Mask: country
+country_building_livestock_ranch_require_subsidies_bool:
+  Mask: country
+country_building_logging_camp_require_subsidies_bool:
+  Mask: country
+country_building_machu_picchu_require_subsidies_bool:
+  Mask: country
+country_building_maize_farm_require_subsidies_bool:
+  Mask: country
+country_building_manila_cathedral_monument_require_subsidies_bool:
+  Mask: country
+country_building_manila_cathedral_original_require_subsidies_bool:
+  Mask: country
+country_building_manila_cathedral_ruins_require_subsidies_bool:
+  Mask: country
+country_building_manor_house_require_subsidies_bool:
+  Mask: country
+country_building_martandsuntemple_require_subsidies_bool:
+  Mask: country
+country_building_military_shipyard_require_subsidies_bool:
+  Mask: country
+country_building_millet_farm_require_subsidies_bool:
+  Mask: country
+country_building_mosque_of_djenne_require_subsidies_bool:
+  Mask: country
+country_building_motor_industry_require_subsidies_bool:
+  Mask: country
+country_building_munition_plant_require_subsidies_bool:
+  Mask: country
+country_building_naval_base_require_subsidies_bool:
+  Mask: country
+country_building_observatorygreenwich_require_subsidies_bool:
+  Mask: country
+country_building_oil_rig_require_subsidies_bool:
+  Mask: country
+country_building_opium_plantation_require_subsidies_bool:
+  Mask: country
+country_building_panama_canal_require_subsidies_bool:
+  Mask: country
+country_building_paper_mill_require_subsidies_bool:
+  Mask: country
+country_building_pena_convent_require_subsidies_bool:
+  Mask: country
+country_building_pena_palace_require_subsidies_bool:
+  Mask: country
+country_building_petra_require_subsidies_bool:
+  Mask: country
+country_building_port_require_subsidies_bool:
+  Mask: country
+country_building_power_bloc_statue_require_subsidies_bool:
+  Mask: country
+country_building_power_plant_require_subsidies_bool:
+  Mask: country
+country_building_railway_require_subsidies_bool:
+  Mask: country
+country_building_rice_farm_require_subsidies_bool:
+  Mask: country
+country_building_rubber_plantation_require_subsidies_bool:
+  Mask: country
+country_building_rye_farm_require_subsidies_bool:
+  Mask: country
+country_building_sagrada_familia_cathedral_1_require_subsidies_bool:
+  Mask: country
+country_building_sagrada_familia_cathedral_2_require_subsidies_bool:
+  Mask: country
+country_building_sagrada_familia_cathedral_3_require_subsidies_bool:
+  Mask: country
+country_building_saint_basils_cathedral_require_subsidies_bool:
+  Mask: country
+country_building_shipyard_require_subsidies_bool:
+  Mask: country
+country_building_silk_plantation_require_subsidies_bool:
+  Mask: country
+country_building_skyscraper_require_subsidies_bool:
+  Mask: country
+country_building_statue_of_liberty_require_subsidies_bool:
+  Mask: country
+country_building_steel_mill_require_subsidies_bool:
+  Mask: country
+country_building_subsistence_farm_require_subsidies_bool:
+  Mask: country
+country_building_subsistence_fishing_village_require_subsidies_bool:
+  Mask: country
+country_building_subsistence_orchard_require_subsidies_bool:
+  Mask: country
+country_building_subsistence_pasture_require_subsidies_bool:
+  Mask: country
+country_building_subsistence_rice_farm_require_subsidies_bool:
+  Mask: country
+country_building_suez_canal_require_subsidies_bool:
+  Mask: country
+country_building_sugar_plantation_require_subsidies_bool:
+  Mask: country
+country_building_sulfur_mine_require_subsidies_bool:
+  Mask: country
+country_building_synthetics_plant_require_subsidies_bool:
+  Mask: country
+country_building_taj_mahal_require_subsidies_bool:
+  Mask: country
+country_building_tea_plantation_require_subsidies_bool:
+  Mask: country
+country_building_temple_of_poseidon_require_subsidies_bool:
+  Mask: country
+country_building_textile_mill_require_subsidies_bool:
+  Mask: country
+country_building_tobacco_plantation_require_subsidies_bool:
+  Mask: country
+country_building_tooling_workshop_require_subsidies_bool:
+  Mask: country
+country_building_trade_center_require_subsidies_bool:
+  Mask: country
+country_building_university_require_subsidies_bool:
+  Mask: country
+country_building_urban_center_require_subsidies_bool:
+  Mask: country
+country_building_vatican_city_require_subsidies_bool:
+  Mask: country
+country_building_victoria_terminus_require_subsidies_bool:
+  Mask: country
+country_building_vineyard_require_subsidies_bool:
+  Mask: country
+country_building_wat_arun_require_subsidies_bool:
+  Mask: country
+country_building_whaling_station_require_subsidies_bool:
+  Mask: country
+country_building_wheat_farm_require_subsidies_bool:
+  Mask: country
+country_building_white_house_require_subsidies_bool:
+  Mask: country
+country_clippers_export_tariffs_rate_add:
+  Mask: country
+country_clippers_import_tariffs_rate_add:
+  Mask: country
+country_clippers_max_export_tariffs_level_add:
+  Mask: country
+country_clippers_max_import_tariffs_level_add:
+  Mask: country
+country_clippers_min_export_tariffs_level_add:
+  Mask: country
+country_clippers_min_import_tariffs_level_add:
+  Mask: country
+country_clothes_export_tariffs_rate_add:
+  Mask: country
+country_clothes_import_tariffs_rate_add:
+  Mask: country
+country_clothes_max_export_tariffs_level_add:
+  Mask: country
+country_clothes_max_import_tariffs_level_add:
+  Mask: country
+country_clothes_min_export_tariffs_level_add:
+  Mask: country
+country_clothes_min_import_tariffs_level_add:
+  Mask: country
+country_coal_export_tariffs_rate_add:
+  Mask: country
+country_coal_import_tariffs_rate_add:
+  Mask: country
+country_coal_max_export_tariffs_level_add:
+  Mask: country
+country_coal_max_import_tariffs_level_add:
+  Mask: country
+country_coal_min_export_tariffs_level_add:
+  Mask: country
+country_coal_min_import_tariffs_level_add:
+  Mask: country
+country_coffee_export_tariffs_rate_add:
+  Mask: country
+country_coffee_import_tariffs_rate_add:
+  Mask: country
+country_coffee_max_export_tariffs_level_add:
+  Mask: country
+country_coffee_max_import_tariffs_level_add:
+  Mask: country
+country_coffee_min_export_tariffs_level_add:
+  Mask: country
+country_coffee_min_import_tariffs_level_add:
+  Mask: country
+country_dye_export_tariffs_rate_add:
+  Mask: country
+country_dye_import_tariffs_rate_add:
+  Mask: country
+country_dye_max_export_tariffs_level_add:
+  Mask: country
+country_dye_max_import_tariffs_level_add:
+  Mask: country
+country_dye_min_export_tariffs_level_add:
+  Mask: country
+country_dye_min_import_tariffs_level_add:
+  Mask: country
+country_electricity_export_tariffs_rate_add:
+  Mask: country
+country_electricity_import_tariffs_rate_add:
+  Mask: country
+country_electricity_max_export_tariffs_level_add:
+  Mask: country
+country_electricity_max_import_tariffs_level_add:
+  Mask: country
+country_electricity_min_export_tariffs_level_add:
+  Mask: country
+country_electricity_min_import_tariffs_level_add:
+  Mask: country
 country_enactment_success_chance_law_affirmative_action_add:
   Mask: country
 country_enactment_success_chance_law_agrarianism_add:
   Mask: country
-country_enactment_success_chance_law_anarchy_add:
-  Mask: country
 country_enactment_success_chance_law_anti_strike_laws_add:
   Mask: country
 country_enactment_success_chance_law_appointed_bureaucrats_add:
-  Mask: country
-country_enactment_success_chance_law_autocracy_add:
   Mask: country
 country_enactment_success_chance_law_canton_system_add:
   Mask: country
@@ -15363,6 +16127,8 @@ country_enactment_success_chance_law_child_labor_allowed_add:
 country_enactment_success_chance_law_closed_borders_add:
   Mask: country
 country_enactment_success_chance_law_collectivized_agriculture_add:
+  Mask: country
+country_enactment_success_chance_law_colonial_administration_add:
   Mask: country
 country_enactment_success_chance_law_colonial_exploitation_add:
   Mask: country
@@ -15402,7 +16168,11 @@ country_enactment_success_chance_law_elected_bureaucrats_add:
   Mask: country
 country_enactment_success_chance_law_ethnostate_add:
   Mask: country
+country_enactment_success_chance_law_expanded_latifundias_add:
+  Mask: country
 country_enactment_success_chance_law_extraction_economy_add:
+  Mask: country
+country_enactment_success_chance_law_factory_councils_add:
   Mask: country
 country_enactment_success_chance_law_free_trade_add:
   Mask: country
@@ -15437,6 +16207,8 @@ country_enactment_success_chance_law_laissez_faire_add:
 country_enactment_success_chance_law_land_based_taxation_add:
   Mask: country
 country_enactment_success_chance_law_landed_voting_add:
+  Mask: country
+country_enactment_success_chance_law_latifundias_add:
   Mask: country
 country_enactment_success_chance_law_legacy_slavery_add:
   Mask: country
@@ -15486,8 +16258,6 @@ country_enactment_success_chance_law_no_workers_rights_add:
   Mask: country
 country_enactment_success_chance_law_old_age_pension_add:
   Mask: country
-country_enactment_success_chance_law_oligarchy_add:
-  Mask: country
 country_enactment_success_chance_law_organic_regulation_add:
   Mask: country
 country_enactment_success_chance_law_outlawed_dissent_add:
@@ -15534,8 +16304,6 @@ country_enactment_success_chance_law_secret_police_add:
   Mask: country
 country_enactment_success_chance_law_serfdom_add:
   Mask: country
-country_enactment_success_chance_law_single_party_state_add:
-  Mask: country
 country_enactment_success_chance_law_slave_trade_add:
   Mask: country
 country_enactment_success_chance_law_slavery_banned_add:
@@ -15570,7 +16338,517 @@ country_enactment_success_chance_law_womens_suffrage_add:
   Mask: country
 country_enactment_success_chance_law_worker_protections_add:
   Mask: country
+country_engines_export_tariffs_rate_add:
+  Mask: country
+country_engines_import_tariffs_rate_add:
+  Mask: country
+country_engines_max_export_tariffs_level_add:
+  Mask: country
+country_engines_max_import_tariffs_level_add:
+  Mask: country
+country_engines_min_export_tariffs_level_add:
+  Mask: country
+country_engines_min_import_tariffs_level_add:
+  Mask: country
+country_explosives_export_tariffs_rate_add:
+  Mask: country
+country_explosives_import_tariffs_rate_add:
+  Mask: country
+country_explosives_max_export_tariffs_level_add:
+  Mask: country
+country_explosives_max_import_tariffs_level_add:
+  Mask: country
+country_explosives_min_export_tariffs_level_add:
+  Mask: country
+country_explosives_min_import_tariffs_level_add:
+  Mask: country
+country_fabric_export_tariffs_rate_add:
+  Mask: country
+country_fabric_import_tariffs_rate_add:
+  Mask: country
+country_fabric_max_export_tariffs_level_add:
+  Mask: country
+country_fabric_max_import_tariffs_level_add:
+  Mask: country
+country_fabric_min_export_tariffs_level_add:
+  Mask: country
+country_fabric_min_import_tariffs_level_add:
+  Mask: country
+country_fertilizer_export_tariffs_rate_add:
+  Mask: country
+country_fertilizer_import_tariffs_rate_add:
+  Mask: country
+country_fertilizer_max_export_tariffs_level_add:
+  Mask: country
+country_fertilizer_max_import_tariffs_level_add:
+  Mask: country
+country_fertilizer_min_export_tariffs_level_add:
+  Mask: country
+country_fertilizer_min_import_tariffs_level_add:
+  Mask: country
+country_fine_art_export_tariffs_rate_add:
+  Mask: country
+country_fine_art_import_tariffs_rate_add:
+  Mask: country
+country_fine_art_max_export_tariffs_level_add:
+  Mask: country
+country_fine_art_max_import_tariffs_level_add:
+  Mask: country
+country_fine_art_min_export_tariffs_level_add:
+  Mask: country
+country_fine_art_min_import_tariffs_level_add:
+  Mask: country
+country_fish_export_tariffs_rate_add:
+  Mask: country
+country_fish_import_tariffs_rate_add:
+  Mask: country
+country_fish_max_export_tariffs_level_add:
+  Mask: country
+country_fish_max_import_tariffs_level_add:
+  Mask: country
+country_fish_min_export_tariffs_level_add:
+  Mask: country
+country_fish_min_import_tariffs_level_add:
+  Mask: country
+country_fruit_export_tariffs_rate_add:
+  Mask: country
+country_fruit_import_tariffs_rate_add:
+  Mask: country
+country_fruit_max_export_tariffs_level_add:
+  Mask: country
+country_fruit_max_import_tariffs_level_add:
+  Mask: country
+country_fruit_min_export_tariffs_level_add:
+  Mask: country
+country_fruit_min_import_tariffs_level_add:
+  Mask: country
+country_furniture_export_tariffs_rate_add:
+  Mask: country
+country_furniture_import_tariffs_rate_add:
+  Mask: country
+country_furniture_max_export_tariffs_level_add:
+  Mask: country
+country_furniture_max_import_tariffs_level_add:
+  Mask: country
+country_furniture_min_export_tariffs_level_add:
+  Mask: country
+country_furniture_min_import_tariffs_level_add:
+  Mask: country
+country_glass_export_tariffs_rate_add:
+  Mask: country
+country_glass_import_tariffs_rate_add:
+  Mask: country
+country_glass_max_export_tariffs_level_add:
+  Mask: country
+country_glass_max_import_tariffs_level_add:
+  Mask: country
+country_glass_min_export_tariffs_level_add:
+  Mask: country
+country_glass_min_import_tariffs_level_add:
+  Mask: country
+country_gold_export_tariffs_rate_add:
+  Mask: country
+country_gold_import_tariffs_rate_add:
+  Mask: country
+country_gold_max_export_tariffs_level_add:
+  Mask: country
+country_gold_max_import_tariffs_level_add:
+  Mask: country
+country_gold_min_export_tariffs_level_add:
+  Mask: country
+country_gold_min_import_tariffs_level_add:
+  Mask: country
+country_grain_export_tariffs_rate_add:
+  Mask: country
+country_grain_import_tariffs_rate_add:
+  Mask: country
+country_grain_max_export_tariffs_level_add:
+  Mask: country
+country_grain_max_import_tariffs_level_add:
+  Mask: country
+country_grain_min_export_tariffs_level_add:
+  Mask: country
+country_grain_min_import_tariffs_level_add:
+  Mask: country
+country_groceries_export_tariffs_rate_add:
+  Mask: country
+country_groceries_import_tariffs_rate_add:
+  Mask: country
+country_groceries_max_export_tariffs_level_add:
+  Mask: country
+country_groceries_max_import_tariffs_level_add:
+  Mask: country
+country_groceries_min_export_tariffs_level_add:
+  Mask: country
+country_groceries_min_import_tariffs_level_add:
+  Mask: country
+country_hardwood_export_tariffs_rate_add:
+  Mask: country
+country_hardwood_import_tariffs_rate_add:
+  Mask: country
+country_hardwood_max_export_tariffs_level_add:
+  Mask: country
+country_hardwood_max_import_tariffs_level_add:
+  Mask: country
+country_hardwood_min_export_tariffs_level_add:
+  Mask: country
+country_hardwood_min_import_tariffs_level_add:
+  Mask: country
+country_iron_export_tariffs_rate_add:
+  Mask: country
+country_iron_import_tariffs_rate_add:
+  Mask: country
+country_iron_max_export_tariffs_level_add:
+  Mask: country
+country_iron_max_import_tariffs_level_add:
+  Mask: country
+country_iron_min_export_tariffs_level_add:
+  Mask: country
+country_iron_min_import_tariffs_level_add:
+  Mask: country
+country_ironclads_export_tariffs_rate_add:
+  Mask: country
+country_ironclads_import_tariffs_rate_add:
+  Mask: country
+country_ironclads_max_export_tariffs_level_add:
+  Mask: country
+country_ironclads_max_import_tariffs_level_add:
+  Mask: country
+country_ironclads_min_export_tariffs_level_add:
+  Mask: country
+country_ironclads_min_import_tariffs_level_add:
+  Mask: country
+country_lead_export_tariffs_rate_add:
+  Mask: country
+country_lead_import_tariffs_rate_add:
+  Mask: country
+country_lead_max_export_tariffs_level_add:
+  Mask: country
+country_lead_max_import_tariffs_level_add:
+  Mask: country
+country_lead_min_export_tariffs_level_add:
+  Mask: country
+country_lead_min_import_tariffs_level_add:
+  Mask: country
+country_liquor_export_tariffs_rate_add:
+  Mask: country
+country_liquor_import_tariffs_rate_add:
+  Mask: country
+country_liquor_max_export_tariffs_level_add:
+  Mask: country
+country_liquor_max_import_tariffs_level_add:
+  Mask: country
+country_liquor_min_export_tariffs_level_add:
+  Mask: country
+country_liquor_min_import_tariffs_level_add:
+  Mask: country
+country_luxury_clothes_export_tariffs_rate_add:
+  Mask: country
+country_luxury_clothes_import_tariffs_rate_add:
+  Mask: country
+country_luxury_clothes_max_export_tariffs_level_add:
+  Mask: country
+country_luxury_clothes_max_import_tariffs_level_add:
+  Mask: country
+country_luxury_clothes_min_export_tariffs_level_add:
+  Mask: country
+country_luxury_clothes_min_import_tariffs_level_add:
+  Mask: country
+country_luxury_furniture_export_tariffs_rate_add:
+  Mask: country
+country_luxury_furniture_import_tariffs_rate_add:
+  Mask: country
+country_luxury_furniture_max_export_tariffs_level_add:
+  Mask: country
+country_luxury_furniture_max_import_tariffs_level_add:
+  Mask: country
+country_luxury_furniture_min_export_tariffs_level_add:
+  Mask: country
+country_luxury_furniture_min_import_tariffs_level_add:
+  Mask: country
+country_manowars_export_tariffs_rate_add:
+  Mask: country
+country_manowars_import_tariffs_rate_add:
+  Mask: country
+country_manowars_max_export_tariffs_level_add:
+  Mask: country
+country_manowars_max_import_tariffs_level_add:
+  Mask: country
+country_manowars_min_export_tariffs_level_add:
+  Mask: country
+country_manowars_min_import_tariffs_level_add:
+  Mask: country
+country_meat_export_tariffs_rate_add:
+  Mask: country
+country_meat_import_tariffs_rate_add:
+  Mask: country
+country_meat_max_export_tariffs_level_add:
+  Mask: country
+country_meat_max_import_tariffs_level_add:
+  Mask: country
+country_meat_min_export_tariffs_level_add:
+  Mask: country
+country_meat_min_import_tariffs_level_add:
+  Mask: country
+country_merchant_marine_export_tariffs_rate_add:
+  Mask: country
+country_merchant_marine_import_tariffs_rate_add:
+  Mask: country
+country_merchant_marine_max_export_tariffs_level_add:
+  Mask: country
+country_merchant_marine_max_import_tariffs_level_add:
+  Mask: country
+country_merchant_marine_min_export_tariffs_level_add:
+  Mask: country
+country_merchant_marine_min_import_tariffs_level_add:
+  Mask: country
+country_oil_export_tariffs_rate_add:
+  Mask: country
+country_oil_import_tariffs_rate_add:
+  Mask: country
+country_oil_max_export_tariffs_level_add:
+  Mask: country
+country_oil_max_import_tariffs_level_add:
+  Mask: country
+country_oil_min_export_tariffs_level_add:
+  Mask: country
+country_oil_min_import_tariffs_level_add:
+  Mask: country
+country_opium_export_tariffs_rate_add:
+  Mask: country
+country_opium_import_tariffs_rate_add:
+  Mask: country
+country_opium_max_export_tariffs_level_add:
+  Mask: country
+country_opium_max_import_tariffs_level_add:
+  Mask: country
+country_opium_min_export_tariffs_level_add:
+  Mask: country
+country_opium_min_import_tariffs_level_add:
+  Mask: country
+country_paper_export_tariffs_rate_add:
+  Mask: country
+country_paper_import_tariffs_rate_add:
+  Mask: country
+country_paper_max_export_tariffs_level_add:
+  Mask: country
+country_paper_max_import_tariffs_level_add:
+  Mask: country
+country_paper_min_export_tariffs_level_add:
+  Mask: country
+country_paper_min_import_tariffs_level_add:
+  Mask: country
+country_porcelain_export_tariffs_rate_add:
+  Mask: country
+country_porcelain_import_tariffs_rate_add:
+  Mask: country
+country_porcelain_max_export_tariffs_level_add:
+  Mask: country
+country_porcelain_max_import_tariffs_level_add:
+  Mask: country
+country_porcelain_min_export_tariffs_level_add:
+  Mask: country
+country_porcelain_min_import_tariffs_level_add:
+  Mask: country
+country_radios_export_tariffs_rate_add:
+  Mask: country
+country_radios_import_tariffs_rate_add:
+  Mask: country
+country_radios_max_export_tariffs_level_add:
+  Mask: country
+country_radios_max_import_tariffs_level_add:
+  Mask: country
+country_radios_min_export_tariffs_level_add:
+  Mask: country
+country_radios_min_import_tariffs_level_add:
+  Mask: country
+country_rubber_export_tariffs_rate_add:
+  Mask: country
+country_rubber_import_tariffs_rate_add:
+  Mask: country
+country_rubber_max_export_tariffs_level_add:
+  Mask: country
+country_rubber_max_import_tariffs_level_add:
+  Mask: country
+country_rubber_min_export_tariffs_level_add:
+  Mask: country
+country_rubber_min_import_tariffs_level_add:
+  Mask: country
+country_services_export_tariffs_rate_add:
+  Mask: country
+country_services_import_tariffs_rate_add:
+  Mask: country
+country_services_max_export_tariffs_level_add:
+  Mask: country
+country_services_max_import_tariffs_level_add:
+  Mask: country
+country_services_min_export_tariffs_level_add:
+  Mask: country
+country_services_min_import_tariffs_level_add:
+  Mask: country
+country_silk_export_tariffs_rate_add:
+  Mask: country
+country_silk_import_tariffs_rate_add:
+  Mask: country
+country_silk_max_export_tariffs_level_add:
+  Mask: country
+country_silk_max_import_tariffs_level_add:
+  Mask: country
+country_silk_min_export_tariffs_level_add:
+  Mask: country
+country_silk_min_import_tariffs_level_add:
+  Mask: country
 country_slaves_pol_str_mult:
+  Mask: country
+country_small_arms_export_tariffs_rate_add:
+  Mask: country
+country_small_arms_import_tariffs_rate_add:
+  Mask: country
+country_small_arms_max_export_tariffs_level_add:
+  Mask: country
+country_small_arms_max_import_tariffs_level_add:
+  Mask: country
+country_small_arms_min_export_tariffs_level_add:
+  Mask: country
+country_small_arms_min_import_tariffs_level_add:
+  Mask: country
+country_steamers_export_tariffs_rate_add:
+  Mask: country
+country_steamers_import_tariffs_rate_add:
+  Mask: country
+country_steamers_max_export_tariffs_level_add:
+  Mask: country
+country_steamers_max_import_tariffs_level_add:
+  Mask: country
+country_steamers_min_export_tariffs_level_add:
+  Mask: country
+country_steamers_min_import_tariffs_level_add:
+  Mask: country
+country_steel_export_tariffs_rate_add:
+  Mask: country
+country_steel_import_tariffs_rate_add:
+  Mask: country
+country_steel_max_export_tariffs_level_add:
+  Mask: country
+country_steel_max_import_tariffs_level_add:
+  Mask: country
+country_steel_min_export_tariffs_level_add:
+  Mask: country
+country_steel_min_import_tariffs_level_add:
+  Mask: country
+country_sugar_export_tariffs_rate_add:
+  Mask: country
+country_sugar_import_tariffs_rate_add:
+  Mask: country
+country_sugar_max_export_tariffs_level_add:
+  Mask: country
+country_sugar_max_import_tariffs_level_add:
+  Mask: country
+country_sugar_min_export_tariffs_level_add:
+  Mask: country
+country_sugar_min_import_tariffs_level_add:
+  Mask: country
+country_sulfur_export_tariffs_rate_add:
+  Mask: country
+country_sulfur_import_tariffs_rate_add:
+  Mask: country
+country_sulfur_max_export_tariffs_level_add:
+  Mask: country
+country_sulfur_max_import_tariffs_level_add:
+  Mask: country
+country_sulfur_min_export_tariffs_level_add:
+  Mask: country
+country_sulfur_min_import_tariffs_level_add:
+  Mask: country
+country_tanks_export_tariffs_rate_add:
+  Mask: country
+country_tanks_import_tariffs_rate_add:
+  Mask: country
+country_tanks_max_export_tariffs_level_add:
+  Mask: country
+country_tanks_max_import_tariffs_level_add:
+  Mask: country
+country_tanks_min_export_tariffs_level_add:
+  Mask: country
+country_tanks_min_import_tariffs_level_add:
+  Mask: country
+country_tea_export_tariffs_rate_add:
+  Mask: country
+country_tea_import_tariffs_rate_add:
+  Mask: country
+country_tea_max_export_tariffs_level_add:
+  Mask: country
+country_tea_max_import_tariffs_level_add:
+  Mask: country
+country_tea_min_export_tariffs_level_add:
+  Mask: country
+country_tea_min_import_tariffs_level_add:
+  Mask: country
+country_telephones_export_tariffs_rate_add:
+  Mask: country
+country_telephones_import_tariffs_rate_add:
+  Mask: country
+country_telephones_max_export_tariffs_level_add:
+  Mask: country
+country_telephones_max_import_tariffs_level_add:
+  Mask: country
+country_telephones_min_export_tariffs_level_add:
+  Mask: country
+country_telephones_min_import_tariffs_level_add:
+  Mask: country
+country_tobacco_import_tariffs_rate_add:
+  Mask: country
+country_tobacco_max_import_tariffs_level_add:
+  Mask: country
+country_tobacco_min_import_tariffs_level_add:
+  Mask: country
+country_tools_export_tariffs_rate_add:
+  Mask: country
+country_tools_import_tariffs_rate_add:
+  Mask: country
+country_tools_max_export_tariffs_level_add:
+  Mask: country
+country_tools_max_import_tariffs_level_add:
+  Mask: country
+country_tools_min_export_tariffs_level_add:
+  Mask: country
+country_tools_min_import_tariffs_level_add:
+  Mask: country
+country_transportation_export_tariffs_rate_add:
+  Mask: country
+country_transportation_import_tariffs_rate_add:
+  Mask: country
+country_transportation_max_export_tariffs_level_add:
+  Mask: country
+country_transportation_max_import_tariffs_level_add:
+  Mask: country
+country_transportation_min_export_tariffs_level_add:
+  Mask: country
+country_transportation_min_import_tariffs_level_add:
+  Mask: country
+country_wine_export_tariffs_rate_add:
+  Mask: country
+country_wine_import_tariffs_rate_add:
+  Mask: country
+country_wine_max_export_tariffs_level_add:
+  Mask: country
+country_wine_max_import_tariffs_level_add:
+  Mask: country
+country_wine_min_export_tariffs_level_add:
+  Mask: country
+country_wine_min_import_tariffs_level_add:
+  Mask: country
+country_wood_export_tariffs_rate_add:
+  Mask: country
+country_wood_import_tariffs_rate_add:
+  Mask: country
+country_wood_max_export_tariffs_level_add:
+  Mask: country
+country_wood_max_import_tariffs_level_add:
+  Mask: country
+country_wood_min_export_tariffs_level_add:
+  Mask: country
+country_wood_min_import_tariffs_level_add:
   Mask: country
 goods_input_aeroplanes_mult:
   Mask: goods
@@ -15728,8 +17006,6 @@ goods_output_paper_mult:
   Mask: goods
 goods_output_porcelain_mult:
   Mask: goods
-goods_output_radios_mult:
-  Mask: goods
 goods_output_rubber_mult:
   Mask: goods
 goods_output_services_mult:
@@ -15883,6 +17159,106 @@ state_bureaucrats_internal_migration_disallowed_bool:
 state_bureaucrats_mass_migration_disallowed_bool:
   Mask: state
 state_bureaucrats_mortality_mult:
+  Mask: state
+state_buy_orders_aeroplanes_add:
+  Mask: state
+state_buy_orders_automobiles_add:
+  Mask: state
+state_buy_orders_clippers_add:
+  Mask: state
+state_buy_orders_clothes_add:
+  Mask: state
+state_buy_orders_coal_add:
+  Mask: state
+state_buy_orders_coffee_add:
+  Mask: state
+state_buy_orders_dye_add:
+  Mask: state
+state_buy_orders_electricity_add:
+  Mask: state
+state_buy_orders_engines_add:
+  Mask: state
+state_buy_orders_explosives_add:
+  Mask: state
+state_buy_orders_fabric_add:
+  Mask: state
+state_buy_orders_fertilizer_add:
+  Mask: state
+state_buy_orders_fine_art_add:
+  Mask: state
+state_buy_orders_fish_add:
+  Mask: state
+state_buy_orders_fruit_add:
+  Mask: state
+state_buy_orders_furniture_add:
+  Mask: state
+state_buy_orders_glass_add:
+  Mask: state
+state_buy_orders_gold_add:
+  Mask: state
+state_buy_orders_grain_add:
+  Mask: state
+state_buy_orders_groceries_add:
+  Mask: state
+state_buy_orders_hardwood_add:
+  Mask: state
+state_buy_orders_iron_add:
+  Mask: state
+state_buy_orders_ironclads_add:
+  Mask: state
+state_buy_orders_lead_add:
+  Mask: state
+state_buy_orders_liquor_add:
+  Mask: state
+state_buy_orders_luxury_clothes_add:
+  Mask: state
+state_buy_orders_luxury_furniture_add:
+  Mask: state
+state_buy_orders_manowars_add:
+  Mask: state
+state_buy_orders_meat_add:
+  Mask: state
+state_buy_orders_merchant_marine_add:
+  Mask: state
+state_buy_orders_oil_add:
+  Mask: state
+state_buy_orders_opium_add:
+  Mask: state
+state_buy_orders_paper_add:
+  Mask: state
+state_buy_orders_porcelain_add:
+  Mask: state
+state_buy_orders_radios_add:
+  Mask: state
+state_buy_orders_rubber_add:
+  Mask: state
+state_buy_orders_services_add:
+  Mask: state
+state_buy_orders_silk_add:
+  Mask: state
+state_buy_orders_steamers_add:
+  Mask: state
+state_buy_orders_steel_add:
+  Mask: state
+state_buy_orders_sugar_add:
+  Mask: state
+state_buy_orders_sulfur_add:
+  Mask: state
+state_buy_orders_tanks_add:
+  Mask: state
+state_buy_orders_tea_add:
+  Mask: state
+state_buy_orders_telephones_add:
+  Mask: state
+state_buy_orders_tobacco_add:
+  Mask: state
+state_buy_orders_tools_add:
+  Mask: state
+state_buy_orders_transportation_add:
+  Mask: state
+state_buy_orders_wine_add:
+  Mask: state
+state_buy_orders_wood_add:
   Mask: state
 state_capitalists_dependent_wage_mult:
   Mask: state
@@ -16052,6 +17428,10 @@ state_peasants_investment_pool_contribution_add:
   Mask: state
 state_peasants_investment_pool_efficiency_mult:
   Mask: state
+state_pop_support_movement_dominican_national_add:
+  Mask: state
+state_pop_support_movement_dominican_national_mult:
+  Mask: state
 state_pop_support_movement_hindu_nationalist_add:
   Mask: state
 state_pop_support_movement_hindu_nationalist_mult:
@@ -16063,10 +17443,6 @@ state_pop_support_movement_minority_rights_mult:
 state_pop_support_movement_muslim_nationalist_add:
   Mask: state
 state_pop_support_movement_muslim_nationalist_mult:
-  Mask: state
-state_pop_support_movement_yugoslav_national_add:
-  Mask: state
-state_pop_support_movement_yugoslav_national_mult:
   Mask: state
 state_sell_orders_aeroplanes_add:
   Mask: state
@@ -16103,8 +17479,6 @@ state_sell_orders_furniture_add:
 state_sell_orders_glass_add:
   Mask: state
 state_sell_orders_gold_add:
-  Mask: state
-state_sell_orders_grain_add:
   Mask: state
 state_sell_orders_groceries_add:
   Mask: state
