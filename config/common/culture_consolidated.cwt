@@ -99,60 +99,63 @@ culture = {
     assimilation_rate = value_field
 
     ### Men's names
+    ## cardinality = 0..inf
     male_common_first_names = {
         ## cardinality = 1..inf
         localisation
     }
 
     ### Women's names
+    ## cardinality = 0..inf
     female_common_first_names = {
         ## cardinality = 1..inf
         localisation
     }
 
     ### Family names
+    ## cardinality = 0..inf
     common_last_names = {
         ## cardinality = 1..inf
         localisation
     }
 
     ### Noble family first names
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     male_noble_first_names = {
         ## cardinality = 0..inf
         localisation
     }
 
     ### Noble family first names
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     female_noble_first_names = {
         ## cardinality = 0..inf
         localisation
     }
 
     ### Noble family names
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     noble_last_names = {
         ## cardinality = 0..inf
         localisation
     }
 
     ### Kings' names
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     male_regal_first_names = {
         ## cardinality = 0..inf
         localisation
     }
 
     ### Queens' names
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     female_regal_first_names = {
         ## cardinality = 0..inf
         localisation
     }
 
     ### Royal family names
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     regal_last_names = {
         ## cardinality = 0..inf
         localisation

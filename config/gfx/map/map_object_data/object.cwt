@@ -1,0 +1,32 @@
+types = {
+    ## type_key_filter = object
+    type[object] = {
+        path = "gfx/map/map_object_data"
+        name_field = "name"
+    }
+}
+
+object = {
+    name = scalar
+
+    clamp_to_water_level = bool
+
+    render_under_water = bool
+
+    generated_content = bool
+
+    layer = <layer>
+
+    ## cardinality = 0..1
+    pdxmesh = <pdxmesh>
+
+    ## cardinality = 0..1
+    entity = <entity>
+
+    ## cardinality = 0..1
+    transform_bin_file = filepath
+
+    count = int
+
+    transform = scalar
+}

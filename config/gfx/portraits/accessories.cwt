@@ -5,4 +5,20 @@ types = {
     }
 }
 
-portrait_accessory = {}
+portrait_accessory = {
+    ## cardinality = 0..1
+    set_tags = scalar
+
+    ## cardinality = 0..inf
+    entity = {
+        required_tags = scalar
+
+        shared_pose_entity = scalar
+
+        ## cardinality = 0..1
+        node = scalar
+
+        ## cardinality = 0..1
+        entity = <entity>
+    }
+}

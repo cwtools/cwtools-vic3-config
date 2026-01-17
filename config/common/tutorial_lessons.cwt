@@ -58,7 +58,7 @@ tutorial_lesson = {
     ### Is this lesson shown in the encyclopedia. Default: yes
     shown_in_encyclopedia = bool
 
-    scalar = {
+    value_set[tutorial_lesson_step] = {
         ### The localization key of the text shown for this lesson.
         text = localisation
 

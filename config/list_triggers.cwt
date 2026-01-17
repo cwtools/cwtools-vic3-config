@@ -3,13 +3,22 @@
 # == ADD THEM IN lists.cwt
 # ============================================================
 
-### Iterate through all items in global list. list = name or variable = name any_in_global_list = { <count=num/all> / <percent=fixed_point> <triggers> }
+### Iterate through all items in global list
 ## push_scope = any
 alias[trigger:any_in_global_list] = {
     variable = value[global_variable_list]
 
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    percent = single_alias_right[formula]
+    ## cardinality = 0..1
+    percent = <script_value>
+    ## cardinality = 0..1
+    percent = <static_value>
+    ## cardinality = 0..1
+    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
@@ -31,7 +40,7 @@ alias[trigger:any_in_global_list] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
-### Iterate through all items in list. list = name or variable = name any_in_list = { <count=num/all> / <percent=fixed_point> <triggers> }
+### Iterate through all items in list
 ## push_scope = any
 alias[trigger:any_in_list] = {
     ## cardinality = 0..1
@@ -43,6 +52,15 @@ alias[trigger:any_in_list] = {
     percent = value_field[0.0..1.0]
 
     ## cardinality = 0..1
+    percent = single_alias_right[formula]
+    ## cardinality = 0..1
+    percent = <script_value>
+    ## cardinality = 0..1
+    percent = <static_value>
+    ## cardinality = 0..1
+    percent = $define_reference
+
+    ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
@@ -62,13 +80,22 @@ alias[trigger:any_in_list] = {
     alias_name[trigger] = alias_match_left[trigger]
 }
 
-### Iterate through all items in local list. list = name or variable = name any_in_local_list = { <count=num/all> / <percent=fixed_point> <triggers> }
+### Iterate through all items in local list
 ## push_scope = any
 alias[trigger:any_in_local_list] = {
     variable = value[local_variable_list]
 
     ## cardinality = 0..1
     percent = value_field[0.0..1.0]
+
+    ## cardinality = 0..1
+    percent = single_alias_right[formula]
+    ## cardinality = 0..1
+    percent = <script_value>
+    ## cardinality = 0..1
+    percent = <static_value>
+    ## cardinality = 0..1
+    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field

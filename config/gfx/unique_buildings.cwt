@@ -1,6 +1,0 @@
-types = {
-    type[game_object_locator] = {
-        path = "gfx/map/map_object_data"
-        name_field = "name"
-    }
-}

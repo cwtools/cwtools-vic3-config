@@ -18,7 +18,5 @@ diplomatic_catalyst_category = {
 
     ## cardinality = 0..1
     ### Optional cooldown before a catalyst of the same category can attempt to create a lobby or recalc secret goals. Cannot be longer than duration.
-    catalyst_effect_cooldown = {
-        enum[duration] = int
-    }
+    catalyst_effect_cooldown = single_alias_right[duration_clause]
 }

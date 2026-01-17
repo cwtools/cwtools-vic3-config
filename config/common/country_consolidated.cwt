@@ -7,6 +7,9 @@ types = {
 			name = "$"
 			adjective = "$_ADJ"
 		}
+        subtype[dynamic] = {
+            dynamic_country_definition = yes
+        }
     }
     ## unique = yes
     type[country_creation] = {
@@ -48,62 +51,68 @@ types = {
 }
 
 country_definition = {
-    ### Map color, use int with rgb (blank) or hsv360, float with hsv
-    color = <named_color>
-    ### Map color, use int with rgb (blank) or hsv360, float with hsv
-    color = color_field
-    ### Map color, use int with rgb (blank) or hsv360, float with hsv
-    color = { int[0..255] int[0..255] int[0..255] }
-
-    ## cardinality = 0..1
-    primary_unit_color = <named_color>
-    ## cardinality = 0..1
-    primary_unit_color = color_field
-    ## cardinality = 0..1
-    primary_unit_color = { int[0..255] int[0..255] int[0..255] }
-
-    ## cardinality = 0..1
-    secondary_unit_color = <named_color>
-    ## cardinality = 0..1
-    secondary_unit_color = color_field
-    ## cardinality = 0..1
-    secondary_unit_color = { int[0..255] int[0..255] int[0..255] }
-
-    ## cardinality = 0..1
-    tertiary_unit_color = <named_color>
-    ## cardinality = 0..1
-    tertiary_unit_color = color_field
-    ## cardinality = 0..1
-    tertiary_unit_color = { int[0..255] int[0..255] int[0..255] }
-
-    ### The country's 'type'
-    country_type = <country_type>
-
-    ### The country's 'tier'
-    tier = enum[country_tier]
-
-    ## cardinality = 0..1
-    ### Social hierarchy used in the country
-    social_hierarchy = <social_hierarchy>
-
-    ## cardinality = 0..1
-    valid_as_home_country_for_separatists = single_alias_right[trigger_clause]
-
-    ### The country's primary cultures
-    cultures = {
-        ## cardinality = 1..inf
-        <culture>
+    subtype[dynamic] = {
+        dynamic_country_definition = yes
     }
-    ### Only needed if state religion is different from default religion of first primary culture
-    ## cardinality = 0..1
-    religion = <religion>
 
-    ### The default capital for the country, important for country releasing
-    ## cardinality = 0..1
-    capital = <state_region>
+    subtype[!dynamic] = {
+        ### Map color, use int with rgb (blank) or hsv360, float with hsv
+        color = <named_color>
+        ### Map color, use int with rgb (blank) or hsv360, float with hsv
+        color = color_field
+        ### Map color, use int with rgb (blank) or hsv360, float with hsv
+        color = { int[0..255] int[0..255] int[0..255] }
 
-    ## cardinality = 0..1
-    is_named_from_capital = yes
+        ## cardinality = 0..1
+        primary_unit_color = <named_color>
+        ## cardinality = 0..1
+        primary_unit_color = color_field
+        ## cardinality = 0..1
+        primary_unit_color = { int[0..255] int[0..255] int[0..255] }
+
+        ## cardinality = 0..1
+        secondary_unit_color = <named_color>
+        ## cardinality = 0..1
+        secondary_unit_color = color_field
+        ## cardinality = 0..1
+        secondary_unit_color = { int[0..255] int[0..255] int[0..255] }
+
+        ## cardinality = 0..1
+        tertiary_unit_color = <named_color>
+        ## cardinality = 0..1
+        tertiary_unit_color = color_field
+        ## cardinality = 0..1
+        tertiary_unit_color = { int[0..255] int[0..255] int[0..255] }
+
+        ### The country's 'type'
+        country_type = <country_type>
+
+        ### The country's 'tier'
+        tier = enum[country_tier]
+
+        ## cardinality = 0..1
+        ### Social hierarchy used in the country
+        social_hierarchy = <social_hierarchy>
+
+        ## cardinality = 0..1
+        valid_as_home_country_for_separatists = single_alias_right[trigger_clause]
+
+        ### The country's primary cultures
+        cultures = {
+            ## cardinality = 1..inf
+            <culture>
+        }
+        ### Only needed if state religion is different from default religion of first primary culture
+        ## cardinality = 0..1
+        religion = <religion>
+
+        ### The default capital for the country, important for country releasing
+        ## cardinality = 0..1
+        capital = <state_region>
+
+        ## cardinality = 0..1
+        is_named_from_capital = yes
+    }
 }
 
 ## replace_scope = { root = country this = country }

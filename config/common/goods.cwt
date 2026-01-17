@@ -2,9 +2,6 @@ types = {
     type[good] = {
         path = "game/common/goods"
         path_extension = .txt
-        subtype[consumable] = {
-            obsession_chance = float
-        }
         localisation = {
             name = "$"
         }
@@ -67,9 +64,7 @@ good = {
     ### If the value is fixed or fluctuates depending on availability on the market. Like gold in the vanilla game files.
     fixed_price = bool
 
-    subtype[consumable] = {
-        ## cardinality = 0..1
-        ### How high the chance is that a culture develops an obsession on the good. Opium, Wine and Liquor have a 2.0 chance.
-        obsession_chance = float
-    }
+    ## cardinality = 0..1
+    ### How high the chance is that a culture develops an obsession on the good. Opium, Wine and Liquor have a 2.0 chance.
+    obsession_chance = float
 }

@@ -74,6 +74,7 @@ enums = {
         "Voice of the People Theme"
         "Melodies for the Masses"
         "Dawn of Wonder"
+        "Songs of the Homeland"
     }
 
     enum[dlc_feature] = {
@@ -89,6 +90,7 @@ enums = {
         mp1_content
         mp1_treaties
         mp1_cosmetics
+        mp1_charter_companies
         voice_of_the_people_content
         voice_of_the_people_preorder
         power_bloc_features
@@ -232,6 +234,7 @@ enums = {
         antagonize
         reconcile
         defy
+        comply
     }
     enum[law_stance_values] = {
         strongly_disapprove
@@ -380,6 +383,7 @@ enums = {
         diplomatic_proposal_break
         sway_offer
         diplomatic_demand
+        treaty_proposal
     }
 
     # Undocumented. Added values that are used in base game
@@ -496,6 +500,7 @@ enums = {
         extreme_winds
         torrential_rains
         none
+        earthquake
     }
 
     # Undocumented. Added values that are used in base game
@@ -574,6 +579,8 @@ enums = {
         no_fantastical_content
         use_custom_rng_seed
         no_dynamic_naming
+        give_ruler_selector
+        no_ruler_selector
     }
 
     enum[tension_threshold] = {

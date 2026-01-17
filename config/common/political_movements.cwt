@@ -125,6 +125,11 @@ political_movement = {
     ### Bespoke factors for increasing/decreasing the activism of movements of this type
     additional_radicalism_factors = single_alias_right[formula]
 
+    ## cardinality = 0..1
+    can_have_slave_supporters = bool
+
+    ## cardinality = 0..1
+    can_cause_obstinance = bool
 }
 
 single_alias[political_movement_revolution_secession] = {

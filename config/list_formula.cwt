@@ -3,7 +3,8 @@
 # == ADD THEM IN lists.cwt
 # ============================================================
 
-### Iterate through all items in global list. list = name or variable = name every_in_global_list = { limit = { <triggers> } <effects> }
+### Iterate through all items in global list
+## push_scope = any
 alias[arithmetic_operation:every_in_global_list] = {
     variable = value[global_variable_list]
 
@@ -16,7 +17,8 @@ alias[arithmetic_operation:every_in_global_list] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all items in list. list = name or variable = name every_in_list = { limit = { <triggers> } <effects> }
+### Iterate through all items in list
+## push_scope = any
 alias[arithmetic_operation:every_in_list] = {
     ## cardinality = 0..1
     list = value[list]
@@ -32,7 +34,8 @@ alias[arithmetic_operation:every_in_list] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all items in local list. list = name or variable = name every_in_local_list = { limit = { <triggers> } <effects> }
+### Iterate through all items in local list
+## push_scope = any
 alias[arithmetic_operation:every_in_local_list] = {
     variable = value[local_variable_list]
 
@@ -45,7 +48,8 @@ alias[arithmetic_operation:every_in_local_list] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all items in global list. list = name or variable = name ordered_in_global_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+### Iterate through all items in global list
+## push_scope = any
 alias[arithmetic_operation:ordered_in_global_list] = {
     variable = value[global_variable_list]
 
@@ -97,7 +101,8 @@ alias[arithmetic_operation:ordered_in_global_list] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all items in list. list = name or variable = name ordered_in_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+### Iterate through all items in list
+## push_scope = any
 alias[arithmetic_operation:ordered_in_list] = {
     ## cardinality = 0..1
     list = value[list]
@@ -111,13 +116,14 @@ alias[arithmetic_operation:ordered_in_list] = {
     alternative_limit = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    order_by = value_field
+    min = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
+    min = $define_reference
+
     ## cardinality = 0..1
-    order_by = <script_value>
+    max = int_value_field
     ## cardinality = 0..1
-    order_by = <static_value>
+    max = single_alias_right[formula]
     ## cardinality = 0..1
     order_by = $define_reference
 
@@ -152,7 +158,8 @@ alias[arithmetic_operation:ordered_in_list] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all items in local list. list = name or variable = name ordered_in_local_list = { limit = { <triggers> } order_by = script_value position = int min = int max = script_value check_range_bounds = no # If you don't want an error logged if the list is smaller than the min/max <effects> }
+### Iterate through all items in local list
+## push_scope = any
 alias[arithmetic_operation:ordered_in_local_list] = {
     variable = value[local_variable_list]
 
@@ -163,13 +170,14 @@ alias[arithmetic_operation:ordered_in_local_list] = {
     alternative_limit = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    order_by = value_field
+    min = <static_value>
     ## cardinality = 0..1
-    order_by = single_alias_right[formula]
+    min = $define_reference
+
     ## cardinality = 0..1
-    order_by = <script_value>
+    max = int_value_field
     ## cardinality = 0..1
-    order_by = <static_value>
+    max = single_alias_right[formula]
     ## cardinality = 0..1
     order_by = $define_reference
 
@@ -204,7 +212,8 @@ alias[arithmetic_operation:ordered_in_local_list] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all items in global list. list = name or variable = name random_in_global_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+### Iterate through all items in global list
+## push_scope = any
 alias[arithmetic_operation:random_in_global_list] = {
     variable = value[global_variable_list]
 
@@ -220,7 +229,8 @@ alias[arithmetic_operation:random_in_global_list] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all items in list. list = name or variable = name random_in_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+### Iterate through all items in list
+## push_scope = any
 alias[arithmetic_operation:random_in_list] = {
     ## cardinality = 0..1
     list = value[list]
@@ -239,7 +249,8 @@ alias[arithmetic_operation:random_in_list] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### Iterate through all items in local list. list = name or variable = name random_in_local_list = { limit = { <triggers> } (optional) weight = { mtth } <effects> }
+### Iterate through all items in local list
+## push_scope = any
 alias[arithmetic_operation:random_in_local_list] = {
     variable = value[local_variable_list]
 

@@ -6,6 +6,10 @@ types = {
             name = $
             desc = $_desc
         }
+        images = {
+            ## primary
+            icon = icon
+        }
     }
 }
 

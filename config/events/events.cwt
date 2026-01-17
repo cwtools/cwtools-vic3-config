@@ -72,18 +72,7 @@ event = {
 	duration = int
 
 	## cardinality = 0..1
-	cooldown = {
-		## cardinality = 0..1
-		enum[duration] = int
-		## cardinality = 0..1
-		enum[duration] = <script_value>
-		## cardinality = 0..1
-		enum[duration] = <static_value>
-		## cardinality = 0..1
-		enum[duration] = enum[duration]
-		## cardinality = 0..1
-		enum[duration] = { int int }
-	}
+	cooldown = single_alias_right[duration_clause]
 
 	subtype[hidden] = {
 		# So that things don't yell at you if you make an event hidden for a lil while

@@ -103,18 +103,18 @@ building = {
     ### optional trigger that decides whether it can be potentially build in a state
     potential = single_alias_right[trigger_clause]
 
-    ## cardinality = 0..1
-    ## push_scope = state
     ### optional custom trigger (state scope) for building requirements
+    ## cardinality = 0..1
+    ## replace_scope = { ROOT = state THIS = state }
     possible = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    ## push_scope = state
+    ## replace_scope = { ROOT = state THIS = state }
     ### optional custom trigger (state scope) for building requirements by the government
     can_build_government = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    ## push_scope = state
+    ## replace_scope = { ROOT = state THIS = state }
     ### optional custom trigger (state scope) for building requirements by private investors
     can_build_private = single_alias_right[trigger_clause]
 

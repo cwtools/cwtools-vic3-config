@@ -2,6 +2,11 @@ types = {
     type[alert_group] = {
         path = "game/common/alert_groups"
         path_extension = .txt
+        localisation = {
+            name = ag_$_name
+            desc = ag_$_desc
+            tooltip = ag_$_tooltip
+        }
     }
 }
 

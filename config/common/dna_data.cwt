@@ -26,8 +26,26 @@ dna_data = {
             }
 
             ## cardinality = 0..inf
-            ### DEPRECATED
+            <special_morph_gene> = {
+                ## cardinality = 1..inf
+                value[morph_gene_variant]
+
+                ## cardinality = 1..inf
+                int
+            }
+
+            ## cardinality = 0..inf
             <accessory_gene> = {
+                ## cardinality = 1..inf
+                value[accessory_gene_variant]
+
+                ## cardinality = 1..inf
+                int
+            }
+
+            ## cardinality = 0..inf
+            ### DEPRECATED
+            <special_accessory_gene> = {
                 ## cardinality = 1..inf
                 value[accessory_gene_variant]
 

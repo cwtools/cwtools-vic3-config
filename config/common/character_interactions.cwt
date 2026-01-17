@@ -9,6 +9,7 @@ types = {
     }
 }
 
+## replace_scope = { root = character this = character }
 character_interaction = {
     ## cardinality = 0..1
     ### Path to icon for both right click menu and character panel buttons
@@ -27,17 +28,14 @@ character_interaction = {
     ### Required for AI to evaluate if interaction is possible on characters in exile pool
     ai_considers_exiles = bool
 
-    ## replace_scope = { root = character this = character }
     ### Trigger to check if the interaction should be shown
     ### scope:actor interacting country
     potential = single_alias_right[trigger_clause]
 
-    ## replace_scope = { root = character this = character }
     ### Trigger to check if the interaction is available
     ### scope:actor interacting country
     possible = single_alias_right[trigger_clause]
 
-    ## replace_scope = { root = character this = character }
     ### The effects of the interaction
     ### scope:actor interacting country
     effect = single_alias_right[effect_clause]

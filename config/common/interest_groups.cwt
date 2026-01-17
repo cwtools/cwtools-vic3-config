@@ -12,13 +12,16 @@ types = {
     }
 }
 
+## replace_scope = { ROOT = interest_group THIS = interest_group }
 interest_group = {
     color = <named_color>
     color = color_field
-    texture = filepath
-    layer = scalar
-    index = int
 
+    texture = filepath
+
+    layer = scalar
+
+    index = int
 
     ideologies = {
         ## cardinality = 1..inf
@@ -30,10 +33,8 @@ interest_group = {
         <ideology>
     }
 
-    enable = {
-        ## cardinality = 1..inf
-        alias_name[trigger] = alias_match_left[trigger]
-    }
+    ## replace_scope = { ROOT = country THIS = country }
+    enable = single_alias_right[trigger_clause]
 
     ### Deprecated; use on_enable effect to assign traits instead
     ## cardinality = 0..1
@@ -42,63 +43,60 @@ interest_group = {
         <interest_group_trait>
     }
 
-    ## push_scope = interest_group
+    ## replace_scope = { ROOT = country THIS = country }
     on_enable = single_alias_right[effect_clause]
 
-    ## push_scope = interest_group
+    ## replace_scope = { ROOT = country THIS = country }
     on_disable = single_alias_right[effect_clause]
 
-    ## push_scope = country
+    ## replace_scope = { ROOT = country THIS = country }
     priority_cultures = {
-        # TODO
+        ## cardinality = 0..inf
+        rule = {
+            ## cardinality = 0..1
+            trigger = single_alias_right[trigger_clause]
+            cultures = {
+                ## cardinality = 1..inf
+                <culture>
+            }
+        }
     }
 
-    ## push_scope = character
+    ## replace_scope = { ROOT = character THIS = character }
     on_character_ig_membership = single_alias_right[effect_clause]
 
-    ## push_scope = pop
+    ## replace_scope = { ROOT = pop THIS = pop }
     pop_potential = single_alias_right[trigger_clause]
 
-    ## push_scope = pop
+    ## replace_scope = { ROOT = pop THIS = pop }
     pop_weight = single_alias_right[formula]
 
-    ## push_scope = character
     monarch_weight = single_alias_right[formula]
 
-    ## push_scope = character
     agitator_weight = single_alias_right[formula]
 
-    ## push_scope = character
     commander_weight = single_alias_right[formula]
 
     ## cardinality = 0..1
-    ## push_scope = character
     executive_weight = single_alias_right[formula]
 
-    ## push_scope = character
     noble_chance = single_alias_right[formula]
 
-    ## push_scope = character
     female_commander_chance = single_alias_right[formula]
 
     ## cardinality = 0..1
-    ## push_scope = character
     female_executive_chance = single_alias_right[formula]
 
     ### The chance that a executive belonging to this IG takes over leadership when it changes
     ### scope:character is the most popular executive in the IG
     ## cardinality = 0..1
-    ## push_scope = character
     executive_leader_chance = single_alias_right[formula]
 
-    ## push_scope = character
     female_politician_chance = single_alias_right[formula]
 
-    ## push_scope = character
     female_agitator_chance = single_alias_right[formula]
 
     ### The chance that a commander belonging to this IG takes over leadership when it changes
     ### scope:character is the most popular commander in the IG
-    ## push_scope = character
     commander_leader_chance = single_alias_right[formula]
 }

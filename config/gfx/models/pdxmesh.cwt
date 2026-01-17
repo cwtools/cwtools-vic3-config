@@ -1,0 +1,87 @@
+types = {
+    ## type_key_filter = pdxmesh
+    type[pdxmesh] = {
+        path = "gfx/models"
+        path_extension = .asset
+        name_field = "name"
+    }
+}
+
+pdxmesh = {
+    name = scalar
+
+    file = scalar
+
+    ## cardinality = 0..1
+    scale = float
+
+    ## cardinality = 0..1
+    cull_distance = float
+
+    ## cardinality = 0..1
+    lod_percentages = {
+        ## cardinality = 0..inf
+        lod = {
+            index = int
+
+            percent = float
+            percent = inf
+        }
+    }
+
+    ## cardinality = 0..inf
+    animation = {
+        id = scalar
+        type = scalar
+    }
+
+    ## cardinality = 0..inf
+    additive_animation = {
+        id = scalar
+        type = scalar
+    }
+
+    ## cardinality = 0..inf
+    blend_shape = {
+        id = scalar
+        type = scalar
+    }
+
+    meshsettings = {
+        name = scalar
+
+        index = int
+
+        texture_diffuse = scalar
+
+        texture_normal = scalar
+
+        texture_specular = scalar
+
+        shader = scalar
+
+        ## cardinality = 0..1
+        shadow_shader = scalar
+
+        ## cardinality = 0..inf
+        additional_shader_defines = {
+            ## cardinality = 0..inf
+            scalar
+        }
+
+        shader_file = filepath
+
+        ## cardinality = 0..1
+        texture = {
+            index = int
+
+            file = scalar
+
+            ## cardinality = 0..1
+            srgb = bool
+        }
+
+        ## cardinality = 0..1
+        subpass = scalar
+    }
+}

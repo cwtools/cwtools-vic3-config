@@ -22,19 +22,19 @@ city_type = {
     max_residence_points = int
 
     rich_building_meshes = {
-        <entity>
+        <pdxmesh>
     }
 
     rich_building_offsets = single_alias_right[city_type_offset]
 
     mid_building_meshes = {
-        <entity>
+        <pdxmesh>
     }
 
     mid_building_offsets = single_alias_right[city_type_offset]
 
     poor_building_meshes = {
-        <entity>
+        <pdxmesh>
     }
 
     poor_building_offsets = single_alias_right[city_type_offset]
@@ -44,13 +44,14 @@ city_type = {
 
     ## cardinality = 0..inf
     <building> = {
-        <entity>
+        <pdxmesh>
     }
 
     ## cardinality = 0..1
     weight = value_field
 
     ## cardinality = 0..1
+    ## replace_scope = { root = state_region this = state_region }
     trigger = single_alias_right[trigger_clause]
 }
 
