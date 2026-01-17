@@ -1,0 +1,185 @@
+types = {
+    ## type_key_filter = entity
+    type[entity] = {
+        path = "gfx/models"
+        path_extension = .asset
+        name_field = "name"
+    }
+}
+
+entity = {
+    name = scalar
+
+    pdxmesh = <pdxmesh>
+
+    ## cardinality = 0..1
+    clone = <entity>
+
+    ## cardinality = 0..1
+    get_state_from_parent = bool
+
+    ## cardinality = 0..1
+    scale = float
+
+    ## cardinality = 0..1
+    cull_radius = float
+
+    ## cardinality = 0..inf
+    locator = {
+        name = scalar
+
+        position = {
+            float
+            float
+            float
+        }
+
+        rotation = {
+            float
+            float
+            float
+        }
+
+        ## cardinality = 0..1
+        scale = float
+    }
+
+    ## cardinality = 0..inf
+    attribute = {
+        name = scalar
+
+        additive_animation = scalar
+
+        ## cardinality = 0..1
+        blend_shape = scalar
+
+        default = float
+    }
+
+    ## cardinality = 0..1
+    game_data = {
+        ## cardinality = 0..inf
+        portrait_entity_user_data = {}
+    }
+
+    ## cardinality = 0..1
+    default_state = value[entity_state]
+
+    ## cardinality = 0..inf
+    state = {
+        name = value_set[entity_state]
+
+        ## cardinality = 0..1
+        next_state = value[entity_state]
+
+        ## cardinality = 0..1
+        time_offset = {
+            float
+            float
+        }
+
+        animation = scalar
+
+        ## cardinality = 0..1
+        animation_speed = float
+
+        ## cardinality = 0..1
+        chance = float
+
+        ## cardinality = 0..1
+        state_time = float
+
+        ## cardinality = 0..1
+        looping = bool
+
+        ## cardinality = 0..1
+        propagate_state = {
+            scalar = scalar
+        }
+
+        ## cardinality = 0..inf
+        start_event = single_alias_right[entity_event_clause]
+
+        ## cardinality = 0..inf
+        event = single_alias_right[entity_event_clause]
+
+        ## cardinality = 0..1
+        animation_blend_time = float
+    }
+
+    ## cardinality = 0..inf
+    attach = {
+        name = scalar
+
+        scalar = "<entity>"
+    }
+
+    ## cardinality = 0..1
+    group = {
+        name = scalar
+
+        ## cardinality = 0..inf
+        attach = {
+            chance = float
+
+            ## cardinality = 0..inf
+            scalar = "<entity>"
+        }
+    }
+}
+
+single_alias[entity_event_clause] = {
+    time = float
+
+    state = value[entity_state]
+
+    node = scalar
+
+    ## cardinality = 0..1
+    entity = <entity>
+
+    ## cardinality = 0..1
+    keep_sound = bool
+
+    ## cardinality = 0..1
+    sound  = {
+        soundeffect = enum[sound_effects]
+        soundeffect = ""
+    }
+
+    ## cardinality = 0..1
+    soundparameter = {
+        scalar = int
+    }
+
+    ## cardinality = 0..1
+    particle = scalar
+
+    ## cardinality = 0..1
+    attachment_id = scalar
+
+    ## cardinality = 0..1
+    remove_attachment = scalar
+
+    ## cardinality = 0..1
+    life = float
+
+    ## cardinality = 0..1
+    entity_fade_speed = float
+
+    ## cardinality = 0..1
+    use_parent_nodes = bool
+
+    ## cardinality = 0..1
+    keep_entity = bool
+
+    ## cardinality = 0..1
+    light = scalar
+
+    ## cardinality = 0..1
+    skip_forward = float
+
+    trigger_once = bool
+
+    keep_particle = bool
+}

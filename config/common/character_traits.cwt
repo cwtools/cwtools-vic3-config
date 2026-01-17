@@ -5,6 +5,7 @@ types = {
         localisation = {
             ## required
             name = "$"
+            desc = "$_desc"
         }
         images = {
             ## primary

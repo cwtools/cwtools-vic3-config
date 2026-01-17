@@ -124,6 +124,7 @@ state_region = {
 }
 
 enums = {
+    ## case_insensitive
     complex_enum[provinces] = {
         path = "game/map_data/state_regions"
         name = {

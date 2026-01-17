@@ -75,7 +75,7 @@ theme = {
 single_alias[theme_map_object_clause] = {
     ### Name of mesh to spawn, mutually exclusive with entity.
     ## cardinality = 0..1
-    pdxmesh = <entity>
+    pdxmesh = <pdxmesh>
 
     ### Name of entity to spawn, mutually exclusive with pdxmesh.
     ## cardinality = 0..1

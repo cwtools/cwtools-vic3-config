@@ -1,0 +1,21 @@
+types = {
+    ## type_key_filter = layer
+    type[layer] = {
+        path = "gfx/map/map_object_data"
+        name_field = "name"
+    }
+}
+
+layer = {
+    name = scalar
+
+    fade_in = int
+
+    fade_out = int
+
+    category = scalar
+
+    masks = scalar
+
+    visibility_tags = scalar
+}

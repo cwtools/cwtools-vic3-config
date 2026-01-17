@@ -5,6 +5,9 @@ types = {
         localisation = {
             name = "ACHIEVEMENT_$"
         }
+        images = {
+            icon = gfx/interface/icons/achievements/$.dds
+        }
     }
 }
 

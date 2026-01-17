@@ -2,6 +2,12 @@ types = {
     type[map_mode] = {
         path = "gfx/map/map_modes"
         path_extension = .txt
+        localisation = {
+            name = $
+        }
+        images = {
+            icon = icon
+        }
     }
 }
 
