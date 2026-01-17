@@ -42,6 +42,12 @@ message = {
 
     ## cardinality = 0..1
     enum[duration] = int_value_field
+    ## cardinality = 0..1
+    enum[duration] = single_alias_right[formula]
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
 
     ## cardinality = 0..1
     color = enum[modifier_color]

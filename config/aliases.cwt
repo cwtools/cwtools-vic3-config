@@ -43,9 +43,14 @@ single_alias[triggered_desc] = {
 }
 
 single_alias[duration_clause] = {
+    ## cardinality = 0..1
     enum[duration] = int_value_field
-    enum[duration] == <script_value>
-    enum[duration] == <static_value>
+    ## cardinality = 0..1
+    enum[duration] = single_alias_right[formula]
+    ## cardinality = 0..1
+    enum[duration] = <script_value>
+    ## cardinality = 0..1
+    enum[duration] = <static_value>
 }
 
 single_alias[scaled_modifier] = {

@@ -23,16 +23,7 @@ company_charter_type = {
 
     ## cardinality = 0..1
     ### Cooldown, in case it is not defined the charter will have no cooldown
-    cooldown = {
-        ## cardinality = 0..1
-        enum[duration] = int
-        ## cardinality = 0..1
-        enum[duration] = <script_value>
-        ## cardinality = 0..1
-        enum[duration] = <static_value>
-        ## cardinality = 0..1
-        enum[duration] = enum[duration]
-    }
+    cooldown = single_alias_right[duration_clause]
 
     ### A trigger evaluated in company scope to determine if this charter type should be available to the company
     ## cardinality = 0..1
