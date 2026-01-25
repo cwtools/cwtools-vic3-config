@@ -164,7 +164,7 @@ alias[trigger:is_in_battle] = bool
 ### Check if character is in the void is_in_void = bool
 alias[trigger:is_in_void] = bool
 
-## scopes = { character }
+## scopes = { military_formation }
 ### Checks if the commander is mobilized is_mobilized = bool
 alias[trigger:is_mobilized] = bool
 

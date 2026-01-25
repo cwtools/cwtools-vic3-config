@@ -18,7 +18,7 @@ portrait_modifier = {
     fallback = value[portrait_modifier_set]
 
     value_set[portrait_modifier_set] = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         dna_modifiers = {
             ## cardinality = 0..inf
             accessory = {

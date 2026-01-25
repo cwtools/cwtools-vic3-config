@@ -78,7 +78,7 @@ entity = {
             float
         }
 
-        animation = scalar
+        animation = value[pdxmesh_animation]
 
         ## cardinality = 0..1
         animation_speed = float
