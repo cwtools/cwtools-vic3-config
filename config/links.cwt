@@ -5079,4 +5079,21 @@ links = {
 		prefix = cultural_acceptance_delta:
 		data_source = scope[culture]
 	}
+
+    # script value & static value
+
+    script_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        from_data = yes
+        data_source = <script_value>
+    }
+    static_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        from_data = yes
+        data_source = <static_value>
+    }
 }
