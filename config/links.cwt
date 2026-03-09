@@ -8,7 +8,7 @@ links = {
 	### Scope to the strategic region of the object!
 	region = {
 		desc = "Scope to the strategic region of the object!"
-		input_scopes = { state province building interest_marker diplomatic_play state_region }
+		input_scopes = { building diplomatic_play hq interest_marker province state state_region }
 		output_scope = strategic_region
 	}
 	### Scope to the related building
@@ -137,7 +137,7 @@ links = {
 	### Scope to the front where a battle takes place / where a character is located
 	front = {
 		desc = "Scope to the front where a battle takes place / where a character is located"
-		input_scopes = { character battle }
+		input_scopes = { battle character military_formation invasion province }
 		output_scope = front
 	}
 	### Returns the average defense of units on Front on the same side as Country
@@ -430,7 +430,9 @@ links = {
 		output_scope = value
 		type = value
 	}
+	### Compare to scoped interest group approval
 	ig_approval = {
+		desc = "Compare to scoped interest group approval"
 		input_scopes = { interest_group }
 		output_scope = value
 		type = value
@@ -548,7 +550,7 @@ links = {
 	civil_war = {
 		desc = "Scope to civil war"
 		input_scopes = political_movement
-		output_scope = war
+		output_scope = civil_war
 	}
 	### Scope to the country's colonial growth per colony value (example: colonial_growth_per_colony > 0)
 	colonial_growth_per_colony = {
@@ -1230,6 +1232,14 @@ links = {
 		from_data = yes
 		data_source = <ideology>
 		prefix = ideology:
+	}
+	### Scope to a ideology from its name (i:ideology_anarchist)
+	ideology_scope_short = {
+		desc = "Scope to a ideology from its name (i:ideology_anarchist)"
+		output_scope = ideology
+		from_data = yes
+		data_source = <ideology>
+		prefix = i:
 	}
 	### Scope to the ideology of a character
 	ideology = {
@@ -2216,10 +2226,11 @@ links = {
 		input_scope = { political_movement country interest_group }
 		output_scope = character
 	}
-	### Gets type of interest group
+	### Scope to the type of the scoped character's interest group
 	interest_group_type = {
-		desc = "Gets type of interest group"
-		input_scope = interest_group
+		desc = "Scope to the type of the scoped character's interest group"
+		input_scope = { character }
+		output_scope = interest_group_type
 	}
 	### Gets years of service of a character
 	years_of_service = {
@@ -2351,7 +2362,7 @@ links = {
 		from_argument = yes
 		prefix = leverage_advantage:
 		data_source = scope[country]
-		input_scopes = { country }
+		input_scopes = { power_bloc }
 		output_scope = any
 	}
 	### Value of predicted cohesion percentage with another country
@@ -3870,8 +3881,8 @@ links = {
 	### Scope to the company owning the scoped country
 	executive = {
 		desc = "Scope to the company owning the scoped country"
-		input_scopes = { country }
-		output_scope = company
+		input_scopes = { company }
+		output_scope = character
 		type = scope
 	}
 	### Get the total number of trade center levels associated with scope world market hub state
@@ -5068,6 +5079,17 @@ links = {
 		prefix = country_average_religious_acceptance:
 		data_source = scope[religion]
 	}
+	### Checks whether a country has a specific amount of investments
+	country_average_cultural_acceptance = {
+		desc = "Checks whether a country has a specific amount of investments"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = country_average_cultural_acceptance:
+		data_source = scope[culture]
+	}
 	### Compare the current local delta (modification) to a culture's acceptance in the scoped state
 	cultural_acceptance_delta = {
 		desc = "Compare the current local delta (modification) to a culture's acceptance in the scoped state"
@@ -5079,4 +5101,136 @@ links = {
 		prefix = cultural_acceptance_delta:
 		data_source = scope[culture]
 	}
+    ### Compare progress of civil war
+    civil_war_progress = {
+        desc = "Compare progress of civil war"
+        input_scopes = { civil_war }
+        output_scope = value
+        type = value
+    }
+    ### Get the current weekly investment pool income of the scoped country
+    investment_pool_income = {
+        desc = "Get the current weekly investment pool income of the scoped country"
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+	### Compare fraction of scope market production coming from target country
+	market_production_share = {
+		desc = "Compare fraction of scope market production coming from target country"
+		input_scopes = { market }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = market_production_share:
+		data_source = scope[country]
+	}
+	### Compare fraction of buy orders in scope market that are due to imports from target market (if set) or world market in general (if no market specified)
+	market_imports_reliance = {
+		desc = "Compare fraction of buy orders in scope market that are due to imports from target market (if set) or world market in general (if no market specified)"
+		input_scopes = { market }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = market_imports_reliance:
+		data_source = scope[market]
+	}
+	### Compare fraction of buy orders in scope market that are due to imports from target market (if set) or world market in general (if no market specified)
+	lobby_join_weight = {
+		desc = "Compare fraction of buy orders in scope market that are due to imports from target market (if set) or world market in general (if no market specified)"
+		input_scopes = { interest_group }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = lobby_join_weight:
+		data_source = scope[political_lobby]
+	}
+	### Scope to the number of pending events in scope country
+	num_pending_events = {
+		desc = "Scope to the number of pending events in scope country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to the number of pending events in scope country
+	num_pending_events_category = {
+		desc = "Scope to the number of pending events in scope country"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		prefix = num_pending_events:
+		data_source = enum[event_category]
+	}
+	### Checks whether a percentage of the country has a specific culture
+	culture_percent_country = {
+		desc = "Checks whether a percentage of the country has a specific culture"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = culture_percent_country:
+		data_source = scope[culture]
+	}
+	### Checks whether a percentage of the country has a specific religion
+	religion_percent_country = {
+		desc = "Checks whether a percentage of the country has a specific religion"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = religion_percent_country:
+		data_source = scope[religion]
+	}
+	### Checks whether a percentage of the state has a specific religion
+	religion_percent_state = {
+		desc = "Checks whether a percentage of the state has a specific religion"
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = religion_percent_state:
+		data_source = scope[religion]
+	}
+	### Compare the current population of a target culture in the scoped state
+	population_by_culture = {
+		desc = "Compare the current population of a target culture in the scoped state"
+		input_scopes = { state }
+		output_scope = value
+		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = population_by_culture:
+		data_source = scope[culture]
+	}
+	### Get the migration pull for a state or the mass migration pull for a country.
+	migration_pull = {
+		desc = "Get the migration pull for a state or the mass migration pull for a country."
+		input_scopes = { country state }
+		output_scope = value
+		type = value
+	}
+
+    # script value & static value
+
+    script_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        from_data = yes
+        data_source = <script_value>
+    }
+    static_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        from_data = yes
+        data_source = <static_value>
+    }
 }

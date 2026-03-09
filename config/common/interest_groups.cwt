@@ -4,6 +4,8 @@ types = {
         path_extension = .txt
         localisation = {
             name = "$"
+            desc = "$_desc"
+            only_icon = "$_only_icon"
         }
         images = {
             ## primary

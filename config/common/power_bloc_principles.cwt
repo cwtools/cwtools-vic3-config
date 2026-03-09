@@ -6,9 +6,14 @@ types = {
             ## primary
             icon = icon
         }
+        localisation = {
+            ## required
+            desc = $_desc
+        }
     }
 }
 
+## replace_scope = { ROOT = country THIS = country }
 power_bloc_principle = {
     ### Icon used to represent this Power Bloc Principle
     icon = filepath

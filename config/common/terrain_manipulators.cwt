@@ -1,5 +1,47 @@
 types = {
     type[terrain_manipulator] = {
         path = "game/common/terrain_manipulators"
+        path_extension = .txt
+        path_strict = yes
+    }
+    type[terrain_mask] = {
+        path = "game/common/terrain_manipulators/provinces"
+        path_extension = .txt
+        path_strict = yes
+    }
+}
+
+terrain_manipulator = {
+    ### terrain type that province is converted to
+    created_terrain = <terrain>
+
+    ### mask that can be converted by specified manipulator
+    terrain_mask = <terrain_mask>
+
+    ### terrain type that is preffered for conversion
+    preferred_terrain = <terrain>
+
+    ### city type this terrain has a gravitation to
+    city_type = enum[city_type]
+
+    ## cardinality = 0..1
+    coastal = bool
+
+    toggle_map_object_layers = {
+        scalar = {
+            ### will be shown above specified <value> and hidden below
+            ## cardinality = 0..1
+            show_above = float
+
+            ### will be shown below specified <value> and hidden above
+            ## cardinality = 0..1
+            show_below = float
+        }
+
+        ### will be shown above DYNAMIC_MAP_OBJECT_MASK_THRESHOLD_SHOW define and hidden below
+        scalar = show_above_default
+
+        ### will be shown below DYNAMIC_MAP_OBJECT_MASK_THRESHOLD_HIDE define and hidden above
+        scalar = show_below_default
     }
 }

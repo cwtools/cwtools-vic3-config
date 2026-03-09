@@ -31,7 +31,7 @@ pdxmesh = {
 
     ## cardinality = 0..inf
     animation = {
-        id = scalar
+        id = value_set[pdxmesh_animation]
         type = scalar
     }
 

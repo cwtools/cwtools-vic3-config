@@ -693,6 +693,7 @@ enums = {
     enum[war_goal_setting] = {
         require_target_be_part_of_war
         can_add_for_other_country
+        preserve_on_switching_sides
         annexes_entire_state
         annexes_entire_country
         country_creation

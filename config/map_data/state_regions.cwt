@@ -50,13 +50,6 @@ state_region = {
     }
 
     ## cardinality = 0..1
-    ### List of impassable provinces, each with double quotes, also listed in provinces block
-    impassable = {
-        ## cardinality = 1..inf
-        enum[provinces]
-    }
-
-    ## cardinality = 0..1
     ### State traits, each with double quotes
     traits = {
         ## cardinality = 0..inf

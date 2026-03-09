@@ -9,6 +9,10 @@ party = {
     ### Party color
     color = <named_color>
     color = color_field
+    color = {
+        ## cardinality = 3..3
+        float
+    }
 
     ### Party name
     name = localisation

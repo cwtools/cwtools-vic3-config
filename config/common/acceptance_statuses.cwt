@@ -8,7 +8,6 @@ types = {
             icon_only = $_only_icon
         }
         images = {
-            ## primary
             small_icon = small_icon
             large_icon = large_icon
             background = background

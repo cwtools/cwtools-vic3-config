@@ -13,6 +13,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 political_lobby = {
     ### Icon
     texture = filepath
@@ -21,14 +22,12 @@ political_lobby = {
     category = enum[political_lobby_categories]
 
     ## cardinality = 0..1
-    ## replace_scope = { root = interest_group this = interest_group }
     ### Trigger that must evaluate true to create a lobby
     ### scope:country = the country the lobby belongs to
     ### scope:target_country = the country the lobby is targeting (same as scope:country for domestic lobbies)
     can_create = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    ## replace_scope = { root = country this = country }
     ### Effect that is fired after a lobby is created
     ### scope:country = the country the lobby belongs to
     ### scope:target_country = the country the lobby is targeting (same as scope:country for domestic lobbies)
@@ -36,7 +35,6 @@ political_lobby = {
     on_created = single_alias_right[effect_clause]
 
     ## cardinality = 0..inf
-    ## replace_scope = { root = interest_group this = interest_group }
     ### Conditions that must evaluate true to maintain a lobby
     ### Any number of requirements can be scripted in
     ### scope:country = the country the lobby belongs to
@@ -48,7 +46,6 @@ political_lobby = {
         trigger = single_alias_right[trigger_clause]
 
         ## cardinality = 0..1
-        ## replace_scope = { root = country this = interest_group }
         ### Effect that is executed if a requirement to maintain fails
         on_failed = single_alias_right[effect_clause]
 

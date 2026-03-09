@@ -3,7 +3,8 @@ types = {
         path = "game/common/technology/technologies"
         path_extension = .txt
         localisation = {
-            name = "$"
+            name = $
+            name = $_desc
         }
         images = {
             ## primary
@@ -22,6 +23,7 @@ era = {
     technology_cost = value_field
 }
 
+## replace_scope = { this = country root = country }
 technology = {
     ### era of this technology
     era = <era>

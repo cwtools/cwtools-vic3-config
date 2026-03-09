@@ -5,10 +5,13 @@ types = {
         localisation = {
             ## required
             name = "$"
+            ## required
+            desc = "$_desc"
         }
     }
 }
 
+## replace_scope = { ROOT = country THIS = country }
 law_group = {
     law_group_category = enum[law_group_categories]
 
@@ -29,7 +32,6 @@ law_group = {
     ## cardinality = 0..1
     linked_social_hierarchy = <social_hierarchy>
 
-    ## push_scope = country
     ## cardinality = 0..1
     change_allowed_trigger = {
         ## cardinality = 1..inf
