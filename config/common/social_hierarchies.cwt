@@ -8,6 +8,7 @@ types = {
     }
 }
 
+## replace_scope = { ROOT = pop THIS = pop }
 social_hierarchy = {
     ## cardinality = 0..1
     ### Determines whether this is the default hierarchy. Countries that don't have
@@ -18,7 +19,6 @@ social_hierarchy = {
     ### additional information.
     is_default = bool
 
-    ## push_scope = pop
     ## cardinality = 0..1
     ### This is a trigger that determines whether a pop can be subject to the hierarchy.
     pop_criteria = {

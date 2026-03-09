@@ -5,39 +5,22 @@ types = {
         localisation = {
             ## required
             name = "$"
+            ## required
+            desc = "$_desc"
         }
         images = {
             ## primary
             icon = icon
+        }
+        ## display_name = Character Ideology
+        subtype[character] = {
+            character_ideology = yes
         }
     }
 }
 
 ideology = {
     icon = filepath
-
-    ## cardinality = 0..1
-    show_in_list = bool
-
-    ## cardinality = 0..1
-    priority = int
-
-    ## cardinality = 0..1
-    character_ideology = bool
-
-    ## cardinality = 0..1
-    ## push_scope = character
-    non_interest_group_leader_trigger = single_alias_right[trigger_clause]
-
-    ## cardinality = 0..1
-    ## push_scope = character
-    interest_group_leader_trigger = single_alias_right[trigger_clause]
-
-    ## cardinality = 0..1
-    interest_group_leader_weight = single_alias_right[formula]
-
-    ## cardinality = 0..1
-    non_interest_group_leader_weight = single_alias_right[formula]
 
     ## cardinality = 0..inf
     <law_group> = {
@@ -46,6 +29,30 @@ ideology = {
     }
 
     ## cardinality = 0..1
-    ## push_scope = country
-    country_trigger = single_alias_right[trigger_clause]
+    priority = int
+
+    ## cardinality = 0..1
+    character_ideology = bool
+
+    subtype[character] = {
+        show_in_list = bool
+
+        ## cardinality = 0..1
+        ## replace_scope = { ROOT = character THIS = character }
+        non_interest_group_leader_trigger = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ## replace_scope = { ROOT = interest_group THIS = interest_group }
+        interest_group_leader_trigger = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        interest_group_leader_weight = single_alias_right[formula]
+
+        ## cardinality = 0..1
+        non_interest_group_leader_weight = single_alias_right[formula]
+
+        ## cardinality = 0..1
+        ## push_scope = country
+        country_trigger = single_alias_right[trigger_clause]
+    }
 }

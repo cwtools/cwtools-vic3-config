@@ -4,6 +4,8 @@ types = {
         localisation = {
             ## required
             name = "$"
+            ## required
+            desc = "$_desc"
         }
         images = {
             ## primary
@@ -12,6 +14,7 @@ types = {
     }
 }
 
+## replace_scope = { ROOT = country THIS = country }
 power_bloc_identity = {
     ### Icon used to represent this identity
     icon = filepath
@@ -49,6 +52,7 @@ power_bloc_identity = {
 
     ### This script value is evaluated in the scope of the power bloc to compute the weekly mandate progress value
     mandate_progress = <script_value>
+    ### This script value is evaluated in the scope of the power bloc to compute the weekly mandate progress value
     mandate_progress = single_alias_right[formula]
 
     ### This script value computes the cohesion target, which current cohesion drifts towards
@@ -56,22 +60,18 @@ power_bloc_identity = {
     cohesion = single_alias_right[formula]
 
     ## cardinality = 0..1
-    ## push_scope = country
     ### Determines whether the identity is visible in the list when forming a power bloc.
     visible = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    ## push_scope = country
     ### Determines whether the identity is selectable in the list when forming a power bloc.
     possible = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    ## push_scope = country
     ### This trigger is used to check if a country can join a power bloc with this identity. Additional scope details TBD.
     can_join = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    ## push_scope = country
     ### This trigger is used to check if a country can leave a power bloc with this identity. Additional scope details TBD.
     can_leave = single_alias_right[trigger_clause]
 }

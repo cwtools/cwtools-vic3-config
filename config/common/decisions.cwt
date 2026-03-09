@@ -3,7 +3,10 @@ types = {
         path = "game/common/decisions"
         path_extension = .txt
         localisation = {
+            ## required
             name = "$"
+            ## required
+            desc = "$_desc"
         }
     }
 }

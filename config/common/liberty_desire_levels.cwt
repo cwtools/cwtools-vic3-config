@@ -6,6 +6,9 @@ types = {
             ## primary
             background_texture = background_texture
         }
+        localisation = {
+            name = $
+        }
     }
 }
 

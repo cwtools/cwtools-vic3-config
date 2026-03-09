@@ -15,6 +15,7 @@ types = {
     }
 }
 
+## replace_scope = { this = country root = country }
 treaty_article = {
     ### Must be explicitly set to either directed or mutual
     kind = enum[treaty_article_kinds]

@@ -783,6 +783,8 @@ alias[effect:set_global_variable] = {
     value = $define_reference
     ## cardinality = 0..1
     value = scope_field
+    ## cardinality = 0..1
+    value = bool
 }
 
 ## scopes = { any }
@@ -1403,9 +1405,15 @@ alias[effect:create_character] = {
     ## cardinality = 0..1
     name = localisation
     ## cardinality = 0..1
+    name = culture
+    ## cardinality = 0..1
     first_name = localisation
     ## cardinality = 0..1
+    first_name = culture
+    ## cardinality = 0..1
     last_name = localisation
+    ## cardinality = 0..1
+    last_name = culture
 
     ## cardinality = 0..1
     is_agitator = bool
@@ -1432,6 +1440,8 @@ alias[effect:create_character] = {
     age = int_value_field
     ## cardinality = 0..1
     age = scope[character]
+    ## cardinality = 0..1
+    age = default
 
     ## cardinality = 0..1
     birth_date = date_field
@@ -1470,11 +1480,12 @@ alias[effect:create_character] = {
     ## cardinality = 0..1
     noble = scope[character]
 
-    ## push_scope = character
     ## cardinality = 0..1
+    ## push_scope = character
     on_created = single_alias_right[effect_clause]
 
     ## cardinality = 0..1
+    ## push_scope = character
     trait_generation = single_alias_right[effect_clause]
 
     ## cardinality = 0..1
@@ -1702,7 +1713,7 @@ alias[effect:remove_diplomatic_pact] = {
 ### Removes an enactment-related timed modifier effect to object in scope
 alias[effect:remove_enactment_modifier] = <modifier_container>
 
-## scopes = { country }
+## scopes = { state }
 ### Removes an enactment-related timed modifier effect to object in scope
 alias[effect:kill_population_percent_in_state] = {
     ## cardinality = 0..1
@@ -1975,7 +1986,7 @@ alias[effect:change_pop_religion] = {
 ## scopes = { state }
 ### Adds an acceptance delta for a culture in a state
 alias[effect:add_acceptance] = {
-    culture = scope[culture]
+    target = scope[culture]
 
     value = value_field
     value = single_alias_right[formula]
@@ -2610,6 +2621,9 @@ alias[effect:add_loyalists_in_state] = {
 
     ## cardinality = 0..1
     strata = enum[pop_strata]
+
+    ## cardinality = 0..1
+    interest_group = scope[interest_group]
 }
 
 ## scopes = { state }
@@ -2632,6 +2646,9 @@ alias[effect:add_radicals_in_state] = {
 
     ## cardinality = 0..1
     strata = enum[pop_strata]
+
+    ## cardinality = 0..1
+    interest_group = scope[interest_group]
 }
 
 ## scopes = { country }
@@ -2695,6 +2712,9 @@ alias[effect:create_political_lobby] = {
 
     ## cardinality = 1..inf
     add_interest_group = scope[interest_group]
+
+    ## cardinality = 0..1
+    lobby_formation_reason = enum[lobby_formation_reasons]
 }
 
 ## scopes = { power_bloc }
@@ -2822,12 +2842,6 @@ alias[effect:kill_population_in_state] = {
 ###    strata = <key>
 ### }
 alias[effect:kill_population_percent] = {
-    value = value_field
-    value = single_alias_right[formula]
-    value = <script_value>
-    value = <static_value>
-    value = $define_reference
-
     ## cardinality = 0..1
     pop_type = <pop_type>
 
@@ -2839,6 +2853,12 @@ alias[effect:kill_population_percent] = {
 
     ## cardinality = 0..1
     strata = enum[pop_strata]
+
+    percent = value_field[0..1]
+    percent = single_alias_right[formula]
+    percent = <script_value>
+    percent = <static_value>
+    percent = $define_reference
 }
 
 ## scopes = { pop }
@@ -3311,6 +3331,14 @@ alias[effect:remove_involved_country] = scope[country]
 ## scopes = { character }
 ### Kill a character
 alias[effect:retire_character] = yes
+## scopes = { character }
+### Kill a character
+alias[effect:retire_character] = {
+    ## cardinality = 0..1
+    hidden = bool
+    ## cardinality = 0..1
+    value = bool
+}
 
 ## scopes = { character }
 ### Makes scope character the executive of target company
@@ -3371,6 +3399,9 @@ alias[effect:transfer_subject] = scope[country]
 ## scopes = { interest_group }
 ### Finishes the negotiation that has started for an interest group
 alias[effect:finish_negotiation] = yes
+## scopes = { interest_group }
+### Finishes the negotiation that has started for an interest group
+alias[effect:finish_negotiation] = localisation
 
 ## scopes = { interest_group }
 ### Improves the stance of an IG on the currently enacting law by the given number of steps
@@ -3380,6 +3411,7 @@ alias[effect:improve_stance] = int
 ### Adds an amendment to the scoped law
 alias[effect:add_amendment] = {
     type = <amendment>
+    type = scope[amendment]
 
     sponsor = scope[interest_group]
 
@@ -3399,4 +3431,8 @@ alias[effect:add_contextless_journal_entry] = <journal_entry>
 ## scopes = { company }
 ### Sets the scoped company as a founding company for the target country
 alias[effect:add_owned_country] = scope[country]
+
+## scopes = { company }
+### Removes the scoped company's ownership of the target country
+alias[effect:remove_owned_country] = scope[country]
 

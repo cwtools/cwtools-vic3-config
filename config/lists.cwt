@@ -1,6 +1,9 @@
 # = Effect List Clauses
 single_alias[effect_every_list_clause] = {
     ## cardinality = 0..1
+    custom = localisation
+
+    ## cardinality = 0..1
     limit = single_alias_right[trigger_clause]
 
     ## cardinality = 0..inf
@@ -9,6 +12,9 @@ single_alias[effect_every_list_clause] = {
     alias_name[effect] = alias_match_left[effect]
 }
 single_alias[effect_random_list_clause] = {
+    ## cardinality = 0..1
+    custom = localisation
+
     ## cardinality = 0..1
     limit = single_alias_right[trigger_clause]
 
@@ -21,6 +27,9 @@ single_alias[effect_random_list_clause] = {
     alias_name[effect] = alias_match_left[effect]
 }
 single_alias[effect_ordered_list_clause] = {
+    ## cardinality = 0..1
+    custom = localisation
+
     ## cardinality = 0..1
     limit = single_alias_right[trigger_clause]
 
@@ -72,6 +81,9 @@ single_alias[effect_ordered_list_clause] = {
 # = Formula List Clauses
 single_alias[formula_every_list_clause] = {
     ## cardinality = 0..1
+    custom = localisation
+
+    ## cardinality = 0..1
     limit = single_alias_right[trigger_clause]
 
     ## cardinality = 0..inf
@@ -80,6 +92,9 @@ single_alias[formula_every_list_clause] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 single_alias[formula_ordered_list_clause] = {
+    ## cardinality = 0..1
+    custom = localisation
+
     ## cardinality = 0..1
     limit = single_alias_right[trigger_clause]
 
@@ -129,6 +144,9 @@ single_alias[formula_ordered_list_clause] = {
 }
 single_alias[formula_random_list_clause] = {
     ## cardinality = 0..1
+    custom = localisation
+
+    ## cardinality = 0..1
     limit = single_alias_right[trigger_clause]
 
     ## cardinality = 0..inf
@@ -143,6 +161,9 @@ single_alias[formula_random_list_clause] = {
 # = Trigger List Clauses
 single_alias[trigger_any_list_clause] = {
     ## cardinality = 0..1
+    custom = localisation
+
+    ## cardinality = 0..1
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
@@ -154,17 +175,17 @@ single_alias[trigger_any_list_clause] = {
     percent = $define_reference
 
     ## cardinality = 0..1
-    count = int_value_field
+    count == int_value_field
     ## cardinality = 0..1
-    count = single_alias_right[formula]
+    count == single_alias_right[formula]
     ## cardinality = 0..1
-    count = <script_value>
+    count == <script_value>
     ## cardinality = 0..1
-    count = <static_value>
+    count == <static_value>
     ## cardinality = 0..1
-    count = $define_reference
+    count == $define_reference
     ## cardinality = 0..1
-    count = all
+    count == all
 
     ## cardinality = 0..1
     ### If set, count = all and percent only consider the filtered items for the denominator.

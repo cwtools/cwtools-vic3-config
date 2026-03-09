@@ -69,6 +69,9 @@ event = {
 	hidden = bool
 
 	## cardinality = 0..1
+	is_popup = bool
+
+	## cardinality = 0..1
 	duration = int
 
 	## cardinality = 0..1
@@ -102,6 +105,8 @@ event = {
 		event_image = {
 			## cardinality = 0..1
 			video = <media_alias>
+			## cardinality = 0..1
+			video = filepath
 			## cardinality = 0..1
 			texture = filepath
 			## cardinality = 0..1
@@ -155,13 +160,18 @@ event = {
 	## cardinality = 0..inf
 	trigger = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	cancellation_trigger = single_alias_right[trigger_clause]
 
 	## cardinality = 0..inf
 	option = {
 		## cardinality = 0..1
 		name = localisation
+		## cardinality = 0..inf
+		name = {
+			trigger = single_alias_right[trigger_clause]
+			text = localisation
+		}
 
 		## cardinality = 0..1
 		show_as_unavailable = single_alias_right[trigger_clause]
@@ -177,6 +187,9 @@ event = {
 
 		## cardinality = 0..1
 		highlighted_option = bool
+
+		## cardinality = 0..1
+		fallback = bool
 
 		## cardinality = 0..1
 		ai_chance = single_alias_right[formula]

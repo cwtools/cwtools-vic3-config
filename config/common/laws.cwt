@@ -5,6 +5,8 @@ types = {
         localisation = {
             ## required
             name = "$"
+            ## required
+            desc = "$_desc"
         }
         images = {
             ## primary
@@ -13,6 +15,7 @@ types = {
     }
 }
 
+## replace_scope = { ROOT = country THIS = country }
 law = {
     group = <law_group>
 
@@ -48,23 +51,18 @@ law = {
     tax_modifier_very_high = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1
-    ## push_scope = country
     can_impose = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    ## push_scope = country
     can_enact = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    ## push_scope = country
     on_enact = single_alias_right[effect_clause]
 
     ## cardinality = 0..1
-    ## push_scope = country
     on_activate = single_alias_right[effect_clause]
 
     ## cardinality = 0..1
-    ## push_scope = country
     on_deactivate = single_alias_right[effect_clause]
 
     ## cardinality = 0..inf

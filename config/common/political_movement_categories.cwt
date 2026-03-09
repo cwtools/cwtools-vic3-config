@@ -6,6 +6,10 @@ types = {
             ## primary
             icon = icon
         }
+        localisation = {
+            ## required
+            icon = $_icon
+        }
     }
 }
 

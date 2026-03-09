@@ -5,6 +5,12 @@ types = {
         localisation = {
             ## required
             name = "$"
+            ## required
+            short = "$_short"
+            ## required
+            second_name = "$_name"
+            ## required
+            icon = "$_icon"
         }
         images = {
             ## primary
@@ -13,6 +19,7 @@ types = {
     }
 }
 
+## replace_scope = { ROOT = pop THIS = pop }
 pop_type = {
     texture = filepath
 

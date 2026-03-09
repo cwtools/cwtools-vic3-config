@@ -19,6 +19,10 @@ religion = {
 
     color = <named_color>
     color = color_field
+    color = {
+        ## cardinality = 3..3
+        float
+    }
 
     ## cardinality = 0..1
     ### These pops hate...

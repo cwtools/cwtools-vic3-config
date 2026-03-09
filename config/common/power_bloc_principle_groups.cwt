@@ -5,6 +5,8 @@ types = {
         localisation = {
             ## required
             name = "$"
+            ## required
+            desc = "$_desc"
         }
     }
 }
@@ -26,5 +28,4 @@ power_bloc_principle_group = {
     levels = {
         <power_bloc_principle>
     }
-
 }
