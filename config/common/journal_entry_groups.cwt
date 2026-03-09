@@ -8,6 +8,7 @@ types = {
             context = country
         }
         subtype[contextless] = {
+            ## cardinality = 0..1
             context = none
         }
     }

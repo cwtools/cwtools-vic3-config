@@ -1800,7 +1800,7 @@ alias[trigger:country_has_building_type_levels] = {
 }
 
 ## scopes = { country }
-### Determines the fraction of wargoals that enemies in the war are currently contesting  
+### Determines the fraction of wargoals that enemies in the war are currently contesting
 alias[trigger:enemy_contested_wargoals] = {
     target = scope[war]
 
@@ -1812,7 +1812,7 @@ alias[trigger:enemy_contested_wargoals] = {
 }
 
 ## scopes = { country }
-### Checks if a company of the specified type exists in scope country 
+### Checks if a company of the specified type exists in scope country
 alias[trigger:has_company] = scope[company_type]
 
 ## scopes = { character }
@@ -1832,7 +1832,7 @@ alias[trigger:has_mobilizing_unit] = bool
 alias[trigger:has_unit_type] = scope[combat_unit_type]
 
 ## scopes = { country }
-### Checks if country in scope is adjacent to a target country  
+### Checks if country in scope is adjacent to a target country
 alias[trigger:is_adjacent_to_country] = scope[country]
 
 ## scopes = { country }
@@ -1884,7 +1884,7 @@ alias[trigger:is_mass_migration_origin] = bool
 alias[trigger:is_mass_migration_origin_of_culture] = scope[culture]
 
 ## scopes = { country }
-### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war  
+### Determines the fraction of battles the target country has lost in the target war, weighted by manpower size of all battles in the war
 alias[trigger:size_weighted_lost_battles_fraction] = {
     target = scope[war]
 
@@ -1900,7 +1900,7 @@ alias[trigger:size_weighted_lost_battles_fraction] = {
 alias[trigger:state_goods_has_local_goods_shortage] = bool
 
 ## scopes = { state }
-### Checks the sum of building levels for a building group in a state 
+### Checks the sum of building levels for a building group in a state
 alias[trigger:state_has_building_group_levels] = {
     type = scope[building_group]
     type = <building_group>
@@ -2370,6 +2370,10 @@ alias[trigger:can_agitate] = scope[country]
 ## scopes = { country }
 ### Checks whether a countries ruler can take command of an army
 alias[trigger:ruler_can_have_command] = bool
+
+## scopes = { civil_war }
+### Compare progress of civil war
+alias[trigger:civil_war_progress] == value_field
 
 ## scopes = { character }
 ### Checks whether a commander character is available
