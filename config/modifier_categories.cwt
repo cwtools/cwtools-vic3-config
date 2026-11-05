@@ -46,4 +46,7 @@ modifier_categories = {
 	goods = {
 		supported_scopes = { any }
 	}
+	goods_output = {
+		supported_scopes = { any }
+	}
 }

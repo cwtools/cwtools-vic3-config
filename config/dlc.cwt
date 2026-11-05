@@ -27,6 +27,8 @@ dlc = {
     ### Higher priority shows first.
     priority = int
 
+    release_order = int
+
     ## cardinality = 0..1
     ### Flag to mark this dlc as a theme provider, determines visibility in the theme selector and whether the dlc has a banner texture
     theme_provider = bool

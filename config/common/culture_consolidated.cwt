@@ -122,6 +122,20 @@ culture = {
         localisation
     }
 
+    ### Female Family names
+    ## cardinality = 0..inf
+    female_common_last_names = {
+        ## cardinality = 1..inf
+        localisation
+    }
+
+    ### Male Family names
+    ## cardinality = 0..inf
+    male_common_last_names = {
+        ## cardinality = 1..inf
+        localisation
+    }
+
     ### Noble family first names
     ## cardinality = 0..inf
     male_noble_first_names = {
@@ -139,6 +153,20 @@ culture = {
     ### Noble family names
     ## cardinality = 0..inf
     noble_last_names = {
+        ## cardinality = 0..inf
+        localisation
+    }
+
+    ### Female Noble family names
+    ## cardinality = 0..inf
+    female_noble_last_names = {
+        ## cardinality = 0..inf
+        localisation
+    }
+
+    ### Male Noble family names
+    ## cardinality = 0..inf
+    male_noble_last_names = {
         ## cardinality = 0..inf
         localisation
     }

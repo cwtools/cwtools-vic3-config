@@ -14,6 +14,7 @@ army_diorama = {
         <combat_unit_group> = int
     }
 
+    ## cardinality = 0..1
     required_unit_types = {
         ## cardinality = 1..inf
         <combat_unit_type>
@@ -26,6 +27,7 @@ army_diorama = {
     basecamp = bool
 
     ### If it can be used as a battle side for a battle diorama (values: none/attacker/defender/either)
+    ## cardinality = 0..1
     battle_side = enum[army_diorama_battle_side]
 
     ### Define all locators for the different assets

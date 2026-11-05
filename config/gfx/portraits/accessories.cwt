@@ -7,11 +7,12 @@ types = {
 
 portrait_accessory = {
     ## cardinality = 0..1
-    set_tags = scalar
+    set_tags = $tags[portrait_accessory_tag] # since chronicle v2.1.10
 
     ## cardinality = 0..inf
     entity = {
-        required_tags = scalar
+        ## cardinality = 0..1
+        required_tags = $tags_condition[portrait_accessory_tag] # since chronicle v2.1.10
 
         shared_pose_entity = scalar
 

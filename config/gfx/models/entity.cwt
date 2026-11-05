@@ -10,6 +10,7 @@ types = {
 entity = {
     name = scalar
 
+    ## cardinality = 0..1
     pdxmesh = <pdxmesh>
 
     ## cardinality = 0..1
@@ -48,18 +49,27 @@ entity = {
     attribute = {
         name = scalar
 
+        ## cardinality = 0..1
         additive_animation = scalar
 
         ## cardinality = 0..1
         blend_shape = scalar
 
+        ## cardinality = 0..1
         default = float
     }
 
     ## cardinality = 0..1
     game_data = {
         ## cardinality = 0..inf
-        portrait_entity_user_data = {}
+        portrait_entity_user_data = {
+            ## cardinality = 0..inf
+            portrait_accessory = {
+                pattern_mask = filepath
+
+                variation = <portrait_accessory_variation>
+            }
+        }
     }
 
     ## cardinality = 0..1
@@ -78,6 +88,7 @@ entity = {
             float
         }
 
+        ## cardinality = 0..1
         animation = value[pdxmesh_animation]
 
         ## cardinality = 0..1
@@ -109,6 +120,7 @@ entity = {
 
     ## cardinality = 0..inf
     attach = {
+        ## cardinality = 0..1
         name = scalar
 
         scalar = "<entity>"
@@ -129,10 +141,13 @@ entity = {
 }
 
 single_alias[entity_event_clause] = {
+    ## cardinality = 0..1
     time = float
 
+    ## cardinality = 0..1
     state = value[entity_state]
 
+    ## cardinality = 0..1
     node = scalar
 
     ## cardinality = 0..1
@@ -179,7 +194,9 @@ single_alias[entity_event_clause] = {
     ## cardinality = 0..1
     skip_forward = float
 
+    ## cardinality = 0..1
     trigger_once = bool
 
+    ## cardinality = 0..1
     keep_particle = bool
 }

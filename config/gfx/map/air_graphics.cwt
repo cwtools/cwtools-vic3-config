@@ -21,6 +21,7 @@ air_graphic = {
     }
 
     ### Trigger to determine if the entity is possible at all for country scope both 'region' and 'target_region'
+    ## cardinality = 0..1
     possible = single_alias_right[trigger_clause]
 
     ### Entity length is the length used for placing entities on the air route, default 3
@@ -30,6 +31,42 @@ air_graphic = {
     ### Speed is how fast the entity of this type is moving, default 0.5
     ## cardinality = 0..1
     speed = float
+
+    ## cardinality = 0..1
+    breeding_latitude = {
+        ## cardinality = 2..2
+        int
+    }
+
+    ## cardinality = 0..1
+    wintering_latitude = {
+        ## cardinality = 2..2
+        int
+    }
+
+    ## cardinality = 0..1
+    breeding_regions = {
+        ## cardinality = 0..inf
+        <strategic_region>
+    }
+
+    ## cardinality = 0..1
+    wintering_regions = {
+        ## cardinality = 0..inf
+        <strategic_region>
+    }
+
+    ## cardinality = 0..1
+    depart_in = {
+        ## cardinality = 0..inf
+        enum[season]
+    }
+
+    ## cardinality = 0..1
+    return_in = {
+        ## cardinality = 0..inf
+        enum[season]
+    }
 
     ### Max count is max amount of those air entities shown on the map, default 100
     ## cardinality = 0..1

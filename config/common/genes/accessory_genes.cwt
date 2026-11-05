@@ -36,9 +36,9 @@ single_alias[accessory_gene_clause] = {
     value_set[accessory_gene_variant] = {
         index = int
 
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         enum[gene_gender_reference] = single_alias_right[accessory_gene_gender_clause]
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         enum[gene_gender_reference] = enum[gene_gender_reference]
     }
 }

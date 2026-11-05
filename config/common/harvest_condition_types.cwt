@@ -75,4 +75,12 @@ harvest_condition_type = {
     ## cardinality = 0..1
     ### Which texture to use as a pattern in the map mode, default - none
     map_texture = filepath
+
+    subtype[sea] = {
+        ### Sea conditions only.
+        ### The naval battle condition this one mirrors - its weather VFX is shown on the epicenter sea node while no battle is fought there.
+        ### Omit for no VFX
+        ## cardinality = 0..1
+        naval_battle_condition = <naval_battle_condition>
+    }
 }

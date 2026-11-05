@@ -1,0 +1,15 @@
+types = {
+    type[regional_exile_pool] = {
+        path = "game/common/regional_exile_pools"
+        path_extension = .txt
+        localisation = {
+            name = $
+        }
+    }
+}
+
+## replace_scope = { root = country this = country }
+regional_exile_pool = {
+    ### Countries fulfilling this trigger can access this Regional Exile Pool
+    has_access = single_alias_right[trigger_clause]
+}

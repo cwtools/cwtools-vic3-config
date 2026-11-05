@@ -47,21 +47,28 @@ pdxmesh = {
         type = scalar
     }
 
+    ## cardinality = 0..inf
     meshsettings = {
+        ## cardinality = 0..1
         name = scalar
 
+        ## cardinality = 0..1
         index = int
 
+        ## cardinality = 0..1
         texture_diffuse = scalar
 
+        ## cardinality = 0..1
         texture_normal = scalar
 
+        ## cardinality = 0..1
         texture_specular = scalar
 
-        shader = $shader_effect # effects in .shader files (since plugin version v2.1.9)
+        ## cardinality = 0..1
+        shader = $shader_effect # effects in .shader files (since chronicle v2.1.9)
 
         ## cardinality = 0..1
-        shadow_shader = $shader_effect # effects in .shader files (since plugin version v2.1.9)
+        shadow_shader = $shader_effect # effects in .shader files (since chronicle v2.1.9)
 
         ## cardinality = 0..inf
         additional_shader_defines = {
@@ -69,6 +76,7 @@ pdxmesh = {
             scalar
         }
 
+        ## cardinality = 0..1
         shader_file = filepath
 
         ## cardinality = 0..inf

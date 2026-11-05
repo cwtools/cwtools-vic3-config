@@ -2867,3 +2867,61 @@ alias[arithmetic_operation:ordered_scope_strait] = single_alias_right[formula_or
 ## scopes = { country state }
 ## push_scope = strait
 alias[trigger:any_scope_strait] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through the states of the scoped country that would be released to scope:target_country_creation, for country creation war goals
+## scopes = { country }
+## push_scope = state
+alias[effect:every_releasable_state] = single_alias_right[effect_every_list_clause]
+### Iterate through the states of the scoped country that would be released to scope:target_country_creation, for country creation war goals
+## scopes = { country }
+## push_scope = state
+alias[effect:random_releasable_state] = single_alias_right[effect_random_list_clause]
+### Iterate through the states of the scoped country that would be released to scope:target_country_creation, for country creation war goals
+## scopes = { country }
+## push_scope = state
+alias[effect:ordered_releasable_state] = single_alias_right[effect_ordered_list_clause]
+### Iterate through the states of the scoped country that would be released to scope:target_country_creation, for country creation war goals
+## scopes = { country }
+## push_scope = state
+alias[arithmetic_operation:every_releasable_state] = single_alias_right[formula_every_list_clause]
+### Iterate through the states of the scoped country that would be released to scope:target_country_creation, for country creation war goals
+## scopes = { country }
+## push_scope = state
+alias[arithmetic_operation:random_releasable_state] = single_alias_right[formula_random_list_clause]
+### Iterate through the states of the scoped country that would be released to scope:target_country_creation, for country creation war goals
+## scopes = { country }
+## push_scope = state
+alias[arithmetic_operation:ordered_releasable_state] = single_alias_right[formula_ordered_list_clause]
+### Iterate through the states of the scoped country that would be released to scope:target_country_creation, for country creation war goals
+## scopes = { country }
+## push_scope = state
+alias[trigger:any_releasable_state] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through the AI regional objectives of the scoped country, or the ones held in the scoped strategic region
+## scopes = { country strategic_region }
+## push_scope = ai_regional_objective
+alias[effect:every_scope_regional_objective] = single_alias_right[effect_every_list_clause]
+### Iterate through the AI regional objectives of the scoped country, or the ones held in the scoped strategic region
+## scopes = { country strategic_region }
+## push_scope = ai_regional_objective
+alias[effect:random_scope_regional_objective] = single_alias_right[effect_random_list_clause]
+### Iterate through the AI regional objectives of the scoped country, or the ones held in the scoped strategic region
+## scopes = { country strategic_region }
+## push_scope = ai_regional_objective
+alias[effect:ordered_scope_regional_objective] = single_alias_right[effect_ordered_list_clause]
+### Iterate through the AI regional objectives of the scoped country, or the ones held in the scoped strategic region
+## scopes = { country strategic_region }
+## push_scope = ai_regional_objective
+alias[arithmetic_operation:every_scope_regional_objective] = single_alias_right[formula_every_list_clause]
+### Iterate through the AI regional objectives of the scoped country, or the ones held in the scoped strategic region
+## scopes = { country strategic_region }
+## push_scope = ai_regional_objective
+alias[arithmetic_operation:random_scope_regional_objective] = single_alias_right[formula_random_list_clause]
+### Iterate through the AI regional objectives of the scoped country, or the ones held in the scoped strategic region
+## scopes = { country strategic_region }
+## push_scope = ai_regional_objective
+alias[arithmetic_operation:ordered_scope_regional_objective] = single_alias_right[formula_ordered_list_clause]
+### Iterate through the AI regional objectives of the scoped country, or the ones held in the scoped strategic region
+## scopes = { country strategic_region }
+## push_scope = ai_regional_objective
+alias[trigger:any_scope_regional_objective] = single_alias_right[trigger_any_list_clause]

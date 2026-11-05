@@ -19,6 +19,8 @@ ship_type = {
 
     profile_texture = filepath
 
+    ai_ship_category = <ai_ship_category>
+
     modifier = single_alias_right[modifier_clause]
 
     ### Which group the ship type belongs to
@@ -26,6 +28,10 @@ ship_type = {
 
     ### Goods cost for a ship when built
     construction_goods = single_alias_right[modifier_clause]
+
+    ### [Optional] The most target vulnerability this ship type can exploit for extra damage against a side lacking screening. If not specified, it can exploit all of it
+    ## cardinality = 0..1
+    vulnerability_exploitation = value_field
 
     ### Goods cost for a ship when consuming materiel
     materiel_goods = single_alias_right[modifier_clause]
@@ -54,8 +60,10 @@ ship_type = {
     use_modifications = bool
 
     ### The base cost to construct this ship type, not affected by modification levels.
+    ## cardinality = 0..1
     base_construction_cost = value_field
     ### The base cost to construct this ship type, not affected by modification levels.
+    ## cardinality = 0..1
     base_construction_cost = single_alias_right[formula]
 
     ### [Optional] The variable cost to construct a ship of this type based is multiplied by the total number of modification levels.

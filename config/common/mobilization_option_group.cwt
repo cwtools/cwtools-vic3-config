@@ -10,12 +10,12 @@ types = {
         }
         images = {
             ## primary
-            icon = icon
+            background = background
         }
     }
 }
 
 mobilization_option_group = {
-    icon = filepath
+    background = filepath
     weight = int_value_field
 }

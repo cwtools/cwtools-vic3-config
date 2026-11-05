@@ -1,0 +1,53 @@
+## replace_scope = { root = state this = state }
+single_alias[scripted_color_clause] = {
+    ## cardinality = 1..inf
+    ## replace_scope = { root = state this = state }
+    alias_name[scripted_color] = alias_match_left[scripted_color]
+
+    #TODO: incomplete
+    # seems like it has the same complexity as formulas
+    # see 'map_color' in map modes
+}
+
+
+alias[scripted_color:lerp] = {
+    min_color = <named_color>
+    min_color = color_field
+    min_color = $define_reference
+    min_color = scope[color]
+
+    max_color = <named_color>
+    max_color = color_field
+    max_color = $define_reference
+    max_color = scope[color]
+
+    factor = value_field
+    factor = <script_value>
+    factor = <static_value>
+    factor = single_alias_right[formula]
+}
+
+alias[scripted_color:value] = <named_color>
+alias[scripted_color:value] = color_field
+alias[scripted_color:value] = $define_reference
+alias[scripted_color:value] = scope[color]
+alias[scripted_color:value] = single_alias_right[scripted_color_clause]
+
+alias[scripted_color:if] = {
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 1..inf
+    alias_name[scripted_color] = alias_match_left[scripted_color]
+}
+
+alias[scripted_color:else_if] = {
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 1..inf
+    alias_name[scripted_color] = alias_match_left[scripted_color]
+}
+
+alias[scripted_color:else] = {
+    ## cardinality = 1..inf
+    alias_name[scripted_color] = alias_match_left[scripted_color]
+}

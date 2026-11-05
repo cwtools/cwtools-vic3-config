@@ -17,6 +17,11 @@ types = {
 journal_entry_group = {
     context = enum[journal_entry_group_context]
 
+    illustration = filepath
+
     ## cardinality = 0..1
     updates_strategic_region_stances = bool
+
+    ## cardinality = 0..1
+    themed = bool
 }

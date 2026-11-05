@@ -308,6 +308,7 @@ ai_strategy = {
     ###   defined here). Without a replace_key the composition is added alongside the existing set.
     ## cardinality = 0..1
     fleet_compositions = {
+        ## cardinality = 0..inf
         enum[ai_strategy_fleet_composition_type] = {
             ## cardinality = 0..1
             ship_group_weights = {
@@ -315,6 +316,14 @@ ai_strategy = {
                 <ship_group> = single_alias_right[formula]
                 ## cardinality = 0..inf
                 <ship_group> = value_field
+            }
+
+            ## cardinality = 0..1
+            ai_ship_category_weights = {
+                ## cardinality = 0..inf
+                <ai_ship_category> = single_alias_right[formula]
+                ## cardinality = 0..inf
+                <ai_ship_category> = value_field
             }
 
             ## cardinality = 0..1
@@ -335,6 +344,7 @@ ai_strategy = {
             ## cardinality = 0..1
             num_fleets_wanted = value_field
 
+            ## cardinality = 0..1
             potential = single_alias_right[trigger_clause]
         }
     }
@@ -484,6 +494,25 @@ ai_strategy = {
         }
     }
 
+    ### Determines whether the AI wants a Cossack Host in a state, highest score wins
+    ### A score of 0 means that option is not on the table at all, it does not mean neutral, so a state is left alone until something scores it
+    ### Whichever status the state is already in has its score multiplied by COSSACK_HOST_STICKYNESS
+    ### Using these values in other strategies will function additively
+    ### root = country
+    ### scope:target_state = state
+    ## cardinality = 0..1
+    cossack_host_scores = {
+        ## cardinality = 0..inf
+        establish_cossack_host = value_field
+        ## cardinality = 0..inf
+        establish_cossack_host = single_alias_right[formula]
+
+        ## cardinality = 0..inf
+        disband_cossack_host = value_field
+        ## cardinality = 0..inf
+        disband_cossack_host = single_alias_right[formula]
+    }
+
     ## cardinality = 0..1
     secret_goal_weights = {
         ## cardinality = 0..inf
@@ -501,21 +530,32 @@ ai_strategy = {
     ## cardinality = 0..1
     wargoal_scores = {
         ## cardinality = 0..inf
-        <war_goal_type> = single_alias_right[formula]
+        enum[war_goal_kind] = single_alias_right[formula]
         ## cardinality = 0..inf
-        <war_goal_type> = value_field
+        enum[war_goal_kind] = value_field
     }
 
     ## cardinality = 0..1
     wargoal_weights = {
         ## cardinality = 0..inf
-        <war_goal_type> = single_alias_right[formula]
+        enum[war_goal_kind] = single_alias_right[formula]
         ## cardinality = 0..inf
-        <war_goal_type> = value_field
+        enum[war_goal_kind] = value_field
     }
 
     ## cardinality = 0..1
     possible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    will_incorporate_state = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ai_ship_category_weights = {
+        ## cardinality = 0..inf
+        <ai_ship_category> = single_alias_right[formula]
+        ## cardinality = 0..inf
+        <ai_ship_category> = value_field
+    }
 
     weight = single_alias_right[formula]
     weight = value_field

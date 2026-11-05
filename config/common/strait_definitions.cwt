@@ -17,7 +17,12 @@ strait_definition = {
     ### Whether you need to control both sides of the strait to block it fully or militarily
     military_block_requires_full_control = bool
 
+    ## cardinality = 0..1
     tolls_require_full_control = bool
+
+    ### Multiplier on how badly restricting this strait hurts dependent countries (relations drag, grievances and AI fallout). Default 1
+    ## cardinality = 0..1
+    grievance_mult = value_field
 
     ### These need to be land provinces
     first_land_endpoint = enum[provinces]

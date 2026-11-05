@@ -211,6 +211,9 @@ scopes = {
 	religion = {
 		aliases = { religion }
 	}
+	container = {
+		aliases = { container }
+	}
 	ship = {
 		aliases = { ship }
 	}
@@ -258,18 +261,6 @@ scopes = {
 	}
 	theater = {
 		aliases = { theater }
-	}
-	travel_connection = {
-		aliases = { travel_connection }
-	}
-	travel_connection_definition = {
-		aliases = { travel_connection_definition }
-	}
-	travel_node = {
-		aliases = { travel_node }
-	}
-	travel_node_definition = {
-		aliases = { travel_node_definition }
 	}
 	war = {
 		aliases = { war }
@@ -319,7 +310,13 @@ scopes = {
 	decision = {
 		aliases = { decision }
 	}
-	container = {
-		aliases = { container }
+	ai_regional_objective = {
+		aliases = { ai_regional_objective }
+	}
+	ai_strategic_region_stance_type = {
+		aliases = { ai_strategic_region_stance_type }
+	}
+	ai_regional_objective_type = {
+		aliases = { ai_regional_objective_type }
 	}
 }

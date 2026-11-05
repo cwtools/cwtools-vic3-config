@@ -65,6 +65,12 @@ event = {
 	category = enum[event_category]
 
 	## cardinality = 0..1
+	fire_only_once = bool
+
+	## cardinality = 0..1
+	fire_only_once_globally = bool
+
+	## cardinality = 0..1
     dlc = <dlc>
 
     ## cardinality = 0..1
@@ -103,6 +109,7 @@ event = {
 	subtype[!hidden] = {
 		title = localisation
 		title = single_alias_right[complex_desc]
+
 		## cardinality = 0..inf
 		event_image = {
 			## cardinality = 0..1
@@ -118,9 +125,15 @@ event = {
 			## cardinality = 0..1
 			on_opened_soundeffect = enum[sound_effects]
 		}
+
+		## cardinality = 0..1
 		desc = localisation
+		## cardinality = 0..1
 		desc = single_alias_right[complex_desc]
+
+		## cardinality = 0..1
 		flavor = localisation
+		## cardinality = 0..1
 		flavor = single_alias_right[complex_desc]
 	}
 

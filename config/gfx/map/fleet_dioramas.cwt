@@ -47,6 +47,7 @@ fleet_diorama = {
             float
         }
 
+        ## cardinality = 0..1
         scale = float
     }
 

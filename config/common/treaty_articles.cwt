@@ -295,6 +295,9 @@ treaty_article = {
     possible = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
+    show_in_lens = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
     ### This trigger controls whether the parties are allowed to ratify a treaty that
     ### contains this article type.
     ### An empty trigger is equivalent to `always = yes`, but note that due to
@@ -315,6 +318,9 @@ treaty_article = {
     ### - `scope:source_country` is the specific party that would be bound as the source party of the article if the treaty entered into force
     ### - `scope:target_country` is the specific party that would be bound as the target party of the article if the treaty entered into force
     can_ratify = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    can_propose = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
     ### A treaty enters into force once all parties have ratified it. This effect is
@@ -565,6 +571,27 @@ treaty_article = {
         ### - `scope:goods`
         ### - `scope:market_goods`
         infamy = single_alias_right[formula]
+
+        ## cardinality = 0..1
+        infamy_severity = value_field
+        ## cardinality = 0..1
+        infamy_severity = single_alias_right[formula]
+        ## cardinality = 0..1
+        infamy_severity = $define_reference
+
+        ## cardinality = 0..1
+        infamy_min = value_field
+        ## cardinality = 0..1
+        infamy_min = single_alias_right[formula]
+        ## cardinality = 0..1
+        infamy_min = $define_reference
+
+        ## cardinality = 0..1
+        infamy_max = value_field
+        ## cardinality = 0..1
+        infamy_max = single_alias_right[formula]
+        ## cardinality = 0..1
+        infamy_max = $define_reference
 
         contestion_type = enum[war_goal_contestion_type]
     }

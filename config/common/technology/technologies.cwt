@@ -40,7 +40,7 @@ technology = {
         <technology>
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### these modifiers are applied to the country if this technology is researched
     modifier = single_alias_right[modifier_clause]
 

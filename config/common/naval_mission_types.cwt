@@ -15,6 +15,8 @@ types = {
 naval_mission_type = {
     icon = filepath
 
+    map_texture = filepath
+
     ## cardinality = 0..1
     enum[naval_mission_type_base] = bool
 
@@ -27,17 +29,34 @@ naval_mission_type = {
     ## cardinality = 0..1
     ai_distance_penalty_multiplier = value_field
 
+    ### How much passive experience ships' crew gain from being on this mission every week
     ## cardinality = 0..1
     experience = value_field
 
+    ### What targets intercept behavior will target
     ## cardinality = 0..1
     intercept_targets = {
         ## cardinality = 0..inf
         enum[naval_mission_type_target]
     }
 
+    ### What targets piracy behavior will target. Shorthand that sets both the import and export targets below
     ## cardinality = 0..1
     piracy_targets = {
+        ## cardinality = 0..inf
+        enum[naval_mission_type_target]
+    }
+
+    ### Overrides piracy_targets for the importing side (the trade center whose imports are pirated)
+    ## cardinality = 0..1
+    piracy_import_targets = {
+        ## cardinality = 0..inf
+        enum[naval_mission_type_target]
+    }
+
+    ### Overrides piracy_targets for the exporting side (the trade center the goods are shipped from)
+    ## cardinality = 0..1
+    piracy_export_targets = {
         ## cardinality = 0..inf
         enum[naval_mission_type_target]
     }
@@ -46,9 +65,15 @@ naval_mission_type = {
     ## cardinality = 0..1
     modifier = single_alias_right[modifier_clause]
 
+    ### Is applied to the commander of the fleet
     ## cardinality = 0..1
     command_modifier = single_alias_right[modifier_clause]
 
+    ### If the mission will even be available in the ux
     ## cardinality = 0..1
     potential = single_alias_right[trigger_clause]
+
+    ### If the mission will be disabled or not in the ux
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
 }

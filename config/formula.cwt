@@ -48,6 +48,14 @@ alias[arithmetic_operation:floor] = value_field
 alias[arithmetic_operation:save_temporary_value_as] = value_set[variable]
 alias[arithmetic_operation:save_temporary_scope_as] = value_set[event_target]
 
+# Maybe split this out into its own thing
+alias[arithmetic_operation:progress_condition] = {
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
 alias[arithmetic_operation:fixed_range] = {
     min = value_field
     min = single_alias_right[formula]

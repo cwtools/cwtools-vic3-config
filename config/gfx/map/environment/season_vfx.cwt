@@ -1,0 +1,14 @@
+types = {
+    type[season_vfx] = {
+        path = "gfx/map/environment/season_vfx"
+        path_extension = .txt
+    }
+}
+
+season_vfx = {
+    ### Name of the game_object_locator block in gfx/map/map_object_data whose instances the entity is spawned on.
+    locator = <game_object_locator>
+
+    ### Name of the entity in the .asset files that is spawned on every instance of the locator.
+    entity = <entity>
+}

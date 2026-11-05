@@ -15,7 +15,7 @@ mod_descriptor = {
     localizable_name = localisation
 
     ## cardinality = 0..1
-    path = scalar # TODO plugin version 2.1.10+ - file path relative to super entry
+    path = scalar # TODO [chronicle 2.1.10+] file path relative to super entry
     ## cardinality = 0..1
     steam_id = scalar
     ## cardinality = 0..1

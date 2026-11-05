@@ -15,17 +15,21 @@ types = {
 ship_modification = {
     icon = filepath
 
+    ## cardinality = 0..1
     clicksound = enum[sound_effects]
 
     ### Which slot this modification uses
     type = <ship_modification_slot>
 
+    ## cardinality = 0..1
     modifier = single_alias_right[modifier_clause]
 
     ### Goods cost modification for a ship when building/retrofitting
+    ## cardinality = 0..1
     construction_goods = single_alias_right[modifier_clause]
 
     ### Goods cost modification for a ship when consuming materiel
+    ## cardinality = 0..1
     materiel_goods = single_alias_right[modifier_clause]
 
     ### [Optional] Required technologies to construct the ship type. If multiple entries are specified, either one of them is required

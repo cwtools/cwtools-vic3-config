@@ -13,7 +13,7 @@ flag_definition = {
     ## cardinality = 0..inf
     includes = <flag_definition>
 
-    ## cardinality = 1..inf
+    ## cardinality = 0..inf
     flag_definition = {
         coa = <coat_of_arm>
         ## property_value_prefix = list

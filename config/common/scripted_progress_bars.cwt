@@ -9,6 +9,8 @@ types = {
 scripted_progress_bar = {
     ### Name of progress bar
     name = localisation
+    ### Name of progress bar
+    name = single_alias_right[complex_desc]
 
     ### This will be printed on the left side of the progress bar
     desc = localisation
@@ -18,6 +20,9 @@ scripted_progress_bar = {
     ## cardinality = 0..1
     ### This will be printed on the right side of the progress bar
     second_desc = localisation
+    ## cardinality = 0..1
+    ### This will be printed on the right side of the progress bar
+    second_desc = single_alias_right[complex_desc]
 
     ### Start value of a newly initialized progress bar
     start_value = value_field
@@ -27,6 +32,30 @@ scripted_progress_bar = {
 
     ### Max value of progress bar
     max_value = value_field
+
+    ## cardinality = 0..1
+    progress_texture = filepath
+
+    ## cardinality = 0..1
+    glow_texture = filepath
+
+    ## cardinality = 0..1
+    glow_line_texture = filepath
+
+    ## cardinality = 0..1
+    background_texture = filepath
+
+    ## cardinality = 0..1
+    glow_line_texture = filepath
+
+    ## cardinality = 0..1
+    left_icon = filepath
+
+    ## cardinality = 0..1
+    right_icon = filepath
+
+    ## cardinality = 0..1
+    marker = bool
 
     ## cardinality = 0..1
     ### default style of progress bar (blue bar)
@@ -42,20 +71,6 @@ scripted_progress_bar = {
     ## cardinality = 0..1
     ### default green style of progress bar (green bar)
     default_green = bool
-
-    ## cardinality = 0..1
-    ### double sided gold style of progress bar
-    double_sided_gold = bool
-
-    ## cardinality = 0..1
-    double_sided_two_spains = bool
-
-    ## cardinality = 0..1
-    double_sided_ryukyu = bool
-
-    ## cardinality = 0..1
-    ### double sided bad style of progress bar
-    double_sided_bad = bool
 
     ## cardinality = 0..1
     ### weekly progress of progress bar

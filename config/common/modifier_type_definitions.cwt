@@ -12,39 +12,54 @@ types = {
 }
 
 modifier_type = {
+    ### determines whether the modifier value should be considered positive, negative, or neutral
+    ### when displaying entries of this type (can also be used for boolean type modifiers where it determines the icon)
     ## cardinality = 0..1
     color = enum[modifier_color]
 
+    ### determines how many decimal points will be used when displaying entries with this modifier definition
     ## cardinality = 0..1
     decimals = int
 
+    ### determines whether the modifier value should be considered a percentage
+    ### when displaying entries of this type (i.e. multiply by 100 and append a % sign, the value underneath is not affected)
     ## cardinality = 0..1
     percent = bool
 
+    ### determines whether the modifier value should be treated as boolean,
+    ### i.e. a flag that determines the presence of something, such as enabling or disabling a behavior (only `yes` is valid as a value for entries)
     ## cardinality = 0..1
     boolean = bool
 
     ## cardinality = 0..1
-    difference_sign = bool
+    hidden = bool
 
     ## cardinality = 0..1
+    difference_sign = bool
+
+    ### determines which prefix if any should be used when displaying the values for entries of this type
+    ## cardinality = 0..1
     prefix = localisation
+
+    ### determines which suffix if any should be used when displaying the values for entries of this type
+    ## cardinality = 0..1
+    suffix = localisation
 
     ### Doing this will suppress the error that you would otherwise receive and should no longer clog up your error log.
     ## cardinality = 0..1
     script_only = bool
 
     ## cardinality = 0..1
-    suffix = localisation
-
-    ## cardinality = 0..1
     game_data = {
+        ### the value to the AI of having this modifier, multiplied by the value to determine the chance the AI will go after static modifiers of this type; only implemented for certain modifier types
         ## cardinality = 0..1
         ai_value = value_field
 
+        ### the alternate modifier definition this type should be treated as in bespoke regions of code. Not generically applicable, used for applying the same effect in contextually appropriate situations
         ## cardinality = 0..1
         translate = localisation
 
+        ### the modifier typesets this type belongs to, used in code to perform bespoke operations (such as updating cultural community acceptance deltas when a country enacts a law with a modifier entry of this type)
         ## cardinality = 0..1
         tags = {
             ## cardinality = 1..inf
