@@ -6,6 +6,13 @@ enums = {
         years
     }
 
+    enum[season] = {
+        spring
+        summer
+        autumn
+        winter
+    }
+
     enum[character_role] = {
         politician
         general
@@ -15,6 +22,8 @@ enums = {
         heir
         executive
         magnate
+        favorite
+        other
     }
     enum[character_role_title_format] = {
         from_name
@@ -87,6 +96,7 @@ enums = {
 
     enum[dlc_feature] = {
         ep2_content
+        ep2_cosmetics
         rp1_content
         ip2_content
         ip2_cosmetics
@@ -94,6 +104,8 @@ enums = {
         ip3_cosmetics
         ip4_content
         ip4_cosmetics
+        ip5_content
+        ip5_cosmetics
         ep1_content
         ep1_cosmetics
         mp1_content
@@ -108,11 +120,14 @@ enums = {
         foreign_investment
         subject_and_bloc_actions
         lobbies
+        regional_exile_pools
+        ship_designer
     }
 
     enum[gameplay_dlc] = {
         "American Buildings Pack"
         "The Great Wave"
+        "IP5"
     }
 
     enum[country_tier] = {
@@ -173,6 +188,7 @@ enums = {
     }
 
     enum[treaty_article_flags] = {
+        show_in_lens
         is_alliance
         is_defensive_pact
         is_gurantee_independence
@@ -212,6 +228,7 @@ enums = {
         exclude_from_make_this_work
         is_non_piracy_agreement
         is_abandon_piracy
+        is_one_time
     }
 
     enum[treaty_article_inputs] = {
@@ -464,6 +481,7 @@ enums = {
         goods
         journal_entry
         interest_group
+        market
     }
 
     enum[notification_types] = {
@@ -600,6 +618,11 @@ enums = {
         no_dynamic_naming
         give_ruler_selector
         no_ruler_selector
+        infamy_generation_very_low
+        infamy_generation_low
+        infamy_generation_high
+        infamy_generation_very_high
+        formal_country_map_names
     }
 
     enum[tension_threshold] = {
@@ -633,6 +656,9 @@ enums = {
         main_battle_fleet
         secondary_fleet
         raid_fleet
+        light_ship_fleet
+        coastal_defense_fleet
+        submarine_raiding_fleet
     }
 
     enum[culture_name_format] = {
@@ -724,6 +750,9 @@ enums = {
         demand_toll_exemption
         demand_no_tolls
         demand_no_strait_closure
+        make_subject
+        break_enforced_treaties
+        release_as_subject
         custom
     }
 
@@ -769,6 +798,7 @@ enums = {
         conflicts_with_annex_country
         conflicts_with_annex_state
         conflicts_with_existing_subject
+        assent_required
     }
     enum[war_goal_contestion_type] = {
         control_target_state
@@ -780,11 +810,27 @@ enums = {
         control_all_own_states
         control_all_target_country_claims
         control_any_releasable_state
+        control_half_target_country_states
     }
     enum[war_goal_target_type] = {
         country
         state
         treaty_article
+    }
+    enum[war_goal_side_switch] = {
+        always
+        never
+        on_capitulation
+    }
+    enum[war_goal_mirrored_method] = {
+        territorial
+        swap
+        liberate_loser
+        reverse_transfer
+        subjugate
+        restore_subject
+        reparations
+        no_mirror
     }
 
     enum[portrait_modifier_usage] = {
@@ -864,6 +910,13 @@ enums = {
         mass_migration_pull
         player_country
         interests
+        state_value
+        state_infamy
+        journal_entry_map_data
+        journal_entry_map_data_second
+        cold_effect
+        min_cold_effect
+        max_cold_effect
     }
     enum[map_mode_names] = {
         countries
@@ -876,6 +929,7 @@ enums = {
         market_areas
         power_blocs
         player
+        none
     }
     enum[map_mode_tooltip_offset] = {
         state
@@ -1011,6 +1065,7 @@ enums = {
         fleet
         battle_side
         blockade
+        port_bombardment
     }
 
     enum[fleet_entity_modification_slot_type] = {
@@ -1030,5 +1085,123 @@ enums = {
         cannon
         turret
         torpedo
+    }
+
+    enum[journal_entry_outcome_flag] = {
+        hidden
+        timeout
+        invalid_outcome
+        fails_subgoal
+        historical
+    }
+
+    # Auto Generated
+    enum[scopes] = {
+        none
+        value
+        boolean
+        flag
+        color
+        country
+        battle
+        battle_side
+        building
+        building_type
+        building_group
+        character
+        character_role
+        civil_war
+        new_combat_unit
+        combat_unit_type
+        commander_order_type
+        company
+        company_type
+        country_creation
+        country_definition
+        country_formation
+        cultural_community
+        culture
+        decree
+        diplomatic_action
+        diplomatic_demand
+        diplomatic_pact
+        diplomatic_play
+        diplomatic_play_type
+        diplomatic_relations
+        diplomatic_catalyst
+        diplomatic_catalyst_type
+        diplomatic_catalyst_category
+        political_lobby
+        political_lobby_type
+        political_lobby_appeasement
+        front
+        goods
+        hq
+        ideology
+        institution
+        institution_type
+        interest_marker
+        interest_group
+        interest_group_trait
+        interest_group_type
+        interest_tier_type
+        journal_entry
+        law
+        law_type
+        market
+        market_goods
+        military_formation
+        naval_battle
+        naval_mission
+        naval_mission_type
+        invasion
+        objective
+        party
+        political_movement
+        political_movement_type
+        political_movement_category
+        pop
+        pop_type
+        power_bloc
+        power_bloc_identity
+        power_bloc_principle
+        province
+        religion
+        container
+        ship
+        ship_group
+        ship_modification_type
+        ship_type
+        shipping_lanes
+        state
+        state_goods
+        state_region
+        state_trait
+        strait
+        strait_type
+        strategic_region
+        sway
+        technology
+        technology_status
+        theater
+        war
+        mobilization_option
+        geographic_region
+        power_bloc_principle_group
+        harvest_condition
+        harvest_condition_area
+        harvest_condition_type
+        treaty_article
+        treaty_options
+        treaty_article_options
+        treaty
+        war_goal
+        war_goal_type
+        amendment_type
+        amendment
+        decision
+        ai_regional_objective
+        ai_strategic_region_stance_type
+        ai_regional_objective_type
     }
 }

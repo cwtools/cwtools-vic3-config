@@ -2,6 +2,9 @@ types = {
     type[terrain] = {
         path = "game/common/terrain"
         path_extension = .txt
+        localisation = {
+            name = $
+        }
     }
 }
 

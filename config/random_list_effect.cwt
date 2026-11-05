@@ -20,5 +20,7 @@ single_alias[random_list_element] = {
 
     ## cardinality = 0..inf
     modifier = single_alias_right[formula]
+    ## cardinality = 0..inf
+    modifier = value_field
 }
 

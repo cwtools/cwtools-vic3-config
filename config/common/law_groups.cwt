@@ -15,12 +15,12 @@ types = {
 law_group = {
     law_group_category = enum[law_group_categories]
 
-    ## cardinality = 0..1
     ### the length of the enactment cycle (in days) prior to taking Legitimacy into account. If not specified, this value will be dictated by the LAW_ENACTMENT_DEFAULT_BASE_DAYS define. If specified, this overrides the define.
+    ## cardinality = 0..1
     base_enactment_days = int
 
-    ## cardinality = 0..1
     ### multiplier to the approval effects changing this law has on IGs, default 1.0
+    ## cardinality = 0..1
     enactment_approval_mult = value_field
 
     ## cardinality = 0..1
@@ -35,6 +35,7 @@ law_group = {
     ## cardinality = 0..1
     change_allowed_trigger = single_alias_right[trigger_clause]
 
+    ### trigger for whether laws in this group should be possible at all
     ## cardinality = 0..1
     enable = single_alias_right[trigger_clause]
 }

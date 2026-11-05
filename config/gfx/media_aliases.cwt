@@ -7,7 +7,9 @@ types = {
 
 media_alias = {
     video = filepath
+
     audio = enum[sound_effects]
+    audio = ""
 
     ## cardinality = 0..1
     fallback = <media_alias>

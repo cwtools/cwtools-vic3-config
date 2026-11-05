@@ -52,7 +52,7 @@ state_region = {
         enum[provinces]
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### State traits, each with double quotes
     traits = {
         ## cardinality = 0..inf
@@ -113,6 +113,14 @@ state_region = {
     ## cardinality = 0..1
     ### Port hub province
     port = enum[provinces]
+
+    ### Optional: cold effect in the middle of summer for this hemisphere
+    ## cardinality = 0..1
+    min_cold_effect = float
+
+    ### Optional: cold effect in the middle of winter for this hemisphere, must be at least min_cold_effect
+    ## cardinality = 0..1
+    max_cold_effect = float
 
     ## cardinality = 0..1
     ### Which sea province adjoins, matches the ID of a water state

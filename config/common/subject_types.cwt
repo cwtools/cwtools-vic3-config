@@ -18,6 +18,9 @@ subject_type = {
 
     breaks_if_subject_not_protected = bool
 
+    ## cardinality = 0..1
+    forced_into_overlord_revolution = bool
+
     join_overlord_wars = bool
 
     can_have_subjects = bool
@@ -38,6 +41,8 @@ subject_type = {
 
     ## cardinality = 0..1
     can_be_used_in_sway_offers = bool
+
+    re_establish_war_goal = <war_goal_type>
 
     diplomatic_action = <diplomatic_action>
 

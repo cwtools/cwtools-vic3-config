@@ -111,6 +111,7 @@ city_centerpiece = {
     ## cardinality = 0..inf
     attach = {
         ### [Optional] The variants are attached to the locator if specified as 'locator' or to the city center otherwise
+        ## cardinality = 0..1
         locator = value[city_centerpiece_locator]
 
         ### [Can be repeated]

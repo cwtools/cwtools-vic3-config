@@ -79,7 +79,13 @@ amendment = {
     would_sponsor = single_alias_right[trigger_clause]
 
     ### trigger that checks if this amendment should be possible to attach to a law
+    ## cardinality = 0..1
     ai_will_revoke = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ai_revoke_weight_modifier = value_field
+    ## cardinality = 0..1
+    ai_revoke_weight_modifier = single_alias_right[formula]
 
     ## cardinality = 0..1
     amendment_activism_multiplier = value_field

@@ -5,10 +5,20 @@ types = {
         localisation = {
             ## required
             name = "$"
+
+            subtype[dynamic] =  {
+                ## required
+                singular = $_dynamic_name_tag_singular
+                ## required
+                plural = $_dynamic_name_tag_plural
+            }
         }
         images = {
             ## primary
             icon = icon
+        }
+        subtype[dynamic] =  {
+            uses_dynamic_naming = yes
         }
     }
 }
@@ -53,10 +63,11 @@ company_type = {
     ## cardinality = 0..1
     uses_dynamic_naming = bool
 
-    ## cardinality = 0..1
-    dynamic_company_type_names = {
-        ## cardinality = 0..inf
-        localisation
+    subtype[dynamic] = {
+        dynamic_company_type_names = {
+            ## cardinality = 0..inf
+            localisation
+        }
     }
 
     ## cardinality = 0..1

@@ -1,41 +1,52 @@
+# Auto Generated:
+# This is a list of all base game modifier masks.
 modifier_categories = {
-	none = {
+	battle = {
 		supported_scopes = { any }
 	}
 	building = {
 		supported_scopes = { any }
 	}
-	state = {
+	character = {
 		supported_scopes = { any }
 	}
 	country = {
 		supported_scopes = { any }
 	}
-	market = {
-		supported_scopes = { any }
-	}
-	tariff = {
-		supported_scopes = { any }
-	}
-	unit = {
-		supported_scopes = { any }
-	}
-	battle = {
-		supported_scopes = { any }
-	}
-	character = {
-		supported_scopes = { any }
-	}
-	tax = {
+	none = {
 		supported_scopes = { any }
 	}
 	interest_group = {
 		supported_scopes = { any }
 	}
-	front = {
+	interest_group_in_opposition = {
+		supported_scopes = { any }
+	}
+	military_formation = {
 		supported_scopes = { any }
 	}
 	political_movement = {
+		supported_scopes = { any }
+	}
+	power_bloc = {
+		supported_scopes = { any }
+	}
+	ship = {
+		supported_scopes = { any }
+	}
+	state = {
+		supported_scopes = { any }
+	}
+	tax = {
+		supported_scopes = { any }
+	}
+	unit = {
+		supported_scopes = { any }
+	}
+	goods = {
+		supported_scopes = { any }
+	}
+	goods_output = {
 		supported_scopes = { any }
 	}
 }

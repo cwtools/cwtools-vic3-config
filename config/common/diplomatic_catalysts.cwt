@@ -9,6 +9,7 @@ types = {
     }
 }
 
+## replace_scope = { this = country root = country }
 diplomatic_catalyst = {
     ### Which diplomatic_catalyst_category does this catalyst belong to
     category = <diplomatic_catalyst_category>
@@ -17,7 +18,6 @@ diplomatic_catalyst = {
     ### Data for creating lobbies as a result of this catalyst
     political_lobby_creation = {
         ## cardinality = 0..1
-        ## replace_scope = { this = country root = country }
         ### Trigger for whether to evaluate the script values below at all
         ### Mostly used to save on performance by avoiding costly calculations when not needed, as <= 0 lobby script value has the same effect
         ### Scopes:
@@ -26,7 +26,6 @@ diplomatic_catalyst = {
         trigger = single_alias_right[trigger_clause]
 
         ## cardinality = 1..inf
-        ## replace_scope = { this = country root = country }
         ### Script values for chance to try and create one or more lobby types
         ### Same scopes as trigger
         <political_lobby> = single_alias_right[formula]
@@ -45,7 +44,6 @@ diplomatic_catalyst = {
         type = enum[ai_country_goal_recalculation_types]
 
         ## cardinality = 0..1
-        ## replace_scope = { this = country root = country }
         ### Trigger for whether to evaluate the script value below at all
         ### Mostly used to save on performance by avoiding costly calculations when not needed, as <= 0 chance has the same effect
         ### Scopes:
@@ -53,7 +51,6 @@ diplomatic_catalyst = {
         ### scope:target_country = the country the catayst was triggered by
         trigger = single_alias_right[trigger_clause]
 
-        ## replace_scope = { this = country root = country }
         ### Script value for chance to recalculate the AI's strategic desire (0 = 0%, 1 = 100%)
         ### Same scopes as trigger
         chance = single_alias_right[formula]
@@ -63,7 +60,6 @@ diplomatic_catalyst = {
     }
 
     ## cardinality = 0..1
-    ## replace_scope = { this = country root = country }
     ### Effect that is executed when catalyst occurs
     ### Scopes:
     ### root = the country the catalyst was triggered for

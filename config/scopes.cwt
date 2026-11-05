@@ -1,227 +1,322 @@
+# Auto Generated:
+# This is a list of all scopes.
 scopes = {
-    Value = {
-        aliases = { value }
-        }
-    Bool = {
-        aliases = { bool }
-        }
-    Flag = {
-        aliases = { flag }
-        }
-    Country = {
-        aliases = { country }
-        }
-    Technology = {
-        aliases = { technology }
-        }
-    "Technology Status" = {
-        aliases = { technology_status }
-        }
-    Culture = {
-        aliases = { culture }
-        }
-    State = {
-        aliases = { state }
-        }
-    Province = {
-        aliases = { province }
-        }
-    Pop = {
-        aliases = { pop }
-        }
-    "Pop Type" = {
-        aliases = { pop_type }
-        }
-    Building = {
-        aliases = { building Building }
-        }
-    "Building Type" = {
-        aliases = { building_type }
-        }
-    "Interest Group" = {
-        aliases = { interest_group }
-        }
-    Market = {
-        aliases = { market }
-        }
-    "Market Goods" = {
-        aliases = { market_goods }
-        }
-    "Interest Marker" = {
-        aliases = { interest_marker }
-        }
-    "Strategic Region" = {
-        aliases = { strategic_region }
-        }
-    "Diplomatic Action" = {
-        aliases = { diplomatic_action }
-        }
-    "Diplomatic Pact" = {
-        aliases = { diplomatic_pact }
-        }
-    "Diplomatic Play" = {
-        aliases = { diplomatic_play }
-        }
-    "Diplomatic Relations" = {
-        aliases = { diplomatic_relations }
-        }
-    Character = {
-        aliases = { character Character }
-        }
-    "State Region" = {
-        aliases = { state_region }
-        }
-    War = {
-        aliases = { war }
-        }
-    Theater = {
-        aliases = { theater }
-        }
-    Religion = {
-        aliases = { religion }
-        }
-    Institution = {
-        aliases = { institution }
-        }
-    "Institution Type" = {
-        aliases = { institution_type }
-        }
-    Law = {
-        aliases = { law }
-        }
-    "Law Type" = {
-        aliases = { law_type }
-        }
-    "Journal Entry" = {
-        aliases = { journal_entry }
-        }
-    "Trade Route" = {
-        aliases = { trade_route }
-        }
-    Decree = {
-        aliases = { decree }
-        }
-    "Commander Order" = {
-        aliases = { commander_order }
-        }
-    "Commander Order Type" = {
-        aliases = { commander_order_type }
-        }
-    Front = {
-        aliases = { front }
-        }
-    Battle = {
-        aliases = { battle }
-        }
-    "Interest Group Trait" = {
-        aliases = { interest_group_trait }
-        }
-    Ideology = {
-        aliases = { ideology }
-        }
-    Goods = {
-        aliases = { goods }
-        }
-    "Canal Type" = {
-        aliases = { canal_type }
-        }
-    "Country Definition" = {
-        aliases = { country_definition }
-        }
-    "Civil War" = {
-        aliases = { civil_war }
-        }
-    "State Trait" = {
-        aliases = { state_trait }
-        }
-    "Country Creation" = {
-        aliases = { country_creation }
-        }
-    "Country Formation" = {
-        aliases = { country_formation }
-        }
-    HQ = {
-        aliases = { hq }
-        }
-    Objective = {
-        aliases = { objective }
-        }
-    "Battle Side" = {
-        aliases = { battle_side }
-        }
-    "Political Movement" = {
-        aliases = { political_movement }
-        }
-    "Combat Unit" = {
-        aliases = { combat_unit }
-        }
-    Party = {
-        aliases = { party }
-        }
-    "Shipping Lane" = {
-        aliases = { shipping_lane }
-        }
-    "New Combat Unit" = {
-        aliases = { new_combat_unit }
-    }
-    "State Goods" = {
-        aliases = { state_goods }
-    }
-    "Company Type" = {
-        aliases = { company_type }
-    }
-    Company = {
-        aliases = { company }
-    }
-    "Combat Unit Type" = {
-        aliases = { combat_unit_type }
-    }
-    "Military Formation" = {
-        aliases = { military_formation }
-    }
-    "Unit Type" = {
-        aliases = { unit_type }
-    }
-    "Mobilization Option" = {
-        aliases = { mobilization_option }
-    }
-    "Power Bloc" = {
-        aliases = { power_bloc }
-    }
-    "Power Bloc Principle" = {
-        aliases = { power_bloc_principle }
-    }
-    "Power Bloc Principle Group" = {
-        aliases = { power_bloc_principle_group }
-    }
-    "Power Bloc Identity" = {
-        aliases = { power_bloc_identity }
-    }
-    "Diplomatic Catalyst" = {
-        aliases = { diplomatic_catalyst }
-    }
-    "Political Lobby" = {
-        aliases = { political_lobby }
-    }
-    "Harvest Condition" = {
-        aliases = { harvest_condition }
-    }
-    "Treaty" = {
-        aliases = { treaty }
-    }
-    "Treaty Options" = {
-        aliases = { treaty_options }
-    }
-    "Treaty Article" = {
-        aliases = { treaty_article }
-    }
-    "Treaty Article Options" = {
-        aliases = { treaty_article_options }
-    }
-    "Prestige Good" = {
-        aliases = { prestige_goods }
-    }
-    "Invasion" = {
-        aliases = { invasion }
-    }
+	none = {
+		aliases = { none }
+	}
+	value = {
+		aliases = { value }
+	}
+	boolean = {
+		aliases = { boolean }
+	}
+	flag = {
+		aliases = { flag }
+	}
+	color = {
+		aliases = { color }
+	}
+	country = {
+		aliases = { country }
+	}
+	battle = {
+		aliases = { battle }
+	}
+	battle_side = {
+		aliases = { battle_side }
+	}
+	building = {
+		aliases = { building }
+	}
+	building_type = {
+		aliases = { building_type }
+	}
+	building_group = {
+		aliases = { building_group }
+	}
+	character = {
+		aliases = { character }
+	}
+	character_role = {
+		aliases = { character_role }
+	}
+	civil_war = {
+		aliases = { civil_war }
+	}
+	new_combat_unit = {
+		aliases = { new_combat_unit }
+	}
+	combat_unit_type = {
+		aliases = { combat_unit_type }
+	}
+	commander_order_type = {
+		aliases = { commander_order_type }
+	}
+	company = {
+		aliases = { company }
+	}
+	company_type = {
+		aliases = { company_type }
+	}
+	country_creation = {
+		aliases = { country_creation }
+	}
+	country_definition = {
+		aliases = { country_definition }
+	}
+	country_formation = {
+		aliases = { country_formation }
+	}
+	cultural_community = {
+		aliases = { cultural_community }
+	}
+	culture = {
+		aliases = { culture }
+	}
+	decree = {
+		aliases = { decree }
+	}
+	diplomatic_action = {
+		aliases = { diplomatic_action }
+	}
+	diplomatic_demand = {
+		aliases = { diplomatic_demand }
+	}
+	diplomatic_pact = {
+		aliases = { diplomatic_pact }
+	}
+	diplomatic_play = {
+		aliases = { diplomatic_play }
+	}
+	diplomatic_play_type = {
+		aliases = { diplomatic_play_type }
+	}
+	diplomatic_relations = {
+		aliases = { diplomatic_relations }
+	}
+	diplomatic_catalyst = {
+		aliases = { diplomatic_catalyst }
+	}
+	diplomatic_catalyst_type = {
+		aliases = { diplomatic_catalyst_type }
+	}
+	diplomatic_catalyst_category = {
+		aliases = { diplomatic_catalyst_category }
+	}
+	political_lobby = {
+		aliases = { political_lobby }
+	}
+	political_lobby_type = {
+		aliases = { political_lobby_type }
+	}
+	political_lobby_appeasement = {
+		aliases = { political_lobby_appeasement }
+	}
+	front = {
+		aliases = { front }
+	}
+	goods = {
+		aliases = { goods }
+	}
+	hq = {
+		aliases = { hq }
+	}
+	ideology = {
+		aliases = { ideology }
+	}
+	institution = {
+		aliases = { institution }
+	}
+	institution_type = {
+		aliases = { institution_type }
+	}
+	interest_marker = {
+		aliases = { interest_marker }
+	}
+	interest_group = {
+		aliases = { interest_group }
+	}
+	interest_group_trait = {
+		aliases = { interest_group_trait }
+	}
+	interest_group_type = {
+		aliases = { interest_group_type }
+	}
+	interest_tier_type = {
+		aliases = { interest_tier_type }
+	}
+	journal_entry = {
+		aliases = { journal_entry }
+	}
+	law = {
+		aliases = { law }
+	}
+	law_type = {
+		aliases = { law_type }
+	}
+	market = {
+		aliases = { market }
+	}
+	market_goods = {
+		aliases = { market_goods }
+	}
+	military_formation = {
+		aliases = { military_formation }
+	}
+	naval_battle = {
+		aliases = { naval_battle }
+	}
+	naval_mission = {
+		aliases = { naval_mission }
+	}
+	naval_mission_type = {
+		aliases = { naval_mission_type }
+	}
+	invasion = {
+		aliases = { invasion }
+	}
+	objective = {
+		aliases = { objective }
+	}
+	party = {
+		aliases = { party }
+	}
+	political_movement = {
+		aliases = { political_movement }
+	}
+	political_movement_type = {
+		aliases = { political_movement_type }
+	}
+	political_movement_category = {
+		aliases = { political_movement_category }
+	}
+	pop = {
+		aliases = { pop }
+	}
+	pop_type = {
+		aliases = { pop_type }
+	}
+	power_bloc = {
+		aliases = { power_bloc }
+	}
+	power_bloc_identity = {
+		aliases = { power_bloc_identity }
+	}
+	power_bloc_principle = {
+		aliases = { power_bloc_principle }
+	}
+	province = {
+		aliases = { province }
+	}
+	religion = {
+		aliases = { religion }
+	}
+	container = {
+		aliases = { container }
+	}
+	ship = {
+		aliases = { ship }
+	}
+	ship_group = {
+		aliases = { ship_group }
+	}
+	ship_modification_type = {
+		aliases = { ship_modification_type }
+	}
+	ship_type = {
+		aliases = { ship_type }
+	}
+	shipping_lanes = {
+		aliases = { shipping_lanes }
+	}
+	state = {
+		aliases = { state }
+	}
+	state_goods = {
+		aliases = { state_goods }
+	}
+	state_region = {
+		aliases = { state_region }
+	}
+	state_trait = {
+		aliases = { state_trait }
+	}
+	strait = {
+		aliases = { strait }
+	}
+	strait_type = {
+		aliases = { strait_type }
+	}
+	strategic_region = {
+		aliases = { strategic_region }
+	}
+	sway = {
+		aliases = { sway }
+	}
+	technology = {
+		aliases = { technology }
+	}
+	technology_status = {
+		aliases = { technology_status }
+	}
+	theater = {
+		aliases = { theater }
+	}
+	war = {
+		aliases = { war }
+	}
+	mobilization_option = {
+		aliases = { mobilization_option }
+	}
+	geographic_region = {
+		aliases = { geographic_region }
+	}
+	power_bloc_principle_group = {
+		aliases = { power_bloc_principle_group }
+	}
+	harvest_condition = {
+		aliases = { harvest_condition }
+	}
+	harvest_condition_area = {
+		aliases = { harvest_condition_area }
+	}
+	harvest_condition_type = {
+		aliases = { harvest_condition_type }
+	}
+	treaty_article = {
+		aliases = { treaty_article }
+	}
+	treaty_options = {
+		aliases = { treaty_options }
+	}
+	treaty_article_options = {
+		aliases = { treaty_article_options }
+	}
+	treaty = {
+		aliases = { treaty }
+	}
+	war_goal = {
+		aliases = { war_goal }
+	}
+	war_goal_type = {
+		aliases = { war_goal_type }
+	}
+	amendment_type = {
+		aliases = { amendment_type }
+	}
+	amendment = {
+		aliases = { amendment }
+	}
+	decision = {
+		aliases = { decision }
+	}
+	ai_regional_objective = {
+		aliases = { ai_regional_objective }
+	}
+	ai_strategic_region_stance_type = {
+		aliases = { ai_strategic_region_stance_type }
+	}
+	ai_regional_objective_type = {
+		aliases = { ai_regional_objective_type }
+	}
 }

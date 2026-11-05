@@ -692,11 +692,6 @@ on_actions = {
     ## event_type = scopeless
     on_country_broke_treaty
 
-    ### Root = journal entry
-    ## replace_scopes = { this = journal_entry root = journal_entry }
-    ## event_type = scopeless
-    on_journal_entry_failed
-
     ### Root = Objective
     ## replace_scopes = { this = objective root = objective }
     ## event_type = scopeless
@@ -1078,11 +1073,6 @@ on_actions = {
     ## event_type = scopeless
     on_treaty_dissolved
 
-    ### Root = journal entry
-    ## replace_scopes = { this = journal_entry root = journal_entry }
-    ## event_type = scopeless
-    on_journal_entry_completed
-
     ### Root = Strategic Region
     ### scope:actor = Aggressor country
     ### scope:target = Target country
@@ -1255,5 +1245,69 @@ on_actions = {
     ## replace_scopes = { this = diplomatic_action root = diplomatic_action }
     ## event_type = scopeless
     on_diplomatic_action_overlord_increase_autonomy
+
+    ### Fires when a goal is taken via occupation timer during a war. Goals that are not reversed before the end of the war also fire on_wargoal_enforced at the conclusion of peace.
+    ### Root = Country
+    ### scope:actor = the country that enforced the wargoal
+    ### scope:target = the country the wargoal was enforced against
+    ### scope:diplomatic_play = the relevant diplomatic play
+    ### scope:wargoal_impact = the impact of the wargoal enforced
+    ### scope:war_goal_enforced = the wargoal that was enforced
+    ## replace_scopes = { this = country root = country }
+    ## event_type = country
+    on_wargoal_enforced_by_timer
+
+    ### Root = Character
+    ## replace_scopes = { this = character root = character }
+    ## event_type = character
+    on_character_returned_from_exile
+
+    ### Root = journal entry
+    ## replace_scopes = { this = journal_entry root = journal_entry }
+    ## event_type = scopeless
+    on_journal_entry_concluded
+
+    ### This on-action is triggered every time a Power Bloc is formed after the game has started, once its founding members have joined.
+    ### Root = Country that formed the Power Bloc (its leader)
+    ### scope:power_bloc = The newly formed Power Bloc
+    ## replace_scopes = { this = country root = country }
+    ## event_type = country
+    on_power_bloc_formed
+
+    ### Root = Diplomatic Play
+    ### actor = Subject leaving the play/war
+    ### overlord = The overlord they are rebelling against
+    ## replace_scopes = { this = diplomatic_play root = diplomatic_play }
+    ## event_type = scopeless
+    on_diplo_play_subject_backstab_overlord
+
+    ### Root = Country
+    ### scope:war = the war that just ended
+    ### scope:diplomatic_play = the play the war belonged to
+    ### scope:enemy_country = the leader of the other side
+    ### scope:benefitted_from_wargoal = set if this country held a war goal that was enforced at any point
+    ### scope:victim_of_wargoal = set if a war goal was enforced against this country at any point
+    ## replace_scopes = { this = country root = country }
+    ## event_type = country
+    on_lost_war
+
+    ### Root = Country
+    ### scope:war = the war that just ended
+    ### scope:diplomatic_play = the play the war belonged to
+    ### scope:enemy_country = the leader of the other side
+    ### scope:benefitted_from_wargoal = set if this country held a war goal that was enforced at any point
+    ### scope:victim_of_wargoal = set if a war goal was enforced against this country at any point
+    ## replace_scopes = { this = country root = country }
+    ## event_type = country
+    on_won_war
+
+    ### Root = Diplomatic Play
+    ## replace_scopes = { this = diplomatic_play root = diplomatic_play }
+    ## event_type = scopeless
+    on_diplo_play_overlord_protects_subject
+
+    ## replace_scopes = { this = none root = none }
+    ## event_type = scopeless
+    on_inconclusive_war
 
 }

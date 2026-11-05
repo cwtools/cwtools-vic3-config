@@ -30,7 +30,7 @@ single_alias[morph_gene_clause] = {
         index = int
 
         ## cardinality = 0..inf
-        set_tags = scalar
+        set_tags = $tags[gene_tag] # since chronicle v2.1.10
 
         ## cardinality = 0..1
         male = single_alias_right[morph_gene_gender_settings_clause]
@@ -74,7 +74,7 @@ single_alias[morph_gene_gender_settings_clause] = {
         curve = single_alias_right[gene_curve_clause]
 
         ## cardinality = 0..1
-        required_tags = scalar
+        required_tags = $tags_condition[gene_tag] # since chronicle v2.1.10
 
         ## cardinality = 0..1
         age = <age_preset>
@@ -87,7 +87,7 @@ single_alias[morph_gene_gender_settings_clause] = {
         attribute = scalar
 
         ## cardinality = 0..1
-        required_tags = scalar
+        required_tags = $tags_condition[gene_tag] # since chronicle v2.1.10
 
         value = {
             min = value_field[-1..1]

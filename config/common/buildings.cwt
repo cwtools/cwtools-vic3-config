@@ -99,6 +99,12 @@ building = {
     }
 
     ## cardinality = 0..1
+    valid_pop_culture_traits = {
+        ## cardinality = 0..inf
+        <discrimination_trait>
+    }
+
+    ## cardinality = 0..1
     ## replace_scope = { ROOT = state THIS = state }
     ### optional trigger that decides whether it can be potentially build in a state
     potential = single_alias_right[trigger_clause]
@@ -202,15 +208,19 @@ building = {
         ## cardinality = 0..1
         strait = <strait_definition>
 
+        ## cardinality = 0..1
         ### locator type for special buildings
         locator = <game_object_locator>
 
+        ## cardinality = 0..1
         ### special buildings can show an entity while not constructed
         entity_not_constructed = single_alias_right[list_of_entities]
 
+        ## cardinality = 0..1
         ### overload for under construction entity for special buildings
         entity_under_construction = single_alias_right[list_of_entities]
 
+        ## cardinality = 0..1
         ### overload to use constructed entity for special buildings
         entity_constructed = single_alias_right[list_of_entities]
     }

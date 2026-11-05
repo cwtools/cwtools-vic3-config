@@ -11,6 +11,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 government_type = {
     transfer_of_power = enum[transfer_of_power_types]
 
@@ -38,6 +39,9 @@ government_type = {
 
     ## cardinality = 0..1
     new_leader_on_reform_government = bool
+
+    ## cardinality = 0..1
+    uses_regnal_numbers = bool
 
     possible = single_alias_right[trigger_clause]
 

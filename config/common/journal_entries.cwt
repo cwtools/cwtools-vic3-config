@@ -26,9 +26,166 @@ journal_entry = {
 	### optional image that shows in the journal entry widget near the description, default = NDefines::GUI::JOURNAL_ENTRY_ICON_DEFAULT (set in /defines/00_interfaces.txt)
     icon = filepath
 
+    activation_description = single_alias_right[trigger_clause]
+
+    ### yes/no, default = no.
+    ### Marks this journal entry as the important one in its group,
+    ### giving it a larger highlighted button in the journal panel (via JournalEntry.IsHighlighted).
+    ### Flagging several entries in one group highlights all of them
+    ## cardinality = 0..1
+    highlight = bool
+
+    ### optional, none/country - overrides the group's context, so one group can hold both global and country JEs
+    ## cardinality = 0..1
+    context = enum[journal_entry_group_context]
+
+    ### optional DLC this journal entry belongs to, as specified in common/dlc_metadata
+    ### marks the entry with that DLC's badge in the journal entry panel - it does not gate
+    ### availability, use the `has_dlc_feature` trigger for that
+    ## cardinality = 0..1
+    dlc = <dlc>
+
+    ### Zero or more outcomes. The journal entry can conclude through any of them.
+    ### Each non-timeout outcome's `trigger` is checked; when one becomes true the JE concludes
+    ### through that outcome and its `effect` runs. Outcomes are presented in the journal entry
+    ### panel in the order they are declared here.
+    ### This replaces the old complete/on_complete, fail/on_fail, invalid/on_invalid and
+    ### timeout/on_timeout blocks - each of those is now just an outcome with the appropriate fields/flags.
+    ### root = owning country or no scope
+    ## cardinality = 0..inf
+    outcome = {
+        ### outcome flags, any combination of:
+        ###   hidden          - the outcome is not shown in the journal entry panel (use for silent conclusions)
+        ###   timeout         - this outcome is used when the JE times out (see the JE-level `timeout` below).
+        ###                     a timeout outcome has no `trigger`. At most one timeout outcome is allowed
+        ###   invalid_outcome - concluding through this outcome silently invalidates the JE. Must also be `hidden`.
+        ###                     At most one invalid outcome is allowed
+        ###   fails_subgoal   - concluding through this outcome should also fail the tracked subgoal
+        ###   historical      - this outcome is the one that happened historically. It is marked as such in the
+        ###                     journal entry panel and on the concluded entry, and may have an associated web link registered in code
+        ## cardinality = 0..1
+        flags = {
+            ## cardinality = 0..inf
+            enum[journal_entry_outcome_flag]
+        }
+
+        ### key for the header shown for this outcome in the journal entry panel (the "how to reach this outcome" header)
+        ### required for all non-hidden outcomes
+        ### use je_standard_completion_header/je_standard_failure_header for the standard completion/failure look, or any custom key for flavor
+        ## cardinality = 0..1
+        header = localisation
+
+        ### key for the header shown above this outcome's effect description (the "what happens" header)
+        ### required for all non-hidden outcomes
+        ### use je_standard_on_completion_header/je_standard_on_failure_header for the standard on completion/failure look, or any custom key for flavor
+        ## cardinality = 0..1
+        effect_header = localisation
+
+        ## cardinality = 0..1
+        color = color_field
+        ## cardinality = 0..1
+        color = <named_color>
+
+        ### key for the flavor text shown once the journal entry has concluded through this outcome
+        ### required for all outcomes
+        conclusion_desc = localisation
+
+        ### trigger which, when true, concludes the journal entry through this outcome
+        ### required for every non-timeout outcome
+        ### root = owning country or no scope
+        ## cardinality = 0..1
+        trigger = single_alias_right[trigger_clause]
+
+        ### effect which is executed when this outcome's `trigger` becomes true
+        ### root = owning country or no scope
+        ## cardinality = 0..1
+        effect = single_alias_right[effect_clause]
+
+        subtype[contextless] = {
+            ### effect fired individually for each involved country in a contextless JE
+            ### only valid in contextless journal entries
+            ### root = specific country
+            ## cardinality = 0..1
+            effect_all_involved = single_alias_right[effect_clause]
+        }
+
+        ### alternative to event_outcome_desc using the effect system to automatically generate tooltips
+        ### note that the effects here are only used for description purposes and will not actually happen
+        ### root = owning country or no scope
+        ## cardinality = 0..inf
+        event_outcome_effect_desc = {
+            ## cardinality = 0..1
+            header = localisation
+
+            effect = single_alias_right[effect_clause]
+        }
+
+        ### dynamically updated text describing potential event outcomes for this conclusion
+        ### multiple such entries can be added to an outcome
+        ### root = owning country or no scope
+        ## cardinality = 0..1
+        event_outcome_desc = localisation
+        ### dynamically updated text describing potential event outcomes for this conclusion
+        ### multiple such entries can be added to an outcome
+        ### root = owning country or no scope
+        ## cardinality = 0..1
+        event_outcome_desc = single_alias_right[complex_desc]
+    }
+
+    ### dynamically updated text, which describes the reason for the Journal Entry
+    ### To use in loc or UI: [JournalEntry.GetReason]
+    ### If this is not specified, GetReason will instead return loc from key <journal_entry_key>_reason
+    ### value can be a localization key or first_valid + triggered_desc script
+    ### root = owning country, or the country viewing the Journal Entry for contextless JEs
+    ## cardinality = 0..1
+    reason = single_alias_right[complex_desc]
+
+    ### dynamically updated text, which describes the current status of the Journal Entry
+    ### To use in loc or UI: [JournalEntry.GetStatusDesc]
+    ### If this is not specified, GetStatusDesc will instead return loc from key <journal_entry_key>_status
+    ### root = owning country or no scope
+    ## cardinality = 0..1
+    status_desc = single_alias_right[complex_desc]
+
+    ### dynamically updated text, which describes potential event outcomes when JE is activated
+    ### multiple such entries can be added to a JE
+    ### root = owning country or no scope
+    ## cardinality = 0..inf
+    event_outcome_activated_desc = single_alias_right[complex_desc]
+
+    ## cardinality = 0..inf
+    ### dynamically updated text, which describes potential event outcomes when JE activated
+    ### this doesnt actually fire the effect, its only a description generated by your input here so that you dont have to use custom loc every time
+    ### multiple such entries can be added to a JE
+    event_outcome_activated_effect_desc = single_alias_right[je_effect_desc]
+
+    ### returns a color and paints the state
+    ## replace_scope = { root = state this = state }
+    ## cardinality = 0..1
+    map_color = single_alias_right[scripted_color_clause]
+
+    ### returns a color and paints the state in stripes
+    ## replace_scope = { root = state this = state }
+    ## cardinality = 0..1
+    map_color_second = single_alias_right[scripted_color_clause]
+
+    ### this is a fake effect block, it serves to print the tooltip when hovering the map and is constructed like any other effect but doesnt actually fire off one, feel free to make liberal use of custom_tooltip_no_bullet here
+    ## replace_scope = { root = state this = state }
+    ## cardinality = 0..1
+    map_tooltip = single_alias_right[effect_clause]
+
     subtype[country] = {
         ### journal entry group as specified in common/journal_entry_groups
         group = <journal_entry_group.country>
+
+        ### optional trigger for country-context JEs - checked while the JE is inactive, before is_shown_when_inactive and possible
+        ### when true, the JE instance is permanently removed for this country without firing any effects, and its triggers are never evaluated again
+        ### only `add_journal_entry` can give the country this JE afterwards; `has_inactive_journal_entry` returns no for a removed JE
+        ### also removes a deactivated JE (see can_deactivate), including one originally added through `add_journal_entry`
+        ### keep this to cheap, permanent identity checks - a country matching it must never become relevant to the JE later
+        ### root = owning country
+        ## cardinality = 0..1
+        disable_evaluation = single_alias_right[trigger_clause]
 
         ## cardinality = 0..1
         ### yes/no, determines if this journal entry should be transferred if the player switches country through a revolution or by releasing a subject. Note that external dependencies such as country variables etc are not automatically inherited
@@ -54,21 +211,6 @@ journal_entry = {
         ## cardinality = 0..1
         immediate_all_involved = single_alias_right[effect_clause]
 
-        ### as on_complete, but fired individually for each involved country in a contextless JE
-        ## replace_scope = { ROOT = country THIS = country }
-        ## cardinality = 0..1
-        on_complete_all_involved = single_alias_right[effect_clause]
-
-        ### as on_fail, but fired individually for each involved country in a contextless JE
-        ## replace_scope = { ROOT = country THIS = country }
-        ## cardinality = 0..1
-        on_fail_all_involved = single_alias_right[effect_clause]
-
-        ### as on_complete, but fired individually for each involved country in a contextless JE
-        ## replace_scope = { ROOT = country THIS = country }
-        ## cardinality = 0..1
-        on_invalid_all_involved = single_alias_right[effect_clause]
-
         ### fires when a country becomes involved after activation of a contextless JE, ie not as a result of the should_be_involved trigger
         ## replace_scope = { ROOT = country THIS = country }
         ## cardinality = 0..1
@@ -78,11 +220,6 @@ journal_entry = {
         ## replace_scope = { ROOT = country THIS = country }
         ## cardinality = 0..1
         on_no_longer_involved = single_alias_right[effect_clause]
-
-        ### as on_timeout, but fired individually for each involved country in a contextless JE
-        ## replace_scope = { ROOT = country THIS = country }
-        ## cardinality = 0..1
-        on_timeout_all_involved = single_alias_right[effect_clause]
     }
 
     ## cardinality = 0..1
@@ -100,15 +237,7 @@ journal_entry = {
     immediate = single_alias_right[effect_clause]
 
     ## cardinality = 0..1
-    ### completion trigger, use is_goal_complete = yes in here if you're testing a tracked goal metric; if left blank, cannot be completed
-    complete = single_alias_right[trigger_clause]
-
-    ## cardinality = 0..1
     is_shown_in_lobby = single_alias_right[trigger_clause]
-
-    ## cardinality = 0..1
-    ### effect which is executed when 'complete' trigger becomes true
-    on_complete = single_alias_right[effect_clause]
 
     ## cardinality = 0..inf
     widget = {
@@ -120,71 +249,6 @@ journal_entry = {
         container = scalar # custom elements
     }
 
-    ## cardinality = 0..inf
-    ### dynamically updated text, which describes potential event outcomes when JE is completed
-    ### multiple such entries can be added to a JE
-    event_outcome_completed_desc = single_alias_right[complex_desc]
-
-    ## cardinality = 0..inf
-    ### dynamically updated text, which describes potential event outcomes when JE is invalidated
-    ### multiple such entries can be added to a JE
-    event_outcome_invalidated_desc = single_alias_right[complex_desc]
-
-    ## cardinality = 0..inf
-    ### dynamically updated text, which describes potential event outcomes when JE is failed
-    ### multiple such entries can be added to a JE
-    event_outcome_failed_desc = single_alias_right[complex_desc]
-
-    ## cardinality = 0..1
-    ### dynamically updated text, which describes potential event outcomes when JE timeouts
-    ### multiple such entries can be added to a JE
-    event_outcome_timeout_desc = single_alias_right[complex_desc]
-
-    ## cardinality = 0..inf
-    ### dynamically updated text, which describes potential event outcomes when JE is completed
-    ### this doesnt actually fire the effect, its only a description generated by your input here so that you dont have to use custom loc every time
-    ### multiple such entries can be added to a JE
-    event_outcome_completed_effect_desc = single_alias_right[je_effect_desc]
-
-    ## cardinality = 0..inf
-    ### dynamically updated text, which describes potential event outcomes when JE is invalidated
-    ### this doesnt actually fire the effect, its only a description generated by your input here so that you dont have to use custom loc every time
-    ### multiple such entries can be added to a JE
-    event_outcome_invalidated_effect_desc = single_alias_right[je_effect_desc]
-
-    ## cardinality = 0..inf
-    ### dynamically updated text, which describes potential event outcomes when JE is failed
-    ### this doesnt actually fire the effect, its only a description generated by your input here so that you dont have to use custom loc every time
-    ### multiple such entries can be added to a JE
-    event_outcome_failed_effect_desc = single_alias_right[je_effect_desc]
-
-    ## cardinality = 0..inf
-    ### dynamically updated text, which describes potential event outcomes when JE timeouts
-    ### this doesnt actually fire the effect, its only a description generated by your input here so that you dont have to use custom loc every time
-    ### multiple such entries can be added to a JE
-    event_outcome_timeout_effect_desc = single_alias_right[je_effect_desc]
-
-    ## cardinality = 0..inf
-    ### dynamically updated text, which describes potential event outcomes when JE activated
-    ### this doesnt actually fire the effect, its only a description generated by your input here so that you dont have to use custom loc every time
-    ### multiple such entries can be added to a JE
-    event_outcome_activated_effect_desc = single_alias_right[je_effect_desc]
-
-    ## cardinality = 0..1
-    ### loc key to use instead of JOURNAL_ENTRY_COMPLETION_HEADER, for flavor
-    custom_completion_header = localisation
-
-    ## cardinality = 0..1
-    ### loc key to use instead of JOURNAL_ENTRY_FAILURE_HEADER, for flavor
-    custom_failure_header = localisation
-
-    ## cardinality = 0..1
-    ### loc key to use instead of JOURNAL_ENTRY_ON_COMPLETION, for flavor
-    custom_on_completion_header = localisation
-
-    ## cardinality = 0..1
-    custom_on_failure_header = localisation
-
     ## cardinality = 0..1
     ### the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event,
     ### framed either as success, failure, or neutral; if left blank or set to zero, will not time out
@@ -193,32 +257,6 @@ journal_entry = {
     ### the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event,
     ### framed either as success, failure, or neutral; if left blank or set to zero, will not time out
     timeout = single_alias_right[formula]
-
-    ## cardinality = 0..1
-    ### failure trigger, should spawn event explaining what happens when triggered, framed as a failure; if left blank, cannot fail
-    fail = single_alias_right[trigger_clause]
-
-    ## cardinality = 0..1
-    ### effect which is executed when 'fail' trigger becomes true
-    on_fail = single_alias_right[effect_clause]
-
-    ## cardinality = 0..1
-    ### optional invalidation trigger, should not notify player when it triggers, just clean up and silently disappear due to journal entry no longer being valid; if left blank, cannot be invalidated
-    invalid = single_alias_right[trigger_clause]
-
-    ## cardinality = 0..1
-    ### effect which is executed when 'invalid' trigger becomes true
-    on_invalid = single_alias_right[effect_clause]
-
-    ## cardinality = 0..1
-    ### dynamically updated text, which describes the current status of the Journal Entry
-	### To use in loc or UI: [JournalEntry.GetStatusDesc]
-	### If this is not specified, GetStatusDesc will instead return loc from key <journal_entry_key>_status
-    status_desc = single_alias_right[complex_desc]
-
-    ## cardinality = 0..1
-    ### effect which is executed when journal entry is timed out
-    on_timeout = single_alias_right[effect_clause]
 
     ## cardinality = 0..1
     ### on_action which is triggered every first day of the week
@@ -235,7 +273,6 @@ journal_entry = {
     ## cardinality = 0..1
     ### a script value computing the goal completion metric
     current_value = single_alias_right[formula]
-
     ## cardinality = 0..1
     ### a script value computing the goal completion metric
     current_value = value_field
@@ -243,7 +280,6 @@ journal_entry = {
     ## cardinality = 0..1
     ### a script value determining how much should be added onto current_value when journal entry is granted to set the goal
     goal_add_value = single_alias_right[formula]
-
     ## cardinality = 0..1
     ### a script value determining how much should be added onto current_value when journal entry is granted to set the goal
     goal_add_value = value_field
@@ -303,16 +339,25 @@ journal_entry = {
     ## cardinality = 0..1
     should_update_on_player_command = bool
 
-    ## cardinality = 0..1
-    active_update_frequency = int
+    ### zero or more blocks, each applying a static modifier while the Journal Entry is active with its effects multiplied by a script value
+    ### the value is re-evaluated while the Journal Entry is active (on its update frequency) and the modifier effects follow it
+    ### propagates to the country like modifiers_while_active (all involved countries for contextless JEs)
+    ### value root = same as the Journal Entry scope (owning country or no scope)
+    ## cardinality = 0..inf
+    scaling_modifiers_while_active = {
+        modifier = <modifier_container>
 
-    ## cardinality = 0..1
+        value = single_alias_right[formula]
+    }
+
+    ## cardinality = 0..inf
     ### A list of modifiers that apply while the journal is active
     modifiers_while_active = {
         ## cardinality = 0..inf
         <modifier_container>
     }
 
+    ### one or more scripted buttons. See common/scripted_buttons/scripted_buttons.md for more info
     ## cardinality = 0..inf
     scripted_button = <scripted_button>
 

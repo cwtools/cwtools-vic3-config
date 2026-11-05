@@ -1,0 +1,60 @@
+types = {
+    type[ai_regional_objective] = {
+        path = "game/common/ai_regional_objectives"
+        path_extension = .txt
+        localisation = {
+            name = $
+            desc = $_desc
+        }
+    }
+}
+
+## replace_scope = { root = country this = country }
+ai_regional_objective = {
+    ### Which regional stances this objective may be drawn for.
+    stances = {
+        ## cardinality = 0..inf
+        <ai_strategic_region_stance_type>
+    }
+
+    ### Whether this objective may be drawn at all.
+    possible = single_alias_right[trigger_clause]
+
+    ### Whether the objective has been achieved. Will throw an error if empty.
+    complete = single_alias_right[trigger_clause]
+
+    ### Whether the objective can no longer be achieved. Checked after complete. IF EMPTY IT'S ALWAYS FALSE.
+    ## cardinality = 0..1
+    invalid = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    country_target = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    state_target = single_alias_right[trigger_clause]
+
+    ### stance it was rolled under changed and the objective was abandoned.
+    ### Put teardown for anything on_create stored here as well as in on_complete.
+    ### Runs once when the objective is created.
+    ## cardinality = 0..1
+    on_create = single_alias_right[effect_clause]
+
+    ### stance it was rolled under changed and the objective was abandoned.
+    ### Put teardown for anything on_create stored here as well as in on_complete.
+    ### Runs once when the objective completes. The objective is kept, marked completed.
+    ## cardinality = 0..1
+    on_complete = single_alias_right[effect_clause]
+
+    ### stance it was rolled under changed and the objective was abandoned.
+    ### Put teardown for anything on_create stored here as well as in on_complete.
+    ### Runs once when the objective fails: either the invalid trigger fired, or the
+    ## cardinality = 0..1
+    on_invalid = single_alias_right[effect_clause]
+
+    ### Relative weight.
+    ## cardinality = 0..inf
+    weight == value_field
+    ### Relative weight.
+    ## cardinality = 0..inf
+    weight == single_alias_right[formula]
+}

@@ -1,0 +1,21 @@
+rows = {
+    row[adjacency] = {
+        path = "game/map_data"
+        path_file = "adjacencies.csv"
+        skip_last_column = yes
+
+        # From;To;Type;Through;start_x;start_y;stop_x;stop_y;adjacency_rule_name;Comment
+        columns = {
+            From = enum[provinces] # province id, `x20E080`-like in the vanilla file
+            To = enum[provinces] # province id, `x20E080`-like in the vanilla file
+            Type = value[location_type] # inferred
+            Through = int # province id, but only `-1` in the vanilla file
+            start_x = int
+            start_y = int
+            stop_x = int
+            stop_y = int
+            adjacency_rule_name = scalar # value[adjacency_rule] # inferred but not very necessary
+            # Comment = scalar # optional
+        }
+    }
+}

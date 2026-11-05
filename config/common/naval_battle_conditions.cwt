@@ -53,6 +53,7 @@ naval_battle_condition = {
     ### - defender - the lead defending country
     ### - attacker_commander
     ### - defender_commander
+    ## cardinality = 0..1
     max_hull_damage = value_field
     ### how much periodic hull damage this condition deals at 1 intensity
     ### For all script values and the possible trigger the following scopes are available:
@@ -62,6 +63,7 @@ naval_battle_condition = {
     ### - defender - the lead defending country
     ### - attacker_commander
     ### - defender_commander
+    ## cardinality = 0..1
     max_hull_damage = single_alias_right[formula]
 
     ### how much periodic crew damage this condition deals at 1 intensity
@@ -72,6 +74,7 @@ naval_battle_condition = {
     ### - defender - the lead defending country
     ### - attacker_commander
     ### - defender_commander
+    ## cardinality = 0..1
     max_crew_damage = value_field
     ### how much periodic crew damage this condition deals at 1 intensity
     ### For all script values and the possible trigger the following scopes are available:
@@ -81,6 +84,7 @@ naval_battle_condition = {
     ### - defender - the lead defending country
     ### - attacker_commander
     ### - defender_commander
+    ## cardinality = 0..1
     max_crew_damage = single_alias_right[formula]
 
     ### how often this condition will deal periodic damage in a naval battle. value = 1 means every turn, 2 every other turn, etc. 0 means never.
@@ -110,6 +114,7 @@ naval_battle_condition = {
     ### - defender - the lead defending country
     ### - attacker_commander
     ### - defender_commander
+    ## cardinality = 0..1
     intensity = value_field
     ### scaling factor against the max crew/hull damage, also determines how likely each individual ship is to be targeted
     ### For all script values and the possible trigger the following scopes are available:
@@ -119,8 +124,10 @@ naval_battle_condition = {
     ### - defender - the lead defending country
     ### - attacker_commander
     ### - defender_commander
+    ## cardinality = 0..1
     intensity = single_alias_right[formula]
 
     ### modifier applied by the condition to the battle, ships, commanders, etc
+    ## cardinality = 0..inf
     modifier = single_alias_right[modifier_clause]
 }

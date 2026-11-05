@@ -1,0 +1,226 @@
+### Iterate through all script containers globally. Optional filters: tag = <tag> / tags = { <tag> ... } (all listed tags) and parent = <scope>
+## scopes = { any }
+## push_scope = container
+alias[effect:every_container] = {
+    ## cardinality = 0..1
+    parent = scope_field
+
+    ## cardinality = 0..1
+    tag = value[container_tag]
+
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        value[container_tag]
+    }
+
+    ## cardinality = 0..1
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alternative_limit = single_alias_right[trigger_clause]
+
+    alias_name[effect] = alias_match_left[effect]
+}
+### Iterate through all script containers globally. Optional filters: tag = <tag> / tags = { <tag> ... } (all listed tags) and parent = <scope>
+## scopes = { any }
+## push_scope = container
+alias[effect:random_container] = {
+    ## cardinality = 0..1
+    parent = scope_field
+
+    ## cardinality = 0..1
+    tag = value[container_tag]
+
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        value[container_tag]
+    }
+
+    ## cardinality = 0..1
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alternative_limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    weight = single_alias_right[weight]
+
+    alias_name[effect] = alias_match_left[effect]
+}
+### Iterate through all script containers globally. Optional filters: tag = <tag> / tags = { <tag> ... } (all listed tags) and parent = <scope>
+## scopes = { any }
+## push_scope = container
+alias[effect:ordered_container] = {
+    ## cardinality = 0..1
+    parent = scope_field
+
+    ## cardinality = 0..1
+    tag = value[container_tag]
+
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        value[container_tag]
+    }
+
+    ## cardinality = 0..1
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alternative_limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    min = int_value_field
+    ## cardinality = 0..1
+    min = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    position = int
+
+    ## cardinality = 0..1
+    check_range_bounds = bool
+
+    alias_name[effect] = alias_match_left[effect]
+}
+### Iterate through all script containers globally. Optional filters: tag = <tag> / tags = { <tag> ... } (all listed tags) and parent = <scope>
+## scopes = { any }
+## push_scope = container
+alias[arithmetic_operation:every_container] = {
+    ## cardinality = 0..1
+    parent = scope_field
+
+    ## cardinality = 0..1
+    tag = value[container_tag]
+
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        value[container_tag]
+    }
+
+    ## cardinality = 0..1
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alternative_limit = single_alias_right[trigger_clause]
+
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+### Iterate through all script containers globally. Optional filters: tag = <tag> / tags = { <tag> ... } (all listed tags) and parent = <scope>
+## scopes = { any }
+## push_scope = container
+alias[arithmetic_operation:random_container] = {
+    ## cardinality = 0..1
+    parent = scope_field
+
+    ## cardinality = 0..1
+    tag = value[container_tag]
+
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        value[container_tag]
+    }
+
+    ## cardinality = 0..1
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alternative_limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    weight = single_alias_right[weight]
+
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+### Iterate through all script containers globally. Optional filters: tag = <tag> / tags = { <tag> ... } (all listed tags) and parent = <scope>
+## scopes = { any }
+## push_scope = container
+alias[arithmetic_operation:ordered_container] = {
+    ## cardinality = 0..1
+    parent = scope_field
+
+    ## cardinality = 0..1
+    tag = value[container_tag]
+
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        value[container_tag]
+    }
+
+    ## cardinality = 0..1
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alternative_limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    min = int_value_field
+    ## cardinality = 0..1
+    min = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    position = int
+
+    ## cardinality = 0..1
+    check_range_bounds = bool
+
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+### Iterate through all script containers globally. Optional filters: tag = <tag> / tags = { <tag> ... } (all listed tags) and parent = <scope>
+## scopes = { any }
+## push_scope = container
+alias[trigger:any_container] = {
+    ## cardinality = 0..1
+    parent = scope_field
+
+    ## cardinality = 0..1
+    tag = value[container_tag]
+
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        value[container_tag]
+    }
+
+    ## cardinality = 0..1
+    percent = value_field[0.0..1.0]
+    ## cardinality = 0..1
+    percent = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    count = int_value_field
+    ## cardinality = 0..1
+    count = single_alias_right[formula]
+    ## cardinality = 0..1
+    count = all
+
+    ## cardinality = 0..1
+    ### If set, count = all and percent only consider the filtered items for the denominator.
+    filter = single_alias_right[trigger_clause]
+
+    alias_name[trigger] = alias_match_left[trigger]
+}

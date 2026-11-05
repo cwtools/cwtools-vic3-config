@@ -48,6 +48,14 @@ alias[arithmetic_operation:floor] = value_field
 alias[arithmetic_operation:save_temporary_value_as] = value_set[variable]
 alias[arithmetic_operation:save_temporary_scope_as] = value_set[event_target]
 
+# Maybe split this out into its own thing
+alias[arithmetic_operation:progress_condition] = {
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
 alias[arithmetic_operation:fixed_range] = {
     min = value_field
     min = single_alias_right[formula]
@@ -93,6 +101,12 @@ single_alias[weight] = {
     alias_name[weight_operation] = alias_match_left[weight_operation]
 }
 
+alias[weight_operation:<scripted_modifier>] = bool
+alias[weight_operation:<scripted_modifier>] = {
+    ## cardinality = 0..inf
+    $parameter = $parameter_value
+}
+
 alias[weight_operation:base] = value_field
 alias[weight_operation:base] = scope_field
 alias[weight_operation:base] = single_alias_right[formula]
@@ -103,49 +117,12 @@ alias[weight_operation:factor] = single_alias_right[formula]
 
 alias[weight_operation:modifier] = value_field
 alias[weight_operation:modifier] = {
-    # Hardcoded to prevent potential plugin parser issues
-
     ## cardinality = 0..1
     add = value_field
     ## cardinality = 0..1
     add = scope_field
     ## cardinality = 0..1
     add = single_alias_right[formula]
-
-    ## cardinality = 0..1
-    subtract = value_field
-    ## cardinality = 0..1
-    subtract = scope_field
-    ## cardinality = 0..1
-    subtract = single_alias_right[formula]
-
-    ## cardinality = 0..1
-    multiply = value_field
-    ## cardinality = 0..1
-    multiply = scope_field
-    ## cardinality = 0..1
-    multiply = single_alias_right[formula]
-
-    ## cardinality = 0..1
-    divide = value_field
-    ## cardinality = 0..1
-    divide = scope_field
-    ## cardinality = 0..1
-    divide = single_alias_right[formula]
-
-    ## cardinality = 0..1
-    modulo = value_field
-    ## cardinality = 0..1
-    modulo = scope_field
-    ## cardinality = 0..1
-    modulo = single_alias_right[formula]
-
-    ## cardinality = 0..1
-    value = value_field
-    ## cardinality = 0..1
-    value = scope_field
-    ## cardinality = 0..1
-    value = single_alias_right[formula]
 
     ## cardinality = 0..1
     factor = value_field

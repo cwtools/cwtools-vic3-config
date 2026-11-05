@@ -2,13 +2,53 @@ types = {
     type[scripted_gui] = {
         path = "game/common/scripted_guis"
         path_extension = .txt
+        ## replace_scope = { root = country this = country }
+        subtype[country] = {
+            scope = country
+        }
+        ## replace_scope = { root = character this = character }
+        subtype[character] = {
+            scope = character
+        }
+        ## replace_scope = { root = building this = building }
+        subtype[building] = {
+            scope = building
+        }
+        ## replace_scope = { root = state this = state }
+        subtype[state] = {
+            scope = state
+        }
+        ## replace_scope = { root = political_lobby this = political_lobby }
+        subtype[political_lobby] = {
+            scope = political_lobby
+        }
+        ## replace_scope = { root = culture this = culture }
+        subtype[culture] = {
+            scope = culture
+        }
+        ## replace_scope = { root = religion this = religion }
+        subtype[religion] = {
+            scope = religion
+        }
+        ## replace_scope = { root = goods this = goods }
+        subtype[goods] = {
+            scope = goods
+        }
+        ## replace_scope = { root = journal_entry this = journal_entry }
+        subtype[journal_entry] = {
+            scope = journal_entry
+        }
+        ## replace_scope = { root = interest_group this = interest_group }
+        subtype[interest_group] = {
+            scope = interest_group
+        }
     }
 }
 
 scripted_gui = {
     ### What scope type this SGUI is available to
     ## cardinality = 0..1
-    scope = scalar
+    scope = enum[scopes]
 
     ### Determines whether the SGUI can be used by a player
     ## cardinality = 0..1

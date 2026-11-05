@@ -1,0 +1,48 @@
+# Override Config (Victoria 3)
+#
+# See `cwt/core/00_overrides.cwt` for the format, strategies, confidence labels and sources.
+# Only game-specific entries are listed here; unmatched paths default to `lios`.
+#
+# Game-specific source:
+# - Official Victoria 3 Wiki, "Mod compatibility":
+#   https://vic3.paradoxwikis.com/Mod_compatibility
+#
+# See: docs/en/ref-config-format.md#config-override
+# Version: 3.0.4-dev
+# Date: 2026-10-02
+
+overrides = {
+    # [high] Manually checked.
+    "common/history/ai" = ordered
+    "common/history/buildings" = ordered
+    "common/history/characters" = ordered
+    "common/history/countries" = ordered
+    "common/history/diplomacy" = ordered
+    "common/history/diplomatic_plays" = ordered
+    "common/history/global" = ordered
+    "common/history/military_deployments" = ordered
+    "common/history/military_formations" = ordered
+    "common/history/pops" = ordered
+    "common/history/population" = ordered
+    "common/history/production_methods" = ordered
+    "common/history/states" = ordered
+    "common/history/treaties" = ordered
+    "common/history/trade" = ordered
+    "common/history/government_setup" = ordered
+    "common/history/governments" = ordered
+
+    # [medium] Wiki: definitions do not overwrite but produce duplicates; only a file overwrite replaces a character's DNA.
+    "common/dna_data" = ordered
+
+    # [high] Wiki: events/on_actions/random_events are appended; trigger/effect cannot be replaced without a whole-file override.
+    "common/on_actions" = ordered
+
+    # [high] Wiki: the first loaded wins.
+    "events" = fios
+
+    # [high] Wiki: GUI types/templates cannot be overwritten; the first loaded wins.
+    "gui" = fios
+
+    # [high] Wiki: later keys do not overwrite earlier ones; use the replace folder.
+    "localization" = fios
+}

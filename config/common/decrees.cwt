@@ -10,40 +10,48 @@ types = {
         }
         images = {
             ## primary
-            texture = texture
+            icon = texture
         }
     }
 }
 
 ## replace_scope = { ROOT = state THIS = state }
 decree = {
+    ### The icon that will show up in the Lens and on the map when this Focus is deployed
     texture = filepath
 
+    ### The effects this Decree has on its state
     modifier = single_alias_right[modifier_clause]
 
+    ### A trigger in country context that determines if the Decree is permitted/shown in interface or not;
+    ### should invalidate the Decree on a weekly basis if found invalid
     ## cardinality = 0..1
     ## replace_scope = { ROOT = country THIS = country }
     country_trigger = single_alias_right[trigger_clause]
 
+    ### A trigger in state context that determines if the Decree is permitted or not;
+    ### should invalidate the Decree on a weekly basis if found invalid
     ## cardinality = 0..1
     state_trigger = single_alias_right[trigger_clause]
 
+    ### A list of technologies, at least one of which must be known to the country to use this Focus
     ## cardinality = 0..1
     unlocking_technologies = {
         ## cardinality = 1..inf
         <technology>
     }
 
+    ### A list of laws, at least one which must be active in the country to use this Focus.
+    ### If the country switches away from all unlocking laws the Focus will be removed
     ## cardinality = 0..1
     unlocking_laws = {
         ## cardinality = 0..inf
         <law>
     }
 
+    ### The cost in AUT to set this Decree on a state (scales with Power Rank)
     cost = int
 
+    ### Scripted value which determines the chance of getting the Decree by AI
     ai_weight = single_alias_right[formula]
-
-    ## cardinality = 0..1
-    valid = single_alias_right[trigger_clause]
 }

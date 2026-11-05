@@ -2,27 +2,16 @@ types = {
     type[technology] = {
         path = "game/common/technology/technologies"
         path_extension = .txt
-        images = {
-            ## primary
-            texture = texture
-        }
         localisation = {
-            ## required
             name = $
             ## required
             desc = $_desc
         }
+        images = {
+            ## primary
+            texture = texture
+        }
     }
-    type[era] = {
-        path = "game/common/technology/eras"
-        path_extension = .txt
-    }
-}
-
-era = {
-    ## cardinality = 0..1
-    ### innovation cost to research technologies of this era
-    technology_cost = value_field
 }
 
 ## replace_scope = { this = country root = country }
@@ -51,7 +40,7 @@ technology = {
         <technology>
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ### these modifiers are applied to the country if this technology is researched
     modifier = single_alias_right[modifier_clause]
 

@@ -4,7 +4,9 @@ types = {
         path = "game/common/country_definitions"
         path_extension = .txt
         localisation = {
+            ## required
 			name = "$"
+            ## required
 			adjective = "$_ADJ"
 		}
         subtype[dynamic] = {
@@ -35,6 +37,12 @@ types = {
     type[country_formation] = {
         path = "game/common/country_formation"
         path_extension = .txt
+        localisation = {
+            ## required
+            name = $
+            ## required
+            adjective = $_ADJ
+        }
         subtype[major] = {
             is_major_formation = yes
         }
@@ -115,6 +123,12 @@ country_definition = {
 
         ## cardinality = 0..1
         seal_and_signature_texture = filepath
+
+        ## cardinality = 0..1
+        regnal_numbers = {
+            ## cardinality = 0..inf
+            localisation = int
+        }
     }
 }
 
@@ -158,6 +172,7 @@ country_creation = {
 
 ## replace_scope = { root = country this = country }
 country_formation = {
+    ## cardinality = 0..1
     geographic_region = <geographic_region>
 
     subtype[major] = {
@@ -192,6 +207,9 @@ country_formation = {
 
     ## cardinality = 0..1
     can_be_unification_target = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    should_target_state_in_unification_play = single_alias_right[trigger_clause]
 
     ### Default 0.75 as in 00_defines.txt
     ## cardinality = 0..1

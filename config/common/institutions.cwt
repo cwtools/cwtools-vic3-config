@@ -15,6 +15,7 @@ types = {
     }
 }
 
+## replace_scope = { this = country root = country }
 institution = {
     ### Path to graphical icon
     icon = filepath
@@ -22,8 +23,10 @@ institution = {
     ### Path to background texture
     background_texture = filepath
 
-    ## cardinality = 0..1
-    ## replace_scope = { this = country root = country }
+    ## cardinality = 0..inf
     ### Modifier on country for having adopted this institution
     modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    dynamic_name = single_alias_right[complex_desc]
 }

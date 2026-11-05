@@ -1,7 +1,6 @@
+# Auto Generated:
+# This is a list of all base game iterators.
 enums = {
-
-	# Auto Generated:
-	# This is a list of all base game iterators.
 	enum[scripted_list_base] = {
 		active_law
 		active_party
@@ -14,6 +13,7 @@ enums = {
 		cobelligerent_in_war
 		combat_unit
 		company
+		container
 		country
 		country_in_afghanistan
 		country_in_africa
@@ -33,8 +33,10 @@ enums = {
 		country_in_atlantic_coast
 		country_in_australasia
 		country_in_australia
+		country_in_austria
 		country_in_balkans
 		country_in_balkans_old
+		country_in_baltic_governorates
 		country_in_baltic_old
 		country_in_baltic_states_old
 		country_in_belarus_old
@@ -46,6 +48,7 @@ enums = {
 		country_in_burma
 		country_in_canada
 		country_in_canada_old
+		country_in_canadian_confederation
 		country_in_caribbean_old
 		country_in_castile
 		country_in_caucasus_old
@@ -55,6 +58,7 @@ enums = {
 		country_in_central_asia_old
 		country_in_central_europe
 		country_in_central_india_old
+		country_in_central_russia
 		country_in_china
 		country_in_chorasmia
 		country_in_colonial_la_plata
@@ -62,23 +66,28 @@ enums = {
 		country_in_colonial_new_spain
 		country_in_colonial_peru
 		country_in_congo_old
+		country_in_congress_poland
 		country_in_danubia_old
 		country_in_delhi_calcutta_line
+		country_in_diocese_of_kamchatka
 		country_in_dixie_old
 		country_in_dnieper_old
 		country_in_east_africa
 		country_in_east_asia
 		country_in_east_sibera_old
+		country_in_east_slavic_states
 		country_in_eastern_europe
 		country_in_england_old
 		country_in_equatorial_africa
 		country_in_ethiopia_old
 		country_in_europe
 		country_in_ezochi
+		country_in_finland
 		country_in_finland_old
 		country_in_france
 		country_in_france_old
 		country_in_french_natural_borders
+		country_in_french_revolution_zone
 		country_in_german_confederation
 		country_in_gran_colombia
 		country_in_great_game_region
@@ -139,6 +148,7 @@ enums = {
 		country_in_northeast_asia
 		country_in_northern_europe
 		country_in_northern_mexico
+		country_in_northwestern_russia
 		country_in_occitania_old
 		country_in_oceania
 		country_in_old_world
@@ -148,11 +158,32 @@ enums = {
 		country_in_peru
 		country_in_philippines
 		country_in_poland_old
+		country_in_polar_seas
+		country_in_priamurye
 		country_in_punjab_old
+		country_in_qing_empire
+		country_in_rcw_baltic
+		country_in_rcw_central
+		country_in_rcw_east_siberia
+		country_in_rcw_far_east
+		country_in_rcw_north
+		country_in_rcw_petrograd
+		country_in_rcw_south
+		country_in_rcw_steppe
+		country_in_rcw_transcaucasia
+		country_in_rcw_turkestan
+		country_in_rcw_ukraine
+		country_in_rcw_urals
+		country_in_rcw_volga
+		country_in_rcw_west
+		country_in_rcw_west_siberia
 		country_in_rhine_old
 		country_in_ring_of_fire
 		country_in_russia
 		country_in_russia_old
+		country_in_russia_western_borderlands
+		country_in_russian_eurasia
+		country_in_russian_siberia
 		country_in_scandinavia
 		country_in_senegal_old
 		country_in_siberia
@@ -164,10 +195,15 @@ enums = {
 		country_in_south_india
 		country_in_southern_africa
 		country_in_southern_africa_old
+		country_in_southern_cone
 		country_in_southern_europe
+		country_in_southern_russia
 		country_in_subsaharan_africa
 		country_in_the_midwest_old
+		country_in_trans_siberian_line
+		country_in_transcaucasia
 		country_in_transoxiana
+		country_in_tropical_seas
 		country_in_turkestan
 		country_in_urals_old
 		country_in_west_africa
@@ -233,8 +269,10 @@ enums = {
 		province_in_atlantic_coast
 		province_in_australasia
 		province_in_australia
+		province_in_austria
 		province_in_balkans
 		province_in_balkans_old
+		province_in_baltic_governorates
 		province_in_baltic_old
 		province_in_baltic_states_old
 		province_in_belarus_old
@@ -246,6 +284,7 @@ enums = {
 		province_in_burma
 		province_in_canada
 		province_in_canada_old
+		province_in_canadian_confederation
 		province_in_caribbean_old
 		province_in_castile
 		province_in_caucasus_old
@@ -255,6 +294,7 @@ enums = {
 		province_in_central_asia_old
 		province_in_central_europe
 		province_in_central_india_old
+		province_in_central_russia
 		province_in_china
 		province_in_chorasmia
 		province_in_colonial_la_plata
@@ -262,23 +302,28 @@ enums = {
 		province_in_colonial_new_spain
 		province_in_colonial_peru
 		province_in_congo_old
+		province_in_congress_poland
 		province_in_danubia_old
 		province_in_delhi_calcutta_line
+		province_in_diocese_of_kamchatka
 		province_in_dixie_old
 		province_in_dnieper_old
 		province_in_east_africa
 		province_in_east_asia
 		province_in_east_sibera_old
+		province_in_east_slavic_states
 		province_in_eastern_europe
 		province_in_england_old
 		province_in_equatorial_africa
 		province_in_ethiopia_old
 		province_in_europe
 		province_in_ezochi
+		province_in_finland
 		province_in_finland_old
 		province_in_france
 		province_in_france_old
 		province_in_french_natural_borders
+		province_in_french_revolution_zone
 		province_in_german_confederation
 		province_in_gran_colombia
 		province_in_great_game_region
@@ -339,6 +384,7 @@ enums = {
 		province_in_northeast_asia
 		province_in_northern_europe
 		province_in_northern_mexico
+		province_in_northwestern_russia
 		province_in_occitania_old
 		province_in_oceania
 		province_in_old_world
@@ -348,11 +394,32 @@ enums = {
 		province_in_peru
 		province_in_philippines
 		province_in_poland_old
+		province_in_polar_seas
+		province_in_priamurye
 		province_in_punjab_old
+		province_in_qing_empire
+		province_in_rcw_baltic
+		province_in_rcw_central
+		province_in_rcw_east_siberia
+		province_in_rcw_far_east
+		province_in_rcw_north
+		province_in_rcw_petrograd
+		province_in_rcw_south
+		province_in_rcw_steppe
+		province_in_rcw_transcaucasia
+		province_in_rcw_turkestan
+		province_in_rcw_ukraine
+		province_in_rcw_urals
+		province_in_rcw_volga
+		province_in_rcw_west
+		province_in_rcw_west_siberia
 		province_in_rhine_old
 		province_in_ring_of_fire
 		province_in_russia
 		province_in_russia_old
+		province_in_russia_western_borderlands
+		province_in_russian_eurasia
+		province_in_russian_siberia
 		province_in_scandinavia
 		province_in_senegal_old
 		province_in_siberia
@@ -364,10 +431,15 @@ enums = {
 		province_in_south_india
 		province_in_southern_africa
 		province_in_southern_africa_old
+		province_in_southern_cone
 		province_in_southern_europe
+		province_in_southern_russia
 		province_in_subsaharan_africa
 		province_in_the_midwest_old
+		province_in_trans_siberian_line
+		province_in_transcaucasia
 		province_in_transoxiana
+		province_in_tropical_seas
 		province_in_turkestan
 		province_in_urals_old
 		province_in_west_africa
@@ -377,6 +449,7 @@ enums = {
 		province_in_yugoslavia
 		province_in_zambezi_basin
 		province_in_zanj_old
+		releasable_state
 		rival_country
 		rivaling_country
 		scope_admiral
@@ -402,6 +475,7 @@ enums = {
 		scope_politician
 		scope_pop
 		scope_regional_hqs
+		scope_regional_objective
 		scope_ship
 		scope_state
 		scope_strait
@@ -431,8 +505,10 @@ enums = {
 		state_in_atlantic_coast
 		state_in_australasia
 		state_in_australia
+		state_in_austria
 		state_in_balkans
 		state_in_balkans_old
+		state_in_baltic_governorates
 		state_in_baltic_old
 		state_in_baltic_states_old
 		state_in_belarus_old
@@ -444,6 +520,7 @@ enums = {
 		state_in_burma
 		state_in_canada
 		state_in_canada_old
+		state_in_canadian_confederation
 		state_in_caribbean_old
 		state_in_castile
 		state_in_caucasus_old
@@ -453,6 +530,7 @@ enums = {
 		state_in_central_asia_old
 		state_in_central_europe
 		state_in_central_india_old
+		state_in_central_russia
 		state_in_china
 		state_in_chorasmia
 		state_in_colonial_la_plata
@@ -460,23 +538,28 @@ enums = {
 		state_in_colonial_new_spain
 		state_in_colonial_peru
 		state_in_congo_old
+		state_in_congress_poland
 		state_in_danubia_old
 		state_in_delhi_calcutta_line
+		state_in_diocese_of_kamchatka
 		state_in_dixie_old
 		state_in_dnieper_old
 		state_in_east_africa
 		state_in_east_asia
 		state_in_east_sibera_old
+		state_in_east_slavic_states
 		state_in_eastern_europe
 		state_in_england_old
 		state_in_equatorial_africa
 		state_in_ethiopia_old
 		state_in_europe
 		state_in_ezochi
+		state_in_finland
 		state_in_finland_old
 		state_in_france
 		state_in_france_old
 		state_in_french_natural_borders
+		state_in_french_revolution_zone
 		state_in_german_confederation
 		state_in_gran_colombia
 		state_in_great_game_region
@@ -537,6 +620,7 @@ enums = {
 		state_in_northeast_asia
 		state_in_northern_europe
 		state_in_northern_mexico
+		state_in_northwestern_russia
 		state_in_occitania_old
 		state_in_oceania
 		state_in_old_world
@@ -546,11 +630,32 @@ enums = {
 		state_in_peru
 		state_in_philippines
 		state_in_poland_old
+		state_in_polar_seas
+		state_in_priamurye
 		state_in_punjab_old
+		state_in_qing_empire
+		state_in_rcw_baltic
+		state_in_rcw_central
+		state_in_rcw_east_siberia
+		state_in_rcw_far_east
+		state_in_rcw_north
+		state_in_rcw_petrograd
+		state_in_rcw_south
+		state_in_rcw_steppe
+		state_in_rcw_transcaucasia
+		state_in_rcw_turkestan
+		state_in_rcw_ukraine
+		state_in_rcw_urals
+		state_in_rcw_volga
+		state_in_rcw_west
+		state_in_rcw_west_siberia
 		state_in_rhine_old
 		state_in_ring_of_fire
 		state_in_russia
 		state_in_russia_old
+		state_in_russia_western_borderlands
+		state_in_russian_eurasia
+		state_in_russian_siberia
 		state_in_scandinavia
 		state_in_senegal_old
 		state_in_siberia
@@ -562,10 +667,15 @@ enums = {
 		state_in_south_india
 		state_in_southern_africa
 		state_in_southern_africa_old
+		state_in_southern_cone
 		state_in_southern_europe
+		state_in_southern_russia
 		state_in_subsaharan_africa
 		state_in_the_midwest_old
+		state_in_trans_siberian_line
+		state_in_transcaucasia
 		state_in_transoxiana
+		state_in_tropical_seas
 		state_in_turkestan
 		state_in_urals_old
 		state_in_west_africa
@@ -594,8 +704,10 @@ enums = {
 		state_region_in_atlantic_coast
 		state_region_in_australasia
 		state_region_in_australia
+		state_region_in_austria
 		state_region_in_balkans
 		state_region_in_balkans_old
+		state_region_in_baltic_governorates
 		state_region_in_baltic_old
 		state_region_in_baltic_states_old
 		state_region_in_belarus_old
@@ -607,6 +719,7 @@ enums = {
 		state_region_in_burma
 		state_region_in_canada
 		state_region_in_canada_old
+		state_region_in_canadian_confederation
 		state_region_in_caribbean_old
 		state_region_in_castile
 		state_region_in_caucasus_old
@@ -616,6 +729,7 @@ enums = {
 		state_region_in_central_asia_old
 		state_region_in_central_europe
 		state_region_in_central_india_old
+		state_region_in_central_russia
 		state_region_in_china
 		state_region_in_chorasmia
 		state_region_in_colonial_la_plata
@@ -623,23 +737,28 @@ enums = {
 		state_region_in_colonial_new_spain
 		state_region_in_colonial_peru
 		state_region_in_congo_old
+		state_region_in_congress_poland
 		state_region_in_danubia_old
 		state_region_in_delhi_calcutta_line
+		state_region_in_diocese_of_kamchatka
 		state_region_in_dixie_old
 		state_region_in_dnieper_old
 		state_region_in_east_africa
 		state_region_in_east_asia
 		state_region_in_east_sibera_old
+		state_region_in_east_slavic_states
 		state_region_in_eastern_europe
 		state_region_in_england_old
 		state_region_in_equatorial_africa
 		state_region_in_ethiopia_old
 		state_region_in_europe
 		state_region_in_ezochi
+		state_region_in_finland
 		state_region_in_finland_old
 		state_region_in_france
 		state_region_in_france_old
 		state_region_in_french_natural_borders
+		state_region_in_french_revolution_zone
 		state_region_in_german_confederation
 		state_region_in_gran_colombia
 		state_region_in_great_game_region
@@ -700,6 +819,7 @@ enums = {
 		state_region_in_northeast_asia
 		state_region_in_northern_europe
 		state_region_in_northern_mexico
+		state_region_in_northwestern_russia
 		state_region_in_occitania_old
 		state_region_in_oceania
 		state_region_in_old_world
@@ -709,11 +829,32 @@ enums = {
 		state_region_in_peru
 		state_region_in_philippines
 		state_region_in_poland_old
+		state_region_in_polar_seas
+		state_region_in_priamurye
 		state_region_in_punjab_old
+		state_region_in_qing_empire
+		state_region_in_rcw_baltic
+		state_region_in_rcw_central
+		state_region_in_rcw_east_siberia
+		state_region_in_rcw_far_east
+		state_region_in_rcw_north
+		state_region_in_rcw_petrograd
+		state_region_in_rcw_south
+		state_region_in_rcw_steppe
+		state_region_in_rcw_transcaucasia
+		state_region_in_rcw_turkestan
+		state_region_in_rcw_ukraine
+		state_region_in_rcw_urals
+		state_region_in_rcw_volga
+		state_region_in_rcw_west
+		state_region_in_rcw_west_siberia
 		state_region_in_rhine_old
 		state_region_in_ring_of_fire
 		state_region_in_russia
 		state_region_in_russia_old
+		state_region_in_russia_western_borderlands
+		state_region_in_russian_eurasia
+		state_region_in_russian_siberia
 		state_region_in_scandinavia
 		state_region_in_senegal_old
 		state_region_in_siberia
@@ -725,10 +866,15 @@ enums = {
 		state_region_in_south_india
 		state_region_in_southern_africa
 		state_region_in_southern_africa_old
+		state_region_in_southern_cone
 		state_region_in_southern_europe
+		state_region_in_southern_russia
 		state_region_in_subsaharan_africa
 		state_region_in_the_midwest_old
+		state_region_in_trans_siberian_line
+		state_region_in_transcaucasia
 		state_region_in_transoxiana
+		state_region_in_tropical_seas
 		state_region_in_turkestan
 		state_region_in_urals_old
 		state_region_in_west_africa
@@ -758,8 +904,10 @@ enums = {
 		strategic_region_in_atlantic_coast
 		strategic_region_in_australasia
 		strategic_region_in_australia
+		strategic_region_in_austria
 		strategic_region_in_balkans
 		strategic_region_in_balkans_old
+		strategic_region_in_baltic_governorates
 		strategic_region_in_baltic_old
 		strategic_region_in_baltic_states_old
 		strategic_region_in_belarus_old
@@ -771,6 +919,7 @@ enums = {
 		strategic_region_in_burma
 		strategic_region_in_canada
 		strategic_region_in_canada_old
+		strategic_region_in_canadian_confederation
 		strategic_region_in_caribbean_old
 		strategic_region_in_castile
 		strategic_region_in_caucasus_old
@@ -780,6 +929,7 @@ enums = {
 		strategic_region_in_central_asia_old
 		strategic_region_in_central_europe
 		strategic_region_in_central_india_old
+		strategic_region_in_central_russia
 		strategic_region_in_china
 		strategic_region_in_chorasmia
 		strategic_region_in_colonial_la_plata
@@ -787,23 +937,28 @@ enums = {
 		strategic_region_in_colonial_new_spain
 		strategic_region_in_colonial_peru
 		strategic_region_in_congo_old
+		strategic_region_in_congress_poland
 		strategic_region_in_danubia_old
 		strategic_region_in_delhi_calcutta_line
+		strategic_region_in_diocese_of_kamchatka
 		strategic_region_in_dixie_old
 		strategic_region_in_dnieper_old
 		strategic_region_in_east_africa
 		strategic_region_in_east_asia
 		strategic_region_in_east_sibera_old
+		strategic_region_in_east_slavic_states
 		strategic_region_in_eastern_europe
 		strategic_region_in_england_old
 		strategic_region_in_equatorial_africa
 		strategic_region_in_ethiopia_old
 		strategic_region_in_europe
 		strategic_region_in_ezochi
+		strategic_region_in_finland
 		strategic_region_in_finland_old
 		strategic_region_in_france
 		strategic_region_in_france_old
 		strategic_region_in_french_natural_borders
+		strategic_region_in_french_revolution_zone
 		strategic_region_in_german_confederation
 		strategic_region_in_gran_colombia
 		strategic_region_in_great_game_region
@@ -864,6 +1019,7 @@ enums = {
 		strategic_region_in_northeast_asia
 		strategic_region_in_northern_europe
 		strategic_region_in_northern_mexico
+		strategic_region_in_northwestern_russia
 		strategic_region_in_occitania_old
 		strategic_region_in_oceania
 		strategic_region_in_old_world
@@ -873,11 +1029,32 @@ enums = {
 		strategic_region_in_peru
 		strategic_region_in_philippines
 		strategic_region_in_poland_old
+		strategic_region_in_polar_seas
+		strategic_region_in_priamurye
 		strategic_region_in_punjab_old
+		strategic_region_in_qing_empire
+		strategic_region_in_rcw_baltic
+		strategic_region_in_rcw_central
+		strategic_region_in_rcw_east_siberia
+		strategic_region_in_rcw_far_east
+		strategic_region_in_rcw_north
+		strategic_region_in_rcw_petrograd
+		strategic_region_in_rcw_south
+		strategic_region_in_rcw_steppe
+		strategic_region_in_rcw_transcaucasia
+		strategic_region_in_rcw_turkestan
+		strategic_region_in_rcw_ukraine
+		strategic_region_in_rcw_urals
+		strategic_region_in_rcw_volga
+		strategic_region_in_rcw_west
+		strategic_region_in_rcw_west_siberia
 		strategic_region_in_rhine_old
 		strategic_region_in_ring_of_fire
 		strategic_region_in_russia
 		strategic_region_in_russia_old
+		strategic_region_in_russia_western_borderlands
+		strategic_region_in_russian_eurasia
+		strategic_region_in_russian_siberia
 		strategic_region_in_scandinavia
 		strategic_region_in_senegal_old
 		strategic_region_in_siberia
@@ -889,10 +1066,15 @@ enums = {
 		strategic_region_in_south_india
 		strategic_region_in_southern_africa
 		strategic_region_in_southern_africa_old
+		strategic_region_in_southern_cone
 		strategic_region_in_southern_europe
+		strategic_region_in_southern_russia
 		strategic_region_in_subsaharan_africa
 		strategic_region_in_the_midwest_old
+		strategic_region_in_trans_siberian_line
+		strategic_region_in_transcaucasia
 		strategic_region_in_transoxiana
+		strategic_region_in_tropical_seas
 		strategic_region_in_turkestan
 		strategic_region_in_urals_old
 		strategic_region_in_west_africa

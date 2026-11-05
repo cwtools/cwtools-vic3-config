@@ -80,6 +80,13 @@ music = {
     ## cardinality = 0..1
     reset = bool
 
+    ### How likely this mood track is to be picked relative to the other valid tracks, default: 1
+    ### Only used by the Weighted shuffle mode, see below. A weight of 0 means the track is never picked automatically, unless every candidate has a weight of 0, in which case they are picked evenly
+    ### Evaluated in the scope of the played country, same as is_valid
+    ### NOTE: This can only be applied to in-game mood tracks (not to main themes)
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+
     ### Only play this track if the user has the DLC specified here
     ### NOTE: This can only be applied to main themes. To get similar behavior for in-game tracks, the general-purpose is_valid can be used instead
     ## cardinality = 0..1

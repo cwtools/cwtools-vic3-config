@@ -35,6 +35,26 @@ character_role = {
         int
     }
 
+    ## cardinality = 0..1
+    law_enactment_ideology_effect = value_field
+    ## cardinality = 0..1
+    law_enactment_ideology_effect = single_alias_right[formula]
+
+    ### The background shown behind the character in the character panel. Can be listed several times to get variations
+    ### The first entry whose trigger passes is used, so list the most specific ones first. An entry without a trigger always passes
+    ### A character holding several roles uses the background of their highest priority role. If that role has no valid entry the next highest priority role is tried, and so on
+    ### Root = character
+    ## cardinality = 0..inf
+    character_background = {
+        ## cardinality = 0..1
+        trigger = single_alias_right[trigger_clause]
+
+        texture = filepath
+    }
+
+    ## cardinality = 0..1
+    can_be_interest_group_leader = bool
+
     ### Effect that fires when a character retires from this role
     ## cardinality = 0..1
     on_career_end = single_alias_right[effect_clause]

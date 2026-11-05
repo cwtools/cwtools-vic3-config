@@ -258,6 +258,13 @@ alias[trigger:custom_description] = {
     ## cardinality = 0..1
     object = scope_field
 
+    ## cardinality = 0..1
+    value = scope_field
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
     alias_name[trigger] = alias_match_left[trigger]
 }
 
@@ -300,7 +307,7 @@ alias[trigger:exists] = value_field
 ### Compare to current game date current_game_date = 1837.1.1
 alias[trigger:game_date] == date_field
 ## scopes = { any }
-### Compare to current game date current_game_date = 1837
+### Compare to current game date current_game_date = 1837.1.1
 alias[trigger:game_date] == int
 
 ## scopes = { any }
@@ -1065,10 +1072,21 @@ alias[trigger:owns_treaty_port_in] = <state_region>
 ## scopes = { country }
 ### Checks whether the scoped country has <percent> of its population belonging to the specified pop type scope:example_country = { 	pop_type_percent_country = { 		pop_type = <pop_type> 		percent <compare operator (<,>,= and so on)> <percent> 	} }
 alias[trigger:pop_type_percent_country] = {
+    ## cardinality = 0..1
     pop_type = <pop_type>
 
+    ## cardinality = 0..1
+    target = scope[pop_type]
+
+    ## cardinality = 0..1
     percent == value_field[-1..1]
+    ## cardinality = 0..1
     percent == single_alias_right[formula]
+
+    ## cardinality = 0..1
+    value == value_field[-1..1]
+    ## cardinality = 0..1
+    value == single_alias_right[formula]
 }
 
 ## scopes = { country }
@@ -1203,15 +1221,6 @@ alias[trigger:is_tradeable] = bool
 ## scopes = { diplomatic_pact }
 ### Checks if diplomatic pact is in danger of breaking is_diplomatic_pact_in_danger = yes
 alias[trigger:is_diplomatic_pact_in_danger] = bool
-
-## scopes = { war }
-### Checks the war exhaustion of the target country in the scoped war has_war_exhaustion = { target = c:GBR value > 50 }
-alias[trigger:has_war_exhaustion] = {
-    target = scope[country]
-
-    value == value_field
-    value == single_alias_right[formula]
-}
 
 ## scopes = { war }
 ### Checks if war has a certain war goal type has_war_goal = return_state
@@ -1392,7 +1401,7 @@ alias[trigger:ig_state_pol_strength_share] = {
 alias[trigger:is_capital] = bool
 
 ## scopes = { state }
-### Check if state borders a (non-impassable) sea region is_coastal = yes/no
+### Check if a state borders a (non-impassable) sea region or if a country contains any such state.
 alias[trigger:is_coastal] = bool
 
 ## scopes = { state }
@@ -1619,15 +1628,6 @@ alias[trigger:formation_army_unit_type_fraction] = {
 }
 
 ## scopes = { country }
-### Compares the additional war exhaustion the scoped country has accumulated from scripted events in the target diplomatic play
-alias[trigger:additional_war_exhaustion] = {
-    target = scope[diplomatic_play]
-
-    value == value_field
-    value == single_alias_right[formula]
-}
-
-## scopes = { country }
 ### Checks that a countries army has a certain percentage of units with a specific monbilization option
 alias[trigger:army_mobilization_option_fraction] = {
     target = scope[mobilization_option]
@@ -1662,15 +1662,6 @@ alias[trigger:country_has_building_group_levels] = {
 ### Checks the sum of building levels for a building type in a country
 alias[trigger:country_has_building_type_levels] = {
     target = scope[building_type]
-
-    value == value_field
-    value == single_alias_right[formula]
-}
-
-## scopes = { country }
-### Determines the fraction of wargoals that enemies in the war are currently contesting
-alias[trigger:enemy_contested_wargoals] = {
-    target = scope[war]
 
     value == value_field
     value == single_alias_right[formula]
@@ -2024,7 +2015,7 @@ alias[trigger:state_cultural_acceptance] = {
 }
 
 ## scopes = { state }
-### Checks whether a building can be constructed in the state
+### Checks if 1 level of <building_type> can be constructed in a scoped state
 alias[trigger:can_construct_building] = <building>
 
 ## scopes = { pop }
@@ -2455,14 +2446,6 @@ alias[trigger:predicted_cohesion_percentage_with] = {
     value == single_alias_right[formula]
 }
 
-## scopes = { war }
-### Determines the war exhaustion a country gets from their degree of cultural acceptance of manpower killed in the war, regardless of what side they were on
-alias[trigger:war_exhaustion_from_acceptance_of_dead] = {
-    target = scope[country]
-    value == value_field
-    value == single_alias_right[formula]
-}
-
 ## scopes = { country }
 ### Checks if any country on the same side as scope country in any war holds a wargoal of a specific type targeting a specific country
 alias[trigger:war_side_has_war_goal_of_type_against] = {
@@ -2649,6 +2632,8 @@ alias[trigger:market_consumption_share] = {
 
     ## cardinality = 0..1
     goods = <good>
+    ## cardinality = 0..1
+    goods = scope[goods]
 
     value == value_field
     value == single_alias_right[formula]
@@ -2661,6 +2646,8 @@ alias[trigger:market_production_share] = {
 
     ## cardinality = 0..1
     goods = <good>
+    ## cardinality = 0..1
+    goods = scope[goods]
 
     value == value_field
     value == single_alias_right[formula]
@@ -2674,6 +2661,8 @@ alias[trigger:market_exports] = {
 
     ## cardinality = 0..1
     goods = <good>
+    ## cardinality = 0..1
+    goods = scope[goods]
 
     value == value_field
     value == single_alias_right[formula]
@@ -2687,6 +2676,8 @@ alias[trigger:market_exports_reliance] = {
 
     ## cardinality = 0..1
     goods = <good>
+    ## cardinality = 0..1
+    goods = scope[goods]
 
     value == value_field
     value == single_alias_right[formula]
@@ -2700,6 +2691,8 @@ alias[trigger:market_imports] = {
 
     ## cardinality = 0..1
     goods = <good>
+    ## cardinality = 0..1
+    goods = scope[goods]
 
     value == value_field
     value == single_alias_right[formula]
@@ -2713,6 +2706,8 @@ alias[trigger:market_imports_reliance] = {
 
     ## cardinality = 0..1
     goods = <good>
+    ## cardinality = 0..1
+    goods = scope[goods]
 
     value == value_field
     value == single_alias_right[formula]
@@ -2726,6 +2721,8 @@ alias[trigger:market_trade] = {
 
     ## cardinality = 0..1
     goods = <good>
+    ## cardinality = 0..1
+    goods = scope[goods]
 
     value == value_field
     value == single_alias_right[formula]
@@ -2739,6 +2736,8 @@ alias[trigger:market_trade_reliance] = {
 
     ## cardinality = 0..1
     goods = <good>
+    ## cardinality = 0..1
+    goods = scope[goods]
 
     value == value_field
     value == single_alias_right[formula]
@@ -2748,6 +2747,7 @@ alias[trigger:market_trade_reliance] = {
 ### Compare the buy orders of a specific prestige good type in the market
 alias[trigger:market_prestige_goods_buy_orders] = {
     type = <prestige_good>
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2756,6 +2756,7 @@ alias[trigger:market_prestige_goods_buy_orders] = {
 ### Compare the consumption value of a specific prestige good type in the market
 alias[trigger:market_prestige_goods_consumption] = {
     type = <prestige_good>
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2764,6 +2765,7 @@ alias[trigger:market_prestige_goods_consumption] = {
 ### Compare the delta (sell orders - buy orders) of a specific prestige good type in the market
 alias[trigger:market_prestige_goods_delta] = {
     type = <prestige_good>
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2772,6 +2774,7 @@ alias[trigger:market_prestige_goods_delta] = {
 ### Compare the world market expore share of a specific prestige good type in the market
 alias[trigger:market_prestige_goods_export_share] = {
     type = <prestige_good>
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2780,6 +2783,7 @@ alias[trigger:market_prestige_goods_export_share] = {
 ### Compare the export value of a specific prestige good type in the market
 alias[trigger:market_prestige_goods_exports] = {
     type = <prestige_good>
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2788,6 +2792,7 @@ alias[trigger:market_prestige_goods_exports] = {
 ### Compare the world market export share of a specific prestige good type in the market
 alias[trigger:market_prestige_goods_import_share] = {
     type = <prestige_good>
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2796,6 +2801,7 @@ alias[trigger:market_prestige_goods_import_share] = {
 ### Compare the import value of a specific prestige good type in the market
 alias[trigger:market_prestige_goods_imports] = {
     type = <prestige_good>
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2804,6 +2810,7 @@ alias[trigger:market_prestige_goods_imports] = {
 ### Compare the production value of a specific prestige good type in the market
 alias[trigger:market_prestige_goods_production] = {
     type = <prestige_good>
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2812,6 +2819,7 @@ alias[trigger:market_prestige_goods_production] = {
 ### Compare the sell orders of a specific prestige good type in the market
 alias[trigger:market_prestige_goods_sell_orders] = {
     type = <prestige_good>
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2820,6 +2828,7 @@ alias[trigger:market_prestige_goods_sell_orders] = {
 ### Check if the scoped article has the given number of contravention from the given country
 alias[trigger:num_contraventions] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2828,6 +2837,7 @@ alias[trigger:num_contraventions] = {
 ### Checks the number of casualties for the target country in the scoped front
 alias[trigger:num_front_casualties] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2836,6 +2846,7 @@ alias[trigger:num_front_casualties] = {
 ### Checks the number of dead for the target country in the scoped front
 alias[trigger:num_front_dead] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2844,6 +2855,7 @@ alias[trigger:num_front_dead] = {
 ### Checks the number of wounded for the target country in the scoped front
 alias[trigger:num_front_wounded] = {
     target = scope[country]
+
     value == value_field
     value == single_alias_right[formula]
 }
@@ -2906,6 +2918,9 @@ alias[trigger:has_law_or_variant] = scope[law_type]
 ## scopes = { country }
 ### Check if the scoped country has any level of subventions on a goods
 alias[trigger:has_any_subventions_on] = scope[goods]
+## scopes = { country }
+### Check if the scoped country has any level of subventions on a goods
+alias[trigger:has_any_subventions_on] = <good>
 
 ## scopes = { treaty_options treaty }
 ### Checks if the scoped treaty has the same articles on both sides
@@ -2914,6 +2929,9 @@ alias[trigger:is_equal_exchange] = bool
 ## scopes = { country }
 ### Check if the scoped country has any level of tariffs on a goods
 alias[trigger:has_any_tariffs_on] = scope[goods]
+## scopes = { country }
+### Check if the scoped country has any level of tariffs on a goods
+alias[trigger:has_any_tariffs_on] = <good>
 
 ## scopes = { law }
 ### Checks if a law is available for its country, considering its current situation. Like can_be_enacted, but ignores government support
@@ -3320,12 +3338,12 @@ alias[trigger:region_score] = {
 }
 
 ## scopes = { country }
-### Check if the scoped country has any level of strait control
-alias[trigger:has_any_strait_control] = scope[country]
+### Check if the scoped country owns a strait province with naval fortification
+alias[trigger:has_any_strait_control] = bool
 
-## scopes = { country }
-### Check if the scoped country has any strait
-alias[trigger:has_any_strait_province] = scope[country]
+## scopes = { country state state_region }
+### Check if a state, state region or country owns any strait province
+alias[trigger:has_any_strait_province] = bool
 
 ## scopes = { military_formation }
 ### Checks if a Fleet has a naval mission with an invalid area
@@ -3632,3 +3650,413 @@ alias[trigger:days_since_movement_type_defeated] = {
     value == value_field
     value == single_alias_right[formula]
 }
+
+## scopes = { any }
+### True if a named script container exists
+alias[trigger:container_exists] = value[container_name]
+
+## scopes = { container }
+### True if the script container in scope has any tags
+alias[trigger:has_any_tags] = bool
+
+## scopes = { container }
+### True if the script container in scope has a name
+alias[trigger:has_name] = bool
+
+## scopes = { container }
+### True if the script container in scope has a parent
+alias[trigger:has_parent] = bool
+
+## scopes = { container }
+### True if the script container in scope has the given tag (`has_tag = <tag>`)
+alias[trigger:has_tag] = value[container_tag]
+
+## scopes = { container }
+### True if the script container in scope has all of the given tags
+alias[trigger:has_tags] = {
+    ## cardinality = 0..inf
+    value[container_tag]
+}
+
+## scopes = { country }
+### Compares the additional war support change the scoped country has accumulated from scripted events in the target diplomatic play
+alias[trigger:additional_war_support_change] = {
+    target = scope[diplomatic_play]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { war }
+### Compares the share of the target country's GDP that sits in blockaded states, from the scoped war
+alias[trigger:blockaded_gdp_share] = {
+    target = scope[country]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { country }
+### Compare to the date the scoped AI regional objective was concluded
+### Only concluded objectives have a date, so check is_completed or is_failed first
+alias[trigger:conclusion_date] = date_field
+
+## scopes = { war }
+### Compares how actively the target country's enemies in the scoped war are pressuring it, from 0 to 1, through occupation, blockade or recent significant battles
+alias[trigger:enemy_pressure] = {
+    target = scope[country]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { country }
+### Average weighted occupation of the countries on the enemy side of the scoped war, from the scoped country's perspective (0-1)
+alias[trigger:enemy_side_occupation] = {
+    target = scope[war]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { war }
+### Compares the fraction of GDP the target country has gained or lost since it entered the scoped war
+alias[trigger:gdp_change_since_war_start] = {
+    target = scope[country]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { country }
+### Compares the yearly GDP the specified country owns in the scoped country
+alias[trigger:gdp_owned_by] = {
+    target = scope[country]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { country }
+### Checks how many levels of a building type the scoped country has in the state it owns in a state region
+### Counts as 0 when the country owns no state in the region, or when is_incorporated does not match
+alias[trigger:has_building_levels_in_state_region] = {
+    region = <state_region>
+
+    building = <building>
+
+    levels == value_field
+    levels == scope_field
+    levels == single_alias_right[formula]
+
+    ## cardinality = 0..1
+    is_incorporated = bool
+}
+
+## scopes = { war }
+### Checks the war support change of the target country in the scoped war
+alias[trigger:has_war_support_change] = {
+    target = scope[country]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { war }
+### Compares how much of what the target country's economy was worth on entering the scoped war has since been taken from it by war goal enforcement
+alias[trigger:land_lost_since_war_start] = {
+    target = scope[country]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { building }
+### Checks the number of building levels of a given building group the scoped building own
+alias[trigger:num_building_assets_of_group] = {
+    type = <building_group>
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { building }
+### Checks the number of building levels of a given type the scoped building own
+alias[trigger:num_building_assets_of_type] = {
+    type = <building>
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { country }
+### Determines the fraction of battles the target country has won in the target war, weighted by manpower size of all battles in the war
+alias[trigger:size_weighted_won_battles_fraction] = {
+    target = scope[war]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { war }
+### Determines the war support change a country gets from their degree of cultural acceptance of manpower killed in the war, regardless of what side they were on
+alias[trigger:war_support_from_acceptance_of_dead] = {
+    target = scope[country]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { country }
+### Signed war support change per beat for the scoped country from war goals it holds (positive) or is targeted by (negative), by progress tier
+alias[trigger:war_support_from_war_goals] = {
+    target = scope[war]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { state }
+### Checks that a state's population has a certain percentage of the country's primary cultures
+alias[trigger:primary_cultures_percent_state] = {
+    target_country = scope[country]
+
+    value == value_field
+    value == scope_field
+    value == single_alias_right[formula]
+}
+
+## scopes = { country }
+### Checks if a subject can start a diplomatic play against its direct overlord, even while the overlord is at war: no war the overlord is in has a war goal targeting the subject, and none of the subject's states are occupied
+alias[trigger:can_start_play_against_overlord] = bool
+
+## scopes = { country state state_region }
+### Check if a state, state region or country owns any potential strait province
+alias[trigger:has_any_potential_strait_province] = bool
+
+## scopes = { state }
+### Check if this state has a direct connection to a coastal state owned by the same country.
+alias[trigger:has_coastal_access] = bool
+
+## scopes = { treaty }
+### Checks if a participant is planning on withdrawing from the scoped treaty
+alias[trigger:has_planned_withdrawal] = bool
+
+## scopes = { state }
+### Check if a Cossack Host was removed from the state recently enough to still count
+alias[trigger:has_recently_removed_cossack_host] = bool
+
+## scopes = { country }
+### Check if the Naval Administrations can deliver enough sailors for every ship the country already has
+alias[trigger:has_sufficient_sailors] = bool
+
+## scopes = { state }
+### Checks if the scoped state's state region has its center point north of the equator
+alias[trigger:in_north_hemisphere] = bool
+
+## scopes = { state }
+### Checks if the scoped state's state region has its center point south of the equator
+alias[trigger:in_south_hemisphere] = bool
+
+## scopes = { state }
+### Checks if the scoped state's state region has its center point between the tropics of Cancer and Capricorn
+alias[trigger:in_tropics] = bool
+
+## scopes = { ai_regional_objective }
+### Checks if the scoped AI regional objective is still being pursued, meaning it has neither completed nor failed
+alias[trigger:is_active] = bool
+
+## scopes = { ai_regional_objective }
+### Checks if the scoped AI regional objective has been completed
+alias[trigger:is_completed] = bool
+
+## scopes = { political_movement }
+### Its [concept_culture] has a growing or ongoing [concept_secession] in another [concept_country]
+alias[trigger:is_culture_seceding_elsewhere] = bool
+
+## scopes = { ai_regional_objective }
+### Checks if the scoped AI regional objective has failed or been invalidated
+alias[trigger:is_failed] = bool
+
+## scopes = { country }
+### True if the country is not a subject and no war goal to make it a subject is pending against it in any of its wars
+alias[trigger:is_independent_and_not_being_subjugated] = bool
+
+## scopes = { war }
+### True if both war leaders are at minimum war support and the war is counting down to a stalemate
+alias[trigger:war_is_in_stalemate] = bool
+
+## scopes = { country }
+### Checks a subject's AI attitude toward its overlord
+alias[trigger:attitude_towards_overlord] = enum[diplo_play_attitute]
+
+## scopes = { war }
+### Checks if pulling the target country into the scoped war would connect an important land theater of one side to an important land theater of the other, at least one of them not yet connected by land to the other side. A theater is important when it holds at least NDiplomacy|VIOLATE_SOVEREIGNTY_IMPORTANT_THEATER_UNIT_SHARE of the mobilizing and mobilized units in the war
+alias[trigger:connects_important_war_theaters] = scope[country]
+
+## scopes = { country }
+### Check whether the scoped country or any of its subjects owns the entire region and no war goal in any of its wars is targeting a state in it
+alias[trigger:country_or_subject_owns_entire_state_region_uncontested] = <state_region>
+
+## scopes = { character }
+### Checks if the character's current career length meets a duration threshold. Role can be a specific database role, a role type, or omitted to use the role with the longest tenure.
+alias[trigger:current_career_length] = {
+    role = <character_role>
+    role = enum[character_role]
+
+    enum[duration] == int_value_field
+}
+
+## scopes = { country }
+### Checks if the scoped country's AI has a regional objective in a strategic region, whatever its status
+### Leave out type to match an objective of any type
+alias[trigger:has_any_regional_objective] = {
+    region = scope[strategic_region]
+
+    ## cardinality = 0..1
+    type = <ai_regional_objective>
+}
+
+## scopes = { country }
+### Checks if the country in scope can realistically get an army to a target state or country.
+### Always true with a land route; otherwise military_reach must be at least min_reach, and when min_shippable_strength is set, shippable_army_strength_against the target (or the target state's owner) must be at least that
+alias[trigger:has_military_reach] = {
+    target = scope[state]
+    target = scope[country]
+
+    min_reach = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    min_shippable_strength = single_alias_right[formula]
+}
+
+## scopes = { military_formation }
+### Checks if a Fleet is running a specific naval mission covering the specified strategic region
+alias[trigger:has_naval_mission_in_region] = {
+    region = scope[strategic_region]
+
+    type = <naval_mission_type>
+}
+
+## scopes = { country }
+### Check if country has a state in the state region, or is at war with a country that holds one - i.e. the region has not been settled away from it
+alias[trigger:has_or_is_contesting_state_in_state_region] = <state_region>
+
+## scopes = { country }
+### Checks whether the scoped country meets the has_access requirements of the given Regional Exile Pool
+alias[trigger:has_regional_exile_pool_access] = <regional_exile_pool>
+
+## scopes = { country }
+### Checks if the scoped country's AI has an active regional objective in a strategic region
+### Leave out type to match an objective of any type
+alias[trigger:has_regional_objective] = {
+    region = scope[strategic_region]
+
+    ## cardinality = 0..1
+    type = <ai_regional_objective>
+}
+
+## scopes = { war }
+### Checks if any enemy war goal in the scoped war would take whole states from the specified country without being contested or advanced on
+alias[trigger:has_stalled_state_wargoal_against] = scope[country]
+
+## scopes = { war }
+### Checks if any enemy war goal in the scoped war targets the specified country without being contested or advanced on
+alias[trigger:has_stalled_wargoal_against] = scope[country]
+
+## scopes = { war }
+### Checks if the specified country holds a war goal in the scoped war that is neither being contested nor advanced on
+alias[trigger:has_stalled_wargoal_held_by] = scope[country]
+
+## scopes = { country }
+### Check if country has a state in the state region and no war goal in any of its wars is targeting a state in it
+alias[trigger:has_state_in_state_region_uncontested] = <state_region>
+
+## scopes = { ship }
+### Checks if scoped ship is in the specified AI ship category
+alias[trigger:is_ai_ship_category] = <ai_ship_category>
+
+## scopes = { war }
+### Checks if the specified country is at war against a declared rival in the scoped war
+alias[trigger:is_at_war_with_rival] = scope[country]
+
+## scopes = { war }
+### Checks if the specified country is a subject fighting its own overlord in the scoped war
+alias[trigger:is_fighting_overlord_in_war] = scope[country]
+
+## scopes = { character }
+### Checks whether the scoped character is in a Regional Exile Pool
+alias[trigger:is_in_regional_exile_pool] = bool
+## scopes = { character }
+### Checks whether the scoped character is in a Regional Exile Pool
+alias[trigger:is_in_regional_exile_pool] = {
+    exile_pool = <regional_exile_pool>
+
+    ## cardinality = 0..1
+    value = bool
+}
+
+## scopes = { character }
+### Checks if the character's interest group already has as many pool characters of the role as it would spawn, using the country rank pool multiplier for AI countries
+alias[trigger:is_interest_group_pool_full] = <character_role>
+
+## scopes = { country }
+### Checks if country in scope shares a land border with a target state, ignoring sea crossings
+alias[trigger:is_land_adjacent_to_state] = scope[state]
+
+## scopes = { war }
+### Checks if the target country is on the target side of the scoped war, as the target itself or backing it
+alias[trigger:is_on_defending_side] = scope[country]
+
+## scopes = { country }
+### Checks if the scoped country's AI has an active regional objective of the given type that targets the country
+### Uses the objective type's country_target, or for objectives with only a state_target, whether the country owns a targeted state
+alias[trigger:is_regional_objective_target_country] = {
+    type = scope[ai_regional_objective_type]
+
+    target = scope[country]
+}
+
+## scopes = { country }
+### Checks if the scoped country's AI has an active regional objective of the given type that targets the state
+alias[trigger:is_regional_objective_target_state] = {
+    type = scope[ai_regional_objective_type]
+
+    target = scope[state]
+}
+
+## scopes = { country }
+### True if the country is a subject and no war goal to free it is pending in any wars
+alias[trigger:is_subject_of_and_not_being_freed] = scope[country]
+
+## scopes = { country }
+### Check if country owns the entire region, or is at war with a country that holds a state in it - i.e. the region has not been settled away from it
+alias[trigger:owns_entire_or_is_contesting_state_region] = <state_region>
+
+## scopes = { country }
+### Check if country owns the entire region and no war goal in any of its wars is targeting a state in it
+alias[trigger:owns_entire_state_region_uncontested] = <state_region>
+
+## scopes = { country }
+### Checks if a war the scoped country is committed to has a war goal that would put the specified country back on the map, such as the mirror goal created when a country is annexed mid-war
+alias[trigger:war_may_restore_country] = <country_definition>
+## scopes = { country }
+### Checks if a war the scoped country is committed to has a war goal that would put the specified country back on the map, such as the mirror goal created when a country is annexed mid-war
+alias[trigger:war_may_restore_country] = scope[country_definition]
+
+## scopes = { country }
+### Checks if a country is building a ship with a target fleet it will not be able to reach once built
+alias[trigger:has_unreachable_ship_construction_fleet] = bool

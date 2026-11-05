@@ -1,0 +1,88 @@
+types = {
+    ## type_key_filter = variation
+    type[portrait_accessory_variation] = {
+        path = "gfx/portraits/accessory_variations"
+        path_extension = .txt
+        name_field = "name"
+    }
+    ## type_key_filter = pattern_textures
+    type[portrait_accessory_pattern_texture] = {
+        path = "gfx/portraits/accessory_variations"
+        path_extension = .txt
+        name_field = "name"
+    }
+    ## type_key_filter = pattern_layout
+    type[portrait_accessory_pattern_layout] = {
+        path = "gfx/portraits/accessory_variations"
+        path_extension = .txt
+        name_field = "name"
+    }
+}
+
+portrait_accessory_variation = {
+    name = scalar
+
+    ## cardinality = 0..inf
+    pattern = {
+        weight = int
+
+        r = {
+            textures = <portrait_accessory_pattern_texture>
+            layout = <portrait_accessory_pattern_layout>
+        }
+        g = {
+            textures = <portrait_accessory_pattern_texture>
+            layout = <portrait_accessory_pattern_layout>
+        }
+        b = {
+            textures = <portrait_accessory_pattern_texture>
+            layout = <portrait_accessory_pattern_layout>
+        }
+        a = {
+            textures = <portrait_accessory_pattern_texture>
+            layout = <portrait_accessory_pattern_layout>
+        }
+    }
+
+    ## cardinality = 0..inf
+    color_palette = {
+        weight = int
+
+        texture = filepath
+    }
+}
+
+portrait_accessory_pattern_texture = {
+    name = scalar
+
+    colormask	= filepath
+
+    normal		= filepath
+
+    properties	= filepath
+}
+
+portrait_accessory_pattern_layout = {
+    name = scalar
+
+    scale = {
+        min = float
+        max = float
+    }
+
+    rotation = {
+        min = float
+        max = float
+    }
+
+    offset = {
+        x = {
+            min = float
+            max = float
+        }
+        y = {
+            min = float
+            max = float
+        }
+    }
+}

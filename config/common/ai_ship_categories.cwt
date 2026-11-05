@@ -1,0 +1,13 @@
+types = {
+    type[ai_ship_category] = {
+        path = "game/common/ai_ship_categories"
+        path_extension = .txt
+    }
+}
+
+## replace_scope = { root = country this = country }
+ai_ship_category = {
+    ## cardinality = 0..1
+    can_build = single_alias_right[trigger_clause]
+
+}

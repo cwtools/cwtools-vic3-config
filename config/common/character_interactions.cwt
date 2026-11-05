@@ -28,6 +28,11 @@ character_interaction = {
     ### Required for AI to evaluate if interaction is possible on characters in exile pool
     ai_considers_exiles = bool
 
+    ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
+    ### Country-scoped trigger on the interacting country that must also be true for the interaction to be available, for limits like free slots that do not depend on the character
+    actor_capacity = single_alias_right[trigger_clause]
+
     ### Trigger to check if the interaction should be shown
     ### scope:actor interacting country
     potential = single_alias_right[trigger_clause]

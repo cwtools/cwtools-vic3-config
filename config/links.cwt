@@ -204,6 +204,13 @@ links = {
 		data_source = localisation
 		prefix = flag:
 	}
+	### Flag literals eg: flag:the_boss
+	flag_scalar = {
+		output_scope = flag
+		from_data = yes
+		data_source = scalar
+		prefix = flag:
+	}
 	### Scope to the goods with specified key
 	g = {
 		output_scope = goods
@@ -422,19 +429,11 @@ links = {
 		input_scopes = province
 		output_scope = hq
 	}
-	### Scope to the law with specified tag
+	### Scope to the scoped country's active law in the named law group (active_law:lawgroup_trade_policy)
 	active_law = {
 		output_scope = law
 		from_data = yes
 		prefix = active_law:
-		data_source = <law_group>
-	}
-	### Scope to the scoped country's active law in the named law group (active_law:lawgroup_trade_policy)
-	active_law_group = {
-		input_scopes = country
-		output_scope = law
-		from_data = yes
-		prefix = active_law_group:
 		data_source = <law_group>
 	}
 	progressiveness = {
@@ -2235,16 +2234,6 @@ links = {
 		input_scopes = { country }
 		output_scope = any
 	}
-	### Number of contested war goals for a given war
-	enemy_contested_wargoals = {
-		type = value
-		from_data = yes
-		from_argument = yes
-		prefix = enemy_contested_wargoals:
-		data_source = scope[war]
-		input_scopes = { country }
-		output_scope = value
-	}
 	### Number of casualties for a given war
 	num_country_casualties = {
 		type = value
@@ -2293,16 +2282,6 @@ links = {
 		prefix = lobby_war_opposition:
 		data_source = scope[country]
 		input_scopes = { lobby }
-		output_scope = any
-	}
-	### Value of war opposition from a lobby for given war
-	additional_war_exhaustion = {
-		type = value
-		from_data = yes
-		from_argument = yes
-		prefix = additional_war_exhaustion:
-		data_source = scope[diplomatic_play]
-		input_scopes = { country }
 		output_scope = any
 	}
 	### Countries rank of production for a specific good
@@ -2636,16 +2615,6 @@ links = {
 		prefix = enemy_contested_wargoals:
 		data_source = scope[war]
 		input_scopes = { country }
-		output_scope = any
-	}
-	### Determines the war exhaustion a country gets from their degree of cultural acceptance of manpower killed in the war, regardless of what side they were on
-	war_exhaustion_from_acceptance_of_dead = {
-		type = value
-		from_data = yes
-		from_argument = yes
-		prefix = war_exhaustion_from_acceptance_of_dead:
-		data_source = scope[country]
-		input_scopes = { war }
 		output_scope = any
 	}
 	### Compares the fraction of this building's levels that are owned by a country
@@ -3812,6 +3781,10 @@ links = {
 		input_scopes = { state }
 		output_scope = value
 		type = value
+		from_data = yes
+		from_argument = yes
+		prefix = primary_cultures_percent_state:
+		data_source = scope[country]
 	}
 	### Return the age of the journal entry (since activation) in days
 	journal_entry_age = {
@@ -4154,7 +4127,7 @@ links = {
 		from_data = yes
 		from_argument = yes
 		prefix = pop_type_percent_country:
-		data_source = <pop_type>
+		data_source = scope[pop_type]
 	}
 	### Compares the quality of life of the given pop
 	quality_of_life = {
@@ -4185,16 +4158,6 @@ links = {
 		input_scopes = { building }
 		output_scope = value
 		type = value
-	}
-	### Checks the war exhaustion of the target country in the scoped war
-	has_war_exhaustion = {
-		input_scopes = war
-		output_scope = value
-		type = value
-		from_data = yes
-		from_argument = yes
-		prefix = has_war_exhaustion:
-		data_source = scope[country]
 	}
 	### Checks the war support of the target country in the scoped war
 	has_war_support = {
@@ -4454,6 +4417,15 @@ links = {
 		from_data = yes
 		prefix = num_pending_events:
 		data_source = enum[event_category]
+	}
+	### Scope to the number of pending events in scope country
+	num_pending_events_category_custom = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		from_data = yes
+		prefix = num_pending_events:
+		data_source = value[event_category]
 	}
 	### Checks whether a percentage of the country has a specific culture
 	culture_percent_country = {
@@ -4923,16 +4895,6 @@ links = {
 		from_argument = yes
 		data_source = scope[country]
 	}
-	### Scope to the trade importance of goods this country is trading through straits controlled by a target country. Accumulated value is multiplied by STRAIT_FULL_CONTROL_TRADE_IMPORTANCE_MULT for straits where the controller controls both sides
-	strait_trade_importance_by = {
-		input_scopes = { country }
-		output_scope = value
-		type = value
-		prefix = strait_trade_importance_by:
-		from_data = yes
-		from_argument = yes
-		data_source = scope[country]
-	}
 	### Get the total crew needed by all ships of a country
 	total_crew_needed = {
 		input_scopes = { country }
@@ -5081,6 +5043,506 @@ links = {
 		from_data = yes
 		from_argument = yes
 		data_source = scope[political_movement]
+	}
+	### Game date in days from year 0
+	game_date = {
+		input_scopes = { any }
+		output_scope = value
+		type = value
+	}
+	### Scope to the name (as a flag) of a script container (`name ?= flag:<name>`)
+	name = {
+		input_scopes = { container }
+		output_scope = flag
+		type = scope
+	}
+	### Scope to the parent of a script container
+	parent = {
+		input_scopes = { container }
+		output_scope = any
+		type = scope
+	}
+	### Scope to a named script container (example: `container:<name>`)
+	container = {
+		input_scopes = { any }
+		output_scope = container
+		type = scope
+		prefix = container:
+		from_data = yes
+		from_argument = yes
+		data_source = value[container_name]
+	}
+	### Compares the additional war support change the scoped country has accumulated from scripted events in the target diplomatic play
+	additional_war_support_change = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = additional_war_support_change:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[diplomatic_play]
+	}
+	### Compares the population-weighted average devastation of a country's states (0-1)
+	average_devastation = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Compares the share of the target country's GDP that sits in blockaded states, from the scoped war
+	blockaded_gdp_share = {
+		input_scopes = { war }
+		output_scope = value
+		type = value
+		prefix = blockaded_gdp_share:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### How much the scoped state is currently suffering from the cold, from 0 to 1
+	cold_effect = {
+		input_scopes = { state }
+		output_scope = value
+		type = value
+	}
+	### Compare to the date the scoped AI regional objective was concluded
+	### Only concluded objectives have a date, so check is_completed or is_failed first
+	conclusion_date = {
+		input_scopes = { ai_regional_objective }
+		output_scope = value
+		type = value
+	}
+	### Compares how actively the target country's enemies in the scoped war are pressuring it, from 0 to 1, through occupation, blockade or recent significant battles
+	enemy_pressure = {
+		input_scopes = { war }
+		output_scope = value
+		type = value
+		prefix = enemy_pressure:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Average weighted occupation of the countries on the enemy side of the scoped war, from the scoped country's perspective (0-1)
+	enemy_side_occupation = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = enemy_side_occupation:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[war]
+	}
+	### Compares the fraction of GDP the target country has gained or lost since it entered the scoped war
+	gdp_change_since_war_start = {
+		input_scopes = { war }
+		output_scope = value
+		type = value
+		prefix = gdp_change_since_war_start:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Compares the yearly GDP the specified country owns in the scoped country
+	gdp_owned_by = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = gdp_owned_by:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Checks how many levels of a building type the scoped country has in the state it owns in a state region
+	### Counts as 0 when the country owns no state in the region, or when is_incorporated does not match
+	has_building_levels_in_state_region = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = has_building_levels_in_state_region:
+		from_data = yes
+		from_argument = yes
+		data_source = <state_region>
+		data_source = <building>
+	}
+	### Checks the war support change of the target country in the scoped war
+	has_war_support_change = {
+		input_scopes = { war }
+		output_scope = value
+		type = value
+		prefix = has_war_support_change:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Compares how much of what the target country's economy was worth on entering the scoped war has since been taken from it by war goal enforcement
+	land_lost_since_war_start = {
+		input_scopes = { war }
+		output_scope = value
+		type = value
+		prefix = land_lost_since_war_start:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Compares the lowest war support the scoped country has in any war it fights on the same side as its overlord, or the maximum war support if it has no such war
+	lowest_war_support_in_overlord_war = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Checks the number of building levels of a given building group the scoped building own.
+	num_building_assets_of_group = {
+		input_scopes = { building }
+		output_scope = value
+		type = value
+		prefix = num_building_assets_of_group:
+		from_data = yes
+		from_argument = yes
+		data_source = <building_group>
+	}
+	### Checks the number of building levels of a given type the scoped building own.
+	num_building_assets_of_type = {
+		input_scopes = { building }
+		output_scope = value
+		type = value
+		prefix = num_building_assets_of_group:
+		from_data = yes
+		from_argument = yes
+		data_source = <building>
+	}
+	### Number of ended battles in the scoped war that had power projection on both sides
+	num_significant_battles = {
+		input_scopes = { war }
+		output_scope = value
+		type = value
+	}
+	### Determines the fraction of battles the target country has won in the target war, weighted by manpower size of all battles in the war
+	size_weighted_won_battles_fraction = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = size_weighted_won_battles_fraction:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[war]
+	}
+	### Compare to the date the scoped AI regional objective was rolled
+	start_date = {
+		input_scopes = { ai_regional_objective }
+		output_scope = value
+		type = value
+	}
+	### Does the country have this amount of weekly income from taxation, excluding tariffs, pacts, transfers and other external sources
+	tax_income = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Number of months the scoped war has lasted
+	war_duration_months = {
+		input_scopes = { war }
+		output_scope = value
+		type = value
+	}
+	### How much of their full weight war-goal-driven war support factors currently carry, from zero early in the war to one once it is old
+	war_goal_time_ramp = {
+		input_scopes = { war }
+		output_scope = value
+		type = value
+	}
+	### Determines the war support change a country gets from their degree of cultural acceptance of manpower killed in the war, regardless of what side they were on
+	war_support_from_acceptance_of_dead = {
+		input_scopes = { war }
+		output_scope = value
+		type = value
+		prefix = war_support_from_acceptance_of_dead:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Signed war support change per beat for the scoped country from war goals it holds (positive) or is targeted by (negative), by progress tier
+	war_support_from_war_goals = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = war_support_from_war_goals:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[war]
+	}
+	### Compares how many weeks the country can sustain its current deficit before its debt reaches its credit limit
+	weeks_until_bankruptcy = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to the color of the object
+	color = {
+		input_scopes = { country country_definition culture interest_group party power_bloc religion strategic_region }
+		output_scope = color
+		type = scope
+	}
+	### Links from a combat unit scope to the military formation the combat unit belongs to
+	military_formation = {
+		input_scopes = { new_combat_unit }
+		output_scope = military_formation
+		type = scope
+	}
+	### Scope to the country the scoped political movement would secede as, if any.
+	secession_tag = {
+		input_scopes = { political_movement }
+		output_scope = country_definition
+		type = scope
+	}
+	### Share of the target ship's AI ship category sent in the scoped treaty that the receiving country does not want at all, because its navy has no use for that category (example: value = "scope:treaty.ai_ship_purchase_rejected_share(scope:article.input_ship)")
+	ai_ship_purchase_rejected_share = {
+		input_scopes = { treaty_options treaty }
+		output_scope = value
+		type = value
+		prefix = ai_ship_purchase_rejected_share:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[ship]
+	}
+	### How much the receiving country of the target ship's ship transfer article in the scoped treaty values the ship, based on its need for that ship category (example: value = "scope:treaty.ai_ship_purchase_value_multiplier(scope:article.input_ship)")
+	ai_ship_purchase_value_multiplier = {
+		input_scopes = { treaty_options treaty }
+		output_scope = value
+		type = value
+		prefix = ai_ship_purchase_value_multiplier:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[ship]
+	}
+	### Share of its wanted ships in the target ship's AI ship category that the country giving away the ship in the scoped treaty would have left afterwards (example: value = "scope:treaty.ai_ship_sale_remaining_share(scope:article.input_ship)")
+	ai_ship_sale_remaining_share = {
+		input_scopes = { treaty_options treaty }
+		output_scope = value
+		type = value
+		prefix = ai_ship_sale_remaining_share:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[ship]
+	}
+	### Scope to an AI regional objective type from its key (ai_regional_objective_type:ai_regional_objective_acquire_state)
+	ai_regional_objective_type = {
+		input_scopes = { any }
+		output_scope = ai_regional_objective_type
+		type = scope
+		prefix = ai_regional_objective_type:
+		from_data = yes
+		data_source = <ai_regional_objective>
+	}
+	### Scope to an AI regional objective type from its key (aro:ai_regional_objective_acquire_state)
+	aro = {
+		input_scopes = { any }
+		output_scope = ai_regional_objective_type
+		type = scope
+		prefix = aro:
+		from_data = yes
+		data_source = <ai_regional_objective>
+	}
+	### Scope to an AI regional stance type from its key (srs:stance_conquer_region)
+	srs = {
+		input_scopes = { any }
+		output_scope = ai_strategic_region_stance_type
+		type = scope
+		prefix = srs:
+		from_data = yes
+		data_source = <ai_strategic_region_stance_type>
+	}
+	### Get the average yearly predicted GDP per capita of all playable countries, the same set as global_gdp - note that this differs from global_population, which also counts decentralized countries
+	global_average_gdp_per_capita = {
+		input_scopes = { any }
+		output_scope = value
+		type = value
+	}
+	### Total naval carrying capacity of scope country, across all of its fleets.
+	carrying_capacity = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### How realistically scope country can get an army into a target state or country, from 0 to 1.
+	### 1 for a land route through its own territory, its subjects or any chain of military access, or a war goal adjacency.
+	### Subjects that must join the target's wars count as part of the target, for a state only those bordering it.
+	### Otherwise the best landing on a coast of the target's owner, such a subject or a country it can march through,
+	### falling with the supply distance by sea from its closest port and the march distance from the landing to the target;
+	### 0 when no such coast can be reached by a strait-aware sea route.
+	### Naval carrying capacity is not considered. For a country, the best reach to any of its states
+	military_reach = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = military_reach:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[state]
+	}
+	### Scope to how badly the piracy of a target country hurts this country, as a percentage - the goods it seized last week or its weekly average over the piracy tracking period, whichever is higher, as a share of this country's GDP, scaled the same way as the relations penalty from piracy. 0 below the cutoff for that penalty (example: piracy_grievance_against:root >= 20)
+	piracy_grievance_against = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = piracy_grievance_against:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Naval carrying capacity of scope country relative to its standing battalions. A value of 0.5 means it can transport half of them at once. Capped at 1, and returns 0 if the country has no battalions.
+	relative_carrying_capacity = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Army strength scope country can ship at once relative to the army strength of a target country. Strength is army power projection, so unit quality counts, and the shipped share is naval carrying capacity over standing battalions, capped at all of them. A value of 0.5 means it can ship half as much army strength at once as the target has
+	shippable_army_strength_against = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = shippable_army_strength_against:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how badly the strait closures and blocked warships of a target country hurt this country, as a percentage - its dependence on the worst restricted strait, scaled by how harsh the restriction is. 0 when the target closes nothing this country depends on. Refreshed weekly and when a strait setting takes effect (example: strait_access_grievance_against:root >= 20)
+	strait_access_grievance_against = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = strait_access_grievance_against:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how much this country depends on straits controlled by a target country, as a percentage - the larger of its trade dependence across all of them and its military dependence on the single worst one. Military dependence is refreshed weekly (example: strait_dependence_by:root >= 10)
+	strait_dependence_by = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = strait_dependence_by:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how badly the strait tolls of a target country hurt this country, as a percentage - its dependence on the worst tolled strait, scaled by the toll rate. 0 when the target tolls nothing this country depends on, or also closes a strait or blocks warships this country depends on. Refreshed weekly and when a strait setting takes effect (example: strait_toll_grievance_against:root >= 20)
+	strait_toll_grievance_against = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = strait_toll_grievance_against:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how much this country relies on its trade volume through straits controlled by a target country, as a percentage of total reliance. Counts imports and exports, so a pure exporter is included (example: strait_trade_dependence_by:root >= 25)
+	strait_trade_dependence_by = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+		prefix = strait_trade_dependence_by:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to the largest piracy_grievance_against this country holds against any pirate (example: worst_piracy_grievance >= 20)
+	worst_piracy_grievance = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to the largest strait_access_grievance_against this country holds against any strait controller (example: worst_strait_access_grievance >= 20)
+	worst_strait_access_grievance = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to the largest strait_toll_grievance_against this country holds against any strait controller (example: worst_strait_toll_grievance >= 20)
+	worst_strait_toll_grievance = {
+		input_scopes = { country }
+		output_scope = value
+		type = value
+	}
+	### Scope to the AI regional stance an AI regional objective was rolled under
+	stance = {
+		input_scopes = { ai_regional_objective }
+		output_scope = ai_strategic_region_stance_type
+		type = scope
+	}
+	### Scope to how much a target country depends on this strait, as a percentage - whichever of trade_dependence_for and military_dependence_for is larger (example: dependence_for:root >= 10)
+	dependence_for = {
+		input_scopes = { strait }
+		output_scope = value
+		type = value
+		prefix = dependence_for:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how many countries a target controller of this strait would hurt by closing it: like trade_fallout_for, but summing trade plus military dependence over every country that would lose passage, given the permissions that would apply once it is closed (example: fallout_for:root >= 50)
+	fallout_for = {
+		input_scopes = { strait }
+		output_scope = value
+		type = value
+		prefix = fallout_for:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how much a target country would be cut off if this strait were closed to it, as a percentage - 100 if it would lose most of the sea it can reach, otherwise the worse of the GDP of its ports cut off from its home waters and the value of the regions its fleets operate in that it could no longer reach. 0 for a country without ports. Refreshed weekly (example: military_dependence_for:root >= 25)
+	military_dependence_for = {
+		input_scopes = { strait }
+		output_scope = value
+		type = value
+		prefix = military_dependence_for:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how many countries a target controller of this strait would hurt by blocking warships: like trade_fallout_for, but summing military_dependence_for over every country that would lose passage, given the permissions that would apply once warships are blocked (example: military_fallout_for:root >= 50)
+	military_fallout_for = {
+		input_scopes = { strait }
+		output_scope = value
+		type = value
+		prefix = military_fallout_for:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how many countries a target controller of this strait would hurt by letting only its allies through its current restriction: like trade_fallout_for, but summing trade plus military dependence (closed) or military_dependence_for (warships blocked) over every country that would lose passage. 0 while the strait is open (example: only_allies_fallout_for:root >= 50)
+	only_allies_fallout_for = {
+		input_scopes = { strait }
+		output_scope = value
+		type = value
+		prefix = only_allies_fallout_for:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how much a target country relies on its trade volume through this strait, as a percentage of total reliance. Counts imports and exports (example: trade_dependence_for:root >= 25)
+	trade_dependence_for = {
+		input_scopes = { strait }
+		output_scope = value
+		type = value
+		prefix = trade_dependence_for:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to how many countries a target controller of this strait would hurt by charging tolls: the sum of trade_dependence_for over every country not exempt from its tolls, not shut out by its current restriction, not its rival or diplomatic play enemy, and at or above the strait grievance dependence cutoff, each scaled down by its GDP relative to the controller. Multiply by the toll rate for the share of that trade the tolls would take. Refreshed weekly and when a strait setting takes effect (example: trade_fallout_for:root >= 50)
+	trade_fallout_for = {
+		input_scopes = { strait }
+		output_scope = value
+		type = value
+		prefix = trade_fallout_for:
+		from_data = yes
+		from_argument = yes
+		data_source = scope[country]
+	}
+	### Scope to the home state of the character!
+	home_state = {
+		input_scopes = { character }
+		output_scope = state
+		type = scope
 	}
 
 	# script value & static value

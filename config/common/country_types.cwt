@@ -29,6 +29,9 @@ country_type = {
 
     can_research = bool
 
+    ## cardinality = 0..1
+    ignores_military_qualifications = bool
+
     default_rank = <country_rank>
 
     ## cardinality = 0..1

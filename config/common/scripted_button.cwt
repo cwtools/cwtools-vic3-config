@@ -18,6 +18,54 @@ scripted_button = {
     desc = single_alias_right[complex_desc]
 
     ## cardinality = 0..1
+    short_desc = localisation
+    ## cardinality = 0..1
+    short_desc = single_alias_right[complex_desc]
+
+    ### The optional `icon` property is a full path to a texture shown on the button by
+    ### the UI via [ScriptedButton.GetIcon]. Any directory works, as with modifier
+    ## cardinality = 0..1
+    icon = filepath
+
+    ### The optional `tags` property is a free-form list of flags used to mark a button
+    ### for any purpose (queried by the UI via [ScriptedButton.HasTag('...')]). Any tag
+    ### string is allowed and defaults to none when omitted.
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        scalar
+    }
+
+    ### The optional `cost` property is a script value shown to the player via
+    ### [ScriptedButton.GetCost]. It is PURELY a display value - the code does not
+    ### consume, deduct, or enforce it in any way. Any actual cost/affordability must be
+    ### implemented in the button's own `possible` (gate) and `effect` (deduction)
+    ### blocks, e.g. via scripted triggers/effects.
+    ## cardinality = 0..1
+    cost = value_field
+    ### The optional `cost` property is a script value shown to the player via
+    ### [ScriptedButton.GetCost]. It is PURELY a display value - the code does not
+    ### consume, deduct, or enforce it in any way. Any actual cost/affordability must be
+    ### implemented in the button's own `possible` (gate) and `effect` (deduction)
+    ### blocks, e.g. via scripted triggers/effects.
+    ## cardinality = 0..1
+    cost = single_alias_right[formula]
+
+    ### The optional `autocomplete` property makes the button complete on its own
+    ### instead of being clicked. Whenever the journal entry updates, the effect runs
+    ### for each country that may use the button if it is visible and possible, the
+    ### same rule as a click. The AI never clicks such a button. As with a clicked
+    ### button, use `possible` to stop the effect running again once it has run, e.g.
+    ### by checking a variable the effect sets, and `selected` to show it as completed.
+    ### A button with a `cooldown` runs again each time the cooldown ends and it is
+    ### still possible. On a journal entry with several involved countries, each
+    ### country completes the button separately, so a guard variable set on one
+    ### country does not stop the others. The player cannot run such a button by
+    ### command; the command is refused.
+    ## cardinality = 0..1
+    autocomplete = yes
+
+    ## cardinality = 0..1
     visible = single_alias_right[trigger_clause]
 
     ## cardinality = 0..inf

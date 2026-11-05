@@ -5,6 +5,22 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 tutorial_lesson_chain = {
+    ### The trigger has to be true for the lesson chain to start
+    ## cardinality = 0..1
+    trigger = single_alias_right[trigger_clause]
+
+    ### The chain start will be delayed by that many seconds
+    ## cardinality = 0..1
+    delay = int
+
+    ### Is this the "railroaded" tutorial, where the player is guided through fixed lessons?
+    ### This mode cannot be used in MP, instead this is activated when selecting to play "the tutorial" in the bookmark screen.
+    ### Progress will be saved in the save game ("gamestate") instead of globally (in tutorial.txt).
+    ### When this mode is disabled (e.g. via finish_gamestate_tutorial = yes in a lesson), chains with save_progress_in_gamestate = yes cannot be triggered anymore.
+    ### Required for pausing game or running effects from tutorial steps.
+    ### Default: no
+    ## cardinality = 0..1
     save_progress_in_gamestate = bool
 }

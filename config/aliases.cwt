@@ -17,7 +17,7 @@ single_alias[complex_desc] = {
 
     ## cardinality = 0..inf
     random_valid = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         triggered_desc = single_alias_right[triggered_desc]
 
         ## cardinality = 0..inf
@@ -26,7 +26,7 @@ single_alias[complex_desc] = {
 
     ## cardinality = 0..inf
     first_valid = {
-        ## cardinality = 1..inf
+        ## cardinality = 0..inf
         triggered_desc = single_alias_right[triggered_desc]
 
         ## cardinality = 0..inf
@@ -35,6 +35,7 @@ single_alias[complex_desc] = {
 }
 
 single_alias[triggered_desc] = {
+    ## cardinality = 0..1
     desc = localisation
 
     ## cardinality = 0..inf
@@ -68,7 +69,7 @@ single_alias[on_action] = {
     weight_multiplier = single_alias_right[weight]
 
     ### A single event will be picked to fire
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     random_events = {
         ## cardinality = 0..inf
         int = <event>
@@ -114,13 +115,27 @@ single_alias[on_action] = {
     on_actions = {
         ## cardinality = 0..inf
         <on_action>
+
+        ## cardinality = 0..inf
+        delay = single_alias_right[duration_clause]
     }
 
     ### Same as with events. On_actions are also factored by their weight_multipliers, which defaults to 1
     ## cardinality  = 0..1
     random_on_actions = {
         ## cardinality = 0..inf
-        <on_action>
+        int = <on_action>
+
+        ### Having a "0" entry means that there is a chance no on action fires, even if there are other valid on actions.
+        ## cardinality = 0..inf
+        int = 0
+
+        ### A percentage chance determining whether the events involved will be evaluated at all
+        ## cardinality = 0..1
+        chance_to_happen = int_value_field
+        ### A percentage chance determining whether the events involved will be evaluated at all
+        ## cardinality = 0..1
+        chance_to_happen = single_alias_right[formula]
     }
 
     ## cardinality  = 0..1
@@ -132,6 +147,7 @@ single_alias[on_action] = {
     ### on_actions can define a fallback on_action.
     ### If no events/on_actions are run by the on_action, the fallback gets called instead.
     ### Avoid creating infinite fallback loops, or the game may be prevented from advancing time!
+    ## cardinality  = 0..1
     fallback = <on_action>
 }
 

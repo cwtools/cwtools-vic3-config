@@ -17,6 +17,8 @@ objective = {
     ### Icon for this objective
     icon = filepath
 
+    illustration = filepath
+
     ### Preview card shown for this objective
     enabled_background = filepath
 
@@ -49,6 +51,14 @@ objective = {
     objective_subgoals = {
         ## cardinality = 0..inf
         <objective_subgoal>
+    }
+
+    ## cardinality = 0..1
+    ### list of JE keys that are shown to the player to be part of the objective
+    ### this is a semantic list not necessarily a complete list, which allows tailoring of what is shown to the player
+    associated_journal_entries = {
+        ## cardinality = 0..inf
+        <journal_entry>
     }
 
     ## cardinality = 0..1

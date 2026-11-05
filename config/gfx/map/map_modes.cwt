@@ -29,6 +29,7 @@ map_mode = {
     ## cardinality = 0..1
     map_texture_mode = enum[map_mode_texture_mode]
 
+    ## cardinality = 0..1
     map_markers = {
         ## cardinality = 0..inf
         scalar
@@ -41,6 +42,9 @@ map_mode = {
 
     ## cardinality = 0..1
     show_formation_movement_arrows = bool
+
+    ## cardinality = 0..1
+    show_supply_route_arrows = bool
 
     ## cardinality = 0..1
     is_visible = bool

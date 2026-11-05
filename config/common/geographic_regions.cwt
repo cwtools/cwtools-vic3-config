@@ -37,5 +37,8 @@ geographic_region = {
         ## cardinality = 0..inf
         <state_region>
     }
-
 }
+
+# https://github.com/DragonKnightOfBreeze/Paradox-Language-Support/issues/430
+# add missing declaration config for `geographic_region_short_key`
+geographic_region_short_key = scalar

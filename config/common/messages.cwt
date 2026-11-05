@@ -18,6 +18,7 @@ types = {
 
 message = {
     ### Notification type
+    ## cardinality = 0..1
     type = enum[message_types]
 
     ## cardinality = 0..1
@@ -31,7 +32,9 @@ message = {
     ### How the notification will be presented
     notification_type = enum[notification_types]
 
-    #TODO
+    ## cardinality = 0..1
+    feed_grouping = bool
+
     ## cardinality = 0..1
     ### GUI specification for popups, must be in gui/popups.gui
     popup_name = scalar

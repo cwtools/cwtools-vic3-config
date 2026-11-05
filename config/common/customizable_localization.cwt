@@ -1,6 +1,47 @@
 types = {
     type[customizable_localization] = {
         path = "game/common/customizable_localization"
+        path_extension = .txt
+        ## replace_scope = { root = country this = country }
+        subtype[country] = {
+            type = country
+        }
+        ## replace_scope = { root = character this = character }
+        subtype[character] = {
+            type = character
+        }
+        ## replace_scope = { root = building this = building }
+        subtype[building] = {
+            type = building
+        }
+        ## replace_scope = { root = state this = state }
+        subtype[state] = {
+            type = state
+        }
+        ## replace_scope = { root = political_lobby this = political_lobby }
+        subtype[political_lobby] = {
+            type = political_lobby
+        }
+        ## replace_scope = { root = culture this = culture }
+        subtype[culture] = {
+            type = culture
+        }
+        ## replace_scope = { root = religion this = religion }
+        subtype[religion] = {
+            type = religion
+        }
+        ## replace_scope = { root = goods this = goods }
+        subtype[goods] = {
+            type = goods
+        }
+        ## replace_scope = { root = journal_entry this = journal_entry }
+        subtype[journal_entry] = {
+            type = journal_entry
+        }
+        ## replace_scope = { root = interest_group this = interest_group }
+        subtype[interest_group] = {
+            type = interest_group
+        }
     }
 }
 

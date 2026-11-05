@@ -1,0 +1,12 @@
+types = {
+    type[era] = {
+        path = "game/common/technology/eras"
+        path_extension = .txt
+    }
+}
+
+era = {
+    ## cardinality = 0..1
+    ### innovation cost to research technologies of this era
+    technology_cost = value_field
+}

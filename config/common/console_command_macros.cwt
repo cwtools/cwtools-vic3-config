@@ -1,0 +1,23 @@
+types = {
+    type[console_command_macros] = {
+        path = "game/common/console_command_macros"
+        path_extension = .txt
+    }
+}
+
+console_command_macros = {
+    ## cardinality = 1..1
+    ### the number of arguments expected in this macro
+    args = int_value_field
+
+    ### console commands to be executed with this macro
+    ### arguments take the form of $n where n is the argument number starting from 1
+    ## cardinality = 1..1
+    commands = {
+        ## cardinality = 1..inf
+        scalar
+    }
+
+    ## cardinality = 1..1
+    description = scalar
+}

@@ -40,6 +40,12 @@ fleet_entity = {
     ## cardinality = 0..1
     length = float
 
+    ## cardinality = 0..1
+    max_wind_lean = int
+
+    ## cardinality = 0..1
+    flagship_signalflags_entity = <entity>
+
     ### The base ship entity to which modification entities are attached via its locators
     entity = <entity>
 
@@ -91,6 +97,7 @@ fleet_entity = {
             float
         }
 
+        ## cardinality = 0..1
         rotation = {
             ## cardinality = 3..3
             float
@@ -102,6 +109,7 @@ fleet_entity = {
             float
         }
 
+        ## cardinality = 0..1
         scale = float
     }
 

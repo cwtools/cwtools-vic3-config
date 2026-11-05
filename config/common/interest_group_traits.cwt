@@ -22,8 +22,6 @@ interest_group_trait = {
     ## cardinality = 0..1
     max_approval = enum[ig_approval]
 
-    modifier = {
-        ## cardinality = 1..inf
-        <modifier_type> = float
-    }
+    ## cardinality = 0..inf
+    modifier = single_alias_right[modifier_clause]
 }

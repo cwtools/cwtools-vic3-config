@@ -124,6 +124,16 @@ law = {
     ## push_scope = country
     ai_impose_chance = single_alias_right[formula]
 
+    ### This is a value that is added or subtracted from the AI's base weight to enact a law, setting this to 0 means only base
+    ### weight is used while if it's -50 then it's ( base weight - 50 )
+    ### The base weight is set from factors like strategy and whether the law is backed by a movement, and usually ranges in the
+    ### low hundreds, so +100 would be fairly significant and +1000 would be very significant
+    ### Note that you may also want to tweak change_law_chance and revolution_aversion in AI politics strategies if you *really*
+    ### want it to pass the law
+    ### Even setting this to 100000 and change_law_chance to 100 may not mean the AI can enact the law if it lacks
+    ### government/movement support, is afraid of revolution, or ai_will_do evaluates to false
+    ### Root scope is AI country, scope:law contains the relevant law for that country
+    ## cardinality = 0..1
     ai_enact_weight_modifier = single_alias_right[formula]
 
     ## cardinality = 0..1

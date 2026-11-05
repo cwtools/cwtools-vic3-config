@@ -5,6 +5,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 tutorial_lesson = {
     ### The lesson belongs to this lesson chain, current chain lessons are preferred when picking which lesson to show.
     chain = <tutorial_lesson_chain>

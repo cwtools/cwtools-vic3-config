@@ -115,6 +115,7 @@ types = {
 alert_type = {
     script_context = enum[script_context]
 
+    ### the path is relative to the "game" folder
     texture = filepath
 
     ## cardinality = 0..1
@@ -139,7 +140,7 @@ alert_type = {
 
     ## cardinality = 0..1
     ### Vanilla includes red, green and yellow, unsure if other values are valid
-    color = scalar
+    color = enum[alert_color]
 }
 
 enums = {
@@ -175,5 +176,11 @@ enums = {
         alert
         important_action
         angry_important_action
+    }
+
+    enum[alert_color] = {
+        red
+        green
+        yellow
     }
 }

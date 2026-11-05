@@ -209,3 +209,39 @@ alias[effect:ordered_in_local_list] = {
 
     alias_name[effect] = alias_match_left[effect]
 }
+
+
+## scopes = { country }
+## push_scope = container
+alias[effect:ordered_in_local_list] = {
+    variable = value[local_variable_list]
+
+    ## cardinality = 0..1
+    limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    alternative_limit = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    min = int_value_field
+    ## cardinality = 0..1
+    min = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    position = int
+
+    ## cardinality = 0..1
+    check_range_bounds = bool
+
+    alias_name[effect] = alias_match_left[effect]
+}

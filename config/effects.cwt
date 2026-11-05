@@ -7,15 +7,6 @@ alias[effect:set_subsidized] = bool
 alias[effect:add_civil_war_progress] = value_field[-1..1]
 
 ## scopes = { war }
-### Adds war exhaustion to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_exhaustion = { target = country value = value }
-alias[effect:add_war_exhaustion] = {
-    target = scope[country]
-
-    value = value_field
-    value = single_alias_right[formula]
-}
-
-## scopes = { war }
 ### Adds war support to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips add_war_war_support = { target = country value = value }
 alias[effect:add_war_war_support] = {
     target = scope[country]
@@ -58,6 +49,9 @@ alias[effect:add_trait] = <character_trait>
 ## scopes = { character }
 ### Changes the religion of the scoped character change_character_religion = rel:protestant
 alias[effect:change_character_religion] = scope[religion]
+## scopes = { character }
+### Changes the religion of the scoped character change_character_religion = rel:protestant
+alias[effect:change_character_religion] = <religion>
 
 ## scopes = { character }
 ### Frees a character from the void, if set to no character is deleted instead free_character_from_void = yes
@@ -98,6 +92,9 @@ alias[effect:set_commander_rank] = int_value_field
 ## scopes = { character }
 ### Changes scoped character's ideology set_ideology = x
 alias[effect:set_ideology] = scope[ideology]
+## scopes = { character }
+### Changes scoped character's ideology set_ideology = x
+alias[effect:set_ideology] = <ideology>
 
 ## scopes = { character }
 ### Transfers a Character to Country
@@ -163,6 +160,9 @@ alias[effect:set_interest_group_name] = localisation
 ## scopes = { interest_group }
 ### Checks if a pop has a certain amount of wealth wealth = value
 alias[effect:set_ig_trait] = scope[interest_group_trait]
+## scopes = { interest_group }
+### Checks if a pop has a certain amount of wealth wealth = value
+alias[effect:set_ig_trait] = <interest_group_trait>
 
 ## scopes = { party }
 ### Adds momentum to a Party during a campaign period dd_momentum = value
@@ -554,7 +554,7 @@ alias[effect:else_if] = {
 ## scopes = { any }
 ### Effect not shown in tooltips
 alias[effect:hidden_effect] = {
-    ## cardinality = 1..inf
+    ## cardinality = 0..inf
     alias_name[effect] = alias_match_left[effect]
 }
 
@@ -1034,10 +1034,16 @@ alias[effect:set_target_technology] = scope[technology]
 ## scopes = { country }
 ### Activates a law for a country
 alias[effect:activate_law] = scope[law_type]
+## scopes = { country }
+### Activates a law for a country
+alias[effect:activate_law] = <law>
 
 ## scopes = { country }
 ### Adds a total ban of a good to a country add_banned_goods = <goods key/scope>
 alias[effect:add_banned_goods] = scope[goods]
+## scopes = { country }
+### Adds a total ban of a good to a country add_banned_goods = <goods key/scope>
+alias[effect:add_banned_goods] = <good>
 
 ## scopes = { country }
 ### Add progress towards changing relations between two countries add_change_relations_progress = { 	tcountry = country scope/tag 	value = amount }
@@ -1083,6 +1089,9 @@ alias[effect:add_primary_culture] = scope[culture]
 ## scopes = { country }
 ### Adds consumption taxes on a good to a country add_taxed_goods = <goods key/scope>
 alias[effect:add_taxed_goods] = scope[goods]
+## scopes = { country }
+### Adds consumption taxes on a good to a country add_taxed_goods = <goods key/scope>
+alias[effect:add_taxed_goods] = <good>
 
 ## scopes = { country }
 ### Add technology progress add_technology_progress = { progress = X technology = Y } Where X is a fixed point and Y is an technology
@@ -1429,6 +1438,9 @@ alias[effect:create_truce] = {
 ## scopes = { country }
 ### Deactivates a law for a country
 alias[effect:deactivate_law] = scope[law_type]
+## scopes = { country }
+### Deactivates a law for a country
+alias[effect:deactivate_law] = <law>
 
 ## scopes = { country }
 ### Deactivates parties in scoped country. deactivate_parties = yes
@@ -1457,6 +1469,9 @@ alias[effect:remove_active_objective_subgoal] = <objective_subgoal>
 ## scopes = { country }
 ### Removes a total ban of a good from a country remove_banned_goods = <goods key/scope>
 alias[effect:remove_banned_goods] = scope[goods]
+## scopes = { country }
+### Removes a total ban of a good from a country remove_banned_goods = <goods key/scope>
+alias[effect:remove_banned_goods] = <good>
 
 ## scopes = { country }
 ### Removes a diplomatic pact between two countries, with scope country as initiator remove_diplomatic_pact = { 	country = country scope/tag 	type = diplomatic action type }
@@ -1497,6 +1512,9 @@ alias[effect:remove_primary_culture] = scope[culture]
 ## scopes = { country }
 ### Removes consumption taxes on a good from a country remove_taxed_goods = <goods key/scope>
 alias[effect:remove_taxed_goods] = scope[goods]
+## scopes = { country }
+### Removes consumption taxes on a good from a country remove_taxed_goods = <goods key/scope>
+alias[effect:remove_taxed_goods] = <good>
 
 ## scopes = { country }
 ### Set capital state in a country scope set_capital = X Where X is a state region
@@ -1582,6 +1600,9 @@ alias[effect:set_secret_goal] = {
 ## scopes = { country }
 ### Changes the state religion of the country to the specified religion set_state_religion = X Where X is a religion scope
 alias[effect:set_state_religion] = scope[religion]
+## scopes = { country }
+### Changes the state religion of the country to the specified religion set_state_religion = X Where X is a religion scope
+alias[effect:set_state_religion] = <religion>
 
 ## scopes = { country }
 ### Set AI strategy for scope country set_strategy = <key>
@@ -1717,6 +1738,9 @@ alias[effect:add_acceptance] = {
 ## scopes = { pop }
 ### Changes the type of the pop to the given type
 alias[effect:change_poptype] = scope[pop_type]
+## scopes = { pop }
+### Changes the type of the pop to the given type
+alias[effect:change_poptype] = <pop_type>
 
 ## scopes = { pop }
 ### Moves the scoped pop in its entirety to the specified state (they become unemployed)
@@ -1901,6 +1925,9 @@ alias[effect:save_temporary_scope_as] = value_set[temporary_scope]
 ## scopes = { country }
 ### Adds company type to a country's companies
 alias[effect:add_company] = scope[company_type]
+## scopes = { country }
+### Adds company type to a country's companies
+alias[effect:add_company] = <company_type>
 
 ## scopes = { new_combat_unit }
 ### Adds the specified amount of Morale to the Combat Unit in scope
@@ -1960,22 +1987,62 @@ alias[effect:create_dynamic_country] = {
     capital = scope[state]
 
     ## cardinality = 0..1
+    ### optional; if not specified: same as origin's if origin is set, default hierarchy otherwise
+    social_hierarchy = <social_hierarchy>
+
+    ## cardinality = 0..1
     ## push_scope = state
     ### if this trigger is set, each state in the world for which it evaluates true will be ceded to the new country
     cede_state_trigger = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
-    ### optional, will try to inherit map color from origin if not specified
+    ### optional, will try to inherit map color from origin if not specified, no origin means random color; random picks a random hue; list picks an unused color from a color list and falls back to random if all are in use
+    color = <named_color>
+    ## cardinality = 0..1
+    ### optional, will try to inherit map color from origin if not specified, no origin means random color; random picks a random hue; list picks an unused color from a color list and falls back to random if all are in use
+    color = color_field
+    ## cardinality = 0..1
+    ### optional, will try to inherit map color from origin if not specified, no origin means random color; random picks a random hue; list picks an unused color from a color list and falls back to random if all are in use
+    color = scope[color]
+    ## cardinality = 0..1
+    ### optional, will try to inherit map color from origin if not specified, no origin means random color; random picks a random hue; list picks an unused color from a color list and falls back to random if all are in use
     color = scalar
 
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    primary_unit_color = <named_color>
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    primary_unit_color = color_field
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    primary_unit_color = scope[color]
     ## cardinality = 0..1
     ### optional, will try to inherit unit color from origin if not specified
     primary_unit_color = scalar
 
     ## cardinality = 0..1
     ### optional, will try to inherit unit color from origin if not specified
+    secondary_unit_color = <named_color>
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    secondary_unit_color = color_field
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    secondary_unit_color = scope[color]
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
     secondary_unit_color = scalar
 
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    tertiary_unit_color = <named_color>
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    tertiary_unit_color = color_field
+    ## cardinality = 0..1
+    ### optional, will try to inherit unit color from origin if not specified
+    tertiary_unit_color = scope[color]
     ## cardinality = 0..1
     ### optional, will try to inherit unit color from origin if not specified
     tertiary_unit_color = scalar
@@ -2066,6 +2133,9 @@ alias[effect:mobilize_army] = bool
 ## scopes = { country }
 ### Removes company type from a country's companies
 alias[effect:remove_company] = scope[company_type]
+## scopes = { country }
+### Removes company type from a country's companies
+alias[effect:remove_company] = <company_type>
 
 ## scopes = { state_region }
 ### remove state trait in a scoped state region
@@ -2101,6 +2171,9 @@ alias[effect:transfer_to_formation] = scope[military_formation]
 ## scopes = { country }
 ### Starts enacting the specified law type for the country in scope
 alias[effect:start_enactment] = scope[law_type]
+## scopes = { country }
+### Starts enacting the specified law type for the country in scope
+alias[effect:start_enactment] = <law>
 
 ## scopes = { company }
 ### Sets the establishment date of scope company
@@ -2254,6 +2327,24 @@ alias[effect:disinherit_character] = bool
 ## scopes = { character }
 ### Exiles a character from the current country
 alias[effect:exile_character] = bool
+## scopes = { character }
+### Exiles a character from the current country
+alias[effect:exile_character] = {
+    ### optional - exile to a Regional Exile Pool instead of the global exile pool
+    ## cardinality = 0..1
+    exile_pool = <regional_exile_pool>
+
+    ### optional - the character automatically returns to their home country after this duration; requires exile_pool
+    ## cardinality = 0..1
+    enum[duration] = int_value_field
+    ### optional - the character automatically returns to their home country after this duration; requires exile_pool
+    ## cardinality = 0..1
+    enum[duration] = single_alias_right[formula]
+
+    ### yes - exile [by default], no - don't do anything
+    ## cardinality = 0..1
+    value = bool
+}
 
 ## scopes = { journal_entry }
 ### Rename a hub of a state
@@ -2388,11 +2479,17 @@ alias[effect:add_principle] = <power_bloc_principle>
 
 ## scopes = { state }
 ### Forbid autonomous investment from country
-alias[effect:unset_available_for_autonomous_investment] = scope[country]
+alias[effect:unset_available_for_autonomous_investment] = scope[building_type]
+## scopes = { state }
+### Forbid autonomous investment from country
+alias[effect:unset_available_for_autonomous_investment] = <building>
 
 ## scopes = { state }
 ### Allow autonomous investment from country
-alias[effect:set_available_for_autonomous_investment] = scope[country]
+alias[effect:set_available_for_autonomous_investment] = scope[building_type]
+## scopes = { state }
+### Allow autonomous investment from country
+alias[effect:set_available_for_autonomous_investment] = <building>
 
 ## scopes = { state_region }
 ### Starts a harvest condition in the given state region
@@ -2408,6 +2505,9 @@ alias[effect:add_character_ideology] = <ideology.character>
 ## scopes = { political_movement }
 ### Removes a character ideology from the scoped political movement
 alias[effect:remove_character_ideology] = scope[ideology]
+## scopes = { political_movement }
+### Removes a character ideology from the scoped political movement
+alias[effect:remove_character_ideology] = <ideology>
 
 ## scopes = { power_bloc }
 ### Adds a specific amount of Cohesion to the Power Bloc in scope
@@ -2596,6 +2696,10 @@ alias[effect:set_heir] = scope[character]
 ### Set a character's home country directly to a tag, you can use this to avoid making sure that the tag exists, this makes them an exile
 ### set_home_country_definition = cd:FRA
 alias[effect:set_home_country_definition] = scope[country_definition]
+## scopes = { character }
+### Set a character's home country directly to a tag, you can use this to avoid making sure that the tag exists, this makes them an exile
+### set_home_country_definition = cd:FRA
+alias[effect:set_home_country_definition] = <country_definition>
 
 ## scopes = { character }
 ### Sets the interest group of the character
@@ -2666,10 +2770,23 @@ alias[effect:try_form_government_with] = {
 ## scopes = { company }
 ### Adds a monopoly to a company scope: add_company_monopoly = bt:building_textile_mill
 alias[effect:add_company_monopoly] = scope[building_type]
+## scopes = { company }
+### Adds a monopoly to a company scope: add_company_monopoly = bt:building_textile_mill
+alias[effect:add_company_monopoly] = <building>
+
+## scopes = { company }
+### removes a monopoly in a country scope for a specific building: remove_monopoly = bt:building_textile_mills
+alias[effect:remove_monopoly] = scope[building_type]
+## scopes = { company }
+### removes a monopoly in a country scope for a specific building: remove_monopoly = bt:building_textile_mills
+alias[effect:remove_monopoly] = <building>
 
 ## scopes = { country }
 ### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mill
 alias[effect:add_country_monopoly] = scope[building_type]
+## scopes = { country }
+### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mill
+alias[effect:add_country_monopoly] = <building>
 
 ## scopes = { state_goods }
 ### Adds a monopoly to a country scope: add_country_monopoly = bt:building_textile_mill
@@ -3115,6 +3232,13 @@ alias[effect:create_ship] = {
     ### Optional name for the ship
     ## cardinality = 0..1
     name = localisation
+
+    ### Optional skin. Puts the ship on a dedicated template carrying that
+    ### skin instead of the country's base template, so other ships of the
+    ### same type keep their own appearance. Such a template is never made
+    ### the country's default
+    ## cardinality = 0..1
+    graphics = <fleet_entity>
 }
 
 ## scopes = { ship }
@@ -3224,6 +3348,7 @@ alias[effect:unassign_from_formation] = bool
 ## scopes = { character }
 ### Replaces existing role(s) from a character with another, works with either archetype or database role
 alias[effect:replace_character_roles] = {
+    ## cardinality = 0..1
     type = <harvest_condition_type>
 
     ## cardinality = 0..1
@@ -3283,9 +3408,13 @@ alias[effect:add_to_global_variable_map] = {
     value = value_field
     ## cardinality = 0..1
     value = single_alias_right[formula]
+    ## cardinality = 0..1
+    value = bool
 
-    ## cardinality = 0..inf
-    alias_name[duration] = alias_match_left[duration]
+    ## cardinality = 0..1
+    enum[duration] = int_value_field
+    ## cardinality = 0..1
+    enum[duration] = single_alias_right[formula]
 }
 
 ### Adds the event target to a variable map for the given duration
@@ -3310,9 +3439,13 @@ alias[effect:add_to_local_variable_map] = {
     value = value_field
     ## cardinality = 0..1
     value = single_alias_right[formula]
+    ## cardinality = 0..1
+    value = bool
 
-    ## cardinality = 0..inf
-    alias_name[duration] = alias_match_left[duration]
+    ## cardinality = 0..1
+    enum[duration] = int_value_field
+    ## cardinality = 0..1
+    enum[duration] = single_alias_right[formula]
 }
 
 ### Adds the event target to a variable map for the given duration
@@ -3337,9 +3470,13 @@ alias[effect:add_to_variable_map] = {
     value = value_field
     ## cardinality = 0..1
     value = single_alias_right[formula]
+    ## cardinality = 0..1
+    value = bool
 
-    ## cardinality = 0..inf
-    alias_name[duration] = alias_match_left[duration]
+    ## cardinality = 0..1
+    enum[duration] = int_value_field
+    ## cardinality = 0..1
+    enum[duration] = single_alias_right[formula]
 }
 
 ### Empties the map
@@ -3415,3 +3552,155 @@ alias[effect:add_maneuvers] = {
 ## scopes = { political_movement }
 ### Sets or clears the defeat date for the movement in scope
 alias[effect:set_movement_defeated] = bool
+
+## scopes = { any }
+### Creates a script container: a standalone scope that can hold variables, lists and maps.
+alias[effect:create_container] = {
+    ### Sets (or changes) the name of the script container in scope; accepts a literal or a flag reference (var:/scope:/flag:); reachable later via container:my_name
+    ## cardinality = 0..1
+    name = scope_field
+    ### Sets (or changes) the name of the script container in scope; accepts a literal or a flag reference (var:/scope:/flag:); reachable later via container:my_name
+    ## cardinality = 0..1
+    name = value_set[container_name]
+
+    ### Sets the parent of the script container in scope; the container is destroyed when the parent becomes invalid
+    ## cardinality = 0..1
+    parent = scope_field
+
+    ### Adds a tags to the script container
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        value_set[container_tag]
+    }
+
+    ### Effect run when the container was created
+    ## cardinality = 0..1
+    ## push_scope = container
+    on_created = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    save_scope_as = value_set[event_target]
+}
+
+## scopes = { container }
+### Adds a tag to the script container in scope.
+alias[effect:add_tag] = value_set[container_tag]
+
+## scopes = { container }
+### Clears the name of the script container in scope.
+alias[effect:clear_name] = bool
+
+## scopes = { container }
+### Clears the parent of the script container in scope, making it freestanding.
+alias[effect:clear_parent] = bool
+
+## scopes = { container }
+### Removes all tags from the script container in scope.
+alias[effect:clear_tags] = bool
+
+## scopes = { container }
+### Destroys the script container in scope.
+alias[effect:destroy_container] = bool
+
+## scopes = { container }
+### Removes a tag from the script container in scope.
+alias[effect:remove_tag] = value[container_tag]
+
+## scopes = { container }
+### Sets (or changes) the name of the script container in scope; accepts a literal or a flag reference (var:/scope:/flag:); reachable later via container:my_name.
+alias[effect:set_name] = scope_field
+## scopes = { container }
+### Sets (or changes) the name of the script container in scope; accepts a literal or a flag reference (var:/scope:/flag:); reachable later via container:my_name.
+alias[effect:set_name] = value_set[container_name]
+
+## scopes = { container }
+### Sets the parent of the script container in scope; the container is destroyed when the parent becomes invalid.
+alias[effect:set_parent] = scope_field
+
+## scopes = { country state }
+### Adds the decree to the scoped state, or to every state of the scoped country, enacted by the state owner
+alias[effect:add_decree] = <decree>
+
+## scopes = { country state }
+### Removes the decree from the scoped state, or from every state of the scoped country
+alias[effect:remove_decree] = <decree>
+
+## scopes = { country state }
+### Replaces the from decree with the to decree in the scoped state, or in every state of the scoped country, keeping the original enactor
+alias[effect:replace_decree] = {
+    from = <decree>
+
+    to = <decree>
+}
+
+## scopes = { power_bloc }
+### Adds free mandates to the Power Bloc in scope, capped by MAX_MANDATES
+alias[effect:add_power_bloc_mandate] = int
+
+## scopes = { war }
+### Adds war support change to the target country in the scoped war. The amount will appear under the 'situations' header in tooltips
+alias[effect:add_war_support_change] = {
+    target = scope[country]
+
+    value = scope_field
+    value = value_field
+    value = single_alias_right[formula]
+}
+
+## scopes = { power_bloc }
+### Changes the name of the power bloc in scope to a localization key
+alias[effect:change_power_bloc_name] = localization
+
+## scopes = { power_bloc }
+### Dissolves the power bloc in scope and removes all of its members
+### Should only be used by the power bloc leader, this is not enforced. Guard with is_power_bloc_leader if needed
+### Sends no notification, use post_notification before this effect to tell the player
+alias[effect:destroy_power_bloc] = bool
+
+## scopes = { country }
+### Scoped country leaves its power bloc
+### The country must be a core member, subjects follow their overlord instead
+### If the country is the leader, leadership passes to the next eligible member, or the bloc is dissolved if there is none
+alias[effect:leave_power_bloc] = bool
+
+## scopes = { country }
+### Activates a law for a country as a successful enactment, with on_enact, movement loyalists and interest group approval
+alias[effect:enact_law] = scope[law_type]
+## scopes = { country }
+### Activates a law for a country as a successful enactment, with on_enact, movement loyalists and interest group approval
+alias[effect:enact_law] = <law>
+
+## scopes = { state }
+### Establishes a cossack host in the scoped state
+alias[effect:establish_cossack_host] = bool
+
+## scopes = { state }
+### Removes the cossack host from the scoped state
+alias[effect:remove_cossack_host] = bool
+
+## scopes = { country }
+### Makes the scoped country leave every diplomatic play and war where it supports the target country, unless the scoped country is a primary participant
+alias[effect:leave_plays_supporting] = scope[country]
+
+## scopes = { country }
+### Plays the specified music track for the player, interrupting the current one
+alias[effect:play_music_cue] = <music>
+
+## scopes = { any }
+### Runs the contained effects in the current scope and shows the player a message
+alias[effect:send_interface_message] = {
+    ### localized against the current scope
+    title = localization
+
+    ### optional, replaces the child effect description, localized against the current scope
+    ## cardinality = 0..1
+    desc = localization
+
+    ### optional, path to a texture shown on the toast
+    ## cardinality = 0..1
+    icon = localization
+
+    ## cardinality = 0..inf
+    alias_name[effect] = alias_match_left[effect]
+}

@@ -37,6 +37,9 @@ building_group = {
 	company_headquarter = bool
 
 	## cardinality = 0..1
+	reserves_arable_land = bool
+
+	## cardinality = 0..1
 	regional_company_headquarter = bool
 
     ## cardinality = 0..1

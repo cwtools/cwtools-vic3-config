@@ -1,0 +1,16 @@
+types = {
+    type[glossary] = {
+        path = "game/common/glossary"
+        path_extension = .txt
+        localisation = {
+            name = $
+            short = $_short
+            desc = $_desc
+        }
+    }
+}
+
+glossary = {
+    ## cardinality = 0..1
+    icon = filepath
+}
